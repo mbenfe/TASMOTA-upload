@@ -1,0 +1,554 @@
+{
+    "7": {
+        "Name": "CFSuif7",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "8": {
+        "Name": "CFCarcasse8",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "9": {
+        "Name": "LaboBoucherie9",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "10": {
+        "Name": "CFCremerie10",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "18": {
+        "Name": "CFNegBoulang18",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "CF-",
+        "device": "AK-CC550A"
+    },
+    "19": {
+        "Name": "CFCremerie19",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "AK-CC550"
+    },
+    "20": {
+        "Name": "CFNegSSol20",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "CF-",
+        "device": "AK-CC550A"
+    },
+    "22": {
+        "Name": "CFFetLegume22",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "AK-CC550"
+    },
+    "23": {
+        "Name": "CFNegDrive23",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "CF-",
+        "device": "EKC302D"
+    },
+    "24": {
+        "Name": "CFDrive24",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "25": {
+        "Name": "LaitFrais25",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "26": {
+        "Name": "CharcutFE26",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "27": {
+        "Name": "CharcutFE27",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550A"
+    },
+    "28": {
+        "Name": "Salade28",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "30": {
+        "Name": "TraiteurLS30",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "31": {
+        "Name": "TraiteurLS31",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "32": {
+        "Name": "TraiteurLS32",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "33": {
+        "Name": "TraiteurLS33",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "34": {
+        "Name": "TGCarcut34",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "35": {
+        "Name": "CharcutLS35",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "36": {
+        "Name": "CharcutLS36",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "37": {
+        "Name": "CharcutLS37",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "38": {
+        "Name": "TGBoucherie38",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "39": {
+        "Name": "BoucherieLS39",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "40": {
+        "Name": "BoucherieLS40",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "41": {
+        "Name": "BoucherieLS41",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "42": {
+        "Name": "TGVolaille42",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "43": {
+        "Name": "VolailleLS43",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "44": {
+        "Name": "VolailleLS44",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "45": {
+        "Name": "VolailleLS45",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "46": {
+        "Name": "TGVolaille46",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "48": {
+        "Name": "BouchTrad48",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "49": {
+        "Name": "CharcutTrad49",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "50": {
+        "Name": "CharcutTrad50",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "51": {
+        "Name": "CharcutTrad51",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "52": {
+        "Name": "CaveJambon52",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "53": {
+        "Name": "CaveFromage53",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "54": {
+        "Name": "CharcutFE54",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "57": {
+        "Name": "CFPoisson57",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "EKC202D"
+    },
+    "58": {
+        "Name": "LaboPoisson58",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "EKC202D"
+    },
+    "59": {
+        "Name": "TGFromage59",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "60": {
+        "Name": "FromageLS60",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "61": {
+        "Name": "FromageLS61",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "62": {
+        "Name": "FromageLS62",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "63": {
+        "Name": "TGFromage63",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "64": {
+        "Name": "YahourtLS64",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "65": {
+        "Name": "YahourtLS65",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "66": {
+        "Name": "YahourtLS66",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "67": {
+        "Name": "YahourtLS67",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "68": {
+        "Name": "YahourtLS68",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "69": {
+        "Name": "YahourtLS69",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC525A"
+    },
+    "70": {
+        "Name": "SurgPorte70",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "71": {
+        "Name": "SurgPorte71",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC551"
+    },
+    "72": {
+        "Name": "SurgPorte72",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC552"
+    },
+    "73": {
+        "Name": "SurgPorte73",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC553"
+    },
+    "74": {
+        "Name": "SurgPorte74",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC554"
+    },
+    "75": {
+        "Name": "SurgPorte75",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC555"
+    },
+    "76": {
+        "Name": "SurgPorte76",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC556"
+    },
+    "77": {
+        "Name": "SurgPorte77",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC557"
+    },
+    "78": {
+        "Name": "SurgPorte78",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC558"
+    },
+    "79": {
+        "Name": "TourBoucherie79",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC55"
+    },
+    "80": {
+        "Name": "TraiteurSV80",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC55"
+    },
+    "81": {
+        "Name": "TGTraiteurSV81",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC55"
+    },
+    "82": {
+        "Name": "PoissonSV82",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC55"
+    },
+    "83": {
+        "Name": "PoissonSV83",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "100": {
+        "Name": "CentNegative",
+        "status": {},
+        "poste": "machinerie",
+        "categorie": "condneg",
+        "genre": "condenseur",
+        "device": "AK-PC781"
+    },
+    "101": {
+        "Name": "CentPositive",
+        "status": {},
+        "poste": "machinerie",
+        "categorie": "condpos",
+        "genre": "condenseur",
+        "device": "AK-PC781"
+    },
+    "102": {
+        "Name": "SalleDMachine",
+        "status": {},
+        "poste": "machinerie",
+        "categorie": "devpos",
+        "genre": "climatisation",
+        "device": "EKC302D"
+    },
+    "103": {
+        "Name": "ClimTGBT",
+        "status": {},
+        "poste": "machinerie",
+        "categorie": "devpos",
+        "genre": "climatisation",
+        "device": "EKC302D"
+    }
+}

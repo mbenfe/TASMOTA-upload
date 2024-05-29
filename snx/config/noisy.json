@@ -1,0 +1,594 @@
+{
+    "1": {
+        "Name": "PostesPos1",
+        "status": {},
+        "poste": "machinerie",
+        "categorie": "condpos",
+        "genre": "condenseur",
+        "device": "AK-PC730"
+    },
+    "2": {
+        "Name": "PosteNegatif2",
+        "status": {},
+        "poste": "machinerie",
+        "categorie": "condneg",
+        "genre": "condenseur",
+        "device": "AK-PC730"
+    },
+    "3": {
+        "Name": "CFNegBoulang3",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "CF-",
+        "device": "AK-CC550"
+    },
+    "4": {
+        "Name": "CFDechets4",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "5": {
+        "Name": "CFFruitEtLegumes5",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "6": {
+        "Name": "CFSuif6",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "7": {
+        "Name": "CFProdFinis7",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "8": {
+        "Name": "LaboBoucherie8",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202D"
+    },
+    "9": {
+        "Name": "CFCarcasses9",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC302D"
+    },
+    "10": {
+        "Name": "CFCharcuterie10",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "11": {
+        "Name": "CFSurgeles11",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "CF-",
+        "device": "AK-CC550"
+    },
+    "12": {
+        "Name": "CFDRive12",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "13": {
+        "Name": "CFPoissons13",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "15": {
+        "Name": "FromageFE15",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "EKC202A"
+    },
+    "16": {
+        "Name": "FromageFE16",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "17": {
+        "Name": "FromageFE17",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "18": {
+        "Name": "FromageFE18",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "19": {
+        "Name": "CFDriveExt19",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "CF+",
+        "device": "EKC202A"
+    },
+    "20": {
+        "Name": "TG1FromageFE20",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "21": {
+        "Name": "FromageFEG21",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "22": {
+        "Name": "FromageFED22",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "23": {
+        "Name": "TGFromageLS23",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "24": {
+        "Name": "FromageLSD24",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "25": {
+        "Name": "FromageLSM25",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "26": {
+        "Name": "FromageLSG26",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "27": {
+        "Name": "4emeGamme27",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "28": {
+        "Name": "CremerieLS2D28",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "29": {
+        "Name": "CremerieLS2M29",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "30": {
+        "Name": "CremerieLS2G30",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "31": {
+        "Name": "TG1TraiteurLS31",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "32": {
+        "Name": "CremerieLS1D32",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "33": {
+        "Name": "CremerieLS1M33",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "34": {
+        "Name": "CremerieLS1G34",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "35": {
+        "Name": "TG2TraiteurLS35",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "36": {
+        "Name": "TraiteurLSD36",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "37": {
+        "Name": "TraiteurLSM37",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "38": {
+        "Name": "TraiteurLSG38",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "39": {
+        "Name": "TG1BouchLS39",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "40": {
+        "Name": "CharcuterieLSD40",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "41": {
+        "Name": "CharcuterieLSM41",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "42": {
+        "Name": "CharcuterieLSG42",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "43": {
+        "Name": "TG2BouchLS43",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "44": {
+        "Name": "BoucherieLSD44",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "45": {
+        "Name": "BoucherieLSM45",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "46": {
+        "Name": "BoucherieLSG46",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "47": {
+        "Name": "TGVolailleLS47",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "48": {
+        "Name": "VolailleLSD48",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "49": {
+        "Name": "VolailleLSM49",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "50": {
+        "Name": "VolailleLSG50",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "51": {
+        "Name": "TG2FromageFE51",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "52": {
+        "Name": "LegumesOuvert52",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "53": {
+        "Name": "JusDeFruits53",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "55": {
+        "Name": "Salade55",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "56": {
+        "Name": "BouchTradG56",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "57": {
+        "Name": "BouchTradMG57",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "58": {
+        "Name": "BouchTradMD58",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "59": {
+        "Name": "BouchTradD59",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "60": {
+        "Name": "TGBac60",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC55"
+    },
+    "61": {
+        "Name": "Bac61",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "bac+",
+        "device": "AK-CC55"
+    },
+    "62": {
+        "Name": "Bac62",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "bac+",
+        "device": "AK-CC55"
+    },
+    "63": {
+        "Name": "TGBac63",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "bac+",
+        "device": "AK-CC55"
+    },
+    "64": {
+        "Name": "FE64",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC55"
+    },
+    "65": {
+        "Name": "TGFE65",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC55"
+    },
+    "66": {
+        "Name": "FE66",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC55"
+    },
+    "70": {
+        "Name": "SurgMixtes1G70",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "71": {
+        "Name": "SurgMixtes1D71",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "72": {
+        "Name": "SurgMixtes2G72",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "73": {
+        "Name": "SurgMixtes2D73",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "74": {
+        "Name": "SurgMixtes3G74",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "75": {
+        "Name": "SurgMixtes3M75",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "76": {
+        "Name": "SurgMixtes3D76",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "77": {
+        "Name": "SurgMixtes477",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "78": {
+        "Name": "PortesSurgD78",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "79": {
+        "Name": "PortesSurgG79",
+        "status": {},
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    }
+}
