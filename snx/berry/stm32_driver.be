@@ -10,13 +10,13 @@ class STM32
     var mapID
     var mapFunc
     var ser
-    var rx=4    
-    var tx=5    
-    var rst_in=21   
-    var bsl_in=19   
-    var rst_out=33   
-    var bsl_out=32   
-    var statistic=25
+    var rx    
+    var tx   
+    var rst_in  
+    var bsl_in  
+    var rst_out  
+    var bsl_out   
+    var statistic
     var client 
     var ville
     var device
@@ -27,6 +27,14 @@ class STM32
         self.ville  = 'spare'
         self.device = 'snx'
 
+        self.rx=4    
+        self.tx=5    
+        self.rst_in=21   
+        self.bsl_in=19   
+        self.rst_out=33   
+        self.bsl_out=32   
+        self.statistic=25
+    
         self.mapID = {}
         self.mapFunc = {}
 
@@ -34,6 +42,7 @@ class STM32
         print('DRIVER: serial init done')
 
         # setup boot pins for stm32: reset disable & boot normal
+
         gpio.pin_mode(self.rst_in,gpio.OUTPUT)
         gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
         gpio.pin_mode(self.rst_out,gpio.OUTPUT)

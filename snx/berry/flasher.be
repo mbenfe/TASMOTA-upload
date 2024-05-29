@@ -20,10 +20,13 @@ class flasher
     var ser                # serial object
     var debug                   # verbose logs?
  
-    var rx    # rx = GPI16
-    var tx    # tx = GPI17
-    var rst   # rst = GPIO2
-    var bsl   # bsl = GPIO13
+    var rx    
+    var tx 
+    var rst_in   
+    var bsl_in  
+    var rst_out  
+    var bsl_out
+    var statistic
  
     def wait_ack(timeout)
         var due = tasmota.millis() + timeout
@@ -42,27 +45,38 @@ class flasher
      end
 
 
-    def initialisation()
+    def initialisation(stm32)
         import gpio  
+
+        self.rx=4    
+        self.tx=5    
+        self.rst_in=21   
+        self.bsl_in=19   
+        self.rst_out=33   
+        self.bsl_out=32   
+        self.statistic=25
+    
  
         var ret
-        # datalogger et sniffer initial 
-        # self.rx = 16   # rx = GPI016
-        # self.tx = 17   # tx = GPIO17
-        # sniffer boost
-        self.rx = 3   # rx = GPI03
-        self.tx = 1   # tx = GPIO1
+        var rst
+        var bsl
         gpio.pin_mode(self.rx,gpio.INPUT)
         gpio.pin_mode(self.tx,gpio.OUTPUT)
 
-        self.rst = 2  # rst = GPIO2
-        self.bsl = 13  # bsl = GPIO13
- 
         self.ser = serial(rx,tx,115200,serial.SERIAL_8E1)
         self.ser.flush()
          # reset STM32
-         gpio.pin_mode(self.rst,gpio.OUTPUT)
-         gpio.pin_mode(self.bsl,gpio.OUTPUT)
+         gpio.pin_mode(self.rst_in,gpio.OUTPUT)
+         gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
+         gpio.pin_mode(self.rst_out,gpio.OUTPUT)
+         gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
+         if stm32=='in'
+            rst=self.rst_in
+            bsl=self.bsl_in
+         else
+            rst=self.rst_out
+            bsl=self.bsl_out
+         end
         #------------- INTIALISE BOOT -------------------------#
         print('FLASH:initialise boot sequence')
         gpio.digital_write(rst, 0)    # trigger BSL
@@ -77,18 +91,28 @@ class flasher
         print("FLASH:ret=", ret)
         if ret != '79'
             print('resp:',ret)
-            gpio.digital_write(self.bsl, 0)    # reset bsl
+            gpio.digital_write(bsl, 0)    # reset bsl
             raise 'erreur initialisation','NACK'
           end
     end
  
-    def terminate()
+    def terminate(stm32)
+        var rst
+        var bsl
+        if stm32=='in'
+            rst=self.rst_in
+            bsl=self.bsl_in
+         else
+            rst=self.rst_out
+            bsl=self.bsl_out
+         end
+       
         print('reset')
-        gpio.digital_write(self.bsl, 0)    # reset bsl
+        gpio.digital_write(bsl, 0)    # reset bsl
         tasmota.delay(10)
-        gpio.digital_write(self.rst, 0)    # trigger Reset
+        gpio.digital_write(rst, 0)    # trigger Reset
         tasmota.delay(10)
-        gpio.digital_write(self.rst, 1)    # trigger Reset
+        gpio.digital_write(rst, 1)    # trigger Reset
     end
 
    #------------------------------------------------------------------------------------#
@@ -156,7 +180,8 @@ class flasher
     #------------------------------------------------------------------------------------#
     #                                   ECRITURE FICHIER                                 #
     #------------------------------------------------------------------------------------#
-    def flash(filename)
+    def flash(filename,stm32)
+        var bsl
         var tas = tasmota
         var yield = tasmota.yield
         var cfile = filename+'c'
@@ -165,14 +190,20 @@ class flasher
         var token
         var BLOCK = 252
         var ret
-        self.initialisation()
+        if stm32=='in'
+            bsl=self.bsl_in
+         else
+            bsl=self.bsl_out
+         end
+        
+        self.initialisation(stm32)
         file = open(cfile,"rb")
         while index < file.size()
             self.ser.write(bytes('31CE'))
             ret = self.wait_ack(100)     # malek
             if ret != '79'
               print('resp:',ret)
-              gpio.digital_write(self.bsl, 0)    # reset bsl
+              gpio.digital_write(bsl, 0)    # reset bsl
               raise 'erreur envoi 1','NACK'
             end
               
@@ -181,7 +212,7 @@ class flasher
             ret = self.wait_ack(50)
             if ret != '79'
                 print('resp:',ret)
-                gpio.digital_write(self.bsl, 0)    # reset bsl
+                gpio.digital_write(bsl, 0)    # reset bsl
                 raise 'erreur envoi 2','NACK'
             end   
             index += size(token)
@@ -191,7 +222,7 @@ class flasher
             ret = self.wait_ack(50)
             if ret != '79'
                 print('resp:',ret)
-                gpio.digital_write(self.bsl, 0)    # reset bsl
+                gpio.digital_write(bsl, 0)    # reset bsl
                 raise 'erreur envoi 3','NACK'
             end   
             index += size(token)
@@ -207,8 +238,18 @@ class flasher
     #------------------------------------------------------------------------------------#
     #                                   EFFACEMENT                                       #
     #------------------------------------------------------------------------------------#
-    def erase()
-        self.initialisation()
+    def erase(stm32)
+        var rst
+        var bsl
+        if stm32=='in'
+            rst=self.rst_in
+            bsl=self.bsl_in
+         else
+            rst=self.rst_out
+            bsl=self.bsl_out
+         end
+
+        self.initialisation(stm32)
         print('ERASE:initialisation hardware')
         var ret
         # start erase
@@ -216,7 +257,7 @@ class flasher
          ret = self.wait_ack(50) 
          if ret != '79'
             print('resp:',ret)
-            gpio.digital_write(self.bsl, 0)    # reset bsl
+            gpio.digital_write(bsl, 0)    # reset bsl
             raise 'erreur erase 1','NACK'
         end   
          print("ERASE:start:", ret)
@@ -225,11 +266,11 @@ class flasher
         ret = self.wait_ack(500) 
          if ret != '79'
             print('resp:',ret)
-            gpio.digital_write(self.bsl, 0)    # reset bsl
+            gpio.digital_write(bsl, 0)    # reset bsl
             raise 'erreur erase 2','NACK'
         end   
      print("ERASE:end:", ret)
-     self.terminate()
+     self.terminate(stm32)
     end
 end
  
