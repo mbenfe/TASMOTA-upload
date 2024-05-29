@@ -73,5 +73,6 @@ tasmota.add_cmd('SerialSendTime',SerialSendTime)
 print('AUTOEXEC: create commande Stm32Reset')
 tasmota.add_cmd('Stm32reset',Stm32Reset)
 
-print('load stm32_driver')
+print('load stm32_driver& loader')
 tasmota.load('stm32_driver.be')
+tasmota.load('loader.be')
