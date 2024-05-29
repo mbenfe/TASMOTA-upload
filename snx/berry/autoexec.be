@@ -61,7 +61,28 @@ def Stm32Reset(cmd, idx, payload, payload_json)
         tasmota.delay(100)               # wait 10ms
         tasmota.resp_cmnd('STM32 OUT reset')
     end
-  
+end
+
+def getfile(cmd, idx,payload, payload_json)
+    import string
+    var path = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
+    path+=payload
+    print(path)
+    var file=string.split(path,'/').pop()
+    print(file)
+    var wc=webclient()
+    wc.set_follow_redirects(true)
+    wc.begin(path)
+    var st=wc.GET()
+    if st!=200 
+        raise 'erreur','code: '+str(st) 
+    end
+    st='Fetched '+str(wc.write_file(file))
+    print(path,st)
+    wc.close()
+    var message = 'uploaded:'+file
+    tasmota.resp_cmnd(message)
+    return st
 end
 
 tasmota.cmd("seriallog 0")
@@ -73,6 +94,10 @@ tasmota.add_cmd('SerialSendTime',SerialSendTime)
 print('AUTOEXEC: create commande Stm32Reset')
 tasmota.add_cmd('Stm32reset',Stm32Reset)
 
+print('AUTOEXEC: create commande getfile')
+tasmota.add_cmd('getfile',getfile)
+
+
 print('load stm32_driver& loader')
 tasmota.load('stm32_driver.be')
-tasmota.load('loader.be')
+

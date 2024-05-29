@@ -231,6 +231,6 @@ class flasher
      print("ERASE:end:", ret)
      self.terminate()
     end
-  end
+end
  
-  return flasher()
+return flasher()

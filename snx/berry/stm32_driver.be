@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION MODBUS/LONWORKS         #
+# VERSION SNX                     #
 #---------------------------------#
 
 import mqtt
@@ -10,26 +10,22 @@ class STM32
     var mapID
     var mapFunc
     var ser
-    var rx
-    var tx
-    var bsl
-    var rst
-    var statistic
+    var rx=4    
+    var tx=5    
+    var rst_in=21   
+    var bsl_in=19   
+    var rst_out=33   
+    var bsl_out=32   
+    var statistic=25
     var client 
     var ville
     var device
     var topic 
 
     def init()
-        self.rx=3
-        self.tx=1
-        self.rst=2
-        self.bsl=13
-        self.statistic = 15
-
         self.client = 'inter'
-        self.ville  = 'test'
-        self.device = 'modbus2'
+        self.ville  = 'spare'
+        self.device = 'snx'
 
         self.mapID = {}
         self.mapFunc = {}
@@ -38,19 +34,17 @@ class STM32
         print('DRIVER: serial init done')
 
         # setup boot pins for stm32: reset disable & boot normal
-        gpio.pin_mode(self.rst,gpio.OUTPUT)
-        gpio.pin_mode(self.bsl,gpio.OUTPUT)
+        gpio.pin_mode(self.rst_in,gpio.OUTPUT)
+        gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
+        gpio.pin_mode(self.rst_out,gpio.OUTPUT)
+        gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
         gpio.pin_mode(self.statistic,gpio.OUTPUT)
-        gpio.digital_write(self.bsl, 0)
-        gpio.digital_write(self.rst, 1)
+        gpio.digital_write(self.bsl_in, 0)
+        gpio.digital_write(self.rst_in, 1)
+        gpio.digital_write(self.bsl_out, 0)
+        gpio.digital_write(self.rst_out, 1)
         gpio.digital_write(self.statistic, 0)
-        # reset STM32
-        tasmota.delay(10)
-        gpio.digital_write(self.rst, 0)
-        tasmota.delay(10)
-        gpio.digital_write(self.rst, 1)
-        tasmota.delay(10)
-        print('DRIVER: reset stm32 done')
+
         tasmota.add_fast_loop(/-> self.fast_loop())
     end
 
@@ -81,6 +75,9 @@ class STM32
                         else
                             topic=string.format("gw/%s/%s/%s/tele/DANFOSS",self.client,self.ville,str(myjson['ID']))
                         end
+                        mqtt.publish(topic,mylist[i],true)
+                    else
+                        topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson['Name']))
                         mqtt.publish(topic,mylist[i],true)
                     end
                 end
@@ -113,4 +110,3 @@ stm32 = STM32()
 tasmota.add_driver(stm32)
 tasmota.add_fast_loop(/-> stm32.fast_loop())
 tasmota.add_cron("59 59 23 * * *",  /-> stm32.get_statistic(), "every_day")
-
