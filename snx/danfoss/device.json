@@ -1,0 +1,783 @@
+{
+    "0064": {
+        "name": "Cutout°C",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostatControl",
+        "unit": ""
+
+    },
+    "0065": {
+        "name": "Differential",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostatControl",
+        "unit": ""
+
+    },
+    "0066": {
+        "name": "r02MaxCutout°C",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostatControl",
+        "unit": ""
+
+    },
+    "0075": {
+        "name": "MainSwitch",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "all",
+        "unit": ""
+
+    },
+    "0079": {
+        "name": "MeltPeriod",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "007A": {
+        "name": "MeltInterval",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "007B": {
+        "name": "TherS4%",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "007C": {
+        "name": "ThermMode",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "007D": {
+        "name": "NightOffset",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "00B6": {
+        "name": "TherS4%Ngt",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "00D8": {
+        "name": "tbdD8",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "",
+        "unit": ""
+
+    },
+    "03E8": {
+        "name": "DefMethod",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "defrostControl",
+        "unit": ""
+
+    },
+    "03F1": {
+        "name": "DefStopSens",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "aldefrostControll",
+        "unit": ""
+
+    },
+    "03F3": {
+        "name": "S5Temp",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "all",
+        "unit": ""
+
+    },
+    "0405": {
+        "name": "ADMode",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "defrost",
+        "unit": ""
+
+    },
+    "040C": {
+        "name": "DefrostState",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "defrost",
+        "unit": ""
+
+    },
+    "0411": {
+        "name": "ADDefReq",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "danfoss",
+        "unit": ""
+
+    },
+     "07D1": {
+        "name": "o02DI1Config",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "miscellaneous",
+        "unit": ""
+
+    },
+    "07D7": {
+        "name": "CtrlState",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "all",
+        "unit": ""
+
+    },
+   "07E5": {
+        "name": "DispS4%",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "0807": {
+        "name": "o37DI2Config",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "miscellenous",
+        "unit": ""
+
+    },
+    "081D": {
+        "name": "ApplMode",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "miscellenous",
+        "unit": ""
+
+    },
+    "0843": {
+        "name": "o84DI3Config",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "miscellenous",
+        "unit": ""
+
+    },
+    "0859": {
+        "name": "AKtbd3",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "",
+        "unit": ""
+
+    },
+    "08CA": {
+        "name": "AKtbd8CA",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "",
+        "unit": ""
+
+    },
+    "09C5": {
+        "name": "CutoutTempDanfoss",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "danfoss",
+        "unit": ""
+
+    },
+    "09D0": {
+        "name": "DefRelay",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "service",
+        "unit": ""
+
+    },
+    "09E0": {
+        "name": "AKVOD%",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "service",
+        "unit": ""
+
+    },
+    "09E2": {
+        "name": "S3AirTemp",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "all",
+        "unit": ""
+
+    },
+    "09E3": {
+        "name": "S4AirTemp",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "all",
+        "unit": ""
+
+    },
+    "09E4": {
+        "name": "TherAir",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "all",
+        "unit": ""
+
+    },
+    "09E5": {
+        "name": "u13NightCond",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "09E9": {
+        "name": "S2Temp",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "all",
+        "unit": ""
+
+    },
+    "09EB": {
+        "name": "TherRuntime",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "09ED": {
+        "name": "EKCError",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "alarmSettings",
+        "unit": ""
+
+    },
+    "09F0": {
+        "name": "EvapTempTe",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "all",
+        "unit": ""
+
+    },
+    "09F2": {
+        "name": "AKtbd4",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "",
+        "unit": ""
+
+    },
+   "09F9": {
+        "name": "CutinTempDanfoss",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "danfoss",
+        "unit": ""
+
+    },
+    "09FA": {
+        "name": "RegCondDanfoss",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "danfoss",
+        "unit": ""
+
+    },
+    "0A34": {
+        "name": "CutinTemp",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "0A35": {
+        "name": "CutoutTemp",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "thermostat",
+        "unit": ""
+
+    },
+    "0A49": {
+        "name": "AKtbd2",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "",
+        "unit": ""
+
+    },
+    "0A4C": {
+        "name": "AKVOD%",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "all",
+        "unit": ""
+
+    },
+    "0A59": {
+        "name": "AccDefSkip",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "defrost",
+        "unit": ""
+
+    },
+    "0A8E": {
+        "name": "tbd0A8E",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "",
+        "unit": ""
+
+    },
+    "0BCD": {
+        "name": "MinSH",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "injection",
+        "unit": ""
+
+    },
+    "2711": {
+        "name": "AKtbd1",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "",
+        "unit": ""
+
+    },
+    "2712": {
+        "name": "AlarmDelay",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmSetting",
+        "unit": ""
+
+    },
+    "2723": {
+        "name": "HighLimAir",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmSetting",
+        "unit": ""
+
+    },
+    "2724": {
+        "name": "LowLimAir",
+        "type": "float",
+        "ratio": 0.1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmSetting",
+        "unit": ""
+
+    },
+    "2735": {
+        "name": "AlarmS4%",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmSetting",
+        "unit": ""
+
+    },
+    "2770": {
+        "name": "tbd2770",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "",
+        "unit": ""
+
+    },
+    "4E20": {
+        "name": "ConrError",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E21": {
+        "name": "RTCError",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E22": {
+        "name": "PeError",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E23": {
+        "name": "S2Error",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E24": {
+        "name": "S3Error",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E25": {
+        "name": "S4Error",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E26": {
+        "name": "S5Error",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E27": {
+        "name": "S6Error",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E28": {
+        "name": "HighTAlarm",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E29": {
+        "name": "LowTAlarm",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E2A": {
+        "name": "DoorAlarm",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E2B": {
+        "name": "MaxHoldTime",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E2C": {
+        "name": "InjectProb",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E2D": {
+        "name": "NoRfgSel",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E2E": {
+        "name": "DI1Alarm",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E2F": {
+        "name": "D2Alarm",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": ""
+
+    },
+    "4E30": {
+        "name": "StandbyMode",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E31": {
+        "name": "CaseClean",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E32": {
+        "name": "MaxDefTime",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E33": {
+        "name": "ADFault",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E34": {
+        "name": "ADIced",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E35": {
+        "name": "AdNotDefrost",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E36": {
+        "name": "ADFlashGas",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E37": {
+        "name": "RefgLeak",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E38": {
+        "name": "CO2Alarm",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E39": {
+        "name": "HighTempS6",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "alarm",
+        "unit": "AlarmDestination"
+
+    },
+    "4E3A": {
+        "name": "LowTempS6",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E3B": {
+        "name": "AKtbd7",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E3C": {
+        "name": "AKtbd8",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E3D": {
+        "name": "AKtbd9",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E3E": {
+        "name": "AKtbd11",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E3F": {
+        "name": "AKtbd10",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "4E40": {
+        "name": "AKtbd5",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+    },
+    "4E41": {
+        "name": "AKtbd6",
+        "type": "",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "AlarmDestination",
+        "unit": ""
+
+    },
+    "COMP": {
+        "name": "dummy",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "",
+        "unit": ""
+    }
+}
