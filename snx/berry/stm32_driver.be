@@ -10,8 +10,6 @@ class STM32
     var mapID
     var mapFunc
     var ser
-    var rx    
-    var tx   
     var rst_in  
     var bsl_in  
     var rst_out  
@@ -27,8 +25,6 @@ class STM32
         self.ville  = 'spare'
         self.device = 'snx'
 
-        self.rx=4    
-        self.tx=5    
         self.rst_in=19   
         self.bsl_in=21   
         self.rst_out=33   
@@ -38,9 +34,9 @@ class STM32
         self.mapID = {}
         self.mapFunc = {}
 
-        self.ser = serial(self.rx,self.tx,921600,serial.SERIAL_8N1)
         print('DRIVER: serial init done')
-
+        self.ser = serial(34,5,921600,serial.SERIAL_8N1)   # 5 = fake
+    
         # setup boot pins for stm32: reset disable & boot normal
 
         gpio.pin_mode(self.rst_in,gpio.OUTPUT)
@@ -91,7 +87,7 @@ class STM32
                     end
                 end
             end
-            if (buffer[0] == 42)     # * -> json satistic
+            if (buffer[0] == 42)     # * -> json statistic
                 mystring = buffer[1..-1].asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
@@ -103,8 +99,7 @@ class STM32
             end
             if (buffer[0] == 58)     # : -> debug text
                 mystring = buffer.asstring()
-                print(mystring)        
-            end
+             end
         end
     end
 

@@ -91,7 +91,7 @@
     },
     "00D8": {
         "name": "tbdD8",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "",
@@ -208,7 +208,7 @@
     },
     "0859": {
         "name": "AKtbd3",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "",
@@ -217,7 +217,7 @@
     },
     "08CA": {
         "name": "AKtbd8CA",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "",
@@ -325,7 +325,7 @@
     },
     "09F2": {
         "name": "AKtbd4",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "",
@@ -370,7 +370,7 @@
     },
     "0A49": {
         "name": "AKtbd2",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "",
@@ -397,7 +397,7 @@
     },
     "0A8E": {
         "name": "tbd0A8E",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "",
@@ -415,7 +415,7 @@
     },
     "2711": {
         "name": "AKtbd1",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "",
@@ -460,7 +460,7 @@
     },
     "2770": {
         "name": "tbd2770",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "",
@@ -712,7 +712,7 @@
     },
     "4E3B": {
         "name": "AKtbd7",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "AlarmDestination",
@@ -721,7 +721,7 @@
     },
     "4E3C": {
         "name": "AKtbd8",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "AlarmDestination",
@@ -730,7 +730,7 @@
     },
     "4E3D": {
         "name": "AKtbd9",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "AlarmDestination",
@@ -739,7 +739,7 @@
     },
     "4E3E": {
         "name": "AKtbd11",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "AlarmDestination",
@@ -748,7 +748,7 @@
     },
     "4E3F": {
         "name": "AKtbd10",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "AlarmDestination",
@@ -757,7 +757,7 @@
     },
     "4E40": {
         "name": "AKtbd5",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "AlarmDestination",
@@ -765,7 +765,7 @@
     },
     "4E41": {
         "name": "AKtbd6",
-        "type": "",
+        "type": "int",
         "ratio": 1,
         "device": "AK-CC55xx",
         "categorie": "AlarmDestination",
