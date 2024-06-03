@@ -105,7 +105,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     file.close()
     myjson = json.load(buffer)
     for key:myjson.keys()
-        total+=key+' '+myjson[key]["Name"]+' '+myjson[key]["poste"]+' '+myjson[key]["categorie"]+' '+myjson[key]["genre"]+' '+myjson[key]["device"]+'\n'
+        total+=key+' '+myjson[key]["Name"]+' '+myjson[key]["alias_sonde"]+' '+myjson[key]["alias_cutout"]+' '+myjson[key]["poste"]+' '+myjson[key]["categorie"]+' '+myjson[key]["genre"]+' '+myjson[key]["device"]+'\n'
     end
     header=string.format("config %d",myjson.size())
     header+='\n'
@@ -137,7 +137,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     myjson = json.load(buffer)
     total=''
     for key:myjson.keys()
-        total+=key+' '+myjson[key]["name"]+' '+myjson[key]["alias_sonde"]+' '+myjson[key]["alias_cutout"]+' '+myjson[key]["type"]+' '+str(myjson[key]["ratio"])+' '+myjson[key]["device"]+'\n'
+        total+=key+' '+myjson[key]["name"]+' '+myjson[key]["type"]+' '+str(myjson[key]["ratio"])+' '+myjson[key]["device"]+'\n'
     end
     header+=string.format("controler %d",myjson.size())
     header+='\n'
