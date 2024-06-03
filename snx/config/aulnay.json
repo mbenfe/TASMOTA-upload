@@ -2,6 +2,8 @@
     "1": {
         "Name": "CFexterieure",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "exterieure",
         "categorie": "devneg",
         "genre": "CF",
@@ -10,6 +12,8 @@
     "2": {
         "Name": "SASFrais2",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "fruitslegumes",
         "categorie": "devpos",
         "genre": "CF",
@@ -18,6 +22,8 @@
     "3": {
         "Name": "CFDrive",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "drive",
         "categorie": "devpos",
         "genre": "CF",
@@ -26,6 +32,8 @@
     "4": {
         "Name": "CFsurgeles4",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "CF",
@@ -34,6 +42,8 @@
     "5": {
         "Name": "CFsurgeles5",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "CF",
@@ -42,6 +52,8 @@
     "6": {
         "Name": "CFFruitLeg6",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "fruitslegumes",
         "categorie": "devpos",
         "genre": "CF",
@@ -50,6 +62,8 @@
     "7": {
         "Name": "CFCremerie7",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "fromagerie",
         "categorie": "devpos",
         "genre": "CF",
@@ -58,6 +72,8 @@
     "8": {
         "Name": "CFCharcut8",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "charcuterie",
         "categorie": "devpos",
         "genre": "CF",
@@ -66,6 +82,8 @@
     "9": {
         "Name": "LaboCharcut9",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "charcuterie",
         "categorie": "devpos",
         "genre": "CF",
@@ -74,6 +92,8 @@
     "10": {
         "Name": "CFTraitTrad10",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "traiteur",
         "categorie": "devpos",
         "genre": "CF",
@@ -82,6 +102,8 @@
     "11": {
         "Name": "CFFE11",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "CF",
@@ -90,6 +112,8 @@
     "12": {
         "Name": "LaboPoisson12",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "poissonnerie",
         "categorie": "devpos",
         "genre": "CF",
@@ -98,6 +122,8 @@
     "13": {
         "Name": "CFPoisson13",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "poissonnerie",
         "categorie": "devpos",
         "genre": "CF",
@@ -106,6 +132,8 @@
     "15": {
         "Name": "SurgPorte15",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "vitrine",
@@ -114,6 +142,8 @@
     "16": {
         "Name": "SurgPorte16",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "vitrine",
@@ -122,6 +152,8 @@
     "17": {
         "Name": "SurgPorte17",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "vitrine",
@@ -130,6 +162,8 @@
     "18": {
         "Name": "SurgPorte18",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "vitrine",
@@ -138,6 +172,8 @@
     "19": {
         "Name": "SurgPorte19",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "vitrine",
@@ -146,6 +182,8 @@
     "20": {
         "Name": "SurgPorte20",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "vitrine",
@@ -154,6 +192,8 @@
     "21": {
         "Name": "SurgPorte21",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "vitrine",
@@ -162,6 +202,8 @@
     "22": {
         "Name": "TGSurgP22",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "vitrine",
@@ -170,6 +212,8 @@
     "25": {
         "Name": "TGBacSurg25",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "bac",
@@ -178,6 +222,8 @@
     "26": {
         "Name": "BacSurg26",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "",
         "categorie": "devneg",
         "genre": "bac",
@@ -186,6 +232,8 @@
     "27": {
         "Name": "BacSurg27",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "surgeles",
         "categorie": "devneg",
         "genre": "bac",
@@ -194,6 +242,8 @@
     "30": {
         "Name": "FE30",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -202,6 +252,8 @@
     "31": {
         "Name": "FE31",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -210,6 +262,8 @@
     "32": {
         "Name": "FE32",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -218,6 +272,8 @@
     "33": {
         "Name": "BouchTrad33",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -226,6 +282,8 @@
     "34": {
         "Name": "BouchTrad34",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -234,6 +292,8 @@
     "35": {
         "Name": "BouchTrad35",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -242,6 +302,8 @@
     "36": {
         "Name": "CFBoulang36",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boulangerie",
         "categorie": "devpos",
         "genre": "CF",
@@ -250,6 +312,8 @@
     "37": {
         "Name": "CFSurgBoulang37",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boulangerie",
         "categorie": "devneg",
         "genre": "CF",
@@ -258,6 +322,8 @@
     "38": {
         "Name": "CharcutTrad38",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "charcuterie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -266,6 +332,8 @@
     "39": {
         "Name": "CharcutTrad39",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "charcuterie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -274,6 +342,8 @@
     "40": {
         "Name": "CharcutTrad40",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "charcuterie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -282,6 +352,8 @@
     "41": {
         "Name": "TGFrais41",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -290,6 +362,8 @@
     "42": {
         "Name": "BouchLS42",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "bac",
@@ -298,6 +372,8 @@
     "43": {
         "Name": "BouchLS43",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "bac",
@@ -306,6 +382,8 @@
     "44": {
         "Name": "VolailleLS44",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "bac",
@@ -314,6 +392,8 @@
     "45": {
         "Name": "VolailleLS45",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "bac",
@@ -322,6 +402,8 @@
     "46": {
         "Name": "TGFrais46",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -330,6 +412,8 @@
     "47": {
         "Name": "TraiteurLS47",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "traiteur",
         "categorie": "devpos",
         "genre": "bac",
@@ -338,6 +422,8 @@
     "48": {
         "Name": "TraiteurLS48",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "traiteur",
         "categorie": "devpos",
         "genre": "bac",
@@ -346,6 +432,8 @@
     "49": {
         "Name": "TraiteurLS49",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "traiteur",
         "categorie": "devpos",
         "genre": "bac",
@@ -354,6 +442,8 @@
     "50": {
         "Name": "TraiteurLS50",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "traiteur",
         "categorie": "devpos",
         "genre": "bac",
@@ -362,6 +452,8 @@
     "51": {
         "Name": "LaboBouch51",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "CF",
@@ -370,6 +462,8 @@
     "52": {
         "Name": "CFCarcasse52",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "CF",
@@ -378,6 +472,8 @@
     "53": {
         "Name": "CFProdF53",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "CF",
@@ -386,6 +482,8 @@
     "54": {
         "Name": "CFBarquette54",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "boucherie",
         "categorie": "devpos",
         "genre": "CF",
@@ -394,6 +492,8 @@
     "55": {
         "Name": "Saurisserie55",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "saurisserie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -402,6 +502,8 @@
     "56": {
         "Name": "Saurisserie56",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "saurisserie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -410,6 +512,8 @@
     "57": {
         "Name": "Charcuterie57",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "charcuterie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -418,6 +522,8 @@
     "58": {
         "Name": "Charcuterie58",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "charcuterie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -426,6 +532,8 @@
     "59": {
         "Name": "Charcuterie59",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "charcuterie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -434,6 +542,8 @@
     "60": {
         "Name": "Charcuterie60",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "charcuterie",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -442,6 +552,8 @@
     "61": {
         "Name": "CFSuif61",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "suif",
         "categorie": "devpos",
         "genre": "CF",
@@ -450,6 +562,8 @@
     "62": {
         "Name": "4eGamme62",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "4emegame",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -458,6 +572,8 @@
     "63": {
         "Name": "4eGamme63",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "4emegame",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -466,6 +582,8 @@
     "64": {
         "Name": "4eGamme64",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "4emegame",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -474,6 +592,8 @@
     "65": {
         "Name": "TGFrais65",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -482,6 +602,8 @@
     "66": {
         "Name": "FromageLS66",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "fromagerie",
         "categorie": "devpos",
         "genre": "bac",
@@ -490,6 +612,8 @@
     "67": {
         "Name": "FromageLS67",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "fromagerie",
         "categorie": "devpos",
         "genre": "bac",
@@ -498,6 +622,8 @@
     "68": {
         "Name": "FromageLS68",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "fromagerie",
         "categorie": "devpos",
         "genre": "bac",
@@ -506,6 +632,8 @@
     "69": {
         "Name": "FromageLS69",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "fromagerie",
         "categorie": "devpos",
         "genre": "bac",
@@ -514,6 +642,8 @@
     "70": {
         "Name": "TGFrais70",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -522,6 +652,8 @@
     "71": {
         "Name": "UltraFrais71",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -530,6 +662,8 @@
     "72": {
         "Name": "UltraFrais72",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -538,6 +672,8 @@
     "73": {
         "Name": "UltraFrais73",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -546,6 +682,8 @@
     "74": {
         "Name": "UltraFrais74",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -554,6 +692,8 @@
     "75": {
         "Name": "TGFrais75",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -562,6 +702,8 @@
     "76": {
         "Name": "UltraFrais76",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -570,6 +712,8 @@
     "77": {
         "Name": "UltraFrais77",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -578,6 +722,8 @@
     "78": {
         "Name": "UltraFrais78",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -586,6 +732,8 @@
     "79": {
         "Name": "UltraFrais79",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -594,6 +742,8 @@
     "80": {
         "Name": "TGFrais80",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "vitrine",
@@ -602,6 +752,8 @@
     "81": {
         "Name": "BacFE81",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "bac",
@@ -610,6 +762,8 @@
     "82": {
         "Name": "TGBacFE82",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "bac",
@@ -618,6 +772,8 @@
     "83": {
         "Name": "BacFE83",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "bac",
@@ -626,6 +782,8 @@
     "84": {
         "Name": "TGbacFE84",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "frais",
         "categorie": "devpos",
         "genre": "bac",
@@ -634,6 +792,8 @@
     "98": {
         "Name": "diversNEG",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "machinerie",
         "categorie": "contneg",
         "genre": "controleur",
@@ -642,6 +802,8 @@
     "99": {
         "Name": "diversPOS",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "machinerie",
         "categorie": "contpos",
         "genre": "controleur",
@@ -650,6 +812,8 @@
     "100": {
         "Name": "CondenseurA",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "machinerie",
         "categorie": "condneg",
         "genre": "condenseur",
@@ -658,6 +822,8 @@
     "101": {
         "Name": "CondenseurB",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "machinerie",
         "categorie": "condpos",
         "genre": "condenseur",
@@ -666,6 +832,8 @@
     "102": {
         "Name": "ClimSdM102",
         "status": {},
+        "alias_sonce": "TherAir",
+        "alias_cutout": "CutoutTemp",
         "poste": "machinerie",
         "categorie": "devpos",
         "genre": "climatisation",

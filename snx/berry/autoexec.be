@@ -85,38 +85,6 @@ def getfile(cmd, idx,payload, payload_json)
     return st
 end
 
-def senddevice()
-    import string
-    var file
-    var buffer
-    var total
-    file = open('device.json',"rt")
-    buffer = file.read()
-    file.close()
-    buffer = string.tr(buffer,' ','')
-    buffer = string.tr(buffer,'\n','')
-    print(size(buffer))
-    total =string.format("device*%s",buffer)
-    print(total)
-    tasmota.resp_cmnd("device registers sent")
-end
-
-def sendcontroler()
-    import string
-    var file
-    var buffer
-    var total
-    file = open('controler.json',"rt")
-    buffer = file.read()
-    file.close()
-    buffer = string.tr(buffer,' ','')
-    buffer = string.tr(buffer,'\n','')
-    print(size(buffer))
-    total =string.format("controler*%s",buffer)
-    print(total)
-    tasmota.resp_cmnd("controler registers sent")
-end
-
 def sendconfig(cmd, idx,payload, payload_json)
     import string
     import json
@@ -139,7 +107,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     for key:myjson.keys()
         total+=key+' '+myjson[key]["Name"]+' '+myjson[key]["poste"]+' '+myjson[key]["categorie"]+' '+myjson[key]["genre"]+' '+myjson[key]["device"]+'\n'
     end
-    header=string.format("config %4d",myjson.size())
+    header=string.format("config %d",myjson.size())
     header+='\n'
     header+=total
     ############################ fichier device ###################
@@ -155,7 +123,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     for key:myjson.keys()
         total+=key+' '+myjson[key]["name"]+' '+myjson[key]["type"]+' '+str(myjson[key]["ratio"])+' '+myjson[key]["device"]+'\n'
     end
-    header+=string.format("device %4d",myjson.size())
+    header+=string.format("device %d",myjson.size())
     header+='\n'
     header+=total
     ############################ fichier controler ###################
@@ -169,33 +137,31 @@ def sendconfig(cmd, idx,payload, payload_json)
     myjson = json.load(buffer)
     total=''
     for key:myjson.keys()
-        total+=key+' '+myjson[key]["name"]+' '+myjson[key]["type"]+' '+str(myjson[key]["ratio"])+' '+myjson[key]["device"]+'\n'
+        total+=key+' '+myjson[key]["name"]+' '+myjson[key]["alias_sonde"]+' '+myjson[key]["alias_cutout"]+' '+myjson[key]["type"]+' '+str(myjson[key]["ratio"])+' '+myjson[key]["device"]+'\n'
     end
-    header+=string.format("controler %4d",myjson.size())
+    header+=string.format("controler %d",myjson.size())
     header+='\n'
     header+=total
-    var reste = (size(header)+5) % 4
+    print('taille initiale:',size(header))
+    var reste = 32 - ((size(header)+6) % 32)
+    print('reste:',reste)
     for i:0..reste-1
-        header+=' '
+        header+='*'
     end
-    var filesize=string.format("%04d\n",size(header)+5)
-    filesize+=header
-    print(size(filesize))
+    var finalsend=string.format("%5d\n",size(header)+6)
+    print('ajout header:',size(finalsend))
+    finalsend+=header
+    print('taille finale:',size(finalsend))
     file=open('stm32.cfg',"wt")
-    file.write(filesize)
+    file.write(finalsend)
     file.close()
    
-#    ser=serial(26,27,921600,serial.SERIAL_8N1)
-#     ser.write(bytes().fromstring(total))
+    ser=serial(25,26,230400,serial.SERIAL_8N1)
+    var mybytes=bytes().fromstring(finalsend)
+    ser.flush()
+    ser.write(mybytes)
     tasmota.resp_cmnd("config sent")
 end
-
-
-def getfile(cmd, idx,payload, payload_json)
-    tasmota.resp_cmnd("configuration sent")
-end
-
-
 
 def launch_driver()
     print('mqtt connected -> launch driver')
@@ -214,14 +180,8 @@ tasmota.add_cmd('Stm32reset',Stm32Reset)
 print('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile',getfile)
 
-print('AUTOEXEC: create commande senddevice')
-tasmota.add_cmd('senddevice',senddevice)
-
-print('AUTOEXEC: create commande sendcontroler')
-tasmota.add_cmd('sendcontroler',sendcontroler)
 print('AUTOEXEC: create commande sendconfig')
 tasmota.add_cmd('sendconfig',sendconfig)
-
 
 print('load stm32_driver& loader')
 print('wait for 5 seconds ....')
