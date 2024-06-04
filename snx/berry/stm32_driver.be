@@ -21,20 +21,41 @@ class STM32
     var device
     var topic 
 
-    def init()
-        self.client = 'inter'
-        self.ville  = 'spare'
-        self.device = 'snx'
+    def loadconfig()
+        import json
+        var jsonstring
+        var file 
+        file = open("esp32.cfg","rt")
+        if file.size() == 0
+            print('creat esp32 config file')
+            file = open("esp32.cfg","wt")
+            jsonstring=string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
+            file.write(jsonstring)
+            file.close()
+            file=open("esp32.cfg","rt")
+        end
+        var buffer = file.read()
+        var jsonmap = json.load(buffer)
+        self.client=jsonmap["client"]
+        print('client:',self.client)
+        self.ville=jsonmap["ville"]
+        print('ville:',self.ville)
+        self.device=jsonmap["device"]
+        print('device:',self.device)
+    end
 
+    def init()
         self.rst_in=19   
         self.bsl_in=21   
         self.rst_out=33   
         self.bsl_out=32   
         self.statistic=14
-        seld.ready=27
+        self.ready=27
     
         self.mapID = {}
         self.mapFunc = {}
+
+        self.loadconfig()
 
         print('DRIVER: serial init done')
         self.ser = serial(34,5,921600,serial.SERIAL_8N1)   # 5 = fake
@@ -54,7 +75,7 @@ class STM32
         gpio.digital_write(self.statistic, 0)
         gpio.digital_write(self.ready,1)
 
-        tasmota.add_fast_loop(/-> self.fast_loop())
+    #    tasmota.add_fast_loop(/-> self.fast_loop())
     end
 
     def fast_loop()
@@ -67,10 +88,11 @@ class STM32
         var numitem
         var myjson
         var topic
-        digital_write(self.ready,0)
+        gpio.digital_write(self.ready,0)
         if self.ser.available()
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
+            gpio.digital_write(self.statistic,1)
             var buffer = self.ser.read()
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
@@ -106,7 +128,8 @@ class STM32
                 mystring = buffer.asstring()
              end
         end
-        digital_write(self.ready,0)
+        gpio.digital_write(self.statistic,0)
+        gpio.digital_write(self.ready,1)
     end
 
     def get_statistic()

@@ -148,7 +148,7 @@ class flasher
     def convert(filename)
         var tas = tasmota
         var yield = tasmota.yield
-           var file_convname 
+        var file_convname 
         var file_conv
         var file
         var BLOCK = 252

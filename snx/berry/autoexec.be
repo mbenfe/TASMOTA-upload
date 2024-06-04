@@ -8,7 +8,6 @@ import json
 import gpio
 
 var ser                # serial object
-var debug                   # verbose logs?
 
 var rx=4    
 var tx=5    
@@ -62,6 +61,35 @@ def Stm32Reset(cmd, idx, payload, payload_json)
         tasmota.resp_cmnd('STM32 OUT reset')
     end
 end
+
+def ville(cmd, idx,payload, payload_json)
+    import json
+    var file = open("esp32.cfg","rt")
+    var buffer = file.read()
+    var myjson=json.load(buffer)
+    myjson["ville"]=payload
+    buffer = json.dump(myjson)
+    file.close()
+    file = open("esp32.cfg","wt")
+    file.write(buffer)
+    file.close()
+    tasmota.resp_cmnd(done)
+end
+
+def device(cmd, idx,payload, payload_json)
+    import json
+    var file = open("esp32.cfg","rt")
+    var buffer = file.read()
+    var myjson=json.load(buffer)
+    myjson["device"]=payload
+    buffer = json.dump(myjson)
+    file.close()
+    file = open("esp32.cfg","wt")
+    file.write(buffer)
+    file.close()
+    tasmota.resp_cmnd('done')
+end
+
 
 def getfile(cmd, idx,payload, payload_json)
     import string
@@ -182,6 +210,10 @@ tasmota.add_cmd('getfile',getfile)
 
 print('AUTOEXEC: create commande sendconfig')
 tasmota.add_cmd('sendconfig',sendconfig)
+
+tasmota.add_cmd('ville',ville)
+tasmota.add_cmd('device',device)
+
 
 print('load stm32_driver& loader')
 print('wait for 5 seconds ....')
