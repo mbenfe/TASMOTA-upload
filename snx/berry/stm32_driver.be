@@ -14,6 +14,7 @@ class STM32
     var bsl_in  
     var rst_out  
     var bsl_out   
+    var ready
     var statistic
     var client 
     var ville
@@ -29,7 +30,8 @@ class STM32
         self.bsl_in=21   
         self.rst_out=33   
         self.bsl_out=32   
-        self.statistic=25
+        self.statistic=14
+        seld.ready=27
     
         self.mapID = {}
         self.mapFunc = {}
@@ -44,11 +46,13 @@ class STM32
         gpio.pin_mode(self.rst_out,gpio.OUTPUT)
         gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
         gpio.pin_mode(self.statistic,gpio.OUTPUT)
+        gpio.pin_mode(self.ready,gpio.OUTPUT)
         gpio.digital_write(self.bsl_in, 0)
         gpio.digital_write(self.rst_in, 1)
         gpio.digital_write(self.bsl_out, 0)
         gpio.digital_write(self.rst_out, 1)
         gpio.digital_write(self.statistic, 0)
+        gpio.digital_write(self.ready,1)
 
         tasmota.add_fast_loop(/-> self.fast_loop())
     end
@@ -63,6 +67,7 @@ class STM32
         var numitem
         var myjson
         var topic
+        digital_write(self.ready,0)
         if self.ser.available()
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
@@ -101,6 +106,7 @@ class STM32
                 mystring = buffer.asstring()
              end
         end
+        digital_write(self.ready,0)
     end
 
     def get_statistic()
