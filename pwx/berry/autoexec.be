@@ -262,6 +262,7 @@ tasmota.add_cmd('sendconfig',sendconfig)
 
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
+tasmota.add_cmd('root',root)
 tasmota.add_cmd('SerialSetup',SerialSetup)
 tasmota.add_cmd('RnReset',RnReset)
 tasmota.add_cmd('RnMode',RnMode)
