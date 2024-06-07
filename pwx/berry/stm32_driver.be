@@ -17,6 +17,7 @@ class STM32
     var log
     var ville
     var device
+    var root
     var topic 
 
     def loadconfig()
@@ -40,8 +41,8 @@ class STM32
         print('ville:',self.ville)
         self.device=jsonmap["device"]
         print('device:',self.device)
-        self.device=jsonmap["root"]
-        print('root:',self.device)
+        self.root=jsonmap["root"]
+        print('root:',self.root)
     end
 
     def init()
