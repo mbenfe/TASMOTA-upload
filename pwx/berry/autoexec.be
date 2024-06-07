@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION 1.0 SNX                 #
+# VERSION 1.0 PWX                 #
 #---------------------------------#
 import string
 import global
