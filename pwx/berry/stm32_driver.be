@@ -55,7 +55,7 @@ class STM32
         self.loadconfig()
 
         print('DRIVER: serial init done')
-        self.ser = serial(self.rx,self.tx,921600,serial.SERIAL_8N1)   # 5 = fake
+        self.ser = serial(self.rx,self.tx,921600,serial.SERIAL_8N1) 
     
         # setup boot pins for stm32: reset disable & boot normal
         gpio.pin_mode(self.rst,gpio.OUTPUT)
