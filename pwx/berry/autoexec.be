@@ -9,12 +9,10 @@ import gpio
 
 var ser                # serial object
 
-var rx=4    
-var tx=5    
-var rst_in=19   
-var bsl_in=21   
-var rst_out=33   
-var bsl_out=32   
+var rx=16    
+var tx=17    
+var rst=2   
+var bsl=13   
 
 
 #-------------------------------- COMMANDES -----------------------------------------#
@@ -35,31 +33,68 @@ def SerialSendTime()
     print('SENDTIME:',token)
 end
 
-def Stm32Reset(cmd, idx, payload, payload_json)
-    if (payload=='in')
-        gpio.pin_mode(rst_in,gpio.OUTPUT)
-        gpio.pin_mode(bsl_in,gpio.OUTPUT)
-        gpio.digital_write(rst_in, 1)
-        gpio.digital_write(bsl_in, 0)
+def SerialSetup(cmd, idx, payload, payload_json)
+    var argument = string.split(payload,' ')
+    if(argument[0]!='A' && argument[0]!='B' && argument[0] !='C' && argument[0] != 'N' && argument[0] != 'OI' && argument[0] != 'OV' && argument[0] != 'KI' && argument[0] != 'KV' && argument[0] != 'ROOT' && argument[0] != 'RATIO' 
+        && argument[0] != 'LOGTYPE' && argument[0] != 'LOGFREQN' || argument[1] == '')
+        print('erreur arguments')
+        return
+    end
+    var token
+    if(argument[0]=='A' || argument[0]=='B' || argument[0] =='C' || argument[0] == 'N')
+        if(argument[0]=='N')
+            token = string.format('SET Neutral %s',argument[1])
+        else
+            token = string.format('SET Phase_%s %s',argument[0],argument[1])
+        end
+    else
+        token = string.format('SET %s %s',argument[0],argument[1])
+    end
+    # initialise UART Rx = GPIO3 and TX=GPIO1
+    # send data to serial
+    ser.write(bytes().fromstring(token))
+    tasmota.resp_cmnd_done()
+    print('SET:',token)
+end
+
+def Init()
+    gpio.pin_mode(rx,gpio.INPUT)
+    gpio.pin_mode(tx,gpio.OUTPUT)
+    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    print('serial initialised')
+    tasmota.resp_cmnd_done()
+end
+
+def RnReset(cmd, idx, payload, payload_json)
+    ser.write(bytes().fromstring('SET RESET'))
+    tasmota.delay(500)
+    tasmota.resp_cmnd_done()
+end
+
+def RnMode(cmd, idx, payload, payload_json)
+    var argument = string.split(payload,' ')
+    if(argument[0]!='MONO' && argument[0] !='TRI' )
+        print('erreur arguments')
+        return
+    end
+    if(argument[0]=='MONO')
+        ser.write(bytes().fromstring('SET MODE MONO'))
+    else
+        ser.write(bytes().fromstring('SET MODE TRI'))
+    end
+    tasmota.delay(500)
+    tasmota.resp_cmnd_done()
+end
+
+def Stm32Reset()
+        gpio.pin_mode(rst,gpio.OUTPUT)
+        gpio.pin_mode(bsl,gpio.OUTPUT)
   
-        gpio.digital_write(rst_in, 0)
+        gpio.digital_write(rst, 0)
         tasmota.delay(100)               # wait 10ms
-        gpio.digital_write(rst_in, 1)
+        gpio.digital_write(rst, 1)
         tasmota.delay(100)               # wait 10ms
         tasmota.resp_cmnd('STM32 IN reset')
-    end
-    if (payload=='out')
-        gpio.pin_mode(rst_out,gpio.OUTPUT)
-        gpio.pin_mode(bsl_out,gpio.OUTPUT)
-        gpio.digital_write(rst_out, 1)
-        gpio.digital_write(bsl_out, 0)
-  
-        gpio.digital_write(rst_out, 0)
-        tasmota.delay(100)               # wait 10ms
-        gpio.digital_write(rst_out, 1)
-        tasmota.delay(100)               # wait 10ms
-        tasmota.resp_cmnd('STM32 OUT reset')
-    end
 end
 
 def ville(cmd, idx,payload, payload_json)
@@ -82,6 +117,20 @@ def device(cmd, idx,payload, payload_json)
     var buffer = file.read()
     var myjson=json.load(buffer)
     myjson["device"]=payload
+    buffer = json.dump(myjson)
+    file.close()
+    file = open("esp32.cfg","wt")
+    file.write(buffer)
+    file.close()
+    tasmota.resp_cmnd('done')
+end
+
+def root(cmd, idx,payload, payload_json)
+    import json
+    var file = open("esp32.cfg","rt")
+    var buffer = file.read()
+    var myjson=json.load(buffer)
+    myjson["root"]=payload
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg","wt")
@@ -213,9 +262,17 @@ tasmota.add_cmd('sendconfig',sendconfig)
 
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
+tasmota.add_cmd('SerialSetup',SerialSetup)
+tasmota.add_cmd('RnReset',RnReset)
+tasmota.add_cmd('RnMode',RnMode)
+tasmota.add_cmd('Init',Init)
+
+############################################################
+tasmota.load('stm32_driver.be')
+tasmota.delay(500)
+tasmota.cmd('Init')
+tasmota.delay(500)
+tasmota.cmd('serialsendtime')
 
 
-print('load stm32_driver& loader')
-print('wait for 5 seconds ....')
-tasmota.set_timer(5000,launch_driver)
 
