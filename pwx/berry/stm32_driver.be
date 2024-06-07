@@ -41,7 +41,7 @@ class STM32
         self.device=jsonmap["device"]
         print('device:',self.device)
         self.device=jsonmap["root"]
-        print('devirootce:',self.device)
+        print('root:',self.device)
     end
 
     def init()
