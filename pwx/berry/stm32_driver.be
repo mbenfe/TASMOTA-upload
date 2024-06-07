@@ -101,38 +101,21 @@ class STM32
                 numitem = size(mylist)
                 for i:0..numitem-2
                     myjson = json.load(mylist[i])
-                    if myjson.contains('ID')
-                        if myjson['ID'] == 0
-                            topic=string.format("monitor/%s/%s/%s",self.client,self.ville,self.device)
-                        else
-                            topic=string.format("gw/%s/%s/%s/tele/DANFOSS",self.client,self.ville,str(myjson['ID']))
-                        end
+                    if myjson.contains('log')
+                        topic=string.format("monitor/%s/%s/%s",self.client,self.ville,self.device)
                         mqtt.publish(topic,mylist[i],true)
                     else
-                        topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson['Name']))
+                        topic=string.format("gw/%s/%s/s_%s/tele/POWER",self.client,self.ville,str(myjson['Name']))
                         mqtt.publish(topic,mylist[i],true)
                     end
                 end
             end
-            if (buffer[0] == 42)     # * -> json statistic
-                mystring = buffer[1..-1].asstring()
-                mylist = string.split(mystring,'\n')
-                numitem = size(mylist)
-                for i:0..numitem-2
-                    myjson = json.load(mylist[i])
-                    topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson['ID']))
-                    mqtt.publish(topic,mylist[i],true)
-                end
-            end
-            if (buffer[0] == 58)     # : -> debug text
-                mystring = buffer.asstring()
-             end
         end
         gpio.digital_write(self.statistic,0)
         gpio.digital_write(self.ready,1)
     end
 
-    def get_statistic()
+    def get_24hlog()
          gpio.digital_write(self.statistic, 1)
          tasmota.delay(1)
          gpio.digital_write(self.statistic, 0)
@@ -142,4 +125,4 @@ end
 stm32 = STM32()
 tasmota.add_driver(stm32)
 tasmota.add_fast_loop(/-> stm32.fast_loop())
-tasmota.add_cron("59 59 23 * * *",  /-> stm32.get_statistic(), "every_day")
+# tasmota.add_cron("59 59 23 * * *",  /-> stm32.get_statistic(), "every_day")
