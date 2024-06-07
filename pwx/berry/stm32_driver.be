@@ -68,20 +68,15 @@ class STM32
     end
 
     def read_uart(timeout)
-        var mystring
-        var mylist
-        var numitem
-        var myjson
-        var topic
         if self.ser.available()
             if self.ser.available()
                 var due = tasmota.millis() + timeout
                 while !tasmota.time_reached(due) end
                 var buffer = self.ser.read()
                 self.ser.flush()
-                mystring = buffer.asstring()
-                mylist = string.split(mystring,'\n')
-                numitem= size(mylist)
+                var mystring = buffer.asstring()
+                var mylist = string.split(mystring,'\n')
+                var numitem= size(mylist)
                 for i: 0..numitem-2
                     if (mylist[i][0] == '{' )   # json received
                         var myjson=json.load(mylist[i])
