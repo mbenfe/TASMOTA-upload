@@ -168,11 +168,19 @@ def sendconfig(cmd, idx,payload, payload_json)
     var file
     var buffer
     var myjson
+    var device
     var total = '';
     var ser
     var header
+    var trouve = false
     print('send:',payload)
     ############################ fichier config ###################
+    file = open("esp32.cfg","rt")
+    buffer = file.read()
+    myjson=json.load(buffer)
+    device = myjson["device"]
+    file.close()
+
     file = open(payload,"rt")
     if file == nil
         print('fichier non existant:',payload)
@@ -182,62 +190,21 @@ def sendconfig(cmd, idx,payload, payload_json)
     file.close()
     myjson = json.load(buffer)
     for key:myjson.keys()
-        total+=key+' '+myjson[key]["Name"]+' '+myjson[key]["alias_sonde"]+' '+myjson[key]["alias_cutout"]+' '+myjson[key]["poste"]+' '+myjson[key]["categorie"]+' '+myjson[key]["genre"]+' '+myjson[key]["device"]+'\n'
+        if key == device
+            trouve = true
+          total+='CONFIG'+' '+key+'_'+myjson[key]["root"]+'_'+myjson[key]["produit"]+'_'+myjson[key]["techno"]+'_'+myjson[key]["ratio"]+'_'+myjson[key]["Nki"]+'_'+myjson[key]["Akv"]+'_'+myjson[key]["Aki"]
+                +'_'+myjson[key]["Bkv"]+'_'+myjson[key]["Bki"]+'_'+myjson[key]["Ckv"]+'_'+myjson[key]["Cki"]
+        end
     end
-    header=string.format("config %d",myjson.size())
-    header+='\n'
-    header+=total
-    ############################ fichier device ###################
-    file = open("device.json","rt")
-    if file == nil
-        print('fichier device.json non existant:')
-        return
+    if trouve == true
+#        self.ser.flush()
+#        self.ser.write(mybytes)
+        print(total)
+        tasmota.resp_cmnd("config sent")
+    else
+        print('device ',device,' non touvé')
+        tasmota.resp_cmnd("config not sent")
     end
-    buffer = file.read()
-    file.close()
-    myjson = json.load(buffer)
-    total=''
-    for key:myjson.keys()
-        total+=key+' '+myjson[key]["name"]+' '+myjson[key]["type"]+' '+str(myjson[key]["ratio"])+' '+myjson[key]["categorie"]+'\n'
-    end
-    header+=string.format("device %d",myjson.size())
-    header+='\n'
-    header+=total
-    ############################ fichier controler ###################
-    file = open("controler.json","rt")
-    if file == nil
-        print('fichier controler non existant')
-        return
-    end
-    buffer = file.read()
-    file.close()
-    myjson = json.load(buffer)
-    total=''
-    for key:myjson.keys()
-        total+=key+' '+myjson[key]["name"]+' '+myjson[key]["type"]+' '+str(myjson[key]["ratio"])+' '+myjson[key]["categorie"]+'\n'
-    end
-    header+=string.format("controler %d",myjson.size())
-    header+='\n'
-    header+=total
-    print('taille initiale:',size(header))
-    var reste = 32 - ((size(header)+6) % 32)
-    print('reste:',reste)
-    for i:0..reste-1
-        header+='*'
-    end
-    var finalsend=string.format("%5d\n",size(header)+6)
-    print('ajout header:',size(finalsend))
-    finalsend+=header
-    print('taille finale:',size(finalsend))
-    file=open('stm32.cfg',"wt")
-    file.write(finalsend)
-    file.close()
-   
-    ser=serial(25,26,230400,serial.SERIAL_8N1)
-    var mybytes=bytes().fromstring(finalsend)
-    ser.flush()
-    ser.write(mybytes)
-    tasmota.resp_cmnd("config sent")
 end
 
 def launch_driver()
