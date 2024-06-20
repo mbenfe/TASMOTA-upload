@@ -33,10 +33,21 @@ def SerialSendTime()
     print('SENDTIME:',token)
 end
 
+def Calibration(target, low, high)
+    var ref_high = 15.333333
+    var ref_low = 5.11111
+    var gain
+    var offset
+    gain=(ref_high-ref_low)/(real(high)-real(low))
+    offset=ref_low-(gain*real(low))
+    print('Gain:',gain,' Offset:',offset)
+    tasmota.resp_cmnd_done()
+end
+
 def SerialSetup(cmd, idx, payload, payload_json)
     var argument = string.split(payload,' ')
     if(argument[0]!='A' && argument[0]!='B' && argument[0] !='C' && argument[0] != 'N' && argument[0] != 'OI' && argument[0] != 'OV' && argument[0] != 'KI' && argument[0] != 'KV' && argument[0] != 'ROOT' && argument[0] != 'RATIO' 
-        && argument[0] != 'LOGTYPE' && argument[0] != 'LOGFREQN' || argument[1] == '')
+        && argument[0] != 'LOGTYPE' && argument[0] != 'LOGFREQN' || argument[1] == '' != 'CAL' || argument[1] == '')
         print('erreur arguments')
         return
     end
@@ -47,6 +58,9 @@ def SerialSetup(cmd, idx, payload, payload_json)
         else
             token = string.format('SET Phase_%s %s',argument[0],argument[1])
         end
+    elif(argument[0]=='CAL')
+        Calibration(argument[1],argument[2],argument[3])
+        return
     else
         token = string.format('SET %s %s',argument[0],argument[1])
     end

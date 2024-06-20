@@ -183,28 +183,28 @@
     },
     "dl-subneg": {
         "root": "subneg",
-        "produit": "RNX4",
+        "produit": "BLX4",
         "techno": "ct",
         "ratio": "1000",
-        "Nki": "0",
-        "Akv": "0.479",
-        "Aki": "0.0762",
-        "Bkv": "0.479",
-        "Bki": "0.0762",
-        "Ckv": "0.479",
-        "Cki": "0.00762"
+        "Nki": "1",
+        "Akv": "1",
+        "Aki": "1",
+        "Bkv": "1",
+        "Bki": "1",
+        "Ckv": "1",
+        "Cki": "1"
     },
     "dl-subpos": {
         "root": "subpos",
-        "produit": "RNX4",
+        "produit": "BLX4",
         "techno": "ct",
         "ratio": "1000",
         "Nki": "0",
-        "Akv": "0.4207",
-        "Aki": "0.0762",
-        "Bkv": "0.4207",
-        "Bki": "0.0762",
-        "Ckv": "0.4207",
-        "Cki": "0.00762"
+        "Akv": "1",
+        "Aki": "1",
+        "Bkv": "1",
+        "Bki": "1",
+        "Ckv": "1",
+        "Cki": "1"
     }
 }
