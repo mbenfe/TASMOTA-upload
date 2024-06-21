@@ -206,7 +206,7 @@ def sendconfig(cmd, idx,payload, payload_json)
         ser = serial(rx,tx,115200,serial.SERIAL_8N1)
         ser.flush()
         var mybytes=bytes().fromstring(total)
-      #  ser.write(mybytes)
+        ser.write(mybytes)
         print(total)
         tasmota.resp_cmnd("config sent")
     else
