@@ -182,7 +182,7 @@
         "Cki": "1"
     },
     "dl-subneg": {
-        "root": "subneg",
+        "root": "dl12-subneg",
         "produit": "BLX4",
         "techno": "ct",
         "ratio": "1000",
@@ -195,16 +195,9 @@
         "Cki": "1"
     },
     "dl-subpos": {
-        "root": "subpos",
-        "produit": "BLX4",
-        "techno": "ct",
-        "ratio": "1000",
-        "Nki": "0",
-        "Akv": "1",
-        "Aki": "1",
-        "Bkv": "1",
-        "Bki": "1",
-        "Ckv": "1",
-        "Cki": "1"
+        "root": ["comp1","comp2","comp","comp4"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
     }
 }
