@@ -143,21 +143,6 @@ def device(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-def root(cmd, idx,payload, payload_json)
-    import json
-    var file = open("esp32.cfg","rt")
-    var buffer = file.read()
-    var myjson=json.load(buffer)
-    myjson["root"]=payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg","wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
-end
-
-
 def getfile(cmd, idx,payload, payload_json)
     import string
     var path = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
@@ -252,7 +237,6 @@ tasmota.add_cmd('sendconfig',sendconfig)
 
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
-tasmota.add_cmd('root',root)
 tasmota.add_cmd('SerialSetup',SerialSetup)
 tasmota.add_cmd('RnReset',RnReset)
 tasmota.add_cmd('RnMode',RnMode)
