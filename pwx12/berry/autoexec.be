@@ -33,13 +33,17 @@ def SerialSendTime()
     print('SENDTIME:',token)
 end
 
-def Calibration(target, low, high)
+def Calibration(cmd, idx, payload, payload_json)
+    var argument = string.split(payload,' ')
+    var target = argument[0]
+    var low = real(argument[1])
+    var high = real(argument[2])
     var ref_high = 15.333333
     var ref_low = 5.11111
     var gain
     var offset
-    gain=(ref_high-ref_low)/(real(high)-real(low))
-    offset=ref_low-(gain*real(low))
+    gain=(ref_high-ref_low)/(high-low)
+    offset=ref_low-(gain*low)
     print('Gain:',gain,' Offset:',offset)
     tasmota.resp_cmnd_done()
 end
@@ -47,7 +51,7 @@ end
 def SerialSetup(cmd, idx, payload, payload_json)
     var argument = string.split(payload,' ')
     if(argument[0]!='A' && argument[0]!='B' && argument[0] !='C' && argument[0] != 'N' && argument[0] != 'OI' && argument[0] != 'OV' && argument[0] != 'KI' && argument[0] != 'KV' && argument[0] != 'ROOT' && argument[0] != 'RATIO' 
-        && argument[0] != 'LOGTYPE' && argument[0] != 'LOGFREQN' || argument[1] == '' != 'CAL' || argument[1] == '')
+        && argument[0] != 'LOGTYPE' && argument[0] != 'LOGFREQN' || argument[1] == '' || argument[1] == '')
         print('erreur arguments')
         return
     end
@@ -250,6 +254,7 @@ tasmota.add_cmd('SerialSetup',SerialSetup)
 tasmota.add_cmd('RnReset',RnReset)
 tasmota.add_cmd('RnMode',RnMode)
 tasmota.add_cmd('Init',Init)
+tasmota.add_cmd('cal',Calibration)
 
 ############################################################
 tasmota.load('stm32_driver.be')
