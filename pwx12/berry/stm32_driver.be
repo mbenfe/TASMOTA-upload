@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION SNX                     #
+# VERSION PWX12                   #
 #---------------------------------#
 
 import mqtt
@@ -28,7 +28,7 @@ class STM32
         if file.size() == 0
             print('creat esp32 config file')
             file = open("esp32.cfg","wt")
-            jsonstring=string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\",\"root\":\"unknown\"}")
+            jsonstring=string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
             file.write(jsonstring)
             file.close()
             file=open("esp32.cfg","rt")
@@ -41,8 +41,6 @@ class STM32
         print('ville:',self.ville)
         self.device=jsonmap["device"]
         print('device:',self.device)
-        self.root=jsonmap["root"]
-        print('root:',self.root)
     end
 
     def init()
