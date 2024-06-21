@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION 1.0 PWX                 #
+# VERSION 1.0 PWX 12              #
 #---------------------------------#
 import string
 import global
@@ -143,21 +143,6 @@ def device(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-def root(cmd, idx,payload, payload_json)
-    import json
-    var file = open("esp32.cfg","rt")
-    var buffer = file.read()
-    var myjson=json.load(buffer)
-    myjson["root"]=payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg","wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
-end
-
-
 def getfile(cmd, idx,payload, payload_json)
     import string
     var path = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
@@ -210,15 +195,18 @@ def sendconfig(cmd, idx,payload, payload_json)
     for key:myjson.keys()
         if key == device
             trouve = true
-          total+='CONFIG'+' '+key+'_'+myjson[key]["root"]+'_'+myjson[key]["produit"]+'_'+myjson[key]["techno"]+'_'+myjson[key]["ratio"]+'_'+myjson[key]["Nki"]+'_'+myjson[key]["Akv"]+'_'+myjson[key]["Aki"]
-                +'_'+myjson[key]["Bkv"]+'_'+myjson[key]["Bki"]+'_'+myjson[key]["Ckv"]+'_'+myjson[key]["Cki"]
+          total+='CONFIG'+' '+key+'_'
+                    +myjson[key]["root"][0]+'_'+myjson[key]["root"][1]+'_'+myjson[key]["root"][2]+'_'+myjson[key]["root"][3]+'_'
+                    +myjson[key]["produit"]+'_'
+                    +myjson[key]["techno"][0]+'_'+myjson[key]["techno"][1]+'_'+myjson[key]["techno"][2]+'_'+myjson[key]["techno"][3]+'_'
+                    +myjson[key]["ratio"][0]+'_'+myjson[key]["ratio"][1]+'_'+myjson[key]["ratio"][2]+'_'+myjson[key]["ratio"][3]+'_'
         end
     end
     if trouve == true
         ser = serial(rx,tx,115200,serial.SERIAL_8N1)
         ser.flush()
         var mybytes=bytes().fromstring(total)
-        ser.write(mybytes)
+      #  ser.write(mybytes)
         print(total)
         tasmota.resp_cmnd("config sent")
     else
@@ -249,7 +237,6 @@ tasmota.add_cmd('sendconfig',sendconfig)
 
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
-tasmota.add_cmd('root',root)
 tasmota.add_cmd('SerialSetup',SerialSetup)
 tasmota.add_cmd('RnReset',RnReset)
 tasmota.add_cmd('RnMode',RnMode)
