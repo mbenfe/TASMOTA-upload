@@ -6,7 +6,7 @@ import mqtt
 import string
 import json
 
-class STM32
+class PWX12
     var ser
     var rx
     var tx
@@ -88,7 +88,7 @@ class STM32
                         end
                         mqtt.publish(self.topic,mylist[i],true)
                     else
-                        var token = string.format('STM32-> %s',mylist[i])
+                        var token = string.format('PWX12-> %s',mylist[i])
                         print(token)
                     end
                 end
@@ -104,7 +104,7 @@ class STM32
     end
 end
 
-stm32 = STM32()
-tasmota.add_driver(stm32)
-tasmota.add_fast_loop(/-> stm32.fast_loop())
-# tasmota.add_cron("59 59 23 * * *",  /-> stm32.get_statistic(), "every_day")
+pwx12 = PWX12()
+tasmota.add_driver(pwx12)
+tasmota.add_fast_loop(/-> pwx12.fast_loop())
+# tasmota.add_cron("59 59 23 * * *",  /-> pwx12.get_statistic(), "every_day")
