@@ -199,7 +199,7 @@ def sendconfig(cmd, idx,payload, payload_json)
                     +myjson[key]["root"][0]+'_'+myjson[key]["root"][1]+'_'+myjson[key]["root"][2]+'_'+myjson[key]["root"][3]+'_'
                     +myjson[key]["produit"]+'_'
                     +myjson[key]["techno"][0]+'_'+myjson[key]["techno"][1]+'_'+myjson[key]["techno"][2]+'_'+myjson[key]["techno"][3]+'_'
-                    +myjson[key]["ratio"][0]+'_'+myjson[key]["ratio"][1]+'_'+myjson[key]["ratio"][2]+'_'+myjson[key]["ratio"][3]+'_'
+                    +myjson[key]["ratio"][0]+'_'+myjson[key]["ratio"][1]+'_'+myjson[key]["ratio"][2]+'_'+myjson[key]["ratio"][3]
         end
     end
     if trouve == true
