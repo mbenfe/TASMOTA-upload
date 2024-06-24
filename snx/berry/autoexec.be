@@ -193,7 +193,7 @@ end
 
 def launch_driver()
     print('mqtt connected -> launch driver')
-    tasmota.load('stm32_driver.be')
+    tasmota.load('snx_driver.be')
  end
 
 tasmota.cmd("seriallog 0")
