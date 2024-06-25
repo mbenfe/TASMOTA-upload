@@ -193,7 +193,7 @@ end
 
 def launch_driver()
     print('mqtt connected -> launch driver')
-    tasmota.load('snx_driver.be')
+    tasmota.load('stm32_driver.be')
  end
 
 tasmota.cmd("seriallog 0")
@@ -215,7 +215,7 @@ tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
 
 
-print('load snx_driver & loader')
+print('load stm32_driver& loader')
 print('wait for 5 seconds ....')
 tasmota.set_timer(5000,launch_driver)
 

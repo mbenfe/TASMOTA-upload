@@ -181,21 +181,14 @@
         "Ckv": "1",
         "Cki": "1"
     },
-    "dl-subneg": {
-        "root": "subneg",
-        "produit": "BLX4",
-        "techno": "ct",
-        "ratio": "1000",
-        "Nki": "1",
-        "Akv": "1",
-        "Aki": "1",
-        "Bkv": "1",
-        "Bki": "1",
-        "Ckv": "1",
-        "Cki": "1"
+    "dl12-subneg": {
+        "root": ["comp3","comp1","comp2","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
     },
     "dl12-subpos": {
-        "root": ["comp1","comp2","comp3","comp4"],
+        "root": ["comp1","comp3","comp4","comp2"],
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
