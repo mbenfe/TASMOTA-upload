@@ -37,4 +37,17 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","2000","1000","1000"]
     },
+    "dl4-main": {
+        "root": "main",
+        "produit": "PWX4",
+        "techno": "rogowski",
+        "ratio": "3003",
+        "Nki": "0",
+        "Akv": "1",
+        "Aki": "1",
+        "Bkv": "1",
+        "Bki": "1",
+        "Ckv": "1",
+        "Cki": "1"
+    }
 }
