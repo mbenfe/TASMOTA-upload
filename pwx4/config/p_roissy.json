@@ -1,9 +1,16 @@
 {
     "dl4-eclpk1": {
-        "root": "comp1",
-        "produit": "BLX4",
+        "root": "eclpk1",
+        "produit": "PWX4",
         "techno": "ct",
-        "ratio": "1000"
+        "ratio": "2000",
+        "Nki": "0",
+        "Akv": "1",
+        "Aki": "1",
+        "Bkv": "1",
+        "Bki": "1",
+        "Ckv": "1",
+        "Cki": "1"
     },   
     "dl12-subneg": {
         "root": ["comp3","comp1","comp2","*"],
