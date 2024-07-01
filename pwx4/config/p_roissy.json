@@ -30,5 +30,11 @@
         "Bki": "1",
         "Ckv": "1",
         "Cki": "1"
-    }   
+    },   
+    "dl12-divers": {
+        "root": ["divers_1","chauffage","eclpkpub2","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","2000","1000","1000"]
+    },
 }
