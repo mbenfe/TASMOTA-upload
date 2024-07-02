@@ -24,7 +24,25 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["2000","2000","2000","2000"]
     },
-    "dl4-main": {
+    "dl12-old1": {
+        "root": ["divers1","divers2","divers3","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-old2": {
+        "root": ["diversold","boulangerie","tdparking","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","2000","2000","2000"]
+    },
+    "dl12-old3": {
+        "root": ["divers4","divers5","*","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+   "dl4-main": {
         "root": "main",
         "produit": "BLX4",
         "techno": "rogowski",
