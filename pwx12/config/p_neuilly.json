@@ -22,7 +22,7 @@
         "root": ["clim","protection","general","*"],
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
+        "ratio": ["2000","2000","2000","2000"]
     },
     "dl4-main": {
         "root": "main",
