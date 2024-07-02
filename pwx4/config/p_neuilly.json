@@ -12,27 +12,14 @@
         "Ckv": "1",
         "Cki": "1"
     },   
-    "dl12-seclkpk234": {
-        "root": ["eclpk2","eclpk3","eclpk4","*"],
+    "dl12-new1": {
+        "root": ["pctriphase","repartiteur","divers","*"],
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "ratio": ["2000","2000","2000","2000"]
     },
-    "dl4-eclpub2": {
-        "root": "eclpub2",
-        "produit": "PWX4",
-        "techno": "ct",
-        "ratio": "1000",
-        "Nki": "0",
-        "Akv": "1",
-        "Aki": "1",
-        "Bkv": "1",
-        "Bki": "1",
-        "Ckv": "1",
-        "Cki": "1"
-    },   
-    "dl12-divers": {
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
+    "dl12-new2": {
+        "root": ["clim","protection","general","*"],
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","2000","1000","1000"]
