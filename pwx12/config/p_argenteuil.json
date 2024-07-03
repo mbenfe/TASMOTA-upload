@@ -1,0 +1,21 @@
+{
+
+    "dl12-main1": {
+        "root": ["eclz1","eclz2","general","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","1000","1000","2100"]
+    },
+    "dl12-main2": {
+        "root": ["clim","protection","general","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","2000","2000","2000"]
+    },
+    "dl12-main3": {
+        "root": ["divers1","divers2","divers3","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    }
+ }
