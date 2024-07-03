@@ -6,7 +6,7 @@
         "ratio": ["1000","1000","2000","1000"]
     },
     "dl12-main2": {
-        "root": ["clim","protection","general","*"],
+        "root": ["vitrines","divers","eclz3","*"],
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["2000","2000","2000","2000"]
