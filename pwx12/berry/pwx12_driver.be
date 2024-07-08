@@ -82,9 +82,9 @@ class PWX12
                     if (mylist[i][0] == '{' )   # json received
                         var myjson=json.load(mylist[i])
                         if(myjson.contains('TYPE'))
-                            self.topic = string.format("gw/%s/%s/%s/tele/%s",self.client,self.ville,myjson['Name'],myjson['TYPE'])
+                            self.topic = string.format("gw/%s/%s/%s/tele/%s",self.client,self.ville,self.device,myjson['TYPE'])
                         else
-                            self.topic = string.format("gw/%s/%s/%s/tele/POWER",self.client,self.ville,myjson['Name'])
+                            self.topic = string.format("gw/%s/%s/%s/tele/POWER",self.client,self.ville,self.device)
                         end
                         mqtt.publish(self.topic,mylist[i],true)
                     else
