@@ -107,7 +107,7 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","4000","1000"]
     },
-    "dl12-tgbt1": {
+    "dl12-tgbt2": {
         "root": ["rooftop2","tdbureaux","rooftop1","*"],
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
