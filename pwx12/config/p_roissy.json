@@ -118,5 +118,17 @@
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-tgbt4": {
+        "root": ["eclpub1","onduleurs","eclext","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-tgbt5": {
+        "root": ["*","eclnonpub","eclpub2","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
     }
  }
