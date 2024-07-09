@@ -102,9 +102,15 @@
         "ratio": ["1000","2000","1000","1000"]
     },
     "dl12-tgbt1": {
-        "root": ["drooftop1","froid","tdlabo","*"],
+        "root": ["froid","tdcaisses","tdlabo","*"],
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","4000","1000"]
+    },
+    "dl12-tgbt1": {
+        "root": ["rooftop2","tdbureaux","rooftop1","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
     }
  }
