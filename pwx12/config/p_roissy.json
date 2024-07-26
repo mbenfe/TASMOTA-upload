@@ -100,5 +100,35 @@
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","2000","1000","1000"]
+    },
+    "dl12-tgbt1": {
+        "root": ["froid","tdcaisses","tdlabo","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","4000","1000"]
+    },
+    "dl12-tgbt2": {
+        "root": ["rooftop2","tdbureaux","rooftop1","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-tgbt3": {
+        "root": ["rooftop3","pcnp","*","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-tgbt4": {
+        "root": ["eclpub1","onduleurs","eclext","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-tgbt5": {
+        "root": ["*","eclnonpub","eclpub2","*"],
+        "produit": "BLX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
     }
  }

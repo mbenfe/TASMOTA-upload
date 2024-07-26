@@ -12,7 +12,7 @@
         "ratio": ["2000","2000","2000","2000"]
     },
     "dl12-main3": {
-        "root": ["divers1","divers2","divers3","*"],
+        "root": ["four2","four1","laverie","ballon12"],
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
