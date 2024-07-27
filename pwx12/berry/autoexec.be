@@ -34,17 +34,14 @@ def SerialSendTime()
 end
 
 def Calibration(cmd, idx, payload, payload_json)
-    var argument = string.split(payload,' ')
-    var target = argument[0]
-    var low = real(argument[1])
-    var high = real(argument[2])
-    var ref_high = 15.333333
-    var ref_low = 5.11111
-    var gain
-    var offset
-    gain=(ref_high-ref_low)/(high-low)
-    offset=ref_low-(gain*low)
-    print('Gain:',gain,' Offset:',offset)
+    var argument = string.split(string.toupper(payload),' ')
+    if(argument[0]!='VA' && argument[0]!='VB' && argument[0] !='VC' && argument[0] != 'IA' && argument[0] != 'IB' && argument[0] != 'IC' && argument[0] != 'IN' 
+        || argument[1] == '')
+        print('erreur arguments')
+        return
+    end
+    var token = string.format('CAL %s %s',argument[0],argument[1])
+    ser.write(bytes().fromstring(token))
     tasmota.resp_cmnd_done()
 end
 
