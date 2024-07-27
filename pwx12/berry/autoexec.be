@@ -41,7 +41,13 @@ def Calibration(cmd, idx, payload, payload_json)
         return
     end
     var token = string.format('CAL %s %s',argument[0],argument[1])
+    gpio.pin_mode(rx,gpio.INPUT)
+    gpio.pin_mode(tx,gpio.OUTPUT)
+    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    ser.flush()
     ser.write(bytes().fromstring(token))
+    ser.write(bytes().fromstring(token))
+    print(token)
     tasmota.resp_cmnd_done()
 end
 
