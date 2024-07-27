@@ -40,7 +40,11 @@ def Calibration(cmd, idx, payload, payload_json)
         print('erreur arguments')
         return
     end
-    var token = string.format('CAL %s %s',argument[0],argument[1])
+    if(argument[0] =='VA' || argument[0] =='VB' || argument[0] =='VC')
+        var token = string.format('CAL %s %s',argument[0],argument[1])
+    else
+        var token = string.format('CAL %s %s %s',argument[0],argument[1],argument[2])
+    end
     gpio.pin_mode(rx,gpio.INPUT)
     gpio.pin_mode(tx,gpio.OUTPUT)
     ser = serial(rx,tx,115200,serial.SERIAL_8N1)
