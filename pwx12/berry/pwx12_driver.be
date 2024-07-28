@@ -20,6 +20,12 @@ class PWX12
     var root
     var topic 
 
+    var listLog
+
+    var tick_midnight
+    var tick_hour
+    var tick_second
+
     def loadconfig()
         import json
         var jsonstring
@@ -48,20 +54,36 @@ class PWX12
         self.tx=1
         self.rst=2
         self.bsl=13
-        self.log=15
+
+        self.tick_midnight=15
+        self.tick_hour=33
+        self.tick_second=32
 
         self.loadconfig()
 
         print('DRIVER: serial init done')
+        print('heap:',tasmota.get_free_heap())
         self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1) 
     
         # setup boot pins for stm32: reset disable & boot normal
         gpio.pin_mode(self.rst,gpio.OUTPUT)
         gpio.pin_mode(self.bsl,gpio.OUTPUT)
         gpio.pin_mode(self.log,gpio.OUTPUT)
+        gpio.pin_mode(self.tick_midnight,gpio.OUTPUT)
+        gpio.pin_mode(self.tick_hour,gpio.OUTPUT)
+        gpio.pin_mode(self.tick_second,gpio.OUTPUT)
         gpio.digital_write(self.bsl, 0)
         gpio.digital_write(self.rst, 1)
-        gpio.digital_write(self.log, 1)
+        gpio.digital_write(self.tick_midnight, 0)
+        gpio.digital_write(self.tick_hour, 0)
+        gpio.digital_write(self.tick_second, 0)
+
+        self.listLog = []
+
+        for i:0..3600
+            self.listLog.insert(i,0.0)
+        end
+        print('heap:',tasmota.get_free_heap())
     end
 
     def fast_loop()
@@ -97,14 +119,29 @@ class PWX12
         end
     end
 
-    def get_24hlog()
-         gpio.digital_write(self.statistic, 1)
+    def midnight()
+         gpio.digital_write(self.tick_midnight, 1)
          tasmota.delay(1)
-         gpio.digital_write(self.statistic, 0)
+         gpio.digital_write(self.tick_midnight, 0)
     end
+
+    def hour()
+        gpio.digital_write(self.tick_hour, 1)
+        tasmota.delay(1)
+        gpio.digital_write(self.tick_hour, 0)
+   end
+
+   def every_second()
+        gpio.digital_write(self.tick_second, 1)
+        tasmota.delay(1)
+        gpio.digital_write(self.second, 0)
+  end
+
+
 end
 
 pwx12 = PWX12()
 tasmota.add_driver(pwx12)
 tasmota.add_fast_loop(/-> pwx12.fast_loop())
-# tasmota.add_cron("59 59 23 * * *",  /-> pwx12.get_statistic(), "every_day")
+tasmota.add_cron("59 59 23 * * *",  /-> pwx12.midnight(), "every_day")
+tasmota.add_cron("59 59 * * * *",   /-> pwx12.hour(), "every_hour")
