@@ -68,7 +68,6 @@ class PWX12
         # setup boot pins for stm32: reset disable & boot normal
         gpio.pin_mode(self.rst,gpio.OUTPUT)
         gpio.pin_mode(self.bsl,gpio.OUTPUT)
-        gpio.pin_mode(self.log,gpio.OUTPUT)
         gpio.pin_mode(self.tick_midnight,gpio.OUTPUT)
         gpio.pin_mode(self.tick_hour,gpio.OUTPUT)
         gpio.pin_mode(self.tick_second,gpio.OUTPUT)
@@ -134,7 +133,7 @@ class PWX12
    def every_second()
         gpio.digital_write(self.tick_second, 1)
         tasmota.delay(1)
-        gpio.digital_write(self.second, 0)
+        gpio.digital_write(self.tick_second, 0)
   end
 
 
