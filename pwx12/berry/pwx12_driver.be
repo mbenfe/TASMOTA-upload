@@ -121,12 +121,14 @@ class PWX12
     def midnight()
          gpio.digital_write(self.tick_midnight, 1)
          tasmota.delay(1)
+         print('midnight')
          gpio.digital_write(self.tick_midnight, 0)
     end
 
     def hour()
         gpio.digital_write(self.tick_hour, 1)
         tasmota.delay(1)
+        print('hour')
         gpio.digital_write(self.tick_hour, 0)
     end
 
