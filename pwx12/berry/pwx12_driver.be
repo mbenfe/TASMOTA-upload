@@ -5,6 +5,7 @@
 import mqtt
 import string
 import json
+import conso
 
 class PWX12
     var ser
