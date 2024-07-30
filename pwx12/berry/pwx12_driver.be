@@ -112,6 +112,8 @@ class PWX12
                             self.topic = string.format("gw/%s/%s/%s/tele/POWER",self.client,self.ville,self.device)
                         end
                         mqtt.publish(self.topic,mylist[i],true)
+                    elif mylist[i][0] == 'C'
+                        self.conso.update(mylist[i])
                     else
                         var token = string.format('PWX12-> %s',mylist[i])
                         print(token)

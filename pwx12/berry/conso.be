@@ -86,6 +86,22 @@ class conso
         end
     end
 
+    def update(data)
+        var day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
+        var month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]
+        var rtc = tasmota.rtc()
+
+        # Extract the hour, day of the month, and day of the week
+        var second = rtc['second']
+        var minute = rtc['minute']
+        var hour = rtc['hour']
+        var day = rtc['day']
+        var month = rtc['month']
+        var year = rtc['year']
+        var day_of_week = rtc['wday']  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        print(year+'/'+month+'/'+day+' '+day_list[day_of_week]+' '+hour+':'+minute+':'+second)
+    end
+
 end
 
 return conso()
