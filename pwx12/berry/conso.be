@@ -90,7 +90,7 @@ class conso
         var day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
         var month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]
         var now = tasmota.rtc()
-        var rtc=tasmota.dump(now['local'])
+        var rtc=tasmota.time_dump(now['local'])
         print(rtc)
 
         # Extract the hour, day of the month, and day of the week
