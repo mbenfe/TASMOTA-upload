@@ -17,7 +17,8 @@ class conso
             file = open(name,'rt')
             ligne = file.read()
             var configjson=json.load(ligne)
-            print(configjson)
+            var device = esp32json['device']
+            print(configjson[device])
             file.close()
         end
     end
@@ -37,4 +38,4 @@ class conso
 
 end
 
-return conso()
+return conso

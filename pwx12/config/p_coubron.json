@@ -1,11 +1,13 @@
 { 
     "dl12-main1": {
+        "mode": ["tri","tri","tri"],
         "root": ["general","froid1","froid2","*"],
         "produit": "BLX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
     "dl4-eclpub2": {
+        "mode": "tri",
         "root": "eclpub2",
         "produit": "PWX4",
         "techno": "ct",
