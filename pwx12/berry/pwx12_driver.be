@@ -117,6 +117,7 @@ class PWX12
                         print(mylist[i])
                     else
                         var token = string.format('PWX12-> %s',mylist[i])
+                        print(token)
                     end
                 end
             end
