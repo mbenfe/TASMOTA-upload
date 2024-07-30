@@ -5,7 +5,6 @@
 import mqtt
 import string
 import json
-import conso
 
 class PWX12
     var ser
@@ -26,6 +25,8 @@ class PWX12
     var tick_midnight
     var tick_hour
     var tick_second
+
+    var conso
 
     def loadconfig()
         import json
@@ -51,6 +52,7 @@ class PWX12
     end
 
     def init()
+        import conso
         self.conso = conso
 #        self.conso.init()
         self.rx=3
