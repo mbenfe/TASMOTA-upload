@@ -102,6 +102,9 @@ class conso
         print(str(year)+'/'+str(month)+'/'+str(day)+' '+day_list[day_of_week]+' '+str(hour)+':'+str(minute)+':'+str(second))
     end
 
+    def log(data)
+    end
+
 end
 
 return conso()

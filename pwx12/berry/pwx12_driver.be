@@ -116,8 +116,7 @@ class PWX12
                         self.conso.update(mylist[i])
                         print(mylist[i])
                     else
-                        var token = string.format('PWX12-> %s',mylist[i])
-                        print(token)
+                        self.conso.log(mylist[i])
                     end
                 end
             end
