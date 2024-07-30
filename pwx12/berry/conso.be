@@ -3,12 +3,26 @@ import string
 
 
 class conso
+    var consojson
 
     def get_hours()
         var ligne
-        ligne = string.format("{'0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0,'13':0,'14':0,'15':0,'16':0,'17':0,'18':0,'19':0,'20':0,'21':0,'22':0,'23':0}")
+        ligne = string.format('{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0}')
         return ligne
     end
+
+    def get_days()
+        var ligne
+        ligne = string.format('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}')
+        return ligne
+    end
+
+    def get_months()
+        var ligne
+        ligne = string.format('{"Jan":0,"Fev":0,"Mars":0,"Avr":0,"Mai":0,"Juin":0,"Juil":0,"Aout":0,"Sept":0,"Oct":0,"Nov":0,"Dec":0}')
+        return ligne
+    end
+
 
     def init_conso()
         print('creation du fichier de sauvegarde de la consommation....')
@@ -22,34 +36,52 @@ class conso
         if(path.exists(name))
             file = open(name,'rt')
             ligne = file.read()
+            file.close()
             var configjson=json.load(ligne)
             var device = esp32json['device']
             print(configjson[device])
             if configjson[device]['produit']=='PWX12'
+                ligne = string.format('{"hours":[]}')
+                var mainjson = json.load(ligne)
+                mainjson.insert('days',[])
+                mainjson.insert('months')
                 print('configuration PWX12')
-                for i:0..3
+                for i:0..2
                     if configjson[device]['mode'][i]=='tri'
-                        ligne = string.format("Device: '%s','Name':'%s','TYPE':'PWHOURS','DATA':%s}\n",device,configjson[device]['root'][i],self.get_hours())
-                        print(ligne)
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',device,configjson[device]['root'][i],self.get_hours())
+                        mainjson['hours'].insert(i,json.load(ligne))
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',device,configjson[device]['root'][i],self.get_days())
+                        mainjson['days'].insert(i,json.load(ligne))
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',device,configjson[device]['root'][i],self.get_months())
+                        mainjson['days'].insert(i,json.load(ligne))
                     else
                     end
                 end
+                ligne = json.dump(mainjson)
+                return ligne
             else
                 print('configuration PWX4')
+                return ''
             end
-            file.close()
         end
     end
 
     def init()
         import path
+        var ligne
+        var file
         if(path.exists('conso.json'))
             print('chargement de la sauvegarde de consommation')
-            var file
             file = open("conso.json","rt")
+            ligne = file.read()
+            self.consojson= json.load(ligne)
+            print(self.consojson)
             file.close()
         else
-            self.init_conso()
+            ligne = self.init_conso()
+            file = open('conso.json','wt')
+            file.write(ligne)
+            file.close()
             print('fichier sauvegarde de consommation cree !')
         end
     end
