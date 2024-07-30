@@ -10,7 +10,7 @@ class conso
         var ligne = file.read()
         var esp32json = json.load(ligne)
         file.close()
-        var name = string.format('p_%s',esp32json['ville'])
+        var name = string.format('p_%s.json',esp32json['ville'])
         print('lecture du fichier ',name)
         import path
         if(path.exists(name))
@@ -31,7 +31,7 @@ class conso
             file.close()
         else
             self.init_conso()
-            print('creer fichier sauvegarde de consommation')
+            print('fichier sauvegarde de consommation cree !')
         end
     end
 
