@@ -28,7 +28,7 @@ class conso
             if configjson[device]['produit']=='PWX12'
                 print('configuration PWX12')
                 for i:0..3
-                    if configjson[device]['mode']=='tri'
+                    if configjson[device]['mode'][i]=='tri'
                         ligne = string.format("Device: '%s','Name':'%s','TYPE':'PWHOURS','DATA':%s}\n",device,configjson[device]['root'][i],self.gethours())
                         print(ligne)
                     else
