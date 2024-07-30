@@ -51,6 +51,7 @@ class PWX12
     end
 
     def init()
+        self.conso = conso
         self.rx=3
         self.tx=1
         self.rst=2

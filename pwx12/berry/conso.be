@@ -2,10 +2,14 @@
 class conso
 
     def init()
-        var file
-        file = open('conso.sav','rt')
-        if file.size()==0
-            print('fichier non existant')
+        import path
+        if(path.exists('conso.sav'))
+            print('chargement de la sauvegarde de consommation')
+            var file
+            file = open("conso.sav","rt")
+            file.close()
+        else
+            print('creer fichier sauvegarde de consommation')
         end
     end
 
