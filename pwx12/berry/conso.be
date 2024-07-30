@@ -105,6 +105,13 @@ class conso
     def log(data)
     end
 
+    def sauvegarde()
+        var ligne = json.dump(self.consojson)
+        var file = open('conso.json',"wt")
+        file.write(ligne)
+        file.close()
+    end
+
 end
 
 return conso()
