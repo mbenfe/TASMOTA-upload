@@ -114,9 +114,9 @@ class PWX12
                         mqtt.publish(self.topic,mylist[i],true)
                     elif mylist[i][0] == 'C'
                         self.conso.update(mylist[i])
+                        print(mylist[i])
                     else
                         var token = string.format('PWX12-> %s',mylist[i])
-                        print(token)
                     end
                 end
             end
