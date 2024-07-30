@@ -5,11 +5,13 @@ import string
 class conso
 
     def init_conso()
+        print('creation du fichier de sauvegarde de la consommation....')
         var file = open('esp32.cfg','rt')
         var ligne = file.read()
         var esp32json = json.load(ligne)
         file.close()
         var name = string.format('p_%s',esp32json['ville'])
+        print('lecture du fichier ',name)
         import path
         if(path.exists(name))
             file = open(name,'rt')
