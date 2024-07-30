@@ -101,7 +101,7 @@ class conso
         var month = rtc['month']
         var year = rtc['year']
         var day_of_week = rtc['weekday']  # 0=Sunday, 1=Monday, ..., 6=Saturday
-        print(year+'/'+month+'/'+day+' '+day_list[day_of_week]+' '+hour+':'+minute+':'+second)
+        print(str(year)+'/'+str(month)+'/'+str(day)+' '+day_list[day_of_week]+' '+str(hour)+':'+str(minute)+':'+str(second))
     end
 
 end
