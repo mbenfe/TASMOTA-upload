@@ -139,13 +139,8 @@ class PWX12
     end
 
     def every_second()
-        # gpio.digital_write(self.tick_midnight, 1)
-        # gpio.digital_write(self.tick_hour, 1)
-        gpio.digital_write(self.tick_second, 1)
+       gpio.digital_write(self.tick_second, 1)
         tasmota.delay(1)
-        print('1s')
-        # gpio.digital_write(self.tick_midnight, 0)
-        # gpio.digital_write(self.tick_hour, 0)
         gpio.digital_write(self.tick_second, 0)
     end
 
