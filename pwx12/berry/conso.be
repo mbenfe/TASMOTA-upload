@@ -101,6 +101,7 @@ class conso
     end
 
     def update(data)
+        print(data)
         var split = string.split(data,':')
         var now = tasmota.rtc()
         var rtc=tasmota.time_dump(now['local'])
