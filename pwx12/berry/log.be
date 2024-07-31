@@ -13,6 +13,9 @@ class log
    end
 
     def log(data)
+        var split
+        split = string.split(data)
+        print(split[1])
     end
 
 end
