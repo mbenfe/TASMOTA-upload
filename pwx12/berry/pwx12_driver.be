@@ -14,7 +14,7 @@ class PWX12
     var rst
 
     var client 
-    var log
+    var logger
     var ville
     var device
     var root
@@ -52,8 +52,8 @@ class PWX12
     def init()
         import conso
         self.conso = conso
-        import log
-        self.log = log
+        import logger
+        self.logger = logger
         self.rx=3
         self.tx=1
         self.rst=2
@@ -109,7 +109,7 @@ class PWX12
                         self.conso.update(mylist[i])
                         print(mylist[i])
                     else
-                        self.log.log(mylist[i])
+                        self.logger.log_data(mylist[i])
                     end
                 end
             end

@@ -1,5 +1,5 @@
 
-class log
+class logger
 
     var listlog
     var bloc
@@ -17,7 +17,7 @@ class log
         print('heap:',tasmota.get_free_heap())
    end
 
-    def log(data)
+    def log_data(data)
         var split
         split = string.split(data)
         print(split[1])
@@ -25,4 +25,4 @@ class log
 
 end
 
-return log()
+return logger()
