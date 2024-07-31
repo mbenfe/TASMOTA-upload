@@ -127,15 +127,21 @@ class PWX12
     def midnight()
          gpio.digital_write(self.tick_midnight, 1)
          tasmota.delay(1)
-         print('midnight')
          gpio.digital_write(self.tick_midnight, 0)
+         self.conso.mqtt_publish('all')
     end
 
     def hour()
+        var now = tasmota.rtc()
+        var rtc=tasmota.time_dump(now['local'])
+        var hour = rtc['hour']
         gpio.digital_write(self.tick_hour, 1)
         tasmota.delay(1)
-        print('hour')
         gpio.digital_write(self.tick_hour, 0)
+        # publish if not midnight
+        if hour != 23
+            self.conso.mqtt_publish('hours')
+        end
     end
 
     def every_second()

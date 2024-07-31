@@ -1,9 +1,17 @@
 import json
 import string
+import mqtt
 
 
 class conso
     var consojson
+    var day_list
+    var month_list
+    var num_day_month
+    var ville
+    var client
+    var device
+
 
     def get_hours()
         var ligne
@@ -29,6 +37,9 @@ class conso
         var file = open('esp32.cfg','rt')
         var ligne = file.read()
         var esp32json = json.load(ligne)
+        self.client = esp32json['client']
+        self.ville = esp32json['ville']
+        self.device = esp32json['device']
         file.close()
         var name = string.format('p_%s.json',esp32json['ville'])
         print('lecture du fichier ',name)
@@ -84,14 +95,15 @@ class conso
             file.close()
             print('fichier sauvegarde de consommation cree !')
         end
+        self.day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
+        self.month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]
+        self.num_day_month = [0,31,28,31,30,31,30,31,31,30,31,30,31]
     end
 
     def update(data)
-        var day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
-        var month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]
+        var split = string.split(data,':')
         var now = tasmota.rtc()
         var rtc=tasmota.time_dump(now['local'])
-        # Extract the hour, day of the month, and day of the week
         var second = rtc['sec']
         var minute = rtc['min']
         var hour = rtc['hour']
@@ -99,10 +111,11 @@ class conso
         var month = rtc['month']
         var year = rtc['year']
         var day_of_week = rtc['weekday']  # 0=Sunday, 1=Monday, ..., 6=Saturday
-        print(str(year)+'/'+str(month)+'/'+str(day)+' '+day_list[day_of_week]+' '+str(hour)+':'+str(minute)+':'+str(second))
-    end
-
-    def log(data)
+        for i:0..2
+            self.consojson['hours'][i][str(hour)]+=real(split[i+1])
+            self.consojson['days'][i][self.day_list[day_of_week]]+=real(split[i+1])
+            self.consojson['months'][i][self.month_list[month]]+=real(split[i+1])
+        end
     end
 
     def sauvegarde()
@@ -110,6 +123,52 @@ class conso
         var file = open('conso.json',"wt")
         file.write(ligne)
         file.close()
+    end
+
+    def mqtt_publish(scope)
+        var now = tasmota.rtc()
+        var rtc=tasmota.time_dump(now['local'])
+        var second = rtc['sec']
+        var minute = rtc['min']
+        var hour = rtc['hour']
+        var day = rtc['day']
+        var month = rtc['month']
+        var year = rtc['year']
+        var day_of_week = rtc['weekday']  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var topic
+        var payload
+        for i:0..2
+            if(scope=='hours')
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,self.device+'-'+str(i+1))
+                payload=self.consojson['hours'][i][str(hour)]
+                mqtt.publish(topic,payload,true)
+                self.consojson['hours'][i][str(hour+1)]=0
+            else
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,self.device+'-'+str(i+1))
+                payload=self.consojson['hours'][i][str(hour)]
+                mqtt.publish(topic,payload,true)
+                self.consojson['hours'][i][str(0)]=0
+                topic = string.format("gw/%s/%s/%s/tele/PWDAYS",self.client,self.ville,self.device+'-'+str(i+1))
+                payload=self.consojson['days'][i][str(self.day_list[day])]
+                if day == 6
+                    self.consojson['days'][i]['Dim']=0
+                else
+                    self.consojson['days'][i][str(self.day_list[day+1])]=0
+                end
+                mqtt.publish(topic,payload,true)
+                topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",self.client,self.ville,self.device+'-'+str(i+1))
+                payload=self.consojson['months'][i][str(self.month_list[month])]
+                mqtt.publish(topic,payload,true)
+                # RAZ next month if end of the month
+                if(day==self.num_day_month[month])  # si dernier jour
+                    if(month == 12) # decembre
+                        self.consojson['months'][i]["Jan"]=0
+                    else
+                        self.consojson['months'][i][str(self.month_list[month+1])]
+                    end
+                end
+            end
+        end
     end
 
 end
