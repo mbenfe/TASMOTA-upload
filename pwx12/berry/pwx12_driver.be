@@ -20,8 +20,6 @@ class PWX12
     var root
     var topic 
 
-    var listLog
-
     var tick_midnight
     var tick_hour
     var tick_second
@@ -82,14 +80,7 @@ class PWX12
         gpio.digital_write(self.tick_midnight, 0)
         gpio.digital_write(self.tick_hour, 0)
         gpio.digital_write(self.tick_second, 0)
-
-        self.listLog = []
-
-        for i:0..3600
-            self.listLog.insert(i,0.0)
-        end
-        print('heap:',tasmota.get_free_heap())
-    end
+   end
 
     def fast_loop()
         self.read_uart(2)
