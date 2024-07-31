@@ -7,31 +7,17 @@ class logger
 
     var filelog
 
-    def real_to_bytes(myreal) 
-    # Convert the float to its integer representation
-        var int_representation = tasmota.real_to_int(myreal)
-    
-        # Extract bytes using bitwise operations
-        var byte_array = [0, 0, 0, 0]
-        byte_array[0] = (int_representation >> 24) & 0xFF
-        byte_array[1] = (int_representation >> 16) & 0xFF
-        byte_array[2] = (int_representation >> 8) & 0xFF
-        byte_array[3] = int_representation & 0xFF
-    
-        return byte_array
-    end
-
-
     def store()
         self.filelog = open('logged.log','w')
         var tas = tasmota
         var yield = tasmota.yield
-        var mybytes
+
+        var token
  
         for i:0..5760
+            token = string.format("%f\n",self.listlog[i])
             yield(tas)        # tasmota.yield() -- faster version
-            mybytes=self.real_to_bytes(self.listlog[i])
-            self.filelog.write_bytes(mybytes)
+            self.filelog.write(token)
         end
         self.filelog.close()
     end
