@@ -6,13 +6,13 @@ class logger
     var count
 
     def init()
-        self.listLog = []
+        self.listlog = []
         self.count=0
         self.bloc=0
 
         print('heap:',tasmota.get_free_heap())
         for i:0..3600
-            self.listLog.insert(i,0.0)
+            self.listlog.insert(i,0.0)
         end
         print('heap:',tasmota.get_free_heap())
    end
