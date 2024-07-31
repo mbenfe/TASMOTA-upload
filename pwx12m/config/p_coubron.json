@@ -1,0 +1,23 @@
+{ 
+    "dl12-main1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["general","froid1","froid2","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl4-eclpub2": {
+        "mode": "tri",
+        "root": "eclpub2",
+        "produit": "PWX4",
+        "techno": "ct",
+        "ratio": "1000",
+        "Nki": "0",
+        "Akv": "1",
+        "Aki": "1",
+        "Bkv": "1",
+        "Bki": "1",
+        "Ckv": "1",
+        "Cki": "1"
+    }
+ }
