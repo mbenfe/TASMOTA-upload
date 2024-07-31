@@ -235,5 +235,6 @@ tasmota.add_cmd('cal',Calibration)
 tasmota.load('pwx12_driver.be')
 tasmota.delay(500)
 tasmota.cmd('Init')
+tasmota.cmd('Teleperiod 86400')
 
 

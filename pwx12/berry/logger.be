@@ -11,7 +11,7 @@ class logger
         self.bloc=0
 
         print('heap:',tasmota.get_free_heap())
-        for i:0..14400
+        for i:0..7200
             self.listlog.insert(i,0.0)
         end
         print('heap:',tasmota.get_free_heap())
