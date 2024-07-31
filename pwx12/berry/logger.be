@@ -23,6 +23,7 @@ class logger
 
 
     def store()
+        self.filelog = open('logged.log','w')
         var tas = tasmota
         var yield = tasmota.yield
         var mybytes
@@ -32,10 +33,10 @@ class logger
             mybytes=real_to_bytes(self.lislog[i])
             self.filelog.write_bytes(mybytes)
         end
+        filelog.close()
     end
 
     def init()
-        self.filelog = open('logged.log','w')
         self.listlog = []
         self.count=0
         self.bloc=0
