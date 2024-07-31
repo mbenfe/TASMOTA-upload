@@ -137,18 +137,21 @@ class conso
         var day_of_week = rtc['weekday']  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var topic
         var payload
+
+        var stringdevice
         for i:0..2
+            stringdevice = string.format('%s-%d',self.device,i+1)
             if(scope=='hours')
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,self.device+'-'+str(i+1))
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
                 payload=self.consojson['hours'][i]['DATA'][str(hour)]
                 mqtt.publish(topic,payload,true)
                 self.consojson['hours'][i]['DATA'][str(hour+1)]=0
             else
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,self.device+'-'+str(i+1))
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
                 payload=self.consojson['hours'][i]['DATA'][str(hour)]
                 mqtt.publish(topic,payload,true)
                 self.consojson['hours'][i]['DATA'][str(0)]=0
-                topic = string.format("gw/%s/%s/%s/tele/PWDAYS",self.client,self.ville,self.device+'-'+str(i+1))
+                topic = string.format("gw/%s/%s/%s/tele/PWDAYS",self.client,self.ville,stringdevice)
                 payload=self.consojson['days'][i]['DATA'][str(self.day_list[day])]
                 if day == 6
                     self.consojson['days'][i]['DATA']['Dim']=0
@@ -156,7 +159,7 @@ class conso
                     self.consojson['days'][i]['DATA'][str(self.day_list[day+1])]=0
                 end
                 mqtt.publish(topic,payload,true)
-                topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",self.client,self.ville,self.device+'-'+str(i+1))
+                topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",self.client,self.ville,stringdevice)
                 payload=self.consojson['months'][i]['DATA'][str(self.month_list[month])]
                 mqtt.publish(topic,payload,true)
                 # RAZ next month if end of the month
