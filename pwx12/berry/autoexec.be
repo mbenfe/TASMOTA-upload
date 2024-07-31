@@ -16,23 +16,6 @@ var bsl=13
 
 
 #-------------------------------- COMMANDES -----------------------------------------#
-def SerialSendTime()
-    # put EPOC to string
-    var now = tasmota.rtc()
-    var time_raw = now['local']
-    var token = string.format('CAL TIME EPOC:%d',time_raw)
-
-    # initialise UART Rx = GPIO3 and TX=GPIO1
-    # send data to serial
-    gpio.pin_mode(rx,gpio.INPUT)
-    gpio.pin_mode(tx,gpio.OUTPUT)
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
-    ser.write(bytes().fromstring(token))
-    tasmota.resp_cmnd_done()
-    print('SENDTIME:',token)
-end
-
 def Calibration(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload),' ')
     if(argument[0]!='VA' && argument[0]!='VB' && argument[0] !='VC' && argument[0] != 'IA' && argument[0] != 'IB' && argument[0] != 'IC' && argument[0] != 'IN' 
@@ -231,9 +214,6 @@ def launch_driver()
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
 
-print('AUTOEXEC: create commande SerialSendTime')
-tasmota.add_cmd('SerialSendTime',SerialSendTime)
-
 print('AUTOEXEC: create commande Stm32Reset')
 tasmota.add_cmd('Stm32reset',Stm32Reset)
 
@@ -255,8 +235,5 @@ tasmota.add_cmd('cal',Calibration)
 tasmota.load('pwx12_driver.be')
 tasmota.delay(500)
 tasmota.cmd('Init')
-tasmota.delay(500)
-tasmota.cmd('serialsendtime')
-
 
 
