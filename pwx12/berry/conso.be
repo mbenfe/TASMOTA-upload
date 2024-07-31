@@ -144,7 +144,7 @@ class conso
             if(scope=='hours')
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
                 payload=self.consojson['hours'][i]['DATA'][str(hour)]
-                mqtt.publish(topic,payload,true)
+                mqtt.publish(topic,json.dump(payload),true)
                 self.consojson['hours'][i]['DATA'][str(hour+1)]=0
             else
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)

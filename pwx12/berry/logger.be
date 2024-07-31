@@ -5,13 +5,43 @@ class logger
     var bloc
     var count
 
+    var filelog
+
+    def real_to_bytes(myreal) 
+    # Convert the float to its integer representation
+        var int_representation = tasmota.real_to_int(myreal)
+    
+        # Extract bytes using bitwise operations
+        var byte_array = [0, 0, 0, 0]
+        byte_array[0] = (int_representation >> 24) & 0xFF
+        byte_array[1] = (int_representation >> 16) & 0xFF
+        byte_array[2] = (int_representation >> 8) & 0xFF
+        byte_array[3] = int_representation & 0xFF
+    
+        return byte_array
+    end
+
+
+    def store()
+        var tas = tasmota
+        var yield = tasmota.yield
+        var mybytes
+ 
+        for i:0..8640
+            yield(tas)        # tasmota.yield() -- faster version
+            mybytes=real_to_bytes(self.lislog[i])
+            self.filelog.write_bytes(mybytes)
+        end
+    end
+
     def init()
+        self.filelog = open('logged.log','w')
         self.listlog = []
         self.count=0
         self.bloc=0
 
         print('heap:',tasmota.get_free_heap())
-        for i:0..7200
+        for i:0..8640
             self.listlog.insert(i,0.0)
         end
         print('heap:',tasmota.get_free_heap())
@@ -20,6 +50,10 @@ class logger
     def log_data(data)
         var split
         split = string.split(data,':')
+        if(self.count<8640)
+          self.count=self.count+1
+        end
+        self.listlog.insert(self.count,real(split[1]))
     end
 
 end
