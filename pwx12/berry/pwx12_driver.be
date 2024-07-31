@@ -54,6 +54,8 @@ class PWX12
     def init()
         import conso
         self.conso = conso
+        import log
+        self.log = log
         self.rx=3
         self.tx=1
         self.rst=2
@@ -116,7 +118,7 @@ class PWX12
                         self.conso.update(mylist[i])
                         print(mylist[i])
                     else
-                        self.conso.log(mylist[i])
+                        self.log.log(mylist[i])
                     end
                 end
             end
