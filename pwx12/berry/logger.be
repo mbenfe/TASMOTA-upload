@@ -20,7 +20,6 @@ class logger
     def log_data(data)
         var split
         split = string.split(data,':')
-        print(data)
     end
 
 end

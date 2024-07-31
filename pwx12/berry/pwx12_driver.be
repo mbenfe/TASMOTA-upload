@@ -97,19 +97,14 @@ class PWX12
                 var mylist = string.split(mystring,'\n')
                 var numitem= size(mylist)
                 for i: 0..numitem-2
-                    if (mylist[i][0] == '{' )   # json received
-                        var myjson=json.load(mylist[i])
-                        if(myjson.contains('TYPE'))
-                            self.topic = string.format("gw/%s/%s/%s/tele/%s",self.client,self.ville,self.device,myjson['TYPE'])
-                        else
-                            self.topic = string.format("gw/%s/%s/%s/tele/POWER",self.client,self.ville,self.device)
-                        end
-                        mqtt.publish(self.topic,mylist[i],true)
-                    elif mylist[i][0] == 'C'
+                    if mylist[i][0] == 'C'
                         self.conso.update(mylist[i])
                         print(mylist[i])
-                    else
+                    elif mylist[i][0] == 'W'
                         self.logger.log_data(mylist[i])
+ #                       print(mylist[i])
+                    else
+                        print('PWX12->',mylist[i])
                     end
                 end
             end
