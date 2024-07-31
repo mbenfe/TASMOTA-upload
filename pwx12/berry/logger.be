@@ -30,7 +30,7 @@ class logger
  
         for i:0..8640
             yield(tas)        # tasmota.yield() -- faster version
-            mybytes=real_to_bytes(self.lislog[i])
+            mybytes=self.real_to_bytes(self.lislog[i])
             self.filelog.write_bytes(mybytes)
         end
         filelog.close()
