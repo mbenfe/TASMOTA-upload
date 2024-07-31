@@ -55,7 +55,7 @@ class conso
                 ligne = string.format('{"hours":[]}')
                 var mainjson = json.load(ligne)
                 mainjson.insert('days',[])
-                mainjson.insert('months')
+                mainjson.insert('months',[])
                 print('configuration PWX12')
                 for i:0..2
                     if configjson[device]['mode'][i]=='tri'
