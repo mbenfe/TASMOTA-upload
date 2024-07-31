@@ -64,7 +64,7 @@ class conso
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',device,configjson[device]['root'][i],self.get_days())
                         mainjson['days'].insert(i,json.load(ligne))
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',device,configjson[device]['root'][i],self.get_months())
-                        mainjson['days'].insert(i,json.load(ligne))
+                        mainjson['months'].insert(i,json.load(ligne))
                     else
                     end
                 end
