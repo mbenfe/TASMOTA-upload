@@ -28,7 +28,7 @@ class logger
         var yield = tasmota.yield
         var mybytes
  
-        for i:0..8640
+        for i:0..5760
             yield(tas)        # tasmota.yield() -- faster version
             mybytes=self.real_to_bytes(self.lislog[i])
             self.filelog.write_bytes(mybytes)
@@ -42,7 +42,7 @@ class logger
         self.bloc=0
 
         print('heap:',tasmota.get_free_heap())
-        for i:0..8640
+        for i:0..5760
             self.listlog.insert(i,0.0)
         end
         print('heap:',tasmota.get_free_heap())
@@ -51,7 +51,7 @@ class logger
     def log_data(data)
         var split
         split = string.split(data,':')
-        if(self.count<8640)
+        if(self.count<5760)
           self.count=self.count+1
         end
         self.listlog.insert(self.count,real(split[1]))
