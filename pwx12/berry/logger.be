@@ -33,7 +33,7 @@ class logger
             mybytes=self.real_to_bytes(self.lislog[i])
             self.filelog.write_bytes(mybytes)
         end
-        filelog.close()
+        self.filelog.close()
     end
 
     def init()
