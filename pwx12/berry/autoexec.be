@@ -76,6 +76,7 @@ end
 
 def BlReset(cmd, idx, payload, payload_json)
     ser.write(bytes().fromstring('SET RESET'))
+    print('SET RESET')
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
 end
@@ -88,8 +89,10 @@ def BlMode(cmd, idx, payload, payload_json)
     end
     if(argument[0]=='CAL')
         ser.write(bytes().fromstring('SET MODE CAL'))
+        print('SET MODE CAL')
     else
         ser.write(bytes().fromstring('SET MODE LOG'))
+        print('SET MODE CAL')
     end
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
