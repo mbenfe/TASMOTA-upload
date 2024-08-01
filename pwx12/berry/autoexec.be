@@ -34,7 +34,6 @@ def Calibration(cmd, idx, payload, payload_json)
     ser = serial(rx,tx,115200,serial.SERIAL_8N1)
     ser.flush()
     ser.write(bytes().fromstring(token))
-    ser.write(bytes().fromstring(token))
     print(token)
     tasmota.resp_cmnd_done()
 end
@@ -61,6 +60,10 @@ def SerialSetup(cmd, idx, payload, payload_json)
     end
     # initialise UART Rx = GPIO3 and TX=GPIO1
     # send data to serial
+    gpio.pin_mode(rx,gpio.INPUT)
+    gpio.pin_mode(tx,gpio.OUTPUT)
+    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    ser.flush()
     ser.write(bytes().fromstring(token))
     tasmota.resp_cmnd_done()
     print('SET:',token)
@@ -75,6 +78,10 @@ def Init()
 end
 
 def BlReset(cmd, idx, payload, payload_json)
+    gpio.pin_mode(rx,gpio.INPUT)
+    gpio.pin_mode(tx,gpio.OUTPUT)
+    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    ser.flush()
     ser.write(bytes().fromstring('SET RESET'))
     print('SET RESET')
     tasmota.delay(500)
@@ -87,6 +94,10 @@ def BlMode(cmd, idx, payload, payload_json)
         print('erreur arguments')
         return
     end
+    gpio.pin_mode(rx,gpio.INPUT)
+    gpio.pin_mode(tx,gpio.OUTPUT)
+    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    ser.flush()
     if(argument[0]=='CAL')
         ser.write(bytes().fromstring('SET MODE CAL'))
         print('SET MODE CAL')
