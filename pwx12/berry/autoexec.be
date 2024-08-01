@@ -74,22 +74,22 @@ def Init()
     tasmota.resp_cmnd_done()
 end
 
-def RnReset(cmd, idx, payload, payload_json)
+def BlReset(cmd, idx, payload, payload_json)
     ser.write(bytes().fromstring('SET RESET'))
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
 end
 
-def RnMode(cmd, idx, payload, payload_json)
-    var argument = string.split(payload,' ')
-    if(argument[0]!='MONO' && argument[0] !='TRI' )
+def BlMode(cmd, idx, payload, payload_json)
+    var argument = string.split(string.toupper(payload),' ')
+    if(argument[0]!='CAL' && argument[0] !='LOG' )
         print('erreur arguments')
         return
     end
-    if(argument[0]=='MONO')
-        ser.write(bytes().fromstring('SET MODE MONO'))
+    if(argument[0]=='CAL')
+        ser.write(bytes().fromstring('SET MODE CAL'))
     else
-        ser.write(bytes().fromstring('SET MODE TRI'))
+        ser.write(bytes().fromstring('SET MODE LOG'))
     end
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
@@ -226,8 +226,8 @@ tasmota.add_cmd('sendconfig',sendconfig)
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
 tasmota.add_cmd('SerialSetup',SerialSetup)
-tasmota.add_cmd('RnReset',RnReset)
-tasmota.add_cmd('RnMode',RnMode)
+tasmota.add_cmd('BlReset',BlReset)
+tasmota.add_cmd('BlMode',BlMode)
 tasmota.add_cmd('Init',Init)
 tasmota.add_cmd('cal',Calibration)
 
