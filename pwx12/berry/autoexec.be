@@ -78,6 +78,7 @@ def readcal()
     ser.flush()
     ser.write(bytes().fromstring("CAL READ"))
     print('CAL READ')
+    tasmota.resp_cmnd_done()
 end
 
 def BlReset(cmd, idx, payload, payload_json)
@@ -85,7 +86,6 @@ def BlReset(cmd, idx, payload, payload_json)
     ser.flush()
     ser.write(bytes().fromstring("SET RESET"))
     print("SET RESET")
-    tasmota.delay(500)
     tasmota.resp_cmnd_done()
 end
 
