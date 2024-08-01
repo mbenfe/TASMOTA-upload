@@ -232,18 +232,31 @@ def launch_driver()
     tasmota.load("stm32_driver.be")
  end
 
+ def help()
+    print("Stm32reset:reset du STM32")
+    print("getfile <path/filename>: load file")
+    print("sendconfig p_<name>.json: configure pwx")
+    print("ville <nom>: set ville")
+    print("device <nom>: set device name")
+    print("SerialSetup",SerialSetup)
+    print("BlReset: reset the BL6552 chip")
+    print("BlMode <mode> (cal ou log): set mode ")
+    print("Init",Init)
+    print("cal <parameter> <value> (VA, VB ou VC)")
+    print("ex: cal VA 235")
+    print("cal <device> <parameter> <value> (IA, IB ou IC)")
+    print("ex: cal IA 1 5.1")
+    print("readcal: affiche les parametres de calibration")
+    print("storecal: sauvegarde la calibration")
+    print("h: this help")
+ end
+
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
 
-print("AUTOEXEC: create commande Stm32Reset")
 tasmota.add_cmd("Stm32reset",Stm32Reset)
-
-print("AUTOEXEC: create commande getfile")
 tasmota.add_cmd("getfile",getfile)
-
-print("AUTOEXEC: create commande sendconfig")
 tasmota.add_cmd("sendconfig",sendconfig)
-
 tasmota.add_cmd("ville",ville)
 tasmota.add_cmd("device",device)
 tasmota.add_cmd("SerialSetup",SerialSetup)
@@ -252,6 +265,8 @@ tasmota.add_cmd("BlMode",BlMode)
 tasmota.add_cmd("Init",Init)
 tasmota.add_cmd("cal",Calibration)
 tasmota.add_cmd("readcal",readcal)
+tasmota.add_cmd("storecal",storecal)
+tasmota.add_cmd("h",help)
 
 ############################################################
 tasmota.load("pwx12_driver.be")
