@@ -73,6 +73,12 @@ def Init()
     tasmota.resp_cmnd_done()
 end
 
+def readcal()
+    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    ser.flush()
+    ser.write(bytes().fromstring("CAL READ"))
+end
+
 def BlReset(cmd, idx, payload, payload_json)
     ser = serial(rx,tx,115200,serial.SERIAL_8N1)
     ser.flush()
