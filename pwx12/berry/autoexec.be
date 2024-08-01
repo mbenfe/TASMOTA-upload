@@ -242,6 +242,7 @@ tasmota.add_cmd("BlReset",BlReset)
 tasmota.add_cmd("BlMode",BlMode)
 tasmota.add_cmd("Init",Init)
 tasmota.add_cmd("cal",Calibration)
+tasmota.add_cmd("readcal",readcal)
 
 ############################################################
 tasmota.load("pwx12_driver.be")
