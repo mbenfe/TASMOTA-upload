@@ -157,30 +157,31 @@ class conso
             stringdevice = string.format("%s-%d",self.device,i+1)
             if(scope=="hours")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
-                print('topic:',topic)
                 payload=self.consojson["hours"][i]["DATA"]
-                print('payload:',payload)
-                print(self.device)
-                print(self.configjson[self.device]["root"][i])
                 ligne = string.format("{'Device': '%s','Name':'%s','TYPE':'PWHOURS','DATA':%s}",self.device,self.configjson[self.device]["root"][i],json.dump(payload))
                 mqtt.publish(topic,ligne,true)
                 self.consojson["hours"][i]["DATA"][str(hour+1)]=0
             else
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
-                payload=self.consojson["hours"][i]["DATA"][str(hour)]
-                mqtt.publish(topic,payload,true)
+                payload=self.consojson["hours"][i]["DATA"]
+                ligne = string.format("{'Device': '%s','Name':'%s','TYPE':'PWHOURS','DATA':%s}",self.device,self.configjson[self.device]["root"][i],json.dump(payload))
+                mqtt.publish(topic,ligne,true)
                 self.consojson["hours"][i]["DATA"][str(0)]=0
+
                 topic = string.format("gw/%s/%s/%s/tele/PWDAYS",self.client,self.ville,stringdevice)
-                payload=self.consojson["days"][i]["DATA"][str(self.day_list[day])]
+                payload=self.consojson["days"][i]["DATA"]
+                ligne = string.format("{'Device': '%s','Name':'%s','TYPE':'PWDAYS','DATA':%s}",self.device,self.configjson[self.device]["root"][i],json.dump(payload))
+                mqtt.publish(topic,ligne,true)
                 if day == 6
                     self.consojson["days"][i]["DATA"]["Dim"]=0
                 else
                     self.consojson["days"][i]["DATA"][str(self.day_list[day+1])]=0
                 end
-                mqtt.publish(topic,payload,true)
+
                 topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",self.client,self.ville,stringdevice)
-                payload=self.consojson["months"][i]["DATA"][str(self.month_list[month])]
-                mqtt.publish(topic,payload,true)
+                payload=self.consojson["months"][i]["DATA"]
+                ligne = string.format("{'Device': '%s','Name':'%s','TYPE':'PWMONTHS','DATA':%s}",self.device,self.configjson[self.device]["root"][i],json.dump(payload))
+                mqtt.publish(topic,ligne,true)
                 # RAZ next month if end of the month
                 if(day==self.num_day_month[month])  # si dernier jour
                     if(month == 12) # decembre
