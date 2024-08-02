@@ -152,7 +152,11 @@ class conso
             stringdevice = string.format("%s-%d",self.device,i+1)
             if(scope=="hours")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
+                print('topic:',topic)
                 payload=self.consojson["hours"][i]["DATA"]
+                print('payload:'payload)
+                print(self.device)
+                print(self.configjson[self.device]["root"][i])
                 ligne = string.format("{'Device': '%s','Name':'%s','TYPE':'PWHOURS','DATA':%s}",self.device,self.configjson[self.device]["root"][i],json.dump(payload))
                 mqtt.publish(topic,ligne,true)
                 self.consojson["hours"][i]["DATA"][str(hour+1)]=0
