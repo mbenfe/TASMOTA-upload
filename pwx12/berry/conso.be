@@ -96,6 +96,11 @@ class conso
             self.consojson= json.load(ligne)
             print(self.consojson)
             file.close()
+            var name = string.format("p_%s.json",self.ville)
+            file = open(name,'rt')
+            ligne=file.read()
+            self.configjson=json.load(ligne)
+            file.close()
         else
             ligne = self.init_conso()
             file = open("conso.json","wt")
