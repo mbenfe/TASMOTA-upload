@@ -1,12 +1,12 @@
 #---------------------------------#
-# VERSION SNX                     #
+# VERSION PWX12M                   #
 #---------------------------------#
 
 import mqtt
 import string
 import json
 
-class STM32
+class PWX12M
     var ser
     var rx
     var tx
@@ -14,10 +14,13 @@ class STM32
     var rst
 
     var client 
-    var log
+    var logger
     var ville
     var device
+    var root
     var topic 
+
+    var conso
 
     def loadconfig()
         import json
@@ -43,25 +46,28 @@ class STM32
     end
 
     def init()
+        import conso
+        self.conso = conso
+        import logger
+        self.logger = logger
         self.rx=3
         self.tx=1
         self.rst=2
         self.bsl=13
-        self.log=15
 
         self.loadconfig()
 
         print('DRIVER: serial init done')
-        self.ser = serial(self.rx,self.tx,921600,serial.SERIAL_8N1) 
+        print('heap:',tasmota.get_free_heap())
+        self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1) 
     
         # setup boot pins for stm32: reset disable & boot normal
         gpio.pin_mode(self.rst,gpio.OUTPUT)
         gpio.pin_mode(self.bsl,gpio.OUTPUT)
-        gpio.pin_mode(self.log,gpio.OUTPUT)
         gpio.digital_write(self.bsl, 0)
         gpio.digital_write(self.rst, 1)
-        gpio.digital_write(self.log, 1)
-    end
+
+   end
 
     def fast_loop()
         self.read_uart(2)
@@ -78,17 +84,14 @@ class STM32
                 var mylist = string.split(mystring,'\n')
                 var numitem= size(mylist)
                 for i: 0..numitem-2
-                    if (mylist[i][0] == '{' )   # json received
-                        var myjson=json.load(mylist[i])
-                        if(myjson.contains('TYPE'))
-                            self.topic = string.format("gw/%s/%s/%s/tele/%s",self.client,self.ville,myjson['Name'],myjson['TYPE'])
-                        else
-                            self.topic = string.format("gw/%s/%s/%s/tele/POWER",self.client,self.ville,myjson['Name'])
-                        end
-                        mqtt.publish(self.topic,mylist[i],true)
+                    if mylist[i][0] == 'C'
+                        self.conso.update(mylist[i])
+                        print(mylist[i])
+                    elif mylist[i][0] == 'W'
+                        self.logger.log_data(mylist[i])
+ #                       print(mylist[i])
                     else
-                        var token = string.format('STM32-> %s',mylist[i])
-                        print(token)
+                        print('PWX12->',mylist[i])
                     end
                 end
             end
@@ -96,14 +99,39 @@ class STM32
         end
     end
 
-    def get_24hlog()
-         gpio.digital_write(self.statistic, 1)
-         tasmota.delay(1)
-         gpio.digital_write(self.statistic, 0)
+    def midnight()
+         self.conso.mqtt_publish('all')
     end
+
+    def hour()
+        var now = tasmota.rtc()
+        var rtc=tasmota.time_dump(now['local'])
+        var hour = rtc['hour']
+        # publish if not midnight
+        if hour != 23
+            self.conso.mqtt_publish('hours')
+        end
+    end
+
+    def every_second()
+        self.ser.write("T")
+    end
+
+    def every_4hours()
+        self.conso.sauvegarde()
+    end
+
+    def testlog()
+        self.logger.store()
+    end
+
 end
 
-stm32 = STM32()
-tasmota.add_driver(stm32)
-tasmota.add_fast_loop(/-> stm32.fast_loop())
-# tasmota.add_cron("59 59 23 * * *",  /-> stm32.get_statistic(), "every_day")
+pwx12m = PWX12M()
+tasmota.add_driver(pwx12m)
+tasmota.add_fast_loop(/-> pwx12m.fast_loop())
+tasmota.add_cron("59 59 23 * * *",  /-> pwx12m.midnight(), "every_day")
+tasmota.add_cron("59 59 * * * *",   /-> pwx12m.hour(), "every_hour")
+tasmota.add_cron("01 01 */4 * * *",   /-> pwx12m.every_4hours(), "every_4_hours")
+
+return pwx12m

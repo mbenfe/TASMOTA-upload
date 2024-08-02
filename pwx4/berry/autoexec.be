@@ -257,7 +257,7 @@ tasmota.add_cmd('Init',Init)
 tasmota.add_cmd('cal',Calibration)
 
 ############################################################
-tasmota.load('stm32_driver.be')
+tasmota.load('pwx4_driver.be')
 tasmota.delay(500)
 tasmota.cmd('Init')
 tasmota.delay(500)

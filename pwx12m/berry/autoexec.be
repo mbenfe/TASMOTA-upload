@@ -232,7 +232,7 @@ tasmota.add_cmd('Init',Init)
 tasmota.add_cmd('cal',Calibration)
 
 ############################################################
-tasmota.load('pwx12_driver.be')
+tasmota.load('pwx12m_driver.be')
 tasmota.delay(500)
 tasmota.cmd('Init')
 tasmota.cmd('Teleperiod 0')

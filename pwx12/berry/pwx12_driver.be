@@ -20,6 +20,10 @@ class PWX12
     var root
     var topic 
 
+    var tick_midnight
+    var tick_hour
+    var tick_second
+
     var conso
 
     def loadconfig()
@@ -55,6 +59,10 @@ class PWX12
         self.rst=2
         self.bsl=13
 
+        self.tick_midnight=15
+        self.tick_hour=33
+        self.tick_second=32
+
         self.loadconfig()
 
         print('DRIVER: serial init done')
@@ -64,9 +72,14 @@ class PWX12
         # setup boot pins for stm32: reset disable & boot normal
         gpio.pin_mode(self.rst,gpio.OUTPUT)
         gpio.pin_mode(self.bsl,gpio.OUTPUT)
+        gpio.pin_mode(self.tick_midnight,gpio.OUTPUT)
+        gpio.pin_mode(self.tick_hour,gpio.OUTPUT)
+        gpio.pin_mode(self.tick_second,gpio.OUTPUT)
         gpio.digital_write(self.bsl, 0)
         gpio.digital_write(self.rst, 1)
-
+        gpio.digital_write(self.tick_midnight, 0)
+        gpio.digital_write(self.tick_hour, 0)
+        gpio.digital_write(self.tick_second, 0)
    end
 
     def fast_loop()
@@ -114,7 +127,9 @@ class PWX12
     end
 
     def every_second()
-        self.ser.write("T")
+       gpio.digital_write(self.tick_second, 1)
+        tasmota.delay(1)
+        gpio.digital_write(self.tick_second, 0)
     end
 
     def every_4hours()
