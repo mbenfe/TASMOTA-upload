@@ -145,6 +145,7 @@ class conso
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var topic
         var payload
+        var ligne
 
         var stringdevice
         for i:0..2
