@@ -154,7 +154,7 @@ class conso
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
                 print('topic:',topic)
                 payload=self.consojson["hours"][i]["DATA"]
-                print('payload:'payload)
+                print('payload:',payload)
                 print(self.device)
                 print(self.configjson[self.device]["root"][i])
                 ligne = string.format("{'Device': '%s','Name':'%s','TYPE':'PWHOURS','DATA':%s}",self.device,self.configjson[self.device]["root"][i],json.dump(payload))
