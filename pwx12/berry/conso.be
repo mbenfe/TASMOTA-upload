@@ -82,7 +82,7 @@ class conso
         import path
         var ligne
         var file
-        var file = open("esp32.cfg","rt")
+        file = open("esp32.cfg","rt")
         var ligne = file.read()
         var esp32json = json.load(ligne)
         self.client = esp32json["client"]
