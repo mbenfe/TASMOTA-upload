@@ -83,7 +83,7 @@ class conso
         var ligne
         var file
         file = open("esp32.cfg","rt")
-        var ligne = file.read()
+        ligne = file.read()
         var esp32json = json.load(ligne)
         self.client = esp32json["client"]
         self.ville = esp32json["ville"]
