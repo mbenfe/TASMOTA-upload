@@ -29,7 +29,7 @@ def Calibration(cmd, idx, payload, payload_json)
     else
         token = string.format("CAL %s %s %s",argument[0],argument[1],argument[2])
     end
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
     ser.flush()
     ser.write(bytes().fromstring(token))
     print(token)
@@ -58,7 +58,7 @@ def SerialSetup(cmd, idx, payload, payload_json)
     end
     # initialise UART Rx = GPIO3 and TX=GPIO1
     # send data to serial
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
     ser.flush()
     ser.write(bytes().fromstring(token))
     tasmota.resp_cmnd_done()
@@ -74,7 +74,7 @@ def Init()
 end
 
 def readcal()
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
     ser.flush()
     ser.write(bytes().fromstring("CAL READ"))
     print('CAL READ')
@@ -82,7 +82,7 @@ def readcal()
 end
 
 def storecal()
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
     ser.flush()
     ser.write(bytes().fromstring("CAL STORE"))
     print('CAL STORE')
@@ -90,7 +90,7 @@ def storecal()
 end
 
 def BlReset(cmd, idx, payload, payload_json)
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
     ser.flush()
     ser.write(bytes().fromstring("SET RESET"))
     print("SET RESET")
@@ -103,7 +103,7 @@ def BlMode(cmd, idx, payload, payload_json)
         print("erreur arguments")
         return
     end
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
     ser.flush()
     if(argument[0]=="CAL")
         ser.write(bytes().fromstring("SET MODE CAL"))
@@ -184,7 +184,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     var myjson
     var device
     var total = "";
-    var ser
+    # var ser
     var header
     var trouve = false
     print("send:",payload)
@@ -214,7 +214,7 @@ def sendconfig(cmd, idx,payload, payload_json)
         end
     end
     if trouve == true
-        ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+        # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
         ser.flush()
         var mybytes=bytes().fromstring(total)
         ser.write(mybytes)
