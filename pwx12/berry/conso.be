@@ -53,7 +53,7 @@ class conso
             var device = esp32json["device"]
             print(self.configjson[device])
             if self.configjson[device]["produit"]=="PWX12"
-                ligne = string.format("{"hours":[]}")
+                ligne = string.format('{"hours":[]}')
                 var mainjson = json.load(ligne)
                 mainjson.insert("days",[])
                 mainjson.insert("months",[])
