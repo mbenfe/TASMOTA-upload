@@ -20,6 +20,13 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
+    "dl12-boulangerie2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["fermentatio","CF","prises","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
     "dl4-eclpub2": {
         "mode": "tri",
         "root": "eclpub2",
