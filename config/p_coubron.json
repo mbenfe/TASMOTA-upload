@@ -22,11 +22,32 @@
     },
     "dl12-boulangerie2": {
         "mode": ["tri","tri","tri"],
-        "root": ["fermentatio","CF","prises","*"],
+        "root": ["fermentation","CF","prises","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
+    "dl12-galerie": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gen_ga","ecl1","ecl2","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl4-galerie": {
+        "mode": "tri",
+        "root": "eclext",
+        "produit": "PWX4",
+        "techno": "ct",
+        "ratio": "1000",
+        "Nki": "0",
+        "Akv": "1",
+        "Aki": "1",
+        "Bkv": "1",
+        "Bki": "1",
+        "Ckv": "1",
+        "Cki": "1"
+    }
     "dl4-eclpub2": {
         "mode": "tri",
         "root": "eclpub2",
