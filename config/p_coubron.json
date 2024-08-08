@@ -1,5 +1,19 @@
 { 
-    "dl12-main1": {
+    "dl12-maind1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["ecl1","ecl2","ecl3","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-maind2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["ecl4","eclext","pc","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-maing1": {
         "mode": ["tri","tri","tri"],
         "root": ["general","froid1","froid2","*"],
         "produit": "PWX12",
