@@ -8,7 +8,14 @@
     },
     "dl12-bureau": {
         "mode": ["tri","tri","tri"],
-        "root": ["general","eclairage","chauffage","*"],
+        "root": ["gen_bu","eclairage","chauffage","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-boulangerie1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gen_bo","f_rotatif","f_soles","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]

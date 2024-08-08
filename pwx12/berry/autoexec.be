@@ -110,7 +110,7 @@ def BlMode(cmd, idx, payload, payload_json)
         print("SET MODE CAL")
     else
         ser.write(bytes().fromstring("SET MODE LOG"))
-        print("SET MODE CAL")
+        print("SET MODE LOG")
     end
     tasmota.resp_cmnd_done()
 end
