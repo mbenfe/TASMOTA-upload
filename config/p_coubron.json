@@ -3,6 +3,13 @@
         "mode": ["tri","tri","tri"],
         "root": ["general","froid1","froid2","*"],
         "produit": "PWX12",
+        "techno": ["rogowski","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-bureau": {
+        "mode": ["tri","tri","tri"],
+        "root": ["general","eclairage","chauffage","*"],
+        "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
