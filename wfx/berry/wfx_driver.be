@@ -9,7 +9,8 @@ import json
 class WFX
     var mapID
     var mapFunc
-    var ser
+    var ser1
+    var ser2
     var rst_1  
     var bsl_1  
     var rst_2  
@@ -46,14 +47,15 @@ class WFX
     end
 
     def init()
-        self.rst_1=3   
+        self.rst_1=22   
         self.bsl_1=0   
         self.rst_2=2   
         self.bsl_2=14   
     
 
         print('DRIVER: serial init done')
-        self.ser = serial(36,1,115200,serial.SERIAL_8N1)
+        self.ser1 = serial(3,1,115200,serial.SERIAL_8N1)
+        self.ser2 = serial(13,12,115200,serial.SERIAL_8N1)
     
         # setup boot pins for stm32: reset disable & boot normal
 
@@ -65,7 +67,6 @@ class WFX
         gpio.digital_write(self.rst_1, 1)
         gpio.digital_write(self.bsl_2, 0)
         gpio.digital_write(self.rst_2, 1)
-        gpio.digital_write(self.ready,1)
 
     #    tasmota.add_fast_loop(/-> self.fast_loop())
     end
@@ -80,12 +81,11 @@ class WFX
         var numitem
         var myjson
         var topic
-        gpio.digital_write(self.ready,0)
-        if self.ser.available()
+         if self.ser1.available()
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            var buffer = self.ser.read()
-            self.ser.flush()
+            var buffer = self.ser1.read()
+            self.ser1.flush()
         end
     end
 
