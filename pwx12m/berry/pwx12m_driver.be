@@ -113,10 +113,6 @@ class PWX12M
         end
     end
 
-    def every_second()
-        self.ser.write("T")
-    end
-
     def every_4hours()
         self.conso.sauvegarde()
     end

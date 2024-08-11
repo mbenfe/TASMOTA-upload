@@ -20,7 +20,7 @@ var rst_2=2
 var bsl_2=14   
 
 
--------------------------------- COMMANDES -----------------------------------------#
+#-------------------------------- COMMANDES -----------------------------------------#
 def Stm32Reset(cmd, idx, payload, payload_json)
     var argument = string.split(payload,' ')
     if argument.size() < 2
