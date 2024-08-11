@@ -18,11 +18,11 @@
         "root": ["main","froid1","froid2","*"],
         "produit": "PWX12",
         "techno": ["rogowski","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "ratio": ["1000","2000","2000","1000"]
     },
     "dl12-maing2": {
         "mode": ["tri","tri","tri"],
-        "root": ["station","lavage","tg","*"],
+        "root": ["lavage","tg","station","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
@@ -50,14 +50,14 @@
     },
     "dl12-galerie": {
         "mode": ["tri","tri","tri"],
-        "root": ["gen_ga","ecl1","ecl2","*"],
+        "root": ["ecl2","ecl1","eclext","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
     "dl4-galerie": {
         "mode": "tri",
-        "root": "eclext",
+        "root": "gen_ga",
         "produit": "PWX4",
         "techno": "ct",
         "ratio": "1000",
