@@ -113,12 +113,73 @@ def getfile(cmd, idx,payload, payload_json)
     return st
 end
 
+def sendconfig(cmd, idx,payload, payload_json)
+    import string
+    import json
+    var file
+    var buffer
+    var myjson
+    var device
+    var total = "";
+    var ser
+    var header
+    var trouve = false
+    var argument = string.split(payload,' ')
+    if argument.size() < 2
+        print("erreur d'arguments")
+        return
+    end
+    print("send:",argument[1])
+    ############################ fichier config ###################
+    file = open("esp32.cfg","rt")
+    buffer = file.read()
+    myjson=json.load(buffer)
+    if argument[0]=='1'
+        device = myjson["device1"]
+    else
+        device = myjson["device2"]
+    end
+    file.close()
+
+    file = open(payload,"rt")
+    if file == nil
+        print("fichier non existant:",payload)
+        return
+    end
+    buffer = file.read()
+    file.close()
+    myjson = json.load(buffer)
+    for key:myjson.keys()
+        if key == device
+            trouve = true
+          total+="CONFIG"+" "+key+"_"
+                    +myjson[key]["root"][0]+"_"+myjson[key]["root"][1]+"_"+myjson[key]["root"][2]+"_"+myjson[key]["root"][3]+"_"
+                    +myjson[key]["produit"]+"_"
+                    +myjson[key]["techno"][0]+"_"+myjson[key]["techno"][1]+"_"+myjson[key]["techno"][2]+"_"+myjson[key]["techno"][3]+"_"
+                    +myjson[key]["ratio"][0]+"_"+myjson[key]["ratio"][1]+"_"+myjson[key]["ratio"][2]+"_"+myjson[key]["ratio"][3]
+        end
+    end
+    if trouve == true
+        # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+        ser.flush()
+        var mybytes=bytes().fromstring(total)
+        ser.write(mybytes)
+        print(total)
+        tasmota.resp_cmnd("config sent")
+    else
+        print("device ",device," non touvé")
+        tasmota.resp_cmnd("config not sent")
+    end
+end
+
+
  tasmota.cmd("seriallog 0")
  print("serial log disabled")
  tasmota.cmd("timezone 2")
  print("timezone set")
   
 # tasmota.add_cmd('Stm32reset',Stm32Reset)
+tasmota.add_cmd("sendconfig",sendconfig)
 tasmota.add_cmd('getfile',getfile)
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
