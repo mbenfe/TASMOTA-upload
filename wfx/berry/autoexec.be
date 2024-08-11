@@ -7,43 +7,51 @@ import mqtt
 import json
 import gpio
 
-# var ser                # serial object
+var ser                # serial object
 
-# var rx=4    
-# var tx=5    
-# var rst_in=19   
-# var bsl_in=21   
-# var rst_out=33   
-# var bsl_out=32   
+var rx1=3    
+var tx1=1    
+var rx1=13    
+var tx1=12    
+
+var rst_1=22   
+var bsl_1=0   
+var rst_2=2   
+var bsl_2=14   
 
 
-#-------------------------------- COMMANDES -----------------------------------------#
-# def Stm32Reset(cmd, idx, payload, payload_json)
-#     if (payload=='1')
-#         gpio.pin_mode(rst_in,gpio.OUTPUT)
-#         gpio.pin_mode(bsl_in,gpio.OUTPUT)
-#         gpio.digital_write(rst_in, 1)
-#         gpio.digital_write(bsl_in, 0)
+-------------------------------- COMMANDES -----------------------------------------#
+def Stm32Reset(cmd, idx, payload, payload_json)
+    var argument = string.split(payload,' ')
+    if argument.size() < 2
+        print("erreur d'arguments")
+        return
+    end
+    if (argument[0]=='1')
+        gpio.pin_mode(rst_1,gpio.OUTPUT)
+        gpio.pin_mode(bsl_1,gpio.OUTPUT)
+        gpio.digital_write(rst_1, 1)
+        gpio.digital_write(bsl_1, 0)
   
-#         gpio.digital_write(rst_in, 0)
-#         tasmota.delay(100)               # wait 10ms
-#         gpio.digital_write(rst_in, 1)
-#         tasmota.delay(100)               # wait 10ms
-#         tasmota.resp_cmnd('STM32 IN reset')
-#     end
-#     if (payload=='2')
-#         gpio.pin_mode(rst_out,gpio.OUTPUT)
-#         gpio.pin_mode(bsl_out,gpio.OUTPUT)
-#         gpio.digital_write(rst_out, 1)
-#         gpio.digital_write(bsl_out, 0)
+        gpio.digital_write(rst_1, 0)
+        tasmota.delay(100)               # wait 10ms
+        gpio.digital_write(rst_1, 1)
+        tasmota.delay(100)               # wait 10ms
+        tasmota.resp_cmnd('STM32 1 reset')
+    end
+    if (argument[0]=='2')
+        gpio.pin_mode(rst_2,gpio.OUTPUT)
+        gpio.pin_mode(bsl_2,gpio.OUTPUT)
+        gpio.digital_write(rst_2, 1)
+        gpio.digital_write(bsl_2, 0)
   
-#         gpio.digital_write(rst_out, 0)
-#         tasmota.delay(100)               # wait 10ms
-#         gpio.digital_write(rst_out, 1)
-#         tasmota.delay(100)               # wait 10ms
-#         tasmota.resp_cmnd('STM32 OUT reset')
-#     end
-# end
+        gpio.digital_write(rst_2, 0)
+        tasmota.delay(100)               # wait 10ms
+        gpio.digital_write(rst_2, 1)
+        tasmota.delay(100)               # wait 10ms
+        tasmota.resp_cmnd('STM32 2 reset')
+    end
+end
 
 def ville(cmd, idx,payload, payload_json)
     import json
@@ -61,10 +69,19 @@ end
 
 def device(cmd, idx,payload, payload_json)
     import json
+    var argument = string.split(payload,' ')
     var file = open("esp32.cfg","rt")
     var buffer = file.read()
     var myjson=json.load(buffer)
-    myjson["device"]=payload
+    if argument.size < 2
+        print("erreur d'arguments")
+        return
+    end
+    if argument[0] == "1"
+        myjson["device1"]=argument[1]
+    else
+        myjson["device2"]=argument[1]
+    end
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg","wt")
