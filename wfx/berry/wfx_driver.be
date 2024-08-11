@@ -6,6 +6,7 @@ import mqtt
 import string
 import json
 
+
 class WFX
     var mapID
     var mapFunc
@@ -20,6 +21,9 @@ class WFX
     var device1
     var device2
     var topic 
+
+    var logger
+    var conso
 
     def loadconfig()
         import json
@@ -47,6 +51,11 @@ class WFX
     end
 
     def init()
+        import conso
+        self.conso = conso
+        import logger
+        self.logger = logger
+
         self.rst_1=22   
         self.bsl_1=0   
         self.rst_2=2   
@@ -72,10 +81,10 @@ class WFX
     end
 
     def fast_loop()
-        self.read_uart(2)
+        self.read_uart1(2)
     end
 
-    def read_uart(timeout)
+    def read_uart1(timeout)
         var mystring
         var mylist
         var numitem
@@ -89,8 +98,51 @@ class WFX
         end
     end
 
+    def read_uart2(timeout)
+        var mystring
+        var mylist
+        var numitem
+        var myjson
+        var topic
+         if self.ser2.available()
+            var due = tasmota.millis() + timeout
+            while !tasmota.time_reached(due) end
+            var buffer = self.ser.read()
+            self.ser.flush()
+            var mystring = buffer.asstring()
+            var mylist = string.split(mystring,'\n')
+            var numitem= size(mylist)
+            for i: 0..numitem-2
+                if mylist[i][0] == 'C'
+                    self.conso.update(mylist[i])
+                    print(mylist[i])
+                elif mylist[i][0] == 'W'
+                    self.logger.log_data(mylist[i])
+ #                       print(mylist[i])
+                else
+                    print('PWX12->',mylist[i])
+                end
+            end
+        end
+    end
+
+    def every_second()
+    end
+
+    def every_4hours()
+        self.conso.sauvegarde()
+    end
+
+    def testlog()
+        self.logger.store()
+    end
+
 end
 
 wfx = WFX()
 tasmota.add_driver(wfx)
 tasmota.add_fast_loop(/-> wfx.fast_loop())
+tasmota.add_cron("59 59 23 * * *",  /-> pwx12m.midnight(), "every_day")
+tasmota.add_cron("59 59 * * * *",   /-> pwx12m.hour(), "every_hour")
+tasmota.add_cron("01 01 */4 * * *",   /-> pwx12m.every_4hours(), "every_4_hours")
+return wfx

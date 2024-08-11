@@ -14,12 +14,12 @@ class PWX12M
     var rst
 
     var client 
-    var logger
     var ville
     var device
     var root
     var topic 
 
+    var logger
     var conso
 
     def loadconfig()
