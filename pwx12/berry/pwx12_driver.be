@@ -74,12 +74,12 @@ class PWX12
         gpio.pin_mode(self.bsl,gpio.OUTPUT)
         gpio.pin_mode(self.tick_midnight,gpio.OUTPUT)
         gpio.pin_mode(self.tick_hour,gpio.OUTPUT)
-        gpio.pin_mode(self.tick_second,gpio.OUTPUT)
+        # gpio.pin_mode(self.tick_second,gpio.OUTPUT)
         gpio.digital_write(self.bsl, 0)
         gpio.digital_write(self.rst, 1)
         gpio.digital_write(self.tick_midnight, 0)
         gpio.digital_write(self.tick_hour, 0)
-        gpio.digital_write(self.tick_second, 0)
+        # gpio.digital_write(self.tick_second, 0)
    end
 
     def fast_loop()
@@ -127,9 +127,9 @@ class PWX12
     end
 
     def every_second()
-       gpio.digital_write(self.tick_second, 1)
-        tasmota.delay(1)
-        gpio.digital_write(self.tick_second, 0)
+    #    gpio.digital_write(self.tick_second, 1)
+    #     tasmota.delay(1)
+    #     gpio.digital_write(self.tick_second, 0)
     end
 
     def every_4hours()
