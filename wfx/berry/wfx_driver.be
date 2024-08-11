@@ -46,10 +46,10 @@ class WFX
     end
 
     def init()
-        self.rst_1=19   
-        self.bsl_1=21   
-        self.rst_2=33   
-        self.bsl_2=32   
+        self.rst_1=3   
+        self.bsl_1=0   
+        self.rst_2=2   
+        self.bsl_2=14   
     
 
         print('DRIVER: serial init done')
