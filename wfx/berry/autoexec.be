@@ -7,14 +7,14 @@ import mqtt
 import json
 import gpio
 
-var ser                # serial object
+# var ser                # serial object
 
-var rx=4    
-var tx=5    
-var rst_in=19   
-var bsl_in=21   
-var rst_out=33   
-var bsl_out=32   
+# var rx=4    
+# var tx=5    
+# var rst_in=19   
+# var bsl_in=21   
+# var rst_out=33   
+# var bsl_out=32   
 
 
 #-------------------------------- COMMANDES -----------------------------------------#
