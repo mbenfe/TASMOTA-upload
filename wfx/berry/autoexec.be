@@ -23,7 +23,17 @@ var bsl_2=14
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def BlReset(cmd, idx, payload, payload_json)
+    var ser
     var argument = string.split(string.toupper(payload)," ")
+    if argument.size() < 2
+        print("erreur d'arguments")
+        return
+    end
+    if argument[0] == '1'
+        ser = ser1
+    else
+        ser = ser2
+    end
     ser.flush()
     ser.write(bytes().fromstring("SET RESET"))
     print("SET RESET")
