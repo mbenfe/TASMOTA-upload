@@ -89,29 +89,17 @@ class WFX
         var mylist
         var numitem
         var myjson
+        var due
         var topic
-         if self.ser1.available()
-            var due = tasmota.millis() + timeout
+        var buffer
+        if self.ser1.available()
+            due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            var buffer = self.ser1.read()
+            buffer = self.ser1.read()
             self.ser1.flush()
-        end
-    end
-
-    def read_uart2(timeout)
-        var mystring
-        var mylist
-        var numitem
-        var myjson
-        var topic
-         if self.ser2.available()
-            var due = tasmota.millis() + timeout
-            while !tasmota.time_reached(due) end
-            var buffer = self.ser.read()
-            self.ser.flush()
-            var mystring = buffer.asstring()
-            var mylist = string.split(mystring,'\n')
-            var numitem= size(mylist)
+            mystring = buffer.asstring()
+            mylist = string.split(mystring,'\n')
+            numitem= size(mylist)
             for i: 0..numitem-2
                 if mylist[i][0] == 'C'
                     self.conso.update(mylist[i])
@@ -120,7 +108,37 @@ class WFX
                     self.logger.log_data(mylist[i])
  #                       print(mylist[i])
                 else
-                    print('PWX12->',mylist[i])
+                    print('WFX->',mylist[i])
+                end
+            end
+        end
+    end
+
+    def read_uart2(timeout)
+        var mystring
+        var mylist
+        var numitem
+        var myjson
+        var due
+        var topic
+        var buffer
+        if self.ser2.available()
+            due = tasmota.millis() + timeout
+            while !tasmota.time_reached(due) end
+            buffer = self.ser2.read()
+            self.ser2.flush()
+            mystring = buffer.asstring()
+            mylist = string.split(mystring,'\n')
+            numitem= size(mylist)
+            for i: 0..numitem-2
+                if mylist[i][0] == 'C'
+                    self.conso.update(mylist[i])
+                    print(mylist[i])
+                elif mylist[i][0] == 'W'
+                    self.logger.log_data(mylist[i])
+ #                       print(mylist[i])
+                else
+                    print('WFX->',mylist[i])
                 end
             end
         end
