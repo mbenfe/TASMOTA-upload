@@ -15,10 +15,10 @@ var tx1=1
 var rx2=13    
 var tx2=12    
 
-var rst_1=22   
 var bsl_1=0   
-var rst_2=2   
-var bsl_2=14   
+var rst_1=22   
+var bsl_2=2   
+var rst_2=14   
 
 
 def Init()
@@ -58,35 +58,40 @@ def BlMode(cmd, idx, payload, payload_json)
         print("erreur d'arguments")
         return
     end
-    var ser
-    if argument[0] == '1'
-        ser = ser1
-    else
-        ser = ser2
-    end
     if(argument[1]!="CAL" && argument[1] !="LOG" )
         print("erreur arguments")
         return
     end
-    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
-    if(argument[1]=="CAL")
-        ser.write(bytes().fromstring("SET MODE CAL"))
-        print("SET MODE CAL")
+    if argument[0] == '1'
+       ser1.flush()
+       if(argument[1]=="CAL")
+          ser1.write(bytes().fromstring("SET MODE CAL"))
+          print("SET MODE CAL device 1")
+          print(ser1)
+       else
+          ser1.write(bytes().fromstring("SET MODE LOG"))
+          print("SET MODE LOG device 1")
+          print(ser1)
+       end
     else
-        ser.write(bytes().fromstring("SET MODE LOG"))
-        print("SET MODE LOG")
+       ser2.flush()
+       if(argument[1]=="CAL")
+          ser2.write(bytes().fromstring("SET MODE CAL"))
+          print("SET MODE CAL device 2")
+          print(ser2)
+       else
+          ser2.write(bytes().fromstring("SET MODE LOG"))
+          print("SET MODE LOG device 2")
+          print(ser2)
+       end
     end
     tasmota.resp_cmnd_done()
 end
 
 def Stm32Reset(cmd, idx, payload, payload_json)
-    var argument = string.split(payload,' ')
-    if argument.size() < 2
-        print("erreur d'arguments")
-        return
-    end
-    if (argument[0]=='1')
+    print('reset:',payload)
+
+    if (payload=='1')
         gpio.pin_mode(rst_1,gpio.OUTPUT)
         gpio.pin_mode(bsl_1,gpio.OUTPUT)
         gpio.digital_write(rst_1, 1)
@@ -98,7 +103,7 @@ def Stm32Reset(cmd, idx, payload, payload_json)
         tasmota.delay(100)               # wait 10ms
         tasmota.resp_cmnd('STM32 1 reset')
     end
-    if (argument[0]=='2')
+    if (payload=='2')
         gpio.pin_mode(rst_2,gpio.OUTPUT)
         gpio.pin_mode(bsl_2,gpio.OUTPUT)
         gpio.digital_write(rst_2, 1)
