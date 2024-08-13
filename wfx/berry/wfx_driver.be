@@ -162,5 +162,5 @@ tasmota.add_driver(wfx)
 tasmota.add_fast_loop(/-> wfx.fast_loop())
 tasmota.add_cron("59 59 23 * * *",  /-> wfx.midnight(), "every_day")
 tasmota.add_cron("59 59 * * * *",   /-> wfx.hour(), "every_hour")
-tasmota.add_cron("01 01 */4 * * *",   /-> pwx12m.every_4hours(), "every_4_hours")
+tasmota.add_cron("01 01 */4 * * *",   /-> wfx.every_4hours(), "every_4_hours")
 return wfx

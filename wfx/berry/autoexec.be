@@ -73,7 +73,7 @@ def device(cmd, idx,payload, payload_json)
     var file = open("esp32.cfg","rt")
     var buffer = file.read()
     var myjson=json.load(buffer)
-    if argument.size < 2
+    if argument.size() < 2
         print("erreur d'arguments")
         return
     end
