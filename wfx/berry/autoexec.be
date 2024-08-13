@@ -12,8 +12,8 @@ var ser2                # serial object
 
 var rx1=3    
 var tx1=1    
-var rx1=13    
-var tx1=12    
+var rx2=13    
+var tx2=12    
 
 var rst_1=22   
 var bsl_1=0   
@@ -237,7 +237,7 @@ end
  tasmota.cmd("timezone 2")
  print("timezone set")
   
-# tasmota.add_cmd('Stm32reset',Stm32Reset)
+tasmota.add_cmd('Stm32reset',Stm32Reset)
 tasmota.add_cmd("BlReset",BlReset)
 tasmota.add_cmd("BlMode",BlMode)
 tasmota.add_cmd("sendconfig",sendconfig)
