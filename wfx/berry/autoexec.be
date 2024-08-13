@@ -226,8 +226,8 @@ end
  print("timezone set")
   
 # tasmota.add_cmd('Stm32reset',Stm32Reset)
-tasmota.add_cmd("blmode",blmode)
-tasmota.add_cmd("blrest",blreset)
+tasmota.add_cmd("BlReset",BlReset)
+tasmota.add_cmd("BlMode",BlMode)
 tasmota.add_cmd("sendconfig",sendconfig)
 tasmota.add_cmd('getfile',getfile)
 tasmota.add_cmd('ville',ville)
