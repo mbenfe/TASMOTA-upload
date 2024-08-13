@@ -237,7 +237,8 @@ end
  tasmota.cmd("timezone 2")
  print("timezone set")
   
-tasmota.add_cmd('Stm32reset',Stm32Reset)
+ tasmota.add_cmd("Init",Init)
+ tasmota.add_cmd('Stm32reset',Stm32Reset)
 tasmota.add_cmd("BlReset",BlReset)
 tasmota.add_cmd("BlMode",BlMode)
 tasmota.add_cmd("sendconfig",sendconfig)
@@ -246,3 +247,6 @@ tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
 
 tasmota.load("wfx_driver.be")
+tasmota.delay(500)
+tasmota.cmd("Init")
+tasmota.cmd("Teleperiod 0")
