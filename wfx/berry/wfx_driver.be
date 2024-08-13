@@ -63,7 +63,7 @@ class WFX
     
 
         print('DRIVER: serial init done')
-        self.ser1 = serial(3,1,115200,serial.SERIAL_8N1)
+        self.ser1 = serial(1,3,115200,serial.SERIAL_8N1)
         self.ser2 = serial(13,12,115200,serial.SERIAL_8N1)
     
         # setup boot pins for stm32: reset disable & boot normal

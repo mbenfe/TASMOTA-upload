@@ -9,8 +9,8 @@ import gpio
 
 var ser                # serial object
 
-var rx1=3    
-var tx1=1    
+var rx1=1    
+var tx1=3    
 var rx1=13    
 var tx1=12    
 
