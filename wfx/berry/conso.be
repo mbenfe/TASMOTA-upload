@@ -10,7 +10,8 @@ class conso
     var num_day_month
     var ville
     var client
-    var device
+    var device1
+    var device2
 
 
     def get_hours()
@@ -39,7 +40,8 @@ class conso
         var esp32json = json.load(ligne)
         self.client = esp32json['client']
         self.ville = esp32json['ville']
-        self.device = esp32json['device']
+        self.device1 = esp32json['device1']
+        self.device2 = esp32json['device2']
         file.close()
         var name = string.format('p_%s.json',esp32json['ville'])
         print('lecture du fichier ',name)
@@ -49,21 +51,21 @@ class conso
             ligne = file.read()
             file.close()
             var configjson=json.load(ligne)
-            var device = esp32json['device']
-            print(configjson[device])
-            if configjson[device]['produit']=='PWX12'
+            var device1 = esp32json['device1']
+            print(configjson[device1])
+            if configjson[device1]['produit']=='PWX12'
                 ligne = string.format('{"hours":[]}')
                 var mainjson = json.load(ligne)
                 mainjson.insert('days',[])
                 mainjson.insert('months',[])
                 print('configuration PWX12')
                 for i:0..2
-                    if configjson[device]['mode'][i]=='tri'
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',device,configjson[device]['root'][i],self.get_hours())
+                    if configjson[device1]['mode'][i]=='tri'
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',device1,configjson[device1]['root'][i],self.get_hours())
                         mainjson['hours'].insert(i,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',device,configjson[device]['root'][i],self.get_days())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',device1,configjson[device1]['root'][i],self.get_days())
                         mainjson['days'].insert(i,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',device,configjson[device]['root'][i],self.get_months())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',device1,configjson[device1]['root'][i],self.get_months())
                         mainjson['months'].insert(i,json.load(ligne))
                     else
                     end
@@ -140,7 +142,7 @@ class conso
 
         var stringdevice
         for i:0..2
-            stringdevice = string.format('%s-%d',self.device,i+1)
+            stringdevice = string.format('%s-%d',self.device1,i+1)
             if(scope=='hours')
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
                 payload=self.consojson['hours'][i]['DATA'][str(hour)]
