@@ -21,6 +21,18 @@ var rst_2=2
 var bsl_2=14   
 
 
+def Init()
+    gpio.pin_mode(rx1,gpio.INPUT)
+    gpio.pin_mode(tx1,gpio.OUTPUT)
+    gpio.pin_mode(rx2,gpio.INPUT)
+    gpio.pin_mode(tx2,gpio.OUTPUT)
+    ser1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
+    ser2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
+    print("serial initialised")
+    tasmota.resp_cmnd_done()
+end
+
+
 #-------------------------------- COMMANDES -----------------------------------------#
 def BlReset(cmd, idx, payload, payload_json)
     var ser
