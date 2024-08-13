@@ -7,7 +7,8 @@ import mqtt
 import json
 import gpio
 
-var ser                # serial object
+var ser1                # serial object
+var ser2                # serial object
 
 var rx1=3    
 var tx1=1    
@@ -21,6 +22,42 @@ var bsl_2=14
 
 
 #-------------------------------- COMMANDES -----------------------------------------#
+def BlReset(cmd, idx, payload, payload_json)
+    var argument = string.split(string.toupper(payload)," ")
+    ser.flush()
+    ser.write(bytes().fromstring("SET RESET"))
+    print("SET RESET")
+    tasmota.resp_cmnd_done()
+end
+
+def BlMode(cmd, idx, payload, payload_json)
+    var argument = string.split(string.toupper(payload)," ")
+    if argument.size() < 2
+        print("erreur d'arguments")
+        return
+    end
+    var ser
+    if argument[0] == '1'
+        ser = ser1
+    else
+        ser = ser2
+    end
+    if(argument[1]!="CAL" && argument[1] !="LOG" )
+        print("erreur arguments")
+        return
+    end
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    ser.flush()
+    if(argument[1]=="CAL")
+        ser.write(bytes().fromstring("SET MODE CAL"))
+        print("SET MODE CAL")
+    else
+        ser.write(bytes().fromstring("SET MODE LOG"))
+        print("SET MODE LOG")
+    end
+    tasmota.resp_cmnd_done()
+end
+
 def Stm32Reset(cmd, idx, payload, payload_json)
     var argument = string.split(payload,' ')
     if argument.size() < 2
