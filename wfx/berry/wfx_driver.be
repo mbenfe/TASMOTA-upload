@@ -73,10 +73,10 @@ class WFX
         self.tx2=12    
         
         print('DRIVER: serial init done')
-        gpio.pin_mode(self.rx1,gpio.INPUT)
-        gpio.pin_mode(self.tx1,gpio.OUTPUT)
-        gpio.pin_mode(self.rx2,gpio.INPUT)
-        gpio.pin_mode(self.tx2,gpio.OUTPUT)
+        gpio.pin_mode(self.rx1,gpio.INPUT_PULLUP)
+        gpio.pin_mode(self.tx1,gpio.PULLUP)
+        gpio.pin_mode(self.rx2,gpio.INPUT_PULLUP)
+        gpio.pin_mode(self.tx2,gpio.PULLUP)
         self.ser1 = serial(self.rx1,self.tx1,115200,serial.SERIAL_8N1)
         self.ser2 = serial(self.rx2,self.tx2,115200,serial.SERIAL_8N1)
     
