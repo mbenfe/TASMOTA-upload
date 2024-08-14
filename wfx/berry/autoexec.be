@@ -21,10 +21,10 @@ var rst_2=14
 
 
 def Init()
-    # gpio.pin_mode(rx1,gpio.INPUT_PULLUP)
-    # gpio.pin_mode(tx1,gpio.PULLUP)
-    # gpio.pin_mode(rx2,gpio.INPUT_PULLUP)
-    # gpio.pin_mode(tx2,gpio.PULLUP)
+    gpio.pin_mode(rx1,gpio.INPUT_PULLUP)
+    gpio.pin_mode(tx1,gpio.PULLUP)
+    gpio.pin_mode(rx2,gpio.INPUT_PULLUP)
+    gpio.pin_mode(tx2,gpio.PULLUP)
 
     serial1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
     serial2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
