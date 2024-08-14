@@ -6,14 +6,13 @@ import global
 import mqtt
 import json
 import gpio
-import globals
 
-# var ser1                # serial object
-# var ser2                # serial object
-# var rx1=3    
-# var tx1=1    
-# var rx2=13    
-# var tx2=12    
+var serial1                # serial object
+var serial2                # serial object
+var rx1=3    
+var tx1=1    
+var rx2=13    
+var tx2=12    
 
 var bsl_1=0   
 var rst_1=22   
@@ -22,18 +21,13 @@ var rst_2=14
 
 
 def Init()
-    import globals
     # gpio.pin_mode(rx1,gpio.INPUT_PULLUP)
     # gpio.pin_mode(tx1,gpio.PULLUP)
     # gpio.pin_mode(rx2,gpio.INPUT_PULLUP)
     # gpio.pin_mode(tx2,gpio.PULLUP)
-    rx1=3    
-    tx1=1    
-    rx2=13    
-    tx2=12    
 
-    ser1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
-    ser2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
+    serial1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
+    serial2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
     print("serial initialised")
     tasmota.resp_cmnd_done()
 end
@@ -48,9 +42,9 @@ def BlReset(cmd, idx, payload, payload_json)
         return
     end
     if argument[0] == '1'
-        ser = ser1
+        ser = serial1
     else
-        ser = ser2
+        ser = serial2
     end
     ser.flush()
     ser.write(bytes().fromstring("SET RESET"))
@@ -69,29 +63,29 @@ def BlMode(cmd, idx, payload, payload_json)
         return
     end
     if argument[0] == '1'
-        ser1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
+        serial1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
 
-       ser1.flush()
+       serial1.flush()
        if(argument[1]=="CAL")
-          ser1.write(bytes().fromstring("SET MODE CAL"))
+          serial1.write(bytes().fromstring("SET MODE CAL"))
           print("SET MODE CAL device 1")
-          print(ser1)
+          print(serial1)
        else
-          ser1.write(bytes().fromstring("SET MODE LOG"))
+          serial1.write(bytes().fromstring("SET MODE LOG"))
           print("SET MODE LOG device 1")
-          print(ser1)
+          print(serial1)
        end
     else
-        ser2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
-        ser2.flush()
+        serial2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
+        serial2.flush()
        if(argument[1]=="CAL")
-          ser2.write(bytes().fromstring("SET MODE CAL"))
+          serial2.write(bytes().fromstring("SET MODE CAL"))
           print("SET MODE CAL device 2")
-          print(ser2)
+          print(serial2)
        else
-          ser2.write(bytes().fromstring("SET MODE LOG"))
+          serial2.write(bytes().fromstring("SET MODE LOG"))
           print("SET MODE LOG device 2")
-          print(ser2)
+          print(serial2)
        end
     end
     tasmota.resp_cmnd_done()
