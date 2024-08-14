@@ -6,13 +6,14 @@ import global
 import mqtt
 import json
 import gpio
+import globals
 
-var ser1                # serial object
-var ser2                # serial object
-var rx1=3    
-var tx1=1    
-var rx2=13    
-var tx2=12    
+# var ser1                # serial object
+# var ser2                # serial object
+# var rx1=3    
+# var tx1=1    
+# var rx2=13    
+# var tx2=12    
 
 var bsl_1=0   
 var rst_1=22   
