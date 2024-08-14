@@ -119,9 +119,9 @@ class conso
         var month = rtc["month"]
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
-        self.consojson["hours"][i]["DATA"][str(hour)]+=real(split[1])
-        self.consojson["days"][i]["DATA"][self.day_list[day_of_week]]+=real(split[1])
-        self.consojson["months"][i]["DATA"][self.month_list[month]]+=real(split[1])
+        self.consojson["hours"][0]["DATA"][str(hour)]+=real(split[1])
+        self.consojson["days"][0]["DATA"][self.day_list[day_of_week]]+=real(split[1])
+        self.consojson["months"][0]["DATA"][self.month_list[month]]+=real(split[1])
     end
 
     def sauvegarde()
