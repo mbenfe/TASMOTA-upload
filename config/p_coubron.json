@@ -70,10 +70,10 @@
         "ratio": "1000"
     },
     "dl4-caisses": {
-        "mode": "tri",
-        "root": "gen_caisses",
-        "produit": "PWX4",
-        "techno": "ct",
-        "ratio": "1000"
+        "mode": ["tri","tri","tri"],
+        "root": ["ecl2","ecl1","eclext","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
     }
  }
