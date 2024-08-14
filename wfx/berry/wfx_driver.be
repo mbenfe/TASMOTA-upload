@@ -5,18 +5,19 @@
 import mqtt
 import string
 import json
+import global
 
 
 class WFX
     var mapID
     var mapFunc
-    var ser1
-    var ser2
+    # var ser1
+    # var ser2
 
-    var rx1
-    var tx1    
-    var rx2    
-    var tx2    
+    # var rx1
+    # var tx1    
+    # var rx2    
+    # var tx2    
        
     var rst_1  
     var bsl_1  
@@ -67,18 +68,18 @@ class WFX
         self.rst_2=2   
         self.bsl_2=14   
     
-        self.rx1=3    
-        self.tx1=1    
-        self.rx2=13    
-        self.tx2=12    
+        # self.rx1=3    
+        # self.tx1=1    
+        # self.rx2=13    
+        # self.tx2=12    
         
-        print('DRIVER: serial init done')
-        gpio.pin_mode(self.rx1,gpio.INPUT_PULLUP)
-        gpio.pin_mode(self.tx1,gpio.PULLUP)
-        gpio.pin_mode(self.rx2,gpio.INPUT_PULLUP)
-        gpio.pin_mode(self.tx2,gpio.PULLUP)
-        self.ser1 = serial(self.rx1,self.tx1,115200,serial.SERIAL_8N1)
-        self.ser2 = serial(self.rx2,self.tx2,115200,serial.SERIAL_8N1)
+        # print('DRIVER: serial init done')
+        # gpio.pin_mode(self.rx1,gpio.INPUT_PULLUP)
+        # gpio.pin_mode(self.tx1,gpio.PULLUP)
+        # gpio.pin_mode(self.rx2,gpio.INPUT_PULLUP)
+        # gpio.pin_mode(self.tx2,gpio.PULLUP)
+        # global.serial1 = serial(self.rx1,self.tx1,115200,serial.SERIAL_8N1)
+        # self.ser2 = serial(self.rx2,self.tx2,115200,serial.SERIAL_8N1)
     
         # setup boot pins for stm32: reset disable & boot normal
 
@@ -95,10 +96,10 @@ class WFX
     end
 
     def fast_loop()
-        self.read_uart1(2)
+        self.read_uart(2)
     end
 
-    def read_uart1(timeout)
+    def read_uart(timeout)
         var mystring
         var mylist
         var numitem
@@ -106,11 +107,11 @@ class WFX
         var due
         var topic
         var buffer
-        if self.ser1.available()
+        if global.serial1.available()
             due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            buffer = self.ser1.read()
-            self.ser1.flush()
+            buffer = global.serial1.read()
+            global.serial1.flush()
             mystring = buffer.asstring()
             mylist = string.split(mystring,'\n')
             numitem= size(mylist)
@@ -126,21 +127,11 @@ class WFX
                 end
             end
         end
-    end
-
-    def read_uart2(timeout)
-        var mystring
-        var mylist
-        var numitem
-        var myjson
-        var due
-        var topic
-        var buffer
-        if self.ser2.available()
+        if global.serial2.available()
             due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            buffer = self.ser2.read()
-            self.ser2.flush()
+            buffer = global.serial2.read()
+            global.serial2.flush()
             mystring = buffer.asstring()
             mylist = string.split(mystring,'\n')
             numitem= size(mylist)

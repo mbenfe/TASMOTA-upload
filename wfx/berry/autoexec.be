@@ -7,12 +7,7 @@ import mqtt
 import json
 import gpio
 
-var serial1                # serial object
-var serial2                # serial object
-var rx1=3    
-var tx1=1    
-var rx2=13    
-var tx2=12    
+  
 
 var bsl_1=0   
 var rst_1=22   
@@ -21,14 +16,21 @@ var rst_2=14
 
 
 def Init()
+    var rx1=3    
+    var tx1=1    
+    var rx2=13    
+    var tx2=12    
+
     gpio.pin_mode(rx1,gpio.INPUT_PULLUP)
     gpio.pin_mode(tx1,gpio.PULLUP)
     gpio.pin_mode(rx2,gpio.INPUT_PULLUP)
     gpio.pin_mode(tx2,gpio.PULLUP)
 
-    serial1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
-    serial2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
+    global.serial1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
+    global.serial2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
     print("serial initialised")
+    print(global.serial1)
+    print(global.serial2)
     tasmota.resp_cmnd_done()
 end
 
@@ -42,9 +44,9 @@ def BlReset(cmd, idx, payload, payload_json)
         return
     end
     if argument[0] == '1'
-        ser = serial1
+        ser = global.serial1
     else
-        ser = serial2
+        ser = global.serial2
     end
     ser.flush()
     ser.write(bytes().fromstring("SET RESET"))
@@ -63,31 +65,26 @@ def BlMode(cmd, idx, payload, payload_json)
         return
     end
     if argument[0] == '1'
-        serial1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
-        print(serial1.gpio_rx)
-
-       serial1.flush()
+        global.serial1.flush()
        if(argument[1]=="CAL")
-          serial1.write(bytes().fromstring("SET MODE CAL"))
+          global.serial1.write(bytes().fromstring("SET MODE CAL"))
           print("SET MODE CAL device 1")
-          print(serial1)
+          print(global.serial1)
        else
-          serial1.write(bytes().fromstring("SET MODE LOG"))
+          global.serial1.write(bytes().fromstring("SET MODE LOG"))
           print("SET MODE LOG device 1")
-          print(serial1)
+          print(global.serial1)
        end
     else
-        serial2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
-        print(serial2.gpio_rx)
-        serial2.flush()
+        global.serial2.flush()
        if(argument[1]=="CAL")
-          serial2.write(bytes().fromstring("SET MODE CAL"))
+          global.serial2.write(bytes().fromstring("SET MODE CAL"))
           print("SET MODE CAL device 2")
-          print(serial2)
+          print(global.serial2)
        else
-          serial2.write(bytes().fromstring("SET MODE LOG"))
+          global.serial2.write(bytes().fromstring("SET MODE LOG"))
           print("SET MODE LOG device 2")
-          print(serial2)
+          print(global.serial2)
        end
     end
     tasmota.resp_cmnd_done()
@@ -256,7 +253,7 @@ tasmota.add_cmd('getfile',getfile)
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
 
-tasmota.load("wfx_driver.be")
 tasmota.cmd("Init")
+tasmota.load("wfx_driver.be")
 tasmota.delay(500)
 tasmota.cmd("Teleperiod 0")
