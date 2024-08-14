@@ -10,14 +10,7 @@ import global
 
 class WFX
     var mapID
-    var mapFunc
-    # var ser1
-    # var ser2
-
-    # var rx1
-    # var tx1    
-    # var rx2    
-    # var tx2    
+    var mapFunc 
        
     var rst_1  
     var bsl_1  
@@ -68,19 +61,6 @@ class WFX
         self.rst_2=2   
         self.bsl_2=14   
     
-        # self.rx1=3    
-        # self.tx1=1    
-        # self.rx2=13    
-        # self.tx2=12    
-        
-        # print('DRIVER: serial init done')
-        # gpio.pin_mode(self.rx1,gpio.INPUT_PULLUP)
-        # gpio.pin_mode(self.tx1,gpio.PULLUP)
-        # gpio.pin_mode(self.rx2,gpio.INPUT_PULLUP)
-        # gpio.pin_mode(self.tx2,gpio.PULLUP)
-        # global.serial1 = serial(self.rx1,self.tx1,115200,serial.SERIAL_8N1)
-        # self.ser2 = serial(self.rx2,self.tx2,115200,serial.SERIAL_8N1)
-    
         # setup boot pins for stm32: reset disable & boot normal
 
         gpio.pin_mode(self.rst_1,gpio.OUTPUT)
@@ -92,7 +72,6 @@ class WFX
         gpio.digital_write(self.bsl_2, 0)
         gpio.digital_write(self.rst_2, 1)
 
-    #    tasmota.add_fast_loop(/-> self.fast_loop())
     end
 
     def fast_loop()
@@ -111,6 +90,7 @@ class WFX
             due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
             buffer = global.serial1.read()
+            print(buffer)
             global.serial1.flush()
             mystring = buffer.asstring()
             mylist = string.split(mystring,'\n')
