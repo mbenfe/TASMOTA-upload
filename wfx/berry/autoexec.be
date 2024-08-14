@@ -64,6 +64,7 @@ def BlMode(cmd, idx, payload, payload_json)
     end
     if argument[0] == '1'
         serial1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
+        print(serial1.gpio_rx)
 
        serial1.flush()
        if(argument[1]=="CAL")
@@ -77,6 +78,7 @@ def BlMode(cmd, idx, payload, payload_json)
        end
     else
         serial2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
+        print(serial2.gpio_rx)
         serial2.flush()
        if(argument[1]=="CAL")
           serial2.write(bytes().fromstring("SET MODE CAL"))
