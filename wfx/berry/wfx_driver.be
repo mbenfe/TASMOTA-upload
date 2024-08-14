@@ -93,6 +93,7 @@ class WFX
             print(buffer)
             global.serial1.flush()
             mystring = buffer.asstring()
+            print(mystring)
             mylist = string.split(mystring,'\n')
             numitem= size(mylist)
             for i: 0..numitem-2
