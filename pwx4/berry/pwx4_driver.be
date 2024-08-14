@@ -104,7 +104,7 @@ class PWX4
                         self.logger.log_data(mylist[i])
  #                       print(mylist[i])
                     else
-                        print('PWX12->',mylist[i])
+                        print('PWX4->',mylist[i])
                     end
                 end
             end
@@ -124,12 +124,6 @@ class PWX4
         if hour != 23
             self.conso.mqtt_publish('hours')
         end
-    end
-
-    def every_second()
-       gpio.digital_write(self.tick_second, 1)
-        tasmota.delay(1)
-        gpio.digital_write(self.tick_second, 0)
     end
 
     def every_4hours()
