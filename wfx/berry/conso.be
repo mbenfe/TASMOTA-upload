@@ -33,7 +33,7 @@ class conso
     end
 
 
-    def init_conso()
+    def init_conso(device)
         print('creation du fichier de sauvegarde de la consommation....')
         var file = open('esp32.cfg','rt')
         var ligne = file.read()
@@ -83,16 +83,35 @@ class conso
         import path
         var ligne
         var file
-        if(path.exists('conso.json'))
+        # premier BL logger
+        if(path.exists('conso1.json'))
             print('chargement de la sauvegarde de consommation')
-            file = open("conso.json","rt")
+            file = open("conso1.json","rt")
             ligne = file.read()
-            self.consojson= json.load(ligne)
-            print(self.consojson)
+            self.consojson1= json.load(ligne)
+            print(self.consojson1)
             file.close()
         else
-            ligne = self.init_conso()
-            file = open('conso.json','wt')
+            ligne = self.init_conso(1)
+            file = open('conso1.json','wt')
+            file.write(ligne)
+            file.close()
+            print('fichier sauvegarde de consommation cree !')
+        end
+        self.day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
+        self.month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]
+        self.num_day_month = [0,31,28,31,30,31,30,31,31,30,31,30,31]
+        # deuxieme BL logger
+        if(path.exists('conso2.json'))
+            print('chargement de la sauvegarde de consommation')
+            file = open("conso2.json","rt")
+            ligne = file.read()
+            self.consojson2= json.load(ligne)
+            print(self.consojson2)
+            file.close()
+        else
+            ligne = self.init_conso(2)
+            file = open('conso2.json','wt')
             file.write(ligne)
             file.close()
             print('fichier sauvegarde de consommation cree !')

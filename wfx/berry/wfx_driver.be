@@ -95,7 +95,9 @@ class WFX
             mystring = buffer.asstring()
             print(mystring)
             mylist = string.split(mystring,'\n')
+            print(mylist)
             numitem= size(mylist)
+            print(numitem)
             for i: 0..numitem-2
                 if mylist[i][0] == 'C'
                     self.conso.update(mylist[i])
