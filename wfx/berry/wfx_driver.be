@@ -154,8 +154,20 @@ class WFX
         end
     end
 
-    def every_second()
-    end
+    def midnight()
+        self.conso.mqtt_publish('all')
+   end
+
+   def hour()
+       var now = tasmota.rtc()
+       var rtc=tasmota.time_dump(now['local'])
+       var hour = rtc['hour']
+       # publish if not midnight
+       if hour != 23
+           self.conso.mqtt_publish('hours')
+       end
+   end
+
 
     def every_4hours()
         self.conso.sauvegarde()
