@@ -9,7 +9,6 @@ import gpio
 
 var ser1                # serial object
 var ser2                # serial object
-
 var rx1=3    
 var tx1=1    
 var rx2=13    
@@ -251,7 +250,7 @@ tasmota.add_cmd('getfile',getfile)
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
 
+tasmota.load("wfx_driver.be")
 tasmota.cmd("Init")
 tasmota.delay(500)
 tasmota.cmd("Teleperiod 0")
-#tasmota.load("wfx_driver.be")
