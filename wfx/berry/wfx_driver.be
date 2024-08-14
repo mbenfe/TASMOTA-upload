@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION SNX                     #
+# VERSION 1.0 WFX                 #
 #---------------------------------#
 
 import mqtt
@@ -73,8 +73,12 @@ class WFX
         self.tx2=12    
         
         print('DRIVER: serial init done')
-        self.ser1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
-        self.ser2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
+        gpio.pin_mode(self.rx1,gpio.INPUT)
+        gpio.pin_mode(self.tx1,gpio.OUTPUT)
+        gpio.pin_mode(self.rx2,gpio.INPUT)
+        gpio.pin_mode(self.tx2,gpio.OUTPUT)
+        self.ser1 = serial(self.rx1,self.tx1,115200,serial.SERIAL_8N1)
+        self.ser2 = serial(self.rx2,self.tx2,115200,serial.SERIAL_8N1)
     
         # setup boot pins for stm32: reset disable & boot normal
 
