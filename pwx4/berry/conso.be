@@ -58,13 +58,13 @@ class conso
                 mainjson.insert("days",[])
                 mainjson.insert("months",[])
                 print("configuration PWX4")
-                if self.configjson[device]["mode"][i]=="tri"
+                if self.configjson[device]["mode"][0]=="tri"
                     ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',device,self.configjson[device]["root"],self.get_hours())
-                    mainjson["hours"].insert(i,json.load(ligne))
+                    mainjson["hours"].insert(0,json.load(ligne))
                     ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',device,self.configjson[device]["root"],self.get_days())
-                    mainjson["days"].insert(i,json.load(ligne))
+                    mainjson["days"].insert(0,json.load(ligne))
                     ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',device,self.configjson[device]["root"],self.get_months())
-                    mainjson["months"].insert(i,json.load(ligne))
+                    mainjson["months"].insert(0,json.load(ligne))
                 else
                 end
                 ligne = json.dump(mainjson)
