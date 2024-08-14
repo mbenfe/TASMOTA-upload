@@ -97,8 +97,10 @@ def BlMode(cmd, idx, payload, payload_json)
     end
     if(argument[0]=='CAL')
         ser.write(bytes().fromstring('SET MODE CAL'))
+        print('SET MODE CAL')
     else
         ser.write(bytes().fromstring('SET MODE LOG'))
+        print('SET MODE LOG')
     end
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
