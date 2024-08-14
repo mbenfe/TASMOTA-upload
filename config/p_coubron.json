@@ -75,5 +75,12 @@
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
+    },
+    "test-dl4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["ecl2","ecl1","eclext","*"],
+        "produit": "PWX4",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
     }
  }
