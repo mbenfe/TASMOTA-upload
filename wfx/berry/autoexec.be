@@ -22,6 +22,7 @@ var rst_2=14
 
 
 def Init()
+    import globals
     # gpio.pin_mode(rx1,gpio.INPUT_PULLUP)
     # gpio.pin_mode(tx1,gpio.PULLUP)
     # gpio.pin_mode(rx2,gpio.INPUT_PULLUP)
