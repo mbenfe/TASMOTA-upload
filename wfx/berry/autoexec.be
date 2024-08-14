@@ -25,8 +25,8 @@ def Init()
     # gpio.pin_mode(tx1,gpio.PULLUP)
     # gpio.pin_mode(rx2,gpio.INPUT_PULLUP)
     # gpio.pin_mode(tx2,gpio.PULLUP)
-    ser1 = serial(-1,tx1,115200,serial.SERIAL_8N1)
-    ser2 = serial(-1,tx2,115200,serial.SERIAL_8N1)
+    ser1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
+    ser2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
     print("serial initialised")
     tasmota.resp_cmnd_done()
 end
@@ -62,6 +62,8 @@ def BlMode(cmd, idx, payload, payload_json)
         return
     end
     if argument[0] == '1'
+        ser1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
+
        ser1.flush()
        if(argument[1]=="CAL")
           ser1.write(bytes().fromstring("SET MODE CAL"))
@@ -73,7 +75,8 @@ def BlMode(cmd, idx, payload, payload_json)
           print(ser1)
        end
     else
-       ser2.flush()
+        ser2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
+        ser2.flush()
        if(argument[1]=="CAL")
           ser2.write(bytes().fromstring("SET MODE CAL"))
           print("SET MODE CAL device 2")
