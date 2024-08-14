@@ -7,8 +7,6 @@ import mqtt
 import json
 import gpio
 
-var ser                # serial object
-
 var rx=16    
 var tx=17    
 var rst=2   
@@ -24,11 +22,8 @@ def SerialSendTime()
 
     # initialise UART Rx = GPIO3 and TX=GPIO1
     # send data to serial
-    gpio.pin_mode(rx,gpio.INPUT)
-    gpio.pin_mode(tx,gpio.OUTPUT)
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
-    ser.write(bytes().fromstring(token))
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring(token))
     tasmota.resp_cmnd_done()
     print('SENDTIME:',token)
 end
@@ -70,7 +65,7 @@ def SerialSetup(cmd, idx, payload, payload_json)
     end
     # initialise UART Rx = GPIO3 and TX=GPIO1
     # send data to serial
-    ser.write(bytes().fromstring(token))
+    global.serialSend.write(bytes().fromstring(token))
     tasmota.resp_cmnd_done()
     print('SET:',token)
 end
@@ -78,13 +73,13 @@ end
 def Init()
     gpio.pin_mode(rx,gpio.INPUT)
     gpio.pin_mode(tx,gpio.OUTPUT)
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    global.serialSend = serial(rx,tx,115200,serial.SERIAL_8N1)
     print('serial initialised')
     tasmota.resp_cmnd_done()
 end
 
 def BlReset(cmd, idx, payload, payload_json)
-    ser.write(bytes().fromstring('SET RESET'))
+    global.serialSend.write(bytes().fromstring('SET RESET'))
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
 end
@@ -96,10 +91,10 @@ def BlMode(cmd, idx, payload, payload_json)
         return
     end
     if(argument[0]=='CAL')
-        ser.write(bytes().fromstring('SET MODE CAL'))
+        global.serialSend.write(bytes().fromstring('SET MODE CAL'))
         print('SET MODE CAL')
     else
-        ser.write(bytes().fromstring('SET MODE LOG'))
+        global.serialSend.write(bytes().fromstring('SET MODE LOG'))
         print('SET MODE LOG')
     end
     tasmota.delay(500)
@@ -113,9 +108,9 @@ def BlType(cmd, idx, payload, payload_json)
         return
     end
     if(argument[0]=='MONO')
-        ser.write(bytes().fromstring('SET TYPE MONO'))
+        global.serialSend.write(bytes().fromstring('SET TYPE MONO'))
     else
-        ser.write(bytes().fromstring('SET TYPE TRI'))
+        global.serialSend.write(bytes().fromstring('SET TYPE TRI'))
     end
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
@@ -190,7 +185,6 @@ def sendconfig(cmd, idx,payload, payload_json)
     var myjson
     var device
     var total = '';
-    var ser
     var header
     var trouve = false
     print('send:',payload)
@@ -216,10 +210,9 @@ def sendconfig(cmd, idx,payload, payload_json)
         end
     end
     if trouve == true
-        ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-        ser.flush()
+        global.serialSend.flush()
         var mybytes=bytes().fromstring(total)
-        ser.write(mybytes)
+        global.serialSend.write(mybytes)
         print(total)
         tasmota.resp_cmnd("config sent")
     else
@@ -233,8 +226,11 @@ def launch_driver()
     tasmota.load('stm32_driver.be')
  end
 
-tasmota.cmd("seriallog 0")
-print("serial log disabled")
+ tasmota.cmd("seriallog 0")
+ print("serial log disabled")
+ 
+ tasmota.cmd("timezone 2")
+print("timezone set")
 
 print('AUTOEXEC: create commande SerialSendTime')
 tasmota.add_cmd('SerialSendTime',SerialSendTime)
