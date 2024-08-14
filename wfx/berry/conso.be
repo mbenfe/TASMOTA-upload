@@ -51,16 +51,20 @@ class conso
             ligne = file.read()
             file.close()
             var configjson=json.load(ligne)
-            var device1 = esp32json['device1']
-            print(configjson[device1])
-            if configjson[device1]['produit']=='PWX12'
+            var targetdevice
+            if(device == 1)
+                targetdevice = esp32json['device1']
+            else
+                targetdevice = esp32json['device2']
+            print(configjson[targetdevice])
+            if configjson[targetdevice]['produit']=='PWX12'
                 ligne = string.format('{"hours":[]}')
                 var mainjson = json.load(ligne)
                 mainjson.insert('days',[])
                 mainjson.insert('months',[])
                 print('configuration PWX12')
                 for i:0..2
-                    if configjson[device1]['mode'][i]=='tri'
+                    if configjson[targetdevice]['mode'][i]=='tri'
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',device1,configjson[device1]['root'][i],self.get_hours())
                         mainjson['hours'].insert(i,json.load(ligne))
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',device1,configjson[device1]['root'][i],self.get_days())
@@ -74,7 +78,21 @@ class conso
                 return ligne
             else
                 print('configuration PWX4')
-                return ''
+                ligne = string.format('{"hours":[]}')
+                var mainjson = json.load(ligne)
+                mainjson.insert('days',[])
+                mainjson.insert('months',[])
+                if configjson[device1]['mode'][0]=='tri'
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',device1,configjson[device1]['root'][i],self.get_hours())
+                    mainjson['hours'].insert(i,json.load(ligne))
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',device1,configjson[device1]['root'][i],self.get_days())
+                    mainjson['days'].insert(i,json.load(ligne))
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',device1,configjson[device1]['root'][i],self.get_months())
+                    mainjson['months'].insert(i,json.load(ligne))
+                else
+                end
+                ligne = json.dump(mainjson)
+                return ligne
             end
         end
     end
