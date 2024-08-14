@@ -27,6 +27,11 @@ def Init()
     # gpio.pin_mode(tx1,gpio.PULLUP)
     # gpio.pin_mode(rx2,gpio.INPUT_PULLUP)
     # gpio.pin_mode(tx2,gpio.PULLUP)
+    rx1=3    
+    tx1=1    
+    rx2=13    
+    tx2=12    
+
     ser1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
     ser2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
     print("serial initialised")
