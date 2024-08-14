@@ -83,22 +83,37 @@ def Init()
     tasmota.resp_cmnd_done()
 end
 
-def RnReset(cmd, idx, payload, payload_json)
+def BlReset(cmd, idx, payload, payload_json)
     ser.write(bytes().fromstring('SET RESET'))
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
 end
 
-def RnMode(cmd, idx, payload, payload_json)
+def BlMode(cmd, idx, payload, payload_json)
+    var argument = string.split(payload,' ')
+    if(argument[0]!='CAL' && argument[0] !='LOG' )
+        print('erreur arguments')
+        return
+    end
+    if(argument[0]=='CAL')
+        ser.write(bytes().fromstring('SET MODE CAL'))
+    else
+        ser.write(bytes().fromstring('SET MODE LOG'))
+    end
+    tasmota.delay(500)
+    tasmota.resp_cmnd_done()
+end
+
+def BlType(cmd, idx, payload, payload_json)
     var argument = string.split(payload,' ')
     if(argument[0]!='MONO' && argument[0] !='TRI' )
         print('erreur arguments')
         return
     end
     if(argument[0]=='MONO')
-        ser.write(bytes().fromstring('SET MODE MONO'))
+        ser.write(bytes().fromstring('SET TYPE MONO'))
     else
-        ser.write(bytes().fromstring('SET MODE TRI'))
+        ser.write(bytes().fromstring('SET TYPE TRI'))
     end
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
@@ -142,21 +157,6 @@ def device(cmd, idx,payload, payload_json)
     file.close()
     tasmota.resp_cmnd('done')
 end
-
-def root(cmd, idx,payload, payload_json)
-    import json
-    var file = open("esp32.cfg","rt")
-    var buffer = file.read()
-    var myjson=json.load(buffer)
-    myjson["root"]=payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg","wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
-end
-
 
 def getfile(cmd, idx,payload, payload_json)
     import string
@@ -210,8 +210,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     for key:myjson.keys()
         if key == device
             trouve = true
-          total+='CONFIG'+' '+key+'_'+myjson[key]["root"]+'_'+myjson[key]["produit"]+'_'+myjson[key]["techno"]+'_'+myjson[key]["ratio"]+'_'+myjson[key]["Nki"]+'_'+myjson[key]["Akv"]+'_'+myjson[key]["Aki"]
-                +'_'+myjson[key]["Bkv"]+'_'+myjson[key]["Bki"]+'_'+myjson[key]["Ckv"]+'_'+myjson[key]["Cki"]
+          total+='CONFIG'+' '+key+'_'+myjson[key]["root"]+'_'+myjson[key]["produit"]+'_'+myjson[key]["techno"]+'_'+myjson[key]["ratio"]
         end
     end
     if trouve == true
@@ -251,8 +250,9 @@ tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
 tasmota.add_cmd('root',root)
 tasmota.add_cmd('SerialSetup',SerialSetup)
-tasmota.add_cmd('RnReset',RnReset)
-tasmota.add_cmd('RnMode',RnMode)
+tasmota.add_cmd('BlReset',BlReset)
+tasmota.add_cmd('BlMode',BlMode)
+tasmota.add_cmd('BlType',BlMode)
 tasmota.add_cmd('Init',Init)
 tasmota.add_cmd('cal',Calibration)
 
