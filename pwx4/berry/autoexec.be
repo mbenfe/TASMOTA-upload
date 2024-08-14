@@ -90,7 +90,7 @@ def BlReset(cmd, idx, payload, payload_json)
 end
 
 def BlMode(cmd, idx, payload, payload_json)
-    var argument = string.split(payload,' ')
+    var argument = string.split(string.toupper(payload),' ')
     if(argument[0]!='CAL' && argument[0] !='LOG' )
         print('erreur arguments')
         return
@@ -105,7 +105,7 @@ def BlMode(cmd, idx, payload, payload_json)
 end
 
 def BlType(cmd, idx, payload, payload_json)
-    var argument = string.split(payload,' ')
+    var argument = string.split(string.toupper(payload),' ')
     if(argument[0]!='MONO' && argument[0] !='TRI' )
         print('erreur arguments')
         return
@@ -127,7 +127,7 @@ def Stm32Reset()
         tasmota.delay(100)               # wait 10ms
         gpio.digital_write(rst, 1)
         tasmota.delay(100)               # wait 10ms
-        tasmota.resp_cmnd('STM32 IN reset')
+        tasmota.resp_cmnd('STM32 reset')
 end
 
 def ville(cmd, idx,payload, payload_json)
