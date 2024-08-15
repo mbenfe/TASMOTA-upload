@@ -59,11 +59,11 @@ class conso
                 print('configuration PWX12')
                 for i:0..2
                     if configjson[device]['mode'][i]=='tri'
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',device,configjson[device]['root'][i],self.get_hours())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',device,configjson[device]["root"][i],self.get_hours())
                         mainjson['hours'].insert(i,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',device,configjson[device]['root'][i],self.get_days())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',device,configjson[device]["root"][i],self.get_days())
                         mainjson['days'].insert(i,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',device,configjson[device]['root'][i],self.get_months())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',device,configjson[device]["root"][i],self.get_months())
                         mainjson['months'].insert(i,json.load(ligne))
                     else
                     end

@@ -41,7 +41,7 @@ end
 
 def SerialSetup(cmd, idx, payload, payload_json)
     var argument = string.split(payload,' ')
-    if(argument[0]!='A' && argument[0]!='B' && argument[0] !='C' && argument[0] != 'N' && argument[0] != 'OI' && argument[0] != 'OV' && argument[0] != 'KI' && argument[0] != 'KV' && argument[0] != 'ROOT' && argument[0] != 'RATIO' 
+    if(argument[0]!='A' && argument[0]!='B' && argument[0] !='C' && argument[0] != 'N' && argument[0] != 'OI' && argument[0] != 'OV' && argument[0] != 'KI' && argument[0] != 'KV' && argument[0] != "root" && argument[0] != 'RATIO' 
         && argument[0] != 'LOGTYPE' && argument[0] != 'LOGFREQN' || argument[1] == '' || argument[1] == '')
         print('erreur arguments')
         return
