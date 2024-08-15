@@ -5,20 +5,16 @@
 import json
 import string
 import mqtt
+import global
 
 
 class conso
     var consojson1
     var consojson2
-    var device1
-    var device2
 
     var day_list
     var month_list
     var num_day_month
-    var ville
-    var client
-
 
     def get_hours()
         var ligne
@@ -57,49 +53,51 @@ class conso
             file = open(name,'rt')
             ligne = file.read()
             file.close()
-            var configjson=json.load(ligne)
+            global.configjson=json.load(ligne)
             if(device == 1)
                 targetdevice = esp32json['device1']
             else
                 targetdevice = esp32json['device2']
             end
-            print('CONSO:',configjson[targetdevice])
-            if configjson[targetdevice]['produit']=='PWX12'
-                ligne = string.format('{"hours":[]}')
-                var mainjson = json.load(ligne)
-                mainjson.insert('days',[])
-                mainjson.insert('months',[])
-                print('CONSO:configuration PWX12')
-                for i:0..2
-                    if configjson[targetdevice]['mode'][i]=='tri'
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,configjson[targetdevice]['root'][i],self.get_hours())
-                        mainjson['hours'].insert(i,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,configjson[targetdevice]['root'][i],self.get_days())
-                        mainjson['days'].insert(i,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,configjson[targetdevice]['root'][i],self.get_months())
-                        mainjson['months'].insert(i,json.load(ligne))
+            if targetdevice != "unknown"
+                print('CONSO:',global.configjson[targetdevice])
+                if global.configjson[targetdevice]['produit']=='PWX12'
+                    ligne = string.format('{"hours":[]}')
+                    var mainjson = json.load(ligne)
+                    mainjson.insert('days',[])
+                    mainjson.insert('months',[])
+                    print('CONSO:configuration PWX12')
+                    for i:0..2
+                        if global.configjson[targetdevice]['mode'][i]=='tri'
+                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][i],self.get_hours())
+                            mainjson['hours'].insert(i,json.load(ligne))
+                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][i],self.get_days())
+                            mainjson['days'].insert(i,json.load(ligne))
+                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][i],self.get_months())
+                            mainjson['months'].insert(i,json.load(ligne))
+                        else
+                        end
+                    end
+                    ligne = json.dump(mainjson)
+                    return ligne
+                else
+                    print('CONSO:configuration PWX4')
+                    ligne = string.format('{"hours":[]}')
+                    var mainjson = json.load(ligne)
+                    mainjson.insert('days',[])
+                    mainjson.insert('months',[])
+                    if global.configjson[targetdevice]['mode'][0]=='tri'
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][0],self.get_hours())
+                        mainjson['hours'].insert(0,json.load(ligne))
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][0],self.get_days())
+                        mainjson['days'].insert(0,json.load(ligne))
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][0],self.get_months())
+                        mainjson['months'].insert(0,json.load(ligne))
                     else
                     end
+                    ligne = json.dump(mainjson)
+                    return ligne
                 end
-                ligne = json.dump(mainjson)
-                return ligne
-            else
-                print('CONSO:configuration PWX4')
-                ligne = string.format('{"hours":[]}')
-                var mainjson = json.load(ligne)
-                mainjson.insert('days',[])
-                mainjson.insert('months',[])
-                if configjson[targetdevice]['mode'][0]=='tri'
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,configjson[targetdevice]['root'][0],self.get_hours())
-                    mainjson['hours'].insert(0,json.load(ligne))
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,configjson[targetdevice]['root'][0],self.get_days())
-                    mainjson['days'].insert(0,json.load(ligne))
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,configjson[targetdevice]['root'][0],self.get_months())
-                    mainjson['months'].insert(0,json.load(ligne))
-                else
-                end
-                ligne = json.dump(mainjson)
-                return ligne
             end
         end
     end
@@ -147,6 +145,7 @@ class conso
     end
 
     def update(data,device)
+        print('CONSO:',data,' ',device)
         var split = string.split(data,':')
         var now = tasmota.rtc()
         var rtc=tasmota.time_dump(now['local'])
@@ -156,7 +155,8 @@ class conso
         var day = rtc['day']
         var month = rtc['month']
         var year = rtc['year']
-        var day_of_week = rtc['weekday']  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var day_of_week = rtc['weekday']
+        var channel  # 0=Sunday, 1=Monday, ..., 6=Saturday
         for i:0..2
             if(device ==1)
                 self.consojson1['hours'][i]['DATA'][str(hour)]+=real(split[i+1])

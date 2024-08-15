@@ -30,7 +30,7 @@ def Calibration(cmd, idx, payload, payload_json)
     end
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring(token))
-    print('AUTOEXEC:'token)
+    print('AUTOEXEC:',token)
     tasmota.resp_cmnd_done()
 end
 
@@ -122,32 +122,10 @@ def BlType(cmd, idx, payload, payload_json)
         print('AUTOEXEC:erreur arguments')
         return
     end
-    if(argument[0]=='MONO')
-								 
-			  
-	   
-						 
-							  
-							 
+    if(argument[0]=='MONO')					 
         global.serialSend.write(bytes().fromstring('SET TYPE MONO'))
-										
-							   
-		   
-																  
-										
-							   
-		  
-    else
-							  
-							 
+    else		 
         global.serialSend.write(bytes().fromstring('SET TYPE TRI'))
-										
-							   
-		   
-																  
-										
-							   
-		  
     end
     tasmota.delay(500)
     tasmota.resp_cmnd_done()
@@ -227,7 +205,7 @@ def getfile(cmd, idx,payload, payload_json)
     path+=payload
     print('AUTOEXEC:',path)
     var file=string.split(path,'/').pop()
-    print('AUTOEXEC:'',file)
+    print('AUTOEXEC:',file)
     var wc=webclient()
     wc.set_follow_redirects(true)
     wc.begin(path)
@@ -294,7 +272,7 @@ def sendconfig(cmd, idx,payload, payload_json)
         ser.flush()
         var mybytes=bytes().fromstring(total)
         ser.write(mybytes)
-        print('AUTOEXEC:'total)
+        print('AUTOEXEC:',total)
         tasmota.resp_cmnd("config sent")
     else
         print("AUTOEXEC:device ",device," non touvé")

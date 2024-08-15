@@ -95,7 +95,7 @@ class WFX
             numitem= size(mylist)
             for i: 0..numitem-2
                 if mylist[i][0] == 'C'
-                    self.conso.update(mylist[i])
+                    self.conso.update(mylist[i],1)
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
                     self.logger.log_data(mylist[i])
@@ -114,7 +114,7 @@ class WFX
             numitem= size(mylist)
             for i: 0..numitem-2
                 if mylist[i][0] == 'C'
-                    self.conso.update(mylist[i])
+                    self.conso.update(mylist[i],2)
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
                     self.logger.log_data(mylist[i])
