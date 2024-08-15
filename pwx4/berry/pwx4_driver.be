@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION PWX4                   #
+# PWX4_DRIVER.BE 1.0 PWX4         #
 #---------------------------------#
 
 import mqtt
@@ -17,11 +17,6 @@ class PWX4
     var logger
     var root
     var topic 
-
-    var tick_midnight
-    var tick_hour
-    var tick_second
-
     var conso
 
     def loadconfig()
@@ -48,6 +43,7 @@ class PWX4
     end
 
     def init()
+        self.loadconfig()
         import conso
         self.conso = conso
         import logger
@@ -57,27 +53,14 @@ class PWX4
         self.rst=2
         self.bsl=13
 
-        self.tick_midnight=15
-        self.tick_hour=33
-        self.tick_second=32
-
-        self.loadconfig()
-
         print('DRIVER: serial init done')
         print('heap:',tasmota.get_free_heap())
         self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1) 
-    
         # setup boot pins for stm32: reset disable & boot normal
         gpio.pin_mode(self.rst,gpio.OUTPUT)
         gpio.pin_mode(self.bsl,gpio.OUTPUT)
-        gpio.pin_mode(self.tick_midnight,gpio.OUTPUT)
-        gpio.pin_mode(self.tick_hour,gpio.OUTPUT)
-        gpio.pin_mode(self.tick_second,gpio.OUTPUT)
         gpio.digital_write(self.bsl, 0)
         gpio.digital_write(self.rst, 1)
-        gpio.digital_write(self.tick_midnight, 0)
-        gpio.digital_write(self.tick_hour, 0)
-        gpio.digital_write(self.tick_second, 0)
    end
 
     def fast_loop()
@@ -100,6 +83,10 @@ class PWX4
                         print(mylist[i])
                     elif mylist[i][0] == 'W'
                         self.logger.log_data(mylist[i])
+                        topic = string.format("gw/%s/%s/%s/tele/POWER",global.client,global.ville,global.device)
+                        var split
+                        split = string.split(mylist[i],':')
+                        self.listlog.insert(self.count,real(split[1]))
                     else
                         print('PWX4->',mylist[i])
                     end

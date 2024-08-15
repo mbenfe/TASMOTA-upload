@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION 1.0 PWX4                #
+# AUTOEXEC.BE 1.0 PWX4            #
 #---------------------------------#
 import string
 import global
