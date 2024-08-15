@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION PWX12                   #
+# PWX12_DRIVER.BE 1.0 PWX12       #
 #---------------------------------#
 
 import mqtt
@@ -13,17 +13,9 @@ class PWX12
     var bsl
     var rst
 
-    var client 
     var logger
-    var ville
-    var device
     var root
     var topic 
-
-    var tick_midnight
-    var tick_hour
-    var tick_second
-
     var conso
 
     def loadconfig()
@@ -41,15 +33,16 @@ class PWX12
         end
         var buffer = file.read()
         var jsonmap = json.load(buffer)
-        self.client=jsonmap["client"]
-        print('client:',self.client)
-        self.ville=jsonmap["ville"]
-        print('ville:',self.ville)
-        self.device=jsonmap["device"]
-        print('device:',self.device)
+        global.client=jsonmap["client"]
+        print('client:',global.client)
+        global.ville=jsonmap["ville"]
+        print('ville:',global.ville)
+        global.device=jsonmap["device"]
+        print('device:',global.device)
     end
 
     def init()
+        self.loadconfig()
         import conso
         self.conso = conso
         import logger
@@ -59,27 +52,14 @@ class PWX12
         self.rst=2
         self.bsl=13
 
-        self.tick_midnight=15
-        self.tick_hour=33
-        self.tick_second=32
-
-        self.loadconfig()
-
         print('DRIVER: serial init done')
         print('heap:',tasmota.get_free_heap())
         self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1) 
-    
         # setup boot pins for stm32: reset disable & boot normal
         gpio.pin_mode(self.rst,gpio.OUTPUT)
         gpio.pin_mode(self.bsl,gpio.OUTPUT)
-        gpio.pin_mode(self.tick_midnight,gpio.OUTPUT)
-        gpio.pin_mode(self.tick_hour,gpio.OUTPUT)
-        # gpio.pin_mode(self.tick_second,gpio.OUTPUT)
         gpio.digital_write(self.bsl, 0)
         gpio.digital_write(self.rst, 1)
-        gpio.digital_write(self.tick_midnight, 0)
-        gpio.digital_write(self.tick_hour, 0)
-        # gpio.digital_write(self.tick_second, 0)
    end
 
     def fast_loop()
@@ -102,7 +82,15 @@ class PWX12
                         print(mylist[i])
                     elif mylist[i][0] == 'W'
                         self.logger.log_data(mylist[i])
- #                       print(mylist[i])
+                        var topic
+                        var split
+                        split = string.split(mylist[i],':')
+                        var ligne
+                        for j:0..2
+                            topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
+                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":"%s"}',global.device,global.configjson[global.device]["root"][j],split[j+1])
+                            mqtt.publish(topic,ligne,true)
+                        end
                     else
                         print('PWX12->',mylist[i])
                     end
@@ -124,12 +112,6 @@ class PWX12
         if hour != 23
             self.conso.mqtt_publish('hours')
         end
-    end
-
-    def every_second()
-    #    gpio.digital_write(self.tick_second, 1)
-    #     tasmota.delay(1)
-    #     gpio.digital_write(self.tick_second, 0)
     end
 
     def every_4hours()

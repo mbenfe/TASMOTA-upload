@@ -83,10 +83,15 @@ class PWX4
                         print(mylist[i])
                     elif mylist[i][0] == 'W'
                         self.logger.log_data(mylist[i])
-                        topic = string.format("gw/%s/%s/%s/tele/POWER",global.client,global.ville,global.device)
+                        var topic
                         var split
                         split = string.split(mylist[i],':')
-                        self.listlog.insert(self.count,real(split[1]))
+                        var ligne
+                        for j:0..0
+                            topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
+                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":"%s"}',global.device,global.configjson[global.device]["root"][j],split[j+1])
+                            mqtt.publish(topic,ligne,true)
+                        end
                     else
                         print('PWX4->',mylist[i])
                     end
