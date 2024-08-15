@@ -19,7 +19,7 @@ def Calibration(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload)," ")
     if(argument[0]!="VA" && argument[0]!="VB" && argument[0] !="VC" && argument[0] != "IA" && argument[0] != "IB" && argument[0] != "IC" && argument[0] != "IN" 
         || argument[1] == "")
-        print("erreur arguments")
+        print("AUTOEXEC:erreur arguments")
         return
     end
     var token
@@ -30,7 +30,7 @@ def Calibration(cmd, idx, payload, payload_json)
     end
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring(token))
-    print(token)
+    print('AUTOEXEC:'token)
     tasmota.resp_cmnd_done()
 end
 
@@ -44,7 +44,7 @@ end
 def storecal()
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring("CAL STORE"))
-    print('CAL STORE')
+    print('AUTOEXEC:CAL STORE')
     tasmota.resp_cmnd_done()
 end
 
@@ -61,9 +61,7 @@ def Init()
 
     global.serial1 = serial(rx1,tx1,115200,serial.SERIAL_8N1)
     global.serial2 = serial(rx2,tx2,115200,serial.SERIAL_8N1)
-    print("serial initialised")
-    print(global.serial1)
-    print(global.serial2)
+    print("AUTOEXEC:serial initialised")
     tasmota.resp_cmnd_done()
 end
 
@@ -72,7 +70,7 @@ def BlReset(cmd, idx, payload, payload_json)
     var ser
     var argument = string.split(string.toupper(payload)," ")
     if argument.size() < 2
-        print("erreur d'arguments")
+        print("AUTOEXEC:erreur d'arguments")
         return
     end
     if argument[0] == '1'
@@ -82,41 +80,37 @@ def BlReset(cmd, idx, payload, payload_json)
     end
     ser.flush()
     ser.write(bytes().fromstring("SET RESET"))
-    print("SET RESET")
+    print("AUTOEXEC:SET RESET")
     tasmota.resp_cmnd_done()
 end
 
 def BlMode(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload)," ")
     if argument.size() < 2
-        print("erreur d'arguments")
+        print("AUTOEXEC:erreur d'arguments")
         return
     end
     if(argument[1]!="CAL" && argument[1] !="LOG" )
-        print("erreur arguments")
+        print("AUTOEXEC:erreur arguments")
         return
     end
     if argument[0] == '1'
         global.serial1.flush()
        if(argument[1]=="CAL")
           global.serial1.write(bytes().fromstring("SET MODE CAL"))
-          print("SET MODE CAL device 1")
-          print(global.serial1)
+          print("AUTOEXEC:SET MODE CAL device 1")
        else
           global.serial1.write(bytes().fromstring("SET MODE LOG"))
-          print("SET MODE LOG device 1")
-          print(global.serial1)
+          print("AUTOEXEC:SET MODE LOG device 1")
        end
     else
         global.serial2.flush()
        if(argument[1]=="CAL")
           global.serial2.write(bytes().fromstring("SET MODE CAL"))
-          print("SET MODE CAL device 2")
-          print(global.serial2)
+          print("AUTOEXEC:SET MODE CAL device 2")
        else
           global.serial2.write(bytes().fromstring("SET MODE LOG"))
-          print("SET MODE LOG device 2")
-          print(global.serial2)
+          print("AUTOEXEC:SET MODE LOG device 2")
        end
     end
     tasmota.resp_cmnd_done()
@@ -125,7 +119,7 @@ end
 def BlType(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload),' ')
     if(argument[0]!='MONO' && argument[0] !='TRI' )
-        print('erreur arguments')
+        print('AUTOEXEC:erreur arguments')
         return
     end
     if(argument[0]=='MONO')
@@ -161,7 +155,7 @@ end
 
 
 def Stm32Reset(cmd, idx, payload, payload_json)
-    print('reset:',payload)
+    print('AUTOEXEC:reset:',payload)
 
     if (payload=='1')
         gpio.pin_mode(rst_1,gpio.OUTPUT)
@@ -210,7 +204,7 @@ def device(cmd, idx,payload, payload_json)
     var buffer = file.read()
     var myjson=json.load(buffer)
     if argument.size() < 2
-        print("erreur d'arguments")
+        print("AUTOEXEC:erreur d'arguments")
         return
     end
     if argument[0] == "1"
@@ -231,9 +225,9 @@ def getfile(cmd, idx,payload, payload_json)
     import string
     var path = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
     path+=payload
-    print(path)
+    print('AUTOEXEC:',path)
     var file=string.split(path,'/').pop()
-    print(file)
+    print('AUTOEXEC:'',file)
     var wc=webclient()
     wc.set_follow_redirects(true)
     wc.begin(path)
@@ -242,7 +236,7 @@ def getfile(cmd, idx,payload, payload_json)
         raise 'erreur','code: '+str(st) 
     end
     st='Fetched '+str(wc.write_file(file))
-    print(path,st)
+    print('AUTOEXEC:',path,st)
     wc.close()
     var message = 'uploaded:'+file
     tasmota.resp_cmnd(message)
@@ -262,10 +256,10 @@ def sendconfig(cmd, idx,payload, payload_json)
     var trouve = false
     var argument = string.split(payload,' ')
     if argument.size() < 2
-        print("erreur d'arguments")
+        print("AUTOEXEC:erreur d'arguments")
         return
     end
-    print("send:",argument[1])
+    print("AUTOEXEC:send:",argument[1])
     ############################ fichier config ###################
     file = open("esp32.cfg","rt")
     buffer = file.read()
@@ -279,7 +273,7 @@ def sendconfig(cmd, idx,payload, payload_json)
 
     file = open(payload,"rt")
     if file == nil
-        print("fichier non existant:",payload)
+        print("AUTOEXEC:fichier non existant:",payload)
         return
     end
     buffer = file.read()
@@ -300,19 +294,19 @@ def sendconfig(cmd, idx,payload, payload_json)
         ser.flush()
         var mybytes=bytes().fromstring(total)
         ser.write(mybytes)
-        print(total)
+        print('AUTOEXEC:'total)
         tasmota.resp_cmnd("config sent")
     else
-        print("device ",device," non touvé")
+        print("AUTOEXEC:device ",device," non touvé")
         tasmota.resp_cmnd("config not sent")
     end
 end
 
 
  tasmota.cmd("seriallog 0")
- print("serial log disabled")
+ print("AUTOEXEC:serial log disabled")
  tasmota.cmd("timezone 2")
- print("timezone set")
+ print("AUTOEXEC:timezone set")
   
 tasmota.add_cmd("cal",Calibration)
 tasmota.add_cmd("readcal",readcal)

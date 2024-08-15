@@ -1,3 +1,7 @@
+#---------------------------------#
+# CONSO.BE 1.0 WFX                #
+#---------------------------------#
+
 import json
 import string
 import mqtt
@@ -36,7 +40,7 @@ class conso
 
 
     def init_conso(device)
-        print('creation du fichier de sauvegarde de la consommation....')
+        print('CONSO:creation du fichier de sauvegarde de la consommation....')
         var file = open('esp32.cfg','rt')
         var ligne = file.read()
         var esp32json = json.load(ligne)
@@ -46,7 +50,7 @@ class conso
         self.device2 = esp32json['device2']
         file.close()
         var name = string.format('p_%s.json',esp32json['ville'])
-        print('lecture du fichier ',name)
+        print('CONSO:lecture du fichier ',name)
         import path
         var targetdevice
         if(path.exists(name))
@@ -59,13 +63,13 @@ class conso
             else
                 targetdevice = esp32json['device2']
             end
-            print(configjson[targetdevice])
+            print('CONSO:',configjson[targetdevice])
             if configjson[targetdevice]['produit']=='PWX12'
                 ligne = string.format('{"hours":[]}')
                 var mainjson = json.load(ligne)
                 mainjson.insert('days',[])
                 mainjson.insert('months',[])
-                print('configuration PWX12')
+                print('CONSO:configuration PWX12')
                 for i:0..2
                     if configjson[targetdevice]['mode'][i]=='tri'
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,configjson[targetdevice]['root'][i],self.get_hours())
@@ -80,7 +84,7 @@ class conso
                 ligne = json.dump(mainjson)
                 return ligne
             else
-                print('configuration PWX4')
+                print('CONSO:configuration PWX4')
                 ligne = string.format('{"hours":[]}')
                 var mainjson = json.load(ligne)
                 mainjson.insert('days',[])
@@ -106,36 +110,36 @@ class conso
         var file
         # premier BL logger
         if(path.exists('conso1.json'))
-            print('chargement de la sauvegarde de consommation')
+            print('CONSO:chargement de la sauvegarde de consommation')
             file = open("conso1.json","rt")
             ligne = file.read()
             self.consojson1= json.load(ligne)
-            print(self.consojson1)
+            print('CONSO:',self.consojson1)
             file.close()
         else
             ligne = self.init_conso(1)
             file = open('conso1.json','wt')
             file.write(ligne)
             file.close()
-            print('fichier sauvegarde de consommation cree !')
+            print('CONSO:fichier sauvegarde de consommation cree !')
         end
         self.day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
         self.month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]
         self.num_day_month = [0,31,28,31,30,31,30,31,31,30,31,30,31]
         # deuxieme BL logger
         if(path.exists('conso2.json'))
-            print('chargement de la sauvegarde de consommation')
+            print('CONSO:chargement de la sauvegarde de consommation')
             file = open("conso2.json","rt")
             ligne = file.read()
             self.consojson2= json.load(ligne)
-            print(self.consojson2)
+            print('CONSO:',self.consojson2)
             file.close()
         else
             ligne = self.init_conso(2)
             file = open('conso2.json','wt')
             file.write(ligne)
             file.close()
-            print('fichier sauvegarde de consommation cree !')
+            print('CONSO:fichier sauvegarde de consommation cree !')
         end
         self.day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
         self.month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]

@@ -1,7 +1,6 @@
 #---------------------------------#
-# VERSION 1.0 WFX                 #
+# WFX_DRIVER.BE 1.0 WF            #
 #---------------------------------#
-
 import mqtt
 import string
 import json
@@ -31,7 +30,7 @@ class WFX
         var file 
         file = open("esp32.cfg","rt")
         if file.size() == 0
-            print('creat esp32 config file')
+            print('DRIVER:create esp32 config file')
             file = open("esp32.cfg","wt")
             jsonstring=string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
             file.write(jsonstring)
@@ -41,13 +40,13 @@ class WFX
         var buffer = file.read()
         var jsonmap = json.load(buffer)
         self.client=jsonmap["client"]
-        print('client:',self.client)
+        print('DRIVER:client:',self.client)
         self.ville=jsonmap["ville"]
-        print('ville:',self.ville)
+        print('DRIVER:ville:',self.ville)
         self.device1=jsonmap["device1"]
-        print('device1:',self.device1)
+        print('DRIVER:device1:',self.device1)
         self.device2=jsonmap["device2"]
-        print('device2:',self.device2)
+        print('DRIVER:device2:',self.device2)
     end
 
     def init()
@@ -90,23 +89,18 @@ class WFX
             due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
             buffer = global.serial1.read()
-            print(buffer)
             global.serial1.flush()
             mystring = buffer.asstring()
-            print(mystring)
             mylist = string.split(mystring,'\n')
-            print(mylist)
             numitem= size(mylist)
-            print(numitem)
             for i: 0..numitem-2
                 if mylist[i][0] == 'C'
                     self.conso.update(mylist[i])
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
                     self.logger.log_data(mylist[i])
- #                       print(mylist[i])
                 else
-                    print('WFX->',mylist[i])
+                    print('WFX 1 ->',mylist[i])
                 end
             end
         end
@@ -124,9 +118,8 @@ class WFX
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
                     self.logger.log_data(mylist[i])
- #                       print(mylist[i])
                 else
-                    print('WFX->',mylist[i])
+                    print('WFX 2 ->',mylist[i])
                 end
             end
         end
