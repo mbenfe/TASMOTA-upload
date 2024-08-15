@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION 1.0 WFX                 #
+# AUTOXEC.BE 1.0 WFX              #
 #---------------------------------#
 import string
 import global
@@ -14,6 +14,39 @@ var rst_1=22
 var bsl_2=2   
 var rst_2=14   
 
+#-------------------------------- COMMANDES -----------------------------------------#
+def Calibration(cmd, idx, payload, payload_json)
+    var argument = string.split(string.toupper(payload)," ")
+    if(argument[0]!="VA" && argument[0]!="VB" && argument[0] !="VC" && argument[0] != "IA" && argument[0] != "IB" && argument[0] != "IC" && argument[0] != "IN" 
+        || argument[1] == "")
+        print("erreur arguments")
+        return
+    end
+    var token
+    if(argument[0] =="VA" || argument[0] =="VB" || argument[0] =="VC")
+        token = string.format("CAL %s %s",argument[0],argument[1])
+    else
+        token = string.format("CAL %s %s %s",argument[0],argument[1],argument[2])
+    end
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring(token))
+    print(token)
+    tasmota.resp_cmnd_done()
+end
+
+def readcal()
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring("CAL READ"))
+    print('CAL READ')
+    tasmota.resp_cmnd_done()
+end
+
+def storecal()
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring("CAL STORE"))
+    print('CAL STORE')
+    tasmota.resp_cmnd_done()
+end
 
 def Init()
     var rx1=3    
@@ -35,7 +68,6 @@ def Init()
 end
 
 
-#-------------------------------- COMMANDES -----------------------------------------#
 def BlReset(cmd, idx, payload, payload_json)
     var ser
     var argument = string.split(string.toupper(payload)," ")
@@ -89,6 +121,44 @@ def BlMode(cmd, idx, payload, payload_json)
     end
     tasmota.resp_cmnd_done()
 end
+
+def BlType(cmd, idx, payload, payload_json)
+    var argument = string.split(string.toupper(payload),' ')
+    if(argument[0]!='MONO' && argument[0] !='TRI' )
+        print('erreur arguments')
+        return
+    end
+    if(argument[0]=='MONO')
+								 
+			  
+	   
+						 
+							  
+							 
+        global.serialSend.write(bytes().fromstring('SET TYPE MONO'))
+										
+							   
+		   
+																  
+										
+							   
+		  
+    else
+							  
+							 
+        global.serialSend.write(bytes().fromstring('SET TYPE TRI'))
+										
+							   
+		   
+																  
+										
+							   
+		  
+    end
+    tasmota.delay(500)
+    tasmota.resp_cmnd_done()
+end
+
 
 def Stm32Reset(cmd, idx, payload, payload_json)
     print('reset:',payload)
@@ -244,14 +314,18 @@ end
  tasmota.cmd("timezone 2")
  print("timezone set")
   
+tasmota.add_cmd("cal",Calibration)
+tasmota.add_cmd("readcal",readcal)
+tasmota.add_cmd("storecal",storecal)
  tasmota.add_cmd("Init",Init)
  tasmota.add_cmd('Stm32reset',Stm32Reset)
 tasmota.add_cmd("BlReset",BlReset)
 tasmota.add_cmd("BlMode",BlMode)
-tasmota.add_cmd("sendconfig",sendconfig)
-tasmota.add_cmd('getfile',getfile)
+tasmota.add_cmd("BlType",BlType)
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
+tasmota.add_cmd('getfile',getfile)
+tasmota.add_cmd("sendconfig",sendconfig)
 
 tasmota.cmd("Init")
 tasmota.load("wfx_driver.be")
