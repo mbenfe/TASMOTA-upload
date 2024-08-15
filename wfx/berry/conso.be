@@ -62,11 +62,11 @@ class conso
                     print('CONSO:init_conso:configuration PWX12')
                     for i:0..2
                         if global.configjson[targetdevice]['mode'][i]=='tri'
-                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][i],self.get_hours())
+                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][i],self.get_hours())
                             mainjson['hours'].insert(i,json.load(ligne))
-                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][i],self.get_days())
+                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][i],self.get_days())
                             mainjson['days'].insert(i,json.load(ligne))
-                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][i],self.get_months())
+                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][i],self.get_months())
                             mainjson['months'].insert(i,json.load(ligne))
                         else
                         end
@@ -80,11 +80,11 @@ class conso
                     mainjson.insert('days',[])
                     mainjson.insert('months',[])
                     if global.configjson[targetdevice]['mode']=='tri'
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'],self.get_hours())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][0],self.get_hours())
                         mainjson['hours'].insert(0,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'],self.get_days())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][0],self.get_days())
                         mainjson['days'].insert(0,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'],self.get_months())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][0],self.get_months())
                         mainjson['months'].insert(0,json.load(ligne))
                     else
                     end
@@ -212,12 +212,14 @@ class conso
         var ligne
         if device == 1 
             consojson = self.consojson1
-            if global.configjson[global.device1]["produit"] == "PWX4"
+            stringdevice = string.format("%s",global.device1)
+          if global.configjson[global.device1]["produit"] == "PWX4"
                 channel=0
             else
                 channel=2
             end
         else
+            stringdevice = string.format("%s",global.device2)
             consojson = self.consojson2
             if global.configjson[global.device2]["produit"] == "PWX4"
                 channel=0
@@ -225,26 +227,17 @@ class conso
                 channel=2
             end
         end
-        print(channel)
-        print(consojson)
         for i:0..channel
-            print(i)
-            stringdevice = string.format("%s-%d",global.device1,i+1)
             if(scope=="hours")
-                print("scope = hours")
-                print("stringdevice",stringdevice)
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice)
-                print("topic:",topic)
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice+'-'+str(i))
                 payload=consojson["hours"][i]["DATA"]
-                print("payload:",payload)
-				ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
-                print("ligne:",ligne)
+				ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',stringdevice,global.configjson[stringdevice]["root"][i],json.dump(payload))
                 mqtt.publish(topic,ligne,true)
                 consojson["hours"][i]["DATA"][str(hour+1)]=0
             else
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice)
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice+'-'+str(i))
                 payload=consojson["hours"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
+                ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',stringdevice,global.configjson[stringdevice]["root"][i],json.dump(payload))
                 mqtt.publish(topic,ligne,true)
                 consojson["hours"][i]["DATA"][str(0)]=0
 
