@@ -21,7 +21,7 @@ var bsl_out=32
 def SerialSendTime()
     # put EPOC to string
     var now = tasmota.rtc()
-    var time_raw = now['local']
+    var time_raw = now["local"]
     var token = string.format('CAL TIME EPOC:%d',time_raw)
 
     # initialise UART Rx = GPIO3 and TX=GPIO1

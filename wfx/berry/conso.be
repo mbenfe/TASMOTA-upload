@@ -54,20 +54,20 @@ class conso
                 targetdevice = global.device2
             end
             if targetdevice != "unknown"
-                if global.configjson[targetdevice]['produit']=='PWX12'
+                if global.configjson[targetdevice]["produit"]=='PWX12'
                     ligne = string.format('{"hours":[]}')
                     var mainjson = json.load(ligne)
                     mainjson.insert('days',[])
                     mainjson.insert('months',[])
                     print('CONSO:init_conso:configuration PWX12')
                     for i:0..2
-                        if global.configjson[targetdevice]['mode'][i]=='tri'
+                        if global.configjson[targetdevice]["mode"][i]=='tri'
                             ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][i],self.get_hours())
-                            mainjson['hours'].insert(i,json.load(ligne))
+                            mainjson["hours"].insert(i,json.load(ligne))
                             ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][i],self.get_days())
-                            mainjson['days'].insert(i,json.load(ligne))
+                            mainjson["days"].insert(i,json.load(ligne))
                             ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][i],self.get_months())
-                            mainjson['months'].insert(i,json.load(ligne))
+                            mainjson["months"].insert(i,json.load(ligne))
                         else
                         end
                     end
@@ -79,13 +79,13 @@ class conso
                     var mainjson = json.load(ligne)
                     mainjson.insert('days',[])
                     mainjson.insert('months',[])
-                    if global.configjson[targetdevice]['mode']=='tri'
+                    if global.configjson[targetdevice]["mode"]=='tri'
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][0],self.get_hours())
-                        mainjson['hours'].insert(0,json.load(ligne))
+                        mainjson["hours"].insert(0,json.load(ligne))
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][0],self.get_days())
-                        mainjson['days'].insert(0,json.load(ligne))
+                        mainjson["days"].insert(0,json.load(ligne))
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]["root"][0],self.get_months())
-                        mainjson['months'].insert(0,json.load(ligne))
+                        mainjson["months"].insert(0,json.load(ligne))
                     else
                     end
                     ligne = json.dump(mainjson)
@@ -145,14 +145,14 @@ class conso
     def update(data,device)
         var split = string.split(data,':')
         var now = tasmota.rtc()
-        var rtc=tasmota.time_dump(now['local'])
-        var second = rtc['sec']
-        var minute = rtc['min']
-        var hour = rtc['hour']
-        var day = rtc['day']
-        var month = rtc['month']
-        var year = rtc['year']
-        var day_of_week = rtc['weekday'] # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var rtc=tasmota.time_dump(now["local"])
+        var second = rtc["sec"]
+        var minute = rtc["min"]
+        var hour = rtc["hour"]
+        var day = rtc["day"]
+        var month = rtc["month"]
+        var year = rtc["year"]
+        var day_of_week = rtc["weekday"] # 0=Sunday, 1=Monday, ..., 6=Saturday
         var channel  
         if device == 1 
             if global.configjson[global.device1]["produit"] == "PWX4"
@@ -169,13 +169,13 @@ class conso
         end
         for i:0..channel
             if(device ==1)
-                self.consojson1['hours'][i]['DATA'][str(hour)]+=real(split[i+1])
-                self.consojson1['days'][i]['DATA'][self.day_list[day_of_week]]+=real(split[i+1])
-                self.consojson1['months'][i]['DATA'][self.month_list[month]]+=real(split[i+1])
+                self.consojson1["hours"][i]["DATA"][str(hour)]+=real(split[i+1])
+                self.consojson1["days"][i]["DATA"][self.day_list[day_of_week]]+=real(split[i+1])
+                self.consojson1["months"][i]["DATA"][self.month_list[month]]+=real(split[i+1])
             else
-                self.consojson2['hours'][i]['DATA'][str(hour)]+=real(split[i+1])
-                self.consojson2['days'][i]['DATA'][self.day_list[day_of_week]]+=real(split[i+1])
-                self.consojson2['months'][i]['DATA'][self.month_list[month]]+=real(split[i+1])
+                self.consojson2["hours"][i]["DATA"][str(hour)]+=real(split[i+1])
+                self.consojson2["days"][i]["DATA"][self.day_list[day_of_week]]+=real(split[i+1])
+                self.consojson2["months"][i]["DATA"][self.month_list[month]]+=real(split[i+1])
             end
         end
     end
@@ -195,14 +195,14 @@ class conso
 
     def mqtt_publish(scope,device)
         var now = tasmota.rtc()
-        var rtc=tasmota.time_dump(now['local'])
-        var second = rtc['sec']
-        var minute = rtc['min']
-        var hour = rtc['hour']
-        var day = rtc['day']
-        var month = rtc['month']
-        var year = rtc['year']
-        var day_of_week = rtc['weekday']  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var rtc=tasmota.time_dump(now["local"])
+        var second = rtc["sec"]
+        var minute = rtc["min"]
+        var hour = rtc["hour"]
+        var day = rtc["day"]
+        var month = rtc["month"]
+        var year = rtc["year"]
+        var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var topic
         var payload
 

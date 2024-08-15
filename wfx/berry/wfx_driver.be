@@ -135,8 +135,8 @@ class WFX
 
    def hour()
         var now = tasmota.rtc()
-        var rtc=tasmota.time_dump(now['local'])
-        var hour = rtc['hour']
+        var rtc=tasmota.time_dump(now["local"])
+        var hour = rtc["hour"]
        # publish if not midnight
         if hour != 23
             if global.device1 != "unknown"

@@ -105,8 +105,8 @@ class PWX12M
 
     def hour()
         var now = tasmota.rtc()
-        var rtc=tasmota.time_dump(now['local'])
-        var hour = rtc['hour']
+        var rtc=tasmota.time_dump(now["local"])
+        var hour = rtc["hour"]
         # publish if not midnight
         if hour != 23
             self.conso.mqtt_publish('hours')

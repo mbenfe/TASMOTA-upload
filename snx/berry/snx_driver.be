@@ -102,14 +102,14 @@ class STM32
                 for i:0..numitem-2
                     myjson = json.load(mylist[i])
                     if myjson.contains('ID')
-                        if myjson['ID'] == 0
+                        if myjson["ID"] == 0
                             topic=string.format("monitor/%s/%s/%s",self.client,self.ville,self.device)
                         else
-                            topic=string.format("gw/%s/%s/%s/tele/DANFOSS",self.client,self.ville,str(myjson['ID']))
+                            topic=string.format("gw/%s/%s/%s/tele/DANFOSS",self.client,self.ville,str(myjson["ID"]))
                         end
                         mqtt.publish(topic,mylist[i],true)
                     else
-                        topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson['Name']))
+                        topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
                         mqtt.publish(topic,mylist[i],true)
                     end
                 end
@@ -120,7 +120,7 @@ class STM32
                 numitem = size(mylist)
                 for i:0..numitem-2
                     myjson = json.load(mylist[i])
-                    topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson['ID']))
+                    topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson["ID"]))
                     mqtt.publish(topic,mylist[i],true)
                 end
             end

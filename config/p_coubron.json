@@ -59,25 +59,25 @@
         "mode": "tri",
         "root": ["gen_ga"],
         "produit": "PWX4",
-        "techno": "ct",
-        "ratio": "1000"
+        "techno": ["ct"],
+        "ratio": ["1000"]
     },
     "dl4-eclpub2": {
         "mode": "tri",
         "root": ["eclpub2"],
         "produit": "PWX4",
-        "techno": "ct",
-        "ratio": "1000"
+        "techno": ["ct"],
+        "ratio": ["1000"]
     },
     "dl4-caisses": {
-        "mode": ["tri"],
+        "mode": "tri",
         "root": ["gen_caisses"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]
     },
     "test-dl4": {
-        "mode": ["tri"],
+        "mode": "tri",
         "root": ["ecl2"],
         "produit": "PWX4",
         "techno": ["ct"],
