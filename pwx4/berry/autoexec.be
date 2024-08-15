@@ -14,20 +14,6 @@ var bsl=13
 
 
 #-------------------------------- COMMANDES -----------------------------------------#
-def SerialSendTime()
-    # put EPOC to string
-    var now = tasmota.rtc()
-    var time_raw = now['local']
-    var token = string.format('CAL TIME EPOC:%d',time_raw)
-
-    # initialise UART Rx = GPIO3 and TX=GPIO1
-    # send data to serial
-    global.serialSend.flush()
-    global.serialSend.write(bytes().fromstring(token))
-    tasmota.resp_cmnd_done()
-    print('SENDTIME:',token)
-end
-
 def Calibration(cmd, idx, payload, payload_json)
     var argument = string.split(payload,' ')
     var target = argument[0]
@@ -232,9 +218,6 @@ def launch_driver()
  tasmota.cmd("timezone 2")
 print("timezone set")
 
-print('AUTOEXEC: create commande SerialSendTime')
-tasmota.add_cmd('SerialSendTime',SerialSendTime)
-
 print('AUTOEXEC: create commande Stm32Reset')
 tasmota.add_cmd('Stm32reset',Stm32Reset)
 
@@ -254,11 +237,10 @@ tasmota.add_cmd('Init',Init)
 tasmota.add_cmd('cal',Calibration)
 
 ############################################################
-tasmota.load('pwx4_driver.be')
-tasmota.delay(500)
 tasmota.cmd('Init')
 tasmota.delay(500)
-tasmota.cmd('serialsendtime')
+tasmota.load('pwx4_driver.be')
+
 
 
 

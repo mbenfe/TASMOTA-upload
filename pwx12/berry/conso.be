@@ -193,7 +193,6 @@ class conso
             end
         end
     end
-
 end
 
 return conso()
