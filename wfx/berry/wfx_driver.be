@@ -15,10 +15,8 @@ class WFX
     var bsl_1  
     var rst_2  
     var bsl_2   
-    var client 
-    var ville
-    var device1
-    var device2
+
+
     var topic 
 
     var logger
@@ -39,17 +37,18 @@ class WFX
         end
         var buffer = file.read()
         var jsonmap = json.load(buffer)
-        self.client=jsonmap["client"]
-        print('DRIVER:client:',self.client)
-        self.ville=jsonmap["ville"]
-        print('DRIVER:ville:',self.ville)
-        self.device1=jsonmap["device1"]
-        print('DRIVER:device1:',self.device1)
-        self.device2=jsonmap["device2"]
-        print('DRIVER:device2:',self.device2)
+        global.client=jsonmap["client"]
+        print('DRIVER:client:',global.client)
+        global.ville=jsonmap["ville"]
+        print('DRIVER:ville:',global.ville)
+        global.device1=jsonmap["device1"]
+        print('DRIVER:device1:',global.device1)
+        global.device2=jsonmap["device2"]
+        print('DRIVER:device2:',global.device2)
     end
 
     def init()
+        self.loadconfig()
         import conso
         self.conso = conso
         import logger
@@ -126,17 +125,27 @@ class WFX
     end
 
     def midnight()
-        self.conso.mqtt_publish('all')
+        if global.device1 != "unknown"
+           self.conso.mqtt_publish('all',1)
+        end
+        if global.device2 != "unknown"
+            self.conso.mqtt_publish('all',2)
+        end
    end
 
    def hour()
-       var now = tasmota.rtc()
-       var rtc=tasmota.time_dump(now['local'])
-       var hour = rtc['hour']
+        var now = tasmota.rtc()
+        var rtc=tasmota.time_dump(now['local'])
+        var hour = rtc['hour']
        # publish if not midnight
-       if hour != 23
-           self.conso.mqtt_publish('hours')
-       end
+        if hour != 23
+            if global.device1 != "unknown"
+                self.conso.mqtt_publish('hours',1)
+            end
+            if global.device2 != "unknown"
+                self.conso.mqtt_publish('hours',2)
+            end
+        end
    end
 
 

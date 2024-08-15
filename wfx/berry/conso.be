@@ -36,17 +36,11 @@ class conso
 
 
     def init_conso(device)
-        print('CONSO:creation du fichier de sauvegarde de la consommation....')
-        var file = open('esp32.cfg','rt')
-        var ligne = file.read()
-        var esp32json = json.load(ligne)
-        self.client = esp32json['client']
-        self.ville = esp32json['ville']
-        self.device1 = esp32json['device1']
-        self.device2 = esp32json['device2']
-        file.close()
-        var name = string.format('p_%s.json',esp32json['ville'])
-        print('CONSO:lecture du fichier ',name)
+        var file
+        var ligne
+        print('CONSO:init_conso:creation du fichier de sauvegarde de la consommation....')
+        var name = string.format('p_%s.json',global.ville)
+        print('CONSO:init_conso:lecture du fichier ',name)
         import path
         var targetdevice
         if(path.exists(name))
@@ -55,18 +49,17 @@ class conso
             file.close()
             global.configjson=json.load(ligne)
             if(device == 1)
-                targetdevice = esp32json['device1']
+                targetdevice = global.device1
             else
-                targetdevice = esp32json['device2']
+                targetdevice = global.device2
             end
             if targetdevice != "unknown"
-                print('CONSO:',global.configjson[targetdevice])
                 if global.configjson[targetdevice]['produit']=='PWX12'
                     ligne = string.format('{"hours":[]}')
                     var mainjson = json.load(ligne)
                     mainjson.insert('days',[])
                     mainjson.insert('months',[])
-                    print('CONSO:configuration PWX12')
+                    print('CONSO:init_conso:configuration PWX12')
                     for i:0..2
                         if global.configjson[targetdevice]['mode'][i]=='tri'
                             ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][i],self.get_hours())
@@ -81,17 +74,17 @@ class conso
                     ligne = json.dump(mainjson)
                     return ligne
                 else
-                    print('CONSO:configuration PWX4')
+                    print('CONSO:init_conso:configuration PWX4')
                     ligne = string.format('{"hours":[]}')
                     var mainjson = json.load(ligne)
                     mainjson.insert('days',[])
                     mainjson.insert('months',[])
-                    if global.configjson[targetdevice]['mode'][0]=='tri'
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][0],self.get_hours())
+                    if global.configjson[targetdevice]['mode']=='tri'
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'],self.get_hours())
                         mainjson['hours'].insert(0,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][0],self.get_days())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'],self.get_days())
                         mainjson['days'].insert(0,json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'][0],self.get_months())
+                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',targetdevice,global.configjson[targetdevice]['root'],self.get_months())
                         mainjson['months'].insert(0,json.load(ligne))
                     else
                     end
@@ -121,6 +114,11 @@ class conso
             file.close()
             print('CONSO:fichier sauvegarde de consommation cree !')
         end
+        var name = string.format("p_%s.json",global.ville)
+        file = open(name,'rt')
+        ligne=file.read()
+        global.configjson=json.load(ligne)
+        file.close()
         self.day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
         self.month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]
         self.num_day_month = [0,31,28,31,30,31,30,31,31,30,31,30,31]
@@ -145,7 +143,6 @@ class conso
     end
 
     def update(data,device)
-        print('CONSO:',data,' ',device)
         var split = string.split(data,':')
         var now = tasmota.rtc()
         var rtc=tasmota.time_dump(now['local'])
@@ -155,9 +152,22 @@ class conso
         var day = rtc['day']
         var month = rtc['month']
         var year = rtc['year']
-        var day_of_week = rtc['weekday']
-        var channel  # 0=Sunday, 1=Monday, ..., 6=Saturday
-        for i:0..2
+        var day_of_week = rtc['weekday'] # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var channel  
+        if device == 1 
+            if global.configjson[global.device1]["produit"] == "PWX4"
+                channel=0
+            else
+                channel=2
+            end
+        else
+            if global.configjson[global.device2]["produit"] == "PWX4"
+                channel=0
+            else
+                channel=2
+            end
+        end
+        for i:0..channel
             if(device ==1)
                 self.consojson1['hours'][i]['DATA'][str(hour)]+=real(split[i+1])
                 self.consojson1['days'][i]['DATA'][self.day_list[day_of_week]]+=real(split[i+1])
@@ -183,7 +193,7 @@ class conso
         file.close()
     end
 
-    def mqtt_publish(scope)
+    def mqtt_publish(scope,device)
         var now = tasmota.rtc()
         var rtc=tasmota.time_dump(now['local'])
         var second = rtc['sec']
@@ -197,73 +207,77 @@ class conso
         var payload
 
         var stringdevice
-        for i:0..2
-            stringdevice = string.format('%s-%d',self.device1,i+1)
-            if(scope=='hours')
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
-                payload=self.consojson1['hours'][i]['DATA'][str(hour)]
-                mqtt.publish(topic,json.dump(payload),true)
-                self.consojson1['hours'][i]['DATA'][str(hour+1)]=0
+        var channel  
+        var consojson
+        var ligne
+        if device == 1 
+            consojson = self.consojson1
+            if global.configjson[global.device1]["produit"] == "PWX4"
+                channel=0
             else
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
-                payload=self.consojson1['hours'][i]['DATA'][str(hour)]
-                mqtt.publish(topic,payload,true)
-                self.consojson1['hours'][i]['DATA'][str(0)]=0
-                topic = string.format("gw/%s/%s/%s/tele/PWDAYS",self.client,self.ville,stringdevice)
-                payload=self.consojson1['days'][i]['DATA'][str(self.day_list[day])]
+                channel=2
+            end
+        else
+            consojson = self.consojson2
+            if global.configjson[global.device2]["produit"] == "PWX4"
+                channel=0
+            else
+                channel=2
+            end
+        end
+        print(channel)
+        print(consojson)
+        for i:0..channel
+            print(i)
+            stringdevice = string.format("%s-%d",global.device1,i+1)
+            if(scope=="hours")
+                print("scope = hours")
+                print("stringdevice",stringdevice)
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice)
+                print("topic:",topic)
+                payload=consojson["hours"][i]["DATA"]
+                print("payload:",payload)
+				ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
+                print("ligne:",ligne)
+                mqtt.publish(topic,ligne,true)
+                consojson["hours"][i]["DATA"][str(hour+1)]=0
+            else
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice)
+                payload=consojson["hours"][i]["DATA"]
+                ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
+                mqtt.publish(topic,ligne,true)
+                consojson["hours"][i]["DATA"][str(0)]=0
+
+                topic = string.format("gw/%s/%s/%s/tele/PWDAYS",global.client,global.ville,stringdevice)
+                payload=consojson["days"][i]["DATA"]
+                ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
+                mqtt.publish(topic,ligne,true)
                 if day == 6
-                    self.consojson1['days'][i]['DATA']['Dim']=0
+                    consojson["days"][i]["DATA"]["Dim"]=0
                 else
-                    self.consojson1['days'][i]['DATA'][str(self.day_list[day+1])]=0
+                    consojson["days"][i]["DATA"][str(self.day_list[day_of_week+1])]=0
                 end
-                mqtt.publish(topic,payload,true)
-                topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",self.client,self.ville,stringdevice)
-                payload=self.consojson1['months'][i]['DATA'][str(self.month_list[month])]
-                mqtt.publish(topic,payload,true)
+                topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",global.client,global.ville,stringdevice)
+                payload=consojson["months"][i]["DATA"]
+                ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))																																								  
+                mqtt.publish(topic,ligne,true)
                 # RAZ next month if end of the month
                 if(day==self.num_day_month[month])  # si dernier jour
                     if(month == 12) # decembre
-                        self.consojson1['months'][i]['DATA']["Jan"]=0
+                        consojson["months"][i]["DATA"]["Jan"]=0
                     else
-                        self.consojson1['months'][i]['DATA'][str(self.month_list[month+1])]
+                        consojson["months"][i]["DATA"][str(self.month_list[month+1])]
                     end
                 end
             end
         end
-        for i:0..2
-            stringdevice = string.format('%s-%d',self.device2,i+1)
-            if(scope=='hours')
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
-                payload=self.consojson2['hours'][i]['DATA'][str(hour)]
-                mqtt.publish(topic,json.dump(payload),true)
-                self.consojson2['hours'][i]['DATA'][str(hour+1)]=0
-            else
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS",self.client,self.ville,stringdevice)
-                payload=self.consojson2['hours'][i]['DATA'][str(hour)]
-                mqtt.publish(topic,payload,true)
-                self.consojson2['hours'][i]['DATA'][str(0)]=0
-                topic = string.format("gw/%s/%s/%s/tele/PWDAYS",self.client,self.ville,stringdevice)
-                payload=self.consojson2['days'][i]['DATA'][str(self.day_list[day])]
-                if day == 6
-                    self.consojson2['days'][i]['DATA']['Dim']=0
-                else
-                    self.consojson2['days'][i]['DATA'][str(self.day_list[day+1])]=0
-                end
-                mqtt.publish(topic,payload,true)
-                topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",self.client,self.ville,stringdevice)
-                payload=self.consojson2['months'][i]['DATA'][str(self.month_list[month])]
-                mqtt.publish(topic,payload,true)
-                # RAZ next month if end of the month
-                if(day==self.num_day_month[month])  # si dernier jour
-                    if(month == 12) # decembre
-                        self.consojson2['months'][i]['DATA']["Jan"]=0
-                    else
-                        self.consojson2['months'][i]['DATA'][str(self.month_list[month+1])]
-                    end
-                end
-            end
+        if device == 1 
+            self.consojson1=consojson
+        else
+            self.consojson2=consojson
         end
-    end
+
+	end
 end
 
 return conso()
