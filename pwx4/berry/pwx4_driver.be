@@ -5,6 +5,7 @@
 import mqtt
 import string
 import json
+import global
 
 class PWX4
     var ser
@@ -13,10 +14,7 @@ class PWX4
     var bsl
     var rst
 
-    var client 
     var logger
-    var ville
-    var device
     var root
     var topic 
 
@@ -41,12 +39,12 @@ class PWX4
         end
         var buffer = file.read()
         var jsonmap = json.load(buffer)
-        self.client=jsonmap["client"]
-        print('client:',self.client)
-        self.ville=jsonmap["ville"]
-        print('ville:',self.ville)
-        self.device=jsonmap["device"]
-        print('device:',self.device)
+        global.client=jsonmap["client"]
+        print('client:',global.client)
+        global.ville=jsonmap["ville"]
+        print('ville:',global.ville)
+        global.device=jsonmap["device"]
+        print('device:',global.device)
     end
 
     def init()
@@ -102,7 +100,6 @@ class PWX4
                         print(mylist[i])
                     elif mylist[i][0] == 'W'
                         self.logger.log_data(mylist[i])
- #                       print(mylist[i])
                     else
                         print('PWX4->',mylist[i])
                     end
