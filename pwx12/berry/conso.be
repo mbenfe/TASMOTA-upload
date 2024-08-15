@@ -71,9 +71,6 @@ class conso
                 end
                 ligne = json.dump(mainjson)
                 return ligne
-            else
-                print("configuration PWX4")
-                return ""
             end
         end
     end
@@ -175,9 +172,8 @@ class conso
                 if day == 6
                     self.consojson["days"][i]["DATA"]["Dim"]=0
                 else
-                    self.consojson["days"][i]["DATA"][str(self.day_list[day+1])]=0
+                    self.consojson["days"][i]["DATA"][str(self.day_list[day_of_week+1])]=0
                 end
-
                 topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",self.client,self.ville,stringdevice)
                 payload=self.consojson["months"][i]["DATA"]
                 ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',self.device,self.configjson[self.device]["root"][i],json.dump(payload))
