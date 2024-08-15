@@ -27,25 +27,22 @@ def Calibration(cmd, idx, payload, payload_json)
     else
         token = string.format("CAL %s %s %s",argument[0],argument[1],argument[2])
     end
-    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
-    ser.write(bytes().fromstring(token))
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring(token))
     print(token)
     tasmota.resp_cmnd_done()
 end
 
 def readcal()
-    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
-    ser.write(bytes().fromstring("CAL READ"))
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring("CAL READ"))
     print('CAL READ')
     tasmota.resp_cmnd_done()
 end
 
 def storecal()
-    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
-    ser.write(bytes().fromstring("CAL STORE"))
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring("CAL STORE"))
     print('CAL STORE')
     tasmota.resp_cmnd_done()
 end
