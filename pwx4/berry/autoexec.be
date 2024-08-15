@@ -15,45 +15,39 @@ var bsl=13
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Calibration(cmd, idx, payload, payload_json)
-    var argument = string.split(payload,' ')
-    var target = argument[0]
-    var low = real(argument[1])
-    var high = real(argument[2])
-    var ref_high = 15.333333
-    var ref_low = 5.11111
-    var gain
-    var offset
-    gain=(ref_high-ref_low)/(high-low)
-    offset=ref_low-(gain*low)
-    print('Gain:',gain,' Offset:',offset)
-    tasmota.resp_cmnd_done()
-end
-
-def SerialSetup(cmd, idx, payload, payload_json)
-    var argument = string.split(payload,' ')
-    if(argument[0]!='A' && argument[0]!='B' && argument[0] !='C' && argument[0] != 'N' && argument[0] != 'OI' && argument[0] != 'OV' && argument[0] != 'KI' && argument[0] != 'KV' && argument[0] != 'ROOT' && argument[0] != 'RATIO' 
-        && argument[0] != 'LOGTYPE' && argument[0] != 'LOGFREQN' || argument[1] == '' || argument[1] == '')
-        print('erreur arguments')
+    var argument = string.split(string.toupper(payload)," ")
+    if(argument[0]!="VA" && argument[0]!="VB" && argument[0] !="VC" && argument[0] != "IA" && argument[0] != "IB" && argument[0] != "IC" && argument[0] != "IN" 
+        || argument[1] == "")
+        print("erreur arguments")
         return
     end
     var token
-    if(argument[0]=='A' || argument[0]=='B' || argument[0] =='C' || argument[0] == 'N')
-        if(argument[0]=='N')
-            token = string.format('SET Neutral %s',argument[1])
-        else
-            token = string.format('SET Phase_%s %s',argument[0],argument[1])
-        end
-    elif(argument[0]=='CAL')
-        Calibration(argument[1],argument[2],argument[3])
-        return
+    if(argument[0] =="VA" || argument[0] =="VB" || argument[0] =="VC")
+        token = string.format("CAL %s %s",argument[0],argument[1])
     else
-        token = string.format('SET %s %s',argument[0],argument[1])
+        token = string.format("CAL %s %s %s",argument[0],argument[1],argument[2])
     end
-    # initialise UART Rx = GPIO3 and TX=GPIO1
-    # send data to serial
-    global.serialSend.write(bytes().fromstring(token))
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    ser.flush()
+    ser.write(bytes().fromstring(token))
+    print(token)
     tasmota.resp_cmnd_done()
-    print('SET:',token)
+end
+
+def readcal()
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    ser.flush()
+    ser.write(bytes().fromstring("CAL READ"))
+    print('CAL READ')
+    tasmota.resp_cmnd_done()
+end
+
+def storecal()
+    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
+    ser.flush()
+    ser.write(bytes().fromstring("CAL STORE"))
+    print('CAL STORE')
+    tasmota.resp_cmnd_done()
 end
 
 def Init()
@@ -65,25 +59,26 @@ def Init()
 end
 
 def BlReset(cmd, idx, payload, payload_json)
-    global.serialSend.write(bytes().fromstring('SET RESET'))
-    tasmota.delay(500)
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring("SET RESET"))
+    print("SET RESET")
     tasmota.resp_cmnd_done()
 end
 
 def BlMode(cmd, idx, payload, payload_json)
-    var argument = string.split(string.toupper(payload),' ')
-    if(argument[0]!='CAL' && argument[0] !='LOG' )
-        print('erreur arguments')
+    var argument = string.split(string.toupper(payload)," ")
+    if(argument[0]!="CAL" && argument[0] !="LOG" )
+        print("erreur arguments")
         return
     end
-    if(argument[0]=='CAL')
-        global.serialSend.write(bytes().fromstring('SET MODE CAL'))
-        print('SET MODE CAL')
+    global.serialSend.flush()
+    if(argument[0]=="CAL")
+        global.serialSend.write(bytes().fromstring("SET MODE CAL"))
+        print("SET MODE CAL")
     else
-        global.serialSend.write(bytes().fromstring('SET MODE LOG'))
-        print('SET MODE LOG')
+        global.serialSend.write(bytes().fromstring("SET MODE LOG"))
+        print("SET MODE LOG")
     end
-    tasmota.delay(500)
     tasmota.resp_cmnd_done()
 end
 
@@ -102,6 +97,7 @@ def BlType(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd_done()
 end
 
+
 def Stm32Reset()
         gpio.pin_mode(rst,gpio.OUTPUT)
         gpio.pin_mode(bsl,gpio.OUTPUT)
@@ -110,7 +106,7 @@ def Stm32Reset()
         tasmota.delay(100)               # wait 10ms
         gpio.digital_write(rst, 1)
         tasmota.delay(100)               # wait 10ms
-        tasmota.resp_cmnd('STM32 reset')
+        tasmota.resp_cmnd("STM32 reset")
 end
 
 def ville(cmd, idx,payload, payload_json)
@@ -124,7 +120,7 @@ def ville(cmd, idx,payload, payload_json)
     file = open("esp32.cfg","wt")
     file.write(buffer)
     file.close()
-    tasmota.resp_cmnd('done')
+    tasmota.resp_cmnd("done")
 end
 
 def device(cmd, idx,payload, payload_json)
@@ -138,27 +134,27 @@ def device(cmd, idx,payload, payload_json)
     file = open("esp32.cfg","wt")
     file.write(buffer)
     file.close()
-    tasmota.resp_cmnd('done')
+    tasmota.resp_cmnd("done")
 end
 
 def getfile(cmd, idx,payload, payload_json)
     import string
-    var path = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
+    var path = "https://raw.githubusercontent.com//mbenfe/upload/main/"
     path+=payload
     print(path)
-    var file=string.split(path,'/').pop()
+    var file=string.split(path,"/").pop()
     print(file)
     var wc=webclient()
     wc.set_follow_redirects(true)
     wc.begin(path)
     var st=wc.GET()
     if st!=200 
-        raise 'erreur','code: '+str(st) 
+        raise "erreur","code: "+str(st) 
     end
-    st='Fetched '+str(wc.write_file(file))
+    st="Fetched "+str(wc.write_file(file))
     print(path,st)
     wc.close()
-    var message = 'uploaded:'+file
+    var message = "uploaded:"+file
     tasmota.resp_cmnd(message)
     return st
 end
@@ -170,10 +166,10 @@ def sendconfig(cmd, idx,payload, payload_json)
     var buffer
     var myjson
     var device
-    var total = '';
+    var total = "";
     var header
     var trouve = false
-    print('send:',payload)
+    print("send:",payload)
     ############################ fichier config ###################
     file = open("esp32.cfg","rt")
     buffer = file.read()
@@ -183,7 +179,7 @@ def sendconfig(cmd, idx,payload, payload_json)
 
     file = open(payload,"rt")
     if file == nil
-        print('fichier non existant:',payload)
+        print("fichier non existant:",payload)
         return
     end
     buffer = file.read()
@@ -202,45 +198,53 @@ def sendconfig(cmd, idx,payload, payload_json)
         print(total)
         tasmota.resp_cmnd("config sent")
     else
-        print('device ',device,' non touvé')
+        print("device ",device," non touvé")
         tasmota.resp_cmnd("config not sent")
     end
 end
 
-def launch_driver()
-    print('mqtt connected -> launch driver')
-    tasmota.load('stm32_driver.be')
+def help()
+    print("Stm32reset:reset du STM32")
+    print("getfile <path/filename>: load file")
+    print("sendconfig p_<name>.json: configure pwx")
+    print("ville <nom>: set ville")
+    print("device <nom>: set device name")
+    print("SerialSetup",SerialSetup)
+    print("BlReset: reset the BL6552 chip")
+    print("BlMode <mode> (cal ou log): set mode ")
+    print("Init",Init)
+    print("cal <parameter> <value> (VA, VB ou VC)")
+    print("ex: cal VA 235")
+    print("cal <device> <parameter> <value> (IA, IB ou IC)")
+    print("ex: cal IA 1 5.1")
+    print("readcal: affiche les parametres de calibration")
+    print("storecal: sauvegarde la calibration")
+    print("h: this help")
  end
 
- tasmota.cmd("seriallog 0")
- print("serial log disabled")
+tasmota.cmd("seriallog 0")
+print("serial log disabled")
+tasmota.cmd("Teleperiod 0")
  
- tasmota.cmd("timezone 2")
+tasmota.cmd("timezone 2")
 print("timezone set")
 
-print('AUTOEXEC: create commande Stm32Reset')
-tasmota.add_cmd('Stm32reset',Stm32Reset)
-
-print('AUTOEXEC: create commande getfile')
-tasmota.add_cmd('getfile',getfile)
-
-print('AUTOEXEC: create commande sendconfig')
-tasmota.add_cmd('sendconfig',sendconfig)
-
-tasmota.add_cmd('ville',ville)
-tasmota.add_cmd('device',device)
-tasmota.add_cmd('SerialSetup',SerialSetup)
-tasmota.add_cmd('BlReset',BlReset)
-tasmota.add_cmd('BlMode',BlMode)
-tasmota.add_cmd('BlType',BlMode)
-tasmota.add_cmd('Init',Init)
-tasmota.add_cmd('cal',Calibration)
+tasmota.add_cmd("Stm32reset",Stm32Reset)
+tasmota.add_cmd("getfile",getfile)
+tasmota.add_cmd("sendconfig",sendconfig)
+tasmota.add_cmd("ville",ville)
+tasmota.add_cmd("device",device)
+tasmota.add_cmd("SerialSetup",SerialSetup)
+tasmota.add_cmd("BlReset",BlReset)
+tasmota.add_cmd("BlMode",BlMode)
+tasmota.add_cmd("Init",Init)
+tasmota.add_cmd("cal",Calibration)
+tasmota.add_cmd("readcal",readcal)
+tasmota.add_cmd("storecal",storecal)
+tasmota.add_cmd("h",help)
 
 ############################################################
-tasmota.cmd('Init')
+tasmota.cmd("Init")
 tasmota.delay(500)
-tasmota.load('pwx4_driver.be')
-
-
-
+tasmota.load("pwx4_driver.be")
 

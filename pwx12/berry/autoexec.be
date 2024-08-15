@@ -7,8 +7,6 @@ import mqtt
 import json
 import gpio
 
-var ser                # serial object
-
 var rx=16    
 var tx=17    
 var rst=2   
@@ -36,43 +34,6 @@ def Calibration(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd_done()
 end
 
-def SerialSetup(cmd, idx, payload, payload_json)
-    var argument = string.split(payload," ")
-    if(argument[0]!="A" && argument[0]!="B" && argument[0] !="C" && argument[0] != "N" && argument[0] != "OI" && argument[0] != "OV" && argument[0] != "KI" && argument[0] != "KV" && argument[0] != "ROOT" && argument[0] != "RATIO" 
-        && argument[0] != "LOGTYPE" && argument[0] != "LOGFREQN" || argument[1] == "" || argument[1] == "")
-        print("erreur arguments")
-        return
-    end
-    var token
-    if(argument[0]=="A" || argument[0]=="B" || argument[0] =="C" || argument[0] == "N")
-        if(argument[0]=="N")
-            token = string.format("SET Neutral %s",argument[1])
-        else
-            token = string.format("SET Phase_%s %s",argument[0],argument[1])
-        end
-    elif(argument[0]=="CAL")
-        Calibration(argument[1],argument[2],argument[3])
-        return
-    else
-        token = string.format("SET %s %s",argument[0],argument[1])
-    end
-    # initialise UART Rx = GPIO3 and TX=GPIO1
-    # send data to serial
-    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
-    ser.write(bytes().fromstring(token))
-    tasmota.resp_cmnd_done()
-    print("SET:",token)
-end
-
-def Init()
-    gpio.pin_mode(rx,gpio.INPUT)
-    gpio.pin_mode(tx,gpio.OUTPUT)
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    print("serial initialised")
-    tasmota.resp_cmnd_done()
-end
-
 def readcal()
     # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
     ser.flush()
@@ -89,10 +50,17 @@ def storecal()
     tasmota.resp_cmnd_done()
 end
 
+def Init()
+    gpio.pin_mode(rx,gpio.INPUT)
+    gpio.pin_mode(tx,gpio.OUTPUT)
+    global.serialSend = serial(rx,tx,115200,serial.SERIAL_8N1)
+    print('serial initialised')
+    tasmota.resp_cmnd_done()
+end
+
 def BlReset(cmd, idx, payload, payload_json)
-    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
-    ser.write(bytes().fromstring("SET RESET"))
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring("SET RESET"))
     print("SET RESET")
     tasmota.resp_cmnd_done()
 end
@@ -103,17 +71,32 @@ def BlMode(cmd, idx, payload, payload_json)
         print("erreur arguments")
         return
     end
-    # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
+    global.serialSend.flush()
     if(argument[0]=="CAL")
-        ser.write(bytes().fromstring("SET MODE CAL"))
+        global.serialSend.write(bytes().fromstring("SET MODE CAL"))
         print("SET MODE CAL")
     else
-        ser.write(bytes().fromstring("SET MODE LOG"))
+        global.serialSend.write(bytes().fromstring("SET MODE LOG"))
         print("SET MODE LOG")
     end
     tasmota.resp_cmnd_done()
 end
+
+def BlType(cmd, idx, payload, payload_json)
+    var argument = string.split(string.toupper(payload),' ')
+    if(argument[0]!='MONO' && argument[0] !='TRI' )
+        print('erreur arguments')
+        return
+    end
+    if(argument[0]=='MONO')
+        global.serialSend.write(bytes().fromstring('SET TYPE MONO'))
+    else
+        global.serialSend.write(bytes().fromstring('SET TYPE TRI'))
+    end
+    tasmota.delay(500)
+    tasmota.resp_cmnd_done()
+end
+
 
 def Stm32Reset()
         gpio.pin_mode(rst,gpio.OUTPUT)
@@ -123,7 +106,7 @@ def Stm32Reset()
         tasmota.delay(100)               # wait 10ms
         gpio.digital_write(rst, 1)
         tasmota.delay(100)               # wait 10ms
-        tasmota.resp_cmnd("STM32 IN reset")
+        tasmota.resp_cmnd("STM32 reset")
 end
 
 def ville(cmd, idx,payload, payload_json)
@@ -184,7 +167,6 @@ def sendconfig(cmd, idx,payload, payload_json)
     var myjson
     var device
     var total = "";
-    # var ser
     var header
     var trouve = false
     print("send:",payload)
@@ -214,10 +196,9 @@ def sendconfig(cmd, idx,payload, payload_json)
         end
     end
     if trouve == true
-        # ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-        ser.flush()
+        global.serialSend.flush()
         var mybytes=bytes().fromstring(total)
-        ser.write(mybytes)
+        global.serialSend.write(mybytes)
         print(total)
         tasmota.resp_cmnd("config sent")
     else
@@ -226,12 +207,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     end
 end
 
-def launch_driver()
-    print("mqtt connected -> launch driver")
-    tasmota.load("stm32_driver.be")
- end
-
- def help()
+def help()
     print("Stm32reset:reset du STM32")
     print("getfile <path/filename>: load file")
     print("sendconfig p_<name>.json: configure pwx")
@@ -252,6 +228,10 @@ def launch_driver()
 
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
+tasmota.cmd("Teleperiod 0")
+ 
+tasmota.cmd("timezone 2")
+print("timezone set")
 
 tasmota.add_cmd("Stm32reset",Stm32Reset)
 tasmota.add_cmd("getfile",getfile)
@@ -268,9 +248,8 @@ tasmota.add_cmd("storecal",storecal)
 tasmota.add_cmd("h",help)
 
 ############################################################
-tasmota.load("pwx12_driver.be")
-tasmota.delay(500)
 tasmota.cmd("Init")
-tasmota.cmd("Teleperiod 0")
+tasmota.delay(500)
+tasmota.load("pwx12_driver.be")
 
 
