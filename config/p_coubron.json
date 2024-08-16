@@ -18,7 +18,7 @@
         "root": ["main","froid1","froid2","*"],
         "produit": "PWX12",
         "techno": ["rogowski","ct","ct","ct"],
-        "ratio": ["1000","2000","2000","1000"]
+        "ratio": ["3003","2000","2000","1000"]
     },
     "dl12-maing2": {
         "mode": ["tri","tri","tri"],
