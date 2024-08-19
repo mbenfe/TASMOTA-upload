@@ -9,7 +9,7 @@
 },
 "dl12-maingb": {
     "mode": ["tri","tri","tri"],
-    "root": ["enseigne2","ecl2","*","*"],
+    "root": ["ecl2","enseigne2","*","*"],
     "produit": "PWX12",
     "techno": ["ct","ct","ct","ct"],
     "ratio": ["1000","1000","1000","1000"]
