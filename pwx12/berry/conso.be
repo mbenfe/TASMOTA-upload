@@ -35,11 +35,11 @@ class conso
     def init_conso()
         var file
         var ligne
-        print("creation du fichier de sauvegarde de la consommation....")
         var name = string.format("p_%s.json",global.ville)
-        print("lecture du fichier ",name)
         import path
         if(path.exists(name))
+            print("lecture du fichier ",name)
+            print("creation du fichier de sauvegarde de la consommation....")
             file = open(name,"rt")
             ligne = file.read()
             file.close()
@@ -65,6 +65,8 @@ class conso
                 ligne = json.dump(mainjson)
                 return ligne
             end
+        else
+            print('fichier configuration non existant .....')
         end
     end
 
