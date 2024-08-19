@@ -1,0 +1,38 @@
+
+{
+    "dl12-maingh": {
+    "mode": ["tri","tri","tri"],
+    "root": ["enseigne1","gene_maing","onduleur","*"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct","ct"],
+    "ratio": ["1000","1000","1000","1000"]
+},
+"dl12-maingb": {
+    "mode": ["tri","tri","tri"],
+    "root": ["enseigne2","ecl2","*","*"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct","ct"],
+    "ratio": ["1000","1000","1000","1000"]
+},
+"dl4-maingh": {
+    "mode": "tri",
+    "root": ["ecl1"],
+    "produit": "PWX4",
+    "techno": ["ct"],
+    "ratio": ["1000"]
+    },
+"dl12-maincb": {
+    "mode": ["tri","tri","tri"],
+    "root": ["rideau_g","rideau_d","bureaux","*"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct","ct"],
+    "ratio": ["1000","1000","1000","1000"]
+},
+"dl4-maind1": {
+    "mode": "tri",
+    "root": ["gene_int"],
+    "produit": "PWX4",
+    "techno": ["ct"],
+    "ratio": ["4000"]
+    }
+}
