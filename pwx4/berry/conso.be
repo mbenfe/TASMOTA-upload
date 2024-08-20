@@ -107,6 +107,7 @@ class conso
         var month = rtc["month"]
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        print('->',self.consojson)
         for i:0..0
             self.consojson["hours"][i]["DATA"][str(hour)]+=real(split[i+1])
             self.consojson["days"][i]["DATA"][self.day_list[day_of_week]]+=real(split[i+1])
