@@ -63,7 +63,10 @@ class conso
                     end
                 end
                 ligne = json.dump(mainjson)
+                print(ligne)
                 return ligne
+            else
+                print('fichier path non existant')
             end
         end
     end
