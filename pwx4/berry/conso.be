@@ -53,7 +53,7 @@ class conso
                 print("configuration PWX4")
                 for i:0..0
                     print('config triphase',i)
-                    if global.configjson[global.device]["mode"][i]=="tri"
+                    if global.configjson[global.device]["mode"]=="tri"
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],self.get_hours())
                         mainjson["hours"].insert(i,json.load(ligne))
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],self.get_days())
