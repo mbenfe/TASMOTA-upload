@@ -28,12 +28,26 @@
     "techno": ["ct"],
     "ratio": ["2000"]
     },
+"dl4-froid": {
+    "mode": "tri",
+    "root": ["bornes"],
+    "produit": "PWX4",
+    "techno": ["ct"],
+    "ratio": ["4000"]
+    },
 "dl12-maindh": {
     "mode": ["tri","tri","tri"],
     "root": ["libre","gene_int","*","*"],
     "produit": "PWX12",
     "techno": ["ct","ct","ct","ct"],
     "ratio": ["1000","4000","1000","1000"]
+},
+"dl12-ext": {
+    "mode": ["tri","tri","tri"],
+    "root": ["gene_ext1","gene_ext2","station","*"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct","ct"],
+    "ratio": ["2000","1000","1000","1000"]
 },
 "dl12-maindb": {
     "mode": ["tri","tri","tri"],
