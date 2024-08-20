@@ -30,7 +30,7 @@
     },
 "dl4-froid": {
     "mode": "tri",
-    "root": ["bornes"],
+    "root": ["froid"],
     "produit": "PWX4",
     "techno": ["ct"],
     "ratio": ["4000"]
