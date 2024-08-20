@@ -35,11 +35,11 @@ class conso
     def init_conso()
         var file
         var ligne
-        print("creation du fichier de sauvegarde de la consommation....")
         var name = string.format("p_%s.json",global.ville)
         print("lecture du fichier ",name)
         import path
         if(path.exists(name))
+            print("creation du fichier de sauvegarde de la consommation....")
             file = open(name,"rt")
             ligne = file.read()
             file.close()
@@ -52,18 +52,24 @@ class conso
                 mainjson.insert("months",[])
                 print("configuration PWX4")
                 for i:0..0
-                    if global.configjson[global.device]["mode"][i]=="tri"
+                    print('config triphase',i)
+                    if global.configjson[global.device]["mode"]=="tri"
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],self.get_hours())
                         mainjson["hours"].insert(i,json.load(ligne))
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],self.get_days())
                         mainjson["days"].insert(i,json.load(ligne))
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],self.get_months())
                         mainjson["months"].insert(i,json.load(ligne))
+                        print(mainjson)
                     else
+                        print('config monophase')
                     end
                 end
                 ligne = json.dump(mainjson)
+                print(ligne)
                 return ligne
+            else
+                print('fichier path non existant')
             end
         end
     end
@@ -90,6 +96,7 @@ class conso
             file.write(ligne)
             file.close()
             print("fichier sauvegarde de consommation cree !")
+            print(ligne)
         end
         self.day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
         self.month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]

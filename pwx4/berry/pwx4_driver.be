@@ -46,6 +46,7 @@ class PWX4
         self.loadconfig()
         import conso
         self.conso = conso
+        print(conso)
         import logger
         self.logger = logger
         self.rx=3
