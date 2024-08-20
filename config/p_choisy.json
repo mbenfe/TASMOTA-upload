@@ -21,6 +21,13 @@
     "techno": ["ct"],
     "ratio": ["1000"]
     },
+"dl4-bornes": {
+    "mode": "tri",
+    "root": ["bornes"],
+    "produit": "PWX4",
+    "techno": ["ct"],
+    "ratio": ["2000"]
+    },
 "dl12-maindh": {
     "mode": ["tri","tri","tri"],
     "root": ["libre","gene_int","*","*"],
