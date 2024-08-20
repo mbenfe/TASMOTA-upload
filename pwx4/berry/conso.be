@@ -52,6 +52,7 @@ class conso
                 mainjson.insert("months",[])
                 print("configuration PWX4")
                 for i:0..0
+                    print('config triphase',i)
                     if global.configjson[global.device]["mode"][i]=="tri"
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],self.get_hours())
                         mainjson["hours"].insert(i,json.load(ligne))
@@ -59,7 +60,9 @@ class conso
                         mainjson["days"].insert(i,json.load(ligne))
                         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],self.get_months())
                         mainjson["months"].insert(i,json.load(ligne))
+                        print(mainjson)
                     else
+                        print('config monophase')
                     end
                 end
                 ligne = json.dump(mainjson)
