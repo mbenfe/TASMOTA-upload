@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION SNX                     #
+# SNX_DRIVER.BE 1.0 SNX           #
 #---------------------------------#
 
 import mqtt
@@ -94,6 +94,7 @@ class STM32
             while !tasmota.time_reached(due) end
             gpio.digital_write(self.statistic,1)
             var buffer = self.ser.read()
+            print(buffer)
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
