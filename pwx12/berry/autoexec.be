@@ -185,7 +185,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     for key:myjson.keys()
         if key == device
             trouve = true
-          total+="CONFIG"+" "+key+"_"
+          total="CONFIG"+" "+key+"_"
                     +myjson[key]["root"][0]+"_"+myjson[key]["root"][1]+"_"+myjson[key]["root"][2]+"_"+myjson[key]["root"][3]+"_"
                     +myjson[key]["produit"]+"_"
                     +myjson[key]["techno"][0]+"_"+myjson[key]["techno"][1]+"_"+myjson[key]["techno"][2]+"_"+myjson[key]["techno"][3]+"_"
