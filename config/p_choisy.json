@@ -28,13 +28,6 @@
     "techno": ["ct"],
     "ratio": ["2000"]
     },
-"dl4-froid": {
-    "mode": "tri",
-    "root": ["froid"],
-    "produit": "PWX4",
-    "techno": ["ct"],
-    "ratio": ["4000"]
-    },
 "dl12-maindh": {
     "mode": ["tri","tri","tri"],
     "root": ["libre","gene_int","*","*"],
@@ -42,6 +35,13 @@
     "techno": ["ct","ct","ct","ct"],
     "ratio": ["1000","4000","1000","1000"]
 },
+"dl4-froid": {
+    "mode": "tri",
+    "root": ["froid"],
+    "produit": "PWX4",
+    "techno": ["ct"],
+    "ratio": ["4000"]
+    },
 "dl12-ext": {
     "mode": ["tri","tri","tri"],
     "root": ["gene_ext1","gene_ext2","station","*"],
@@ -52,6 +52,20 @@
 "dl12-maindb": {
     "mode": ["tri","tri","tri"],
     "root": ["rideau_g","rideau_d","bureaux","*"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct","ct"],
+    "ratio": ["1000","1000","1000","1000"]
+},
+"dl12-boulangerie1": {
+    "mode": ["tri","tri","tri"],
+    "root": ["gen_boulangerie","grandfour","force","*"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct","ct"],
+    "ratio": ["1000","1000","1000","1000"]
+},
+"dl12-boulangerie2": {
+    "mode": ["tri","tri","tri"],
+    "root": ["cfneg","cfpos","ballon","*"],
     "produit": "PWX12",
     "techno": ["ct","ct","ct","ct"],
     "ratio": ["1000","1000","1000","1000"]

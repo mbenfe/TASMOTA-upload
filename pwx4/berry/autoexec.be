@@ -172,6 +172,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     buffer = file.read()
     myjson=json.load(buffer)
     device = myjson["device"]
+    print('device:',device)
     file.close()
 
     file = open(payload,"rt")
@@ -185,7 +186,9 @@ def sendconfig(cmd, idx,payload, payload_json)
     for key:myjson.keys()
         if key == device
             trouve = true
-          total+='CONFIG'+' '+key+'_'+myjson[key]["root"]+'_'+myjson[key]["produit"]+'_'+myjson[key]["techno"]+'_'+myjson[key]["ratio"]
+            print(trouve)
+            total+='CONFIG'+' '+key+'_'+myjson[key]["root"][0]+'_'+myjson[key]["produit"]+'_'+myjson[key]["techno"][0]+'_'+str(myjson[key]["ratio"][0])
+            print(total)
         end
     end
     if trouve == true
