@@ -88,15 +88,12 @@ class conso
                 global.configjson=json.load(ligne)
                 file.close()
             else
-                ligne = file.read()
-                self.consojson= json.load(ligne)
-                print(self.consojson)
+                ligne = self.init_conso()
+                file = open("conso.json","wt")
+				file.write(ligne)
                 file.close()
-                var name = string.format("p_%s.json",global.ville)
-                file = open(name,'rt')
-                ligne=file.read()
-                global.configjson=json.load(ligne)
-                file.close()
+                print("fichier sauvegarde de consommation cree !")
+                print(ligne)
             end
         else
             ligne = self.init_conso()
@@ -104,6 +101,7 @@ class conso
             file.write(ligne)
             file.close()
             print("fichier sauvegarde de consommation cree !")
+            print(ligne)
         end
         self.day_list = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
         self.month_list = ["","Jan","Fev","Mars","Avr","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"]
