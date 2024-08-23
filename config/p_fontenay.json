@@ -1,0 +1,17 @@
+
+{
+    "dl4-dev": {
+        "mode": "tri",
+        "root": ["ecl1"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+        },
+    "dl12-dev": {
+        "mode": ["tri","tri","tri"],
+        "root": ["cfneg","cfpos","ballon","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    }
+}
