@@ -79,7 +79,7 @@
 },
 "dl12-labo2": {
     "mode": ["tri","tri","tri"],
-    "root": ["cfneg","cfpos","ballon","*"],
+    "root": ["gene_deviation","divers","*","*"],
     "produit": "PWX12",
     "techno": ["ct","ct","ct","ct"],
     "ratio": ["1000","1000","1000","1000"]
