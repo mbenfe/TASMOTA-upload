@@ -69,5 +69,19 @@
     "produit": "PWX12",
     "techno": ["ct","ct","ct","ct"],
     "ratio": ["1000","1000","1000","1000"]
+},
+"dl12-labo1": {
+    "mode": ["tri","tri","tri"],
+    "root": ["eclgondoles","force","gene_labo","*"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct","ct"],
+    "ratio": ["1000","1000","1000","1000"]
+},
+"dl12-boulangerie2": {
+    "mode": ["tri","tri","tri"],
+    "root": ["cfneg","cfpos","ballon","*"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct","ct"],
+    "ratio": ["1000","1000","1000","1000"]
 }
 }
