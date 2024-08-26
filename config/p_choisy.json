@@ -77,11 +77,18 @@
     "techno": ["ct","ct","ct","ct"],
     "ratio": ["1000","1000","1000","1000"]
 },
-"dl12-boulangerie2": {
+"dl12-labo2": {
     "mode": ["tri","tri","tri"],
     "root": ["cfneg","cfpos","ballon","*"],
     "produit": "PWX12",
     "techno": ["ct","ct","ct","ct"],
     "ratio": ["1000","1000","1000","1000"]
-}
+},
+"dl4-labo": {
+    "mode": "tri",
+    "root": ["bec"],
+    "produit": "PWX4",
+    "techno": ["ct"],
+    "ratio": ["1000"]
+    }
 }
