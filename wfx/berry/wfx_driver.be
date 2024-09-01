@@ -83,6 +83,7 @@ class WFX
         var myjson
         var due
         var topic
+        var ligne
         var buffer
         if global.serial1.available()
             due = tasmota.millis() + timeout
@@ -98,6 +99,9 @@ class WFX
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
                     self.logger.log_data(mylist[i])
+                    topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
+                    ligne = string.format('{"Reception": "%s"}',mylist[i])
+                    mqtt.publish(topic,ligne,true)
                 else
                     print('WFX 1 ->',mylist[i])
                 end
@@ -117,6 +121,9 @@ class WFX
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
                     self.logger.log_data(mylist[i])
+                    topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
+                    ligne = string.format('{"Reception": "%s"}',mylist[i])
+                    mqtt.publish(topic,ligne,true)
                 else
                     print('WFX 2 ->',mylist[i])
                 end
