@@ -107,7 +107,7 @@ class STM32
                     myjson = json.load(mylist[i])
                     if myjson.contains('ID')
                         if myjson["ID"] == 0
-                            topic=string.format("monitor/%s/%s/%s",self.client,self.ville,self.device)
+                            topic=string.format("gw/%s/%s/%s",self.client,self.ville,self.device)
                         else
                             topic=string.format("gw/%s/%s/%s/tele/DANFOSS",self.client,self.ville,self.device)
                         end
