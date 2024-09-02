@@ -1,5 +1,5 @@
 #---------------------------------#
-# VERSION 1.0 SNX                 #
+# AUTOEXEC.BE 1.0 SNX             #
 #---------------------------------#
 import string
 import global
