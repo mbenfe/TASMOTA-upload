@@ -79,7 +79,8 @@ class PWX12
                 for i: 0..numitem-2
                     if mylist[i][0] == 'C'
                         self.conso.update(mylist[i])
-                        print(mylist[i])
+                        topic = string.format("gw/%s/%s/%s-%d/tele/PRINT",global.client,global.ville,global.device,j+1)
+                        mqtt.publish(topic,mylist[i],true)
                     elif mylist[i][0] == 'W'
                         self.logger.log_data(mylist[i])
                         var topic

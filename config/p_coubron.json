@@ -36,21 +36,21 @@
     },
     "dl12-boulangerie1": {
         "mode": ["tri","tri","tri"],
-        "root": ["gen_bo","f_rotatif","f_soles","*"],
+        "root": ["gen_pc","f_sventile","f_rotatif","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
     "dl12-boulangerie2": {
         "mode": ["tri","tri","tri"],
-        "root": ["fermentation","CF","prises","*"],
+        "root": ["CF","pctetra","gen_bo","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
     "dl12-labo": {
         "mode": ["tri","tri","tri"],
-        "root": ["gen_labo","pc_labo","rotissoire","*"],
+        "root": ["pc_labo","gen_labo","rotissoire","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
