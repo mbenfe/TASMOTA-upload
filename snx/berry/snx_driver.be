@@ -98,11 +98,10 @@ class STM32
             while !tasmota.time_reached(due) end
             gpio.digital_write(self.statistic,1)
             var buffer = self.ser.read()
-#            print(buffer)
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
-                print("json")
                 mystring = buffer.asstring()
+                print("json:",mystring)
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
                 for i:0..numitem-2
