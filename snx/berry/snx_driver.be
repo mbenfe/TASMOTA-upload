@@ -106,8 +106,7 @@ class STM32
                         if myjson["ID"] == 0
                             topic=string.format("monitor/%s/%s/%s",self.client,self.ville,self.device)
                         else
-                            topic=string.format("gw/%s/%s/%s/tele/DANFOSS",self.client,self.ville,str(myjson["ID"]))
-                        end
+c                        end
                         mqtt.publish(topic,mylist[i],true)
                     else
                         topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
@@ -126,8 +125,10 @@ class STM32
                 end
             end
             if (buffer[0] == 58)     # : -> debug text
+                topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
                 mystring = buffer.asstring()
-             end
+                mqtt.publish(topic,mylist[i],true)
+            end
         end
         gpio.digital_write(self.statistic,0)
 #        gpio.digital_write(self.ready,1)
