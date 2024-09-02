@@ -97,6 +97,7 @@ class STM32
             print(buffer)
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
+                print("json")
                 mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
@@ -106,7 +107,7 @@ class STM32
                         if myjson["ID"] == 0
                             topic=string.format("monitor/%s/%s/%s",self.client,self.ville,self.device)
                         else
-c                        end
+                        end
                         mqtt.publish(topic,mylist[i],true)
                     else
                         topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
@@ -115,6 +116,7 @@ c                        end
                 end
             end
             if (buffer[0] == 42)     # * -> json statistic
+                print("statistic")
                 mystring = buffer[1..-1].asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
@@ -125,6 +127,7 @@ c                        end
                 end
             end
             if (buffer[0] == 58)     # : -> debug text
+                print("debug")
                 topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
                 mystring = buffer.asstring()
                 mqtt.publish(topic,mylist[i],true)
