@@ -59,9 +59,9 @@ class STM32
 
         print('DRIVER: serial init done')
         # lecture STM32 IN pour debug
-#        self.ser = serial(36,1,921600,serial.SERIAL_8N1)
+        # self.ser = serial(36,1,921600,serial.SERIAL_8N1)
         # pinout flasher
-#        self.ser = serial(25,26,921600,serial.SERIAL_8N1)
+        # self.ser = serial(25,26,921600,serial.SERIAL_8N1)
         self.ser = serial(17,16,921600,serial.SERIAL_8N1)
     
         # setup boot pins for stm32: reset disable & boot normal
@@ -101,7 +101,6 @@ class STM32
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
-                print("json:",mystring)
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
                 for i:0..numitem-2
@@ -110,6 +109,7 @@ class STM32
                         if myjson["ID"] == 0
                             topic=string.format("monitor/%s/%s/%s",self.client,self.ville,self.device)
                         else
+                            topic=string.format("gw/%s/%s/%s/tele/DANFOSS",self.client,self.ville,self.device)
                         end
                         mqtt.publish(topic,mylist[i],true)
                     else
@@ -119,7 +119,6 @@ class STM32
                 end
             end
             if (buffer[0] == 42)     # * -> json statistic
-                print("statistic")
                 mystring = buffer[1..-1].asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
@@ -130,7 +129,6 @@ class STM32
                 end
             end
             if (buffer[0] == 58)     # : -> debug text
-                print("debug")
                 topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
                 mystring = buffer.asstring()
                 mqtt.publish(topic,mystring,true)
