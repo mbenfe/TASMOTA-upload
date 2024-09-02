@@ -130,7 +130,7 @@ class STM32
                 print("debug")
                 topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
                 mystring = buffer.asstring()
-                mqtt.publish(topic,mylist[i],true)
+                mqtt.publish(topic,mystring,true)
             end
         end
         gpio.digital_write(self.statistic,0)
