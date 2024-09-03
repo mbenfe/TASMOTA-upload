@@ -95,8 +95,8 @@ def getfile(cmd, idx,payload, payload_json)
     import string
     import path
     if(path.exist(payload))
-        var fichier
-        fichier = file.open(payload,"r")
+        var file
+        file = open(payload,"r")
         var taille = size(file)
         file.close()
         print("remove existing: ",payload," ",taille," Octets")
