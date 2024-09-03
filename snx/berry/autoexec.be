@@ -18,23 +18,6 @@ var bsl_out=32
 
 
 #-------------------------------- COMMANDES -----------------------------------------#
-def SerialSendTime()
-    # put EPOC to string
-    var now = tasmota.rtc()
-    var time_raw = now["local"]
-    var token = string.format('CAL TIME EPOC:%d',time_raw)
-
-    # initialise UART Rx = GPIO3 and TX=GPIO1
-    # send data to serial
-    gpio.pin_mode(rx,gpio.INPUT)
-    gpio.pin_mode(tx,gpio.OUTPUT)
-    ser = serial(rx,tx,115200,serial.SERIAL_8N1)
-    ser.flush()
-    ser.write(bytes().fromstring(token))
-    tasmota.resp_cmnd_done()
-    print('SENDTIME:',token)
-end
-
 def Stm32Reset(cmd, idx, payload, payload_json)
     if (payload=='in')
         gpio.pin_mode(rst_in,gpio.OUTPUT)
@@ -103,7 +86,7 @@ def getfile(cmd, idx,payload, payload_json)
         path.remove(payload)
     end
     var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
-    finalsendpath+=payload
+    filepath+=payload
     print(filepath)
     var file=string.split(filepath,'/').pop()
     print(file)
@@ -209,9 +192,9 @@ def dir(cmd, idx,payload, payload_json)
     import path
     var liste
     liste = path.listdir("/")
-    print(,size(liste)," fichiers")
+    print(size(liste)," fichiers")
     for i:0..size(liste)
-        print(liste[0])
+        print(liste[i])
     end
     print("dir execute....")
     tasmota.resp_cmnd("dir done")
@@ -224,9 +207,6 @@ def launch_driver()
 
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
-
-print('AUTOEXEC: create commande SerialSendTime')
-tasmota.add_cmd('SerialSendTime',SerialSendTime)
 
 print('AUTOEXEC: create commande Stm32Reset')
 tasmota.add_cmd('Stm32reset',Stm32Reset)
