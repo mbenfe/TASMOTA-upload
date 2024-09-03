@@ -194,7 +194,7 @@ def dir(cmd, idx,payload, payload_json)
     var liste
     liste = path.listdir("/")
     print(liste.size()," fichiers")
-    for i:0..liste.size()-1
+    for i:0..(liste.size()-1)
         print(liste[i])
     end
     print("dir execute....")
