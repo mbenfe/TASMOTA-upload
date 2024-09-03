@@ -32,7 +32,7 @@ end
 
 def mqttprint(texte)
     import mqtt
-    var topic = string.format("gw/inter/%s/%s/snx/tele/PRINT",ville,device)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
     mqtt.publish(topic,texte,true)
 end
 
