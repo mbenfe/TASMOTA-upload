@@ -7,7 +7,7 @@ import mqtt
 import json
 import gpio
 
-var client
+var device
 var ville
 
 var ser                # serial object
@@ -19,6 +19,22 @@ var bsl_in=21
 var rst_out=33   
 var bsl_out=32   
 
+#-------------------------------- FONCTIONS -----------------------------------------#
+def init()
+    import json
+    var file = open("esp32.cfg","rt")
+    var buffer = file.read()
+    file.close()
+    var myjson=json.load(buffer)
+    ville=myjson["ville"]
+    device=myjson["device"]
+end
+
+def mqttprint(texte)
+    import mqtt
+    var topic = string.format("gw/inter/%s/%s/snx/tele/PRINT",ville,device)
+    mqtt.publish(topic,texte,true)
+end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Stm32Reset(cmd, idx, payload, payload_json)
@@ -83,13 +99,6 @@ def getfile(cmd, idx,payload, payload_json)
     var nom_fichier
     nom_fichier=string.split(payload,'/').pop()
     mqttprint(nom_fichier)
-   if(path.exists(nom_fichier))
-        var file
-        file = open(nom_fichier,"r")
-        var taille = size(file)
-        file.close()
-        mqttprint("remove existing: ",nom_fichier," ",taille," Octets")
-    end
     var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
     filepath+=payload
     mqttprint(filepath)
@@ -101,7 +110,7 @@ def getfile(cmd, idx,payload, payload_json)
         raise 'erreur','code: '+str(st) 
     end
     st='Fetched '+str(wc.write_file(nom_fichier))
-    mqttprint(path,st)
+    mqttprint(st)
     wc.close()
     var message = 'uploaded:'+nom_fichier
     tasmota.resp_cmnd(message)
@@ -195,11 +204,11 @@ def dir(cmd, idx,payload, payload_json)
     import path
     var liste
     liste = path.listdir("/")
-    print(liste.size()," fichiers")
+    mqttprint(str(liste.size())+" fichiers")
     for i:0..(liste.size()-1)
-        print(liste[i])
+        mqttprint(liste[i])
     end
-    print("dir execute....")
+    mqttprint("dir execute....")
     tasmota.resp_cmnd("dir done")
 end
 
@@ -208,22 +217,6 @@ def launch_driver()
     tasmota.load('snx_driver.be')
  end
 
-#-------------------------------- FONCTIONS -----------------------------------------#
-def init()
-    import json
-    var file = open("esp32.cfg","rt")
-    var buffer = file.read()
-    file.close()
-    var myjson=json.load(buffer)
-    ville=myjson["ville"]
-    device=myjson["device"]
-end
-
-def mqttprint(texte)
-    import mqtt
-    var topic = string.format("gw/inter/%s/%s/snx/tele/PRINT",ville,device)
-    mqtt.publish(topic,texte,true)
-end
 
 #-------------------------------- BASH -----------------------------------------#
 tasmota.cmd("seriallog 0")
