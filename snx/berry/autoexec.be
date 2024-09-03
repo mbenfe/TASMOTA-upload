@@ -209,7 +209,7 @@ def readconfig(cmd, idx,payload, payload_json)
         buffer=file.read()
         file.close()
         split = string.split(buffer,'\n')
-        mqttprint(str(size(split)+" lignes"))
+        mqttprint(str(size(split))+" lignes"))
         for i:0..size(split)-1
             mqttprint(split[i])
         end
