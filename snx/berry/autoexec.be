@@ -133,6 +133,7 @@ def sendconfig(cmd, idx,payload, payload_json)
         print('fichier non existant:',payload)
         return
     end
+    print("read buffer")
     buffer = file.read()
     print(buffer)
     file.close()
