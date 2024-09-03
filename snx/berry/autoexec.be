@@ -198,8 +198,17 @@ def sendconfig(cmd, idx,payload, payload_json)
 end
 
 def readconfig(cmd, idx,payload, payload_json)
-    print("read config execute....")
-    tasmota.resp_cmnd("read config done")
+    var file
+    import path
+    if(!path.exists("stm32.cfg"))
+      mqttprint("fichier config non existant")
+    else
+        file = open("stm32.cfg")
+        buffer=file.read()
+        file.close()
+        mqttprint(buffer)
+    end
+    tasmota.resp_cmnd_done()
 end
 
 def dir(cmd, idx,payload, payload_json)
