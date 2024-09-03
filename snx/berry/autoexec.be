@@ -126,16 +126,15 @@ def sendconfig(cmd, idx,payload, payload_json)
     var total = '';
     var ser
     var header
-    print('send:',payload)
+    mqttprint('send:'+payload)
     ############################ fichier config ###################
     file = open(payload,"rt")
     if file == nil
-        print('fichier non existant:',payload)
+        mqttprint('fichier non existant:'+payload)
         return
     end
-    print("read buffer")
+    mqttprint("read buffer")
     buffer = file.read()
-    print(buffer)
     file.close()
     myjson = json.load(buffer)
     for key:myjson.keys()
@@ -147,7 +146,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     ############################ fichier device ###################
     file = open("device.json","rt")
     if file == nil
-        print('fichier device.json non existant:')
+        mqttprint('fichier device.json non existant:')
         return
     end
     buffer = file.read()
@@ -163,7 +162,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     ############################ fichier controler ###################
     file = open("controler.json","rt")
     if file == nil
-        print('fichier controler non existant')
+        mqttprint('fichier controler non existant')
         return
     end
     buffer = file.read()
@@ -176,16 +175,16 @@ def sendconfig(cmd, idx,payload, payload_json)
     header+=string.format("controler %d",myjson.size())
     header+='\n'
     header+=total
-    print('taille initiale:',size(header))
+    mqttprint('taille initiale:'+str(size(header)))
     var reste = 32 - ((size(header)+6) % 32)
-    print('reste:',reste)
+    mqttprint('reste:'+str(reste))
     for i:0..reste-1
         header+='*'
     end
     var finalsend=string.format("%5d\n",size(header)+6)
-    print('ajout header:',size(finalsend))
+    mqttprint('ajout header:'+str(size(finalsend)))
     finalsend+=header
-    print('taille finale:',size(finalsend))
+    mqttprint('taille finale:'+(size(finalsend)))
     file=open('stm32.cfg',"wt")
     file.write(finalsend)
     file.close()
@@ -241,22 +240,22 @@ def dir(cmd, idx,payload, payload_json)
 end
 
 def launch_driver()
-    print('mqtt connected -> launch driver')
+    mqttprint('mqtt connected -> launch driver')
     tasmota.load('snx_driver.be')
  end
 
 
 #-------------------------------- BASH -----------------------------------------#
 tasmota.cmd("seriallog 0")
-print("serial log disabled")
+mqttprint("serial log disabled")
 
-print('AUTOEXEC: create commande Stm32Reset')
+mqttprint('AUTOEXEC: create commande Stm32Reset')
 tasmota.add_cmd('Stm32reset',Stm32Reset)
 
-print('AUTOEXEC: create commande getfile')
+mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile',getfile)
 
-print('AUTOEXEC: create commande sendconfig')
+mqttprint('AUTOEXEC: create commande sendconfig')
 tasmota.add_cmd('sendconfig',sendconfig)
 tasmota.add_cmd('readconfig',readconfig)
 tasmota.add_cmd('dir',dir)
@@ -266,7 +265,7 @@ tasmota.add_cmd('device',device)
 
 init()
 
-print('load snx_driver & loader')
-print('wait for 5 seconds ....')
+mqttprint('load snx_driver & loader')
+mqttprint('wait for 5 seconds ....')
 tasmota.set_timer(5000,launch_driver)
 
