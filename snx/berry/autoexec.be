@@ -200,7 +200,7 @@ def dir(cmd, idx,payload, payload_json)
     import path
     var liste
     liste = path.listdir
-    for i:0..liste.size()
+    for i:0..size(liste)
         print(liste[0])
     end
     print("dir execute....")
