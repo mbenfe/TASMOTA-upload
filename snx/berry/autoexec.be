@@ -200,6 +200,7 @@ def dir(cmd, idx,payload, payload_json)
     import path
     var liste
     liste = path.listdir
+    print("%d",size(liste))
     for i:0..size(liste)
         print(liste[0])
     end
