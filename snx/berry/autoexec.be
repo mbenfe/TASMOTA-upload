@@ -199,6 +199,7 @@ end
 
 def readconfig(cmd, idx,payload, payload_json)
     var file
+    var buffer
     import path
     if(!path.exists("stm32.cfg"))
       mqttprint("fichier config non existant")
