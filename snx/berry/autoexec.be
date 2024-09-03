@@ -134,6 +134,7 @@ def sendconfig(cmd, idx,payload, payload_json)
         return
     end
     buffer = file.read()
+    print(buffer)
     file.close()
     myjson = json.load(buffer)
     for key:myjson.keys()
@@ -208,8 +209,7 @@ def dir(cmd, idx,payload, payload_json)
     for i:0..(liste.size()-1)
         mqttprint(liste[i])
     end
-    mqttprint("dir execute....")
-    tasmota.resp_cmnd("dir done")
+    tasmota.resp_cmnd_done()
 end
 
 def launch_driver()
