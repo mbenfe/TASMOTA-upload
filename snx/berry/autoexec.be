@@ -197,6 +197,12 @@ def readconfig(cmd, idx,payload, payload_json)
 end
 
 def dir(cmd, idx,payload, payload_json)
+    import path
+    var liste
+    liste = path.listdir
+    for i:0..liste.size()
+        print(liste[0])
+    end
     print("dir execute....")
     tasmota.resp_cmnd("dir done")
 end
