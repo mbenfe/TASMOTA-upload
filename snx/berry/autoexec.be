@@ -209,9 +209,13 @@ def readconfig(cmd, idx,payload, payload_json)
         buffer=file.read()
         file.close()
         split = string.split(buffer,'\n')
-        mqttprint(str(size(split))+" lignes"))
+        mqttprint(str(size(split))+" lignes")
         for i:0..size(split)-1
-            mqttprint(split[i])
+            if split[i][0]=='d' && split[i][1]=='e'   # detect device section to stop
+                break
+            else
+                mqttprint(split[i])
+            end
         end
     end
     tasmota.resp_cmnd_done()
