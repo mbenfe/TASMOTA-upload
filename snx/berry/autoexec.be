@@ -93,14 +93,23 @@ end
 
 def getfile(cmd, idx,payload, payload_json)
     import string
-    var path = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
-    path+=payload
-    print(path)
-    var file=string.split(path,'/').pop()
+    import path
+    if(path.exist(payload))
+        var fichier
+        fichier = file.open(payload,"r")
+        var taille = size(file)
+        file.close()
+        print("remove existing: ",payload," ",taille," Octets")
+        path.remove(payload)
+    end
+    var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
+    finalsendpath+=payload
+    print(filepath)
+    var file=string.split(filepath,'/').pop()
     print(file)
     var wc=webclient()
     wc.set_follow_redirects(true)
-    wc.begin(path)
+    wc.begin(filepath)
     var st=wc.GET()
     if st!=200 
         raise 'erreur','code: '+str(st) 
@@ -122,15 +131,6 @@ def sendconfig(cmd, idx,payload, payload_json)
     var total = '';
     var ser
     var header
-    import path
-    if(path.exist(payload))
-        var fichier
-        fichier = file.open(payload,"r")
-        var taille = size(file)
-        file.close()
-        print("remove existing: ",payload," ",taille," Octets")
-        path.remove(payload)
-    end
     print('send:',payload)
     ############################ fichier config ###################
     file = open(payload,"rt")
