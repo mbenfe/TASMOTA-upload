@@ -224,10 +224,18 @@ end
 def dir(cmd, idx,payload, payload_json)
     import path
     var liste
+    var file
+    var taille
+    var date
+    var timestamp
     liste = path.listdir("/")
     mqttprint(str(liste.size())+" fichiers")
     for i:0..(liste.size()-1)
-        mqttprint(liste[i])
+        file = open(liste[i],"r")
+        taille = file.size()
+        file.close()
+        timestamp = path.last_modified(liste[i])
+        mqttprint(liste[i]+' '+tasmota.time_str+' '+str(taille))
     end
     tasmota.resp_cmnd_done()
 end
