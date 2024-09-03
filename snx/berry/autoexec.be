@@ -235,7 +235,7 @@ def dir(cmd, idx,payload, payload_json)
         taille = file.size()
         file.close()
         timestamp = path.last_modified(liste[i])
-        mqttprint(liste[i]+' '+tasmota.time_str+' '+str(taille))
+        mqttprint(liste[i]+' '+tasmota.time_str(timestamp)+' '+str(taille))
     end
     tasmota.resp_cmnd_done()
 end
