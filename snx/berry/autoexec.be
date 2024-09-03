@@ -200,6 +200,7 @@ end
 def readconfig(cmd, idx,payload, payload_json)
     var file
     var buffer
+    var split
     import path
     if(!path.exists("stm32.cfg"))
       mqttprint("fichier config non existant")
@@ -207,7 +208,11 @@ def readconfig(cmd, idx,payload, payload_json)
         file = open("stm32.cfg")
         buffer=file.read()
         file.close()
-        mqttprint(buffer)
+        split = string.split(buffer,'\n')
+        mqttprint(str(size(split)+" lignes"))
+        for i:0..size(split)-1
+            mqttprint(split[i])
+        end
     end
     tasmota.resp_cmnd_done()
 end
