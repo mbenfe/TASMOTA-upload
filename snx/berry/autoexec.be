@@ -191,12 +191,12 @@ def sendconfig(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd("config sent")
 end
 
-def readconfig()
+def readconfig(cmd, idx,payload, payload_json)
     print("read config execute....")
     tasmota.resp_cmnd("read config done")
 end
 
-def dir()
+def dir(cmd, idx,payload, payload_json)
     print("dir execute....")
     tasmota.resp_cmnd("dir done")
 end
