@@ -77,16 +77,16 @@ end
 def getfile(cmd, idx,payload, payload_json)
     import string
     import path
-    var fichier
-    var fichier=string.split(payload,'/').pop()
-    print(fichier)
-   if(path.exists(fichier))
+    var nom_fichier
+    nom_fichier=string.split(payload,'/').pop()
+    print(nom_fichier)
+   if(path.exists(nom_fichier))
         var file
-        file = open(fichier,"r")
+        file = open(nom_fichier,"r")
         var taille = size(file)
         file.close()
-        print("remove existing: ",fichier," ",taille," Octets")
-        path.remove(fichier)
+        print("remove existing: ",nom_fichier," ",taille," Octets")
+        path.remove(nom_fichier)
     end
     var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
     filepath+=payload
@@ -98,10 +98,10 @@ def getfile(cmd, idx,payload, payload_json)
     if st!=200 
         raise 'erreur','code: '+str(st) 
     end
-    st='Fetched '+str(wc.write_file(file))
+    st='Fetched '+str(wc.write_file(nom_fichier))
     print(path,st)
     wc.close()
-    var message = 'uploaded:'+file
+    var message = 'uploaded:'+nom_fichier
     tasmota.resp_cmnd(message)
     return st
 end
@@ -194,7 +194,7 @@ def dir(cmd, idx,payload, payload_json)
     var liste
     liste = path.listdir("/")
     print(size(liste)," fichiers")
-    for i:0..size(liste)
+    for i:0..size(liste)-1
         print(liste[i])
     end
     print("dir execute....")
