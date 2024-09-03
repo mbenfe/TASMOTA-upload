@@ -82,17 +82,17 @@ def getfile(cmd, idx,payload, payload_json)
     import path
     var nom_fichier
     nom_fichier=string.split(payload,'/').pop()
-    print(nom_fichier)
+    mqttprint(nom_fichier)
    if(path.exists(nom_fichier))
         var file
         file = open(nom_fichier,"r")
         var taille = size(file)
         file.close()
-        print("remove existing: ",nom_fichier," ",taille," Octets")
+        mqttprint("remove existing: ",nom_fichier," ",taille," Octets")
     end
     var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
     filepath+=payload
-    print(filepath)
+    mqttprint(filepath)
     var wc=webclient()
     wc.set_follow_redirects(true)
     wc.begin(filepath)
@@ -101,7 +101,7 @@ def getfile(cmd, idx,payload, payload_json)
         raise 'erreur','code: '+str(st) 
     end
     st='Fetched '+str(wc.write_file(nom_fichier))
-    print(path,st)
+    mqttprint(path,st)
     wc.close()
     var message = 'uploaded:'+nom_fichier
     tasmota.resp_cmnd(message)
@@ -243,7 +243,7 @@ tasmota.add_cmd('dir',dir)
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
 
-self.init()
+init()
 
 print('load snx_driver & loader')
 print('wait for 5 seconds ....')
