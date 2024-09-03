@@ -191,6 +191,16 @@ def sendconfig(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd("config sent")
 end
 
+def readconfig()
+    print("read config execute....")
+    tasmota.resp_cmnd("read config done")
+end
+
+def dir()
+    print("dir execute....")
+    tasmota.resp_cmnd("dir done")
+end
+
 def launch_driver()
     print('mqtt connected -> launch driver')
     tasmota.load('snx_driver.be')
@@ -210,6 +220,8 @@ tasmota.add_cmd('getfile',getfile)
 
 print('AUTOEXEC: create commande sendconfig')
 tasmota.add_cmd('sendconfig',sendconfig)
+tasmota.add_cmd('readconfig',readconfig)
+tasmota.add_cmd('dir',dir)
 
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
