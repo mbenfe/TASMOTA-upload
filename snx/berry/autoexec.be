@@ -215,13 +215,13 @@ def init()
     var buffer = file.read()
     file.close()
     var myjson=json.load(buffer)
-    self.ville=myjson["ville"]
-    self.device=myjson["device"]
+    ville=myjson["ville"]
+    device=myjson["device"]
 end
 
 def mqttprint(texte)
     import mqtt
-    var topic = string.format("gw/inter/%s/%s/snx/tele/PRINT",self.ville,self.device)
+    var topic = string.format("gw/inter/%s/%s/snx/tele/PRINT",ville,device)
     mqtt.publish(topic,texte,true)
 end
 
