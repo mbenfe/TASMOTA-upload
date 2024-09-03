@@ -7,6 +7,9 @@ import mqtt
 import json
 import gpio
 
+var client
+var ville
+
 var ser                # serial object
 
 var rx=4    
@@ -86,7 +89,6 @@ def getfile(cmd, idx,payload, payload_json)
         var taille = size(file)
         file.close()
         print("remove existing: ",nom_fichier," ",taille," Octets")
-        path.remove(nom_fichier)
     end
     var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
     filepath+=payload
@@ -206,6 +208,24 @@ def launch_driver()
     tasmota.load('snx_driver.be')
  end
 
+#-------------------------------- FONCTIONS -----------------------------------------#
+def init()
+    import json
+    var file = open("esp32.cfg","rt")
+    var buffer = file.read()
+    file.close()
+    var myjson=json.load(buffer)
+    self.ville=myjson["ville"]
+    self.device=myjson["device"]
+end
+
+def mqttprint(texte)
+    import mqtt
+    var topic = string.format("gw/inter/%s/%s/snx/tele/PRINT",self.ville,self.device)
+    mqtt.publish(topic,texte,true)
+end
+
+#-------------------------------- BASH -----------------------------------------#
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
 
@@ -223,6 +243,7 @@ tasmota.add_cmd('dir',dir)
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
 
+self.init()
 
 print('load snx_driver & loader')
 print('wait for 5 seconds ....')
