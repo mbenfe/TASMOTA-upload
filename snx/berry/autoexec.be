@@ -77,19 +77,20 @@ end
 def getfile(cmd, idx,payload, payload_json)
     import string
     import path
-    if(path.exist(payload))
+    var fichier
+    var fichier=string.split(payload,'/').pop()
+    print(fichier)
+   if(path.exists(fichier))
         var file
-        file = open(payload,"r")
+        file = open(fichier,"r")
         var taille = size(file)
         file.close()
-        print("remove existing: ",payload," ",taille," Octets")
-        path.remove(payload)
+        print("remove existing: ",fichier," ",taille," Octets")
+        path.remove(fichier)
     end
     var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
     filepath+=payload
     print(filepath)
-    var file=string.split(filepath,'/').pop()
-    print(file)
     var wc=webclient()
     wc.set_follow_redirects(true)
     wc.begin(filepath)
