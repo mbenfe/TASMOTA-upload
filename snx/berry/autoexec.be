@@ -122,6 +122,15 @@ def sendconfig(cmd, idx,payload, payload_json)
     var total = '';
     var ser
     var header
+    import path
+    if(path.exist(payload))
+        var fichier
+        fichier = file.open(payload,"r")
+        var taille = size(file)
+        file.close()
+        print("remove existing: ",payload," ",taille," Octets")
+        path.remove(payload)
+    end
     print('send:',payload)
     ############################ fichier config ###################
     file = open(payload,"rt")
