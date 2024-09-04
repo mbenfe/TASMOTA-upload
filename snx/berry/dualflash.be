@@ -1,7 +1,5 @@
 #------------------------------------------------#
-# VERSION NEW 2.0                                #
-# added tasmote yield for long process           #
-# adapter rx et tx selon la carte ligne 49 et 50 #
+# DUALFLASHER.BE for VSNX 1.0                    #
 #------------------------------------------------#
 
 import strict
@@ -60,7 +58,7 @@ class dualflasher
         var ret
         var rst
         var bsl
-        print('FLASHER: initialisation....')
+        print('FLASHER:INITIALISATION:....wait 30 seconds')
         gpio.pin_mode(self.rx_flash,gpio.INPUT)
         gpio.pin_mode(self.tx_flash,gpio.OUTPUT)
 
@@ -71,18 +69,18 @@ class dualflasher
          gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
          gpio.pin_mode(self.rst_out,gpio.OUTPUT)
          gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
-         print('FLASHER:stm32 ->',stm32)
+         print('FLASHER::INITIALISATION:stm32 ->',stm32)
          if stm32=='in'
-            print('FLASHER:flash RS485 in')
+            print('FLASHER::INITIALISATION:flash RS485 in')
             rst=self.rst_in
             bsl=self.bsl_in
          else
-            print('FLASHER:flash processor output')
+            print('FLASHER::INITIALISATION:flash processor output')
             rst=self.rst_out
             bsl=self.bsl_out
          end
         #------------- INTIALISE BOOT -------------------------#
-        print('FLASHER:initialise boot sequence')
+        print('FLASHER::INITIALISATION:initialise boot sequence')
         gpio.digital_write(rst, 0)    # trigger BSL
         tasmota.delay(10)               # wait 10ms
         gpio.digital_write(bsl, 1)    # trigger BSL
@@ -92,11 +90,11 @@ class dualflasher
 
         self.ser.write(0x7F)
         ret = self.wait_ack(50)
-        print("FLASHER:ret=", ret)
+        print("FLASHER::INITIALISATION:ret="str(ret))
         if ret != '79'
-            print('FLASHER:resp:',ret)
+            print('FLASHER::INITIALISATION:resp:'str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
-            raise 'FLASHER:erreur initialisation','NACK'
+            raise 'FLASHER::INITIALISATION:erreur initialisation','NACK'
           end
     end
  
@@ -111,7 +109,7 @@ class dualflasher
             bsl=self.bsl_out
          end
        
-        print('FLASHER:reset')
+        print('FLASHER::TERMINATE:reset')
         gpio.digital_write(bsl, 0)    # reset bsl
         tasmota.delay(10)
         gpio.digital_write(rst, 0)    # trigger Reset
@@ -178,7 +176,7 @@ class dualflasher
         end
         file.close()
         file_conv.close()
-        print('FLASHER:conversion done')
+        print('FLASHER:CONVERT:conversion done')
     end
 
     #------------------------------------------------------------------------------------#
@@ -206,18 +204,18 @@ class dualflasher
             self.ser.write(bytes('31CE'))
             ret = self.wait_ack(100)     # malek
             if ret != '79'
-              print('FLASHER:resp:',ret)
+              print('FLASHER::FLASH:resp:'str(ret))
               gpio.digital_write(bsl, 0)    # reset bsl
-              raise 'erreur envoi 1','NACK'
+              raise 'FLASHER::FLASH:erreur envoi 1','NACK'
             end
               
             token = file.readbytes(5)
             self.ser.write(token)
             ret = self.wait_ack(50)
             if ret != '79'
-                print('FLASHER:resp:',ret)
+                print('FLASHER:FLASH:resp:'str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
-                raise 'FLASHER:erreur envoi 2','NACK'
+                raise 'FLASHER:FLASH:erreur envoi 2','NACK'
             end   
             index += size(token)
 
@@ -225,18 +223,18 @@ class dualflasher
             self.ser.write(token)
             ret = self.wait_ack(50)
             if ret != '79'
-                print('FLASHER:resp:',ret)
+                print('FLASHER:FLASH:resp:'str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
-                raise 'FLASHER:erreur envoi 3','NACK'
+                raise 'FLASHER:FLASH:erreur envoi 3','NACK'
             end   
             index += size(token)
             yield(tas)        # tasmota.yield() -- faster version
         end
         file.close()
-        print('FLASHER:dernier token:',size(token))
-        print('FLASHER:index:',index)
-        self.terminate()
-        print('FLASHER:flashing done')
+        print('FLASHER:FLASH:dernier token:',size(token))
+        print('FLASHER:FLASH:index:',index)
+        self.terminate(stm32)
+        print('FLASHER:FLASH:flashing done')
     end
 
     #------------------------------------------------------------------------------------#
@@ -254,26 +252,26 @@ class dualflasher
          end
 
         self.initialisation(stm32)
-        print('ERASE:initialisation hardware')
+        print('FLASHER:ERASE:initialisation hardware')
         var ret
         # start erase
          self.ser.write(bytes('44BB'))
          ret = self.wait_ack(50) 
          if ret != '79'
-            print('resp:',ret)
+            print('FLASHER:ERASE:resp:'str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
-            raise 'erreur erase 1','NACK'
+            raise 'FLASHER:ERASE:erreur erase 1','NACK'
         end   
-         print("ERASE:start:", ret)
+         print("FLASHER:ERASE:start:"str(ret))
          self.ser.write(bytes('FFFF00'))
          tasmota.delay(20000)
         ret = self.wait_ack(500) 
          if ret != '79'
-            print('ERASE:resp:',ret)
+            print('FLASHER:ERASE:resp:'str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
-            raise 'ERASE:erreur erase 2','NACK'
+            raise 'FLASHER:ERASE:erreur erase 2','NACK'
         end   
-     print("ERASE:end:", ret)
+     print("FLASHER:ERASE:end:"str(ret))
      self.terminate(stm32)
     end
 end
