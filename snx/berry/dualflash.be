@@ -60,8 +60,8 @@ class flasher
         var ret
         var rst
         var bsl
-        gpio.pin_mode(self.rx,gpio.INPUT)
-        gpio.pin_mode(self.tx,gpio.OUTPUT)
+        gpio.pin_mode(self.rx_flash,gpio.INPUT)
+        gpio.pin_mode(self.tx_flash,gpio.OUTPUT)
 
         self.ser = serial(self.rx_flash,self.tx_flash,115200,serial.SERIAL_8E1)
         self.ser.flush()
