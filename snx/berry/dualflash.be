@@ -70,6 +70,7 @@ class flasher
          gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
          gpio.pin_mode(self.rst_out,gpio.OUTPUT)
          gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
+         print('stm32',stm32)
          if stm32=='in'
             print('flash RS485 in')
             rst=self.rst_in
