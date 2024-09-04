@@ -20,8 +20,8 @@ class flasher
     var ser                # serial object
     var debug                   # verbose logs?
  
-    var rx    
-    var tx 
+    var rx_flash    
+    var tx_flash 
     var rst_in   
     var bsl_in  
     var rst_out  
@@ -48,8 +48,8 @@ class flasher
     def initialisation(stm32)
         import gpio  
 
-        self.rx=4    
-        self.tx=5    
+        self.rx_flash=36    
+        self.tx_flash=1    
         self.rst_in=21   
         self.bsl_in=19   
         self.rst_out=33   
@@ -63,7 +63,7 @@ class flasher
         gpio.pin_mode(self.rx,gpio.INPUT)
         gpio.pin_mode(self.tx,gpio.OUTPUT)
 
-        self.ser = serial(rx,tx,115200,serial.SERIAL_8E1)
+        self.ser = serial(self.rx_flash,self.tx_flash,115200,serial.SERIAL_8E1)
         self.ser.flush()
          # reset STM32
          gpio.pin_mode(self.rst_in,gpio.OUTPUT)
