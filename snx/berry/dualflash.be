@@ -48,8 +48,8 @@ class flasher
     def initialisation(stm32)
         import gpio  
 
-        self.rx_flash=36    
-        self.tx_flash=1    
+        self.rx_flash=1    
+        self.tx_flash=36    
         self.rst_in=21   
         self.bsl_in=19   
         self.rst_out=33   
