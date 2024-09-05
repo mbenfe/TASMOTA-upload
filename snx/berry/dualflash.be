@@ -58,6 +58,7 @@ class dualflasher
         var ret
         var rst
         var bsl
+        var disable
         print('FLASHER:INITIALISATION:....wait 30 seconds')
         gpio.pin_mode(self.rx_flash,gpio.INPUT)
         gpio.pin_mode(self.tx_flash,gpio.OUTPUT)
@@ -69,18 +70,21 @@ class dualflasher
          gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
          gpio.pin_mode(self.rst_out,gpio.OUTPUT)
          gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
-         print('FLASHER::INITIALISATION:stm32 ->',stm32)
+         print('FLASHER:INITIALISATION:stm32 ->',stm32)
          if stm32=='in'
-            print('FLASHER::INITIALISATION:flash RS485 in')
+            print('FLASHER:INITIALISATION:flash RS485 in')
             rst=self.rst_in
             bsl=self.bsl_in
+            disable=self.rst_out
          else
-            print('FLASHER::INITIALISATION:flash processor output')
+            print('FLASHER:INITIALISATION:flash processor output')
             rst=self.rst_out
             bsl=self.bsl_out
+            disable=self.rst_in
          end
         #------------- INTIALISE BOOT -------------------------#
-        print('FLASHER::INITIALISATION:initialise boot sequence')
+        print('FLASHER:INITIALISATION:initialise boot sequence')
+        gpio.digital_write(disable, 0)    # put second chip open drain
         gpio.digital_write(rst, 0)    # trigger BSL
         tasmota.delay(10)               # wait 10ms
         gpio.digital_write(bsl, 1)    # trigger BSL
@@ -90,26 +94,97 @@ class dualflasher
 
         self.ser.write(0x7F)
         ret = self.wait_ack(50)
-        print("FLASHER::INITIALISATION:ret="str(ret))
+        print("FLASHER:INITIALISATION:ret="+str(ret))
         if ret != '79'
-            print('FLASHER::INITIALISATION:resp:'str(ret))
+            print('FLASHER:INITIALISATION:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
-            raise 'FLASHER::INITIALISATION:erreur initialisation','NACK'
+            gpio.digital_write(disable, 1)    # enable second chip
+            raise 'FLASHER:INITIALISATION:erreur initialisation','NACK'
           end
+    end
+    #------------------------------------------------------------------------------------#
+    #                                   GETINFO                                          #
+    #------------------------------------------------------------------------------------#
+    def getinfo(stm32) 
+        var bsl
+        var disable
+        var ret
+        if stm32=='in'
+            bsl=self.bsl_in
+            disable=self.rst_out
+        else
+            bsl=self.bsl_out
+            disable=self.rst_in
+        end    
+
+        self.ser.write(bytes('01FE'))
+        ret = self.wait_ack(100)     # malek
+        if str(ret[0]) != '7' || str(ret[1]) != '9'
+            gpio.digital_write(bsl, 0)    # reset bsl
+            gpio.digital_write(disable, 1)    # enable second chip
+            raise 'FLASHER:INFO:erreur envoi 1','NACK'
+        else
+            print('FLASHER:INFO:Protocol version -> '+str(ret[2])+'.'+str(ret[3]))
+        end
+
+        self.ser.write(bytes('02FD'))
+        ret = self.wait_ack(100)     # malek
+        if str(ret[0]) != '7' || str(ret[1]) != '9'
+            gpio.digital_write(bsl, 0)    # reset bsl
+            gpio.digital_write(disable, 1)    # enable second chip
+            raise 'FLASHER:INFO:erreur envoi 1','NACK'
+        else
+            print('FLASHER:INFO:Chip ID -> '+ret[4]+ret[5]+ret[6]+ret[7])
+        end
+        self.ser.write(bytes('738C'))
+        ret = self.wait_ack(100)     # malek
+    end
+ 
+    #------------------------------------------------------------------------------------#
+    #                                   UNPROTTECT                                       #
+    #------------------------------------------------------------------------------------#
+    def unprotect(stm32) 
+        var readbytes
+        var disable
+        var rst
+        var ret
+        if stm32=='in'
+            rst=self.rst_in
+            disable=self.rst_out
+        else
+            rst=self.rst_out
+            disable=self.rst_in
+        end    
+
+        self.ser.write(bytes('738C'))
+        ret = self.wait_ack(100)     # malek
+        gpio.digital_write(rst, 0)  
+        tasmota.delay(1) 
+        gpio.digital_write(rst, 1)    # enable second chip
+        tasmota.delay(1)  
     end
  
     def terminate(stm32)
         var rst
         var bsl
-        if stm32=='in'
+        var disable
+        gpio.pin_mode(self.rst_in,gpio.OUTPUT)
+        gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
+        gpio.pin_mode(self.rst_out,gpio.OUTPUT)
+        gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
+       if stm32=='in'
             rst=self.rst_in
             bsl=self.bsl_in
+            disable=self.rst_out
          else
             rst=self.rst_out
             bsl=self.bsl_out
+            disable=self.rst_in
          end
        
-        print('FLASHER::TERMINATE:reset')
+        print('FLASHER:TERMINATE:reset')
+        gpio.digital_write(disable, 1)    # enable second chip
+        tasmota.delay(10)
         gpio.digital_write(bsl, 0)    # reset bsl
         tasmota.delay(10)
         gpio.digital_write(rst, 0)    # trigger Reset
@@ -184,6 +259,7 @@ class dualflasher
     #------------------------------------------------------------------------------------#
     def flash(filename,stm32)
         var bsl
+        var disable
         var tas = tasmota
         var yield = tasmota.yield
         var cfile = filename+'c'
@@ -194,27 +270,34 @@ class dualflasher
         var ret
         if stm32=='in'
             bsl=self.bsl_in
+            disable=self.rst_out
          else
             bsl=self.bsl_out
+            disable=self.rst_in
          end
         
-        self.initialisation(stm32)
+         self.initialisation(stm32)
+         self.unprotect(stm32)
+         self.initialisation(stm32)
+         self.getinfo(stm32)
         file = open(cfile,"rb")
         while index < file.size()
             self.ser.write(bytes('31CE'))
             ret = self.wait_ack(100)     # malek
             if ret != '79'
-              print('FLASHER::FLASH:resp:'str(ret))
+              print('FLASHER:FLASH:resp:'+str(ret))
               gpio.digital_write(bsl, 0)    # reset bsl
-              raise 'FLASHER::FLASH:erreur envoi 1','NACK'
+              gpio.digital_write(disable, 1)    # enable second chip
+              raise 'FLASHER:FLASH:erreur envoi 1','NACK'
             end
               
             token = file.readbytes(5)
             self.ser.write(token)
             ret = self.wait_ack(50)
             if ret != '79'
-                print('FLASHER:FLASH:resp:'str(ret))
+                print('FLASHER:FLASH:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
+                gpio.digital_write(disable, 1)    # enable second chip
                 raise 'FLASHER:FLASH:erreur envoi 2','NACK'
             end   
             index += size(token)
@@ -223,8 +306,9 @@ class dualflasher
             self.ser.write(token)
             ret = self.wait_ack(50)
             if ret != '79'
-                print('FLASHER:FLASH:resp:'str(ret))
+                print('FLASHER:FLASH:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
+                gpio.digital_write(disable, 1)    # enable second chip
                 raise 'FLASHER:FLASH:erreur envoi 3','NACK'
             end   
             index += size(token)
@@ -243,37 +327,42 @@ class dualflasher
     def erase(stm32)
         var rst
         var bsl
+        var ret
+        var disable
         if stm32=='in'
             rst=self.rst_in
             bsl=self.bsl_in
+            disable=self.rst_out
          else
             rst=self.rst_out
             bsl=self.bsl_out
+            disable=self.rst_in
          end
 
         self.initialisation(stm32)
         print('FLASHER:ERASE:initialisation hardware')
-        var ret
         # start erase
          self.ser.write(bytes('44BB'))
          ret = self.wait_ack(50) 
          if ret != '79'
-            print('FLASHER:ERASE:resp:'str(ret))
+            print('FLASHER:ERASE:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
+            gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:ERASE:erreur erase 1','NACK'
         end   
-         print("FLASHER:ERASE:start:"str(ret))
+         print("FLASHER:ERASE:start:"+str(ret))
          self.ser.write(bytes('FFFF00'))
          tasmota.delay(20000)
         ret = self.wait_ack(500) 
          if ret != '79'
-            print('FLASHER:ERASE:resp:'str(ret))
+            print('FLASHER:ERASE:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
+            gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:ERASE:erreur erase 2','NACK'
         end   
-     print("FLASHER:ERASE:end:"str(ret))
-     self.terminate(stm32)
+        print("FLASHER:ERASE:end:"+str(ret))
+        self.terminate(stm32)
     end
+
 end
- 
 return dualflasher()
