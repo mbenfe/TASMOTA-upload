@@ -76,20 +76,24 @@ class PWX12
                 var mystring = buffer.asstring()
                 var mylist = string.split(mystring,'\n')
                 var numitem= size(mylist)
+                var topic
+                var split
+                var ligne
                 for i: 0..numitem-2
                     if mylist[i][0] == 'C'
                         self.conso.update(mylist[i])
-                        topic = string.format("gw/%s/%s/%s-%d/tele/PRINT",global.client,global.ville,global.device,j+1)
+                        topic = string.format("gw/%s/%s/%s/tele/PRINT",global.client,global.ville,global.device)
                         mqtt.publish(topic,mylist[i],true)
                     elif mylist[i][0] == 'W'
+                        print("watt")
                         self.logger.log_data(mylist[i])
-                        var topic
-                        var split
                         split = string.split(mylist[i],':')
-                        var ligne
                         for j:0..2
+                            print("j",j)
                             topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
+                            print("topic",topic)
                             ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}',global.device,global.configjson[global.device]["root"][j],split[j+1])
+                            print("ligne",ligne)
                             mqtt.publish(topic,ligne,true)
                         end
                     else
