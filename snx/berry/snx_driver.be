@@ -104,6 +104,7 @@ class STM32
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
                 for i:0..numitem-2
+                    print(mylist[i])
                     myjson = json.load(mylist[i])
                     if myjson.contains('ID')
                         if myjson["ID"] == 0
