@@ -61,8 +61,8 @@ class STM32
         # lecture STM32 IN pour debug
         # self.ser = serial(36,1,921600,serial.SERIAL_8N1)
         # pinout flasher
-        # self.ser = serial(25,26,921600,serial.SERIAL_8N1)
-        self.ser = serial(17,16,921600,serial.SERIAL_8N1)
+        # serial speed limite (choisy)
+        self.ser = serial(17,16,230400,serial.SERIAL_8N1)
     
         # setup boot pins for stm32: reset disable & boot normal
 
@@ -104,6 +104,7 @@ class STM32
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
                 for i:0..numitem-2
+                    print(mylist[i])
                     myjson = json.load(mylist[i])
                     if myjson.contains('ID')
                         if myjson["ID"] == 0
