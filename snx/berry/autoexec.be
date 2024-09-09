@@ -239,13 +239,13 @@ def dir(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd_done()
 end
 
-def stop
-    tasmota.remove(snx_driver.be)
-end
+# def stop
+#     tasmota.remove(snx_driver.be)
+# end
 
-def stop
-    tasmota.remove(snx_driver.be)
-end
+# def stop
+#     tasmota.remove(snx_driver.be)
+# end
 
 
 def launch_driver()
