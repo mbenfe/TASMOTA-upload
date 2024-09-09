@@ -107,6 +107,7 @@ def getfile(cmd, idx,payload, payload_json)
     wc.begin(filepath)
     var st=wc.GET()
     if st!=200 
+        mqttprint('erreur code:'+str(st))
         raise 'erreur','code: '+str(st) 
     end
     st='Fetched '+str(wc.write_file(nom_fichier))
