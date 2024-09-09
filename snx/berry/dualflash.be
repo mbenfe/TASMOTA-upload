@@ -39,7 +39,7 @@ class dualflasher
         self.device=myjson["device"]
     end
 
-    def mqttself.mqttprint(texte)
+    def mqttprint(texte)
         import mqtt
         var topic = string.format("gw/inter/%s/%s/tele/PRINT",self.ville,self.device)
         mqtt.publish(topic,texte,true)
