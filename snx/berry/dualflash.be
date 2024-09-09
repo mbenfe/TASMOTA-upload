@@ -298,8 +298,8 @@ class dualflasher
 
          self.init()
         
-         self.initialisation_stm32(1,stm32)
-         self.unprotect(stm32)
+        #  self.initialisation_stm32(1,stm32)
+        #  self.unprotect(stm32)
          self.initialisation_stm32(2,stm32)
          self.getinfo(stm32)
         file = open(cfile,"rb")
