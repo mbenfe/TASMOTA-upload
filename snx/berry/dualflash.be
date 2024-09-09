@@ -99,7 +99,7 @@ class dualflasher
             print('FLASHER:INITIALISATION:',str(rank),':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
-            raise 'FLASHER:INITIALISATION:',str(rank),':erreur initialisation','NACK'
+            raise 'FLASHER:INITIALISATION:'+str(rank)+':erreur initialisation','NACK'
           end
     end
     #------------------------------------------------------------------------------------#
