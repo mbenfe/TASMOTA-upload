@@ -62,16 +62,6 @@ class dualflasher
          return '00'
      end
 
-    def init()
-        import json
-        var file = open("esp32.cfg","rt")
-        var buffer = file.read()
-        file.close()
-        var myjson=json.load(buffer)
-        self.ville=myjson["ville"]
-        self.device=myjson["device"]
-    end
-
 
     def initialisation_stm32(rank,stm32)
         import gpio  
