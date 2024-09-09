@@ -43,7 +43,7 @@ class dualflasher
      end
 
 
-    def initialisation(stm32)
+    def initialisation(rank,stm32)
         import gpio  
 
         self.rx_flash=36    
@@ -59,7 +59,7 @@ class dualflasher
         var rst
         var bsl
         var disable
-        print('FLASHER:INITIALISATION:....wait 30 seconds')
+        print('FLASHER:INITIALISATION',str(rank),':....wait 30 seconds')
         gpio.pin_mode(self.rx_flash,gpio.INPUT)
         gpio.pin_mode(self.tx_flash,gpio.OUTPUT)
 
@@ -70,20 +70,20 @@ class dualflasher
          gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
          gpio.pin_mode(self.rst_out,gpio.OUTPUT)
          gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
-         print('FLASHER:INITIALISATION:stm32 ->',stm32)
+         print('FLASHER:INITIALISATION:',str(rank),':stm32 ->',stm32)
          if stm32=='in'
-            print('FLASHER:INITIALISATION:flash RS485 in')
+            print('FLASHER:INITIALISATION:',str(rank),':flash RS485 in')
             rst=self.rst_in
             bsl=self.bsl_in
             disable=self.rst_out
          else
-            print('FLASHER:INITIALISATION:flash processor output')
+            print('FLASHER:INITIALISATION:',str(rank),':flash processor output')
             rst=self.rst_out
             bsl=self.bsl_out
             disable=self.rst_in
          end
         #------------- INTIALISE BOOT -------------------------#
-        print('FLASHER:INITIALISATION:initialise boot sequence')
+        print('FLASHER:INITIALISATION:',str(rank),':initialise boot sequence')
         gpio.digital_write(disable, 0)    # put second chip open drain
         gpio.digital_write(rst, 0)    # trigger BSL
         tasmota.delay(10)               # wait 10ms
@@ -94,12 +94,12 @@ class dualflasher
 
         self.ser.write(0x7F)
         ret = self.wait_ack(50)
-        print("FLASHER:INITIALISATION:ret="+str(ret))
+        print('FLASHER:INITIALISATION:',str(rank),':ret='+str(ret))
         if ret != '79'
-            print('FLASHER:INITIALISATION:resp:'+str(ret))
+            print('FLASHER:INITIALISATION:',str(rank),':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
-            raise 'FLASHER:INITIALISATION:erreur initialisation','NACK'
+            raise 'FLASHER:INITIALISATION:',str(rank),':erreur initialisation','NACK'
           end
     end
     #------------------------------------------------------------------------------------#
@@ -276,9 +276,9 @@ class dualflasher
             disable=self.rst_in
          end
         
-         self.initialisation(stm32)
+         self.initialisation(1,stm32)
          self.unprotect(stm32)
-         self.initialisation(stm32)
+         self.initialisation(2,stm32)
          self.getinfo(stm32)
         file = open(cfile,"rb")
         while index < file.size()
