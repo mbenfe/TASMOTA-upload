@@ -32,7 +32,7 @@ def pushfile(cmd, idx, payload, payload_json)
     file.close()
 
     # Create WebClient for file upload (wc)
-    var wc = WebClient()
+    var wc = webclient()
     wc.setHeader("Content-Type", "text/plain")  # Adjust content type based on the file
 
     # Use HTTP PUT method to upload the file
