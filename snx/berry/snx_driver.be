@@ -99,7 +99,7 @@ class STM32
             gpio.digital_write(self.statistic,1)
             var buffer = self.ser.read()
             self.ser.flush()
-            topic=string.format("gw/inter/coubron/snx/tele/DEBUG")
+            topic="gw/inter/coubron/snx/tele/DEBUG"
             mqtt.publish(topic,'reception',true)
             tasmota.delay(500)
             mqtt.publish(topic,buffer.asstring(),true)
