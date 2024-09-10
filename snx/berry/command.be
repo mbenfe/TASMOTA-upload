@@ -1,7 +1,10 @@
+# Import the string module for string manipulation
+import string
+
 # Function to upload a file to the WebDAV server using webclient (wc)
 def pushfile(cmd, idx, payload, payload_json)
-    # Split the payload into local file path and WebDAV URL components
-    var parts = payload.split(" ")
+    # Split the payload into local file path and WebDAV URL components using string.split
+    var parts = string.split(payload, " ")
     if parts.len() < 2
         print("Invalid format: Expected <localFilePath> <username:password@server_ip>")
         return
