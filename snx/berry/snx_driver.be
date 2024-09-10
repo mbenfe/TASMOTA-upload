@@ -99,10 +99,12 @@ class STM32
             gpio.digital_write(self.statistic,1)
             var buffer = self.ser.read()
             self.ser.flush()
+            # zone debug start
             topic="gw/inter/coubron/snx/tele/DEBUG"
             mqtt.publish(topic,'reception 2',true)
             tasmota.delay(500)
             mqtt.publish(topic,buffer.asstring(),true)
+            #zone debug end
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')
