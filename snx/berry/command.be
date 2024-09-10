@@ -1,59 +1,17 @@
-# Custom Base64 encoding function
-def base64Encode(data)
-    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-    var output = ""
-    var i = 0
-    var dataLength = data.len()
-
-    while i < dataLength
-        var byte1 = data[i]
-        var byte2 = (i + 1 < dataLength) ? data[i + 1] : 0
-        var byte3 = (i + 2 < dataLength) ? data[i + 2] : 0
-
-        var enc1 = byte1 >> 2
-        var enc2 = ((byte1 & 3) << 4) | (byte2 >> 4)
-        var enc3 = ((byte2 & 15) << 2) | (byte3 >> 6)
-        var enc4 = byte3 & 63
-
-        if (i + 1) >= dataLength
-            enc3 = 64
-        end
-        if (i + 2) >= dataLength
-            enc4 = 64
-        end
-
-        output += chars[enc1] + chars[enc2] + chars[enc3] + chars[enc4]
-        i += 3
-    end
-
-    return output
-end
-
 # Function to upload a file to the WebDAV server using WebClient (wc)
-def pushfile(cmd, idx, payload, credentials)
-    # Split payload into two arguments: local file path and WebDAV details
+def pushfile(cmd, idx, payload, payload_json)
+    # Split the payload into local file path and WebDAV URL components
     var parts = payload.split(" ")
     if parts.len() < 2
-        print("Missing local file path or WebDAV details")
+        print("Invalid format: Expected <localFilePath> <username:password@server_ip>")
         return
     end
 
-    var localFilePath = parts[0]
-    var webdavDetails = parts[1]
+    var localFilePath = parts[0]  # Local file path (from Tasmota filesystem)
+    var webdavCredentials = parts[1]  # WebDAV server credentials part (username:password@server_ip)
 
-    # Credentials are received as a comma-separated string in the second argument
-    var creds = webdavDetails.split(",")
-    if creds.len() < 3
-        print("Missing server, username, or password in WebDAV details")
-        return
-    end
-
-    var server_ip = creds[0]
-    var username = creds[1]
-    var password = creds[2]
-    
-    # Construct URL with username and password before IP
-    var remoteFilePath = "http://" + server_ip + localFilePath
+    # Construct the full WebDAV URL (with port 5005)
+    var remoteFilePath = "http://" + webdavCredentials + ":5005/" + localFilePath
 
     # Open the local file before reading
     var file = open(localFilePath, "r")
@@ -73,13 +31,8 @@ def pushfile(cmd, idx, payload, credentials)
     # Close the file after reading
     file.close()
 
-    # Create Authorization Header (Basic Auth)
-    var credentials = username + ":" + password
-    var authHeader = "Basic " + base64Encode(credentials)
-
     # Create WebClient for file upload (wc)
     var wc = WebClient()
-    wc.setHeader("Authorization", authHeader)
     wc.setHeader("Content-Type", "text/plain")  # Adjust content type based on the file
 
     # Use HTTP PUT method to upload the file
