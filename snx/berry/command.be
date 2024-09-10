@@ -1,4 +1,4 @@
-# Function to upload a file to the WebDAV server using WebClient (wc)
+# Function to upload a file to the WebDAV server using webclient (wc)
 def pushfile(cmd, idx, payload, payload_json)
     # Split the payload into local file path and WebDAV URL components
     var parts = payload.split(" ")
@@ -10,8 +10,8 @@ def pushfile(cmd, idx, payload, payload_json)
     var localFilePath = parts[0]  # Local file path (from Tasmota filesystem)
     var webdavCredentials = parts[1]  # WebDAV server credentials part (username:password@server_ip)
 
-    # Construct the full WebDAV URL (with port 5005)
-    var remoteFilePath = "http://" + webdavCredentials + ":5005/" + localFilePath
+    # Construct the full WebDAV URL with the specified subdirectory (webdav/tasmotafs/choisy/snx) and port 5005
+    var remoteFilePath = "http://" + webdavCredentials + ":5005/webdav/tasmotafs/choisy/snx/" + localFilePath
 
     # Open the local file before reading
     var file = open(localFilePath, "r")
@@ -31,7 +31,7 @@ def pushfile(cmd, idx, payload, payload_json)
     # Close the file after reading
     file.close()
 
-    # Create WebClient for file upload (wc)
+    # Create webclient for file upload (wc)
     var wc = webclient()
     wc.setHeader("Content-Type", "text/plain")  # Adjust content type based on the file
 
@@ -39,7 +39,7 @@ def pushfile(cmd, idx, payload, payload_json)
     var response = wc.put(remoteFilePath, fileContent)
 
     # Check if the upload was successful
-    if response.status == 200 or response.status == 201
+    if response.status == 200 || response.status == 201
         print("File uploaded successfully to: " + remoteFilePath)
     else
         print("Failed to upload file. Status: " + response.status)
