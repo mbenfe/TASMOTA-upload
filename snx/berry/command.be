@@ -1,8 +1,8 @@
-# Import the string module for string manipulation
-import string
-
 # Function to upload a file to the WebDAV server using webclient (wc)
 def pushfile(cmd, idx, payload, payload_json)
+    # Import the string module for string manipulation
+    import string
+
     # Split the payload into local file path and WebDAV URL components using string.split
     var parts = string.split(payload, " ")
     if parts.size() < 2
@@ -36,16 +36,19 @@ def pushfile(cmd, idx, payload, payload_json)
 
     # Create webclient for file upload (wc)
     var wc = webclient()
-    wc.setHeader("Content-Type", "text/plain")  # Adjust content type based on the file
+    wc.set_follow_redirects(true)
+    wc.add_header("Content-Type","text/plain")
+    wc.begin(remoteFilePath)
+    print(remoteFilePath)
 
-    # Use HTTP PUT method to upload the file
-    var response = wc.put(remoteFilePath, fileContent)
+    # Use HTTP PUT method to upload the file with headers
+    var response = wc.PUT(fileContent)
 
     # Check if the upload was successful
-    if response.status == 200 || response.status == 201
-        print("File uploaded successfully to: " + remoteFilePath)
+    if response == 200 || response == 201
+        print("File uploaded successfully to: " + str(remoteFilePath))
     else
-        print("Failed to upload file. Status: " + response.status)
+        print("Failed to upload file. Status: " + str(response))
     end
 end
 
