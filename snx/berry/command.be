@@ -5,7 +5,7 @@ import string
 def pushfile(cmd, idx, payload, payload_json)
     # Split the payload into local file path and WebDAV URL components using string.split
     var parts = string.split(payload, " ")
-    if parts.len() < 2
+    if parts.size() < 2
         print("Invalid format: Expected <localFilePath> <username:password@server_ip>")
         return
     end
