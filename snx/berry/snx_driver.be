@@ -101,7 +101,7 @@ class STM32
             self.ser.flush()
             topic=string.format("gw/inter/coubron/snx/tele/DEBUG",self.client,self.ville,self.device)
             mqtt.publish(topic,'reception',true)
-            mqtt.publish(topic,buffer.asstring,true)
+            mqtt.publish(topic,buffer.asstring(),true)
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')
