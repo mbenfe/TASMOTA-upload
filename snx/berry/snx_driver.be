@@ -100,7 +100,7 @@ class STM32
             var buffer = self.ser.read()
             self.ser.flush()
             topic="gw/inter/coubron/snx/tele/DEBUG"
-            mqtt.publish(topic,'reception',true)
+            mqtt.publish(topic,'reception 2',true)
             tasmota.delay(500)
             mqtt.publish(topic,buffer.asstring(),true)
             if(buffer[0]==123)         # { -> json tele metry
