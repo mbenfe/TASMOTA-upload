@@ -99,6 +99,7 @@ class STM32
             gpio.digital_write(self.statistic,1)
             var buffer = self.ser.read()
             self.ser.flush()
+            mqttprint("reception")
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')
