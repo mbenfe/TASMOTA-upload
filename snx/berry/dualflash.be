@@ -114,9 +114,9 @@ class dualflasher
 
         self.ser.write(0x7F)
         ret = self.wait_ack(5)
-        self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':ret='+str(ret[0])+str(ret[1]))
-        if str(ret[0]) != '7' || str(ret[1]) != '9'
-            self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':resp:'+str(ret[0])+str(ret[1]))
+        self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':ret='+str(ret))
+        if str(ret) != '79'
+            self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:INITIALISATION:'+str(rank)+':erreur initialisation','NACK'
