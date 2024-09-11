@@ -157,6 +157,7 @@ class dualflasher
         # start boot mode
         self.ser.write(0x7F)
         ret = self.wait_ack(50)
+        print(boot)
         if str(ret) != '79'
             self.mqttprint('FLASHER:SET BOOT MODE:'+str(rank)+':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
