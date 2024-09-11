@@ -55,21 +55,21 @@ class dualflasher
         end
     end
  
-    # def wait_ack(timeout)
-    #     var due = tasmota.millis() + timeout
-    #     while !tasmota.time_reached(due)
-    #        if self.ser.available()
-    #           var b = self.ser.read()
-    #           while size(b) > 0 && b[0] == 0
-    #               b = b[1..]
-    #           end
-    #             self.ser.flush()
-    #             return b.tohex()
-    #         end
-    #         tasmota.delay(1)        
-    #     end
-    #     return 'AA'
-    # end
+    def wait_ack(timeout)
+        var due = tasmota.millis() + timeout
+        while !tasmota.time_reached(due)
+           if self.ser.available()
+              var b = self.ser.read()
+              while size(b) > 0 && b[0] == 0
+                  b = b[1..]
+              end
+                self.ser.flush()
+                return b.tohex()
+            end
+            tasmota.delay(1)        
+        end
+        return 'AA'
+    end
 
     # def wait_ack(timeout)
     #     var due = tasmota.millis() + timeout
@@ -87,22 +87,22 @@ class dualflasher
     #   end
     
 
-     def wait_ack(timeout)
-        var due = tasmota.millis() + timeout
-        while !tasmota.time_reached(due) end
-        if self.ser.available()
-            var b = self.ser.read()
-            while size(b) > 0 && b[0] == 0
-                b = b[1..]
-            end
-        end
-        if(size(b)>0)
-            self.ser.flush()
-            tasmota.delay(1)
-            return b.tohex()
-        end
-        return 'AA'
-     end
+    #  def wait_ack(timeout)
+    #     var due = tasmota.millis() + timeout
+    #     while !tasmota.time_reached(due) end
+    #     if self.ser.available()
+    #         var b = self.ser.read()
+    #         while size(b) > 0 && b[0] == 0
+    #             b = b[1..]
+    #         end
+    #     end
+    #     if(size(b)>0)
+    #         self.ser.flush()
+    #         tasmota.delay(1)
+    #         return b.tohex()
+    #     end
+    #     return 'AA'
+    #  end
     
 
     def initialisation_stm32(rank,stm32)
@@ -153,9 +153,10 @@ class dualflasher
         tasmota.delay(50)               # wait 10ms
         gpio.digital_write(rst, 1)    # trigger BSL
         tasmota.delay(500)               # wait 10ms
-
+        print('bsl/rst done')
         # start boot mode
         self.ser.write(0x7F)
+        print('0X7F sent')
         ret = self.wait_ack(50)
         print('boot')
         if str(ret) != '79'
@@ -168,7 +169,7 @@ class dualflasher
         end
         self.ser.flush()    
         # unpotect memory
-        self.ser.write(0x738C)
+        self.ser.write(bytes('738C'))
         ret=self.wait_ack(50)
         # if str(ret) != '79'  # attention seul le premier 79 est pris en compte
         #     self.mqttprint('FLASHER:UNPROTECT FAIL:'+str(rank)+':resp:'+str(ret))
