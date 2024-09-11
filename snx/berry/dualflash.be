@@ -167,7 +167,7 @@ class dualflasher
         end
         self.ser.flush()    
         # unpotect memory
-        self.ser.write(bytes('738C'))
+        self.ser.write(0x738C)
         ret=self.wait_ack(50)
         # if str(ret) != '79'  # attention seul le premier 79 est pris en compte
         #     self.mqttprint('FLASHER:UNPROTECT FAIL:'+str(rank)+':resp:'+str(ret))
