@@ -156,8 +156,6 @@ class dualflasher
         else
             self.mqttprint('FLASHER:INFO:Chip ID -> '+ret[4]+ret[5]+ret[6]+ret[7])
         end
-        self.ser.write(bytes('738C'))
-        ret = self.wait_ack(100)     # malek
     end
  
     #------------------------------------------------------------------------------------#
