@@ -340,7 +340,7 @@ end
         #  self.unprotect(stm32)
         #  self.initialisation_stm32(2,stm32)
         #  self.getinfo(stm32)
-         self.initialisation_stm32(3,stm32)
+         self.initialisation_stm32(1,stm32)
         #  print('FLASHER:FLASH:unprotect memory')
         #  self.ser.write(bytes('738C'))
         #  ret = self.wait_ack(100)     # malek
@@ -350,33 +350,33 @@ end
         while index < file.size()
             self.ser.write(bytes('31CE'))
             ret = self.wait_ack(5)     # malek
-            if str(ret) != '79'
-              self.mqttprint('FLASHER:FLASH:resp:'+str(index)+':'+str(ret))
-              gpio.digital_write(bsl, 0)    # reset bsl
-              gpio.digital_write(disable, 1)    # enable second chip
-              raise 'FLASHER:FLASH:erreur envoi 1','NACK'
-            end
+            # if str(ret) != '79'
+            #   self.mqttprint('FLASHER:FLASH:resp:'+str(index)+':'+str(ret))
+            #   gpio.digital_write(bsl, 0)    # reset bsl
+            #   gpio.digital_write(disable, 1)    # enable second chip
+            #   raise 'FLASHER:FLASH:erreur envoi 1','NACK'
+            # end
               
             token = file.readbytes(5)
             self.ser.write(token)
             ret = self.wait_ack(5)
-            if str(ret) != '79'
-                self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
-                gpio.digital_write(bsl, 0)    # reset bsl
-                gpio.digital_write(disable, 1)    # enable second chip
-                raise 'FLASHER:FLASH:erreur envoi 2','NACK'
-            end   
+            # if str(ret) != '79'
+            #     self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
+            #     gpio.digital_write(bsl, 0)    # reset bsl
+            #     gpio.digital_write(disable, 1)    # enable second chip
+            #     raise 'FLASHER:FLASH:erreur envoi 2','NACK'
+            # end   
             index += size(token)
 
             token = file.readbytes(BLOCK+3)
             self.ser.write(token)
             ret = self.wait_ack(30)
-            if str(ret) != '79'
-                self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
-                gpio.digital_write(bsl, 0)    # reset bsl
-                gpio.digital_write(disable, 1)    # enable second chip
-                raise 'FLASHER:FLASH:erreur envoi 3','NACK'
-            end   
+            # if str(ret) != '79'
+            #     self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
+            #     gpio.digital_write(bsl, 0)    # reset bsl
+            #     gpio.digital_write(disable, 1)    # enable second chip
+            #     raise 'FLASHER:FLASH:erreur envoi 3','NACK'
+            # end   
             index += size(token)
             yield(tas)        # tasmota.yield() -- faster version
         end
