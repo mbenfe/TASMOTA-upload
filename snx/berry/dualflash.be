@@ -64,18 +64,22 @@ class dualflasher
 #      end
 
      def wait_ack(timeout)
+        var b
         var due = tasmota.millis() + timeout
-        while !tasmota.time_reached(due) end
-        if self.ser.available()
-            var b = self.ser.read()
-            while size(b) > 0 && b[0] == 0
-                b = b[1..]
+        while !tasmota.time_reached(due)
+            if self.ser.available()
+                b = self.ser.read()
+                while size(b) > 0 && b[0] == 0
+                    b = b[1..]
+                end
             end
+        end
+        if(size(b)>0)
             self.ser.flush()
             tasmota.delay(1)
             return b.tohex()
-         end
-         return 'AA'
+        end
+        return 'AA'
      end
     
 
