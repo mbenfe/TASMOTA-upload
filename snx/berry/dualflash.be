@@ -64,8 +64,9 @@ class dualflasher
 #      end
 
      def wait_ack(timeout)
-        var due = tasmota.millis() + timeout
-        while !tasmota.time_reached(due)
+        var yield = tasmota.yield
+         var due = tasmota.millis() + timeout
+        while !tasmota.time_reached(due) end
         if self.ser.available()
             var b = self.ser.read()
             while size(b) > 0 && b[0] == 0
