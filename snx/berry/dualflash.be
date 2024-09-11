@@ -46,22 +46,37 @@ class dualflasher
     end
     
  
-    def wait_ack(timeout)
-        var due = tasmota.millis() + timeout
-        while !tasmota.time_reached(due)
-           if self.ser.available()
-              var b = self.ser.read()
-              while size(b) > 0 && b[0] == 0
-                  b = b[1..]
-              end
-                self.ser.flush()
-                return b.tohex()
-            end
-            tasmota.delay(1)        
-         end
-         return '00'
-     end
+#     def wait_ack(timeout)
+#         var due = tasmota.millis() + timeout
+#         while !tasmota.time_reached(due)
+#            if self.ser.available()
+#               var b = self.ser.read()
+# #              print(type(b),' ',b,size(b))
+#               while size(b) > 0 && b[0] == 0
+#                   b = b[1..]
+#               end
+#                 self.ser.flush()
+#                 return b.tohex()
+#             end
+#             tasmota.delay(1)        
+#          end
+#          return '00'
+#      end
 
+     def wait_ack(timeout)
+        tasmota.delay(timeout)        
+        if self.ser.available()
+            var b = self.ser.read()
+#              print(type(b),' ',b,size(b))
+            while size(b) > 0 && b[0] == 0
+                b = b[1..]
+            end
+            self.ser.flush()
+            return b.tohex()
+         end
+         return 'AA'
+     end
+    
 
     def initialisation_stm32(rank,stm32)
         import gpio  
@@ -112,6 +127,7 @@ class dualflasher
         gpio.digital_write(rst, 1)    # trigger BSL
         tasmota.delay(500)               # wait 10ms
 
+        self.ser.flush()    
         self.ser.write(0x7F)
         ret = self.wait_ack(5)
         self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':ret='+str(ret))
@@ -139,17 +155,17 @@ class dualflasher
 
         self.ser.write(bytes('01FE'))
         ret = self.wait_ack(100)     # malek
-        if str(ret[0]) != '7' || str(ret[1]) != '9'
+        if str(ret) != '79'
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:INFO:erreur envoi 1','NACK'
         else
-            self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret[2])+'.'+str(ret[3]))
+            self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret))
         end
 
         self.ser.write(bytes('02FD'))
         ret = self.wait_ack(100)     # malek
-        if str(ret[0]) != '7' || str(ret[1]) != '9'
+        if str(ret) != '79'
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:INFO:erreur envoi 1','NACK'
@@ -298,14 +314,16 @@ class dualflasher
         
         #  self.initialisation_stm32(1,stm32)
         #  self.unprotect(stm32)
-         self.initialisation_stm32(2,stm32)
-         self.getinfo(stm32)
+        #  self.initialisation_stm32(2,stm32)
+        #  self.getinfo(stm32)
+         self.initialisation_stm32(3,stm32)
+        #  self.unprotect(stm32)
         file = open(cfile,"rb")
         while index < file.size()
             self.ser.write(bytes('31CE'))
-            ret = self.wait_ack(100)     # malek
-            if str(ret[0]) != '7' || str(ret[1]) != '9'
-              self.mqttprint('FLASHER:FLASH:resp:'+str(ret[0])+str(ret[1]))
+            ret = self.wait_ack(5)     # malek
+            if str(ret) != '79'
+              self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
               gpio.digital_write(bsl, 0)    # reset bsl
               gpio.digital_write(disable, 1)    # enable second chip
               raise 'FLASHER:FLASH:erreur envoi 1','NACK'
@@ -313,9 +331,9 @@ class dualflasher
               
             token = file.readbytes(5)
             self.ser.write(token)
-            ret = self.wait_ack(50)
-            if str(ret[0]) != '7' || str(ret[1]) != '9'
-                self.mqttprint('FLASHER:FLASH:resp:'+str(ret[0])+str(ret[1]))
+            ret = self.wait_ack(5)
+            if str(ret) != '79'
+                self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
                 gpio.digital_write(disable, 1)    # enable second chip
                 raise 'FLASHER:FLASH:erreur envoi 2','NACK'
@@ -324,9 +342,9 @@ class dualflasher
 
             token = file.readbytes(BLOCK+3)
             self.ser.write(token)
-            ret = self.wait_ack(50)
-            if str(ret[0]) != '7' || str(ret[1]) != '9'
-                self.mqttprint('FLASHER:FLASH:resp:'+str(ret[0])+str(ret[1]))
+            ret = self.wait_ack(30)
+            if str(ret) != '79'
+                self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
                 gpio.digital_write(disable, 1)    # enable second chip
                 raise 'FLASHER:FLASH:erreur envoi 3','NACK'
@@ -365,23 +383,23 @@ class dualflasher
         # start erase
          self.ser.write(bytes('44BB'))
          ret = self.wait_ack(50) 
-         if str(ret[0]) != '7' || str(ret[1]) != '9'
-            self.mqttprint('FLASHER:ERASE:resp:'+str(ret[0])+str(ret[1]))
+         if str(ret) != '79'
+            self.mqttprint('FLASHER:ERASE:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:ERASE:erreur erase 1','NACK'
         end   
-         self.mqttprint("FLASHER:ERASE:start:"+str(ret[0])+str(ret[1]))
+         self.mqttprint("FLASHER:ERASE:start:"+str(ret))
          self.ser.write(bytes('FFFF00'))
          tasmota.delay(20000)
         ret = self.wait_ack(500) 
-         if str(ret[0]) != '7' || str(ret[1]) != '9'
-            self.mqttprint('FLASHER:ERASE:resp:'+str(ret[0])+str(ret[1]))
+         if str(ret) != '79'
+            self.mqttprint('FLASHER:ERASE:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:ERASE:erreur erase 2','NACK'
         end   
-        self.mqttprint("FLASHER:ERASE:end:"+str(ret[0])+str(ret[1]))
+        self.mqttprint("FLASHER:ERASE:end:"+str(ret))
         self.terminate(stm32)
     end
 
