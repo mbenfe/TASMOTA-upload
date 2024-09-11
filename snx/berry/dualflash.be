@@ -140,7 +140,7 @@ class dualflasher
         self.ser.flush()    
         # unpotect memory
         self.ser.write(bytes('738C'))
-        ret = self.wait_ack(100)  
+        ret = self.wait_ack(500)  
         if str(ret) != '7979'
             self.mqttprint('FLASHER:UNPROTECT FAIL:'+str(rank)+':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
