@@ -113,7 +113,7 @@ class dualflasher
         tasmota.delay(500)               # wait 10ms
 
         self.ser.write(0x7F)
-        ret = self.wait_ack(50)
+        ret = self.wait_ack(5)
         self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':ret='+str(ret))
         if ret != '79'
             self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':resp:'+str(ret))
