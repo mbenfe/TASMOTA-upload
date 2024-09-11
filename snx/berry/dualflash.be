@@ -64,8 +64,7 @@ class dualflasher
 #      end
 
      def wait_ack(timeout)
-        var yield = tasmota.yield
-         var due = tasmota.millis() + timeout
+        var due = tasmota.millis() + timeout
         while !tasmota.time_reached(due) end
         if self.ser.available()
             var b = self.ser.read()
@@ -142,7 +141,8 @@ class dualflasher
         self.ser.flush()    
         # unpotect memory
         self.ser.write(bytes('738C'))
-        ret = self.wait_ack(500)  
+        tasmota.set_timer(500,ret=self.wait_ack(500),0)
+        tasmota.remove_timer(0)
         if str(ret) != '7979'
             self.mqttprint('FLASHER:UNPROTECT FAIL:'+str(rank)+':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
