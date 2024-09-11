@@ -44,43 +44,65 @@ class dualflasher
         var topic = string.format("gw/inter/%s/%s/tele/PRINT",self.ville,self.device)
         mqtt.publish(topic,texte,true)
     end
-    
- 
-#     def wait_ack(timeout)
-#         var due = tasmota.millis() + timeout
-#         while !tasmota.time_reached(due)
-#            if self.ser.available()
-#               var b = self.ser.read()
-# #              print(type(b),' ',b,size(b))
-#               while size(b) > 0 && b[0] == 0
-#                   b = b[1..]
-#               end
-#                 self.ser.flush()
-#                 return b.tohex()
-#             end
-#             tasmota.delay(1)        
-#          end
-#          return '00'
-#      end
 
-     def wait_ack(timeout)
-        var b
+    def mydelay(delay)
+        var tas = tasmota
+        var yield = tasmota.yield
+        var count = delay/5
+        for i:0..count
+            tasmota.delay(5)
+            yield(tas) 
+        end
+    end
+ 
+    # def wait_ack(timeout)
+    #     var due = tasmota.millis() + timeout
+    #     while !tasmota.time_reached(due)
+    #        if self.ser.available()
+    #           var b = self.ser.read()
+    #           while size(b) > 0 && b[0] == 0
+    #               b = b[1..]
+    #           end
+    #             self.ser.flush()
+    #             return b.tohex()
+    #         end
+    #         tasmota.delay(1)        
+    #     end
+    #     return 'AA'
+    # end
+
+    def wait_ack(timeout)
         var due = tasmota.millis() + timeout
         while !tasmota.time_reached(due)
-            if self.ser.available()
-                b = self.ser.read()
-                while size(b) > 0 && b[0] == 0
-                    b = b[1..]
-                end
+          if self.ser.available()
+            var b = self.ser.read()
+            while size(b) > 0 && b[0] == 0
+              b = b[1..]
             end
-        end
-        if(size(b)>0)
-            self.ser.flush()
-            tasmota.delay(1)
             return b.tohex()
+          end
+          tasmota.delay(5)        # check every 5ms
         end
-        return 'AA'
-     end
+        raise "timeout_error", "serial timeout"
+      end
+    
+
+    #  def wait_ack(timeout)
+    #     var due = tasmota.millis() + timeout
+    #     while !tasmota.time_reached(due) end
+    #     if self.ser.available()
+    #         var b = self.ser.read()
+    #         while size(b) > 0 && b[0] == 0
+    #             b = b[1..]
+    #         end
+    #     end
+    #     if(size(b)>0)
+    #         self.ser.flush()
+    #         tasmota.delay(1)
+    #         return b.tohex()
+    #     end
+    #     return 'AA'
+    #  end
     
 
     def initialisation_stm32(rank,stm32)
@@ -135,27 +157,31 @@ class dualflasher
         # start boot mode
         self.ser.write(0x7F)
         ret = self.wait_ack(5)
-        self.mqttprint('FLASHER:SET BOOT MODE:'+str(rank)+':ret='+str(ret))
         if str(ret) != '79'
             self.mqttprint('FLASHER:SET BOOT MODE:'+str(rank)+':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:SET BOOT MODE:'+str(rank)+':erreur initialisation','NACK'
+        else
+            self.mqttprint('FLASHER:SET BOOT MODE:'+str(rank)+':ret='+str(ret))
         end
         self.ser.flush()    
         # unpotect memory
         self.ser.write(bytes('738C'))
-        tasmota.set_timer(500,ret=self.wait_ack(500),0)
-        tasmota.remove_timer(0)
-        if str(ret) != '7979'
-            self.mqttprint('FLASHER:UNPROTECT FAIL:'+str(rank)+':resp:'+str(ret))
-            gpio.digital_write(bsl, 0)    # reset bsl
-            gpio.digital_write(disable, 1)    # enable second chip
-            raise 'FLASHER:UNPROTECT FAIL:'+str(rank)+':erreur initialisation','NACK'
-        end
+        ret=self.wait_ack(5)
+        # if str(ret) != '79'  # attention seul le premier 79 est pris en compte
+        #     self.mqttprint('FLASHER:UNPROTECT FAIL:'+str(rank)+':resp:'+str(ret))
+        #     gpio.digital_write(bsl, 0)    # reset bsl
+        #     gpio.digital_write(disable, 1)    # enable second chip
+        #     raise 'FLASHER:UNPROTECT FAIL:'+str(rank)+':erreur initialisation','NACK'
+        # else
+        #     self.mqttprint('FLASHER:UNPROTECT ACK 1:')
+        #     ret=self.wait_ack(10)
+        #     while str(ret).size() == 0 
+        #         ret=self.wait_ack(10)
+        #     end
+        # end
 
-        self.ser.flush()    
-           # malek
         self.ser.write(0x7F)
         ret = self.wait_ack(5)
         self.mqttprint('FLASHER:SET BOOT MODE 2:'+str(rank)+':ret='+str(ret))
@@ -164,10 +190,8 @@ class dualflasher
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:SET BOOT MODE 2:'+str(rank)+':erreur initialisation','NACK'
-          end
-
-
-end
+        end
+    end
     #------------------------------------------------------------------------------------#
     #                                   GETINFO                                          #
     #------------------------------------------------------------------------------------#
@@ -184,7 +208,7 @@ end
         end    
 
         self.ser.write(bytes('01FE'))
-        ret = self.wait_ack(100)     # malek
+        ret = self.wait_ack(5)     # malek
         if str(ret) != '79'
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
@@ -194,7 +218,7 @@ end
         end
 
         self.ser.write(bytes('02FD'))
-        ret = self.wait_ack(100)     # malek
+        ret = self.wait_ack(5)     # malek
         if str(ret) != '79'
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
@@ -221,7 +245,7 @@ end
         end    
 
         self.ser.write(bytes('738C'))
-        ret = self.wait_ack(100)     # malek
+        ret = self.wait_ack(5)     # malek
         gpio.digital_write(rst, 0)  
         tasmota.delay(1) 
         gpio.digital_write(rst, 1)    # enable second chip
@@ -376,7 +400,7 @@ end
 
             token = file.readbytes(BLOCK+3)
             self.ser.write(token)
-            ret = self.wait_ack(30)
+            ret = self.wait_ack(5)
             if str(ret) != '79'
                 self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
@@ -416,7 +440,7 @@ end
         self.mqttprint('FLASHER:ERASE:initialisation hardware')
         # start erase
          self.ser.write(bytes('44BB'))
-         ret = self.wait_ack(50) 
+         ret = self.wait_ack(5) 
          if str(ret) != '79'
             self.mqttprint('FLASHER:ERASE:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
@@ -426,7 +450,7 @@ end
          self.mqttprint("FLASHER:ERASE:start:"+str(ret))
          self.ser.write(bytes('FFFF00'))
          tasmota.delay(20000)
-        ret = self.wait_ack(500) 
+        ret = self.wait_ack(5) 
          if str(ret) != '79'
             self.mqttprint('FLASHER:ERASE:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
