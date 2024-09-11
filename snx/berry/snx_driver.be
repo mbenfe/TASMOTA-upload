@@ -100,8 +100,8 @@ class STM32
             var buffer = self.ser.read()
             self.ser.flush()
             # zone debug start
-            print(buffer)
-            print(buffer.asstring())
+            # print(buffer)
+            # print(buffer.asstring())
             #zone debug end
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
