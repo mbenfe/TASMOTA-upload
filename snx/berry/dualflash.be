@@ -126,12 +126,12 @@ class dualflasher
         #------------- INTIALISE BOOT -------------------------#
         self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':initialise boot sequence')
         gpio.digital_write(disable, 0)    # put second chip open drain
-        gpio.digital_write(rst, 0)    # trigger BSL
-        tasmota.delay(50)               # wait 10ms
         gpio.digital_write(bsl, 1)    # trigger BSL
         tasmota.delay(50)               # wait 10ms
+        gpio.digital_write(rst, 0)    # trigger BSL
+        tasmota.delay(50)               # wait 10ms
         gpio.digital_write(rst, 1)    # trigger BSL
-        tasmota.delay(500)               # wait 10ms
+        tasmota.delay(50)               # wait 10ms
         # start boot mode
         self.ser.write(0x7F)
         ret = self.wait_ack(5,1)
