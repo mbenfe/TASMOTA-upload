@@ -64,13 +64,13 @@ class dualflasher
         var b = bytes('00')
         var new = bytes()
         var due = tasmota.millis() + timeout
-        while !tasmota.time_reached(due) end
+        while !tasmota.time_reached(due) #end
             b=self.ser.read()
             for i:0..b.size()-1
                 new.add(b[i],1)
             end
             tasmota.delay(5)        # check every 5ms
-#        end
+        end
         if b != nil
             var newb = self.remove_byte_value(new,0x00,remove_flag)
             self.ser.flush()
@@ -101,7 +101,7 @@ class dualflasher
         gpio.pin_mode(self.rx_flash,gpio.INPUT)
         gpio.pin_mode(self.tx_flash,gpio.OUTPUT)
 
-        self.ser = serial(self.rx_flash,self.tx_flash,115200,serial.SERIAL_8E1)
+        self.ser = serial(self.rx_flash,self.tx_flash,38400,serial.SERIAL_8E1)
         self.ser.flush()
          # reset STM32
          gpio.pin_mode(self.rst_in,gpio.OUTPUT)
@@ -126,12 +126,12 @@ class dualflasher
         #------------- INTIALISE BOOT -------------------------#
         self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':initialise boot sequence')
         gpio.digital_write(disable, 0)    # put second chip open drain
-        gpio.digital_write(bsl, 1)    # trigger BSL
-        tasmota.delay(50)               # wait 10ms
         gpio.digital_write(rst, 0)    # trigger BSL
-        tasmota.delay(50)               # wait 10ms
+        tasmota.delay(5)               # wait 10ms
+        gpio.digital_write(bsl, 1)    # trigger BSL
+        tasmota.delay(5)               # wait 10ms
         gpio.digital_write(rst, 1)    # trigger BSL
-        tasmota.delay(50)               # wait 10ms
+        tasmota.delay(5)               # wait 10ms
         # start boot mode
         self.ser.write(0x7F)
         ret = self.wait_ack(5,1)
@@ -382,7 +382,7 @@ class dualflasher
 
             token = file.readbytes(BLOCK+3)
             self.ser.write(token)
-            ret = self.wait_ack(30,1)
+            ret = self.wait_ack(90,1)
             if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
                 self.mqttprint('FLASHER:WRITE DATA:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
