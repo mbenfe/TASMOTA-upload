@@ -65,6 +65,9 @@ class dualflasher
           tasmota.delay(5)        # check every 5ms
         end
         if b != nil
+            while size(b) > 0 && b[0] == 0
+                b = b[1..]
+            end
             return b.tohex()
         else
             raise "timeout_error", "serial timeout"
