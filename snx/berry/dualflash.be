@@ -133,7 +133,7 @@ class dualflasher
         # start boot mode
         self.ser.write(0x7F)
         ret = self.wait_ack(5)
-        if ret[0] != '7' || ret[1] != '9' || ret.size()<2
+        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
             self.mqttprint('FLASHER:0x7F 1:'+str(rank)+':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
@@ -144,7 +144,7 @@ class dualflasher
         # unpotect memory
         self.ser.write(bytes('738C'))
         ret=self.wait_ack(500)
-        if ret[0] != '7' || ret[1] != '9' || ret.size()<2
+        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
             self.mqttprint('FLASHER:738C:'+str(rank)+':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
@@ -155,7 +155,7 @@ class dualflasher
 
         self.ser.write(0x7F)
         ret = self.wait_ack(5)
-        if ret[0] != '7' || ret[1] != '9' || ret.size()<2
+        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
             self.mqttprint('FLASHER:0x7F 2:'+str(rank)+':resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
@@ -181,7 +181,7 @@ class dualflasher
 
         self.ser.write(bytes('01FE'))
         ret = self.wait_ack(5)     # malek
-        if ret[0] != '7' || ret[1] != '9' || ret.size()<2
+        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:INFO:erreur envoi 1','NACK'
@@ -191,7 +191,7 @@ class dualflasher
 
         self.ser.write(bytes('02FD'))
         ret = self.wait_ack(5)     # malek
-        if ret[0] != '7' || ret[1] != '9' || ret.size()<2
+        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:INFO:erreur envoi 1','NACK'
@@ -343,9 +343,9 @@ class dualflasher
          file = open(cfile,"rb")
         while index < file.size()
             self.ser.write(bytes('31CE'))
-            ret = self.wait_ack(5)     # malek
-            if ret[0] != '7' || ret[1] != '9' || ret.size()<2
-              self.mqttprint('FLASHER:FLASH:resp:'+str(index)+':'+str(ret))
+            ret = self.wait_ack(50)     # malek
+            if size(ret)<2 || ret[0] != '7' || ret[1] != '9' 
+              self.mqttprint('FLASHER:WRITE CMD:resp:'+str(index)+':'+str(ret))
               gpio.digital_write(bsl, 0)    # reset bsl
               gpio.digital_write(disable, 1)    # enable second chip
               raise 'FLASHER:FLASH:erreur envoi 1','NACK'
@@ -354,8 +354,8 @@ class dualflasher
             token = file.readbytes(5)
             self.ser.write(token)
             ret = self.wait_ack(50)
-            if ret[0] != '7' || ret[1] != '9' || ret.size()<2
-                self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
+            if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+                self.mqttprint('FLASHER:WRITE ADD:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
                 gpio.digital_write(disable, 1)    # enable second chip
                 raise 'FLASHER:FLASH:erreur envoi 2','NACK'
@@ -365,8 +365,8 @@ class dualflasher
             token = file.readbytes(BLOCK+3)
             self.ser.write(token)
             ret = self.wait_ack(30)
-            if ret[0] != '7' || ret[1] != '9' || ret.size()<2
-                self.mqttprint('FLASHER:FLASH:resp:'+str(ret))
+            if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+                self.mqttprint('FLASHER:WRITE DATA:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
                 gpio.digital_write(disable, 1)    # enable second chip
                 raise 'FLASHER:FLASH:erreur envoi 3','NACK'
@@ -405,7 +405,7 @@ class dualflasher
         # start erase
          self.ser.write(bytes('44BB'))
          ret = self.wait_ack(5) 
-         if ret[0] != '7' || ret[1] != '9' || ret.size()<2
+         if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
             self.mqttprint('FLASHER:ERASE:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
@@ -415,7 +415,7 @@ class dualflasher
          self.ser.write(bytes('FFFF00'))
          tasmota.delay(20000)
         ret = self.wait_ack(5) 
-         if ret[0] != '7' || ret[1] != '9' || ret.size()<2
+         if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
             self.mqttprint('FLASHER:ERASE:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
