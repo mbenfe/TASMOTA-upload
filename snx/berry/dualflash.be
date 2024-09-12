@@ -63,9 +63,12 @@ class dualflasher
           end
           tasmota.delay(5)        # check every 5ms
         end
+        if b != nil
             return b.tohex()
-        raise "timeout_error", "serial timeout"
-      end
+        else
+            raise "timeout_error", "serial timeout"
+        end
+    end
     
 
     #  def wait_ack(timeout)
