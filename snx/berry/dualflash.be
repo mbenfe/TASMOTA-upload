@@ -60,9 +60,6 @@ class dualflasher
         while !tasmota.time_reached(due)
           if self.ser.available()
             var b = self.ser.read()
-            while size(b) > 0 && b[0] == 0
-              b = b[1..]
-            end
             return b.tohex()
           end
           tasmota.delay(5)        # check every 5ms
