@@ -123,7 +123,7 @@ class dualflasher
          gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
          gpio.pin_mode(self.rst_out,gpio.OUTPUT)
          gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
-         // malek
+        #  malek
          gpio.pin_mode(self.statistic,gpio.OUTPUT)
          self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':stm32 ->'+stm32)
          if stm32=='in'
