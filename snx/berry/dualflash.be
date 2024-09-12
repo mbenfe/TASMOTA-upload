@@ -44,22 +44,12 @@ class dualflasher
         var topic = string.format("gw/inter/%s/%s/tele/PRINT",self.ville,self.device)
         mqtt.publish(topic,texte,true)
     end
-
-    def mydelay(delay)
-        var tas = tasmota
-        var yield = tasmota.yield
-        var count = delay/5
-        for i:0..count
-            tasmota.delay(5)
-            yield(tas) 
-        end
-    end
  
     def wait_ack(timeout)
-        gpio.digital_write(self.statistic, 1)    
-
         var b = bytes('AA')
         var due = tasmota.millis() + timeout
+        gpio.digital_write(self.statistic, 1)    
+        gpio.digital_write(self.ready, 1)    
         while !tasmota.time_reached(due)
           if self.ser.available()
             b = self.ser.read()
@@ -71,30 +61,14 @@ class dualflasher
                 b = b[1..]
             end
             gpio.digital_write(self.statistic, 0)    
+            gpio.digital_write(self.ready, 0)    
             return b.tohex()
         else
             raise "timeout_error", "serial timeout"
         end
-    end
-    
-
-    #  def wait_ack(timeout)
-    #     var due = tasmota.millis() + timeout
-    #     while !tasmota.time_reached(due) end
-    #     if self.ser.available()
-    #         var b = self.ser.read()
-    #         while size(b) > 0 && b[0] == 0
-    #             b = b[1..]
-    #         end
-    #     end
-    #     if(size(b)>0)
-    #         self.ser.flush()
-    #         tasmota.delay(1)
-    #         return b.tohex()
-    #     end
-    #     return 'AA'
-    #  end
-    
+        gpio.digital_write(self.statistic, 0)    
+        gpio.digital_write(self.ready, 0)    
+    end    
 
     def initialisation_stm32(rank,stm32)
         import gpio  
@@ -105,7 +79,8 @@ class dualflasher
         self.bsl_in=21   
         self.rst_out=33   
         self.bsl_out=32   
-        self.statistic=25
+        self.statistic=14
+        self.ready=27
     
  
         var ret
@@ -124,8 +99,9 @@ class dualflasher
          gpio.pin_mode(self.rst_out,gpio.OUTPUT)
          gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
         #  malek
-         gpio.pin_mode(self.statistic,gpio.OUTPUT)
-         self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':stm32 ->'+stm32)
+        gpio.pin_mode(self.statistic,gpio.OUTPUT)
+        gpio.pin_mode(self.ready,gpio.OUTPUT)
+        self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':stm32 ->'+stm32)
          if stm32=='in'
             self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':flash RS485 in')
             rst=self.rst_in
