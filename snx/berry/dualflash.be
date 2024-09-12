@@ -60,10 +60,10 @@ class dualflasher
         while !tasmota.time_reached(due)
           if self.ser.available()
             var b = self.ser.read()
-            return b.tohex()
           end
           tasmota.delay(5)        # check every 5ms
         end
+            return b.tohex()
         raise "timeout_error", "serial timeout"
       end
     
