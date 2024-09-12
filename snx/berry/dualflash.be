@@ -56,6 +56,8 @@ class dualflasher
     end
  
     def wait_ack(timeout)
+        gpio.digital_write(self.statistic, 1)    
+
         var b = bytes('AA')
         var due = tasmota.millis() + timeout
         while !tasmota.time_reached(due)
@@ -68,6 +70,7 @@ class dualflasher
             while size(b) > 0 && b[0] == 0
                 b = b[1..]
             end
+            gpio.digital_write(self.statistic, 0)    
             return b.tohex()
         else
             raise "timeout_error", "serial timeout"
@@ -120,6 +123,8 @@ class dualflasher
          gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
          gpio.pin_mode(self.rst_out,gpio.OUTPUT)
          gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
+         // malek
+         gpio.pin_mode(self.statistic,gpio.OUTPUT)
          self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':stm32 ->'+stm32)
          if stm32=='in'
             self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':flash RS485 in')
