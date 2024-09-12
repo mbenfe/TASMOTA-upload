@@ -56,10 +56,11 @@ class dualflasher
     end
  
     def wait_ack(timeout)
+        var b = bytes('AA')
         var due = tasmota.millis() + timeout
         while !tasmota.time_reached(due)
           if self.ser.available()
-            var b = self.ser.read()
+            b = self.ser.read()
           end
           tasmota.delay(5)        # check every 5ms
         end
