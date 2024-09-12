@@ -98,10 +98,10 @@ class dualflasher
         var bsl
         var disable
         self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':....wait 30 seconds')
-        gpio.pin_mode(self.rx_flash,gpio.INPUT)
+        gpio.pin_mode(self.rx_flash,gpio.INPUT_PULLUP)
         gpio.pin_mode(self.tx_flash,gpio.OUTPUT)
 
-        self.ser = serial(self.rx_flash,self.tx_flash,115200,serial.SERIAL_8E1)
+        self.ser = serial(self.rx_flash,self.tx_flash,57600,serial.SERIAL_8E1)
         self.ser.flush()
          # reset STM32
          gpio.pin_mode(self.rst_in,gpio.OUTPUT)
@@ -361,7 +361,7 @@ class dualflasher
          file = open(cfile,"rb")
         while index < file.size()
             self.ser.write(bytes('31CE'))
-            ret = self.wait_ack(50,1)     # malek
+            ret = self.wait_ack(5,1)     # malek
             if size(ret)<2 || ret[0] != '7' || ret[1] != '9' 
               self.mqttprint('FLASHER:WRITE CMD:resp:'+str(index)+':'+str(ret))
               gpio.digital_write(bsl, 0)    # reset bsl
@@ -371,7 +371,7 @@ class dualflasher
               
             token = file.readbytes(5)
             self.ser.write(token)
-            ret = self.wait_ack(50,1)
+            ret = self.wait_ack(5,1)
             if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
                 self.mqttprint('FLASHER:WRITE ADD:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
@@ -382,7 +382,7 @@ class dualflasher
 
             token = file.readbytes(BLOCK+3)
             self.ser.write(token)
-            ret = self.wait_ack(30,1)
+            ret = self.wait_ack(60,1)
             if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
                 self.mqttprint('FLASHER:WRITE DATA:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
