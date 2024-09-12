@@ -144,6 +144,7 @@ class dualflasher
             self.mqttprint('FLASHER:0x7F 1:'+str(rank)+':ret='+str(ret))
         end
 
+        self.ser.flush()
         #read protection
         self.ser.write(bytes('11EE'))
         ret=self.wait_ack(5,1)
