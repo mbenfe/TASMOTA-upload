@@ -307,6 +307,11 @@ tasmota.add_cmd('AdeMode',AdeMode)
 print('AUTOEXEC: create commande Flash')
 tasmota.add_cmd('Flash',Flash)
 
+tasmota.add_cmd("getfile",getfile)
+tasmota.add_cmd("ville",ville)
+tasmota.add_cmd("device",device)
+
+
 tasmota.load('stm32_driver.be')
 
 ############################################################
