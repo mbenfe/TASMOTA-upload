@@ -33,6 +33,60 @@ var tx=17    # tx = GPIO1
 var rst=2   # rst = GPIO2
 var bsl=13   # bsl = GPIO13
 
+
+def ville(cmd, idx,payload, payload_json)
+    import json
+    var file = open("esp32.cfg","rt")
+    var buffer = file.read()
+    var myjson=json.load(buffer)
+    myjson["ville"]=payload
+    buffer = json.dump(myjson)
+    file.close()
+    file = open("esp32.cfg","wt")
+    file.write(buffer)
+    file.close()
+    tasmota.resp_cmnd("done")
+end
+
+def device(cmd, idx,payload, payload_json)
+    import json
+    var file = open("esp32.cfg","rt")
+    var buffer = file.read()
+    var myjson=json.load(buffer)
+    myjson["device"]=payload
+    buffer = json.dump(myjson)
+    file.close()
+    file = open("esp32.cfg","wt")
+    file.write(buffer)
+    file.close()
+    tasmota.resp_cmnd("done")
+end
+
+d
+
+def getfile(cmd, idx,payload, payload_json)
+    import string
+    var path = "https://raw.githubusercontent.com//mbenfe/upload/main/"
+    path+=payload
+    print(path)
+    var file=string.split(path,"/").pop()
+    print(file)
+    var wc=webclient()
+    wc.set_follow_redirects(true)
+    wc.begin(path)
+    var st=wc.GET()
+    if st!=200 
+        raise "erreur","code: "+str(st) 
+    end
+    st="Fetched "+str(wc.write_file(file))
+    print(path,st)
+    wc.close()
+    var message = "uploaded:"+file
+    tasmota.resp_cmnd(message)
+    return st
+end
+
+
 #-------------------------------- FUNCTIONS -----------------------------------------#
 def recv_raw(timeout)
     var due = tasmota.millis() + timeout
