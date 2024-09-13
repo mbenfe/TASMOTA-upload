@@ -133,6 +133,7 @@ class dualflasher
         gpio.digital_write(rst, 1)    # trigger BSL
         tasmota.delay(500)               # wait 10ms
         # start boot mode
+        self.ser.flush()
         self.ser.write(0x7F)
         ret = self.wait_ack(5,1)
         if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
