@@ -143,7 +143,7 @@ class dualflasher
         else
             self.mqttprint('FLASHER:0x7F 1:'+str(rank)+':ret='+str(ret))
         end
-        
+
         self.ser.write(bytes('01FE'))
         ret = self.wait_ack(5,1)     # malek
         if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
@@ -152,6 +152,16 @@ class dualflasher
             raise 'FLASHER:INFO:erreur envoi 1','NACK'
         else
             self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret))
+        end
+        
+        self.ser.write(bytes('02FD'))
+        ret = self.wait_ack(5,1)     # malek
+        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+            gpio.digital_write(bsl, 0)    # reset bsl
+            gpio.digital_write(disable, 1)    # enable second chip
+            raise 'FLASHER:INFO:erreur envoi 1','NACK'
+        else
+            self.mqttprint('FLASHER:INFO:Chip ID -> '+ret[4]+ret[5]+ret[6]+ret[7])
         end
 
         self.ser.flush()
