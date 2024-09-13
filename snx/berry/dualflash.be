@@ -101,7 +101,7 @@ class dualflasher
         gpio.pin_mode(self.rx_flash,gpio.INPUT_PULLUP)
         gpio.pin_mode(self.tx_flash,gpio.OUTPUT)
 
-        self.ser = serial(self.rx_flash,self.tx_flash,115200,serial.SERIAL_8E1)
+        self.ser = serial(self.rx_flash,self.tx_flash,9600,serial.SERIAL_8E1)
         self.ser.flush()
          # reset STM32
          gpio.pin_mode(self.rst_in,gpio.OUTPUT)
@@ -137,11 +137,11 @@ class dualflasher
         self.ser.write(0x7F)
         ret = self.wait_ack(5,1)
         if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
-        #     self.mqttprint('FLASHER:0x7F 1:'+str(rank)+':resp:'+str(ret))
-        #     gpio.digital_write(bsl, 0)    # reset bsl
-        #     gpio.digital_write(disable, 1)    # enable second chip
-        #     raise 'FLASHER:0x7F 1:'+str(rank)+':erreur initialisation','NACK'
-        # else
+            self.mqttprint('FLASHER:0x7F 1:'+str(rank)+':resp:'+str(ret))
+            gpio.digital_write(bsl, 0)    # reset bsl
+            gpio.digital_write(disable, 1)    # enable second chip
+            raise 'FLASHER:0x7F 1:'+str(rank)+':erreur initialisation','NACK'
+        else
             self.mqttprint('FLASHER:0x7F 1:'+str(rank)+':ret='+str(ret))
         end
 
@@ -417,7 +417,7 @@ class dualflasher
             token = file.readbytes(BLOCK+3)
             self.ser.write(token)
             gpio.digital_write(self.ready, 0)
-            ret = self.wait_ack(12,1)
+            ret = self.wait_ack(360,1)
             if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
                 self.mqttprint('FLASHER:WRITE DATA:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
