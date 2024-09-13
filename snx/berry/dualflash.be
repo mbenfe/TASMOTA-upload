@@ -180,28 +180,28 @@ class dualflasher
         # end
 
         self.ser.flush()
-        if stm32 == 'in'
-            #read protection
-            self.ser.write(bytes('11EE'))
-            ret=self.wait_ack(5,1)
-            mqttprint('11EE:'+str(ret))
-            self.ser.write(bytes('1FFFC00020'))
-            ret=self.wait_ack(5,1)
-            mqttprint('1FFFC00020:'+str(ret))
-            self.ser.write(bytes('0FF0'))
-            ret=self.wait_ack(5,0)
-            mqttprint('OB:'+str(ret))
-        end
-        self.ser.write(bytes('738C'))
-        ret=self.wait_ack(500,1)
-        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
-            self.mqttprint('FLASHER:738C:'+str(rank)+':resp:'+str(ret))
-            gpio.digital_write(bsl, 0)    # reset bsl
-            gpio.digital_write(disable, 1)    # enable second chip
-            raise 'FLASHER:738C:'+str(rank)+':erreur initialisation','NACK'
-        else
-            self.mqttprint('FLASHER:UNPROTECT OK:'+str(ret))
-        end
+        # if stm32 == 'in'
+        #     #read protection
+        #     self.ser.write(bytes('11EE'))
+        #     ret=self.wait_ack(5,1)
+        #     mqttprint('11EE:'+str(ret))
+        #     self.ser.write(bytes('1FFFC00020'))
+        #     ret=self.wait_ack(5,1)
+        #     mqttprint('1FFFC00020:'+str(ret))
+        #     self.ser.write(bytes('0FF0'))
+        #     ret=self.wait_ack(5,0)
+        #     mqttprint('OB:'+str(ret))
+        # end
+        # self.ser.write(bytes('738C'))
+        # ret=self.wait_ack(500,1)
+        # if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+        #     self.mqttprint('FLASHER:738C:'+str(rank)+':resp:'+str(ret))
+        #     gpio.digital_write(bsl, 0)    # reset bsl
+        #     gpio.digital_write(disable, 1)    # enable second chip
+        #     raise 'FLASHER:738C:'+str(rank)+':erreur initialisation','NACK'
+        # else
+        #     self.mqttprint('FLASHER:UNPROTECT OK:'+str(ret))
+        # end
 
         # self.ser.write(0x7F)
         # ret = self.wait_ack(5,1)
