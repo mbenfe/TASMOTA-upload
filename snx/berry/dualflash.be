@@ -468,15 +468,19 @@ class dualflasher
         end   
          self.mqttprint("FLASHER:ERASE:start:"+str(ret))
          self.ser.write(bytes('FFFF00'))
-         tasmota.delay(20000)
-        ret = self.wait_ack(5,1) 
+
+        ret = self.wait_ack(5,1)
+        while ret == bytes('')
+            tasmota.delay(1000)
+            ret =  self.wait_ack(5,1)
+        end
          if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
             self.mqttprint('FLASHER:ERASE:resp:'+str(ret))
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:ERASE:erreur erase 2','NACK'
         end   
-        self.mqttprint("FLASHER:ERASE:end:"+str(ret))
+        self.mqttprint("FLASHER:ERASE:DONE:"+str(ret))
         self.terminate(stm32)
     end
 
