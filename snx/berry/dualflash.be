@@ -24,8 +24,8 @@ class dualflasher
     var bsl_in  
     var rst_out  
     var bsl_out
-    # var statistic
-    # var ready
+    var statistic
+    var ready
 
     var ville
     var device
@@ -89,8 +89,8 @@ class dualflasher
         self.bsl_in=21   
         self.rst_out=33   
         self.bsl_out=32   
-        # self.statistic=14
-        # self.ready=27
+        self.statistic=14
+        self.ready=27
     
  
         var ret
@@ -109,8 +109,8 @@ class dualflasher
          gpio.pin_mode(self.rst_out,gpio.OUTPUT)
          gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
         #  malek
-        # gpio.pin_mode(self.statistic,gpio.OUTPUT)
-        # gpio.pin_mode(self.ready,gpio.OUTPUT)
+        gpio.pin_mode(self.statistic,gpio.OUTPUT)
+        gpio.pin_mode(self.ready,gpio.OUTPUT)
         self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':stm32 ->'+stm32)
          if stm32=='in'
             self.mqttprint('FLASHER:INITIALISATION:'+str(rank)+':flash RS485 in')
@@ -143,44 +143,51 @@ class dualflasher
         else
             self.mqttprint('FLASHER:0x7F 1:'+str(rank)+':ret='+str(ret))
         end
+        
+        self.ser.write(bytes('01FE'))
+        ret = self.wait_ack(5,1)     # malek
+        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+            gpio.digital_write(bsl, 0)    # reset bsl
+            gpio.digital_write(disable, 1)    # enable second chip
+            raise 'FLASHER:INFO:erreur envoi 1','NACK'
+        else
+            self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret))
+        end
 
         self.ser.flush()
-        #read protection
-        self.ser.write(bytes('11EE'))
-        ret=self.wait_ack(5,1)
-        mqttprint('11EE:'+str(ret))
-        self.ser.write(bytes('1FFFC00020'))
-        ret=self.wait_ack(5,1)
-        mqttprint('1FFFC00020:'+str(ret))
-        self.ser.write(bytes('0FF0'))
-        ret=self.wait_ack(5,0)
-        mqttprint('OB:'+str(ret))
-        # print('RDP:',ret[1])
-        # print('User:',ret[2])
-        # print('SPRMOD',ret[9])
-        # print('SPRMOD',ret[8])
-        # unpotect memory
-        self.ser.write(bytes('738C'))
-        ret=self.wait_ack(500,1)
-        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
-            self.mqttprint('FLASHER:738C:'+str(rank)+':resp:'+str(ret))
-            gpio.digital_write(bsl, 0)    # reset bsl
-            gpio.digital_write(disable, 1)    # enable second chip
-            raise 'FLASHER:738C:'+str(rank)+':erreur initialisation','NACK'
-        else
-            self.mqttprint('FLASHER:UNPROTECT OK:'+str(ret))
+        if stm32 == 'in'
+            #read protection
+            self.ser.write(bytes('11EE'))
+            ret=self.wait_ack(5,1)
+            mqttprint('11EE:'+str(ret))
+            self.ser.write(bytes('1FFFC00020'))
+            ret=self.wait_ack(5,1)
+            mqttprint('1FFFC00020:'+str(ret))
+            self.ser.write(bytes('0FF0'))
+            ret=self.wait_ack(5,0)
+            mqttprint('OB:'+str(ret))
         end
+        # self.ser.write(bytes('738C'))
+        # ret=self.wait_ack(500,1)
+        # if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+        #     self.mqttprint('FLASHER:738C:'+str(rank)+':resp:'+str(ret))
+        #     gpio.digital_write(bsl, 0)    # reset bsl
+        #     gpio.digital_write(disable, 1)    # enable second chip
+        #     raise 'FLASHER:738C:'+str(rank)+':erreur initialisation','NACK'
+        # else
+        #     self.mqttprint('FLASHER:UNPROTECT OK:'+str(ret))
+        # end
 
-        self.ser.write(0x7F)
-        ret = self.wait_ack(5,1)
-        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
-            self.mqttprint('FLASHER:0x7F 2:'+str(rank)+':resp:'+str(ret))
-            gpio.digital_write(bsl, 0)    # reset bsl
-            gpio.digital_write(disable, 1)    # enable second chip
-            raise 'FLASHER:0X7F 2:'+str(rank)+':erreur initialisation','NACK'
-        else
-            self.mqttprint('FLASHER:SET BOOT MODE 2:'+str(rank)+':ret='+str(ret))
-        end
+        # self.ser.write(0x7F)
+        # ret = self.wait_ack(5,1)
+        # if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+        #     self.mqttprint('FLASHER:0x7F 2:'+str(rank)+':resp:'+str(ret))
+        #     gpio.digital_write(bsl, 0)    # reset bsl
+        #     gpio.digital_write(disable, 1)    # enable second chip
+        #     raise 'FLASHER:0X7F 2:'+str(rank)+':erreur initialisation','NACK'
+        # else
+        #     self.mqttprint('FLASHER:SET BOOT MODE 2:'+str(rank)+':ret='+str(ret))
+        # end
     end
     #------------------------------------------------------------------------------------#
     #                                   GETINFO                                          #
@@ -380,9 +387,11 @@ class dualflasher
             end   
             index += size(token)
 
+            gpio.digital_write(self.ready, 1)
             token = file.readbytes(BLOCK+3)
             self.ser.write(token)
-            ret = self.wait_ack(30,1)
+            gpio.digital_write(self.ready, 0)
+            ret = self.wait_ack(12,1)
             if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
                 self.mqttprint('FLASHER:WRITE DATA:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
@@ -390,7 +399,9 @@ class dualflasher
                 raise 'FLASHER:FLASH:erreur envoi 3','NACK'
             end   
             index += size(token)
+            gpio.digital_write(self.statistic, 1)
             yield(tas)        # tasmota.yield() -- faster version
+            gpio.digital_write(self.statistic, 0)
         end
         file.close()
         self.mqttprint('FLASHER:FLASH:dernier token:'+str(size(token)))
