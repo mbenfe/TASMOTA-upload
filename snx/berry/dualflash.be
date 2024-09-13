@@ -469,7 +469,7 @@ class dualflasher
          self.mqttprint("FLASHER:ERASE:start:"+str(ret))
          self.ser.write(bytes('FFFF00'))
         ret = self.wait_ack(5,1)
- print(ret)
+        print(ret)
         while ret == bytes('')
             tasmota.delay(1000)
             ret =  self.wait_ack(5,1)
