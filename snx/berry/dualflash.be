@@ -148,36 +148,36 @@ class dualflasher
         # ret = self.wait_ack(5,1)     # malek
         # self.mqttprint('FLASHER:INFO: read unprotect -> '+str(ret))
 
-        self.ser.write(bytes('00FF'))
-        ret = self.wait_ack(5,1)     # malek
-        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
-            gpio.digital_write(bsl, 0)    # reset bsl
-            gpio.digital_write(disable, 1)    # enable second chip
-            raise 'FLASHER:INFO:GET','NACK'
-        else
-            self.mqttprint('FLASHER:GET -> '+str(ret))
-        end
+        # self.ser.write(bytes('00FF'))
+        # ret = self.wait_ack(5,1)     # malek
+        # if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+        #     gpio.digital_write(bsl, 0)    # reset bsl
+        #     gpio.digital_write(disable, 1)    # enable second chip
+        #     raise 'FLASHER:INFO:GET','NACK'
+        # else
+        #     self.mqttprint('FLASHER:GET -> '+str(ret))
+        # end
         
-        self.ser.write(bytes('01FE'))
-        ret = self.wait_ack(5,1)     # malek
-        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
-            gpio.digital_write(bsl, 0)    # reset bsl
-            gpio.digital_write(disable, 1)    # enable second chip
-            self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret))
-            raise 'FLASHER:INFO:Protocol version','NACK'
-        else
-            self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret))
-        end
+        # self.ser.write(bytes('01FE'))
+        # ret = self.wait_ack(5,1)     # malek
+        # if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+        #     gpio.digital_write(bsl, 0)    # reset bsl
+        #     gpio.digital_write(disable, 1)    # enable second chip
+        #     self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret))
+        #     raise 'FLASHER:INFO:Protocol version','NACK'
+        # else
+        #     self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret))
+        # end
         
-        self.ser.write(bytes('02FD'))
-        ret = self.wait_ack(5,1)     # malek
-        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
-            gpio.digital_write(bsl, 0)    # reset bsl
-            gpio.digital_write(disable, 1)    # enable second chip
-            raise 'FLASHER:INFO:Chip ID','NACK'
-        else
-            self.mqttprint('FLASHER:INFO:Chip ID -> '+ret[4]+ret[5]+ret[6]+ret[7])
-        end
+        # self.ser.write(bytes('02FD'))
+        # ret = self.wait_ack(5,1)     # malek
+        # if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+        #     gpio.digital_write(bsl, 0)    # reset bsl
+        #     gpio.digital_write(disable, 1)    # enable second chip
+        #     raise 'FLASHER:INFO:Chip ID','NACK'
+        # else
+        #     self.mqttprint('FLASHER:INFO:Chip ID -> '+ret[4]+ret[5]+ret[6]+ret[7])
+        # end
 
         self.ser.flush()
         if stm32 == 'in'
@@ -192,16 +192,16 @@ class dualflasher
             ret=self.wait_ack(5,0)
             mqttprint('OB:'+str(ret))
         end
-        # self.ser.write(bytes('738C'))
-        # ret=self.wait_ack(500,1)
-        # if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
-        #     self.mqttprint('FLASHER:738C:'+str(rank)+':resp:'+str(ret))
-        #     gpio.digital_write(bsl, 0)    # reset bsl
-        #     gpio.digital_write(disable, 1)    # enable second chip
-        #     raise 'FLASHER:738C:'+str(rank)+':erreur initialisation','NACK'
-        # else
-        #     self.mqttprint('FLASHER:UNPROTECT OK:'+str(ret))
-        # end
+        self.ser.write(bytes('738C'))
+        ret=self.wait_ack(500,1)
+        if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+            self.mqttprint('FLASHER:738C:'+str(rank)+':resp:'+str(ret))
+            gpio.digital_write(bsl, 0)    # reset bsl
+            gpio.digital_write(disable, 1)    # enable second chip
+            raise 'FLASHER:738C:'+str(rank)+':erreur initialisation','NACK'
+        else
+            self.mqttprint('FLASHER:UNPROTECT OK:'+str(ret))
+        end
 
         # self.ser.write(0x7F)
         # ret = self.wait_ack(5,1)
