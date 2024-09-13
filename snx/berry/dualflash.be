@@ -155,7 +155,7 @@ class dualflasher
             gpio.digital_write(disable, 1)    # enable second chip
             raise 'FLASHER:INFO:erreur envoi 1','NACK'
         else
-            self.mqttprint('FLASHER:INFO -> '+str(ret))
+            self.mqttprint('FLASHER:readout -> '+str(ret))
         end
         
         self.ser.write(bytes('01FE'))
@@ -163,7 +163,8 @@ class dualflasher
         if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
             gpio.digital_write(bsl, 0)    # reset bsl
             gpio.digital_write(disable, 1)    # enable second chip
-            raise 'FLASHER:INFO:erreur envoi 1','NACK'
+            self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret))
+            raise 'FLASHER:INFO:Protocol version','NACK'
         else
             self.mqttprint('FLASHER:INFO:Protocol version -> '+str(ret))
         end
