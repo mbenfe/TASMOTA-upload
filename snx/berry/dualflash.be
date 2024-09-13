@@ -394,7 +394,7 @@ class dualflasher
          file = open(cfile,"rb")
         while index < file.size()
             self.ser.write(bytes('31CE'))
-            ret = self.wait_ack(5,1)     # malek
+            ret = self.wait_ack(10,1)     # malek
             if size(ret)<2 || ret[0] != '7' || ret[1] != '9' 
               self.mqttprint('FLASHER:WRITE CMD:resp:'+str(index)+':'+str(ret))
               gpio.digital_write(bsl, 0)    # reset bsl
@@ -404,7 +404,7 @@ class dualflasher
               
             token = file.readbytes(5)
             self.ser.write(token)
-            ret = self.wait_ack(5,1)
+            ret = self.wait_ack(10,1)
             if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
                 self.mqttprint('FLASHER:WRITE ADD:resp:'+str(ret))
                 gpio.digital_write(bsl, 0)    # reset bsl
