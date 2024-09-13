@@ -144,6 +144,10 @@ class dualflasher
             self.mqttprint('FLASHER:0x7F 1:'+str(rank)+':ret='+str(ret))
         end
 
+        self.ser.write(bytes('926D'))
+        ret = self.wait_ack(5,1)     # malek
+        self.mqttprint('FLASHER:INFO -> '+str(ret))
+
         self.ser.write(bytes('00FF'))
         ret = self.wait_ack(5,1)     # malek
         if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
