@@ -62,8 +62,6 @@ def device(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd("done")
 end
 
-d
-
 def getfile(cmd, idx,payload, payload_json)
     import string
     var path = "https://raw.githubusercontent.com//mbenfe/upload/main/"

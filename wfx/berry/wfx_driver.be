@@ -99,7 +99,7 @@ class WFX
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
                     self.logger.log_data(mylist[i])
-                    topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
+                    topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,1)
                     ligne = string.format('{"Reception": "%s"}',mylist[i])
                     mqtt.publish(topic,ligne,true)
                 else
@@ -121,7 +121,7 @@ class WFX
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
                     self.logger.log_data(mylist[i])
-                    topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
+                    topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,2)
                     ligne = string.format('{"Reception": "%s"}',mylist[i])
                     mqtt.publish(topic,ligne,true)
                 else
