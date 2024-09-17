@@ -61,8 +61,8 @@ class STM32
         # lecture STM32 IN pour debug
         # self.ser = serial(36,1,921600,serial.SERIAL_8N1)
         # pinout flasher
-        serial speed limite (choisy)
-        #self.ser = serial(17,16,921600,serial.SERIAL_8N1)
+        # serial speed limite (choisy)
+        self.ser = serial(17,16,921600,serial.SERIAL_8N1)
     
         # setup boot pins for stm32: reset disable & boot normal
 
