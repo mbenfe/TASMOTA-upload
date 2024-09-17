@@ -88,12 +88,8 @@ class PWX12
                         self.logger.log_data(mylist[i])
                         split = string.split(mylist[i],':')
                         for j:0..2
-                            print("j:",j,"split:",size(split))
                             topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
-                            print("topic",topic,"received",mylist[i])
-                            print(global.configjson)
                             ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}',global.device,global.configjson[global.device]["root"][j],split[j+1])
-                            print("ligne",ligne)
                             mqtt.publish(topic,ligne,true)
                         end
                     else
