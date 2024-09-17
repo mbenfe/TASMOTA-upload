@@ -66,7 +66,7 @@ class conso
                 return ligne
             end
         else
-            print('fichier configuration non existant .....')
+            raise 'finchier configuration non existant:',str(name)
         end
     end
 
