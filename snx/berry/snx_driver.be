@@ -100,8 +100,8 @@ class STM32
             var buffer = self.ser.read()
             self.ser.flush()
             # zone debug start
-            topic=string.format("gw/inter/coubron/snx/tele/DEBUG")
-            mqtt.publish(topic,buffer.asstring(),true)
+            #topic=string.format("gw/inter/coubron/snx/tele/DEBUG")
+            #mqtt.publish(topic,buffer.asstring(),true)
             #zone debug end
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
