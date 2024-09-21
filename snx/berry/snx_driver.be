@@ -59,10 +59,10 @@ class STM32
 
         print('DRIVER: serial init done')
         # lecture STM32 IN pour debug
-        self.ser = serial(36,1,921600,serial.SERIAL_8N1)
+        # self.ser = serial(36,1,921600,serial.SERIAL_8N1)
         # pinout flasher
         # serial speed limite (choisy)
-        #self.ser = serial(17,16,921600,serial.SERIAL_8N1)
+        self.ser = serial(17,16,921600,serial.SERIAL_8N1)
     
         # setup boot pins for stm32: reset disable & boot normal
 
@@ -99,11 +99,6 @@ class STM32
             gpio.digital_write(self.statistic,1)
             var buffer = self.ser.read()
             self.ser.flush()
-            # zone debug start
-            # malek
-            # topic=string.format("gw/inter/coubron/snx/tele/DEBUG")
-            # mqtt.publish(topic,buffer.asstring(),true)
-            #zone debug end
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')
