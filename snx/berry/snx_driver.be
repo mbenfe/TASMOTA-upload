@@ -136,7 +136,7 @@ class STM32
                 mystring = buffer.asstring()
                 mqtt.publish(topic,mystring,true)
             else
-                topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
+                topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)
                 mystring = buffer.asstring()
                 mqtt.publish(topic,mystring,true)
             end
