@@ -241,8 +241,8 @@ def dir(cmd, idx,payload, payload_json)
 end
 
 def launch_driver()
-    mqttprint('mqtt connected -> launch driver')
-    tasmota.load('snx_driver.be')
+    # mqttprint('mqtt connected -> launch driver')
+    # tasmota.load('snx_driver.be')
  end
 
 
