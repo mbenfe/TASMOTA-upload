@@ -100,8 +100,9 @@ class STM32
             var buffer = self.ser.read()
             self.ser.flush()
             # zone debug start
-            #topic=string.format("gw/inter/coubron/snx/tele/DEBUG")
-            #mqtt.publish(topic,buffer.asstring(),true)
+            # malek
+            topic=string.format("gw/inter/coubron/snx/tele/DEBUG")
+            mqtt.publish(topic,buffer.asstring(),true)
             #zone debug end
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
@@ -135,9 +136,9 @@ class STM32
                 mystring = buffer.asstring()
                 mqtt.publish(topic,mystring,true)
             else
-                topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
-                mystring = buffer.asstring()
-                mqtt.publish(topic,mystring,true)
+                # topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
+                # mystring = buffer.asstring()
+                # mqtt.publish(topic,mystring,true)
             end
         end
         gpio.digital_write(self.statistic,0)
