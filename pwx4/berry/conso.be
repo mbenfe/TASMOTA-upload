@@ -71,6 +71,8 @@ class conso
             else
                 print('fichier path non existant')
             end
+        else
+            raise 'finchier configuration non existant:',str(name)
         end
     end
 
