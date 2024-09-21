@@ -393,7 +393,10 @@ class dualflasher
          self.initialisation_stm32(1,stm32)
 
          file = open(cfile,"rb")
-        while index < file.size()
+         self.mqttprint('FLASHER:READ:'+cfile)
+         self.mqttprint('FLASHER:SIZE:'+str(file.size()))
+         
+         while index < file.size()
             self.ser.write(bytes('31CE'))
             ret = self.wait_ack(5,1)     # malek
             if size(ret)<2 || ret[0] != '7' || ret[1] != '9' 
