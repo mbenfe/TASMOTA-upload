@@ -348,6 +348,7 @@ class dualflasher
         file = open(filename,"rb")
         numB = file.size()/BLOCK
         reste = file.size() - numB*BLOCK
+        self.mqttprint('FLASHER:CONVERT:start ...')
         try
             for i: 1 .. numB
                 token = file.readbytes(BLOCK)
