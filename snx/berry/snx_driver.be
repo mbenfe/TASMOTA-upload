@@ -121,8 +121,7 @@ class STM32
                         mqtt.publish(topic,mylist[i],true)
                     end
                 end
-            end
-            if (buffer[0] == 42)     # * -> json statistic
+            elif (buffer[0] == 42)     # * -> json statistic
                 mystring = buffer[1..-1].asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
@@ -131,8 +130,11 @@ class STM32
                     topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson["ID"]))
                     mqtt.publish(topic,mylist[i],true)
                 end
-            end
-            if (buffer[0] == 58)     # : -> debug text
+            elif (buffer[0] == 58)     # : -> debug text
+                topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
+                mystring = buffer.asstring()
+                mqtt.publish(topic,mystring,true)
+            else
                 topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
                 mystring = buffer.asstring()
                 mqtt.publish(topic,mystring,true)
