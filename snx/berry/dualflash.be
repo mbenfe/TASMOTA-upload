@@ -429,9 +429,7 @@ class dualflasher
                 raise 'FLASHER:FLASH:erreur envoi 3','NACK'
             end   
             index += size(token)
-            gpio.digital_write(self.statistic, 1)
             yield(tas)        # tasmota.yield() -- faster version
-            gpio.digital_write(self.statistic, 0)
         end
         file.close()
         self.mqttprint('FLASHER:FLASH:dernier token:'+str(size(token)))
