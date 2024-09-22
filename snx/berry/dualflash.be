@@ -370,10 +370,33 @@ class dualflasher
     #                                   ECRITURE FICHIER HEX                             #
     #------------------------------------------------------------------------------------#
     def flashhex(filename)
+        import string
+        import crc
+        var bsl
+        var disable
+        var tas = tasmota
+        var yield = tasmota.yield
+        var defer = 10
+        var ret
+    
         var file
         var ligne
         var ll
-        var tai
+        var adresse
+        var type_enregistrement
+        var donnees
+        var checksum
+        var reponse
+        var base_address = 0  # Base address for extended addressing
+        var full_address
+    
+        bsl=self.bsl_out
+        disable=self.rst_in
+        self.init()
+        var token
+        var tokencrc
+        
+        self.initialisation_stm32(1,'out')
 
         # Ouvrir le fichier HEX
         file = open(filename,"r")
@@ -381,15 +404,109 @@ class dualflasher
         print("Démarrage du flash...")
 
         # Boucle de lecture et d'envoi des lignes du fichier .hex
-        while True
+        while true
+            defer = defer - 1
+            if defer <= 0
+              yield(tas)        # tasmota.yield() -- faster version
+              defer = 10
+            end
             ligne = file.readline()  # Lire une ligne typique du fichier .hex
-            if ligne.size() == 0
+            # if size(ligne) == 0
+            #     break
+            # end
+            # if ligne[-1] == '\n'   ligne = ligne[0..-2]  end
+            # if ligne[-1] == '\r'   ligne = ligne[0..-2]  end
+            # # Vérifier que la ligne commence bien par ':'
+            # if ligne[0] != ':'
+            #     print("Erreur : Ligne HEX invalide.")
+            #     continue
+            # end
+
+            # Analyser la ligne
+            ll = int('0x'+ligne[1..2])  # Longueur des données (LL)
+            adresse = int('0x'+ligne[3..6])  # Adresse de départ (AAAA)
+            type_enregistrement = int('0x'+ligne[7..8])  # Type d'enregistrement (TT)
+            donnees = ligne[9..9 + ll * 2 - 1]  # Données (DDDD....)
+            checksum = int('0x'+ligne[9 + ll * 2..9 + ll * 2 + 1])  # Checksum (CC)
+
+         # Traiter selon le type d'enregistrement
+            if type_enregistrement == 0  # Données
+                # Calculer l'adresse complète avec l'extension d'adresse
+                full_address = base_address + adresse
+                self.ser.write(bytes('31CE'))
+                ret = self.wait_ack(2,1)     # malek
+                if size(ret)<2 || ret[0] != '7' || ret[1] != '9' 
+                    self.mqttprint('FLASHER:WRITE CMD:resp:'+str(ret))
+                    gpio.digital_write(bsl, 0)    # reset bsl
+                    gpio.digital_write(disable, 1)    # enable second chip
+                    raise 'FLASHER:FLASH:erreur envoi 1','NACK'
+                  end
+                token=string.format('%08X',full_address)
+                tokencrc = 0
+                tokencrc ^= int('0x'+token[0..1]) 
+                tokencrc ^= int('0x'+token[2..3])
+                tokencrc ^= int('0x'+token[4..5])
+                tokencrc ^= int('0x'+token[6..7])
+                token = token + string.format('%02X',tokencrc)
+                self.ser.write(bytes(token)) 
+                ret = self.wait_ack(2,1)
+                if size(ret)<2 || ret[0] != '7' || ret[1] != '9'
+                    self.mqttprint('FLASHER:WRITE CMD:resp:'+str(ret))
+                    gpio.digital_write(bsl, 0)    # reset bsl
+                    gpio.digital_write(disable, 1)    # enable second chip
+                    raise 'FLASHER:FLASH:erreur envoi 1','NACK'
+                  end
+                # token = string.format('%02X',ll-1)
+                # for i:0..ll*2-1
+                #     token = token + donnees[i]
+                # end
+                # tokencrc = ll-1
+                # for i:0..ll-1
+                #     tokencrc ^= int('0x'+donnees[i*2..i*2+1])
+                # end
+                # token = token + string.format('%02X',tokencrc)
+
+                token = string.format('%02X', ll-1)
+                tokencrc = ll-1
+                
+                for i:0..ll-1
+                    # Add two characters (one byte) from 'donnees' to 'token'
+                    token = token + donnees[i*2] + donnees[i*2+1]
+                
+                    # Calculate tokencrc by XOR-ing the current byte
+                    tokencrc ^= int('0x' + donnees[i*2..i*2+2])
+                end
+                
+                # Add the final tokencrc to the token
+                token = token + string.format('%02X', tokencrc)                self.ser.write(bytes(token))
+                self.ser.write(bytes(token)) 
+                ret = self.wait_ack(4,1)
+                if size(ret)<2 || ret[0] != '7' || ret[1] != '9' 
+                    print('erreur')
+                    self.mqttprint('FLASHER:WRITE CMD:resp:'+str(ret))
+                    gpio.digital_write(bsl, 0)    # reset bsl
+                    gpio.digital_write(disable, 1)    # enable second chip.
+                    raise 'FLASHER:FLASH:erreur envoi 1','NACK'
+                end
+            elif type_enregistrement == 1  # Fin de fichier
+                print("Fin du fichier détectée.")
                 break
+
+            elif type_enregistrement == 2  # Segment d'adresse étendu
+                print("Segment d'adresse étendu détecté.")
+                base_address = int('0x'+ligne[9..12]) << 4  # Segment d'adresse étendu (haut 16 bits)
+
+           elif type_enregistrement == 4  # Adresse linéaire étendue
+                print("Adresse linéaire étendue détectée.")
+                base_address = int('0x'+ligne[9..12]) << 16  # Adresse linéaire étendue (haut 16 bits)
+            else
+                print("Type d'enregistrement non supporté:", type_enregistrement)
             end
         end
-        print(ligne)
         file.close()
-        print("Flash terminé.")end
+        self.mqttprint('FLASHER:FLASH:flashing done')
+        tasmota.delay(1000)
+        self.terminate(stm32)
     end
 
     #------------------------------------------------------------------------------------#
