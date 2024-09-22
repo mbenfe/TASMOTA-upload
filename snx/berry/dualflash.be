@@ -456,29 +456,29 @@ class dualflasher
                     gpio.digital_write(disable, 1)    # enable second chip
                     raise 'FLASHER:FLASH:erreur envoi 1','NACK'
                   end
-                # token = string.format('%02X',ll-1)
-                # for i:0..ll*2-1
-                #     token = token + donnees[i]
-                # end
-                # tokencrc = ll-1
-                # for i:0..ll-1
-                #     tokencrc ^= int('0x'+donnees[i*2..i*2+1])
-                # end
-                # token = token + string.format('%02X',tokencrc)
-
-                token = string.format('%02X', ll-1)
-                tokencrc = ll-1
-                
-                for i:0..ll-1
-                    # Add two characters (one byte) from 'donnees' to 'token'
-                    token = token + donnees[i*2] + donnees[i*2+1]
-                
-                    # Calculate tokencrc by XOR-ing the current byte
-                    tokencrc ^= int('0x' + donnees[i*2..i*2+2])
+                token = string.format('%02X',ll-1)
+                for i:0..ll*2-1
+                    token = token + donnees[i]
                 end
+                tokencrc = ll-1
+                for i:0..ll-1
+                    tokencrc ^= int('0x'+donnees[i*2..i*2+1])
+                end
+                token = token + string.format('%02X',tokencrc)
+
+                # token = string.format('%02X', ll-1)
+                # tokencrc = ll-1
                 
-                # Add the final tokencrc to the token
-                token = token + string.format('%02X', tokencrc)                self.ser.write(bytes(token))
+                # for i:0..ll-1
+                #     # Add two characters (one byte) from 'donnees' to 'token'
+                #     token = token + donnees[i*2] + donnees[i*2+1]
+                
+                #     # Calculate tokencrc by XOR-ing the current byte
+                #     tokencrc ^= int('0x' + donnees[i*2..i*2+2])
+                # end
+                
+                # # Add the final tokencrc to the token
+                # token = token + string.format('%02X', tokencrc)                self.ser.write(bytes(token))
                 self.ser.write(bytes(token)) 
                 ret = self.wait_ack(4,1)
                 if size(ret)<2 || ret[0] != '7' || ret[1] != '9' 
