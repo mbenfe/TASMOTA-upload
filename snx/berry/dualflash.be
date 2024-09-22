@@ -367,7 +367,36 @@ class dualflasher
     end
 
     #------------------------------------------------------------------------------------#
-    #                                   ECRITURE FICHIER                                 #
+    #                                   ECRITURE FICHIER HEX                             #
+    #------------------------------------------------------------------------------------#
+    def flashhex(filename)
+        var file
+        var ligne
+        var ll
+        var tai
+
+        # Ouvrir le fichier HEX
+        file = open(filename,"r")
+
+        print("Démarrage du flash...")
+
+        # Boucle de lecture et d'envoi des lignes du fichier .hex
+        while True
+            ligne = file.readline()  # Lire une ligne typique du fichier .hex
+            if ligne.size() == 0
+                break
+            end
+        end
+        print(ligne)
+    end
+
+  file.close()
+  print("Flash terminé.")end
+
+    end
+
+    #------------------------------------------------------------------------------------#
+    #                                   ECRITURE FICHIER BIN                             #
     #------------------------------------------------------------------------------------#
     def flash(filename,stm32)
         var bsl
@@ -434,8 +463,9 @@ class dualflasher
         file.close()
         self.mqttprint('FLASHER:FLASH:dernier token:'+str(size(token)))
         self.mqttprint('FLASHER:FLASH:index:'+str(index))
-        self.terminate(stm32)
         self.mqttprint('FLASHER:FLASH:flashing done')
+        tasmota.delay(1000)
+        self.terminate(stm32)
     end
 
     #------------------------------------------------------------------------------------#
