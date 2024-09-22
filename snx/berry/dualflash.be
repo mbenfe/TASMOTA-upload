@@ -388,11 +388,8 @@ class dualflasher
             end
         end
         print(ligne)
-    end
-
-  file.close()
-  print("Flash terminé.")end
-
+        file.close()
+        print("Flash terminé.")end
     end
 
     #------------------------------------------------------------------------------------#
