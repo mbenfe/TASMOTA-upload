@@ -27,9 +27,9 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
-    "dl4-galerie": {
+    "dl4-reserve": {
         "mode": "tri",
-        "root": ["gen_ga"],
+        "root": ["reserve"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]
