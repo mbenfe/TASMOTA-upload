@@ -6,6 +6,27 @@
         "techno": ["rogowski","ct","ct","ct"],
         "ratio": ["3003","1000","1000","1000"]
     },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["eclpub1","eclpub2","froid","*"],
+        "produit": "PWX12",
+        "techno": ["cd","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene","depart","parking","*"],
+        "produit": "PWX12",
+        "techno": ["rogowski","ct","ct","ct"],
+        "ratio": ["3003","1000","1000","1000"]
+    },
+    "dl12-tgbt4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene","depart","parking","*"],
+        "produit": "PWX12",
+        "techno": ["rogowski","ct","ct","ct"],
+        "ratio": ["3003","1000","1000","1000"]
+    },
     "dl4-galerie": {
         "mode": "tri",
         "root": ["gen_ga"],
