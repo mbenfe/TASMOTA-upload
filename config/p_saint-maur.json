@@ -15,9 +15,9 @@
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene","depart","parking","*"],
+        "root": ["ecldeco","eclprive","pcprive","*"],
         "produit": "PWX12",
-        "techno": ["rogowski","ct","ct","ct"],
+        "techno": ["ct","ct","ct","ct"],
         "ratio": ["3003","1000","1000","1000"]
     },
     "dl12-tgbt4": {
