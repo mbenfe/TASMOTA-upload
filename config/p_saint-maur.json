@@ -1,0 +1,16 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene","depart","parking","*"],
+        "produit": "PWX12",
+        "techno": ["rogowski","ct","ct","ct"],
+        "ratio": ["3003","1000","1000","1000"]
+    },
+    "dl4-galerie": {
+        "mode": "tri",
+        "root": ["gen_ga"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    }
+ }
