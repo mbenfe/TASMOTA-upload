@@ -34,7 +34,7 @@
         "techno": ["ct"],
         "ratio": ["1000"]
     },
-    "dl12-loba": {
+    "dl12-labo": {
         "mode": ["tri","tri","tri"],
         "root": ["td_labo","ecllabo","pclabo","*"],
         "produit": "PWX12",
