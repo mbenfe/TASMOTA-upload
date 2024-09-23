@@ -22,9 +22,9 @@
     },
     "dl12-tgbt4": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene","depart","parking","*"],
+        "root": ["pcpubli","divers","chauffage","*"],
         "produit": "PWX12",
-        "techno": ["rogowski","ct","ct","ct"],
+        "techno": ["ct","ct","ct","ct"],
         "ratio": ["3003","1000","1000","1000"]
     },
     "dl4-galerie": {
