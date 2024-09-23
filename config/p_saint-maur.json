@@ -33,5 +33,12 @@
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]
+    },
+    "dl12-loba": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_labo","ecllabo","pclabo","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
     }
- }
+}
