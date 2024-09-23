@@ -40,5 +40,33 @@
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-boulangerie": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_boulangerie","fours","divers_bl","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-caisses": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_caisses","pc","caisses","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-aero": {
+        "mode": ["tri","tri","tri"],
+        "root": ["aero1","aero2","aero3","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl4-aero": {
+        "mode": "tri",
+        "root": ["aero4"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
     }
 }
