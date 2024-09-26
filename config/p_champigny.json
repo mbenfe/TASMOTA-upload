@@ -8,7 +8,7 @@
     },
     "dl12-tgbt2": {
         "mode": ["tri","tri","tri"],
-        "root": ["eclpub1","eclpub2","froid","*"],
+        "root": ["ctgendole","pchorspublic","eclgondoles","*"],
         "produit": "PWX12",
         "techno": ["cd","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
