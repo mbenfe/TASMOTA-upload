@@ -1,7 +1,7 @@
 {
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene","depart","parking","*"],
+        "root": ["parking","depart","general","*"],
         "produit": "PWX12",
         "techno": ["rogowski","ct","ct","ct"],
         "ratio": ["3003","1000","1000","1000"]
@@ -15,14 +15,14 @@
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
-        "root": ["ecldeco","eclprive","pcprive","*"],
+        "root": ["pcpublic","eclprive","ecldeco","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
     "dl12-tgbt4": {
         "mode": ["tri","tri","tri"],
-        "root": ["pcpubli","divers","chauffage","*"],
+        "root": ["pcprive","divers","chauffage","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
