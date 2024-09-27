@@ -6,7 +6,7 @@
         "techno": ["ct"],
         "ratio": ["2000"]
     },   
-    "dl12-seclpk234": {
+    "dl12-eclpk234": {
         "mode": ["tri","tri","tri"],
         "root": ["eclpk2","eclpk3","eclpk4","*"],
         "produit": "PWX12",
