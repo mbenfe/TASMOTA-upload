@@ -73,10 +73,25 @@ string getName(string registre, string type_device) {
 	return (registre);
 }
 
+bool isValidHex(const std::string str) {
+	if (str.empty())
+		return false;
+	for (char c : str) {
+		if (!isxdigit(c)) {
+			return false;
+		}
+	}
+	return true;
+}
+
 float getValue(int id, string registre, string value, string type_device) {
 	int signe;
 	int ivalue;
-	ivalue = stoi(value, 0, 16);
+	if (isValidHex(value))
+		ivalue = stoi(value, 0, 16);
+	else {
+		ivalue = 0;
+	}
 	if (type_device == "device") {
 		auto item = danfossDeviceRegisters.find(registre); //device_registers
 		if (item == danfossDeviceRegisters.end()) {
@@ -104,7 +119,7 @@ float getValue(int id, string registre, string value, string type_device) {
 	return -999;
 }
 
-void publishMqtt(int id,int bus) {
+void publishMqtt(int id, int bus) {
 	static char buffer[512] = "";
 	static char token[128];
 	static int length;
@@ -113,7 +128,7 @@ void publishMqtt(int id,int bus) {
 	if (send_statistic_flag == true)
 		return;
 //	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-	sprintf(buffer, "{\"Bus\":%d,\"Name\":\"%s\",\"genre\":\"%s\",", bus,configFroid[id].name.c_str(), configFroid[id].genre.c_str());
+	sprintf(buffer, "{\"Bus\":%d,\"Name\":\"%s\",\"genre\":\"%s\",", bus, configFroid[id].name.c_str(), configFroid[id].genre.c_str());
 
 	for (auto i : mapPublish) { //mapPublish.end()
 		sprintf(token, "\"%s\":%.1f", i.first.c_str(), i.second);
@@ -130,14 +145,14 @@ void publishMqtt(int id,int bus) {
 //	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
 }
 
-bool isValidInteger(const std::string& input){
-	if(input.empty())
+bool isValidInteger(const std::string &input) {
+	if (input.empty())
 		return false;
 	size_t start = 0;
-	if(input[0] == '+' || input[0] == '-')
+	if (input[0] == '+' || input[0] == '-')
 		start = 1;
-	for(size_t i = start; i< input.length();i++){
-		if(!std::isdigit(input[i])){
+	for (size_t i = start; i < input.length(); i++) {
+		if (!std::isdigit(input[i])) {
 			return false;
 		}
 	}
@@ -157,11 +172,11 @@ void update(vector<string> elements) {
 	float value = 0.0;
 	config_froid block;
 	map<string, float> status;
-	if(!isValidInteger(elements[0])){
+	if (!isValidInteger(elements[0])) {
 		return;
 	}
 	bus = stoi(elements[0]);
-	if(!isValidInteger(elements[1]))
+	if (!isValidInteger(elements[1]))
 		return;
 	id = stoi(elements[1]);
 	mapPublish = { };
@@ -170,9 +185,9 @@ void update(vector<string> elements) {
 	status = configFroid[id].status;
 	for (i = 2; i < elements.size(); i += 2) {
 		name = getName(elements[i], configFroid[id].type_device);
-		strcpy(debug1,elements[i].c_str());
-		strcpy(debug2,elements[i+1].c_str());
-		strcpy(debug3,configFroid[id].type_device.c_str());
+		strcpy(debug1, elements[i].c_str());
+		strcpy(debug2, elements[i + 1].c_str());
+		strcpy(debug3, configFroid[id].type_device.c_str());
 		value = getValue(id, elements[i], elements[i + 1], configFroid[id].type_device);
 		if (status.find(name) != status.end()) {
 			// exists
@@ -250,7 +265,7 @@ void update(vector<string> elements) {
 		}
 	}
 	if (change == true) {
-		publishMqtt(id,bus);
+		publishMqtt(id, bus);
 	}
 }
 
