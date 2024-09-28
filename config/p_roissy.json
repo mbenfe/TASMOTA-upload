@@ -1,12 +1,12 @@
 {
     "dl4-eclpk1": {
         "mode": "tri",
-        "root": "eclpk1",
+        "root": ["eclpk1"],
         "produit": "PWX4",
-        "techno": "ct",
-        "ratio": "2000"
+        "techno": ["ct"],
+        "ratio": ["2000"]
     },   
-    "dl12-seclkpk234": {
+    "dl12-eclpk234": {
         "mode": ["tri","tri","tri"],
         "root": ["eclpk2","eclpk3","eclpk4","*"],
         "produit": "PWX12",
@@ -15,10 +15,10 @@
     },
     "dl4-eclpub2": {
         "mode": "tri",
-        "root": "eclpub2",
+        "root": ["eclpub2"],
         "produit": "PWX4",
-        "techno": "ct",
-        "ratio": "1000"
+        "techno": ["ct"],
+        "ratio": ["1000"]
     },   
     "dl12-divers": {
         "mode": ["tri","tri","tri"],
