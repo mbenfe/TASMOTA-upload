@@ -1,5 +1,14 @@
 {
-
+    "0": {
+        "Name": "SaurisserieLS",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
     "1": {
         "Name": "Aspi-",
         "status": {},
