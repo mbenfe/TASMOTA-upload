@@ -109,7 +109,7 @@ class STM32
                         if myjson["ID"] == 0
                             topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
                         else
-                            topic=string.format("gw/%s/%s/%s/tele/DANFOSS",self.client,self.ville,self.device)
+                            topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
                         end
                         mqtt.publish(topic,mylist[i],true)
                     else
