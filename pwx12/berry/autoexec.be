@@ -40,11 +40,10 @@ def readcal()
     tasmota.resp_cmnd_done()
 end
 
-def storecal()
-    global.serialSend.flush()
-    global.serialSend.write(bytes().fromstring("CAL STORE"))
-    print('CAL STORE')
-    tasmota.resp_cmnd_done()
+def mqttprint(texte)
+    import mqtt
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
+    mqtt.publish(topic,texte,true)
 end
 
 def Init()
@@ -136,22 +135,25 @@ end
 
 def getfile(cmd, idx,payload, payload_json)
     import string
-    var path = "https://raw.githubusercontent.com//mbenfe/upload/main/"
-    path+=payload
-    print(path)
-    var file=string.split(path,"/").pop()
-    print(file)
+    import path
+    var nom_fichier
+    nom_fichier=string.split(payload,'/').pop()
+    mqttprint(nom_fichier)
+    var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
+    filepath+=payload
+    mqttprint(filepath)
     var wc=webclient()
     wc.set_follow_redirects(true)
-    wc.begin(path)
+    wc.begin(filepath)
     var st=wc.GET()
     if st!=200 
-        raise "erreur","code: "+str(st) 
+        mqttprint('erreur code:'+str(st))
+        raise 'erreur','code: '+str(st) 
     end
-    st="Fetched "+str(wc.write_file(file))
-    print(path,st)
+    st='Fetched '+str(wc.write_file(nom_fichier))
+    mqttprint(st)
     wc.close()
-    var message = "uploaded:"+file
+    var message = 'uploaded:'+nom_fichier
     tasmota.resp_cmnd(message)
     return st
 end
@@ -195,13 +197,23 @@ def sendconfig(cmd, idx,payload, payload_json)
     if trouve == true
         global.serialSend.flush()
         var mybytes=bytes().fromstring(total)
-        global.serialSend.write(mybytes)
-        print(total)
-        tasmota.resp_cmnd("config sent")
-    else
-        print("device ",device," non touvé")
-        tasmota.resp_cmnd("config not sent")
+def dir(cmd, idx,payload, payload_json)
+    import path
+    var liste
+    var file
+    var taille
+    var date
+    var timestamp
+    liste = path.listdir("/")
+    mqttprint(str(liste.size())+" fichiers")
+    for i:0..(liste.size()-1)
+        file = open(liste[i],"r")
+        taille = file.size()
+        file.close()
+        timestamp = path.last_modified(liste[i])
+        mqttprint(liste[i]+' '+tasmota.time_str(timestamp)+' '+str(taille))
     end
+    tasmota.resp_cmnd_done()
 end
 
 def help()
