@@ -206,6 +206,15 @@ def sendconfig(cmd, idx,payload, payload_json)
     if trouve == true
         global.serialSend.flush()
         var mybytes=bytes().fromstring(total)
+        global.serialSend.write(mybytes)
+        print(total)
+        tasmota.resp_cmnd("config sent")
+    else
+        print("device ",device," non touvé")
+        tasmota.resp_cmnd("config not sent")
+    end
+end
+
 def dir(cmd, idx,payload, payload_json)
     import path
     var liste
@@ -267,5 +276,3 @@ tasmota.add_cmd("h",help)
 tasmota.cmd("Init")
 tasmota.delay(500)
 tasmota.load("pwx12_driver.be")
-
-
