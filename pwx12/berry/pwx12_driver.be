@@ -89,7 +89,7 @@ class PWX12
                         split = string.split(mylist[i],':')
                         for j:0..2
                             topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
-                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}',global.device,global.configjson[global.device]["root"][j],split[j+1])
+                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}',global.device,global.configjson[global.device]["root"][j],real(split[j+1]))
                             mqtt.publish(topic,ligne,true)
                         end
                     else
