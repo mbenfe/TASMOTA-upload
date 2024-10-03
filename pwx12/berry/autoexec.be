@@ -12,6 +12,8 @@ var tx=17
 var rst=2   
 var bsl=13   
 
+var device
+var ville
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Calibration(cmd, idx, payload, payload_json)
@@ -37,6 +39,13 @@ def readcal()
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring("CAL READ"))
     print('CAL READ')
+    tasmota.resp_cmnd_done()
+end
+
+def storecal()
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring("CAL STORE"))
+    print('CAL STORE')
     tasmota.resp_cmnd_done()
 end
 
