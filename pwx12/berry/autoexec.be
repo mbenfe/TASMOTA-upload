@@ -271,6 +271,7 @@ tasmota.add_cmd("cal",Calibration)
 tasmota.add_cmd("readcal",readcal)
 tasmota.add_cmd("storecal",storecal)
 tasmota.add_cmd("h",help)
+tasmota.add_cmd('dir',dir)
 
 ############################################################
 tasmota.cmd("Init")
