@@ -165,7 +165,7 @@ class conso
 
                 topic = string.format("gw/%s/%s/%s/tele/PWDAYS",global.client,global.ville,stringdevice)
                 payload=self.consojson["days"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWDAYS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
+                ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
                 mqtt.publish(topic,ligne,true)
                 if day == 6
                     self.consojson["days"][i]["DATA"]["Dim"]=0
@@ -174,7 +174,7 @@ class conso
                 end
                 topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",global.client,global.ville,stringdevice)
                 payload=self.consojson["months"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWMONTHS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
+                ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
                 mqtt.publish(topic,ligne,true)
                 # RAZ next month if end of the month
                 if(day==self.num_day_month[month])  # si dernier jour

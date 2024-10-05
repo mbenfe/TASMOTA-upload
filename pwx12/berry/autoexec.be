@@ -12,6 +12,8 @@ var tx=17
 var rst=2   
 var bsl=13   
 
+var device
+var ville
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Calibration(cmd, idx, payload, payload_json)
@@ -37,6 +39,13 @@ def readcal()
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring("CAL READ"))
     print('CAL READ')
+    tasmota.resp_cmnd_done()
+end
+
+def storecal()
+    global.serialSend.flush()
+    global.serialSend.write(bytes().fromstring("CAL STORE"))
+    print('CAL STORE')
     tasmota.resp_cmnd_done()
 end
 
@@ -197,6 +206,15 @@ def sendconfig(cmd, idx,payload, payload_json)
     if trouve == true
         global.serialSend.flush()
         var mybytes=bytes().fromstring(total)
+        global.serialSend.write(mybytes)
+        print(total)
+        tasmota.resp_cmnd("config sent")
+    else
+        print("device ",device," non touvé")
+        tasmota.resp_cmnd("config not sent")
+    end
+end
+
 def dir(cmd, idx,payload, payload_json)
     import path
     var liste
@@ -253,10 +271,9 @@ tasmota.add_cmd("cal",Calibration)
 tasmota.add_cmd("readcal",readcal)
 tasmota.add_cmd("storecal",storecal)
 tasmota.add_cmd("h",help)
+tasmota.add_cmd('dir',dir)
 
 ############################################################
 tasmota.cmd("Init")
 tasmota.delay(500)
 tasmota.load("pwx12_driver.be")
-
-
