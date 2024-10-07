@@ -150,11 +150,29 @@ def name(cmd, idx,payload, payload_json)
         tasmota.resp_cmnd('exit')
         return
     end
-    mqttprint('rename '+str(argument[0])+' ->  '+argument[1])
     var file = open('conso.json','r')
     var config = file.read()
     file.close()
     var myjson = json.load(config)
+    var trouve = 0
+    for i:0..2
+        if(myjson['hours']['Name'] == argument[0])
+            trouve += 1
+        end
+        if(myjson['days']['Name'] == argument[0])
+            trouve += 1
+        end
+        if(myjson['months']['Name'] == argument[0])
+            trouve += 1
+        end
+    end
+    if(trouve==0)
+        mqttprint('nom non existant')
+        tasmota.resp_cmnd('exit')
+        return
+    else
+        mqttprint('rename '+str(argument[0])+' ->  '+argument[1])
+    end
     tasmota.resp_cmnd('done')
 end
 
