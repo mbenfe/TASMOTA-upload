@@ -159,12 +159,15 @@ def name(cmd, idx,payload, payload_json)
     for i:0..2
         mqttprint(str(i))
         if(myjson['hours'][i]['Name'] == argument[0])
+            myjson['hours'][i]['Name']=argument[1]
             trouve += 1
         end
         if(myjson['days'][i]['Name'] == argument[0])
+            myjson['days'][i]['Name']=argument[1]
             trouve += 1
         end
         if(myjson['months'][i]['Name'] == argument[0])
+            myjson['months'][i]['Name']=argument[1]
             trouve += 1
         end
     end
@@ -174,6 +177,10 @@ def name(cmd, idx,payload, payload_json)
         return
     else
         mqttprint('rename '+str(argument[0])+' ->  '+argument[1])
+        file = open('conso.json','w')
+        var newconfig = json.dump(myjson)
+        file.write(newconfig)
+        file.close()
     end
     tasmota.resp_cmnd('done')
 end
