@@ -144,7 +144,7 @@ end
 
 def name(cmd, idx,payload, payload_json)
     var argument = string.split(payload,' ')
-    if(size(argument<2))
+    if(size(argument)<2)
         mqttprint('erreur arguments')
         tasmota.resp_cmnd('exit')
         return
