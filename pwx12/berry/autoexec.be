@@ -143,6 +143,7 @@ def device(cmd, idx,payload, payload_json)
 end
 
 def name(cmd, idx,payload, payload_json)
+    import json
     var argument = string.split(payload,' ')
     if(size(argument)<2)
         mqttprint('erreur arguments')
@@ -150,6 +151,11 @@ def name(cmd, idx,payload, payload_json)
         return
     end
     mqttprint('rename '+str(argument[0])+' ->  '+argument[1])
+    var file = open('conso.json','r')
+    var config = file.read()
+    file.close()
+    var myjson = json.load(config)
+    tasmota.resp_cmnd('done')
 end
 
 def getfile(cmd, idx,payload, payload_json)
