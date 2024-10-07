@@ -142,6 +142,16 @@ def device(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd("done")
 end
 
+def name(cmd, idx,payload, payload_json)
+    var argument = string.split(payload,' ')
+    if(size(argument<2))
+        mqttprint('erreur arguments')
+        tasmota.resp_cmnd('exit')
+        return
+    end
+    mqttprint('rename '+str(argument[0])+' ->  '+argument[1])
+end
+
 def getfile(cmd, idx,payload, payload_json)
     import string
     import path
@@ -264,6 +274,7 @@ tasmota.add_cmd("getfile",getfile)
 tasmota.add_cmd("sendconfig",sendconfig)
 tasmota.add_cmd("ville",ville)
 tasmota.add_cmd("device",device)
+tasmota.add_cmd("name",name)
 tasmota.add_cmd("BlReset",BlReset)
 tasmota.add_cmd("BlMode",BlMode)
 tasmota.add_cmd("Init",Init)
