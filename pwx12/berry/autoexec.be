@@ -155,14 +155,16 @@ def name(cmd, idx,payload, payload_json)
     file.close()
     var myjson = json.load(config)
     var trouve = 0
+    mqttprint('recherche')
     for i:0..2
-        if(myjson['hours']['Name'] == argument[0])
+        mqttprint(str(i))
+        if(myjson['hours'][i]['Name'] == argument[0])
             trouve += 1
         end
-        if(myjson['days']['Name'] == argument[0])
+        if(myjson['days'][i]['Name'] == argument[0])
             trouve += 1
         end
-        if(myjson['months']['Name'] == argument[0])
+        if(myjson['months'][i]['Name'] == argument[0])
             trouve += 1
         end
     end
