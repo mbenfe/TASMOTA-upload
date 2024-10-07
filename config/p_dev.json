@@ -1,0 +1,93 @@
+{ 
+    "dl12-maind1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["ecl1","ecl2","ecl3","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-maind2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["ecl4","eclext","pc","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-maing1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["main","froid1","froid2","*"],
+        "produit": "PWX12",
+        "techno": ["rogowski","ct","ct","ct"],
+        "ratio": ["3003","2000","2000","1000"]
+    },
+    "dl12-maing2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["lavage","tg","station","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-bureau": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gen_bu","eclairage","chauffage","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-boulangerie1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gen_pc","f_sventile","f_rotatif","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-boulangerie2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["CF","pctetra","gen_bo","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-labo": {
+        "mode": ["tri","tri","tri"],
+        "root": ["pc_labo","gen_labo","rotissoire","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-galerie": {
+        "mode": ["tri","tri","tri"],
+        "root": ["ecl2","ecl1","eclext","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl4-galerie": {
+        "mode": "tri",
+        "root": ["gen_ga"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-eclpub2": {
+        "mode": "tri",
+        "root": ["eclpub2"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-caisses": {
+        "mode": "tri",
+        "root": ["gen_caisses"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "test-dl4": {
+        "mode": "tri",
+        "root": ["ecl2"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    }
+ }
