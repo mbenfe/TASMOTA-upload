@@ -12,6 +12,8 @@ var tx=17
 var rst=2   
 var bsl=13   
 
+var device
+var ville
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Calibration(cmd, idx, payload, payload_json)
@@ -45,6 +47,12 @@ def storecal()
     global.serialSend.write(bytes().fromstring("CAL STORE"))
     print('CAL STORE')
     tasmota.resp_cmnd_done()
+end
+
+def mqttprint(texte)
+    import mqtt
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
+    mqtt.publish(topic,texte,true)
 end
 
 def Init()
@@ -134,6 +142,49 @@ def device(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd("done")
 end
 
+def name(cmd, idx,payload, payload_json)
+    import json
+    var argument = string.split(payload,' ')
+    if(size(argument)<2)
+        mqttprint('erreur arguments')
+        tasmota.resp_cmnd('exit')
+        return
+    end
+    var file = open('conso.json','r')
+    var config = file.read()
+    file.close()
+    var myjson = json.load(config)
+    var trouve = 0
+    mqttprint('recherche')
+    for i:0..2
+        mqttprint(str(i))
+        if(myjson['hours'][i]['Name'] == argument[0])
+            myjson['hours'][i]['Name']=argument[1]
+            trouve += 1
+        end
+        if(myjson['days'][i]['Name'] == argument[0])
+            myjson['days'][i]['Name']=argument[1]
+            trouve += 1
+        end
+        if(myjson['months'][i]['Name'] == argument[0])
+            myjson['months'][i]['Name']=argument[1]
+            trouve += 1
+        end
+    end
+    if(trouve==0)
+        mqttprint('nom non existant')
+        tasmota.resp_cmnd('exit')
+        return
+    else
+        mqttprint('rename '+str(argument[0])+' ->  '+argument[1])
+        file = open('conso.json','w')
+        var newconfig = json.dump(myjson)
+        file.write(newconfig)
+        file.close()
+    end
+    tasmota.resp_cmnd('done')
+end
+
 def getfile(cmd, idx,payload, payload_json)
     import string
     var path = "https://raw.githubusercontent.com//mbenfe/upload/main/"
@@ -203,6 +254,25 @@ def sendconfig(cmd, idx,payload, payload_json)
     end
 end
 
+def dir(cmd, idx,payload, payload_json)
+    import path
+    var liste
+    var file
+    var taille
+    var date
+    var timestamp
+    liste = path.listdir("/")
+    mqttprint(str(liste.size())+" fichiers")
+    for i:0..(liste.size()-1)
+        file = open(liste[i],"r")
+        taille = file.size()
+        file.close()
+        timestamp = path.last_modified(liste[i])
+        mqttprint(liste[i]+' '+tasmota.time_str(timestamp)+' '+str(taille))
+    end
+    tasmota.resp_cmnd_done()
+end
+
 def help()
     print("Stm32reset:reset du STM32")
     print("getfile <path/filename>: load file")
@@ -240,6 +310,7 @@ tasmota.add_cmd("cal",Calibration)
 tasmota.add_cmd("readcal",readcal)
 tasmota.add_cmd("storecal",storecal)
 tasmota.add_cmd("h",help)
+tasmota.add_cmd('dir',dir)
 
 ############################################################
 tasmota.cmd("Init")
