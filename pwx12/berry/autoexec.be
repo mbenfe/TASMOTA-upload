@@ -20,7 +20,7 @@ def Calibration(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload)," ")
     if(argument[0]!="VA" && argument[0]!="VB" && argument[0] !="VC" && argument[0] != "IA" && argument[0] != "IB" && argument[0] != "IC" && argument[0] != "IN" 
         || argument[1] == "")
-        print("erreur arguments")
+        mqttprint("erreur arguments")
         return
     end
     var token
@@ -31,21 +31,21 @@ def Calibration(cmd, idx, payload, payload_json)
     end
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring(token))
-    print(token)
+    mqttprint(token)
     tasmota.resp_cmnd_done()
 end
 
 def readcal()
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring("CAL READ"))
-    print('CAL READ')
+    mqttprint('CAL READ')
     tasmota.resp_cmnd_done()
 end
 
 def storecal()
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring("CAL STORE"))
-    print('CAL STORE')
+    mqttprint('CAL STORE')
     tasmota.resp_cmnd_done()
 end
 
@@ -59,30 +59,30 @@ def Init()
     gpio.pin_mode(rx,gpio.INPUT)
     gpio.pin_mode(tx,gpio.OUTPUT)
     global.serialSend = serial(rx,tx,115200,serial.SERIAL_8N1)
-    print('serial initialised')
+    mqttprint('serial initialised')
     tasmota.resp_cmnd_done()
 end
 
 def BlReset(cmd, idx, payload, payload_json)
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring("SET RESET"))
-    print("SET RESET")
+    mqttprint("SET RESET")
     tasmota.resp_cmnd_done()
 end
 
 def BlMode(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload)," ")
     if(argument[0]!="CAL" && argument[0] !="LOG" )
-        print("erreur arguments")
+        mqttprint("erreur arguments")
         return
     end
     global.serialSend.flush()
     if(argument[0]=="CAL")
         global.serialSend.write(bytes().fromstring("SET MODE CAL"))
-        print("SET MODE CAL")
+        mqttprint("SET MODE CAL")
     else
         global.serialSend.write(bytes().fromstring("SET MODE LOG"))
-        print("SET MODE LOG")
+        mqttprint("SET MODE LOG")
     end
     tasmota.resp_cmnd_done()
 end
@@ -90,7 +90,7 @@ end
 def BlType(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload),' ')
     if(argument[0]!='MONO' && argument[0] !='TRI' )
-        print('erreur arguments')
+        mqttprint('erreur arguments')
         return
     end
     if(argument[0]=='MONO')
@@ -220,7 +220,7 @@ def sendconfig(cmd, idx,payload, payload_json)
     var total = "";
     var header
     var trouve = false
-    print("send:",payload)
+    mqttprint("send:"+payload)
     ############################ fichier config ###################
     file = open("esp32.cfg","rt")
     buffer = file.read()
@@ -230,7 +230,7 @@ def sendconfig(cmd, idx,payload, payload_json)
 
     file = open(payload,"rt")
     if file == nil
-        print("fichier non existant:",payload)
+        mqttprint("fichier non existant:",payload)
         return
     end
     buffer = file.read()
@@ -250,10 +250,10 @@ def sendconfig(cmd, idx,payload, payload_json)
         global.serialSend.flush()
         var mybytes=bytes().fromstring(total)
         global.serialSend.write(mybytes)
-        print(total)
+        mqttprint(str(total))
         tasmota.resp_cmnd("config sent")
     else
-        print("device ",device," non touvé")
+        mqttprint("device "+str(device)+" non touvé")
         tasmota.resp_cmnd("config not sent")
     end
 end
@@ -278,21 +278,21 @@ def dir(cmd, idx,payload, payload_json)
 end
 
 def help()
-    print("Stm32reset:reset du STM32")
-    print("getfile <path/filename>: load file")
-    print("sendconfig p_<name>.json: configure pwx")
-    print("ville <nom>: set ville")
-    print("device <nom>: set device name")
-    print("BlReset: reset the BL6552 chip")
-    print("BlMode <mode> (cal ou log): set mode ")
-    print("Init",Init)
-    print("cal <parameter> <value> (VA, VB ou VC)")
-    print("ex: cal VA 235")
-    print("cal <device> <parameter> <value> (IA, IB ou IC)")
-    print("ex: cal IA 1 5.1")
-    print("readcal: affiche les parametres de calibration")
-    print("storecal: sauvegarde la calibration")
-    print("h: this help")
+    mqttprint("Stm32reset:reset du STM32")
+    mqttprint("getfile <path/filename>: load file")
+    mqttprint("sendconfig p_<name>.json: configure pwx")
+    mqttprint("ville <nom>: set ville")
+    mqttprint("device <nom>: set device name")
+    mqttprint("BlReset: reset the BL6552 chip")
+    mqttprint("BlMode <mode> (cal ou log): set mode ")
+    mqttprint("Init",Init)
+    mqttprint("cal <parameter> <value> (VA, VB ou VC)")
+    mqttprint("ex: cal VA 235")
+    mqttprint("cal <device> <parameter> <value> (IA, IB ou IC)")
+    mqttprint("ex: cal IA 1 5.1")
+    mqttprint("readcal: affiche les parametres de calibration")
+    mqttprint("storecal: sauvegarde la calibration")
+    mqttprint("h: this help")
  end
 
 tasmota.cmd("seriallog 0")
