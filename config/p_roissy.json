@@ -114,7 +114,7 @@
     },
     "dl12-tgbt5": {
         "mode": ["tri","tri","tri"],
-        "root": ["*","eclnonpub","eclpub2","*"],
+        "root": ["divers-caisses","eclnonpub","eclpub2","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
