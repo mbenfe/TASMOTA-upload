@@ -79,17 +79,17 @@
     },
     "dl4-tgbt": {
         "mode": "tri",
-        "root": "tdlabo",
+        "root": "main",
         "produit": "PWX4",
-        "techno": "ct",
-        "ratio": "4000"
+        "techno": "rogowski",
+        "ratio": "3003"
     },
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
-        "root": ["froid","main","tdcaisses","*"],
+        "root": ["froid","tdlabo","tdcaisses","*"],
         "produit": "PWX12",
-        "techno": ["ct","rogowski","ct","ct"],
-        "ratio": ["4000","3003","1000","1000"]
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["4000","4000","1000","1000"]
     },
     "dl12-tgbt2": {
         "mode": ["tri","tri","tri"],
