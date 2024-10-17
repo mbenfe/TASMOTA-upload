@@ -16,6 +16,13 @@ var device
 var ville
 
 #-------------------------------- COMMANDES -----------------------------------------#
+
+def mqttprint(texte)
+    import mqtt
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
+    mqtt.publish(topic,texte,true)
+end
+
 def Calibration(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload)," ")
     if(argument[0]!="VA" && argument[0]!="VB" && argument[0] !="VC" && argument[0] != "IA" && argument[0] != "IB" && argument[0] != "IC" && argument[0] != "IN" 
@@ -47,12 +54,6 @@ def storecal()
     global.serialSend.write(bytes().fromstring("CAL STORE"))
     mqttprint('CAL STORE')
     tasmota.resp_cmnd_done()
-end
-
-def mqttprint(texte)
-    import mqtt
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
-    mqtt.publish(topic,texte,true)
 end
 
 def Init()

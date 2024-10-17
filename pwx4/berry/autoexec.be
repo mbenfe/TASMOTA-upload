@@ -1,5 +1,5 @@
 #---------------------------------#
-# AUTOXEC.BE 1.0 PWX 12           #
+# AUTOEXEC.BE 1.0 PWX4            #
 #---------------------------------#
 import string
 import global
@@ -16,6 +16,13 @@ var device
 var ville
 
 #-------------------------------- COMMANDES -----------------------------------------#
+
+def mqttprint(texte)
+    import mqtt
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
+    mqtt.publish(topic,texte,true)
+end
+
 def Calibration(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload)," ")
     if(argument[0]!="VA" && argument[0]!="VB" && argument[0] !="VC" && argument[0] != "IA" && argument[0] != "IB" && argument[0] != "IC" && argument[0] != "IN" 
@@ -31,7 +38,7 @@ def Calibration(cmd, idx, payload, payload_json)
     end
     global.serialSend.flush()
     global.serialSend.write(bytes().fromstring(token))
-    mqttprint(token)
+    mqttprint(str(token))
     tasmota.resp_cmnd_done()
 end
 
@@ -47,12 +54,6 @@ def storecal()
     global.serialSend.write(bytes().fromstring("CAL STORE"))
     mqttprint('CAL STORE')
     tasmota.resp_cmnd_done()
-end
-
-def mqttprint(texte)
-    import mqtt
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
-    mqtt.publish(topic,texte,true)
 end
 
 def Init()
@@ -187,25 +188,22 @@ end
 
 def getfile(cmd, idx,payload, payload_json)
     import string
-    import path
-    var nom_fichier
-    nom_fichier=string.split(payload,'/').pop()
-    mqttprint(nom_fichier)
-    var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
-    filepath+=payload
-    mqttprint(filepath)
+    var path = "https://raw.githubusercontent.com//mbenfe/upload/main/"
+    path+=payload
+    mqttprint(path)
+    var file=string.split(path,"/").pop()
+    mqttprint(str(file))
     var wc=webclient()
     wc.set_follow_redirects(true)
-    wc.begin(filepath)
+    wc.begin(path)
     var st=wc.GET()
     if st!=200 
-        mqttprint('erreur code:'+str(st))
-        raise 'erreur','code: '+str(st) 
+        raise "erreur","code: "+str(st) 
     end
-    st='Fetched '+str(wc.write_file(nom_fichier))
-    mqttprint(st)
+    st="Fetched "+str(wc.write_file(file))
+    mqttprint(path+' ',str(st))
     wc.close()
-    var message = 'uploaded:'+nom_fichier
+    var message = "uploaded:"+file
     tasmota.resp_cmnd(message)
     return st
 end
@@ -226,11 +224,12 @@ def sendconfig(cmd, idx,payload, payload_json)
     buffer = file.read()
     myjson=json.load(buffer)
     device = myjson["device"]
+    mqttprint('device:'+device)
     file.close()
 
     file = open(payload,"rt")
     if file == nil
-        mqttprint("fichier non existant:",payload)
+        mqttprint("fichier non existant:"+payload)
         return
     end
     buffer = file.read()
@@ -239,11 +238,8 @@ def sendconfig(cmd, idx,payload, payload_json)
     for key:myjson.keys()
         if key == device
             trouve = true
-          total="CONFIG"+" "+key+"_"
-                    +myjson[key]["root"][0]+"_"+myjson[key]["root"][1]+"_"+myjson[key]["root"][2]+"_"+myjson[key]["root"][3]+"_"
-                    +myjson[key]["produit"]+"_"
-                    +myjson[key]["techno"][0]+"_"+myjson[key]["techno"][1]+"_"+myjson[key]["techno"][2]+"_"+myjson[key]["techno"][3]+"_"
-                    +myjson[key]["ratio"][0]+"_"+myjson[key]["ratio"][1]+"_"+myjson[key]["ratio"][2]+"_"+myjson[key]["ratio"][3]
+             total+='CONFIG'+' '+key+'_'+myjson[key]["root"][0]+'_'+myjson[key]["produit"]+'_'+myjson[key]["techno"][0]+'_'+str(myjson[key]["ratio"][0])
+             mqttprint(str(total))
         end
     end
     if trouve == true
@@ -253,7 +249,7 @@ def sendconfig(cmd, idx,payload, payload_json)
         mqttprint(str(total))
         tasmota.resp_cmnd("config sent")
     else
-        mqttprint("device "+str(device)+" non touvé")
+        mqttprint("device "+device+" non touvé")
         tasmota.resp_cmnd("config not sent")
     end
 end
@@ -285,8 +281,7 @@ def help()
     mqttprint("device <nom>: set device name")
     mqttprint("BlReset: reset the BL6552 chip")
     mqttprint("BlMode <mode> (cal ou log): set mode ")
-    mqttprint("Init",Init)
-    mqttprint("cal <parameter> <value> (VA, VB ou VC)")
+     mqttprint("cal <parameter> <value> (VA, VB ou VC)")
     mqttprint("ex: cal VA 235")
     mqttprint("cal <device> <parameter> <value> (IA, IB ou IC)")
     mqttprint("ex: cal IA 1 5.1")
@@ -307,7 +302,6 @@ tasmota.add_cmd("getfile",getfile)
 tasmota.add_cmd("sendconfig",sendconfig)
 tasmota.add_cmd("ville",ville)
 tasmota.add_cmd("device",device)
-tasmota.add_cmd("name",name)
 tasmota.add_cmd("BlReset",BlReset)
 tasmota.add_cmd("BlMode",BlMode)
 tasmota.add_cmd("Init",Init)
@@ -320,4 +314,5 @@ tasmota.add_cmd('dir',dir)
 ############################################################
 tasmota.cmd("Init")
 tasmota.delay(500)
-tasmota.load("pwx12_driver.be")
+tasmota.load("pwx4_driver.be")
+
