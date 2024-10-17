@@ -39,9 +39,9 @@
         "root": "froid",
         "produit": "PWX4",
         "techno": "ct",
-        "ratio": "3000"
+        "ratio": "3003"
     }, 
-       "dl4-labo": {
+    "dl4-labo": {
         "mode": "tri",
         "root": "labo",
         "produit": "PWX4",
@@ -77,12 +77,19 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","2000","1000","1000"]
     },
+    "dl4-tgbt": {
+        "mode": "tri",
+        "root": "tdlabo",
+        "produit": "PWX4",
+        "techno": "ct",
+        "ratio": "4000"
+    },
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
-        "root": ["froid","tdcaisses","tdlabo","*"],
+        "root": ["froid","main","tdcaisses","*"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","4000","1000"]
+        "techno": ["ct","rogowski","ct","ct"],
+        "ratio": ["4000","3003","1000","1000"]
     },
     "dl12-tgbt2": {
         "mode": ["tri","tri","tri"],
