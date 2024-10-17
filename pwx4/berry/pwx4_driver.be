@@ -86,7 +86,7 @@ class PWX4
                         topic = string.format("gw/%s/%s/%s/tele/PRINT",global.client,global.ville,global.device)
                         mqtt.publish(topic,mylist[i],true)
                     elif mylist[i][0] == 'W'
-                        self.logger.log_data(mylist[i])
+ #                       self.logger.log_data(mylist[i])
                         split = string.split(mylist[i],':')
                         var ligne
                         for j:0..0
