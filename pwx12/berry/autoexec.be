@@ -16,10 +16,7 @@ var device
 var ville
 
 #-------------------------------- COMMANDES -----------------------------------------#
-<<<<<<< HEAD
 
-=======
->>>>>>> 4ed583b (mac)
 def mqttprint(texte)
     import mqtt
     var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
