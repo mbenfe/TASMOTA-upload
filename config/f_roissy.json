@@ -139,6 +139,16 @@
         "genre": "bac-",
         "device": "AK-CC550"
     },
+    "20": {
+        "Name": "BacSurgele20",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
     "21": {
         "Name": "BacSurgele21",
         "status": {},
