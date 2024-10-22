@@ -27,7 +27,7 @@
         "techno": ["ct"],
         "ratio": ["1000"]
         },
-       "dl12-machine1": {
+    "dl12-machine1": {
         "mode": ["tri","tri","tri"],
         "root": ["n_comp3","n_comp1","n_comp2"],
         "produit": "PWX12",
