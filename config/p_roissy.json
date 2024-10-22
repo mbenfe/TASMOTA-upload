@@ -86,7 +86,7 @@
     },
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
-        "root": ["froid","tdbureau","tdlabo","*"],
+        "root": ["froid","tdcaisses","tdlabo","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["4000","1000","4000","1000"]
