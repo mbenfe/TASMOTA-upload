@@ -20,6 +20,13 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["2000","2000","2000","2000"]
     },
+    "dl12-oldh": {
+        "mode": ["tri","tri","tri"],
+        "root": ["froid","main","*"],
+        "produit": "PWX12",
+        "techno": ["ct","rogowski","ct"],
+        "ratio": ["2000","3003","1000"]
+    },
     "dl12-old1": {
         "mode": ["tri","tri","tri"],
         "root": ["divers1","divers2","divers3","*"],
@@ -41,20 +48,6 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
-   "dl4-main": {
-    "mode": "tri",
-    "root": ["main"],
-        "produit": "PWX4",
-        "techno": ["rogowski"],
-        "ratio": ["3003"]
-    },
-    "dl4-froid": {
-        "mode": "tri",
-        "root": ["froid"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["3000"]
-    }, 
        "dl4-labo": {
         "mode": "tri",
         "root": ["labo"],
