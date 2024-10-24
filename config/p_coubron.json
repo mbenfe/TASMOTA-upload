@@ -34,14 +34,14 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
-    "dl12-boulangerie1": {
+    "dl12-boulange1": {
         "mode": ["tri","tri","tri"],
         "root": ["gen_pc","f_sventile","f_rotatif","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
-    "dl12-boulangerie2": {
+    "dl12-boulange2": {
         "mode": ["tri","tri","tri"],
         "root": ["CF","pctetra","gen_bo","*"],
         "produit": "PWX12",
