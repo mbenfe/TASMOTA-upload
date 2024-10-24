@@ -48,12 +48,19 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
     },
-    "dl12-labo": {
+    "dl12-labo1": {
         "mode": ["tri","tri","tri"],
         "root": ["pc_labo","gen_labo","rotissoire","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-labo2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["pc_bl","mono1","mono2"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-galerie": {
         "mode": ["tri","tri","tri"],
