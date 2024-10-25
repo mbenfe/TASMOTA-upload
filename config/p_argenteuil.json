@@ -19,5 +19,12 @@
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-reserve": {
+        "mode": ["tri","tri","tri"],
+        "root": ["froidm","froidc","main"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","2000","2000","1000"]
     }
  }
