@@ -1,8 +1,4 @@
-#------------------------------------------------#
-# VERSION NEW 2.0                                #
-# added tasmote yield for long process           #
-# adapter rx et tx selon la carte ligne 49 et 50 #
-#------------------------------------------------#
+var version = "1.0.0"
 
 import strict
 import math

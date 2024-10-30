@@ -1,6 +1,4 @@
-#---------------------------------#
-# CONSO.BE 1.0 PWX4               #
-#---------------------------------#
+var version = "1.0.0"
 import json
 import string
 import mqtt

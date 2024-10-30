@@ -1,6 +1,4 @@
-#---------------------------------#
-# PWX12_DRIVER.BE 1.0 PWX12       #
-#---------------------------------#
+var version = "1.0.0"
 
 import mqtt
 import string
