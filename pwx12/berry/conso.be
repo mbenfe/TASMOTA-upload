@@ -119,6 +119,16 @@ class conso
         var month = rtc["month"]
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+
+        // Vérification de l'année bissextile
+        if (month == 2)  // Si c'est février
+            if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+                self.num_day_month[2] = 29  // Année bissextile, février a 29 jours
+            else
+                self.num_day_month[2] = 28  // Année non bissextile, février a 28 jours
+            end
+        end    
+
         for i:0..2
             self.consojson["hours"][i]["DATA"][str(hour)]+=real(split[i+1])
             self.consojson["days"][i]["DATA"][self.day_list[day_of_week]]+=real(split[i+1])
@@ -155,7 +165,7 @@ class conso
                 payload=self.consojson["hours"][i]["DATA"]
                 ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
                 mqtt.publish(topic,ligne,true)
-                self.consojson["hours"][i]["DATA"][str(hour+1)]=0
+                self.consojson["hours"][i]["DATA"][str((hour + 1) % 24)] = 0
             else
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice)
                 payload=self.consojson["hours"][i]["DATA"]
@@ -167,11 +177,7 @@ class conso
                 payload=self.consojson["days"][i]["DATA"]
                 ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
                 mqtt.publish(topic,ligne,true)
-                if day == 6
-                    self.consojson["days"][i]["DATA"]["Dim"]=0
-                else
-                    self.consojson["days"][i]["DATA"][str(self.day_list[day_of_week+1])]=0
-                end
+                self.consojson["days"][i]["DATA"][self.day_list[(day_of_week + 1) % 7]] = 0
                 topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",global.client,global.ville,stringdevice)
                 payload=self.consojson["months"][i]["DATA"]
                 ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],json.dump(payload))
