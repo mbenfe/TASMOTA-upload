@@ -306,16 +306,20 @@ def help()
 end
 
 def getversion()
+    var fichier
     var files = path.listdir("/")
-    for file in files
-        if string.endswith(file, ".be")
-            var content = open(file, "r").read()
-            var version_match = string.match(content, 'var version = "(.-)"')
-            if version_match != nil
-                mqttprint(file + " version: " + version_match)
+    for i:0..files.size()-1
+        if string.endswith(files[i],".be")
+            fichier = open(files[i], "r")
+            var content = fichier.readline()
+            var version_match = string.find(content, 'var version')
+           if version_match != -1
+                var liste = string.split(content,' ')
+                mqttprint(files[i] + " version: " + liste[3])
             else
-                mqttprint(file + " version: undefined version")
+                mqttprint(files[i] + " version: undefined version")
             end
+            fichier.close()
         end
     end
     tasmota.resp_cmnd_done()
