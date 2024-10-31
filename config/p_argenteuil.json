@@ -11,14 +11,21 @@
         "root": ["vitrines","divers","eclz3","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
-        "ratio": ["2000","2000","2000","2000"]
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-main3": {
         "mode": ["tri","tri","tri"],
         "root": ["four2","four1","laverie","ballon12"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-main4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_main","*","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","1000","1000"]
     },
     "dl12-reserve": {
         "mode": ["tri","tri","tri"],
