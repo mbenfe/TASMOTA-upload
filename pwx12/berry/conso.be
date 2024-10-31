@@ -118,12 +118,12 @@ class conso
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
 
-        // Vérification de l'année bissextile
-        if (month == 2)  // Si c'est février
+        # Vérification de l'année bissextile
+        if (month == 2)  # Si c'est février
             if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
-                self.num_day_month[2] = 29  // Année bissextile, février a 29 jours
+                self.num_day_month[2] = 29  # Année bissextile, février a 29 jours
             else
-                self.num_day_month[2] = 28  // Année non bissextile, février a 28 jours
+                self.num_day_month[2] = 28  # Année non bissextile, février a 28 jours
             end
         end    
 
