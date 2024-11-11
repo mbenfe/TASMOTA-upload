@@ -1,10 +1,9 @@
-#---------------------------------#
-# SNX_DRIVER.BE 1.0 SNX           #
-#---------------------------------#
+var version "1.0.112024 ready to H7"
 
 import mqtt
 import string
 import json
+
 
 class STM32
     var mapID
@@ -71,7 +70,7 @@ class STM32
         gpio.pin_mode(self.rst_out,gpio.OUTPUT)
         gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
         gpio.pin_mode(self.statistic,gpio.OUTPUT)
-#        gpio.pin_mode(self.ready,gpio.OUTPUT)
+        gpio.pin_mode(self.ready,gpio.OUTPUT)
         gpio.digital_write(self.bsl_in, 0)
         gpio.digital_write(self.rst_in, 1)
         gpio.digital_write(self.bsl_out, 0)
@@ -92,7 +91,7 @@ class STM32
         var numitem
         var myjson
         var topic
-#        gpio.digital_write(self.ready,0)
+        gpio.digital_write(self.ready,1)
         if self.ser.available()
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end

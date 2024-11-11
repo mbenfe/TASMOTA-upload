@@ -1,11 +1,11 @@
-#---------------------------------#
-# AUTOEXEC.BE 1.0 SNX             #
-#---------------------------------#
+var version = "1.0.112024 getversion"
+
 import string
 import global
 import mqtt
 import json
 import gpio
+import path
 
 var device
 var ville
@@ -245,6 +245,27 @@ def launch_driver()
     tasmota.load('snx_driver.be')
  end
 
+ def getversion()
+    var fichier
+    var files = path.listdir("/")
+    for i:0..files.size()-1
+        if string.endswith(files[i],".be")
+            fichier = open(files[i], "r")
+            var content = fichier.readline()
+            var version_match = string.find(content, 'var version')
+            if version_match != -1
+                var liste = string.split(content,' ')
+                mqttprint(files[i] + " version: " + liste[3])
+            else
+                mqttprint(files[i] + " version: undefined version")
+            end
+            fichier.close()
+        end
+    end
+    tasmota.resp_cmnd_done()
+end
+
+
 
 #-------------------------------- BASH -----------------------------------------#
 tasmota.cmd("seriallog 0")
@@ -263,6 +284,9 @@ tasmota.add_cmd('dir',dir)
 
 tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
+
+tasmota.add_cmd('getversion',getversion)
+
 
 init()
 
