@@ -79,7 +79,7 @@
     },
     "dl4-tgbt": {
         "mode": "tri",
-        "root": "main",
+        "root": "m",
         "produit": "PWX4",
         "techno": "rogowski",
         "ratio": "3003"

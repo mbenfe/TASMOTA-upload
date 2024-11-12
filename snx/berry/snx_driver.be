@@ -1,4 +1,4 @@
-var version "1.0.112024 ready to H7"
+var version = "1.0.112024 ready to H7"
 
 import mqtt
 import string
@@ -105,7 +105,7 @@ class STM32
                 for i:0..numitem-2
                     myjson = json.load(mylist[i])
                     if myjson.contains('ID')
-                        if myjson["ID"] == 0
+                        if myjson["ID"] == 0 || myjson["ID"] == -1
                             topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
                         else
                             topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
