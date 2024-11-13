@@ -15,7 +15,7 @@
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
-        "root": ["pcpublic","eclprive","ecldeco","*"],
+        "root": ["rideau","gene_parking","gene_patisserie","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
