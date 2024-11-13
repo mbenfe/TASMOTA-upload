@@ -1,7 +1,7 @@
 {
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene","depart","parking","*"],
+        "root": ["froid1","froid2","main","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","rogowski","ct"],
         "ratio": ["2000","2000","3003","1000"]
