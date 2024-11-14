@@ -8,16 +8,23 @@
     },
     "dl12-tgbt2": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene_second_tgbt","gene_boulangerie","climatisation","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["2000","2000","2000","2000"]
-    },
-    "dl12-tgbt3": {
-        "mode": ["tri","tri","tri"],
         "root": ["rideau","gene_parking","gene_patisserie","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-tgbt-dep": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_magazin","eclmag1","eclmag2","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","1000","1000","2000"]
+    },
+    "dl4-galerie": {
+        "mode": "tri",
+        "root": ["gen_ga"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
     }
 }
