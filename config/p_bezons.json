@@ -1,0 +1,23 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["fneg","fpos","*","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","2000","1000","1000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_second_tgbt","gene_boulangerie","climatisation","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","2000","2000","2000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rideau","gene_parking","gene_patisserie","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    }
+}
