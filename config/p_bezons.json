@@ -20,11 +20,11 @@
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["2000","1000","1000","2000"]
     },
-    "dl4-galerie": {
+    "dl4-tgbt": {
         "mode": "tri",
-        "root": ["gen_ga"],
+        "root": ["main"],
         "produit": "PWX4",
         "techno": ["ct"],
-        "ratio": ["1000"]
+        "ratio": ["4000"]
     }
 }
