@@ -1,30 +1,30 @@
 {
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
-        "root": ["pricipal","gene_forces_divers","froid","*"],
+        "root": ["pricipal","gene_forces_divers","froid"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["4000","1000","4000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["4000","1000","4000"]
     },
     "dl12-tgbt2": {
         "mode": ["tri","tri","tri"],
-        "root": ["ctgendole","pchorspublic","eclgondoles","*"],
+        "root": ["ctgendole","pchorspublic","eclgondoles"],
         "produit": "PWX12",
         "techno": ["cd","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
         "root": ["pcpublic","eclprive","ecldeco","*"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-tgbt4": {
         "mode": ["tri","tri","tri"],
-        "root": ["pcprive","divers","chauffage","*"],
+        "root": ["pcprive","divers","chauffage"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     }
 }

@@ -1,37 +1,44 @@
 {
     "dl12-main1": {
         "mode": ["tri","tri","tri"],
-        "root": ["eclz1","eclz2","general","*"],
+        "root": ["eclz1","eclz2","general"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","2000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","2000"]
     },
     "dl12-main2": {
         "mode": ["tri","tri","tri"],
-        "root": ["vitrines","divers","eclz3","*"],
+        "root": ["vitrines","divers","eclz3"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
+        "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
     "dl12-main3": {
         "mode": ["tri","tri","tri"],
         "root": ["four2","four1","laverie","ballon12"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
+        "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
     "dl12-main4": {
         "mode": ["tri","tri","tri"],
         "root": ["gene_main","*","*"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
+        "techno": ["ct","ct","ct"],
         "ratio": ["2000","1000","1000"]
     },
     "dl12-reserve": {
         "mode": ["tri","tri","tri"],
         "root": ["froidm","froidc","main"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["2000","2000","2000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","2000"]
+    },
+    "dl4-galerie": {
+        "mode": "tri",
+        "root": ["foid_meubles"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
     }
  }

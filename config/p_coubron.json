@@ -1,59 +1,59 @@
 { 
     "dl12-maind1": {
         "mode": ["tri","tri","tri"],
-        "root": ["ecl1","ecl2","ecl3","*"],
+        "root": ["ecl1","ecl2","ecl3"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-maind2": {
         "mode": ["tri","tri","tri"],
-        "root": ["ecl4","eclext","pc","*"],
+        "root": ["ecl4","eclext","pc"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-maing1": {
         "mode": ["tri","tri","tri"],
-        "root": ["main","froid1","froid2","*"],
+        "root": ["main","froid1","froid2"],
         "produit": "PWX12",
-        "techno": ["rogowski","ct","ct","ct"],
-        "ratio": ["3003","2000","2000","1000"]
+        "techno": ["rogowski","ct","ct"],
+        "ratio": ["3003","2000","2000"]
     },
     "dl12-maing2": {
         "mode": ["tri","tri","tri"],
-        "root": ["lavage","tg","station","*"],
+        "root": ["lavage","tg","station"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-bureau": {
         "mode": ["tri","tri","tri"],
-        "root": ["gen_bu","eclairage","chauffage","*"],
+        "root": ["gen_bu","eclairage","chauffage"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-boulange1": {
         "mode": ["tri","tri","tri"],
-        "root": ["gen_pc","f_sventile","f_rotatif","*"],
+        "root": ["gen_pc","f_sventile","f_rotatif"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-boulange2": {
         "mode": ["tri","tri","tri"],
-        "root": ["CF","pctetra","gen_bo","*"],
+        "root": ["CF","pctetra","gen_bo"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-labo1": {
         "mode": ["tri","tri","tri"],
-        "root": ["pc_labo","gen_labo","rotissoire","*"],
+        "root": ["pc_labo","gen_labo","rotissoire"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-labo2": {
         "mode": ["tri","tri","tri"],
@@ -64,10 +64,10 @@
     },
     "dl12-galerie": {
         "mode": ["tri","tri","tri"],
-        "root": ["ecl2","ecl1","eclext","*"],
+        "root": ["ecl2","ecl1","eclext"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl4-galerie": {
         "mode": "tri",
@@ -85,16 +85,9 @@
     },
     "dl12-caisses": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene_pc_caisses","gene_divers","gene_tdcaisses","*"],
+        "root": ["gene_pc_caisses","gene_divers","gene_tdcaisses"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
-    },
-    "test-dl4": {
-        "mode": "tri",
-        "root": ["ecl2"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     }
  }

@@ -8,17 +8,17 @@
     },   
     "dl12-new1": {
         "mode": ["tri","tri","tri"],
-        "root": ["pctriphase","repartiteur","divers","*"],
+        "root": ["pctriphase","repartiteur","divers"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["2000","2000","2000","2000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","2000"]
     },
     "dl12-new2": {
         "mode": ["tri","tri","tri"],
-        "root": ["clim","protection","general","*"],
+        "root": ["clim","protection","general"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["2000","2000","2000","2000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","2000"]
     },
     "dl12-oldh": {
         "mode": ["tri","tri","tri"],
@@ -29,57 +29,23 @@
     },
     "dl12-old1": {
         "mode": ["tri","tri","tri"],
-        "root": ["divers1","divers2","divers3","*"],
+        "root": ["divers1","divers2","divers3"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-old2": {
         "mode": ["tri","tri","tri"],
-        "root": ["diversold","boulangerie","tdparking","*"],
+        "root": ["diversold","boulangerie","tdparking"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["2000","2000","2000","2000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","2000"]
     },
     "dl12-old3": {
         "mode": ["tri","tri","tri"],
-        "root": ["divers4","divers5","*","*"],
+        "root": ["divers4","divers5","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
-    },
-       "dl4-labo": {
-        "mode": "tri",
-        "root": ["labo"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
-    },
-    "dl12-main1": {
-        "mode": ["tri","tri","tri"],
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
-        "produit": "PWLX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
-    },
-    "dl12-main2": {
-        "mode": ["tri","tri","tri"],
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
-    },
-    "dl12-dmain3": {
-        "mode": ["tri","tri","tri"],
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
-    },
-    "dl12-main4": {
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
+        "ratio": ["1000","1000","1000"]
     }
- }
+}    

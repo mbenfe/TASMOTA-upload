@@ -2,17 +2,17 @@
 {
     "dl12-maingh": {
     "mode": ["tri","tri","tri"],
-    "root": ["enseigne1","gene_maing","onduleur","*"],
+    "root": ["enseigne1","gene_maing","onduleur"],
     "produit": "PWX12",
-    "techno": ["ct","ct","ct","ct"],
-    "ratio": ["1000","1000","1000","1000"]
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
 },
 "dl12-maingb": {
     "mode": ["tri","tri","tri"],
-    "root": ["ecl2","enseigne2","*","*"],
+    "root": ["ecl2","enseigne2","*"],
     "produit": "PWX12",
-    "techno": ["ct","ct","ct","ct"],
-    "ratio": ["1000","1000","1000","1000"]
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
 },
 "dl4-maingh": {
     "mode": "tri",
@@ -23,17 +23,17 @@
     },
 "dl12-maindh": {
     "mode": ["tri","tri","tri"],
-    "root": ["libre","gene_int","*","*"],
+    "root": ["libre","gene_int","*"],
     "produit": "PWX12",
-    "techno": ["ct","ct","ct","ct"],
-    "ratio": ["1000","4000","1000","1000"]
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","4000","1000"]
 },
 "dl12-maindb": {
     "mode": ["tri","tri","tri"],
-    "root": ["rideau_g","rideau_d","bureaux","*"],
+    "root": ["rideau_g","rideau_d","bureaux"],
     "produit": "PWX12",
-    "techno": ["ct","ct","ct","ct"],
-    "ratio": ["1000","1000","1000","1000"]
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
 },
 "dl4-bornes": {
     "mode": "tri",
@@ -51,38 +51,38 @@
     },
 "dl12-ext": {
     "mode": ["tri","tri","tri"],
-    "root": ["gene_ext1","gene_ext2","station","*"],
+    "root": ["gene_ext1","gene_ext2","station"],
     "produit": "PWX12",
     "techno": ["ct","ct","ct","ct"],
-    "ratio": ["2000","1000","1000","1000"]
+    "ratio": ["2000","1000","1000"]
 },
 "dl12-boulangerie1": {
     "mode": ["tri","tri","tri"],
-    "root": ["gen_boulangerie","grandfour","force","*"],
+    "root": ["gen_boulangerie","grandfour","force"],
     "produit": "PWX12",
-    "techno": ["ct","ct","ct","ct"],
-    "ratio": ["1000","1000","1000","1000"]
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
 },
 "dl12-boulangerie2": {
     "mode": ["tri","tri","tri"],
-    "root": ["cfneg","cfpos","ballon","*"],
+    "root": ["cfneg","cfpos","ballon"],
     "produit": "PWX12",
-    "techno": ["ct","ct","ct","ct"],
-    "ratio": ["1000","1000","1000","1000"]
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
 },
 "dl12-labo1": {
     "mode": ["tri","tri","tri"],
-    "root": ["eclgondoles","force","gene_labo","*"],
+    "root": ["eclgondoles","force","gene_labo"],
     "produit": "PWX12",
-    "techno": ["ct","ct","ct","ct"],
-    "ratio": ["1000","1000","1000","1000"]
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
 },
 "dl12-labo2": {
     "mode": ["tri","tri","tri"],
-    "root": ["gene_deviation","divers","*","*"],
+    "root": ["gene_deviation","divers","*"],
     "produit": "PWX12",
-    "techno": ["ct","ct","ct","ct"],
-    "ratio": ["1000","1000","1000","1000"]
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
 },
 "dl4-labo": {
     "mode": "tri",

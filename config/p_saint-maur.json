@@ -1,31 +1,31 @@
 {
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene","depart","parking","*"],
+        "root": ["gene","depart","parking"],
         "produit": "PWX12",
-        "techno": ["rogowski","ct","ct","ct"],
-        "ratio": ["3003","1000","1000","1000"]
+        "techno": ["rogowski","ct","ct"],
+        "ratio": ["3003","1000","1000"]
     },
     "dl12-tgbt2": {
         "mode": ["tri","tri","tri"],
-        "root": ["eclpub1","eclpub2","froid","*"],
+        "root": ["eclpub1","eclpub2","froid"],
         "produit": "PWX12",
-        "techno": ["cd","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["cd","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
-        "root": ["pcpublic","eclprive","ecldeco","*"],
+        "root": ["pcpublic","eclprive","ecldeco"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-tgbt4": {
         "mode": ["tri","tri","tri"],
-        "root": ["pcprive","divers","chauffage","*"],
+        "root": ["pcprive","divers","chauffage"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl4-reserve": {
         "mode": "tri",
@@ -36,31 +36,31 @@
     },
     "dl12-labo": {
         "mode": ["tri","tri","tri"],
-        "root": ["td_labo","ecllabo","pclabo","*"],
+        "root": ["td_labo","ecllabo","pclabo"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-boulangerie": {
         "mode": ["tri","tri","tri"],
-        "root": ["td_boulangerie","fours","divers_bl","*"],
+        "root": ["td_boulangerie","fours","divers_bl"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-caisses": {
         "mode": ["tri","tri","tri"],
-        "root": ["td_caisses","pc","caisses","*"],
+        "root": ["td_caisses","pc","caisses"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl12-aero": {
         "mode": ["tri","tri","tri"],
-        "root": ["aero1","aero2","aero3","*"],
+        "root": ["aero1","aero2","aero3"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl4-aero": {
         "mode": "tri",
