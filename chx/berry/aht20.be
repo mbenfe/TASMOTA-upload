@@ -1,6 +1,9 @@
+
+
 import mqtt
 import string
 import i2c
+import common  # Import the common module
 
 class AHT20
     var i2c_addr

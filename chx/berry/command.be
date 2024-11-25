@@ -1,32 +1,53 @@
+import common
+
 # Function to upload a file to the WebDAV server using webclient (wc)
 def pushfile(cmd, idx, payload, payload_json)
     # Import the string module for string manipulation
     import string
 
-    # Split the payload into local file path and WebDAV URL components using string.split
-    var parts = string.split(payload, " ")
-    if parts.size() < 2
-        print("Invalid format: Expected <localFilePath> <username:password@server_ip>")
+    var localFilePath = payload  # Local file path (from Tasmota filesystem)
+
+    # Open the .secret file to read WebDAV credentials
+    var file = open(".secret", "rt")
+    if file == nil
+        mqttprint("Error opening .secret file for WebDAV credentials")
         return
     end
 
-    var localFilePath = parts[0]  # Local file path (from Tasmota filesystem)
-    var webdavCredentials = parts[1]  # WebDAV server credentials part (username:password@server_ip)
+    var webdavCredentials = file.read()
+    file.close()
+
+    # Check if WebDAV credentials are empty
+    if webdavCredentials == ""
+        mqttprint("WebDAV credentials are empty")
+        return
+    end
 
     # Construct the full WebDAV URL with the specified subdirectory (webdav/tasmotafs/choisy/snx) and port 5005
-    var remoteFilePath = "http://" + webdavCredentials + ":5005/webdav/tasmotafs/choisy/snx/" + localFilePath
+    var baseUrl = "http://" + webdavCredentials + ":5005/webdav/tasmotafs/" + common.ville + "/" + common.device
+    var remoteFilePath = baseUrl + "/" + localFilePath
+
+    # Create the directory if it does not exist
+    var wc = webclient()
+    wc.set_follow_redirects(true)
+    wc.begin(baseUrl)
+    var response = wc.MKCOL()
+    if response != 201 && response != 405  # 201 Created, 405 Method Not Allowed (if the directory already exists)
+        mqttprint("Failed to create directory. Status: " + str(response))
+        return
+    end
 
     # Open the local file before reading
-    var file = open(localFilePath, "r")
+    file = open(localFilePath, "r")
     if file == nil
-        print("Error opening file: " + localFilePath)
+        mqttprint("Error opening file: " + localFilePath)
         return
     end
 
     # Read file content
-    var fileContent = file.read(file)
+    var fileContent = file.read()
     if fileContent == nil
-        print("Error reading file: " + localFilePath)
+        mqttprint("Error reading file: " + localFilePath)
         file.close()
         return
     end
@@ -35,20 +56,20 @@ def pushfile(cmd, idx, payload, payload_json)
     file.close()
 
     # Create webclient for file upload (wc)
-    var wc = webclient()
+    wc = webclient()
     wc.set_follow_redirects(true)
-    wc.add_header("Content-Type","text/plain")
+    wc.add_header("Content-Type", "text/plain")  # Adjust MIME type if necessary
     wc.begin(remoteFilePath)
-    print(remoteFilePath)
+    mqttprint("Uploading to: " + remoteFilePath)
 
     # Use HTTP PUT method to upload the file with headers
-    var response = wc.PUT(fileContent)
+    response = wc.PUT(fileContent)
 
     # Check if the upload was successful
     if response == 200 || response == 201
-        print("File uploaded successfully to: " + str(remoteFilePath))
+        mqttprint("File uploaded successfully to: " + remoteFilePath)
     else
-        print("Failed to upload file. Status: " + str(response))
+        mqttprint("Failed to upload file. Status: " + str(response))
     end
 end
 

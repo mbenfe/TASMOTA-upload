@@ -6,69 +6,49 @@ import mqtt
 import json
 import gpio
 import path
-
-var device
-var ville
-var location 
+import common  # Import the common module
 
 var ser                # serial object
-var bsl_out=32   
-
-def mqttprint(texte)
-    import mqtt
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", ville, device)
-    mqtt.publish(topic, texte, true)
-end
+var bsl_out = 32   
 
 #-------------------------------- FONCTIONS -----------------------------------------#
-def init()
+def ville(cmd, idx, payload, payload_json)
     import json
-    var file = open("esp32.cfg","rt")
+    var file = open("esp32.cfg", "rt")
     var buffer = file.read()
-    file.close()
-    var myjson=json.load(buffer)
-    ville=myjson["ville"]
-    device=myjson["device"]
-    location=myjson["location"]
-end
-
-def ville(cmd, idx,payload, payload_json)
-    import json
-    var file = open("esp32.cfg","rt")
-    var buffer = file.read()
-    var myjson=json.load(buffer)
-    myjson["ville"]=payload
+    var myjson = json.load(buffer)
+    myjson["ville"] = payload
     buffer = json.dump(myjson)
     file.close()
-    file = open("esp32.cfg","wt")
+    file = open("esp32.cfg", "wt")
     file.write(buffer)
     file.close()
     tasmota.resp_cmnd('done')
 end
 
-def device(cmd, idx,payload, payload_json)
+def device(cmd, idx, payload, payload_json)
     import json
-    var file = open("esp32.cfg","rt")
+    var file = open("esp32.cfg", "rt")
     var buffer = file.read()
-    var myjson=json.load(buffer)
-    myjson["device"]=payload
+    var myjson = json.load(buffer)
+    myjson["device"] = payload
     buffer = json.dump(myjson)
     file.close()
-    file = open("esp32.cfg","wt")
+    file = open("esp32.cfg", "wt")
     file.write(buffer)
     file.close()
     tasmota.resp_cmnd('done')
 end
 
-def location(cmd, idx,payload, payload_json)
+def location(cmd, idx, payload, payload_json)
     import json
-    var file = open("esp32.cfg","rt")
+    var file = open("esp32.cfg", "rt")
     var buffer = file.read()
-    var myjson=json.load(buffer)
-    myjson["location"]=payload
+    var myjson = json.load(buffer)
+    myjson["location"] = payload
     buffer = json.dump(myjson)
     file.close()
-    file = open("esp32.cfg","wt")
+    file = open("esp32.cfg", "wt")
     file.write(buffer)
     file.close()
     tasmota.resp_cmnd('done')
@@ -110,7 +90,7 @@ def getfile(cmd, idx, payload, payload_json)
     return st
 end
 
-def dir(cmd, idx,payload, payload_json)
+def dir(cmd, idx, payload, payload_json)
     import path
     var liste
     var file
@@ -118,13 +98,13 @@ def dir(cmd, idx,payload, payload_json)
     var date
     var timestamp
     liste = path.listdir("/")
-    mqttprint(str(liste.size())+" fichiers")
+    mqttprint(str(liste.size()) + " fichiers")
     for i:0..(liste.size()-1)
-        file = open(liste[i],"r")
+        file = open(liste[i], "r")
         taille = file.size()
         file.close()
         timestamp = path.last_modified(liste[i])
-        mqttprint(liste[i]+' '+tasmota.time_str(timestamp)+' '+str(taille))
+        mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
     end
     tasmota.resp_cmnd_done()
 end
@@ -134,16 +114,16 @@ def launch_driver()
     tasmota.load('chx_driver.be')
 end
 
- def getversion()
+def getversion()
     var fichier
     var files = path.listdir("/")
     for i:0..files.size()-1
-        if string.endswith(files[i],".be")
+        if string.endswith(files[i], ".be")
             fichier = open(files[i], "r")
             var content = fichier.readline()
             var version_match = string.find(content, 'var version')
             if version_match != -1
-                var liste = string.split(content,' ')
+                var liste = string.split(content, ' ')
                 mqttprint(files[i] + " version: " + liste[3])
             else
                 mqttprint(files[i] + " version: undefined version")
@@ -154,29 +134,23 @@ end
     tasmota.resp_cmnd_done()
 end
 
-
-
 #-------------------------------- BASH -----------------------------------------#
 tasmota.cmd("seriallog 0")
 mqttprint("serial log disabled")
 
 mqttprint('AUTOEXEC: create commande getfile')
-tasmota.add_cmd('getfile',getfile)
+tasmota.add_cmd('getfile', getfile)
 
-tasmota.add_cmd('dir',dir)
+tasmota.add_cmd('dir', dir)
 
-tasmota.add_cmd('ville',ville)
-tasmota.add_cmd('device',device)
-tasmota.add_cmd('location',location)
+tasmota.add_cmd('ville', ville)
+tasmota.add_cmd('device', device)
+tasmota.add_cmd('location', location)
 
-tasmota.add_cmd('getversion',getversion)
-
-
-init()
+tasmota.add_cmd('getversion', getversion)
 
 load('command.be')
 
 mqttprint('load chx_driver & loader')
 mqttprint('wait for 5 seconds ....')
-tasmota.set_timer(5000,launch_driver)
-
+tasmota.set_timer(5000, launch_driver)
