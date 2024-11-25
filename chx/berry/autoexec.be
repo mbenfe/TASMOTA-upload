@@ -6,7 +6,6 @@ import mqtt
 import json
 import gpio
 import path
-import common  # Import the common module
 
 var ser                # serial object
 var bsl_out = 32   
@@ -60,13 +59,13 @@ def getfile(cmd, idx, payload, payload_json)
     var message
     var nom_fichier = string.split(payload, '/').pop()
 
-    mqttprint(nom_fichier)
+    global.common.mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
-    mqttprint(filepath)
+    global.common.mqttprint(filepath)
 
     var wc = webclient()
     if (wc == nil)
-        mqttprint("Erreur: impossible d'initialiser le client web")
+        global.common.mqttprint("Erreur: impossible d'initialiser le client web")
         tasmota.resp_cmnd("Erreur d'initialisation du client web.")
         return
     end
@@ -76,7 +75,7 @@ def getfile(cmd, idx, payload, payload_json)
     var st = wc.GET()
     if (st != 200)
         message = "Erreur: code HTTP " + str(st)
-        mqttprint(message)
+        global.common.mqttprint(message)
         tasmota.resp_cmnd("Erreur de telechargement.")
         wc.close()
         return
@@ -84,7 +83,7 @@ def getfile(cmd, idx, payload, payload_json)
 
     var bytes_written = wc.write_file(nom_fichier)
     wc.close()
-    mqttprint('Fetched ' + str(bytes_written))
+    global.common.mqttprint('Fetched ' + str(bytes_written))
     message = 'uploaded:' + nom_fichier
     tasmota.resp_cmnd(message)
     return st
@@ -98,19 +97,19 @@ def dir(cmd, idx, payload, payload_json)
     var date
     var timestamp
     liste = path.listdir("/")
-    mqttprint(str(liste.size()) + " fichiers")
+    global.common.mqttprint(str(liste.size()) + " fichiers")
     for i:0..(liste.size()-1)
         file = open(liste[i], "r")
         taille = file.size()
         file.close()
         timestamp = path.last_modified(liste[i])
-        mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
+        global.common.mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
     end
     tasmota.resp_cmnd_done()
 end
 
 def launch_driver()
-    mqttprint('mqtt connected -> launch driver')
+    global.common.mqttprint('mqtt connected -> launch driver')
     tasmota.load('chx_driver.be')
 end
 
@@ -124,9 +123,9 @@ def getversion()
             var version_match = string.find(content, 'var version')
             if version_match != -1
                 var liste = string.split(content, ' ')
-                mqttprint(files[i] + " version: " + liste[3])
+                global.common.mqttprint(files[i] + " version: " + liste[3])
             else
-                mqttprint(files[i] + " version: undefined version")
+                global.common.mqttprint(files[i] + " version: undefined version")
             end
             fichier.close()
         end
@@ -136,9 +135,9 @@ end
 
 #-------------------------------- BASH -----------------------------------------#
 tasmota.cmd("seriallog 0")
-mqttprint("serial log disabled")
+global.common.mqttprint("serial log disabled")
 
-mqttprint('AUTOEXEC: create commande getfile')
+global.common.mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile', getfile)
 
 tasmota.add_cmd('dir', dir)
@@ -151,6 +150,6 @@ tasmota.add_cmd('getversion', getversion)
 
 load('command.be')
 
-mqttprint('load chx_driver & loader')
-mqttprint('wait for 5 seconds ....')
+global.common.mqttprint('load chx_driver & loader')
+global.common.mqttprint('wait for 5 seconds ....')
 tasmota.set_timer(5000, launch_driver)
