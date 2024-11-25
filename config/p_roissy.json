@@ -1,4 +1,46 @@
 {
+    "dl4-tgbt": {
+        "mode": "tri",
+        "root": "m",
+        "produit": "PWX4",
+        "techno": "rogowski",
+        "ratio": "3003"
+    },
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["froid","tdcaisses","tdlabo"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["4000","1000","4000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rooftop2","tdbureaux","rooftop1"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rooftop3","pcnp","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["eclpub1","onduleurs","eclext"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt5": {
+        "mode": ["tri","tri","tri"],
+        "root": ["divers-caisses","eclnonpub","eclpub2"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
     "dl4-eclpk1": {
         "mode": "tri",
         "root": ["eclpk1"],
@@ -8,10 +50,10 @@
     },   
     "dl12-eclpk234": {
         "mode": ["tri","tri","tri"],
-        "root": ["eclpk2","eclpk3","eclpk4","*"],
+        "root": ["eclpk2","eclpk3","eclpk4"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl4-eclpub2": {
         "mode": "tri",
@@ -22,101 +64,16 @@
     },   
     "dl12-divers": {
         "mode": ["tri","tri","tri"],
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
+        "root": ["divers_1","chauffage","eclpkpub2"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","2000","1000"]
     },
-    "dl4-main": {
-        "mode": "tri",
-        "root": "main",
-        "produit": "PWX4",
-        "techno": "rogowski",
-        "ratio": "3003"
-    },
-    "dl4-froid": {
-        "mode": "tri",
-        "root": "froid",
-        "produit": "PWX4",
-        "techno": "ct",
-        "ratio": "3003"
-    }, 
-    "dl4-labo": {
-        "mode": "tri",
-        "root": "labo",
-        "produit": "PWX4",
-        "techno": "ct",
-        "ratio": "1000"
-    },
-
-    "dl12-main1": {
+    "dl12-labo": {
         "mode": ["tri","tri","tri"],
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
+        "root": ["tbd1","tbd2","tbd3"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
-    },
-    "dl12-main2": {
-        "mode": ["tri","tri","tri"],
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
-    },
-    "dl12-dmain3": {
-        "mode": ["tri","tri","tri"],
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
-        "produit": "PWLX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
-    },
-    "dl12-main4": {
-        "mode": ["tri","tri","tri"],
-        "root": ["divers_1","chauffage","eclpkpub2","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","2000","1000","1000"]
-    },
-    "dl4-tgbt": {
-        "mode": "tri",
-        "root": "main",
-        "produit": "PWX4",
-        "techno": "rogowski",
-        "ratio": "3003"
-    },
-    "dl12-tgbt1": {
-        "mode": ["tri","tri","tri"],
-        "root": ["froid","tdcaisses","tdlabo","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["4000","1000","4000","1000"]
-    },
-    "dl12-tgbt2": {
-        "mode": ["tri","tri","tri"],
-        "root": ["rooftop2","tdbureaux","rooftop1","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
-    },
-    "dl12-tgbt3": {
-        "mode": ["tri","tri","tri"],
-        "root": ["rooftop3","pcnp","*","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
-    },
-    "dl12-tgbt4": {
-        "mode": ["tri","tri","tri"],
-        "root": ["eclpub1","onduleurs","eclext","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
-    },
-    "dl12-tgbt5": {
-        "mode": ["tri","tri","tri"],
-        "root": ["divers-caisses","eclnonpub","eclpub2","*"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     }
- }
+}

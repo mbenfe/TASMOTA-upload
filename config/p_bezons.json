@@ -1,0 +1,30 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["fneg","fpos","*","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","2000","1000","1000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rideau","gene_parking","gene_patisserie","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["1000","1000","1000","1000"]
+    },
+    "dl12-tgbt-dep": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_magazin","eclmag1","eclmag2","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct","ct"],
+        "ratio": ["2000","1000","1000","2000"]
+    },
+    "dl4-tgbt": {
+        "mode": "tri",
+        "root": ["main"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["4000"]
+    }
+}
