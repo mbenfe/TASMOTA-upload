@@ -1,0 +1,32 @@
+{
+    "ouvert": 19.0,
+    "ferme": 17.0,
+    "lundi": {
+        "debut": 9.0,
+        "fin": 19.0
+    },
+    "mardi": {
+        "debut": 9.0,
+        "fin": 19.0
+    },
+    "mercredi": {
+        "debut": 9.0,
+        "fin": 19.0
+    },
+    "jeudi": {
+        "debut": 9.0,
+        "fin": 19.0
+    },
+    "vendredi": {
+        "debut": 9.0,
+        "fin": 19.0
+    },
+    "samedi": {
+        "debut": 9.0,
+        "fin": 9.0
+    },
+    "dimanche": {
+        "debut": 9.0,
+        "fin": 9.0
+    }
+}

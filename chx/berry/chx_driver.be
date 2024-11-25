@@ -1,24 +1,15 @@
-var version "1.0.112024 ready to H7"
+var version "1.0.112024 initial"
 
 import mqtt
 import string
 import json
 
 
-class STM32
-    var mapID
-    var mapFunc
-    var ser
-    var rst_in  
-    var bsl_in  
-    var rst_out  
-    var bsl_out   
-    var ready
-    var statistic
+class CHX
     var client 
     var ville
     var device
-    var topic 
+    var location 
 
     def loadconfig()
         import json
@@ -41,112 +32,50 @@ class STM32
         print('ville:',self.ville)
         self.device=jsonmap["device"]
         print('device:',self.device)
+        self.location=jsonmap["location"]
+        print('location:',self.location)
     end
 
     def init()
-        self.rst_in=19   
-        self.bsl_in=21   
-        self.rst_out=33   
-        self.bsl_out=32   
-        self.statistic=14
-        self.ready=27
-    
-        self.mapID = {}
-        self.mapFunc = {}
-
         self.loadconfig()
+        self.aht20 = AHT20()
+        self.aht20.init()
+       self.subscribes()
+    end
 
-        print('DRIVER: serial init done')
-        # lecture STM32 IN pour debug
-        # self.ser = serial(36,1,921600,serial.SERIAL_8N1)
-        # pinout flasher
-        # serial speed limite (choisy)
-        self.ser = serial(17,16,921600,serial.SERIAL_8N1)
+    def subscribes()
+        var topic 
+        # chauffages
+        topic = string.format("app/%s/%s/+/set/ONOFF",client,ville)
+        mqtt.subscribe(topic, onoff)
+        print("subscribed to ONOFF")
+        topic = string.format("app/%s/%s/+/set/MODE",client,ville)
+        mqtt.subscribe(topic, mode)
+        print("subscribed to MODE")
+        topic = string.format("app/%s/%s/+/set/ABSENCE",client,ville)
+        mqtt.subscribe(topic, absence)
+        print("subscribed to ABSENCE")
+        topic = string.format("app/%s/%s/+/set/WEEKEND",client,ville)
+        mqtt.subscribe(topic, weekend)
+        print("subscribed to WEEKEND")
+        topic = string.format("app/%s/%s/+/set/SEMAINE",client,ville)
+        mqtt.subscribe(topic, semaine)
+        print("subscribed to SEMAINE")
+    end
+
+    def every_minute()
+        var data = self.aht20.read_temperature_humidity()
+        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%f,"Humidity":%f}',self.device,self.device,data[0],data[1])
+        var topic = string.format("gw/%s/%s/%s/tele/SENSOR",self.client,self.ville,self.device)
+        mqtt.publish(topic,payload,true)
+    end
+
+    def every_second()
+    end
+
     
-        # setup boot pins for stm32: reset disable & boot normal
-
-        gpio.pin_mode(self.rst_in,gpio.OUTPUT)
-        gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
-        gpio.pin_mode(self.rst_out,gpio.OUTPUT)
-        gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
-        gpio.pin_mode(self.statistic,gpio.OUTPUT)
-        gpio.pin_mode(self.ready,gpio.OUTPUT)
-        gpio.digital_write(self.bsl_in, 0)
-        gpio.digital_write(self.rst_in, 1)
-        gpio.digital_write(self.bsl_out, 0)
-        gpio.digital_write(self.rst_out, 1)
-        gpio.digital_write(self.statistic, 0)
-#        gpio.digital_write(self.ready,1)
-
-    #    tasmota.add_fast_loop(/-> self.fast_loop())
-    end
-
-    def fast_loop()
-        self.read_uart(2)
-    end
-
-    def read_uart(timeout)
-        var mystring
-        var mylist
-        var numitem
-        var myjson
-        var topic
-        gpio.digital_write(self.ready,1)
-        if self.ser.available()
-            var due = tasmota.millis() + timeout
-            while !tasmota.time_reached(due) end
-            gpio.digital_write(self.statistic,1)
-            var buffer = self.ser.read()
-            self.ser.flush()
-            if(buffer[0]==123)         # { -> json tele metry
-                mystring = buffer.asstring()
-                mylist = string.split(mystring,'\n')
-                numitem = size(mylist)
-                for i:0..numitem-2
-                    myjson = json.load(mylist[i])
-                    if myjson.contains('ID')
-                        if myjson["ID"] == 0
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
-                        else
-                            topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
-                        end
-                        mqtt.publish(topic,mylist[i],true)
-                    else
-                        topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
-                        mqtt.publish(topic,mylist[i],true)
-                    end
-                end
-            elif (buffer[0] == 42)     # * -> json statistic
-                mystring = buffer[1..-1].asstring()
-                mylist = string.split(mystring,'\n')
-                numitem = size(mylist)
-                for i:0..numitem-2
-                    myjson = json.load(mylist[i])
-                    topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson["ID"]))
-                    mqtt.publish(topic,mylist[i],true)
-                end
-            elif (buffer[0] == 58)     # : -> debug text
-                topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
-                mystring = buffer.asstring()
-                mqtt.publish(topic,mystring,true)
-            else
-                topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)
-                mystring = buffer.asstring()
-                mqtt.publish(topic,mystring,true)
-            end
-        end
-        gpio.digital_write(self.statistic,0)
-#        gpio.digital_write(self.ready,1)
-    end
-
-    def get_statistic()
-         gpio.digital_write(self.statistic, 1)
-         tasmota.delay(1)
-         gpio.digital_write(self.statistic, 0)
-    end
 end
 
-stm32 = STM32()
-tasmota.add_driver(stm32)
-tasmota.add_fast_loop(/-> stm32.fast_loop())
-tasmota.add_cron("59 59 23 * * *",  /-> stm32.get_statistic(), "every_day")
+chx = CHX()
+tasmota.add_driver(chx)
+tasmota.add_cron("0 * * * * *", /-> chx.every_minute(), "every_min_@0_s")
