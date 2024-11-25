@@ -1,56 +1,386 @@
 {
-    "38": {
-        "Name": "CF-Reserve38",
+    "1": {
+        "Name": "SurgPorte1",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "2": {
+        "Name": "SurgPorte2",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "3": {
+        "Name": "SurgPorte3",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "4": {
+        "Name": "SurgPorte4",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "vitrine-",
+        "device": "AK-CC550"
+    },
+    "5": {
+        "Name": "BacSurg5",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
+    "6": {
+        "Name": "BacSurg6",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
+    "7": {
+        "Name": "BacSurg7",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
+    "8": {
+        "Name": "BacSurg8",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
+    "9": {
+        "Name": "TGBacSurg9",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
+    "10": {
+        "Name": "BacSurg10",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
+    "11": {
+        "Name": "BacSurg11",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
+    "12": {
+        "Name": "BacSurg12",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
+    "13": {
+        "Name": "BacSurg13",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "bac-",
+        "device": "AK-CC550"
+    },
+    "14": {
+        "Name": "CFSurgeles14",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "CF-",
+        "device": "AK-CC550"
+    },
+    "15": {
+        "Name": "CFSurgBoulang15",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devneg",
+        "genre": "CF-",
+        "device": "AK-CC550"
+    },
+    "20": {
+        "Name": "TGFrais20",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "CF-",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "21": {
+        "Name": "FromagesLS21",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "22": {
+        "Name": "FromagesLS22",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "23": {
+        "Name": "FromagesLS23",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "24": {
+        "Name": "FromagesLS24",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "25": {
+        "Name": "TGFrais25",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "26": {
+        "Name": "ULFLS2_26",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "27": {
+        "Name": "ULFLS2_27",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "28": {
+        "Name": "ULFLS2_28",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "29": {
+        "Name": "ULFLS2_29",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "30": {
+        "Name": "TGFrais30",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "31": {
+        "Name": "ULFLS1_31",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "32": {
+        "Name": "ULFLS1_32",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "33": {
+        "Name": "ULFLS1_33",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "34": {
+        "Name": "ULFLS1_34",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "35": {
+        "Name": "TGFrais35",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "36": {
+        "Name": "TraiteurLS36",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "37": {
+        "Name": "TraiteurLS37",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
+        "device": "AK-CC550"
+    },
+    "38": {
+        "Name": "TraiteurLS38",
+        "status": {},
+        "alias_sonde": "TherAir",
+        "alias_cutout": "CutoutTemp",
+        "poste": "NA",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "39": {
-        "Name": "CF-39",
+        "Name": "TraiteurLS39",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "CF-",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "40": {
-        "Name": "CF+Reserve40",
+        "Name": "TGFrais40",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "CF+",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "41": {
-        "Name": "CFDrive41",
+        "Name": "CharcutLS41",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "CF+",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "42": {
-        "Name": "CFFruitsetLegumes42",
+        "Name": "CharcutLS42",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "CF+",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "43": {
-        "Name": "Vitrine+43",
+        "Name": "CharcutLS43",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -60,7 +390,7 @@
         "device": "AK-CC550"
     },
     "44": {
-        "Name": "Vitrine+44",
+        "Name": "CharcutLS44",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -70,7 +400,7 @@
         "device": "AK-CC550"
     },
     "45": {
-        "Name": "Vitrine+45",
+        "Name": "TGFrais45",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -80,7 +410,7 @@
         "device": "AK-CC550"
     },
     "46": {
-        "Name": "Vitrine+46",
+        "Name": "CharcutFD46",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -90,7 +420,7 @@
         "device": "AK-CC550"
     },
     "47": {
-        "Name": "Vitrine+47",
+        "Name": "CharcutFD47",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -100,7 +430,7 @@
         "device": "AK-CC550"
     },
     "48": {
-        "Name": "Vitrine+48",
+        "Name": "FromageFE48",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -110,7 +440,7 @@
         "device": "AK-CC550"
     },
     "49": {
-        "Name": "Vitrine+49",
+        "Name": "FromageFE49",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -120,117 +450,117 @@
         "device": "AK-CC550"
     },
     "50": {
-        "Name": "vitirne-50",
+        "Name": "FromageTrad50",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "51": {
-        "Name": "vitirne-51",
+        "Name": "CharcutTrad51",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "52": {
-        "Name": "vitirne-52",
+        "Name": "CharcutTrad52",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "53": {
-        "Name": "vitirne-53",
+        "Name": "CharcutTrad53P",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "54": {
-        "Name": "vitirne-54",
+        "Name": "CharcutTrad54",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devneg",
-        "genre": "vitrine-",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "55": {
-        "Name": "vitirne-55",
+        "Name": "Saurisserie55",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "56": {
-        "Name": "vitirne-56",
+        "Name": "Saurisserie56",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "57": {
-        "Name": "vitirne-57",
+        "Name": "Saurisserie57",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "58": {
-        "Name": "vitirne-58",
+        "Name": "4eGamme58",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "59": {
-        "Name": "vitirne-59",
+        "Name": "Jus59",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "60": {
-        "Name": "vitirne-60",
+        "Name": "BouchLS60",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devneg",
-        "genre": "vitrine-",
+        "categorie": "devpos",
+        "genre": "vitrine+",
         "device": "AK-CC550"
     },
     "61": {
-        "Name": "Vitrine+61",
+        "Name": "BouchLS61",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -240,7 +570,7 @@
         "device": "AK-CC550"
     },
     "62": {
-        "Name": "Vitrine+62",
+        "Name": "BouchLS62",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -250,7 +580,7 @@
         "device": "AK-CC550"
     },
     "63": {
-        "Name": "Vitrine+63",
+        "Name": "ArriereTrad63",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -260,7 +590,7 @@
         "device": "AK-CC550"
     },
     "64": {
-        "Name": "Vitrine+64",
+        "Name": "ArriereTrad64",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -270,7 +600,7 @@
         "device": "AK-CC550"
     },
     "65": {
-        "Name": "Vitrine+65",
+        "Name": "BouchTrad65",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -280,7 +610,7 @@
         "device": "AK-CC550"
     },
     "66": {
-        "Name": "Vitrine+66",
+        "Name": "BouchTrad66",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -290,7 +620,7 @@
         "device": "AK-CC550"
     },
     "67": {
-        "Name": "Vitrine+67",
+        "Name": "BouchTrad67P",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
@@ -300,223 +630,93 @@
         "device": "AK-CC550"
     },
     "68": {
-        "Name": "Vitrine+68",
+        "Name": "CFFruitsLeg68",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "vitrine+",
+        "genre": "CF+",
         "device": "AK-CC550"
     },
     "69": {
-        "Name": "Vitrine+69",
+        "Name": "CFDechets69",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "vitrine+",
+        "genre": "CF+",
         "device": "AK-CC550"
     },
     "70": {
-        "Name": "Vitrine+70",
+        "Name": "SASFrais72",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
+        "categorie": "devneg",
+        "genre": "CF+",
         "device": "AK-CC550"
     },
     "71": {
-        "Name": "Vitrine+71",
+        "Name": "LaboBoucherie73",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
+        "categorie": "devneg",
+        "genre": "CF+",
         "device": "AK-CC550"
     },
     "72": {
-        "Name": "Vitrine+72",
+        "Name": "CFCarcasses74",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "vitrine+",
+        "genre": "CF+",
         "device": "AK-CC550"
     },
     "73": {
-        "Name": "Vitrine+73",
+        "Name": "CFCharcuterie75",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "vitrine+",
+        "genre": "CF+",
         "device": "AK-CC550"
     },
     "74": {
-        "Name": "Vitrine+74",
+        "Name": "CFPoisson76",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
         "categorie": "devpos",
-        "genre": "vitrine+",
+        "genre": "CF+",
         "device": "AK-CC550"
     },
-    "75": {
-        "Name": "Vitrine+75",
+    "100": {
+        "Name": "Condenseur-",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
+        "categorie": "condneg",
+        "genre": "condenseur",
+        "device": "AK-PC781"
     },
-    "76": {
-        "Name": "Vitrine+76",
+    "101": {
+        "Name": "Condenseur+",
         "status": {},
         "alias_sonde": "TherAir",
         "alias_cutout": "CutoutTemp",
         "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "77": {
-        "Name": "Vitrine+77",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "78": {
-        "Name": "Vitrine+78",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "79": {
-        "Name": "Vitrine+79",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "80": {
-        "Name": "Vitrine+80",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "81": {
-        "Name": "Vitrine+81",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "82": {
-        "Name": "Vitrine+82",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "83": {
-        "Name": "Vitrine+83",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "84": {
-        "Name": "Vitrine+84",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "85": {
-        "Name": "Vitrine+85",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "86": {
-        "Name": "Vitrine+86",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "87": {
-        "Name": "Vitrine+87",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "88": {
-        "Name": "Vitrine+88",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
-    },
-    "95": {
-        "Name": "regulateur",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devpos",
-        "genre": "vitrine+",
-        "device": "AK-CC550"
+        "categorie": "condpos",
+        "genre": "condenseur",
+        "device": "AK-PC782"
     }
 }

@@ -186,24 +186,38 @@ def name(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-def getfile(cmd, idx,payload, payload_json)
+ef getfile(cmd, idx, payload, payload_json)
     import string
-    var path = "https://raw.githubusercontent.com//mbenfe/upload/main/"
-    path+=payload
-    mqttprint(path)
-    var file=string.split(path,"/").pop()
-    mqttprint(str(file))
-    var wc=webclient()
-    wc.set_follow_redirects(true)
-    wc.begin(path)
-    var st=wc.GET()
-    if st!=200 
-        raise "erreur","code: "+str(st) 
+    import path
+    var message
+    var nom_fichier = string.split(payload, '/').pop()
+
+    mqttprint(nom_fichier)
+    var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
+    mqttprint(filepath)
+
+    var wc = webclient()
+    if (wc == nil)
+        mqttprint("Erreur: impossible d'initialiser le client web")
+        tasmota.resp_cmnd("Erreur d'initialisation du client web.")
+        return
     end
-    st="Fetched "+str(wc.write_file(file))
-    mqttprint(path+' ',str(st))
+
+    wc.set_follow_redirects(true)
+    wc.begin(filepath)
+    var st = wc.GET()
+    if (st != 200)
+        message = "Erreur: code HTTP " + str(st)
+        mqttprint(message)
+        tasmota.resp_cmnd("Erreur de téléchargement.")
+        wc.close()
+        return
+    end
+
+    var bytes_written = wc.write_file(nom_fichier)
     wc.close()
-    var message = "uploaded:"+file
+    mqttprint('Fetched ' + str(bytes_written))
+    message = 'uploaded:' + nom_fichier
     tasmota.resp_cmnd(message)
     return st
 end

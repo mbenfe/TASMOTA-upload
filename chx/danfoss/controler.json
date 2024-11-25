@@ -1,0 +1,506 @@
+{
+    "076C": {
+        "name": "AK-PC551tbd1",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "076D": {
+        "name": "AK-PC551tbd2",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "076E": {
+        "name": "AK-PC551tbd3",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "076F": {
+        "name": "AK-PC551tbd4",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0770": {
+        "name": "AK-PC551tbd5",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0771": {
+        "name": "AK-PC551tbd6",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0772": {
+        "name": "AK-PC551tbd7",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BB8": {
+        "name": "AK-PC551tbd8",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BBA": {
+        "name": "AK-PC551tbd8a",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BC0": {
+        "name": "AK-PC551tbdbc0",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BC6": {
+        "name": "AK-PC551tbd9",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BCA": {
+        "name": "AK-PC551tbd10",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BCB": {
+        "name": "AK-PC551tbd11",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BCE": {
+        "name": "AK-PC551tbd11a",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BCF": {
+        "name": "AK-PC551tbd11b",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BD0": {
+        "name": "AK-PC551tbd12",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BD3": {
+        "name": "AK-PC551tbd12a",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BD4": {
+        "name": "AK-PC551tbd12b",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BD5": {
+        "name": "AK-PC551tbd13",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BD6": {
+        "name": "AK-PC551tbd14",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BD9": {
+        "name": "AK-PC551tbd14a",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BDA": {
+        "name": "AK-PC551tbd14b",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BDB": {
+        "name": "AK-PC551tbd14c",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BDC": {
+        "name": "AK-PC551tbd14d",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0BE7": {
+        "name": "AK-PC551tbd15",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0C00": {
+        "name": "AK-PC551tbd0c0",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0C10": {
+        "name": "AK-PC551tbd16a",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0C11": {
+        "name": "AK-PC551tbd16b",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0C1D": {
+        "name": "AK-PC551tbd16c",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0C1E": {
+        "name": "AK-PC551tbd16d",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0C20": {
+        "name": "AK-PC551tbd16oc20",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0C1F": {
+        "name": "AK-PC551tbd16e",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0C80": {
+        "name": "AK-PC551tbdoc8",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CB0": {
+        "name": "AK-PC551tbdocb0",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CB3": {
+        "name": "AK-PC551tbd16",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CB4": {
+        "name": "AK-PC551tbd17",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CB7": {
+        "name": "AK-PC551tbd17b7",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CB8": {
+        "name": "AK-PC551tbd17b8",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CB9": {
+        "name": "AK-PC551tbd18",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CBA": {
+        "name": "CondRequestedCap",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": "%"
+    },
+    "0CBB": {
+        "name": "tbd0cbb",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": "%"
+    },
+    "0CBC": {
+        "name": "AK-PC551tbd19",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CBD": {
+        "name": "AK-PC551tbd19a",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CBE": {
+        "name": "AK-PC551tbd19cbe",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CBF": {
+        "name": "AK-PC551tbd19cbf",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CC2": {
+        "name": "AK-PC551tbdcc2",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CC3": {
+        "name": "AK-PC551tbdcc2",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CD3": {
+        "name": "AK-PC551tbdocd3",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CD4": {
+        "name": "AK-PC551tbdocd4",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CD5": {
+        "name": "AK-PC551tbdocd5",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CD6": {
+        "name": "AK-PC551tbdocd6",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CD7": {
+        "name": "AK-PC551tbdocd7",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CD8": {
+        "name": "AK-PC551tbdocd8",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CD9": {
+        "name": "AK-PC551tbdocd9a",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CDA": {
+        "name": "AK-PC551tbdocda",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CDF": {
+        "name": "AK-PC551tbdocdf",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0CCA": {
+        "name": "AK-PC551tbd19cbfca",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0D3E": {
+        "name": "AK-PC551tbd20a",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0D3F": {
+        "name": "AK-PC551tbd20b",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0D40": {
+        "name": "AK-PC551tbd21",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0D41": {
+        "name": "AK-PC551tbd22",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "0D43": {
+        "name": "AK-PC551tbd22a",
+        "type": "int",
+        "ratio": 1,
+        "device": "AK-PC551",
+        "categorie": "na",
+        "unit": ""
+    },
+    "COMP": {
+        "name": "dummy",
+        "type": "bool",
+        "ratio": 1,
+        "device": "AK-CC55xx",
+        "categorie": "na",
+        "unit": ""
+    }
+}

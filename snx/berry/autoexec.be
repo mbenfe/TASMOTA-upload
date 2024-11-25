@@ -12,11 +12,11 @@ var ville
 
 var ser                # serial object
 
-var rx=4    
-var tx=5    
-var rst_in=19   
-var bsl_in=21   
-var rst_out=33   
+def mqttprint(texte)
+    import mqtt
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", ville, device)
+    mqtt.publish(topic, texte, true)
+end
 var bsl_out=32   
 
 #-------------------------------- FONCTIONS -----------------------------------------#
@@ -92,28 +92,38 @@ def device(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-
-def getfile(cmd, idx,payload, payload_json)
+ef getfile(cmd, idx, payload, payload_json)
     import string
     import path
-    var nom_fichier
-    nom_fichier=string.split(payload,'/').pop()
+    var message
+    var nom_fichier = string.split(payload, '/').pop()
+
     mqttprint(nom_fichier)
-    var filepath = 'https://raw.githubusercontent.com//mbenfe/upload/main/'
-    filepath+=payload
+    var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
     mqttprint(filepath)
-    var wc=webclient()
+
+    var wc = webclient()
+    if (wc == nil)
+        mqttprint("Erreur: impossible d'initialiser le client web")
+        tasmota.resp_cmnd("Erreur d'initialisation du client web.")
+        return
+    end
+
     wc.set_follow_redirects(true)
     wc.begin(filepath)
-    var st=wc.GET()
-    if st!=200 
-        mqttprint('erreur code:'+str(st))
-        raise 'erreur','code: '+str(st) 
+    var st = wc.GET()
+    if (st != 200)
+        message = "Erreur: code HTTP " + str(st)
+        mqttprint(message)
+        tasmota.resp_cmnd("Erreur de téléchargement.")
+        wc.close()
+        return
     end
-    st='Fetched '+str(wc.write_file(nom_fichier))
-    mqttprint(st)
+
+    var bytes_written = wc.write_file(nom_fichier)
     wc.close()
-    var message = 'uploaded:'+nom_fichier
+    mqttprint('Fetched ' + str(bytes_written))
+    message = 'uploaded:' + nom_fichier
     tasmota.resp_cmnd(message)
     return st
 end
