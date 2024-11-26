@@ -1,29 +1,35 @@
-
-
 import mqtt
 import string
-import i2c
-import common  # Import the common module
 
 class AHT20
     var i2c_addr
-    var i2c_bus
+    var wire
 
     def init()
         self.i2c_addr = 0x38  # AHT20 I2C address
-        self.i2c_bus = i2c(1, 8, 9)  # Initialize I2C bus 1 with SDA on GPIO8 and SCL on GPIO9
+        self.wire = tasmota.wire_scan(self.i2c_addr, 58)  # Scan for the device on the I2C bus
+        if self.wire == nil
+            mqttprint("AHT20 not found on I2C bus")
+            return
+        end
         self.initialize_sensor()
     end
 
     def initialize_sensor()
-        self.i2c_bus.write(self.i2c_addr, bytes([0xBE, 0x08, 0x00]))
+        if(self.wire==nil)
+            return
+        end
+        self.wire.write_bytes(self.i2c_addr, 0x00, bytes([0xBE, 0x08, 0x00]))
         tasmota.delay(20)  # Wait for the sensor to initialize
     end
 
     def read_data()
-        self.i2c_bus.write(self.i2c_addr, bytes([0xAC, 0x33, 0x00]))
+        if(self.wire==nil)
+            return
+        end
+        self.wire.write_bytes(self.i2c_addr, 0x00, bytes([0xAC, 0x33, 0x00]))
         tasmota.delay(80)  # Wait for the measurement to complete
-        var data = self.i2c_bus.read(self.i2c_addr, 7)
+        var data = self.wire.read_bytes(self.i2c_addr, 0x00, 7)
         return data
     end
 
@@ -37,10 +43,14 @@ class AHT20
 
     def read_temperature_humidity()
         var data = self.read_data()
+        if data == nil
+            return
+        end
         var parsed_data = self.parse_data(data)
         return parsed_data
     end
 end
 
 aht20 = AHT20()
+aht20.init()
 tasmota.add_driver(aht20)

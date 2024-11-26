@@ -1,4 +1,8 @@
-import common
+# Define mqttprint function
+def mqttprint(texte)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
+    mqtt.publish(topic, texte, true)
+end
 
 # Function to upload a file to the WebDAV server using webclient (wc)
 def pushfile(cmd, idx, payload, payload_json)
@@ -9,7 +13,7 @@ def pushfile(cmd, idx, payload, payload_json)
     # Open the .secret file to read WebDAV credentials
     var file = open(".secret", "rt")
     if file == nil
-        common.mqttprint("Error opening .secret file for WebDAV credentials")
+        mqttprint("Error opening .secret file for WebDAV credentials")
         return
     end
 
@@ -18,12 +22,12 @@ def pushfile(cmd, idx, payload, payload_json)
 
     # Check if WebDAV credentials are empty
     if webdavCredentials == ""
-        common.mqttprint("WebDAV credentials are empty")
+        mqttprint("WebDAV credentials are empty")
         return
     end
 
     # Construct the base WebDAV URL with the specified subdirectory and port 5005
-    var baseUrl = "http://" + webdavCredentials + ":5005/webdav/tasmotafs/" + common.ville + "/" + common.device
+    var baseUrl = "http://" + webdavCredentials + ":5005/webdav/tasmotafs/" + global.ville + "/" + global.device
 
     # Function to upload a single file
     def upload_file(localFilePath)
@@ -32,14 +36,14 @@ def pushfile(cmd, idx, payload, payload_json)
         # Open the local file before reading
         var file = open(localFilePath, "r")
         if file == nil
-            common.mqttprint("Error opening file: " + localFilePath)
+            mqttprint("Error opening file: " + localFilePath)
             return
         end
 
         # Read file content
         var fileContent = file.read()
         if fileContent == nil
-            common.mqttprint("Error reading file: " + localFilePath)
+            mqttprint("Error reading file: " + localFilePath)
             file.close()
             return
         end
@@ -52,16 +56,16 @@ def pushfile(cmd, idx, payload, payload_json)
         wc.set_follow_redirects(true)
         wc.add_header("Content-Type", "text/plain")  # Adjust MIME type if necessary
         wc.begin(remoteFilePath)
-        common.mqttprint("Uploading to: " + remoteFilePath)
+        mqttprint("Uploading to: " + remoteFilePath)
 
         # Use HTTP PUT method to upload the file with headers
         var response = wc.PUT(fileContent)
 
         # Check if the upload was successful
         if response == 200 || response == 201
-            common.mqttprint("File uploaded successfully to: " + remoteFilePath)
+            mqttprint("File uploaded successfully to: " + remoteFilePath)
         else
-            common.mqttprint("Failed to upload file. Status: " + str(response))
+            mqttprint("Failed to upload file. Status: " + str(response))
         end
     end
 
@@ -71,7 +75,7 @@ def pushfile(cmd, idx, payload, payload_json)
     wc.begin(baseUrl)
     var response = wc.MKCOL()
     if response != 201 && response != 405  # 201 Created, 405 Method Not Allowed (if the directory already exists)
-        common.mqttprint("Failed to create directory. Status: " + str(response))
+        mqttprint("Failed to create directory. Status: " + str(response))
         return
     end
 

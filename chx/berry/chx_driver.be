@@ -1,43 +1,64 @@
-var version = "1.0.112024 initial"
-
 import mqtt
 import string
 import json
-import common  # Import the common module
+
+# Define mqttprint function
+def mqttprint(texte)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
+    mqtt.publish(topic, texte, true)
+end
+
+def onoff(topic, idx, payload_s, payload_b)
+end
+
+def mode(topic, idx, payload_s, payload_b)
+end
+
+def absence(topic, idx, payload_s, payload_b)
+end
+
+def weekend(topic, idx, payload_s, payload_b)
+end
+
+def semaine(topic, idx, payload_s, payload_b)
+end
+
 
 class CHX
     var aht20
 
     def init()
-        self.aht20 = AHT20()
-        self.aht20.init()
+        mqttprint("subscription MQTT")
         self.subscribes()
     end
 
     def subscribes()
         var topic 
         # chauffages
-        topic = string.format("app/%s/%s/+/set/ONOFF", common.client, common.ville)
+        topic = string.format("app/%s/%s/+/set/ONOFF", global.client, global.ville)
         mqtt.subscribe(topic, onoff)
-        common.mqttprint("subscribed to ONOFF")
-        topic = string.format("app/%s/%s/+/set/MODE", common.client, common.ville)
+        mqttprint("subscribed to ONOFF")
+        topic = string.format("app/%s/%s/+/set/MODE", global.client, global.ville)
         mqtt.subscribe(topic, mode)
-        common.mqttprint("subscribed to MODE")
-        topic = string.format("app/%s/%s/+/set/ABSENCE", common.client, common.ville)
+        mqttprint("subscribed to MODE")
+        topic = string.format("app/%s/%s/+/set/ABSENCE", global.client, global.ville)
         mqtt.subscribe(topic, absence)
-        common.mqttprint("subscribed to ABSENCE")
-        topic = string.format("app/%s/%s/+/set/WEEKEND", common.client, common.ville)
+        mqttprint("subscribed to ABSENCE")
+        topic = string.format("app/%s/%s/+/set/WEEKEND", global.client, global.ville)
         mqtt.subscribe(topic, weekend)
-        common.mqttprint("subscribed to WEEKEND")
-        topic = string.format("app/%s/%s/+/set/SEMAINE", common.client, common.ville)
+        mqttprint("subscribed to WEEKEND")
+        topic = string.format("app/%s/%s/+/set/SEMAINE", global.client, global.ville)
         mqtt.subscribe(topic, semaine)
-        common.mqttprint("subscribed to SEMAINE")
+        mqttprint("subscribed to SEMAINE")
     end
 
     def every_minute()
-        var data = self.aht20.read_temperature_humidity()
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%f,"Humidity":%f}', common.device, common.device, data[0], data[1])
-        var topic = string.format("gw/%s/%s/%s/tele/SENSOR", common.client, common.ville, common.device)
+        var data = aht20.read_temperature_humidity()
+        if(data == nil)
+            return
+        end
+        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%f,"Humidity":%f}', global.device, global.device, data[0], data[1])
+        var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
     end
 
@@ -46,5 +67,6 @@ class CHX
 end
 
 chx = CHX()
+chx.init()
 tasmota.add_driver(chx)
 tasmota.add_cron("0 * * * * *", /-> chx.every_minute(), "every_min_@0_s")
