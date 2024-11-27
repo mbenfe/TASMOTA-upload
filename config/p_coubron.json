@@ -64,7 +64,7 @@
     },
     "dl12-galerie": {
         "mode": ["tri","tri","tri"],
-        "root": ["ecl2","ecl1","eclext"],
+        "root": ["gen_ecl2","gen_ecl1","eclext"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]

@@ -12,6 +12,7 @@ class AHT20
             mqttprint("AHT20 not found on I2C bus")
             return
         end
+        mqttprint("AHT20 found!")
         self.initialize_sensor()
     end
 
