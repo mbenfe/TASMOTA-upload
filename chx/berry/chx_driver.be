@@ -1,6 +1,9 @@
 import mqtt
 import string
 import json
+import global
+
+var gate = 19
 
 # Define mqttprint function
 def mqttprint(texte)
@@ -8,7 +11,15 @@ def mqttprint(texte)
     mqtt.publish(topic, texte, true)
 end
 
+
+
 def onoff(topic, idx, payload_s, payload_b)
+    var state = gpio.read(self.gate)
+    if state == 0
+        gpio.digital_write(self.gate, 1)
+    else
+        gpio.digital_write(self.gate, 0)
+    end
 end
 
 def mode(topic, idx, payload_s, payload_b)
@@ -30,6 +41,8 @@ class CHX
     def init()
         mqttprint("subscription MQTT")
         self.subscribes()
+        gpio.pin_mode(self.gate, gpio.OUTPUT)
+        gpio.digital_write(self.gate, 1)    
     end
 
     def subscribes()

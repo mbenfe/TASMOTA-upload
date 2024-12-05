@@ -28,9 +28,6 @@ def mqttprint(texte)
     mqtt.publish(topic, texte, true)
 end
 
-# Initialize configuration
-loadconfig()
-
 #-------------------------------- FONCTIONS -----------------------------------------#
 def ville(cmd, idx, payload, payload_json)
     import json
@@ -162,10 +159,15 @@ mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile', getfile)
 
 tasmota.add_cmd('dir', dir)
-
 tasmota.add_cmd('ville', ville)
 tasmota.add_cmd('device', device)
 tasmota.add_cmd('location', location)
+# Initialize configuration
+loadconfig()
+mqttprint("ville:"+str(global.ville))
+mqttprint("client:"+str(global.client))
+mqttprint("device:"+str(global.device))
+mqttprint("location:"+str(global.location))
 
 tasmota.add_cmd('getversion', getversion)
 
