@@ -53,7 +53,7 @@ class CHX
     end
 
     def every_minute()
-        var data = aht20.read_temperature_humidity()
+        var data = aht20.poll()
         if(data == nil)
             return
         end
