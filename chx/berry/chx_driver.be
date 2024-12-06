@@ -14,6 +14,8 @@ end
 class CHX
     var aht20
     var gate
+    var day_list
+    var thermostat
 
     def onoff(topic, idx, payload_s, payload_b)
 
@@ -27,10 +29,18 @@ class CHX
 
     def isemaine(topic, idx, payload_s, payload_b)
         print('isemaine:',topic,' ', payload_s)
+        var myjson = json.load(payload_s)
+        print(type(myjson))
     end
 
     def init()
+        var file = open("thermostat_intermarche.json", "rt")
+        var myjson = file.read()
+        file.close()
+        self.thermostat = json.load(myjson)  
+        print(self.thermostat) 
         self.gate = 19
+        self.day_list = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
         mqttprint("subscription MQTT")
         self.subscribes()
         gpio.pin_mode(self.gate, gpio.OUTPUT)
@@ -52,13 +62,46 @@ class CHX
     end
 
     def every_minute()
+        var now = tasmota.rtc()
+        var rtc=tasmota.time_dump(now["local"])
+        var second = rtc["sec"]
+        var minute = rtc["min"]
+        var hour = rtc["hour"]
+        var day = rtc["day"]
+        var month = rtc["month"]
+        var year = rtc["year"]
+        var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var jour = self.day_list[day_of_week]
         var data = aht20.poll()
         if(data == nil)
             return
         end
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f}', global.device, global.device, data[0], data[1])
+        var temperature = data[0]
+        var humidity = data[1]
+        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f}', global.device, global.device, temperature, humidity)
         var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
+        if( hour >= self.thermostat[jour]['debut'] && hour < self.thermostat[jour]['fin'] )
+            if (temperature < self.thermostat['ouvert'])
+                gpio.digital_write(self.gate, 0)
+                payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device)
+                mqtt.publish(topic, payload, true)
+            else
+                gpio.digital_write(self.gate, 1)
+                payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.device, global.device)
+                mqtt.publish(topic, payload, true)
+            end
+        else
+            if (temperature < self.thermostat['ferme'])
+                gpio.digital_write(self.gate, 0)
+                payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device)
+                mqtt.publish(topic, payload, true)
+            else
+                gpio.digital_write(self.gate, 1)
+                payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.device, global.device)
+                mqtt.publish(topic, payload, true)
+            end
+        end        
     end
 
     def every_second()
