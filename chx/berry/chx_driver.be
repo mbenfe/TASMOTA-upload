@@ -3,42 +3,34 @@ import string
 import json
 import global
 
-var gate = 19
 
 # Define mqttprint function
 def mqttprint(texte)
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
     mqtt.publish(topic, texte, true)
+    return true
 end
-
-
-
-def onoff(topic, idx, payload_s, payload_b)
-    var state = gpio.read(self.gate)
-    if state == 0
-        gpio.digital_write(self.gate, 1)
-    else
-        gpio.digital_write(self.gate, 0)
-    end
-end
-
-def mode(topic, idx, payload_s, payload_b)
-end
-
-def absence(topic, idx, payload_s, payload_b)
-end
-
-def weekend(topic, idx, payload_s, payload_b)
-end
-
-def semaine(topic, idx, payload_s, payload_b)
-end
-
 
 class CHX
     var aht20
+    var gate
+
+    def onoff(topic, idx, payload_s, payload_b)
+
+        print('onoff:',topic,' ', payload_s)
+        gpio.digital_write(self.gate, 0)
+    end
+
+    def mode(topic, idx, payload_s, payload_b)
+        print('mode:',topic,' ', payload_s)
+    end
+
+    def isemaine(topic, idx, payload_s, payload_b)
+        print('isemaine:',topic,' ', payload_s)
+    end
 
     def init()
+        self.gate = 19
         mqttprint("subscription MQTT")
         self.subscribes()
         gpio.pin_mode(self.gate, gpio.OUTPUT)
@@ -48,21 +40,15 @@ class CHX
     def subscribes()
         var topic 
         # chauffages
-        topic = string.format("app/%s/%s/+/set/ONOFF", global.client, global.ville)
-        mqtt.subscribe(topic, onoff)
+        topic = string.format("app/%s/%s/%s/set/ONOFF", global.client, global.ville, global.device)
+        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.onoff(topic, idx, payload_s, payload_b))
         mqttprint("subscribed to ONOFF")
-        topic = string.format("app/%s/%s/+/set/MODE", global.client, global.ville)
-        mqtt.subscribe(topic, mode)
+        topic = string.format("app/%s/%s/%s/set/MODE", global.client, global.ville, global.device)
+        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mode(topic, idx, payload_s, payload_b))
         mqttprint("subscribed to MODE")
-        topic = string.format("app/%s/%s/+/set/ABSENCE", global.client, global.ville)
-        mqtt.subscribe(topic, absence)
-        mqttprint("subscribed to ABSENCE")
-        topic = string.format("app/%s/%s/+/set/WEEKEND", global.client, global.ville)
-        mqtt.subscribe(topic, weekend)
-        mqttprint("subscribed to WEEKEND")
-        topic = string.format("app/%s/%s/+/set/SEMAINE", global.client, global.ville)
-        mqtt.subscribe(topic, semaine)
-        mqttprint("subscribed to SEMAINE")
+        topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville,global.device)
+        mqtt.subscribe(topic, /topic, idx, payload_s, payload_b -> self.isemaine(topic, idx, payload_s, payload_b))
+        mqttprint("subscribed to ISEMAINE")
     end
 
     def every_minute()
@@ -70,7 +56,7 @@ class CHX
         if(data == nil)
             return
         end
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%f,"Humidity":%f}', global.device, global.device, data[0], data[1])
+        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f}', global.device, global.device, data[0], data[1])
         var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
     end
