@@ -28,9 +28,25 @@ class CHX
     end
 
     def isemaine(topic, idx, payload_s, payload_b)
+
         print('isemaine:',topic,' ', payload_s)
-        var myjson = json.load(payload_s)
-        print(type(myjson))
+
+        var myjson = json.load(string.tolower(payload_s))
+
+        self.thermostat['ouvert'] = myjson['ouvert']
+        self.thermostat['ferme'] = myjson['ferme']
+        self.thermostat['lundi'] = myjson['lundi']
+        self.thermostat['mardi'] = myjson['mardi']
+        self.thermostat['mercredi'] = myjson['mercredi']
+        self.thermostat['jeudi'] = myjson['jeudi']
+        self.thermostat['vendredi'] = myjson['vendredi']
+        self.thermostat['samedi'] = myjson['samedi']
+        self.thermostat['dimanche'] = myjson['dimanche']
+        
+        var buffer = json.dump(self.thermostat)
+        var file = open("thermostat_intermarche.json", "wt")
+        file.write(buffer)
+        file.close()
     end
 
     def init()
