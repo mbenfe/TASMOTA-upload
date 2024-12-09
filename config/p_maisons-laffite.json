@@ -22,14 +22,7 @@
     },
     "dl12-boulange1": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene_boulange","four1","four2"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct"],
-        "ratio": ["1000","1000","1000"]
-    },
-    "dl12-boulange2": {
-        "mode": ["tri","tri","tri"],
-        "root": ["rideau1","rideau2","*"],
+        "root": ["four1","four2","f4f6"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
