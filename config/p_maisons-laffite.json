@@ -29,7 +29,7 @@
     },
     "dl12-labo": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene_labo","rotissoie","divers"],
+        "root": ["P3_P5_F8","rotissoire","P2_F1_F3"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
