@@ -1,23 +1,44 @@
 {
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
-        "root": ["froid1","froid2","main","*"],
+        "root": ["froid1","froid2","main"],
         "produit": "PWX12",
-        "techno": ["ct","ct","rogowski","ct"],
-        "ratio": ["2000","2000","3003","1000"]
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["2000","2000","3003"]
     },
     "dl12-tgbt2": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene_second_tgbt","gene_boulangerie","climatisation","*"],
+        "root": ["gene_second_tgbt","gene_boulangerie","climatisation"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["2000","2000","2000","2000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","2000"]
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
-        "root": ["rideau","gene_parking","gene_patisserie","*"],
+        "root": ["rideau","gene_parking","gene_patisserie"],
         "produit": "PWX12",
-        "techno": ["ct","ct","ct","ct"],
-        "ratio": ["1000","1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-boulange1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_boulange","four1","four2"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-boulange2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rideau1","rideau2","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-labo": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_labo","rotissoie","divers"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     }
 }
