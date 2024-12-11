@@ -186,7 +186,7 @@ def name(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-ef getfile(cmd, idx, payload, payload_json)
+def getfile(cmd, idx, payload, payload_json)
     import string
     import path
     var message
