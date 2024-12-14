@@ -97,6 +97,7 @@ class CHX
         var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f}', global.device, global.device, temperature, humidity)
         var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
+        topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.device)
         if( hour >= self.thermostat[jour]['debut'] && hour < self.thermostat[jour]['fin'] )
             if (temperature < self.thermostat['ouvert'])
                 gpio.digital_write(self.gate, 0)

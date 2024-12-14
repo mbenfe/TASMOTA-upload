@@ -26,5 +26,19 @@
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
+    },
+    "dl12-boulangerie": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_boulangerie","laverie_ext","fours"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-labo": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_labo","divers_4dij","ecl_gondoleLS"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     }
 }
