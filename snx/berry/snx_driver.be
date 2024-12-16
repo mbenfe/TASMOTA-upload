@@ -1,4 +1,4 @@
-var version "1.0.112024 ready to H7"
+var version = "1.0.112024 ready to H7"
 
 import mqtt
 import string

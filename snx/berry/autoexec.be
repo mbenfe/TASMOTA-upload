@@ -17,7 +17,11 @@ def mqttprint(texte)
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", ville, device)
     mqtt.publish(topic, texte, true)
 end
+
+var rst_out=33
 var bsl_out=32   
+var rst_in=19
+var bsl_in=21   
 
 #-------------------------------- FONCTIONS -----------------------------------------#
 def init()
@@ -92,7 +96,7 @@ def device(cmd, idx,payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-ef getfile(cmd, idx, payload, payload_json)
+def getfile(cmd, idx, payload, payload_json)
     import string
     import path
     var message
@@ -115,7 +119,7 @@ ef getfile(cmd, idx, payload, payload_json)
     if (st != 200)
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
-        tasmota.resp_cmnd("Erreur de téléchargement.")
+        tasmota.resp_cmnd("Erreur de tï¿½lï¿½chargement.")
         wc.close()
         return
     end
