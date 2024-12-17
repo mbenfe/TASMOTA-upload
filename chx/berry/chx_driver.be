@@ -29,8 +29,6 @@ class CHX
 
     def isemaine(topic, idx, payload_s, payload_b)
 
-        print('isemaine:',topic,' ', payload_s)
-
         var myjson = json.load(string.tolower(payload_s))
 
         self.thermostat['offset'] = myjson['offset']

@@ -126,6 +126,28 @@ def dir(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd_done()
 end
 
+def set(cmd, idx, payload, payload_json)
+    var arguments = string.split(payload, ' ')
+    var file = open("thermostat_intermarche.json", "rt")
+    var myjson = file.read()
+    file.close()
+    var thermostat = json.load(myjson)  
+    if arguments[0] == "offset"
+        thermostat['offset'] = real(arguments[1])
+    else if arguments[0] == "ouvert"
+        thermostat['ouvert'] = real(arguments[1])
+    else if arguments[0] == "ferme"
+        thermostat['ferme'] = real(arguments[1])
+    end
+    var buffer = json.dump(thermostat)
+    var file = open("thermostat_intermarche.json", "wt")
+    file.write(buffer)
+    file.close()
+
+    tasmota.resp_cmnd('done')
+    tasmota.cmd("restart 1")
+end
+
 def launch_driver()
     mqttprint('mqtt connected -> launch driver')
     tasmota.load('chx_driver.be')
@@ -170,6 +192,7 @@ mqttprint("device:"+str(global.device))
 mqttprint("location:"+str(global.location))
 
 tasmota.add_cmd('getversion', getversion)
+tasmota.add_cmd('set', set)
 
 mqttprint('load command.be')
 tasmota.load('command.be')
