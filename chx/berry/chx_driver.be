@@ -33,6 +33,7 @@ class CHX
 
         var myjson = json.load(string.tolower(payload_s))
 
+        self.thermostat['offset'] = myjson['offset']
         self.thermostat['ouvert'] = myjson['ouvert']
         self.thermostat['ferme'] = myjson['ferme']
         self.thermostat['lundi'] = myjson['lundi']
@@ -94,12 +95,13 @@ class CHX
         end
         var temperature = data[0]
         var humidity = data[1]
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f}', global.device, global.device, temperature, humidity,self.thermostat['ouvert'],self.thermostat['ferme'])
+        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s"}', 
+                global.device, global.device, temperature, humidity,self.thermostat['ouvert'],self.thermostat['ferme'],self.thermostat['offset'],global.location)
         var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
         topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.device)
         if( hour >= self.thermostat[jour]['debut'] && hour < self.thermostat[jour]['fin'] )
-            if (temperature < self.thermostat['ouvert'])
+            if (temperature < self.thermostat['ouvert']+self.thermostat['offset'])
                 gpio.digital_write(self.gate, 0)
                 payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device)
                 mqtt.publish(topic, payload, true)
@@ -109,7 +111,7 @@ class CHX
                 mqtt.publish(topic, payload, true)
             end
         else
-            if (temperature < self.thermostat['ferme'])
+            if (temperature < self.thermostat['ferme']+self.thermostat['offset'])
                 gpio.digital_write(self.gate, 0)
                 payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device)
                 mqtt.publish(topic, payload, true)
