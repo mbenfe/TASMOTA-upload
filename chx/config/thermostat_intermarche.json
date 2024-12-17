@@ -4,23 +4,23 @@
     "ferme": 11.0,
     "lundi": {
         "debut": 8.0,
-        "fin": 19.0
+        "fin": 15.0
     },
     "mardi": {
         "debut": 8.0,
-        "fin": 19.0
+        "fin": 15.0
     },
     "mercredi": {
         "debut": 8.0,
-        "fin": 19.0
+        "fin": 15.0
     },
     "jeudi": {
         "debut": 8.0,
-        "fin": 19.0
+        "fin": 15.0
     },
     "vendredi": {
         "debut": 8.0,
-        "fin": 19.0
+        "fin": 15.0
     },
     "samedi": {
         "debut": 8.0,
