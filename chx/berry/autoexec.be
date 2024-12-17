@@ -134,9 +134,9 @@ def set(cmd, idx, payload, payload_json)
     var thermostat = json.load(myjson)  
     if arguments[0] == "offset"
         thermostat['offset'] = real(arguments[1])
-    else if arguments[0] == "ouvert"
+    elif arguments[0] == "ouvert"
         thermostat['ouvert'] = real(arguments[1])
-    else if arguments[0] == "ferme"
+    elif arguments[0] == "ferme"
         thermostat['ferme'] = real(arguments[1])
     end
     var buffer = json.dump(thermostat)
@@ -144,7 +144,7 @@ def set(cmd, idx, payload, payload_json)
     file.write(buffer)
     file.close()
 
-    var  topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville,global.device)
+    var topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville, global.device)
     mqtt.publish(topic, buffer, true)
 
     tasmota.resp_cmnd('done')
@@ -187,12 +187,13 @@ tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('ville', ville)
 tasmota.add_cmd('device', device)
 tasmota.add_cmd('location', location)
+
 # Initialize configuration
 loadconfig()
-mqttprint("ville:"+str(global.ville))
-mqttprint("client:"+str(global.client))
-mqttprint("device:"+str(global.device))
-mqttprint("location:"+str(global.location))
+mqttprint("ville:" + str(global.ville))
+mqttprint("client:" + str(global.client))
+mqttprint("device:" + str(global.device))
+mqttprint("location:" + str(global.location))
 
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('set', set)
