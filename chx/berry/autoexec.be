@@ -144,6 +144,9 @@ def set(cmd, idx, payload, payload_json)
     file.write(buffer)
     file.close()
 
+    var  topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville,global.device)
+    mqtt.publish(topic, buffer, true)
+
     tasmota.resp_cmnd('done')
     tasmota.cmd("restart 1")
 end
