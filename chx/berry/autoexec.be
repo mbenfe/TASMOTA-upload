@@ -140,7 +140,7 @@ def set(cmd, idx, payload, payload_json)
         thermostat['ferme'] = real(arguments[1])
     end
     var buffer = json.dump(thermostat)
-    var file = open("thermostat_intermarche.json", "wt")
+    file = open("thermostat_intermarche.json", "wt")
     file.write(buffer)
     file.close()
 
