@@ -100,12 +100,13 @@ class STM32
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
+                print(mystring)
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
                 for i:0..numitem-2
                     myjson = json.load(mylist[i])
                     if myjson.contains('ID')
-                        if myjson["ID"] == 0
+                        if myjson["ID"] == 0 || myjson["ID"] == -1
                             topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
                         else
                             topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))

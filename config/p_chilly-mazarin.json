@@ -1,0 +1,65 @@
+{
+    "dl12-sdm": {
+        "mode": ["tri","tri","tri"],
+        "root": ["*","fneg","fpos"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","1000"]
+    },
+    "dl4-sdm": {
+        "mode": "tri",
+        "root": ["gene_froid"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["2000"]
+    },
+    "dl12-td_ss": {
+        "mode": ["tri","tri","tri"],
+        "root": ["*","*","gene_td_ss"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","2000"]
+    },
+    "dl12-td_boulange": {
+        "mode": ["tri","tri","tri"],
+        "root": ["four16A","four32A","gene_td_boulange"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","2000"]
+    },
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["station","onduleur","bistrot"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rail_boulangerie","coffret2","td_bureaux"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["*","*","gene_tgbt"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl4-tgbt": {
+        "mode": "tri",
+        "root": ["eclrairages"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["2000"]
+    },
+    "dl12-labo": {
+        "mode": ["tri","tri","tri"],
+        "root": ["*","*","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    }
+}
