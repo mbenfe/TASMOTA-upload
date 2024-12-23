@@ -172,6 +172,18 @@ def set(cmd, idx, payload, payload_json)
     tasmota.cmd("restart 1")
 end
 
+def get(cmd, idx, payload, payload_json)
+    var file = open("thermostat_intermarche.json", "rt")
+    var myjson = file.read()
+    file.close()
+
+    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device)
+    mqtt.publish(topic, myjson, true)
+
+    tasmota.resp_cmnd('done')
+end
+
+
 def launch_driver()
     mqttprint('mqtt connected -> launch driver')
     tasmota.load('chx_driver.be')
@@ -217,7 +229,7 @@ mqttprint("device:" + str(global.device))
 mqttprint("location:" + str(global.location))
 
 tasmota.add_cmd('getversion', getversion)
-tasmota.add_cmd('set', set)
+tasmota.add_cmd('get', get)
 
 mqttprint('load command.be')
 tasmota.load('command.be')
