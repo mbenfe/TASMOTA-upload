@@ -138,6 +138,27 @@ def set(cmd, idx, payload, payload_json)
         thermostat['ouvert'] = real(arguments[1])
     elif arguments[0] == "ferme"
         thermostat['ferme'] = real(arguments[1])
+    elif arguments[0] == "lundi"
+        thermostat['lundi']['debut'] = real(arguments[1])
+        thermostat['lundi']['fin'] = real(arguments[2])
+    elif arguments[0] == "mardi"
+        thermostat['mardi']['debut'] = real(arguments[1])
+        thermostat['mardi']['fin'] = real(arguments[2])
+    elif arguments[0] == "mercredi"
+        thermostat['mercredi']['debut'] = real(arguments[1])
+        thermostat['mercredi']['fin'] = real(arguments[2])
+    elif arguments[0] == "jeudi"
+        thermostat['jeudi']['debut'] = real(arguments[1])
+        thermostat['jeudi']['fin'] = real(arguments[2])
+    elif arguments[0] == "vendredi"
+        thermostat['vendredi']['debut'] = real(arguments[1])
+        thermostat['vendredi']['fin'] = real(arguments[2])
+    elif arguments[0] == "samedi"
+        thermostat['samedi']['debut'] = real(arguments[1])
+        thermostat['samedi']['fin'] = real(arguments[2])
+    elif arguments[0] == "dimanche"
+        thermostat['dimanche']['debut'] = real(arguments[1])
+        thermostat['dimanche']['fin'] = real(arguments[2])
     end
     var buffer = json.dump(thermostat)
     file = open("thermostat_intermarche.json", "wt")
