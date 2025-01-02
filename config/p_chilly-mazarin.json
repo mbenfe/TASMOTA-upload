@@ -55,9 +55,16 @@
         "techno": ["ct"],
         "ratio": ["2000"]
     },
+    "dl4-labo": {
+        "mode": "tri",
+        "root": ["gene_labo"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["2000"]
+    },
     "dl12-labo": {
         "mode": ["tri","tri","tri"],
-        "root": ["*","*","*"],
+        "root": ["pc_tri","ecl_labo","force"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
