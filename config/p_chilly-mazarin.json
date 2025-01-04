@@ -60,7 +60,7 @@
         "root": ["gene_labo"],
         "produit": "PWX4",
         "techno": ["ct"],
-        "ratio": ["2000"]
+        "ratio": ["1000"]
     },
     "dl12-labo": {
         "mode": ["tri","tri","tri"],
