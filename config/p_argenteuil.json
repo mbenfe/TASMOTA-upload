@@ -34,9 +34,9 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["2000","2000","2000"]
     },
-    "dl4-galerie": {
+    "dl4-meubles-froid": {
         "mode": "tri",
-        "root": ["foid_meubles"],
+        "root": ["meubles_froid"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]

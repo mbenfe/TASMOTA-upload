@@ -1,3 +1,4 @@
+var version = '05.01.2025'
 
 class logger
 
@@ -37,10 +38,10 @@ class logger
     def log_data(data)
         var split
         split = string.split(data,':')
-        if(self.count<5760)
-          self.count=self.count+1
-        end
-        self.listlog.insert(self.count,real(split[1]))
+        # if(self.count<5760)
+        #   self.count=self.count+1
+        # end
+        # self.listlog.insert(self.count,real(split[1]))
     end
 
 end

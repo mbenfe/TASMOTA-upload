@@ -100,7 +100,6 @@ class STM32
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
-                print(mystring)
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
                 for i:0..numitem-2
