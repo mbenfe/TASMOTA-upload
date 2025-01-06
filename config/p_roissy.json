@@ -69,9 +69,16 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","2000","1000"]
     },
-    "dl12-labo": {
+    "dl12-labo1": {
         "mode": ["tri","tri","tri"],
-        "root": ["tbd1","tbd2","tbd3"],
+        "root": ["gene_pc_non_pub","gene_divers2","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-labo2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_station","gene_four_rot","*"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
