@@ -1,0 +1,30 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rooftop_51","rooftop1_36","gene_rooftops"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","4000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["main","froid","ecl_ext"],
+        "produit": "PWX12",
+        "techno": ["rogowski","rogowski","ct"],
+        "ratio": ["3003","3003","1000"]
+    },
+    "dl12-tgbt5": {
+        "mode": ["tri","tri","tri"],
+        "root": ["onduleur","bureaux","gene_tab1"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt6": {
+        "mode": ["tri","tri","tri"],
+        "root": ["main","froid","ecl_ext"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    }
+}
