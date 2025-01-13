@@ -13,6 +13,20 @@
         "techno": ["rogowski","rogowski","ct"],
         "ratio": ["3003","3003","1000"]
     },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_station","td_poissonerie","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["CF-reserve","ecl_f&l","gene_divers"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
     "dl12-tgbt5": {
         "mode": ["tri","tri","tri"],
         "root": ["onduleur","bureaux","gene_tab1"],
@@ -22,7 +36,7 @@
     },
     "dl12-tgbt6": {
         "mode": ["tri","tri","tri"],
-        "root": ["main","froid","ecl_ext"],
+        "root": ["gene_tab2","travees","caisses"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]

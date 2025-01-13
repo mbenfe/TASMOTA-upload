@@ -104,16 +104,20 @@ class STM32
                 numitem = size(mylist)
                 for i:0..numitem-2
                     myjson = json.load(mylist[i])
-                    if myjson.contains('ID')
-                        if myjson["ID"] == 0 || myjson["ID"] == -1
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
+                    if myjson != nil
+                        if myjson.contains('ID')
+                            if myjson["ID"] == 0 || myjson["ID"] == -1
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
+                            else
+                                topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
+                            end
+                            mqtt.publish(topic,mylist[i],true)
                         else
-                            topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
+                            topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
+                            mqtt.publish(topic,mylist[i],true)
                         end
-                        mqtt.publish(topic,mylist[i],true)
                     else
-                        topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
-                        mqtt.publish(topic,mylist[i],true)
+                        print('json error:',mylist[i])
                     end
                 end
             elif (buffer[0] == 42)     # * -> json statistic
