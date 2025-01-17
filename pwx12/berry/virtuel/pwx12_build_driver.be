@@ -48,7 +48,6 @@ class PWX12
         var text
         var myjson = json.load(payload_s)
         self.main_total = 0
-        print(myjson["Name"],' ',myjson["ActivePower"])
         self.powers[myjson["Name"]]=myjson["ActivePower"]
         for key:self.powers.keys()
             self.main_total += self.powers[key]
@@ -116,7 +115,6 @@ class PWX12
                         topic = string.format("gw/%s/%s/%s/tele/PRINT",global.client,global.ville,global.device)
                         mqtt.publish(topic,mylist[i],true)
                     elif mylist[i][0] == 'W'
-                        print("watt")
                         self.logger.log_data(mylist[i])
                         split = string.split(mylist[i],':')
                         for j:0..2
