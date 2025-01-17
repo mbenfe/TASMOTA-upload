@@ -16,8 +16,9 @@ class PWX12
     var topic 
     var conso
 
-    var source
     var agregate
+    var powers
+    var main_total
 
     def loadconfig()
         import json
@@ -42,17 +43,28 @@ class PWX12
         print('device:',global.device)
     end
 
-    def agregation(topic, idx, payload_s, payload_b)
-        print(topic,' ',payload_s)
+    def aggregation(topic, idx, payload_s, payload_b)
+        var main_topic = string.format("gw/%s/%s/virtuel/tele/POWER",global.client,global.ville)
+        var text
+        var myjson = json.load(payload_s)
+        self.main_total = 0
+        print(myjson["Name"],' ',myjson["ActivePower"])
+        self.powers[myjson["Name"]]=myjson["ActivePower"]
+        for key:self.powers.keys()
+            self.main_total += self.powers[key]
+        end
+        text = string.format('{"Device": "virtuel","Name":"main_total","ActivePower":%.1f}',self.main_total)
+        mqtt.publish(main_topic,text,true)
     end
 
-    def subscribe()
+    def subscribes()
         var topic
-        var keylist = self.agregate.keys()
-        foreach key in keylist
-            var value = self.agregate[key]
-            topic = string.format("gw/inter/chilly-mazarin/%s/tele/SENSOR",value)
-            mqtt.subscribe(topic, / topic,idx,payload_s,payload_b-> self.agregation(topic,idx,payload_s,payload_b))
+        var value
+        for key:self.agregate.keys()
+            value = self.agregate[key]
+            topic = string.format("gw/%s/%/%s/tele/POWER",global.client,global.ville,key)
+            mqtt.subscribe(topic, / topic,idx,payload_s,payload_b-> self.aggregation(topic,idx,payload_s,payload_b))
+            self.powers.insert(value,0)
         end
     end
 
@@ -76,9 +88,10 @@ class PWX12
         gpio.digital_write(self.bsl, 0)
         gpio.digital_write(self.rst, 1)
 
-        self.source = "cfneg"
-        self.agregate = [{"dl4-sdm":"gene_froid"},{"dl12-td_ss-3":"gene_td_ss"},{"dl12-tgbt3-3":"gene_tgbt"}]
-        self.subscribe()
+        self.agregate = {"dl4-sdm":"gene_froid","dl12-td_ss-3":"gene_td_ss","dl12-tgbt3-3":"gene_tgbt"}
+        self.powers={}
+        self.main_total = 0
+        self.subscribes()
    end
 
     def fast_loop()
