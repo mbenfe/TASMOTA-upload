@@ -44,7 +44,7 @@ class PWX12
 
     def agregation(topic, idx, payload_s, payload_b)
         print(topic,' ',payload_s)
-    def
+    end
 
     def subscribe()
         var topic
