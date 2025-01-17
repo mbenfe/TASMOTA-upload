@@ -62,7 +62,7 @@ class PWX12
         var value
         for key:self.agregate.keys()
             value = self.agregate[key]
-            topic = string.format("gw/%s/%/%s/tele/POWER",global.client,global.ville,key)
+            topic = string.format("gw/%s/%s/%s/tele/POWER",global.client,global.ville,key)
             mqtt.subscribe(topic, / topic,idx,payload_s,payload_b-> self.aggregation(topic,idx,payload_s,payload_b))
             self.powers.insert(value,0)
         end
