@@ -1,3 +1,5 @@
+var version = "1.0.012025 "
+
 #---------------------------------#
 # PWX4_DRIVER.BE 1.0 PWX4         #
 #---------------------------------#
@@ -91,7 +93,7 @@ class PWX4
                         var ligne
                         for j:0..0
                             topic = string.format("gw/%s/%s/%s/tele/POWER",global.client,global.ville,global.device)
-                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}',global.device,global.configjson[global.device]["root"][j],real(split[j+1]))
+                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}',global.device,global.configjson[global.device]["root"],real(split[j+1]))
                             mqtt.publish(topic,ligne,true)
                         end
                     else

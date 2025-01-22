@@ -283,14 +283,12 @@ end
 
  tasmota.cmd("seriallog 0")
  print("AUTOEXEC:serial log disabled")
- tasmota.cmd("timezone 2")
- print("AUTOEXEC:timezone set")
-  
+
 tasmota.add_cmd("cal",Calibration)
 tasmota.add_cmd("readcal",readcal)
 tasmota.add_cmd("storecal",storecal)
- tasmota.add_cmd("Init",Init)
- tasmota.add_cmd('Stm32reset',Stm32Reset)
+tasmota.add_cmd("Init",Init)
+tasmota.add_cmd('Stm32reset',Stm32Reset)
 tasmota.add_cmd("BlReset",BlReset)
 tasmota.add_cmd("BlMode",BlMode)
 tasmota.add_cmd("BlType",BlType)

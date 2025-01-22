@@ -308,9 +308,6 @@ tasmota.cmd("seriallog 0")
 print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
  
-tasmota.cmd("timezone 2")
-print("timezone set")
-
 tasmota.add_cmd("Stm32reset",Stm32Reset)
 tasmota.add_cmd("getfile",getfile)
 tasmota.add_cmd("sendconfig",sendconfig)
