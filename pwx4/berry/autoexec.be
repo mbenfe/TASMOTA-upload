@@ -73,17 +73,20 @@ end
 
 def BlMode(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload)," ")
-    if(argument[0]!="CAL" && argument[0] !="LOG" )
+    if(argument[0]!="CAL" && argument[0] !="LOG" && argument[0] !="REG")
         mqttprint("erreur arguments")
         return
     end
     global.serialSend.flush()
-    if(argument[0]=="CAL")
+    if (argument[0] == "CAL")
         global.serialSend.write(bytes().fromstring("SET MODE CAL"))
         mqttprint("SET MODE CAL")
-    else
+    elif(argument[0] == "LOG")
         global.serialSend.write(bytes().fromstring("SET MODE LOG"))
         mqttprint("SET MODE LOG")
+    elif (argument[0] == "REG")
+        global.serialSend.write(bytes().fromstring("SET MODE REG"))
+        mqttprint("SET MODE REG")
     end
     tasmota.resp_cmnd_done()
 end

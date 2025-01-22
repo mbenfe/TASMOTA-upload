@@ -1,0 +1,17 @@
+{ 
+    "dl12-developpement": {
+        "mode": ["tri","tri","tri"],
+        "root": ["test1","test2","test3"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+
+    "dl4-developpement": {
+        "mode": "tri",
+        "root": ["test"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    }
+ }
