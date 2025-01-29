@@ -1,10 +1,10 @@
-var version = "1.0.0"
+var version = "1.0.012025 "
 
 import mqtt
 import string
 import json
 
-class PWX12
+class PWX4
     var ser
     var rx
     var tx
@@ -157,7 +157,7 @@ class PWX12
         gpio.digital_write(self.bsl, 0)
         gpio.digital_write(self.rst, 1)
 
-        self.agregate = {"dl4-froid":"froid","dl12-ext":"gene_ext1"}
+        self.agregate = {"dl4-sdm":"gene_froid","dl12-td_ss-3":"gene_td_ss","dl12-tgbt3-3":"gene_tgbt"}
         self.map_powers = {}
         self.main_total = 0
         self.map_conso_hours = {}
@@ -196,7 +196,7 @@ class PWX12
                         mqtt.publish(topic, ligne, true)
                     end
                 else
-                    print('PWX12->', mylist[i])
+                    print('PWX4->', mylist[i])
                 end
             end
         end
@@ -226,11 +226,11 @@ class PWX12
 
 end
 
-pwx12 = PWX12()
-tasmota.add_driver(pwx12)
-tasmota.add_fast_loop(/-> pwx12.fast_loop())
-tasmota.add_cron("59 59 23 * * *", /-> pwx12.midnight(), "every_day")
-tasmota.add_cron("59 59 * * * *", /-> pwx12.hour(), "every_hour")
-tasmota.add_cron("01 01 */4 * * *", /-> pwx12.every_4hours(), "every_4_hours")
+pwx4 = PWX4()
+tasmota.add_driver(pwx4)
+tasmota.add_fast_loop(/-> pwx4.fast_loop())
+tasmota.add_cron("59 59 23 * * *",  /-> pwx4.midnight(), "every_day")
+tasmota.add_cron("59 59 * * * *",   /-> pwx4.hour(), "every_hour")
+tasmota.add_cron("01 01 */4 * * *",   /-> pwx4.every_4hours(), "every_4_hours")
 
-return pwx12
+return pwx4

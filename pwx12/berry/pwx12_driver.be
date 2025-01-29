@@ -82,7 +82,6 @@ class PWX12
                         topic = string.format("gw/%s/%s/%s/tele/PRINT",global.client,global.ville,global.device)
                         mqtt.publish(topic,mylist[i],true)
                     elif mylist[i][0] == 'W'
-                        print("watt")
                         self.logger.log_data(mylist[i])
                         split = string.split(mylist[i],':')
                         for j:0..2

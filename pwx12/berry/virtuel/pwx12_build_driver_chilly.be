@@ -157,7 +157,7 @@ class PWX12
         gpio.digital_write(self.bsl, 0)
         gpio.digital_write(self.rst, 1)
 
-        self.agregate = {"dl4-froid":"froid","dl12-ext":"gene_ext1"}
+        self.agregate = {"dl4-sdm":"gene_froid","dl12-td_ss-3":"gene_td_ss","dl12-tgbt3-3":"gene_tgbt"}
         self.map_powers = {}
         self.main_total = 0
         self.map_conso_hours = {}

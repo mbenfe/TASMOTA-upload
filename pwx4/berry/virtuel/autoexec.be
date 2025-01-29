@@ -1,4 +1,4 @@
-var version = "1.0.112024"
+var version = "1.0.012025"
 
 import string
 import global
@@ -252,11 +252,8 @@ def sendconfig(cmd, idx, payload, payload_json)
     for key:myjson.keys()
         if (key == device)
             trouve = true
-            total = "CONFIG " + key + "_"
-                    + myjson[key]["root"][0] + "_" + myjson[key]["root"][1] + "_" + myjson[key]["root"][2] + "_" + myjson[key]["root"][3] + "_"
-                    + myjson[key]["produit"] + "_"
-                    + myjson[key]["techno"][0] + "_" + myjson[key]["techno"][1] + "_" + myjson[key]["techno"][2] + "_" + myjson[key]["techno"][3] + "_"
-                    + myjson[key]["ratio"][0] + "_" + myjson[key]["ratio"][1] + "_" + myjson[key]["ratio"][2] + "_" + myjson[key]["ratio"][3]
+             total+='CONFIG'+' '+key+'_'+myjson[key]["root"][0]+'_'+myjson[key]["produit"]+'_'+myjson[key]["techno"][0]+'_'+str(myjson[key]["ratio"][0])
+             mqttprint(str(total))
         end
     end
     if (trouve == true)
@@ -353,4 +350,4 @@ tasmota.add_cmd('getversion', getversion)
 ############################################################
 tasmota.cmd("Init")
 tasmota.delay(500)
-tasmota.load("pwx12_build_driver.be")
+tasmota.load("pwx4_build_driver.be")
