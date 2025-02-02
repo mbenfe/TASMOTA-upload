@@ -40,5 +40,19 @@
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
-    }
+    },    
+    "dl12-boulangerie": {
+        "mode": ["tri","tri","tri"],
+        "root": ["fours","drive&co","gene_boulangerie"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","2000"]
+    },
+    "dl4-labo": {
+        "mode": "tri",
+        "root": ["gene_labo"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+        }
 }
