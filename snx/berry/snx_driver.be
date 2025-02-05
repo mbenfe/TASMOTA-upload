@@ -108,8 +108,10 @@ class STM32
                         if myjson.contains('ID')
                             if myjson["ID"] == 0 || myjson["ID"] == -1
                                 topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
-                            else
+                            elif myjson.contains('CtrlState')
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
+                            else
+                                topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(int(myjson["ID"])))
                             end
                             mqtt.publish(topic,mylist[i],true)
                         else

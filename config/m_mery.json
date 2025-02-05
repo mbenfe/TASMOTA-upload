@@ -1,6 +1,10 @@
 {
     "applications": [
         {
+            "label": "Pie",
+            "level": 1,
+            "type": "iConso",
+            "virtuel": 0,
             "data": [
                 {
                     "color": 0,
@@ -8,6 +12,7 @@
                     "location": "TGBT",
                     "master": "main",
                     "row": 1,
+                    "shape": "PieConso",
                     "slave": [
                         "froid",
                         "ecl_ext",
@@ -20,14 +25,23 @@
                         "gene_tab1",
                         "gene_tab2"
                     ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "TGBT",
+                    "master": "main",
+                    "row": 2,
+                    "shape": "consocard",
+                    "slave": []
                 }
-            ],
-            "label": "Pie",
-            "level": 1,
-            "type": "PieConso",
-            "virtuel": 0
+            ]
         },
         {
+            "label": "Negatif",
+            "level": 1,
+            "type": "iFroidNegatif",
+            "virtuel": 0,
             "data": [
                 {
                     "color": 0,
@@ -35,6 +49,7 @@
                     "location": "Boulangerie",
                     "master": "CFBoulNegative_2",
                     "row": 1,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -45,6 +60,7 @@
                     "location": "",
                     "master": "SurgelesPortes1",
                     "row": 2,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -55,6 +71,7 @@
                     "location": "",
                     "master": "SurgelesPortes2",
                     "row": 2,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -65,6 +82,7 @@
                     "location": "",
                     "master": "SurgelesPorte3",
                     "row": 2,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -75,6 +93,7 @@
                     "location": "",
                     "master": "SurgelesPorte4",
                     "row": 2,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -85,6 +104,7 @@
                     "location": "",
                     "master": "SurgelesPorte5",
                     "row": 3,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -95,6 +115,7 @@
                     "location": "",
                     "master": "SurgelesPorte6",
                     "row": 3,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -105,6 +126,7 @@
                     "location": "",
                     "master": "SurgelesPorte7",
                     "row": 3,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -115,6 +137,7 @@
                     "location": "Bac",
                     "master": "BacSurgeles1",
                     "row": 4,
+                    "shape": "",
                     "slave": []
                 },
                 {
@@ -123,17 +146,18 @@
                     "location": "Bac",
                     "master": "TGBacSurgeles",
                     "row": 4,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
                 }
-            ],
-            "label": "Negatif",
-            "level": 1,
-            "type": "iFroidNegatif",
-            "virtuel": 0
+            ]
         },
         {
+            "label": "Positif",
+            "level": 1,
+            "type": "iFroidPositif",
+            "virtuel": 0,
             "data": [
                 {
                     "color": 0,
@@ -141,6 +165,7 @@
                     "location": "Jus de Fruits",
                     "master": "JusDeFruits_3",
                     "row": 1,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -151,6 +176,7 @@
                     "location": "Boucherie",
                     "master": "BoucherieLS1_4",
                     "row": 1,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -161,6 +187,7 @@
                     "location": "Boucherie",
                     "master": "BoucherieLS2_5",
                     "row": 1,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -171,6 +198,7 @@
                     "location": "Boucherie",
                     "master": "TradBoucherie1_6",
                     "row": 1,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -181,6 +209,7 @@
                     "location": "Boucherie",
                     "master": "TradBoucherie2_7",
                     "row": 2,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -191,6 +220,7 @@
                     "location": "Boucherie",
                     "master": "TradBoucherie3_8",
                     "row": 2,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -201,6 +231,7 @@
                     "location": "Boucherie",
                     "master": "TradBoucherie4_9",
                     "row": 2,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -211,6 +242,7 @@
                     "location": "Boucherie",
                     "master": "TradBoucherie5_10",
                     "row": 2,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -221,6 +253,7 @@
                     "location": "Boucherie",
                     "master": "TradBoucherie6_11",
                     "row": 3,
+                    "shape": "",
                     "slave": []
                 },
                 {
@@ -229,6 +262,7 @@
                     "location": "Traiteur",
                     "master": "TraiteurLS_12",
                     "row": 3,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -239,6 +273,7 @@
                     "location": "Promo",
                     "master": "TGPromo1_13",
                     "row": 3,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -249,6 +284,7 @@
                     "location": "Anti Gaspi",
                     "master": "VitrineAntiGaspi_14",
                     "row": 3,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -259,6 +295,7 @@
                     "location": "Fromage",
                     "master": "FromageFE1_15",
                     "row": 4,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -269,6 +306,7 @@
                     "location": "Fromage",
                     "master": "FromageFE2_16",
                     "row": 4,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -279,6 +317,7 @@
                     "location": "",
                     "master": "FromageFE3_17",
                     "row": 4,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -289,6 +328,7 @@
                     "location": "Charcuterie",
                     "master": "CharcuterieTrad1_18",
                     "row": 4,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -299,6 +339,7 @@
                     "location": "Charcuterie",
                     "master": "CharcuterieTrad2_19",
                     "row": 5,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -309,6 +350,7 @@
                     "location": "Charcuterie",
                     "master": "CharcuterieTrad3_20",
                     "row": 5,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -319,6 +361,7 @@
                     "location": "Maree",
                     "master": "MareeFE_21",
                     "row": 5,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -329,6 +372,7 @@
                     "location": "Saurisserie",
                     "master": "Saurisserie_22",
                     "row": 5,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -339,6 +383,7 @@
                     "location": "4eme Gamme",
                     "master": "4emeGamme_23",
                     "row": 6,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -349,6 +394,7 @@
                     "location": "Maraichage",
                     "master": "MaraichageLS_24",
                     "row": 6,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -359,6 +405,7 @@
                     "location": "Snacking",
                     "master": "SnackingLS_25",
                     "row": 6,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -369,6 +416,7 @@
                     "location": "Charcuterie",
                     "master": "TGCharcuterieLS_26",
                     "row": 6,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -379,6 +427,7 @@
                     "location": "Volaille",
                     "master": "VolaillesLS1_27",
                     "row": 7,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -389,6 +438,7 @@
                     "location": "Volaille",
                     "master": "VolaillesLS2_28",
                     "row": 7,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -399,6 +449,7 @@
                     "location": "Traiteur",
                     "master": "TraiteurLS1_29",
                     "row": 7,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -409,6 +460,7 @@
                     "location": "Promo",
                     "master": "TGPromo2_30",
                     "row": 7,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -419,6 +471,7 @@
                     "location": "Traiteur",
                     "master": "TraiteurLS2_31",
                     "row": 8,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -429,6 +482,7 @@
                     "location": "Charcuterie",
                     "master": "CharcuterieLS1_32",
                     "row": 8,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -439,6 +493,7 @@
                     "location": "Charcuterie",
                     "master": "CharcuterieLS2_33",
                     "row": 8,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -449,6 +504,7 @@
                     "location": "Charcuterie",
                     "master": "CharcuterieLS3_34",
                     "row": 8,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -459,6 +515,7 @@
                     "location": "Corps Gras",
                     "master": "CorpsGras_35",
                     "row": 9,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -469,6 +526,7 @@
                     "location": "Rapes ",
                     "master": "GruyeresRapes_36",
                     "row": 9,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -479,6 +537,7 @@
                     "location": "Fromage",
                     "master": "TGFromageLS_37",
                     "row": 9,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -489,6 +548,7 @@
                     "location": "Fromage",
                     "master": "FromageLS1_38",
                     "row": 9,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -499,6 +559,7 @@
                     "location": "Fromage",
                     "master": "FromageLS2_39",
                     "row": 10,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -509,6 +570,7 @@
                     "location": "Fromage",
                     "master": "FromageLS3_40",
                     "row": 10,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -519,6 +581,7 @@
                     "location": "Ultra Frais",
                     "master": "UltraFrais1_41",
                     "row": 10,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -529,6 +592,7 @@
                     "location": "Ultra Frais",
                     "master": "UltraFrais2_42",
                     "row": 10,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -539,6 +603,7 @@
                     "location": "Ultra Frais",
                     "master": "UltraFrais3_43",
                     "row": 11,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -549,6 +614,7 @@
                     "location": "Ultra Frais",
                     "master": "TGUltraFrais_44",
                     "row": 11,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -559,6 +625,7 @@
                     "location": "Ultra Frais",
                     "master": "UltraFrais4_45",
                     "row": 11,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -569,6 +636,7 @@
                     "location": "Ultra Frais",
                     "master": "UltraFrais5_46",
                     "row": 11,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
@@ -579,15 +647,12 @@
                     "location": "Ultra Frais",
                     "master": "UltraFrais6_47",
                     "row": 12,
+                    "shape": "",
                     "slave": [
                         "froid"
                     ]
                 }
-            ],
-            "label": "Positif",
-            "level": 1,
-            "type": "iFroidPositif",
-            "virtuel": 0
+            ]
         }
     ]
 }
