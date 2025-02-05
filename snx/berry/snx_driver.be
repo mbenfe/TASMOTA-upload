@@ -108,7 +108,7 @@ class STM32
                         if myjson.contains('ID')
                             if myjson["ID"] == 0 || myjson["ID"] == -1
                                 topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
-                            elif myjson.contains('CtrlState')
+                            elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
                             else
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(int(myjson["ID"])))
