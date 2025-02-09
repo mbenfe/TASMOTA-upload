@@ -79,9 +79,6 @@ class conso
         end
         heures_creuses/=1000
         heures_pleines/=1000
-        # temporaire
-        heures_creuses=3490
-        heures_pleines=10997
         if(month >= global.coutjson["electricite"]["sh_debut"] || month <= global.coutjson["electricite"]["sh_fin"])
             saison = global.coutjson["electricite"]["sh"]
         else
