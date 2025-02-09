@@ -3,10 +3,9 @@ var version = "1.0.0 avec couts"
 import mqtt
 import string
 import json
-import global
 import math
 
-class PWX4
+class PWX12
     var ser
     var rx
     var tx
@@ -77,22 +76,27 @@ class PWX4
             var numitem = size(mylist)
             var topic
             var split
-			var ligne
+            var ligne
             for i: 0..numitem-2
                 if mylist[i][0] == 'C'
                     self.conso.update(mylist[i])
                     topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                     mqtt.publish(topic, mylist[i], true)
                 elif mylist[i][0] == 'W'
-                    # self.logger.log_data(mylist[i])
+                    self.logger.log_data(mylist[i])
                     split = string.split(mylist[i], ':')
-                    for j: 0..0
-                        topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
+                    for j: 0..2
+                        if global.configjson[global.device]["root"][j] != "*"
+                            topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
+                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
+                            mqtt.publish(topic, ligne, true)
+                        end
+                        topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
                         ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
                         mqtt.publish(topic, ligne, true)
                     end
                 else
-                    print('PWX4->', mylist[i])
+                    print('PWX12->', mylist[i])
                 end
             end
         end
@@ -122,24 +126,23 @@ class PWX4
 
 end
 
-pwx4 = PWX4()
-tasmota.add_driver(pwx4)
+pwx12 = PWX12()
+tasmota.add_driver(pwx12)
 var now = tasmota.rtc()
 var delay
 var mycron
 math.srand(now["local"])
 delay = math.rand() % 9
-tasmota.add_fast_loop(/-> pwx4.fast_loop())
+tasmota.add_fast_loop(/-> pwx12.fast_loop())
 # set midnight cron
 mycron = string.format("59 %d 23 * * *", 50 + delay)
-tasmota.add_cron(mycron, /-> pwx4.midnight(), "every_day")
+tasmota.add_cron(mycron, /-> pwx12.midnight(), "every_day")
 mqttprint("cron midnight:" + mycron)
 # set hour cron
 mycron = string.format("59 %d * * * *", 50 + delay)
-tasmota.add_cron(mycron, /-> pwx4.hour(), "every_hour")
+tasmota.add_cron(mycron, /-> pwx12.hour(), "every_hour")
 mqttprint("cron hour:" + mycron)
 # set 4 hours cron
+tasmota.add_cron("01 01 */4 * * *", /-> pwx12.every_4hours(), "every_4_hours")
 
-tasmota.add_cron("01 01 */4 * * *", /-> pwx4.every_4hours(), "every_4_hours")
-
-return pwx4
+return pwx12
