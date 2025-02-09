@@ -1,6 +1,90 @@
 {
     "applications": [
         {
+            "label": "Conso",
+            "level": 1,
+            "type": "iConso",
+            "virtuel": 0,
+            "data": [
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "TOTAL",
+                    "master": "main_total",
+                    "row": 1,
+                    "shape": "PieConso",
+                    "slave": [
+                        "froid",
+                        "gene_ext1"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Total",
+                    "master": "main_total",
+                    "row": 2,
+                    "shape": "consocard",
+                    "slave": []
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Magasin",
+                    "master": "gene_ext1",
+                    "row": 3,
+                    "shape": "PieConso",
+                    "slave": [
+                        "gene_ext2",
+                        "station",
+                        "ecl1",
+                        "gene_maing",
+                        "enseigne1",
+                        "onduleur",
+                        "gene_int",
+                        "gen_boulangerie",
+                        "gene_deviation"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Magasin",
+                    "master": "gene_ext1",
+                    "row": 4,
+                    "shape": "consocard",
+                    "slave": []
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Station",
+                    "master": "station",
+                    "row": 5,
+                    "shape": "consocard",
+                    "slave": []
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Labo",
+                    "master": "gene_labo",
+                    "row": 6,
+                    "shape": "consocard",
+                    "slave": []
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Boulangerie",
+                    "master": "gen_boulangerie",
+                    "row": 7,
+                    "shape": "consocard",
+                    "slave": []
+                }
+            ]
+        },
+        {
             "label": "Negatif",
             "level": 1,
             "type": "iFroidNegatif",

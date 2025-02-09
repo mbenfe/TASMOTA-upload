@@ -1,0 +1,35 @@
+{
+    "surface": 1000,
+    "electricite": {
+        "sh_debut": 11,
+        "sh_fin": 4,
+        "hc_debut": 23,
+        "hc_fin": 7,
+        "sh": {
+            "hp_tarif": 0.09118,
+            "hc_tarif": 0.0142,
+            "hp_acheminement": 0.07296,
+            "hc_acheminement": -0.0973,
+            "hp_acheminement_conso": 0.0216,
+            "hc_acheminement_conso": 0.015,
+            "taxe_acheminement": 0.2193,
+            "sp": 0.0205
+        },
+        "sb": {
+            "hp_tarif": 0.09118,
+            "hc_tarif": 0.0142,
+            "hp_acheminement": 0.07296,
+            "hc_acheminement": -0.0973,
+            "hp_acheminement_conso": 0.0216,
+            "hc_acheminement_conso": 0.015,
+            "taxe_acheminement": 0.2193,
+            "sp": 0.0205
+        }
+    },
+    "elec_principal": [
+        "gene"
+    ],
+    "elec_froid": [
+        "froid"
+    ]
+}

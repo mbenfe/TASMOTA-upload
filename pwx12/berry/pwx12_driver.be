@@ -1,8 +1,9 @@
-var version = "1.0.0"
+var version = "1.0.0 avec couts"
 
 import mqtt
 import string
 import json
+import math
 
 class PWX12
     var ser
@@ -85,6 +86,11 @@ class PWX12
                         self.logger.log_data(mylist[i])
                         split = string.split(mylist[i],':')
                         for j:0..2
+                            if(global.configjson[global.device]["root"][j] != "*")
+                                topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
+                                ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}',global.device,global.configjson[global.device]["root"][j],real(split[j+1]))
+                                mqtt.publish(topic,ligne,true)
+                            end
                             topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,j+1)
                             ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}',global.device,global.configjson[global.device]["root"][j],real(split[j+1]))
                             mqtt.publish(topic,ligne,true)
@@ -122,9 +128,21 @@ end
 
 pwx12 = PWX12()
 tasmota.add_driver(pwx12)
+var now = tasmota.rtc()
+var delay
+var mycron
+math.srand(now["local"])
+delay = math.rand() % 9
 tasmota.add_fast_loop(/-> pwx12.fast_loop())
-tasmota.add_cron("59 59 23 * * *",  /-> pwx12.midnight(), "every_day")
-tasmota.add_cron("59 59 * * * *",   /-> pwx12.hour(), "every_hour")
+# set midnight cron
+mycron  = string.format("59 %d 23 * * *",50 + delay)
+tasmota.add_cron(mycron,  /-> pwx12.midnight(), "every_day")
+mqttprint("cron midnight:"+mycron)
+# set hour cron
+mycron = string.format("59 %d * * * *",50 + delay)
+tasmota.add_cron(mycron,   /-> pwx12.hour(), "every_hour")
+mqttprint("cron hour:"+mycron)
+# set 4 hours cron
 tasmota.add_cron("01 01 */4 * * *",   /-> pwx12.every_4hours(), "every_4_hours")
 
 return pwx12
