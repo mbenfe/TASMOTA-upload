@@ -268,9 +268,11 @@ class conso
                 end
             end
         end
+        var i = 0
         for k: self.cout.keys()
+            i+=1
             if (scope != "hours" && k != "c_*")
-                topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
+                topic = string.format("gw/%s/%s/%s-%d/tele/COUT", global.client, global.ville, global.device, i)
                 ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', global.device,k, global.coutjson['surface'],self.cout[k],self.day_list[day_of_week])
                 mqtt.publish(topic, ligne, true)
             end

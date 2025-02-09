@@ -882,13 +882,15 @@
             "label": "Conso",
             "level": 1,
             "virtuel": 0,
+            "width": 3750,
+            "height": 2114,
             "data": [
                 {
                     "id": 1,
                     "location": "TGBT",
                     "shape": "PieChart",
-                    "column": 0,
-                    "row": 0,
+                    "column": 50,
+                    "row": 50,
                     "master": "main",
                     "slave": [
                         "froidc",
@@ -897,8 +899,8 @@
                     "color": 0,
                     "etage": 2,
                     "rotate": 0,
-                    "width": 1600,
-                    "height": 1600
+                    "width": 1500,
+                    "height": 1500
                 },
                 {
                     "id": 1,
@@ -916,14 +918,14 @@
                     "color": 0,
                     "etage": 2,
                     "rotate": 0,
-                    "width": 500,
-                    "height": 450
+                    "width": 700,
+                    "height": 700
                 },
                 {
                     "id": 2,
                     "location": "Froid C",
                     "shape": "ConsoBar",
-                    "column": 2150,
+                    "column": 2350,
                     "row": 50,
                     "master": "froidc",
                     "slave": [
@@ -935,14 +937,14 @@
                     "color": 0,
                     "etage": 2,
                     "rotate": 0,
-                    "width": 500,
-                    "height": 450
+                    "width": 700,
+                    "height": 700
                 },
                 {
                     "id": 3,
                     "location": "Froid M",
                     "shape": "ConsoBar",
-                    "column": 2700,
+                    "column": 3100,
                     "row": 50,
                     "master": "froidm",
                     "slave": [
@@ -954,15 +956,15 @@
                     "color": 0,
                     "etage": 2,
                     "rotate": 0,
-                    "width": 500,
-                    "height": 450
+                    "width": 700,
+                    "height": 700
                 },
                 {
                     "id": 4,
                     "location": "Eclairage 1",
                     "shape": "ConsoBar",
-                    "column": 3250,
-                    "row": 50,
+                    "column": 2150,
+                    "row": 1600,
                     "master": "eclz1",
                     "slave": [
                         "main",
@@ -980,8 +982,8 @@
                     "id": 5,
                     "location": "Eclairage 2",
                     "shape": "ConsoBar",
-                    "column": 1600,
-                    "row": 550,
+                    "column": 2700,
+                    "row": 1600,
                     "master": "eclz2",
                     "slave": [
                         "main",
@@ -999,8 +1001,8 @@
                     "id": 6,
                     "location": "General",
                     "shape": "ConsoBar",
-                    "column": 2150,
-                    "row": 550,
+                    "column": 1600,
+                    "row": 1600,
                     "master": "general",
                     "slave": [
                         "main",
@@ -1016,10 +1018,10 @@
                 },
                 {
                     "id": 7,
-                    "location": "Vitrines",
+                    "location": "Eclairage Vitrines",
                     "shape": "ConsoBar",
-                    "column": 2700,
-                    "row": 550,
+                    "column": 1600,
+                    "row": 2100,
                     "master": "vitrines",
                     "slave": [
                         "main",
@@ -1037,8 +1039,8 @@
                     "id": 8,
                     "location": "Divers",
                     "shape": "ConsoBar",
-                    "column": 3250,
-                    "row": 550,
+                    "column": 2150,
+                    "row": 2100,
                     "master": "divers",
                     "slave": [
                         "main",
@@ -1056,8 +1058,8 @@
                     "id": 9,
                     "location": "Eclairage 3",
                     "shape": "ConsoBar",
-                    "column": 1600,
-                    "row": 1050,
+                    "column": 3050,
+                    "row": 1600,
                     "master": "eclz3",
                     "slave": [
                         "main",
@@ -1075,8 +1077,8 @@
                     "id": 10,
                     "location": "Four 2",
                     "shape": "ConsoBar",
-                    "column": 2150,
-                    "row": 1050,
+                    "column": 2700,
+                    "row": 2100,
                     "master": "four2",
                     "slave": [
                         "main",
@@ -1094,8 +1096,8 @@
                     "id": 11,
                     "location": "Four 1",
                     "shape": "ConsoBar",
-                    "column": 2700,
-                    "row": 1050,
+                    "column": 3250,
+                    "row": 2100,
                     "master": "four1",
                     "slave": [
                         "main",
@@ -1113,8 +1115,8 @@
                     "id": 12,
                     "location": "Laverie",
                     "shape": "ConsoBar",
-                    "column": 3200,
-                    "row": 1050,
+                    "column": 1600,
+                    "row": 2600,
                     "master": "laverie",
                     "slave": [
                         "main",
@@ -1130,22 +1132,78 @@
                 },
                 {
                     "id": 13,
-                    "location": "Ballon",
+                    "location": "Froid",
                     "shape": "ConsoBar",
                     "column": 1600,
-                    "row": 1550,
-                    "master": "ballon12",
+                    "row": 3150,
+                    "master": "froidm",
                     "slave": [
                         "main",
-                        "ballon12_H",
-                        "ballon12_D",
-                        "ballon12_M"
+                        "froidm_H",
+                        "froidm_D",
+                        "froidm_M"
                     ],
                     "color": 0,
                     "etage": 2,
                     "rotate": 0,
-                    "width": 500,
-                    "height": 450
+                    "width": 800,
+                    "height": 800
+                },
+                {
+                    "id": 2,
+                    "location": "Froid",
+                    "shape": "PieChart",
+                    "column": 50,
+                    "row": 3150,
+                    "master": "froidm",
+                    "slave": [
+                        "meubles_froid"
+                    ],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0,
+                    "width": 1500,
+                    "height": 1500
+                },
+                {
+                    "id": 14,
+                    "location": "Meubles Froid",
+                    "shape": "ConsoBar",
+                    "column": 2450,
+                    "row": 3150,
+                    "master": "meubles_froid",
+                    "slave": [
+                        "main",
+                        "meubles_froid_H",
+                        "meubles_froid_D",
+                        "meubles_froid_M"
+                    ],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0,
+                    "width": 800,
+                    "height": 800
+                },
+                {
+                    "id": 3,
+                    "location": "Magasin",
+                    "shape": "PieChart",
+                    "column": 50,
+                    "row": 1600,
+                    "master": "gene_main",
+                    "slave": [
+                        "eclz&",
+                        "eclz2",
+                        "eclz3",
+                        "vitrines",
+                        "divers",
+                        "laverie"
+                    ],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0,
+                    "width": 1500,
+                    "height": 1500
                 }
             ]
         }
