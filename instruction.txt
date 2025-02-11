@@ -27,12 +27,7 @@ print(wc.write_file('autoexec.be'))
 wc.close()
 
 
-var wc = webclient();
-wc.set_follow_redirects(true);
-wc.begin("https://https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/autoexec.be");
-var wstatus = wc.GET();
-print(str(wstatus));
-wc.close();
+var wc = webclient(); wc.set_follow_redirects(true);wc.begin("https://https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/autoexec.be");var wstatus = wc.GET();wc.close();
 
 
 br def urlfetch(url,file); if file==nil; import string; file=string.split(url,'/').pop(); end; var wc=webclient(); wc.begin(url); var st=wc.GET(); if st!=200 raise 'connection_error','status: '+str(st) end; st='Fetched '+str(wc.write_file(file)); print(url,st); wc.close(); return st; end; urlfetch('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/conso.be')

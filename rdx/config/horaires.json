@@ -1,0 +1,30 @@
+{
+    "lundi": {
+        "debut": 5.0,
+        "fin": 20.0
+    },
+    "mardi": {
+        "debut": 5.0,
+        "fin": 20.0
+    },
+    "mercredi": {
+        "debut": 5.0,
+        "fin": 20.0
+    },
+    "jeudi": {
+        "debut": 5.0,
+        "fin": 20.0
+    },
+    "vendredi": {
+        "debut": 5.0,
+        "fin": 20.0
+    },
+    "samedi": {
+        "debut": 5.0,
+        "fin": 20.0
+    },
+    "dimanche": {
+        "debut": 5.0,
+        "fin": 13.0
+    }
+}
