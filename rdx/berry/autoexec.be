@@ -57,8 +57,9 @@ def device(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-def driver(cmd, idx, payload, payload_json)
+def setdriver(cmd, idx, payload, payload_json)
     import json
+    mqttprint('set driver:' + payload)
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     var myjson = json.load(buffer)
@@ -223,7 +224,7 @@ tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('ville', ville)
 tasmota.add_cmd('device', device)
 tasmota.add_cmd('location', location)
-tasmota.add_cmd('driver', driver)
+tasmota.add_cmd('setdriver', setdriver)
 # Initialize configuration
 loadconfig()
 mqttprint("ville:" + str(global.ville))

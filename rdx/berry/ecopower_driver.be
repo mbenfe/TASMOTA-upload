@@ -15,15 +15,25 @@ class RDX
     var gate
     var day_list
     var horaires
+    var setups
 
     def setup(topic, idx, payload_s, payload_b)
         print('setup:',topic,' ', payload_s)
-        gpio.digital_write(self.gate, 0)
     end
 
     def init()
+        mqttprint('init')
         var file = open("horaires.json", "rt")
+        if(file == nil)
+            mqttprint("file not found: horaires.json")
+            return
+        end
         var myjson = file.read()
+        self.setups = map()
+        self.setups.insert("onoff",0)
+        self.setups.insert("mode",0)
+        self.setups.insert("fanspeed",0)
+        self.setups.insert("power",0)
         file.close()
         self.horaires = json.load(myjson)  
         mqttprint(self.horaires) 
@@ -33,6 +43,7 @@ class RDX
         self.subscribes()
         gpio.pin_mode(self.gate, gpio.OUTPUT)
         gpio.digital_write(self.gate, 1)    
+        mqttprint("init done")
     end
 
     def subscribes()
@@ -54,14 +65,9 @@ class RDX
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var jour = self.day_list[day_of_week]
-        if(data == nil)
-            return
-        end
-        var temperature = data[0]
-        var humidity = data[1]
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s"}', 
-                global.device, global.device, temperature, humidity,self.horaires['ouvert'],self.horaires['ferme'],self.horaires['offset'],global.location)
-        var topic = string.format("app/%s/%s/%s/set/SETUPT", global.client, global.ville, global.device)
+        var payload = string.format('{"Device":"%s","Name":"%s","onoff":%d,"mode":%d,"fanspeed":%d,"power":%d,"location":"%s"}', 
+                global.device, global.device, self.setups["onoff"], self.setups["mode"],self.setups["fanspeed"],self.setups["power"],global.location)
+        var topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
     end
 
