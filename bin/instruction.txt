@@ -1,1 +1,1 @@
-esptool --port COM5 write_flash 0x0000 tasmota32-zbbrdgpro.factory.bin
+esptool --port COM5 write_flash 0x0000 datalogger-pwx12.factory.bin

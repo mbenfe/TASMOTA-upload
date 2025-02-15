@@ -7,12 +7,19 @@ class AHT20
     var wire
     var humidity
     var temperature
+    var thermostat
 
     def init()
         var now = tasmota.rtc()
         var delay
         var mycron
         math.srand(now["local"])
+
+        var file = open("thermostat_intermarche.json", "rt")
+        var myjson = file.read()
+        file.close()
+        self.thermostat = json.load(myjson)  
+
 
         self.i2c_addr = 0x38  # AHT20 I2C address
         self.wire = tasmota.wire_scan(self.i2c_addr)  # Scan for the device on the I2C bus
