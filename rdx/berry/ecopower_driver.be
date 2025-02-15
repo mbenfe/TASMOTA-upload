@@ -32,6 +32,7 @@ class RDX
         payload = string.format('{"Device":"%s","Name":"%s","onoff":%d,"mode":%d,"fanspeed":%d,"heat_power":%d,"location":"%s"}', 
                 global.device, global.device, self.setups["onoff"], self.setups["mode"],self.setups["fanspeed"],self.setups["heat_power"],global.location)
         print('setup:',topic,' ', payload_s)
+        mqtt.publish(newtopic, payload, true)
         file = open("setup.json", "wt")
         buffer = json.dump(self.setups)
         file.write(buffer)

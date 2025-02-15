@@ -71,8 +71,11 @@ class AHT20
         self.temperature = real(self.temperature) / real(1048576)
         self.temperature*=200
         self.temperature-=50
-
-        return[self.temperature, self.humidity]
+        if(self.wire==nil)
+            return[19,50]
+        else
+            return[self.temperature, self.humidity]
+        end
     end
 
 end
