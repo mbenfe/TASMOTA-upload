@@ -91,10 +91,16 @@ class CHX
         if(data == nil)
             return
         end
+        var target
+        if (hour >= self.thermostat[i][jour]['debut'] && hour < self.thermostat[i][jour]['fin'])
+            target = self.thermostat[i]['ouvert']
+        else
+            target = self.thermostat[i]['ferme']
+        end
         var temperature = data[0]
         var humidity = data[1]
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s"}', 
-                global.device, global.device, temperature, humidity,self.thermostat['ouvert'],self.thermostat['ferme'],self.thermostat['offset'],global.location)
+        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target:%.1f"}', 
+                global.device, global.device, temperature, humidity,self.thermostat['ouvert'],self.thermostat['ferme'],self.thermostat['offset'],global.location,target)
         var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
         topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.device)

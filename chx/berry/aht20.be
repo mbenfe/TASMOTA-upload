@@ -1,5 +1,6 @@
 import mqtt
 import string
+import math
 
 class AHT20
     var i2c_addr
@@ -8,6 +9,11 @@ class AHT20
     var temperature
 
     def init()
+        var now = tasmota.rtc()
+        var delay
+        var mycron
+        math.srand(now["local"])
+
         self.i2c_addr = 0x38  # AHT20 I2C address
         self.wire = tasmota.wire_scan(self.i2c_addr)  # Scan for the device on the I2C bus
         if self.wire == nil
@@ -56,7 +62,9 @@ class AHT20
     def poll()
         var measure
         if(self.wire==nil)
-            return[19,50]
+            var temperature = 170 + math.rand() % 20
+            temperature = real(temperature) / real(10)
+            return[temperature,50]
         end
         self.wire._begin_transmission(0x38)
         self.wire._write(0xAC)
