@@ -55,6 +55,9 @@ class AHT20
 
     def poll()
         var measure
+        if(self.wire==nil)
+            return[19,50]
+        end
         self.wire._begin_transmission(0x38)
         self.wire._write(0xAC)
         self.wire._write(0x33)
@@ -71,11 +74,7 @@ class AHT20
         self.temperature = real(self.temperature) / real(1048576)
         self.temperature*=200
         self.temperature-=50
-        if(self.wire==nil)
-            return[19,50]
-        else
-            return[self.temperature, self.humidity]
-        end
+        return[self.temperature, self.humidity]
     end
 
 end
