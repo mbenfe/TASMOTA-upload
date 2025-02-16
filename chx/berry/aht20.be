@@ -8,6 +8,7 @@ class AHT20
     var humidity
     var temperature
     var thermostat
+    var day_list
 
     def init()
         var now = tasmota.rtc()
@@ -20,6 +21,7 @@ class AHT20
         file.close()
         self.thermostat = json.load(myjson)  
 
+        self.day_list = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
         self.i2c_addr = 0x38  # AHT20 I2C address
         self.wire = tasmota.wire_scan(self.i2c_addr)  # Scan for the device on the I2C bus
@@ -68,10 +70,26 @@ class AHT20
 
     def poll()
         var measure
+        var now = tasmota.rtc()
+        var rtc=tasmota.time_dump(now["local"])
+        var second = rtc["sec"]
+        var minute = rtc["min"]
+        var hour = rtc["hour"]
+        var day = rtc["day"]
+        var month = rtc["month"]
+        var year = rtc["year"]
+        var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+
+        var jour = self.day_list[day_of_week]
         if(self.wire==nil)
-            var temperature = 170 + math.rand() % 20
             var humidity = 40 + math.rand() % 20
-            temperature = real(temperature) / real(10)
+            var temperature
+            print("simulation")
+            if (hour >= self.thermostat[jour]['debut'] && hour < self.thermostat[jour]['fin'])
+                temperature = real(self.thermostat['ouvert']) - real(math.rand() % 10)/real(10)
+            else
+                temperature = real(self.thermostat['ferme']) + 1 + real(math.rand() % 10)/real(10)
+            end
             return[temperature,humidity]
         end
         self.wire._begin_transmission(0x38)
