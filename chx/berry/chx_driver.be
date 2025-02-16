@@ -92,10 +92,10 @@ class CHX
             return
         end
         var target
-        if (hour >= self.thermostat[i][jour]['debut'] && hour < self.thermostat[i][jour]['fin'])
-            target = self.thermostat[i]['ouvert']
+        if (hour >= self.thermostat[jour]['debut'] && hour < self.thermostat[jour]['fin'])
+            target = self.thermostat['ouvert']
         else
-            target = self.thermostat[i]['ferme']
+            target = self.thermostat['ferme']
         end
         var temperature = data[0]
         var humidity = data[1]

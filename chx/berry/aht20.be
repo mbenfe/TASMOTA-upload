@@ -70,8 +70,9 @@ class AHT20
         var measure
         if(self.wire==nil)
             var temperature = 170 + math.rand() % 20
+            var humidity = 40 + math.rand() % 20
             temperature = real(temperature) / real(10)
-            return[temperature,50]
+            return[temperature,humidity]
         end
         self.wire._begin_transmission(0x38)
         self.wire._write(0xAC)
