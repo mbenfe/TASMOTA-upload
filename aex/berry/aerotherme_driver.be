@@ -14,7 +14,7 @@ class AEROTHERME
     var ds18b20
     var relay
     var day_list
-    var thermostat
+    var setups
     var count
 
     def mysetup(topic, idx, payload_s, payload_b)
@@ -31,20 +31,20 @@ class AEROTHERME
         var payload
         newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, argument[3])
 
-        self.thermostat[i]['onoff'] = myjson['onoff']
-        self.thermostat[i]['offset'] = myjson['offset']
-        self.thermostat[i]['ouvert'] = myjson['ouvert']
-        self.thermostat[i]['ferme'] = myjson['ferme']
-        self.thermostat[i]['lundi'] = myjson['lundi']
-        self.thermostat[i]['mardi'] = myjson['mardi']
-        self.thermostat[i]['mercredi'] = myjson['mercredi']
-        self.thermostat[i]['jeudi'] = myjson['jeudi']
-        self.thermostat[i]['vendredi'] = myjson['vendredi']
-        self.thermostat[i]['samedi'] = myjson['samedi']
-        self.thermostat[i]['dimanche'] = myjson['dimanche']
+        self.setups[i]['onoff'] = myjson['onoff']
+        self.setups[i]['offset'] = myjson['offset']
+        self.setups[i]['ouvert'] = myjson['ouvert']
+        self.setups[i]['ferme'] = myjson['ferme']
+        self.setups[i]['lundi'] = myjson['lundi']
+        self.setups[i]['mardi'] = myjson['mardi']
+        self.setups[i]['mercredi'] = myjson['mercredi']
+        self.setups[i]['jeudi'] = myjson['jeudi']
+        self.setups[i]['vendredi'] = myjson['vendredi']
+        self.setups[i]['samedi'] = myjson['samedi']
+        self.setups[i]['dimanche'] = myjson['dimanche']
         
-        var buffer = json.dump(self.thermostat[i])
-        var name = "thermostat_" + str(i + 1) + ".json"
+        var buffer = json.dump(self.setups[i])
+        var name = "setup_" + str(i + 1) + ".json"
         var file = open(name, "wt")
         if file == nil
             mqttprint("Error: Failed to open file for writing")
@@ -89,19 +89,19 @@ class AEROTHERME
         var device = string.split(arguments[3], '_')
         var i = int(device[1]) - 1
 
-        self.thermostat[i]['offset'] = myjson['offset']
-        self.thermostat[i]['ouvert'] = myjson['ouvert']
-        self.thermostat[i]['ferme'] = myjson['ferme']
-        self.thermostat[i]['lundi'] = myjson['lundi']
-        self.thermostat[i]['mardi'] = myjson['mardi']
-        self.thermostat[i]['mercredi'] = myjson['mercredi']
-        self.thermostat[i]['jeudi'] = myjson['jeudi']
-        self.thermostat[i]['vendredi'] = myjson['vendredi']
-        self.thermostat[i]['samedi'] = myjson['samedi']
-        self.thermostat[i]['dimanche'] = myjson['dimanche']
+        self.setups[i]['offset'] = myjson['offset']
+        self.setups[i]['ouvert'] = myjson['ouvert']
+        self.setups[i]['ferme'] = myjson['ferme']
+        self.setups[i]['lundi'] = myjson['lundi']
+        self.setups[i]['mardi'] = myjson['mardi']
+        self.setups[i]['mercredi'] = myjson['mercredi']
+        self.setups[i]['jeudi'] = myjson['jeudi']
+        self.setups[i]['vendredi'] = myjson['vendredi']
+        self.setups[i]['samedi'] = myjson['samedi']
+        self.setups[i]['dimanche'] = myjson['dimanche']
         
-        var buffer = json.dump(self.thermostat[i])
-        var name = "thermostat_" + str(i + 1) + ".json"
+        var buffer = json.dump(self.setups[i])
+        var name = "setup_" + str(i + 1) + ".json"
         var file = open(name, "wt")
         if file == nil
             mqttprint("Error: Failed to open file for writing")
@@ -115,11 +115,11 @@ class AEROTHERME
     def init()
         var file
         var myjson        
-        self.thermostat = list()
-        print("init thermostat")
+        self.setups = list()
+        print("init setups")
         print(global.nombre)
         for i:0..global.nombre-1
-            var name = "thermostat_" + str(i + 1) + ".json"
+            var name = "setup_" + str(i + 1) + ".json"
             file = open(name, "rt")
             if file == nil
                 mqttprint("Error: Failed to open file " + name)
@@ -132,10 +132,10 @@ class AEROTHERME
                 mqttprint("Error: Failed to parse JSON from file " + name)
                 continue
             end
-            self.thermostat.insert(i,json_data)  
-            print(self.thermostat[i]) 
+            self.setups.insert(i,json_data)  
+            print(self.setups[i]) 
         end 
-        print("init thermostat done")
+        print("init setups done")
         self.day_list = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]
         mqttprint("subscription MQTT")
         self.subscribes()
@@ -191,19 +191,19 @@ class AEROTHERME
         end
 
         for i:0..global.nombre-1
-            if (hour >= self.thermostat[i][jour]['debut'] && hour < self.thermostat[i][jour]['fin'])
-                target = self.thermostat[i]['ouvert']
+            if (hour >= self.setups[i][jour]['debut'] && hour < self.setups[i][jour]['fin'])
+                target = self.setups[i]['ouvert']
             else
-                target = self.thermostat[i]['ferme']
+                target = self.setups[i]['ferme']
             end
 
             payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.f}', 
-                    global.device, global.device+'_'+str(i+1), temperature, self.thermostat[i]['ouvert'], self.thermostat[i]['ferme'], self.thermostat[i]['offset'], global.location[i], target)
+                    global.device, global.device+'_'+str(i+1), temperature, self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target)
             topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device+"_"+str(i + 1))
             mqtt.publish(topic, payload, true)
             topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.device+"_"+str(i + 1))
-            if (hour >= self.thermostat[i][jour]['debut'] && hour < self.thermostat[i][jour]['fin'])
-                if (temperature < self.thermostat[i]['ouvert'] + self.thermostat[i]['offset'])
+            if (hour >= self.setups[i][jour]['debut'] && hour < self.setups[i][jour]['fin'])
+                if (temperature < self.setups[i]['ouvert'] + self.setups[i]['offset'])
                     gpio.digital_write(self.relay[i], 0)
                     payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device+"_"+str(i + 1))
                     mqtt.publish(topic, payload, true)
@@ -213,7 +213,7 @@ class AEROTHERME
                     mqtt.publish(topic, payload, true)
                 end
             else
-                if (temperature < self.thermostat[i]['ferme'] + self.thermostat[i]['offset'])
+                if (temperature < self.setups[i]['ferme'] + self.setups[i]['offset'])
                     gpio.digital_write(self.relay[i], 0)
                     payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device+"_"+str(i + 1))
                     mqtt.publish(topic, payload, true)
