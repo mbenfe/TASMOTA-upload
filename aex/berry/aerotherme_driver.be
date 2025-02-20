@@ -17,6 +17,51 @@ class AEROTHERME
     var thermostat
     var count
 
+    def mysetup(topic, idx, payload_s, payload_b)
+        var myjson = json.load(string.tolower(payload_s))
+        if myjson == nil
+            mqttprint("Error: Failed to parse JSON payload")
+            return
+        end
+
+        var arguments = string.split(topic, '/')
+        var device = string.split(arguments[3], '_')
+        var i = int(device[1]) - 1
+        var newtopic
+        var payload
+        newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, argument[3])
+
+        self.thermostat[i]['onoff'] = myjson['onoff']
+        self.thermostat[i]['offset'] = myjson['offset']
+        self.thermostat[i]['ouvert'] = myjson['ouvert']
+        self.thermostat[i]['ferme'] = myjson['ferme']
+        self.thermostat[i]['lundi'] = myjson['lundi']
+        self.thermostat[i]['mardi'] = myjson['mardi']
+        self.thermostat[i]['mercredi'] = myjson['mercredi']
+        self.thermostat[i]['jeudi'] = myjson['jeudi']
+        self.thermostat[i]['vendredi'] = myjson['vendredi']
+        self.thermostat[i]['samedi'] = myjson['samedi']
+        self.thermostat[i]['dimanche'] = myjson['dimanche']
+        
+        var buffer = json.dump(self.thermostat[i])
+        var name = "thermostat_" + str(i + 1) + ".json"
+        var file = open(name, "wt")
+        if file == nil
+            mqttprint("Error: Failed to open file for writing")
+            return
+        end
+        file.write(buffer)
+        file.close()
+        payload = string.format('{"Device":"%s","Name":"%s","TYPE":"SETUP","DATA":{%s}}', 
+        global.device, arguments[3], buffer)
+        print('setup:', newtopic, ' ', payload)
+
+
+        # mqtt.publish(newtopic, payload, true)
+
+        # gpio.digital_write(self.relay[i], 0)
+    end
+
     # Function to handle ON/OFF commands
     def onoff(topic, idx, payload_s, payload_b)
         var arguments = string.split(topic, '/')
@@ -40,11 +85,9 @@ class AEROTHERME
             return
         end
 
-        print("debug 1")
         var arguments = string.split(topic, '/')
         var device = string.split(arguments[3], '_')
         var i = int(device[1]) - 1
-        print("debug 2")
 
         self.thermostat[i]['offset'] = myjson['offset']
         self.thermostat[i]['ouvert'] = myjson['ouvert']
