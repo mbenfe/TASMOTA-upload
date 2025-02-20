@@ -29,7 +29,7 @@ class AEROTHERME
         var i = int(device[1]) - 1
         var newtopic
         var payload
-        newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, argument[3])
+        newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, arguments[3])
 
         self.setups[i]['onoff'] = myjson['onoff']
         self.setups[i]['offset'] = myjson['offset']
