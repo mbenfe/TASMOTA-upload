@@ -15,6 +15,7 @@ class AEROTHERME
     var relay
     var day_list
     var thermostat
+    var count
 
     # Function to handle ON/OFF commands
     def onoff(topic, idx, payload_s, payload_b)
@@ -101,7 +102,8 @@ class AEROTHERME
         gpio.pin_mode(self.relay[0], gpio.OUTPUT)
         gpio.digital_write(self.relay[0], 0)    
         gpio.pin_mode(self.relay[1], gpio.OUTPUT)
-        gpio.digital_write(self.relay[1], 0)    
+        gpio.digital_write(self.relay[1], 0)  
+        self.count = 0  
     end
 
     # Function to subscribe to MQTT topics
@@ -183,6 +185,13 @@ class AEROTHERME
 
     # Function to execute every second
     def every_second()
+        if (self.count == 5)
+            var temperature = pt1000.poll(0)
+            self.count = 0
+        else
+            self.count = self.count + 1
+        end
+#        print(temperature)
     end
 end
 

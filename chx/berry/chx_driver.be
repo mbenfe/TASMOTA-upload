@@ -99,7 +99,7 @@ class CHX
         end
         var temperature = data[0]
         var humidity = data[1]
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target:%.1f"}', 
+        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.1f}', 
                 global.device, global.device, temperature, humidity,self.thermostat['ouvert'],self.thermostat['ferme'],self.thermostat['offset'],global.location,target)
         var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
