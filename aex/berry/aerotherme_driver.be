@@ -134,8 +134,8 @@ class AEROTHERME
             end
             self.setups.insert(i,json_data)  
             var  newtopic = string.format("gw/%s/%s/%s_%s/set/SETUP", global.client, global.ville, global.device + "_" + str(i + 1))
-            var payload = string.format('{"Device":"%s","Name":"%s","TYPE":"SETUP","DATA":{%s}}',
-                    global.device, arguments[3], json.dump(json_data))
+            var payload = string.format('{"Device":"%s","Name":"%s_%s","TYPE":"SETUP","DATA":{%s}}',
+                    global.device, global.device,str(i+1), json.dump(json_data))
             print('setup:', newtopic, ' ', payload)
             mqtt.publish(newtopic, payload, true)
             print(self.setups[i]) 
