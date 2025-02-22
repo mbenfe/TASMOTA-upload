@@ -86,9 +86,9 @@ class AHT20
             var temperature
             print("simulation")
             if (hour >= self.thermostat[jour]['debut'] && hour < self.thermostat[jour]['fin'])
-                temperature = real(self.thermostat['ouvert']) - real(math.rand() % 10)/real(10)
+                temperature = real(self.thermostat['ouvert']) - real(math.rand() % 10)/real(10) + real(self.thermostat['offset'])
             else
-                temperature = real(self.thermostat['ferme']) + 1 + real(math.rand() % 10)/real(10)
+                temperature = real(self.thermostat['ferme']) + 1 + real(math.rand() % 10)/real(10) + real(self.thermostat['offset'])
             end
             return[temperature,humidity]
         end

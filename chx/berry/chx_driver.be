@@ -15,65 +15,91 @@ class CHX
     var aht20
     var gate
     var day_list
-    var thermostat
+    var setups
 
-    def onoff(topic, idx, payload_s, payload_b)
-
-        print('onoff:',topic,' ', payload_s)
-        gpio.digital_write(self.gate, 0)
-    end
-
-    def mode(topic, idx, payload_s, payload_b)
-        print('mode:',topic,' ', payload_s)
-    end
-
-    def isemaine(topic, idx, payload_s, payload_b)
-
+    def mysetup(topic, idx, payload_s, payload_b)
         var myjson = json.load(string.tolower(payload_s))
+        if myjson == nil
+            mqttprint("Error: Failed to parse JSON payload")
+            return
+        end
 
-        self.thermostat['offset'] = myjson['offset']
-        self.thermostat['ouvert'] = myjson['ouvert']
-        self.thermostat['ferme'] = myjson['ferme']
-        self.thermostat['lundi'] = myjson['lundi']
-        self.thermostat['mardi'] = myjson['mardi']
-        self.thermostat['mercredi'] = myjson['mercredi']
-        self.thermostat['jeudi'] = myjson['jeudi']
-        self.thermostat['vendredi'] = myjson['vendredi']
-        self.thermostat['samedi'] = myjson['samedi']
-        self.thermostat['dimanche'] = myjson['dimanche']
+        print("-----------------------------------------------------------------")
+        print(myjson)
+
+        var newtopic
+        var payload
+        newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
+
+        self.setups['mode'] = myjson['mode']
+        # attention ne pas changer offset !!!!!!!!
+        self.setups['ouvert'] = myjson['ouvert']
+        self.setups['ferme'] = myjson['ferme']
+        self.setups['lundi'] = myjson['lundi']
+        self.setups['mardi'] = myjson['mardi']
+        self.setups['mercredi'] = myjson['mercredi']
+        self.setups['jeudi'] = myjson['jeudi']
+        self.setups['vendredi'] = myjson['vendredi']
+        self.setups['samedi'] = myjson['samedi']
+        self.setups['dimanche'] = myjson['dimanche']
         
-        var buffer = json.dump(self.thermostat)
-        var file = open("thermostat_intermarche.json", "wt")
+        var buffer = json.dump(self.setups)
+        var name = "thermostat_intermarche.json"
+        var file = open(name, "wt")
+        if file == nil
+            mqttprint("Error: Failed to open file for writing")
+            return
+        end
         file.write(buffer)
         file.close()
+        payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
+        global.device, global.device, buffer)
+        mqtt.publish(newtopic, payload, true)
+
+        gpio.digital_write(self.gate, self.setups['mode'] == 0 ? 1 : 0)
     end
+
 
     def init()
         var file = open("thermostat_intermarche.json", "rt")
         var myjson = file.read()
         file.close()
-        self.thermostat = json.load(myjson)  
-        print(self.thermostat) 
+        self.setups = json.load(myjson)  
         self.gate = 19
         self.day_list = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
         mqttprint("subscription MQTT")
         self.subscribes()
         gpio.pin_mode(self.gate, gpio.OUTPUT)
-        gpio.digital_write(self.gate, 1)    
+        gpio.digital_write(self.gate, 0)    # allumé gete is inverted
+        tasmota.set_timer(30000,/-> self.mypush())
     end
 
+    def mypush()
+        var file
+        var myjson        
+        var name = "thermostat_intermarche.json"
+        file = open(name, "rt")
+        if file == nil
+            mqttprint("Error: Failed to open file " + name)
+            return
+        end
+        myjson = file.read()
+        file.close()
+        var  newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device )
+        var payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}',
+                global.device, global.device, myjson)
+        mqtt.publish(newtopic, payload, true)
+    end
+
+    # Function to subscribe to MQTT topics
     def subscribes()
         var topic 
-        # chauffages
-        topic = string.format("app/%s/%s/%s/set/ONOFF", global.client, global.ville, global.device)
-        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.onoff(topic, idx, payload_s, payload_b))
-        mqttprint("subscribed to ONOFF")
-        topic = string.format("app/%s/%s/%s/set/MODE", global.client, global.ville, global.device)
-        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mode(topic, idx, payload_s, payload_b))
-        mqttprint("subscribed to MODE")
-        topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville,global.device)
-        mqtt.subscribe(topic, /topic, idx, payload_s, payload_b -> self.isemaine(topic, idx, payload_s, payload_b))
-        mqttprint("subscribed to ISEMAINE")
+        # chauffage
+
+        topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
+        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup(topic, idx, payload_s, payload_b))
+        mqttprint("subscribed to SETUP:"+global.device)
+
     end
 
     def every_minute()
@@ -92,39 +118,37 @@ class CHX
             return
         end
         var target
-        if (hour >= self.thermostat[jour]['debut'] && hour < self.thermostat[jour]['fin'])
-            target = self.thermostat['ouvert']
+        if (hour >= self.setups[jour]['debut'] && hour < self.setups[jour]['fin'])
+            target = self.setups['ouvert']
         else
-            target = self.thermostat['ferme']
+            target = self.setups['ferme']
         end
         var temperature = data[0]
         var humidity = data[1]
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.1f}', 
-                global.device, global.device, temperature, humidity,self.thermostat['ouvert'],self.thermostat['ferme'],self.thermostat['offset'],global.location,target)
-        var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
-        mqtt.publish(topic, payload, true)
-        topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.device)
-        if( hour >= self.thermostat[jour]['debut'] && hour < self.thermostat[jour]['fin'] )
-            if (temperature < self.thermostat['ouvert']+self.thermostat['offset'])
+        var payload
+        var power
+        var topic
+        if( hour >= self.setups[jour]['debut'] && hour < self.setups[jour]['fin'] )
+            if (temperature < self.setups['ouvert']+self.setups['offset'])
                 gpio.digital_write(self.gate, 0)
-                payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device)
-                mqtt.publish(topic, payload, true)
+                power = 1
             else
                 gpio.digital_write(self.gate, 1)
-                payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.device, global.device)
-                mqtt.publish(topic, payload, true)
+                power = 0
             end
         else
-            if (temperature < self.thermostat['ferme']+self.thermostat['offset'])
+            if (temperature < self.setups['ferme']+self.setups['offset'])
                 gpio.digital_write(self.gate, 0)
-                payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device)
-                mqtt.publish(topic, payload, true)
+                power = 1
             else
                 gpio.digital_write(self.gate, 1)
-                payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.device, global.device)
-                mqtt.publish(topic, payload, true)
+                power = 0
             end
         end        
+        topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
+        payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.1f,"Power":%d,"mode":%d}',
+                global.device, global.device, temperature-self.setups['offset'], humidity,self.setups['ouvert'],self.setups['ferme'],self.setups['offset'],global.location,target,power,self.setups['mode'])
+        mqtt.publish(topic, payload, true)
     end
 
     def every_second()
@@ -132,6 +156,5 @@ class CHX
 end
 
 chx = CHX()
-chx.init()
 tasmota.add_driver(chx)
 tasmota.add_cron("0 * * * * *", /-> chx.every_minute(), "every_min_@0_s")
