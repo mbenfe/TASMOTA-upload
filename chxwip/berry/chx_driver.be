@@ -79,7 +79,7 @@ class CHX
         file = open(name, "rt")
         if file == nil
             mqttprint("Error: Failed to open file " + name)
-            continue
+            return
         end
         myjson = file.read()
         file.close()
