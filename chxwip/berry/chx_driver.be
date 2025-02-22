@@ -24,6 +24,9 @@ class CHX
             return
         end
 
+        print("-----------------------------------------------------------------")
+        print(myjson)
+
         var newtopic
         var payload
         newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
