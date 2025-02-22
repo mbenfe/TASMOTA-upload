@@ -231,6 +231,9 @@ mqttprint("location:" + str(global.location))
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
 
+tasmota.cmd("GPIO21 640")
+tasmota.cmd("GPIO9 608")
+
 mqttprint('load command.be')
 tasmota.load('command.be')
 mqttprint('load aht20.be')
