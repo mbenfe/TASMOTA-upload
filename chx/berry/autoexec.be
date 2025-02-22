@@ -234,6 +234,7 @@ tasmota.add_cmd('get', get)
 tasmota.cmd("GPIO21 640")  # SDA1
 tasmota.cmd("GPIO9 608") # SCL1
 tasmota.cmd("i2cdriver12 0") # avoid confusion with EMLV6070 module
+tasmota.cmd("releperiod 0") # avoid confusion AHT20 teleperiod
 
 mqttprint('load command.be')
 tasmota.load('command.be')
