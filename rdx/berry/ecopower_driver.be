@@ -98,6 +98,6 @@ class RDX
 end
 
 rdx = RDX()
-#rdx.init()
+
 tasmota.add_driver(rdx)
 tasmota.add_cron("0 * * * * *", /-> rdx.every_minute(), "every_min_@0_s")
