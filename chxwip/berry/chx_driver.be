@@ -53,7 +53,7 @@ class CHX
         global.device, global.device, buffer)
         mqtt.publish(newtopic, payload, true)
 
-        gpio.digital_write(self.gate, self.setups['onoff'])
+        gpio.digital_write(self.gate, self.setups['onoff'] == 0 ? 1 : 0)
     end
 
 
@@ -67,7 +67,7 @@ class CHX
         mqttprint("subscription MQTT")
         self.subscribes()
         gpio.pin_mode(self.gate, gpio.OUTPUT)
-        gpio.digital_write(self.gate, 1)    
+        gpio.digital_write(self.gate, 0)    # allumé gete is inverted
         tasmota.set_timer(30000,/-> self.mypush())
     end
 
