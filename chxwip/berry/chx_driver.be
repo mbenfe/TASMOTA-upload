@@ -147,7 +147,7 @@ class CHX
         end        
         topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.1f,"Power":%d,"mode":%d}',
-                global.device, global.device, temperature, humidity,self.setups['ouvert'],self.setups['ferme'],self.setups['offset'],global.location,target,power,self.setups['mode'])
+                global.device, global.device, temperature-self.thermostat['offset'], humidity,self.setups['ouvert'],self.setups['ferme'],self.setups['offset'],global.location,target,power,self.setups['mode'])
         mqtt.publish(topic, payload, true)
     end
 
