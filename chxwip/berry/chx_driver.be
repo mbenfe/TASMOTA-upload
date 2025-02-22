@@ -28,7 +28,7 @@ class CHX
         var payload
         newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
 
-        self.setups['onoff'] = myjson['onoff']
+        self.setups['mode'] = myjson['mode']
         # attention ne pas changer offset !!!!!!!!
         self.setups['ouvert'] = myjson['ouvert']
         self.setups['ferme'] = myjson['ferme']
@@ -53,7 +53,7 @@ class CHX
         global.device, global.device, buffer)
         mqtt.publish(newtopic, payload, true)
 
-        gpio.digital_write(self.gate, self.setups['onoff'] == 0 ? 1 : 0)
+        gpio.digital_write(self.gate, self.setups['mode'] == 0 ? 1 : 0)
     end
 
 
