@@ -85,16 +85,19 @@ class conso
             saison = global.coutjson["electricite"]["sb"]
         end
 
+        print("taxable:")
         taxable = (saison["hp_acheminement_cc"]+saison["hp_acheminement_cs"]+saison["hp_acheminement_cg"])*heures_pleines
         taxable += (saison["hc_acheminement_cc"]+saison["hc_acheminement_cs"]+saison["hc_acheminement_cg"])*heures_creuses
  
         #heures pleines
+        print("heures pleines")
         hp_cout_conso = (saison["hp_tarif"]+saison["cee"]+saison["hp_obligation"])*heures_pleines
         hp_cout_acheminement = (saison["hp_acheminement_cc"] +saison["hp_acheminement_cs"]+saison["hp_acheminement_cg"]+ saison["hp_acheminement_conso"])*heures_pleines
 
         hp_cout_taxes = taxable * saison["taxe_acheminement"]*(1-real(heures_creuses)/real(heures_pleines)) + saison["hp_sp"]*heures_pleines
         hp_cout = hp_cout_conso + hp_cout_acheminement + hp_cout_taxes
-       #heures pleines
+       #heures creuses
+       print("heures creuses")
         hc_cout_conso = (saison["hc_tarif"]+saison["cee"]+saison["hc_obligation"])*heures_creuses
         hc_cout_acheminement = (saison["hc_acheminement_cc"] +saison["hc_acheminement_cs"]+saison["hc_acheminement_cg"]+ saison["hc_acheminement_conso"])*heures_creuses
         hc_cout_taxes = taxable * saison["taxe_acheminement"]*real(heures_creuses)/real(heures_pleines) + saison["hc_sp"]*heures_creuses

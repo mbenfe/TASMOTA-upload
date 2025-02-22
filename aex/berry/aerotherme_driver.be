@@ -24,6 +24,8 @@ class AEROTHERME
             return
         end
 
+        print("-----------------------------------------------------------------")
+
         var arguments = string.split(topic, '/')
         var device = string.split(arguments[3], '_')
         var i = int(device[1]) - 1
@@ -32,7 +34,7 @@ class AEROTHERME
         newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, arguments[3])
 
         self.setups[i]['onoff'] = myjson['onoff']
-        self.setups[i]['offset'] = myjson['offset']
+        # attention ne pas changer offset !!!!!!!!
         self.setups[i]['ouvert'] = myjson['ouvert']
         self.setups[i]['ferme'] = myjson['ferme']
         self.setups[i]['lundi'] = myjson['lundi']
@@ -52,63 +54,11 @@ class AEROTHERME
         end
         file.write(buffer)
         file.close()
-        payload = string.format('{"Device":"%s","Name":"%s","TYPE":"SETUP","DATA":{%s}}', 
+        payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
         global.device, arguments[3], buffer)
-        print('setup:', newtopic, ' ', payload)
+        mqtt.publish(newtopic, payload, true)
 
-
-        # mqtt.publish(newtopic, payload, true)
-
-        # gpio.digital_write(self.relay[i], 0)
-    end
-
-    # Function to handle ON/OFF commands
-    def onoff(topic, idx, payload_s, payload_b)
-        var arguments = string.split(topic, '/')
-        var device = string.split(arguments[4], '_')
-        var i = int(device[1]) - 1
-
-        print('onoff:', topic, ' ', payload_s)
-        gpio.digital_write(self.relay[i], 0)
-    end
-
-    # Function to handle mode commands
-    def mode(topic, idx, payload_s, payload_b)
-        print('mode:', topic, ' ', payload_s)
-    end
-
-    # Function to handle weekly schedule commands
-    def isemaine(topic, idx, payload_s, payload_b)
-        var myjson = json.load(string.tolower(payload_s))
-        if myjson == nil
-            mqttprint("Error: Failed to parse JSON payload")
-            return
-        end
-
-        var arguments = string.split(topic, '/')
-        var device = string.split(arguments[3], '_')
-        var i = int(device[1]) - 1
-
-        self.setups[i]['offset'] = myjson['offset']
-        self.setups[i]['ouvert'] = myjson['ouvert']
-        self.setups[i]['ferme'] = myjson['ferme']
-        self.setups[i]['lundi'] = myjson['lundi']
-        self.setups[i]['mardi'] = myjson['mardi']
-        self.setups[i]['mercredi'] = myjson['mercredi']
-        self.setups[i]['jeudi'] = myjson['jeudi']
-        self.setups[i]['vendredi'] = myjson['vendredi']
-        self.setups[i]['samedi'] = myjson['samedi']
-        self.setups[i]['dimanche'] = myjson['dimanche']
-        
-        var buffer = json.dump(self.setups[i])
-        var name = "setup_" + str(i + 1) + ".json"
-        var file = open(name, "wt")
-        if file == nil
-            mqttprint("Error: Failed to open file for writing")
-            return
-        end
-        file.write(buffer)
-        file.close()
+        gpio.digital_write(self.relay[i], self.setups[i]['onoff'])
     end
 
     # Initialization function
@@ -133,12 +83,6 @@ class AEROTHERME
                 continue
             end
             self.setups.insert(i,json_data)  
-            var  newtopic = string.format("gw/%s/%s/%s_%s/set/SETUP", global.client, global.ville, global.device + "_" + str(i + 1))
-            var payload = string.format('{"Device":"%s","Name":"%s_%s","TYPE":"SETUP","DATA":{%s}}',
-                    global.device, global.device,str(i+1), myjson)
-            print('setup:', newtopic, ' ', payload)
-            mqtt.publish(newtopic, payload, true)
-            print(self.setups[i]) 
         end 
         print("init setups done")
         self.day_list = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]
@@ -152,6 +96,27 @@ class AEROTHERME
         gpio.pin_mode(self.relay[1], gpio.OUTPUT)
         gpio.digital_write(self.relay[1], 0)  
         self.count = 0  
+        tasmota.set_timer(30000,/-> self.mypush())
+    end
+
+    def mypush()
+        var file
+        var myjson        
+        for i:0..global.nombre-1
+            var name = "setup_" + str(i + 1) + ".json"
+            file = open(name, "rt")
+            if file == nil
+                mqttprint("Error: Failed to open file " + name)
+                continue
+            end
+            myjson = file.read()
+            file.close()
+            var  newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device + "_" + str(i + 1))
+            var payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}',
+                    global.device, global.device + "_" + str(i + 1), myjson)
+            print('setup:', newtopic, ' ', payload)
+            mqtt.publish(newtopic, payload, true)
+        end 
     end
 
     # Function to subscribe to MQTT topics
@@ -159,15 +124,9 @@ class AEROTHERME
         var topic 
         # aerotherme
         for i:0..global.nombre-1
-            topic = string.format("app/%s/%s/%s/set/ONOFF", global.client, global.ville, global.device + "_" + str(i + 1))
-            mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.onoff(topic, idx, payload_s, payload_b))
-            mqttprint("subscribed to ONOFF")
-            topic = string.format("app/%s/%s/%s/set/MODE", global.client, global.ville, global.device + "_" + str(i + 1))
-            mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mode(topic, idx, payload_s, payload_b))
-            mqttprint("subscribed to MODE")
-            topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville, global.device + "_" + str(i + 1))
-            mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.isemaine(topic, idx, payload_s, payload_b))
-            mqttprint("subscribed to ISEMAINE")
+            topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device + "_" + str(i + 1))
+            mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup(topic, idx, payload_s, payload_b))
+            mqttprint("subscribed to SETUP:"+global.device + "_" + str(i + 1))
         end
     end
 
@@ -195,6 +154,8 @@ class AEROTHERME
             return
         end
 
+
+
         for i:0..global.nombre-1
             if (hour >= self.setups[i][jour]['debut'] && hour < self.setups[i][jour]['fin'])
                 target = self.setups[i]['ouvert']
@@ -203,7 +164,7 @@ class AEROTHERME
             end
 
             payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.f}', 
-                    global.device, global.device+'_'+str(i+1), temperature, self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target)
+                    global.device, global.device+'_'+str(i+1), temperature-self.setups[i]['offset'], self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target)
             topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device+"_"+str(i + 1))
             mqtt.publish(topic, payload, true)
             topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.device+"_"+str(i + 1))

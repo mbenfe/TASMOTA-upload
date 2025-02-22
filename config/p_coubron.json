@@ -8,7 +8,7 @@
     },
     "dl12-maind2": {
         "mode": ["tri","tri","tri"],
-        "root": ["ecl4","eclext","pc"],
+        "root": ["*","eclext","ecl4"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
