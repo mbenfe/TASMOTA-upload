@@ -231,8 +231,9 @@ mqttprint("location:" + str(global.location))
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
 
-tasmota.cmd("GPIO21 640")
-tasmota.cmd("GPIO9 608")
+tasmota.cmd("GPIO21 640")  # SDA1
+tasmota.cmd("GPIO9 608") # SCL1
+tasmota.cmd("i2cdriver12 0") # avoid confusion with EMLV6070 module
 
 mqttprint('load command.be')
 tasmota.load('command.be')
