@@ -156,6 +156,5 @@ class CHX
 end
 
 chx = CHX()
-chx.init()
 tasmota.add_driver(chx)
 tasmota.add_cron("0 * * * * *", /-> chx.every_minute(), "every_min_@0_s")
