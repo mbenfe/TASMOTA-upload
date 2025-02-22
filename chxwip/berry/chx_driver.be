@@ -62,7 +62,6 @@ class CHX
         var myjson = file.read()
         file.close()
         self.setups = json.load(myjson)  
-        print(self.setups) 
         self.gate = 19
         self.day_list = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
         mqttprint("subscription MQTT")
@@ -86,7 +85,6 @@ class CHX
         var  newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device )
         var payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}',
                 global.device, global.device, myjson)
-        print('setup:', newtopic, ' ', payload)
         mqtt.publish(newtopic, payload, true)
     end
 
@@ -124,32 +122,30 @@ class CHX
         end
         var temperature = data[0]
         var humidity = data[1]
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.1f}', 
-                global.device, global.device, temperature, humidity,self.setups['ouvert'],self.setups['ferme'],self.setups['offset'],global.location,target)
-        var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
-        mqtt.publish(topic, payload, true)
-        topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.device)
+        var payload
+        var power
+        var topic
         if( hour >= self.setups[jour]['debut'] && hour < self.setups[jour]['fin'] )
             if (temperature < self.setups['ouvert']+self.setups['offset'])
                 gpio.digital_write(self.gate, 0)
-                payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device)
-                mqtt.publish(topic, payload, true)
+                power = 1
             else
                 gpio.digital_write(self.gate, 1)
-                payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.device, global.device)
-                mqtt.publish(topic, payload, true)
+                power = 0
             end
         else
             if (temperature < self.setups['ferme']+self.setups['offset'])
                 gpio.digital_write(self.gate, 0)
-                payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device)
-                mqtt.publish(topic, payload, true)
+                power = 1
             else
                 gpio.digital_write(self.gate, 1)
-                payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.device, global.device)
-                mqtt.publish(topic, payload, true)
+                power = 0
             end
         end        
+        topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
+        payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.1f,"Power":%d}',
+                global.device, global.device, temperature, humidity,self.setups['ouvert'],self.setups['ferme'],self.setups['offset'],global.location,target,power) 
+        mqtt.publish(topic, payload, true)
     end
 
     def every_second()
