@@ -12,7 +12,6 @@ def mqttprint(texte)
 end
 
 class CHX
-    var aht20
     var gate
     var day_list
     var setups
@@ -113,18 +112,22 @@ class CHX
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var jour = self.day_list[day_of_week]
-        var data = aht20.poll()
+        var data = tasmota.read_sensors()
         if(data == nil)
             return
         end
+        var myjson = json.load(data)
+        if(!myjson.contains("AHT2X"))
+            return
+        end
+        var temperature = myjson["AHT2X"]["Temperature"]
+        var humidity = myjson["AHT2X"]["Humidity"]    
         var target
         if (hour >= self.setups[jour]['debut'] && hour < self.setups[jour]['fin'])
             target = self.setups['ouvert']
         else
             target = self.setups['ferme']
         end
-        var temperature = data[0]
-        var humidity = data[1]
         var payload
         var power
         var topic

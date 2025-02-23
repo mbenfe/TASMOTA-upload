@@ -233,7 +233,6 @@ tasmota.add_cmd('get', get)
 
 mqttprint('load command.be')
 tasmota.load('command.be')
-mqttprint('load aht20.be')
-tasmota.load('aht20.be')
+
 mqttprint('load chx_driver')
 tasmota.load('chx_driver.be')
