@@ -6,6 +6,13 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
+    "dl12-flasher": {
+        "mode": ["tri","tri","tri"],
+        "root": ["test1","test2","test3"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
 
     "dl4-developpement": {
         "mode": "tri",
