@@ -3,7 +3,6 @@ import string
 import json
 import global
 
-
 # Define mqttprint function
 def mqttprint(texte)
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
@@ -58,7 +57,6 @@ class CHX
         gpio.digital_write(self.gate, self.setups['mode'] == 0 ? 1 : 0)
     end
 
-
     def init()
         var file = open("thermostat_intermarche.json", "rt")
         var myjson = file.read()
@@ -98,12 +96,11 @@ class CHX
         topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
         mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup(topic, idx, payload_s, payload_b))
         mqttprint("subscribed to SETUP:"+global.device)
-
     end
 
     def every_minute()
         var now = tasmota.rtc()
-        var rtc=tasmota.time_dump(now["local"])
+        var rtc = tasmota.time_dump(now["local"])
         var second = rtc["sec"]
         var minute = rtc["min"]
         var hour = rtc["hour"]
@@ -131,23 +128,28 @@ class CHX
         var payload
         var power
         var topic
-        if( hour >= self.setups[jour]['debut'] && hour < self.setups[jour]['fin'] )
-            if (temperature < self.setups['ouvert']+self.setups['offset'])
-                gpio.digital_write(self.gate, 0)
-                power = 1
+        if(mode==1)
+            if( hour >= self.setups[jour]['debut'] && hour < self.setups[jour]['fin'] )
+                if (temperature < self.setups['ouvert']+self.setups['offset'])
+                    gpio.digital_write(self.gate, 0)
+                    power = 1
+                else
+                    gpio.digital_write(self.gate, 1)
+                    power = 0
+                end
             else
-                gpio.digital_write(self.gate, 1)
-                power = 0
-            end
+                if (temperature < self.setups['ferme']+self.setups['offset'])
+                    gpio.digital_write(self.gate, 0)
+                    power = 1
+                else
+                    gpio.digital_write(self.gate, 1)
+                    power = 0
+                end
+            end    
         else
-            if (temperature < self.setups['ferme']+self.setups['offset'])
-                gpio.digital_write(self.gate, 0)
-                power = 1
-            else
-                gpio.digital_write(self.gate, 1)
-                power = 0
-            end
-        end        
+            gpio.digital_write(self.gate, 0)
+            power = 1
+        end    
         topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"aht20":%.2f,"Humidity":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.1f,"Power":%d,"mode":%d}',
                 global.device, global.device, temperature-self.setups['offset'], temperature,humidity,self.setups['ouvert'],self.setups['ferme'],self.setups['offset'],global.location,target,power,self.setups['mode'])
