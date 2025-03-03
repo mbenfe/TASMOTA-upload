@@ -44,17 +44,20 @@ class my_zb_handler
             self.sensors[mydevice.name].insert('Temperature',myjson['Temperature'])
             topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
             mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)            
+            self.removeAll(attr_list)
         elif myjson.contains('Humidity')
             self.sensors[mydevice.name].insert('Humidity',myjson['Humidity'])
+            self.removeAll(attr_list)
         elif myjson.contains('BatteryVoltage')
             self.sensors[mydevice.name].insert('BatteryVoltage',myjson['BatteryVoltage'])
+            self.removeAll(attr_list)
         elif myjson.contains('BatteryPercentage')
             self.sensors[mydevice.name].insert('BatteryPercentage',myjson['BatteryPercentage'])
+            self.removeAll(attr_list)
         elif myjson.contains('LinkQuality')         
             self.sensors[mydevice.name].insert('LinkQuality',myjson['LinkQuality'])
+            self.removeAll(attr_list)
         end
-
-        self.removeAll(attr_list)
      end
 
     def attributes_final(event_type, frame, attr_list, idx)

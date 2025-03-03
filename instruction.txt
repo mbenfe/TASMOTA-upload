@@ -9,27 +9,6 @@ cc.load("znp_E72_russian.hex")
 cc.check()
 
 cc.flash()
-br
-var wc=webclient();wc.set_follow_redirects(true);wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/autoexec.be');tasmota.delay(5000);var wstatus=wc.GET();print(wc.write_file('autoexec.be'));wc.close();end;
-br
-var wc=webclient();wc.set_follow_redirects(true);wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/conso.be');tasmota.delay(5000);var wstatus=wc.GET();if wc.satusprint(wc.write_file('conso.be'));wc.close();
-br
-var wc=webclient();wc.set_follow_redirects(true);wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/pwx12_driver.be');var wstatus=wc.GET();print(wc.write_file('pwx12_driver.be'));wc.close();
-br
-var wc=webclient();wc.set_follow_redirects(true);wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/logger.be');var wstatus=wc.GET();print(wc.write_file('logger.be'));wc.close();
-
-br
-var wc=webclient();wc.set_follow_redirects(true);wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/thx/berry/autoexec.be');tasmota.delay(5000);var wstatus=wc.GET();print(wc.write_file('autoexec.be'));wc.close();
-
-var wc=webclient()
-wc.set_follow_redirects(true)
-wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/autoexec.be')
-var wstatus=wc.GET()
-print(wc.write_file('autoexec.be'))
-wc.close()
-
-
-var wc = webclient(); wc.set_follow_redirects(true);wc.begin("https://https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/autoexec.be");var wstatus = wc.GET();wc.close();
 
 
 br def urlfetch(url,file); if file==nil; import string; file=string.split(url,'/').pop(); end; var wc=webclient(); wc.begin(url); var st=wc.GET(); if st!=200 raise 'connection_error','status: '+str(st) end; st='Fetched '+str(wc.write_file(file)); print(url,st); wc.close(); return st; end; urlfetch('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/conso.be');
