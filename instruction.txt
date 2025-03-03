@@ -19,7 +19,7 @@ br
 var wc=webclient();wc.set_follow_redirects(true);wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/logger.be');var wstatus=wc.GET();print(wc.write_file('logger.be'));wc.close();
 
 br
-var wc=webclient();wc.set_follow_redirects(true);wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/thx/berry/autoexec.be');tasmota.delay(5000);var wstatus=wc.GET();print(wc.write_file('autoexec.be'));wc.close();end;
+var wc=webclient();wc.set_follow_redirects(true);wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/thx/berry/autoexec.be');tasmota.delay(5000);var wstatus=wc.GET();print(wc.write_file('autoexec.be'));wc.close();
 
 var wc=webclient()
 wc.set_follow_redirects(true)
