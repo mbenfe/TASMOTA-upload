@@ -1,8 +1,10 @@
 import zigbee
 import json
 import string
+import global
 
 class my_zb_handler
+    var sensors
 
     ###############################################################################
     #
@@ -10,6 +12,17 @@ class my_zb_handler
     def removeAll(liste)
         while liste.size()!=0
             liste.remove(0)
+        end
+    end
+
+    def init()
+        self.sensors = map()
+        for device: zigbee
+            self.sensors.insert(device.name,{})
+        end
+        for k: self.sensors.keys()
+            print(k)
+
         end
     end
 
@@ -25,16 +38,23 @@ class my_zb_handler
     def attributes_refined(event_type, frame, attr_list, idx)
 
         var myjson = json.load(str(attr_list))
-        if myjson.contains('Data')
-            print('type:',type(myjson['Data']),' ',myjson['Data'])
-            var mylist = string.split(myjson['Data'],"/")
-            for i: 0..size(mylist)-1
-                print(i,':',mylist[i],' ',real(mylist[i]))
-            end
-        else
-        #    self.removeAll(attr_list)
+        var topic
+        var mydevice = zigbee[idx]
+        if myjson.contains('Temperature')
+            self.sensors[mydevice.name].insert('Temperature',myjson['Temperature'])
+            topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client,global.ville, mydevice.name)
+            mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)            
+        elif myjson.contains('Humidity')
+            self.sensors[mydevice.name].insert('Humidity',myjson['Humidity'])
+        elif myjson.contains('BatteryVoltage')
+            self.sensors[mydevice.name].insert('BatteryVoltage',myjson['BatteryVoltage'])
+        elif myjson.contains('BatteryPercentage')
+            self.sensors[mydevice.name].insert('BatteryPercentage',myjson['BatteryPercentage'])
+        elif myjson.contains('LinkQuality')         
+            self.sensors[mydevice.name].insert('LinkQuality',myjson['LinkQuality'])
         end
-            # print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list.item(i)}")
+
+        self.removeAll(attr_list)
      end
 
     def attributes_final(event_type, frame, attr_list, idx)

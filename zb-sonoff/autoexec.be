@@ -1,8 +1,9 @@
-var version = "1.0.112024 initiale"
+var version = "1.0.032025 initiale"
 
 import string
 import global
-import mqttimport json
+import mqtt
+import json
 import gpio
 import path
 
@@ -169,23 +170,6 @@ def set(cmd, idx, payload, payload_json)
 
     tasmota.resp_cmnd('done')
     tasmota.cmd("restart 1")
-end
-
-def get(cmd, idx, payload, payload_json)
-    var file = open("thermostat_intermarche.json", "rt")
-    var myjson = file.read()
-    file.close()
-
-    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device)
-    mqtt.publish(topic, myjson, true)
-
-    tasmota.resp_cmnd('done')
-end
-
-
-def launch_driver()
-    mqttprint('mqtt connected -> launch driver')
-    tasmota.load('chx_driver.be')
 end
 
 def getversion()
