@@ -128,7 +128,7 @@ class CHX
         var payload
         var power
         var topic
-        if(mode==1)
+        if(self.setups['mode']==1)
             if( hour >= self.setups[jour]['debut'] && hour < self.setups[jour]['fin'] )
                 if (temperature < self.setups['ouvert']+self.setups['offset'])
                     gpio.digital_write(self.gate, 0)
