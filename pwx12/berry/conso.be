@@ -85,19 +85,30 @@ class conso
             saison = global.coutjson["electricite"]["sb"]
         end
 
+
         taxable = (saison["hp_acheminement_cc"]+saison["hp_acheminement_cs"]+saison["hp_acheminement_cg"])*heures_pleines
         taxable += (saison["hc_acheminement_cc"]+saison["hc_acheminement_cs"]+saison["hc_acheminement_cg"])*heures_creuses
  
         #heures pleines
+
         hp_cout_conso = (saison["hp_tarif"]+saison["cee"]+saison["hp_obligation"])*heures_pleines
         hp_cout_acheminement = (saison["hp_acheminement_cc"] +saison["hp_acheminement_cs"]+saison["hp_acheminement_cg"]+ saison["hp_acheminement_conso"])*heures_pleines
 
-        hp_cout_taxes = taxable * saison["taxe_acheminement"]*(1-real(heures_creuses)/real(heures_pleines)) + saison["hp_sp"]*heures_pleines
+        if(heures_pleines != 0)
+            hp_cout_taxes = taxable * saison["taxe_acheminement"]*(1-real(heures_creuses)/real(heures_pleines)) + saison["hp_sp"]*heures_pleines
+        else
+            hp_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hp_sp"]*heures_pleines
+        end
         hp_cout = hp_cout_conso + hp_cout_acheminement + hp_cout_taxes
-       #heures pleines
+       #heures creuses
         hc_cout_conso = (saison["hc_tarif"]+saison["cee"]+saison["hc_obligation"])*heures_creuses
         hc_cout_acheminement = (saison["hc_acheminement_cc"] +saison["hc_acheminement_cs"]+saison["hc_acheminement_cg"]+ saison["hc_acheminement_conso"])*heures_creuses
-        hc_cout_taxes = taxable * saison["taxe_acheminement"]*real(heures_creuses)/real(heures_pleines) + saison["hc_sp"]*heures_creuses
+
+        if(heures_pleines != 0)
+            hc_cout_taxes = taxable * saison["taxe_acheminement"]*real(heures_creuses)/real(heures_pleines) + saison["hc_sp"]*heures_creuses
+        else
+            hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"]*heures_creuses
+        end
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
         target = string.format("c_%s", chanel)
         self.cout[target] = hp_cout + hc_cout

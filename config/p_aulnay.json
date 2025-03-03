@@ -76,11 +76,88 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
+    "dl4-main": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["rogowski"],
+        "ratio": ["3003"]
+    },
     "dl4-caisses": {
         "mode": "tri",
         "root": ["rideau"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]
-        }
-}
+    },
+    "dl4-fneg": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-station": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-eclext": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-fpos": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-rideau": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-boulange1": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-boulange2": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-boulangeb": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-tabmag": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-bacl": {
+        "mode": "tri",
+        "root": ["b_loges"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+        },
+    }
