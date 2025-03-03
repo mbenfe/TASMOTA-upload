@@ -42,7 +42,7 @@ class my_zb_handler
         var mydevice = zigbee[idx]
         if myjson.contains('Temperature')
             self.sensors[mydevice.name].insert('Temperature',myjson['Temperature'])
-            topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client,global.ville, mydevice.name)
+            topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
             mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)            
         elif myjson.contains('Humidity')
             self.sensors[mydevice.name].insert('Humidity',myjson['Humidity'])
