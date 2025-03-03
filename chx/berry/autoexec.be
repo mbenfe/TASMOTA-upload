@@ -230,6 +230,7 @@ mqttprint("location:" + str(global.location))
 
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
+tasmota.add_cmd('set', set)
 
 mqttprint('load command.be')
 tasmota.load('command.be')
