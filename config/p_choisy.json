@@ -90,5 +90,12 @@
     "produit": "PWX4",
     "techno": ["ct"],
     "ratio": ["1000"]
-    }
+    },
+"dl12-tdclim": {
+    "mode": ["tri","tri","tri"],
+    "root": ["reserve","climatisations","td_clim"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
+}
 }
