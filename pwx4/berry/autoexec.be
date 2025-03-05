@@ -341,7 +341,7 @@ def update()
     tasmota.cmd("getfile pwx4/berry/conso.be")   
     tasmota.cmd("getfile pwx4/berry/flasher.be")
     tasmota.cmd("getfile pwx4/berry/logger.be")
-    tasmota.cmd("getfile pwx4/berry/pwx12_driver.be")
+    tasmota.cmd("getfile pwx4/berry/pwx4_driver.be")
 end
 
 tasmota.cmd("seriallog 0")
