@@ -1,4 +1,4 @@
-var version = "1.0.112024"
+var version = "2.0.032025 with update"
 
 import string
 import global
@@ -72,8 +72,8 @@ def BlReset(cmd, idx, payload, payload_json)
 end
 
 def BlMode(cmd, idx, payload, payload_json)
-    var argument = string.split(string.toupper(payload), " ")
-    if (argument[0] != "CAL" && argument[0] != "LOG")
+    var argument = string.split(string.toupper(payload)," ")
+    if(argument[0]!="CAL" && argument[0] !="LOG" && argument[0] !="REG")
         mqttprint("erreur arguments")
         return
     end
@@ -328,6 +328,24 @@ def getversion()
     tasmota.resp_cmnd_done()
 end
 
+def update()
+    var file = open("esp32.cfg", "rt")
+    var buffer = file.read()
+    var myjson = json.load(buffer)
+    var ville = myjson["ville"]
+    var name = string.format("c_%s.json", ville)
+    file.close()
+    var command = string.format("sendconfig config/%s", name)
+    tasmota.cmd(command)
+    tasmota.cmd("getfile pwx12/berry/autoexec.be")
+    tasmota.cmd("getfile pwx12/berry/command.be"))
+    tasmota.cmd("getfile pwx12/berry/conso.be")   
+    tasmota.cmd("getfile pwx12/berry/flasher.be")
+    tasmota.cmd("getfile pwx12/berry/logger.be")
+    tasmota.cmd("getfile pwx12/berry/pwx12_driver.be")
+    tasmota.cmd("restart 1")
+end
+
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
@@ -348,6 +366,7 @@ tasmota.add_cmd("storecal", storecal)
 tasmota.add_cmd("h", help)
 tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('getversion', getversion)
+tasmota.add_cmd('update', update)
 
 ############################################################
 tasmota.cmd("Init")

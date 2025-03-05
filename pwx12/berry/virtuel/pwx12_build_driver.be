@@ -190,10 +190,12 @@ class PWX12
                 elif mylist[i][0] == 'W'
  #                       self.logger.log_data(mylist[i])
                     split = string.split(mylist[i], ':')
-                    for j:0..2
-                        topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j+1)
-                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j+1]))
-                        mqtt.publish(topic, ligne, true)
+                    for j: 0..2
+                        if global.configjson[global.device]["root"][j] != "*"
+                            topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
+                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
+                            mqtt.publish(topic, ligne, true)
+                        end
                     end
                 else
                     print('PWX12->', mylist[i])
