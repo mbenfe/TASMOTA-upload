@@ -335,15 +335,14 @@ def update()
     var ville = myjson["ville"]
     var name = string.format("c_%s.json", ville)
     file.close()
-    var command = string.format("sendconfig config/%s", name)
+    var command = string.format("getfile config/%s", name)
     tasmota.cmd(command)
     tasmota.cmd("getfile pwx12/berry/autoexec.be")
-    tasmota.cmd("getfile pwx12/berry/command.be"))
+    tasmota.cmd("getfile pwx12/berry/command.be")
     tasmota.cmd("getfile pwx12/berry/conso.be")   
     tasmota.cmd("getfile pwx12/berry/flasher.be")
     tasmota.cmd("getfile pwx12/berry/logger.be")
     tasmota.cmd("getfile pwx12/berry/pwx12_driver.be")
-    tasmota.cmd("restart 1")
 end
 
 tasmota.cmd("seriallog 0")

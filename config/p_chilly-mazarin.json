@@ -1,7 +1,7 @@
 {
     "dl12-sdm": {
         "mode": ["tri","tri","tri"],
-        "root": ["*","fneg","fpos"],
+        "root": ["td_clim","fneg","fpos"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["2000","2000","1000"]
