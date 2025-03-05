@@ -5,6 +5,7 @@ import global
 import mqtt
 import json
 import gpio
+import path
 
 var rx=16    
 var tx=17    
@@ -335,12 +336,12 @@ def update()
     file.close()
     var command = string.format("getfile config/%s", name)
     tasmota.cmd(command)
-    tasmota.cmd("getfile pwx12/berry/autoexec.be")
-    tasmota.cmd("getfile pwx12/berry/command.be")
-    tasmota.cmd("getfile pwx12/berry/conso.be")   
-    tasmota.cmd("getfile pwx12/berry/flasher.be")
-    tasmota.cmd("getfile pwx12/berry/logger.be")
-    tasmota.cmd("getfile pwx12/berry/pwx12_driver.be")
+    tasmota.cmd("getfile pwx4/berry/autoexec.be")
+    tasmota.cmd("getfile pwx4/berry/command.be")
+    tasmota.cmd("getfile pwx4/berry/conso.be")   
+    tasmota.cmd("getfile pwx4/berry/flasher.be")
+    tasmota.cmd("getfile pwx4/berry/logger.be")
+    tasmota.cmd("getfile pwx4/berry/pwx12_driver.be")
 end
 
 tasmota.cmd("seriallog 0")
