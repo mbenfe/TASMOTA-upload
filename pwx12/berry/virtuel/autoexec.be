@@ -1,4 +1,4 @@
-var version = "1.0.112024"
+var version = "2.0.032025 with update"
 
 import string
 import global
@@ -328,11 +328,27 @@ def getversion()
     tasmota.resp_cmnd_done()
 end
 
+def update()
+    var file = open("esp32.cfg", "rt")
+    var buffer = file.read()
+    var myjson = json.load(buffer)
+    var ville = myjson["ville"]
+    var name = string.format("c_%s.json", ville)
+    file.close()
+    var command = string.format("getfile config/%s", name)
+    tasmota.cmd(command)
+    tasmota.cmd("getfile pwx12/berry/autoexec.be")
+    tasmota.cmd("getfile pwx12/berry/command.be")
+    tasmota.cmd("getfile pwx12/berry/conso.be")   
+    tasmota.cmd("getfile pwx12/berry/flasher.be")
+    tasmota.cmd("getfile pwx12/berry/logger.be")
+    tasmota.cmd("getfile pwx12/berry/pwx12_driver.be")
+end
+
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
 print("teleperiod set")
-
 
 tasmota.add_cmd("Stm32reset", Stm32Reset)
 tasmota.add_cmd("getfile", getfile)
@@ -349,6 +365,7 @@ tasmota.add_cmd("storecal", storecal)
 tasmota.add_cmd("h", help)
 tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('getversion', getversion)
+tasmota.add_cmd('update', update)
 
 ############################################################
 tasmota.cmd("Init")

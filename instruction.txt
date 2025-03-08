@@ -21,6 +21,13 @@ def urlfetch(url,file); if file==nil; import string; file=string.split(url,'/').
 br 
 def urlfetch(url,file); if file==nil; import string; file=string.split(url,'/').pop(); end; var wc=webclient(); wc.begin(url); var st=wc.GET(); if st!=200 raise 'connection_error','status: '+str(st) end; st='Fetched '+str(wc.write_file(file)); print(url,st); wc.close(); return st; end; urlfetch('https://raw.githubusercontent.com/mbenfe/upload/main/thx/berry/zb_handler.be');
 
+# pwx4
+br 
+def urlfetch(url,file); if file==nil; import string; file=string.split(url,'/').pop(); end; var wc=webclient(); wc.begin(url); var st=wc.GET(); if st!=200 raise 'connection_error','status: '+str(st) end; st='Fetched '+str(wc.write_file(file)); print(url,st); wc.close(); return st; end; urlfetch('https://raw.githubusercontent.com/mbenfe/upload/main/pwx4/berry/autoexec.be');
+# pwx12
+br 
+def urlfetch(url,file); if file==nil; import string; file=string.split(url,'/').pop(); end; var wc=webclient(); wc.begin(url); var st=wc.GET(); if st!=200 raise 'connection_error','status: '+str(st) end; st='Fetched '+str(wc.write_file(file)); print(url,st); wc.close(); return st; end; urlfetch('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/autoexec.be');
+
 br import conso as c; c.mqtt_publish('all')
 
 getfile bin/pwx12_neuilly_oldh.bin
