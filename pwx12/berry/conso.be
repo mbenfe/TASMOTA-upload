@@ -1,4 +1,4 @@
-var version = "1.0.0 avec cout"
+var version = "1.1.0 avec couts par semaine"
 import json
 import string
 import mqtt
@@ -6,6 +6,7 @@ import global
 
 class conso
     var consojson
+    var week_couts_json
     var coutjson
     var day_list
     var month_list
@@ -112,6 +113,7 @@ class conso
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
         target = string.format("c_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
+        self.week_couts_json[self.day_list[day_of_week]] = hp_cout + hc_cout
     end
 
     def init_conso()
@@ -186,6 +188,28 @@ class conso
         self.month_list = ["", "Jan", "Fev", "Mars", "Avr", "Mai", "Juin", "Juil", "Aout", "Sept", "Oct", "Nov", "Dec"]
         self.num_day_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         self.init_cout()
+        if (path.exists("couts.json"))
+            file = open("couts.json", "rt")
+                ligne = file.read()
+                self.week_couts_json = json.load(ligne)
+                file.close()
+            else
+                self.week_couts_json = map()
+                self.coutsjon = json.load("Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0)
+                file = open("couts.json", "wt")
+                ligne = json.dump(self.week_couts_json)
+                file.write(ligne)
+                file.close()
+                print("fichier sauvegarde des couts cree !")
+            end
+        else
+            ligne = self.init_conso()
+            file = open("conso.json", "wt")
+            file.write(ligne)
+            file.close()
+            print("fichier sauvegarde de consommation cree !")
+            print(ligne)
+        end
     end
 
     def update(data)
@@ -221,6 +245,10 @@ class conso
         var file = open("conso.json", "wt")
         file.write(ligne)
         file.close()
+        ligne = json.dump(self.week_couts_json)
+        file = open("couts.json", "wt")
+        file.write(ligne)
+        file.close()
     end
 
     def mqtt_publish(scope)
@@ -237,6 +265,7 @@ class conso
         var payload_hours
         var payload_days
         var payload_months
+        var payload_week
         var ligne
 
         var stringdevice
@@ -273,6 +302,11 @@ class conso
                         self.consojson["months"][i]["DATA"][str(self.month_list[month + 1])]
                     end
                 end
+                topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.configjson[global.device]["root"][i])
+                payload_week = self.week_couts_json
+                ligne = string.format('{"Device": "%s","Name":"%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
+                global.device, global.configjson[global.device]["root"][i], payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
+                mqtt.publish(topic, ligne, true)
                 # consommation
                 if scope != "hours"
                     self.calcul_cout(month,day_of_week, payload_hours, global.configjson[global.device]["root"][i])

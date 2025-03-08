@@ -129,7 +129,9 @@ var now = tasmota.rtc()
 var delay
 var mycron
 math.srand(size(global.device)*size(global.ville))
-delay = math.rand() % 9
+var random = math.rand()
+delay = random % 10
+print('delay:', delay)
 tasmota.add_fast_loop(/-> pwx12.fast_loop())
 # set midnight cron
 mycron = string.format("59 %d 23 * * *", 50 + delay)
