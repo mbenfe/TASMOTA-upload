@@ -127,9 +127,9 @@ tasmota.add_driver(pwx4)
 var now = tasmota.rtc()
 var delay
 var mycron
-math.srand(now["local"])
-delay = math.rand() % 9
-tasmota.add_fast_loop(/-> pwx4.fast_loop())
+math.srand(size(global.device)*size(global.ville))
+var random = math.rand()
+delay = random % 10
 # set midnight cron
 mycron = string.format("59 %d 23 * * *", 50 + delay)
 tasmota.add_cron(mycron, /-> pwx4.midnight(), "every_day")

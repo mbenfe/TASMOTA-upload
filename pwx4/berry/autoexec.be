@@ -344,6 +344,11 @@ def update()
     tasmota.cmd("getfile pwx4/berry/pwx4_driver.be")
 end
 
+def couts()
+    tasmota.cmd("br import conso as c; c.mqtt_publish('all')")
+    tasmota.resp_cmnd_done()
+end
+
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
@@ -360,9 +365,9 @@ tasmota.add_cmd("cal",Calibration)
 tasmota.add_cmd("readcal",readcal)
 tasmota.add_cmd("storecal",storecal)
 tasmota.add_cmd("h",help)
-tasmota.add_cmd('dir',dir)
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('update', update)
+tasmota.add_cmd('couts', couts)
 
 ############################################################
 tasmota.cmd("Init")

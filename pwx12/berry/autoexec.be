@@ -346,8 +346,8 @@ def update()
 end
 
 def couts()
-    impport conso as conso
-    conso.mqtt_publish('all')
+    tasmota.cmd("br import conso as c; c.mqtt_publish('all')")
+    tasmota.resp_cmnd_done()
 end
 
 tasmota.cmd("seriallog 0")
