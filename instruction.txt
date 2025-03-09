@@ -34,3 +34,7 @@ getfile bin/pwx12_neuilly_oldh.bin
 
 br import flasher as f; f.convert('pwx12_neuilly_oldh.bin')
 br import flasher as f; f.flash('pwx12_neuilly_oldh.binc')
+
+
+
+    var wc=webclient(); wc.begin('https://raw.githubusercontent.com/mbenfe/upload/main/pwx12/berry/autoexec.be'); var st=wc.GET(); if st!=200; raise 'connection_error','status: '+str(st); end; print(wc.write_file('autoexec.be)); wc.close();

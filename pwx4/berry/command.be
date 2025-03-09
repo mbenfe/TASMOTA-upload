@@ -3,18 +3,36 @@ def pushfile(cmd, idx, payload, payload_json)
     # Import the string module for string manipulation
     import string
 
-    # Split the payload into local file path and WebDAV URL components using string.split
-    var parts = string.split(payload, " ")
-    if parts.size() < 2
-        print("Invalid format: Expected <localFilePath> <username:password@server_ip>")
+    var file = opent('.secrets', 'r')
+    if file == nil
+        print("Error opening file: .secrets")
+        return
+    end
+    var secrets = file.read(file)
+    file.close()
+
+    file = open("esp32.cfg", "r")
+    if file == nil
+        print("Error opening file: esp32.cfg")
+        return
+    end
+    var buffer = file.read()
+    var myjson = json.load(buffer)
+    var ville = myjson["ville"]
+    var device = myjson["device"]
+    file.close()
+
+    if payload == nil or payload == ""
+        print("Invalid format: Expected <localFilePath>")
         return
     end
 
-    var localFilePath = parts[0]  # Local file path (from Tasmota filesystem)
-    var webdavCredentials = parts[1]  # WebDAV server credentials part (username:password@server_ip)
+    var localFilePath = payload  # Local file path (from Tasmota filesystem)
+    var webdavCredentials = secrets  # WebDAV server credentials part (username:password@server_ip)
 
     # Construct the full WebDAV URL with the specified subdirectory (webdav/tasmotafs/choisy/snx) and port 5005
-    var remoteFilePath = "http://" + webdavCredentials + ":5005/webdav/tasmotafs/choisy/snx/" + localFilePath
+    var remoteFilePath = "http://" + webdavCredentials + ":5005/webdav/tasmotafs/" + ville + "/" + device + "/" + localFilePath
+    print(remoteFilePath)
 
     # Open the local file before reading
     var file = open(localFilePath, "r")

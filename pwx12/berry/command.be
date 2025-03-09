@@ -3,54 +3,70 @@ def pushfile(cmd, idx, payload, payload_json)
     # Import the string module for string manipulation
     import string
 
-    # Split the payload into local file path and WebDAV URL components using string.split
-    var parts = string.split(payload, " ")
-    if parts.size() < 2
-        print("Invalid format: Expected <localFilePath> <username:password@server_ip>")
+    if payload == nil || payload == ""
+        print("Invalid format: Expected <localFilePath>")
         return
     end
 
-    var localFilePath = parts[0]  # Local file path (from Tasmota filesystem)
-    var webdavCredentials = parts[1]  # WebDAV server credentials part (username:password@server_ip)
+    var localFilePath = payload  # File to upload (e.g., "autoexec.be")
 
-    # Construct the full WebDAV URL with the specified subdirectory (webdav/tasmotafs/choisy/snx) and port 5005
-    var remoteFilePath = "http://" + webdavCredentials + ":5005/webdav/tasmotafs/choisy/snx/" + localFilePath
+    # Read WebDAV credentials from .secrets file
+    var file = open('.secrets', 'r')
+    if file == nil
+        print("Error opening file: .secrets")
+        return
+    end
+    var secrets = file.read()
+    file.close()
 
-    # Open the local file before reading
-    var file = open(localFilePath, "r")
+    # Read esp32.cfg to get 'ville' and 'device' parameters
+    file = open("esp32.cfg", "r")
+    if file == nil
+        print("Error opening file: esp32.cfg")
+        return
+    end
+    var buffer = file.read()
+    var myjson = json.load(buffer)
+    var ville = myjson["ville"]
+    var device = myjson["device"]
+    file.close()
+
+    # Construct the remote WebDAV path dynamically
+    var encodedPassword = string.replace(secrets, "#", "%23")
+    var remoteFilePath = "http://" + encodedPassword + ":5005/webdav/tasmotafs/" + ville + "/" + device + "/" + localFilePath
+
+    print("Uploading: " + localFilePath + " ? " + remoteFilePath)
+
+    # Open the local file
+    file = open(localFilePath, "r")
     if file == nil
         print("Error opening file: " + localFilePath)
         return
     end
 
-    # Read file content
-    var fileContent = file.read(file)
+    var fileContent = file.read()
+    file.close()
+
     if fileContent == nil
         print("Error reading file: " + localFilePath)
-        file.close()
         return
     end
 
-    # Close the file after reading
-    file.close()
-
-    # Create webclient for file upload (wc)
+    # Initialize WebClient
     var wc = webclient()
-    wc.set_follow_redirects(true)
-    wc.add_header("Content-Type","text/plain")
+    wc.add_header("Content-Type", "text/plain")
     wc.begin(remoteFilePath)
-    print(remoteFilePath)
 
-    # Use HTTP PUT method to upload the file with headers
+    # Upload the file using PUT method
     var response = wc.PUT(fileContent)
 
-    # Check if the upload was successful
+    # Check response status
     if response == 200 || response == 201
-        print("File uploaded successfully to: " + str(remoteFilePath))
+        print("? File uploaded successfully: " + remoteFilePath)
     else
-        print("Failed to upload file. Status: " + str(response))
+        print("? Upload failed. Status: " + str(response))
     end
 end
 
-# Register the command so it can be run from the console
+# Register the command in Tasmota console
 tasmota.add_cmd("pushfile", pushfile)
