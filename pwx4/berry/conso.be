@@ -316,7 +316,7 @@ class conso
                 topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.device)
                 payload_week = self.week_couts_json
                 ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
-                global.device, global.configjson[global.device]["root"], payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
+                global.device, global.configjson[global.device]["root"][0], payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
                 mqtt.publish(topic, ligne, true)
                
             end

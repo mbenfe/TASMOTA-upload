@@ -50,7 +50,7 @@
     },
     "dl4-tgbt": {
         "mode": "tri",
-        "root": ["eclrairages"],
+        "root": ["eclairages"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["2000"]
