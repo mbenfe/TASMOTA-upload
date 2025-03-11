@@ -306,7 +306,7 @@ class conso
             if (scope != "hours" && k != "c_*")
                 # du jour courant
                 topic = string.format("gw/%s/%s/%s-%d/tele/COUT", global.client, global.ville, global.device, i)
-                ligne = string.format('{"Device": "%s","Name":"c_d_%s", "surface":%d,"cout":%.2f,"jour":"%s"}', global.device,k, global.coutjson['surface'],self.cout[k],self.day_list[day_of_week])
+                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', global.device,k, global.coutjson['surface'],self.cout[k],self.day_list[day_of_week])
                 mqtt.publish(topic, ligne, true)
                 # de la semaine
                 topic = string.format("gw/%s/%s/%s-%d/tele/COUTS", global.client, global.ville, global.global.device, i)

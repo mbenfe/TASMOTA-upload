@@ -130,6 +130,7 @@ var mycron
 math.srand(size(global.device)*size(global.ville))
 var random = math.rand()
 delay = random % 10
+tasmota.add_fast_loop(/-> pwx4.fast_loop())
 # set midnight cron
 mycron = string.format("59 %d 23 * * *", 50 + delay)
 tasmota.add_cron(mycron, /-> pwx4.midnight(), "every_day")

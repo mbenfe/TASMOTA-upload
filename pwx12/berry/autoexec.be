@@ -333,8 +333,8 @@ def update()
     var buffer = file.read()
     var myjson = json.load(buffer)
     var ville = myjson["ville"]
-    file.close()
     var name = string.format("c_%s.json", ville)
+    file.close()
     var command = string.format("getfile config/%s", name)
     tasmota.cmd(command)
     name = string.format("p_%s.json", ville)
@@ -356,7 +356,6 @@ end
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
-print("teleperiod set")
 
 tasmota.add_cmd("Stm32reset", Stm32Reset)
 tasmota.add_cmd("getfile", getfile)
