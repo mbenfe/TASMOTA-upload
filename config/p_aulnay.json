@@ -27,6 +27,20 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
+    "dl4-tgbt1": {
+        "mode": "tri",
+        "root": ["eclext2"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-tgbt2": {
+        "mode": "tri",
+        "root": ["parking"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
     "dl4-rideau": {
         "mode": "tri",
         "root": ["rideau"],

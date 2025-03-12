@@ -3,7 +3,7 @@ def pushfile(cmd, idx, payload, payload_json)
     # Import the string module for string manipulation
     import string
 
-    var file = opent('.secrets', 'r')
+    var file = open('.secrets', 'r')
     if file == nil
         print("Error opening file: .secrets")
         return
