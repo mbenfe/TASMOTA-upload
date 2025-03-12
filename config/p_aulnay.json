@@ -1,24 +1,25 @@
 {
-    "dl4-main": {
-        "mode": "tri",
-        "root": ["main"],
-        "produit": "PWX4",
-        "techno": ["rogowski"],
-        "ratio": ["3003"]
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["fneg","fpos","main"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["2000","4000","3003"]
     },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_drive","fext","td_acceuil"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+
     "dl4-caisses": {
         "mode": "tri",
         "root": ["gene_caisses"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]
-    },
-    "dl4-fneg": {
-        "mode": "tri",
-        "root": ["fneg"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["2000"]
     },
     "dl4-station": {
         "mode": "tri",
@@ -47,13 +48,6 @@
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]
-    },
-    "dl4-fpos": {
-        "mode": "tri",
-        "root": ["fpos"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["4000"]
     },
     "dl4-rideau": {
         "mode": "tri",
