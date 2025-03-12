@@ -19,6 +19,13 @@
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
+    },   
+    "dl12-tgbt4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rampe1","rampe2","rampe3"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl4-rideau": {
         "mode": "tri",
