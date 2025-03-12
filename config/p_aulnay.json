@@ -13,41 +13,12 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
-
-    "dl4-caisses": {
-        "mode": "tri",
-        "root": ["gene_caisses"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
-    },
-    "dl4-station": {
-        "mode": "tri",
-        "root": ["station"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
-    },
-    "dl4-drive": {
-        "mode": "tri",
-        "root": ["drive"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
-    },
-    "dl4-eclairage": {
-        "mode": "tri",
-        "root": ["eclairage"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
-    },
-    "dl4-eclext": {
-        "mode": "tri",
-        "root": ["eclext"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["station","eclext","eclres1"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     },
     "dl4-rideau": {
         "mode": "tri",
