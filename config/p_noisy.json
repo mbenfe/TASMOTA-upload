@@ -34,7 +34,7 @@
         "techno": ["ct","ct","rogowski"],
         "ratio": ["1000","1000","1000"]
     },
-    "dl12-tgbt_clim": {
+    "dl12-tdclim": {
         "mode": ["tri","tri","tri"],
         "root": ["groupe1","groupe2","td_clim"],
         "produit": "PWX12",
