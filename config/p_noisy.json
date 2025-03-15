@@ -1,49 +1,49 @@
 {
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
-        "root": ["*","*","*"],
+        "root": ["gene_station","gene_boulangerie","froid"],
         "produit": "PWX12",
-        "techno": ["ct","ct","rogowski"],
-        "ratio": ["1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","2000"]
     },
     "dl12-tgbt2": {
         "mode": ["tri","tri","tri"],
-        "root": ["*","*","*"],
+        "root": ["gene_caisse","gene_boucherie","gene_onduleur"],
         "produit": "PWX12",
-        "techno": ["ct","ct","rogowski"],
-        "ratio": ["1000","1000","1000"]
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","1000","1000"]
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
         "root": ["*","*","*"],
         "produit": "PWX12",
-        "techno": ["ct","ct","rogowski"],
+        "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
     "dl12-tgbt4": {
         "mode": ["tri","tri","tri"],
         "root": ["*","*","*"],
         "produit": "PWX12",
-        "techno": ["ct","ct","rogowski"],
+        "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
     "dl12-tgbt5": {
         "mode": ["tri","tri","tri"],
         "root": ["rampe_neuve","four","td_entrepot"],
         "produit": "PWX12",
-        "techno": ["ct","ct","rogowski"],
+        "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
     "dl12-tdclim": {
         "mode": ["tri","tri","tri"],
         "root": ["groupe1","groupe2","td_clim"],
         "produit": "PWX12",
-        "techno": ["ct","ct","rogowski"],
+        "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
-    "dl4-tgbt1": {
+    "dl4-tgbt": {
         "mode": "tri",
-        "root": ["mainn"],
+        "root": ["main"],
         "produit": "PWX4",
         "techno": ["rogowski"],
         "ratio": ["3003"]
