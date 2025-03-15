@@ -29,7 +29,7 @@
     },
     "dl12-tgbt5": {
         "mode": ["tri","tri","tri"],
-        "root": ["*","*","*"],
+        "root": ["rampe_neuve","four","td_entrepot"],
         "produit": "PWX12",
         "techno": ["ct","ct","rogowski"],
         "ratio": ["1000","1000","1000"]
