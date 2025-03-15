@@ -11,7 +11,7 @@
         "root": ["gene_caisse","gene_boucherie","gene_onduleur"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
-        "ratio": ["2000","1000","1000"]
+        "ratio": ["2000","2000","2000"]
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
