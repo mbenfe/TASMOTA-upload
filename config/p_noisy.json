@@ -15,7 +15,7 @@
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
-        "root": ["*","*","*"],
+        "root": ["clim1","clim2","clim3"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
