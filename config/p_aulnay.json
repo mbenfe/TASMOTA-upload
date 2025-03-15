@@ -48,34 +48,21 @@
         "techno": ["ct"],
         "ratio": ["1000"]
     },
-    "dl4-rideau": {
+    "dl12-boulangerie": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_boulangerie","four36kw","boutique"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","2000"]
+    },
+"dl4-rideau": {
         "mode": "tri",
         "root": ["rideau"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]
     },
-    "dl4-boulange1": {
-        "mode": "tri",
-        "root": ["boulange1"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
-    },
-    "dl4-boulange2": {
-        "mode": "tri",
-        "root": ["rideau"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
-    },
-    "dl4-boutique-b": {
-        "mode": "tri",
-        "root": ["td_boutique"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
-    },
+
     "dl4-tdmag": {
         "mode": "tri",
         "root": ["td_magasin"],

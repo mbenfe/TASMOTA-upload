@@ -1,0 +1,51 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["*","*","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["*","*","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["*","*","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["*","*","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt5": {
+        "mode": ["tri","tri","tri"],
+        "root": ["*","*","*"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt_clim": {
+        "mode": ["tri","tri","tri"],
+        "root": ["groupe1","groupe2","td_clim"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl4-tgbt1": {
+        "mode": "tri",
+        "root": ["mainn"],
+        "produit": "PWX4",
+        "techno": ["rogowski"],
+        "ratio": ["3003"]
+    }
+}
