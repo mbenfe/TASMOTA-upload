@@ -22,7 +22,7 @@
     },
     "dl12-tgbt4": {
         "mode": ["tri","tri","tri"],
-        "root": ["*","*","*"],
+        "root": ["rampe_fond","gene_deco1","gene_deco2"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
