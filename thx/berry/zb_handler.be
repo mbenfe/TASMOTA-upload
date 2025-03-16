@@ -36,30 +36,32 @@ class my_zb_handler
     end
     
     def attributes_refined(event_type, frame, attr_list, idx)
-
         var myjson = json.load(str(attr_list))
         var topic
         var mydevice = zigbee[idx]
-        if myjson.contains('Temperature')
-            self.sensors[mydevice.name].insert('Temperature',myjson['Temperature'])
-            self.sensors[mydevice.name].insert('Name',mydevice.name)
-            self.sensors[mydevice.name].insert('Device',mydevice.shortaddr)
-            topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
-            mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)            
-            self.removeAll(attr_list)
-        elif myjson.contains('Humidity')
-            self.sensors[mydevice.name].insert('Humidity',myjson['Humidity'])
-            self.removeAll(attr_list)
-        elif myjson.contains('BatteryVoltage')
-            self.sensors[mydevice.name].insert('BatteryVoltage',myjson['BatteryVoltage'])
-            self.removeAll(attr_list)
-        elif myjson.contains('BatteryPercentage')
-            self.sensors[mydevice.name].insert('BatteryPercentage',myjson['BatteryPercentage'])
-            self.removeAll(attr_list)
-        elif myjson.contains('LinkQuality')         
-            self.sensors[mydevice.name].insert('LinkQuality',myjson['LinkQuality'])
-            self.removeAll(attr_list)
+        var hexa = string.format("0x%04X",idx)
+
+        if !self.sensors.contains(mydevice.name)
+            self.sensors.insert(mydevice.name,{})
+            self.sensors[mydevice.name].insert("Device",hexa)
+            self.sensors[mydevice.name].insert("Name",mydevice.name)
         end
+
+        for i:0..size(attr_list)-1
+            if self.sensors[mydevice.name].contains(attr_list.item(i).key)
+                self.sensors[mydevice.name][attr_list.item(i).key] = attr_list.item(i).val
+            else
+               if attr_list.item(i).key == 'Temperature' || attr_list.item(i).key == 'Humidity' 
+                || attr_list.item(i).key == 'BatteryVoltage' || attr_list.item(i).key == 'BatteryPercentage'
+                || attr_list.item(i).key == 'LinkQuality' 
+                   self.sensors[mydevice.name].insert(attr_list.item(i).key,attr_list.item(i).val)
+               end
+            end    
+        end
+
+        topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
+        mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)
+        self.removeAll(attr_list)
      end
 
     def attributes_final(event_type, frame, attr_list, idx)
