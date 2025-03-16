@@ -47,6 +47,14 @@ class my_zb_handler
             self.sensors[mydevice.name].insert("Name",mydevice.name)
         end
 
+        if(!self.sensors[mydevice.name].contains("Device"))
+            self.sensors[mydevice.name].insert("Device",hexa)
+        end
+        
+        if(!self.sensors[mydevice.name].contains("Name"))
+            self.sensors[mydevice.name].insert("Name",mydevice.name)
+        end
+
         for i:0..size(attr_list)-1
             if self.sensors[mydevice.name].contains(attr_list.item(i).key)
                 self.sensors[mydevice.name][attr_list.item(i).key] = attr_list.item(i).val
