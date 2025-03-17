@@ -192,10 +192,22 @@ class conso
             file = open("couts.json", "rt")
                 ligne = file.read()
                 self.week_couts_json = json.load(ligne)
+                if self.week_couts_json.keys() < 3
+                    for i:0..2
+                        self.week_couts_json.insert([global.configjson[global.device]["root"][i]], json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                    end
+                    file = open("couts.json", "wt")
+                    ligne = json.dump(self.week_couts_json)
+                    file.write(ligne)
+                    file.close()
+                    print("fichier sauvegarde des couts cree !")
+                end
                 file.close()
         else
             self.week_couts_json = map()
-            self.week_couts_json = json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}')
+            for i:0..2
+                self.week_couts_json.insert([global.configjson[global.device]["root"][i]], json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+            end
             file = open("couts.json", "wt")
             ligne = json.dump(self.week_couts_json)
             file.write(ligne)
@@ -310,7 +322,7 @@ class conso
                 mqtt.publish(topic, ligne, true)
                 # de la semaine
                 topic = string.format("gw/%s/%s/%s-%d/tele/COUTS", global.client, global.ville, global.global.device, i)
-                payload_week = self.week_couts_json
+                payload_week = self.week_couts_json[global.configjson[global.device]["root"][i-1]]
                 ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
                 global.device, global.configjson[global.device]["root"][i-1], payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
                 mqtt.publish(topic, ligne, true)
