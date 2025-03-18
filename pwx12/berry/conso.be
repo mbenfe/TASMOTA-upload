@@ -194,7 +194,7 @@ class conso
                 self.week_couts_json = json.load(ligne)
                 if self.week_couts_json.keys() < 3
                     for i:0..2
-                        self.week_couts_json.insert([global.configjson[global.device]["root"][i]], json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                        self.week_couts_json.insert(global.configjson[global.device]["root"][i], json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                     end
                     file = open("couts.json", "wt")
                     ligne = json.dump(self.week_couts_json)
