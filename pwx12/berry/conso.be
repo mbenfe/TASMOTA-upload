@@ -113,7 +113,7 @@ class conso
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
         target = string.format("c_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
-        self.week_couts_json[self.day_list[day_of_week]] = hp_cout + hc_cout
+        self.week_couts_json[chanel][self.day_list[day_of_week]] = hp_cout + hc_cout
     end
 
     def init_conso()
