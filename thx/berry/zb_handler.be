@@ -66,9 +66,10 @@ class my_zb_handler
                end
             end    
         end
-
-        topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
-        mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)
+        if myjson.contains("Temperature")
+            topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
+            mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)
+        end
         self.removeAll(attr_list)
      end
 
