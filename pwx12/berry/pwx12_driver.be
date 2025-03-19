@@ -123,8 +123,8 @@ class PWX12
 
 end
 
-pwx12 = PWX12()
-tasmota.add_driver(pwx12)
+global.pwx12 = PWX12()
+tasmota.add_driver(global.pwx12)
 var now = tasmota.rtc()
 var delay
 var mycron
@@ -132,16 +132,16 @@ math.srand(size(global.device)*size(global.ville))
 var random = math.rand()
 delay = random % 10
 print('delay:', delay)
-tasmota.add_fast_loop(/-> pwx12.fast_loop())
+tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
 # set midnight cron
 mycron = string.format("59 %d 23 * * *", 50 + delay)
-tasmota.add_cron(mycron, /-> pwx12.midnight(), "every_day")
+tasmota.add_cron(mycron, /-> global.pwx12.midnight(), "every_day")
 mqttprint("cron midnight:" + mycron)
 # set hour cron
 mycron = string.format("59 %d * * * *", 50 + delay)
-tasmota.add_cron(mycron, /-> pwx12.hour(), "every_hour")
+tasmota.add_cron(mycron, /-> global.pwx12.hour(), "every_hour")
 mqttprint("cron hour:" + mycron)
 # set 4 hours cron
-tasmota.add_cron("01 01 */4 * * *", /-> pwx12.every_4hours(), "every_4_hours")
+tasmota.add_cron("01 01 */4 * * *", /-> global.pwx12.every_4hours(), "every_4_hours")
 
-return pwx12
+# return pwx12
