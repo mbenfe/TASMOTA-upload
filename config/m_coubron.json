@@ -14,6 +14,48 @@
                     "location": "MAISON",
                     "master": "",
                     "slave": []
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Total/Froid-/Froid+/Eclairage 1/Eclairage 2/Eclairage 3/Eclairage 4/Galerie/Lavage/Station/Labo/Boulangerie/Accueil",
+                    "master": "c_main",
+                    "slave": [
+                        "c_froid1",
+                        "c_froid2",
+                        "c_ecl1",
+                        "c_ecl2",
+                        "c_ecl3",
+                        "c_ecl4",
+                        "c_gen_ga",
+                        "c_lavage",
+                        "c_station",
+                        "c_gen_labo",
+                        "c_gen_bo",
+                        "c_gene_tdcaisses"
+                    ]
+                },
+                {
+                    "shape": "ParetoTemp",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Exterieur/Bacs Logés entrée/Boucherie/Caisses/Lacets/SAS entrée/Animaux",
+                    "master": "th_exterieur",
+                    "slave": [
+                        "th_caisse_9",
+                        "th_boulangerie",
+                        "th_photomaton",
+                        "th_bio",
+                        "th_vin",
+                        "th_caisse_auto",
+                        "th_drive",
+                        "th_surgeles",
+                        "th_moment",
+                        "th_legumes"
+                    ]
                 }
             ]
         },
@@ -26,7 +68,7 @@
                 {
                     "shape": "spacer",
                     "color": 1,
-                    "column": 2,
+                    "column": 1,
                     "location": "Chauffages Bureaux",
                     "master": "",
                     "row": 1,
@@ -46,7 +88,7 @@
                 {
                     "shape": "convecteur",
                     "color": 0,
-                    "column": 2,
+                    "column": 1,
                     "location": "1er Gauche",
                     "master": "ch2",
                     "row": 2,

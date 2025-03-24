@@ -193,7 +193,6 @@ def getfile(cmd, idx, payload, payload_json)
     var message
     var nom_fichier = string.split(payload, '/').pop()
 
-    tasmota.remove_fast_loop(/-> global.pwx12.fast_loop())
     mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
     mqttprint(filepath)
@@ -202,7 +201,7 @@ def getfile(cmd, idx, payload, payload_json)
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
         tasmota.resp_cmnd("Erreur d'initialisation du client web.")
-        tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
+        tasmota.add_driver(global.pwx12)
         return
     end
 
@@ -214,8 +213,7 @@ def getfile(cmd, idx, payload, payload_json)
         mqttprint(message)
         tasmota.resp_cmnd("Erreur de téléchargement.")
         wc.close()
-        tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
-       return
+        return
     end
 
     var bytes_written = wc.write_file(nom_fichier)
@@ -223,7 +221,6 @@ def getfile(cmd, idx, payload, payload_json)
     mqttprint('Fetched ' + str(bytes_written))
     message = 'uploaded:' + nom_fichier
     tasmota.resp_cmnd(message)
-    tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
     return st
 end
 
@@ -333,7 +330,6 @@ def getversion()
 end
 
 def update()
-    tasmota.remove_fast_loop(/-> global.pwx12.fast_loop())
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     var myjson = json.load(buffer)
@@ -350,7 +346,6 @@ def update()
     tasmota.cmd("getfile pwx12/berry/flasher.be")
     tasmota.cmd("getfile pwx12/berry/logger.be")
     tasmota.cmd("getfile pwx12/berry/pwx12_driver.be")
-    tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
 end
 
 def couts()
