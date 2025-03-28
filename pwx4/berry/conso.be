@@ -125,7 +125,6 @@ class conso
             ligne = file.read()
             file.close()
             global.configjson = json.load(ligne)
-            print(global.configjson[global.device])
             if global.configjson[global.device]["produit"] == "PWX4"
                 ligne = string.format('{"hours":[]}')
                 var mainjson = json.load(ligne)
@@ -172,7 +171,6 @@ class conso
                 file.write(ligne)
                 file.close()
                 print("fichier sauvegarde de consommation cree !")
-                print(ligne)
             end
         else
             ligne = self.init_conso()
@@ -180,7 +178,6 @@ class conso
             file.write(ligne)
             file.close()
             print("fichier sauvegarde de consommation cree !")
-            print(ligne)
         end
         self.day_list = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
         self.month_list = ["", "Jan", "Fev", "Mars", "Avr", "Mai", "Juin", "Juil", "Aout", "Sept", "Oct", "Nov", "Dec"]
