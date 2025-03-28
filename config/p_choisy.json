@@ -58,7 +58,7 @@
 },
 "dl12-boulangerie1": {
     "mode": ["tri","tri","tri"],
-    "root": ["gen_boulangerie","grandfour","force"],
+    "root": ["force","grandfour","gen_boulangerie"],
     "produit": "PWX12",
     "techno": ["ct","ct","ct"],
     "ratio": ["1000","1000","1000"]

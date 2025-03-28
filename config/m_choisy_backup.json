@@ -35,10 +35,25 @@
                     ]
                 },
                 {
-                    "shape": "ParetoTemp",
+                    "shape": "iCoutsPareto",
                     "color": 0,
                     "column": 1,
                     "row": 3,
+                    "location": "Boulangerie/Force/Grand Four/CF Negative/CF Positive/Ballon EC",
+                    "master": "c_gen_boulangerie",
+                    "slave": [
+                        "c_force",
+                        "c_grandfour",
+                        "c_cfneg",
+                        "c_cfpos",
+                        "c_ballon"
+                    ]
+                },
+                {
+                    "shape": "ParetoTemp",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
                     "location": "Exterieur/Clim 1/Clim 2/Clim 3/Clim 4/Animaux/Caisses/Pains/Fruits & Legumes/Entree galerie/Frais/Portiques/Savons/Piles/Cartes",
                     "master": "th_exterieure",
                     "slave": [
@@ -139,15 +154,6 @@
                     "location": "Boulangerie",
                     "master": "gen_boulangerie",
                     "row": 7,
-                    "shape": "consocard",
-                    "slave": []
-                },
-                {
-                    "color": 0,
-                    "column": 1,
-                    "location": "Climatisation",
-                    "master": "climatisations",
-                    "row": 8,
                     "shape": "consocard",
                     "slave": []
                 }

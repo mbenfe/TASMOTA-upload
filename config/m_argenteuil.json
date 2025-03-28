@@ -14,32 +14,48 @@
                     "location": "MAISON",
                     "master": "",
                     "slave": []
-                }
-            ]
-        },
-        {
-            "type": "iRideau",
-            "label": "Rideau",
-            "level": 1,
-            "virtuel": 0,
-            "data": [
-                {
-                    "shape": "Thermoscreens",
-                    "color": 0,
-                    "column": 1,
-                    "row": 1,
-                    "location": "Gauche",
-                    "master": "",
-                    "slave": []
                 },
                 {
-                    "shape": "Thermoscreens",
+                    "shape": "iCoutsPareto",
                     "color": 0,
                     "column": 1,
                     "row": 2,
-                    "location": "Gauche",
-                    "master": "",
-                    "slave": []
+                    "location": "Total/Froid/Magasin",
+                    "master": "c_main",
+                    "slave": [
+                        "c_froidm",
+                        "c_froidc"
+                    ]
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Total Froid/Meubles",
+                    "master": "c_froidm",
+                    "slave": [
+                        "c_meubles_froid"
+                    ]
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Magasin/Vitrines/Ecl Zone 1/Ecl Zone 2/Ecl Zone 3/Divers/General/Laverie/Four 1/Four 2",
+                    "master": "c_gene_main",
+                    "slave": [
+                        "c_vitrines",
+                        "c_eclz1",
+                        "c_eclz2",
+                        "c_eclz3",
+                        "c_divers",
+                        "c_general",
+                        "c_laverie",
+                        "c_four1",
+                        "c_four2"
+                    ]
                 }
             ]
         },

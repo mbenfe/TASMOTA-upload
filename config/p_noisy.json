@@ -47,5 +47,12 @@
         "produit": "PWX4",
         "techno": ["rogowski"],
         "ratio": ["3003"]
+    },
+    "dl4-bureau": {
+        "mode": "tri",
+        "root": ["bureaux"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
     }
 }

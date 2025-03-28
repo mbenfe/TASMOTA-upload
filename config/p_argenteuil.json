@@ -29,7 +29,7 @@
     },
     "dl12-reserve": {
         "mode": ["tri","tri","tri"],
-        "root": ["froidm","froidc","main"],
+        "root": ["froid","depart_magasin","main"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["2000","2000","2000"]
