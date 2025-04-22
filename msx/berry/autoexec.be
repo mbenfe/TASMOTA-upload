@@ -7,9 +7,6 @@ import json
 import gpio
 import path  
 
-var device
-var ville
-
 #-------------------------------- COMMANDES -----------------------------------------#
 def loadconfig()
     import json
@@ -17,7 +14,7 @@ def loadconfig()
     var file 
     file = open("esp32.cfg", "rt")
     if file.size() == 0
-        print('creat esp32 config file')
+        print('create esp32 config file')
         file = open("esp32.cfg", "wt")
         jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
         file.write(jsonstring)
@@ -36,7 +33,7 @@ end
 
 def mqttprint(texte)
     import mqtt
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT",global.ville,global.device)
     mqtt.publish(topic,texte,true)
 end
 
@@ -179,12 +176,13 @@ end
 print("MSX : autoexec.be")
 print("MSX Driver version: " + version)
 
+loadconfig()
+mqttprint("ville:" + str(global.ville))
+mqttprint("client:" + str(global.client))
+mqttprint("device:" + str(global.device))
+
 tasmota.add_cmd("getfile", getfile)
 print("add command getfile")
-tasmota.add_cmd("ville", ville)
-print("add command ville")
-tasmota.add_cmd("device", device)
-print("add command device")
 tasmota.add_cmd('dir', dir)
 print("add command dir")
 tasmota.add_cmd('getversion', getversion)
@@ -195,6 +193,10 @@ tasmota.add_cmd('couts', couts)
 print("add command couts")
 tasmota.add_cmd('mqttprint', mqttprint)
 print("add command mqttprint")
+tasmota.add_cmd("ville", ville)
+print("add command ville")
+tasmota.add_cmd("device", device)
+print("add command device")
 
 ############################################################
 print("load MSX Driver")
