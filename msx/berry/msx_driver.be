@@ -32,6 +32,7 @@ class conso
     end
 
     def init_cout()
+        print("DEBUG: init_cout",global.ville)
         var name = string.format("c_%s.json", global.ville)
         var file = open(name, "rt")
         var ligne = file.read()
