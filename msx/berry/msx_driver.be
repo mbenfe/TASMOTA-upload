@@ -23,7 +23,7 @@ class MSX
         if file.size() == 0
             print('creat esp32 config file')
             file = open("esp32.cfg", "wt")
-            jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
+            jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"labo\",\"device\":\"unknown\"}")
             file.write(jsonstring)
             file.close()
             file = open("esp32.cfg", "rt")
@@ -68,19 +68,18 @@ class MSX
         self.conso.sauvegarde()
     end
 
-    def every_minutes()
-        tasmota.cmd("power 1")
-    end
-
-
     def every_second()
-        var topic = string.format("gw/inter/%s/%s/tele/SENSOR", global.ville, global.device)
+        var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client,global.ville, global.device)
         var data = tasmota.read_sensors()
+        var etat = tasmota.get_power()
+        if(etat[0] == false)
+            tasmota.set_power(0,true)
+        end
         var myjson = json.load(data)
         var power = myjson["ENERGY"]["ApparentPower"]
         var Energy = power - self.previousPower
         Energy/=3600
-#        self.conso.update(Energy)
+        self.conso.update(Energy)
         self.tick+=1
         self.previousPower = power
         if self.tick == 15
@@ -109,7 +108,5 @@ tasmota.add_cron(mycron, /-> msx.hour(), "every_hour")
 mqttprint("cron hour:" + mycron)
 # set 4 hours cron
 tasmota.add_cron("01 01 */4 * * *", /-> msx.every_4hours(), "every_4_hours")
-# set power ON every minute
-tasmota.add_cron("* * * * * *", /-> msx.every_minutes(), "every_minutes")
 
 return msx

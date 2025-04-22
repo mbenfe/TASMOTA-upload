@@ -16,7 +16,7 @@ def loadconfig()
     if file.size() == 0
         print('create esp32 config file')
         file = open("esp32.cfg", "wt")
-        jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
+        jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"labo\",\"device\":\"unknown\"}")
         file.write(jsonstring)
         file.close()
         file = open("esp32.cfg", "rt")
@@ -33,7 +33,7 @@ end
 
 def mqttprint(texte)
     import mqtt
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT",global.ville,global.device)
+    var topic = string.format("gw/%s/%s/%s/tele/PRINT",global.client,global.ville,global.device)
     mqtt.publish(topic,texte,true)
 end
 
