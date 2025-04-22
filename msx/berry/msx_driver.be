@@ -123,11 +123,11 @@ class conso
         mainjson.insert("days",[])
         mainjson.insert("months",[])
         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.device,self.get_hours())
-        mainjson["hours"][0].insert(0,json.load(ligne))
+        mainjson["hours"]=json.load(ligne)
         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',global.device,global.device,self.get_days())
-        mainjson["days"][0].insert(0,json.load(ligne))
+        mainjson["days"]=json.load(ligne)
         ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',global.device,global.device,self.get_months())
-        mainjson["months"][0].insert(0,json.load(ligne))
+        mainjson["months"]=json.load(ligne)
         ligne = json.dump(mainjson)
         return ligne
     end
@@ -191,9 +191,9 @@ class conso
                 self.num_day_month[2] = 28  # Année non bissextile, février a 28 jours
             end
         end    
-        self.consojson["hours"][0]["DATA"][str(hour)]+=data
-        self.consojson["days"][0]["DATA"][self.day_list[day_of_week]]+=data
-        self.consojson["months"][0]["DATA"][self.month_list[month]]+=data
+        self.consojson["hours"]["DATA"][str(hour)]+=data
+        self.consojson["days"]["DATA"][self.day_list[day_of_week]]+=data
+        self.consojson["months"]["DATA"][self.month_list[month]]+=data
     end
 
     def sauvegarde()
@@ -228,36 +228,36 @@ class conso
         stringdevice = string.format("%s",global.device)
         if(scope=="hours")
             topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice)
-            payload_hours=self.consojson["hours"][0]["DATA"]
+            payload_hours=self.consojson["hours"]["DATA"]
             ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}',global.device,global.device,json.dump(payload_hours))
             mqtt.publish(topic,ligne,true)
-            self.consojson["hours"][0]["DATA"][str(hour+1)]=0
+            self.consojson["hours"]["DATA"][str(hour+1)]=0
         else
             topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice)
-            payload_hours=self.consojson["hours"][0]["DATA"]
+            payload_hours=self.consojson["hours"]["DATA"]
             ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}',global.device,global.device,json.dump(payload_hours))
             mqtt.publish(topic,ligne,true)
-            self.consojson["hours"][0]["DATA"][str(0)]=0
+            self.consojson["hours"]["DATA"][str(0)]=0
 
             topic = string.format("gw/%s/%s/%s/tele/PWDAYS",global.client,global.ville,stringdevice)
-            payload_days=self.consojson["days"][0]["DATA"]
+            payload_days=self.consojson["days"]["DATA"]
             ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}',global.device,global.device,json.dump(payload_days))
             mqtt.publish(topic,ligne,true)
             if day == 6
-                self.consojson["days"][0]["DATA"]["Dim"]=0
+                self.consojson["days"]["DATA"]["Dim"]=0
             else
-                self.consojson["days"][0]["DATA"][str(self.day_list[day_of_week+1])]=0
+                self.consojson["days"]["DATA"][str(self.day_list[day_of_week+1])]=0
             end
             topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",global.client,global.ville,stringdevice)
-            payload_months=self.consojson["months"][0]["DATA"]
+            payload_months=self.consojson["months"]["DATA"]
             ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}',global.device,global.device,json.dump(payload_months))
             mqtt.publish(topic,ligne,true)
             # RAZ next month if end of the month
             if(day==self.num_day_month[month])  # si dernier jour
                 if(month == 12) # decembre
-                    self.consojson["months"][0]["DATA"]["Jan"]=0
+                    self.consojson["months"]["DATA"]["Jan"]=0
                 else
-                    self.consojson["months"][0]["DATA"][str(self.month_list[month+1])]
+                    self.consojson["months"]["DATA"][str(self.month_list[month+1])]
                 end
             end
                 # consommation
