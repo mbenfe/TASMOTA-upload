@@ -11,6 +11,28 @@ var device
 var ville
 
 #-------------------------------- COMMANDES -----------------------------------------#
+def loadconfig()
+    import json
+    var jsonstring
+    var file 
+    file = open("esp32.cfg", "rt")
+    if file.size() == 0
+        print('creat esp32 config file')
+        file = open("esp32.cfg", "wt")
+        jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
+        file.write(jsonstring)
+        file.close()
+        file = open("esp32.cfg", "rt")
+    end
+    var buffer = file.read()
+    var jsonmap = json.load(buffer)
+    global.client = jsonmap["client"]
+    print('client:', global.client)
+    global.ville = jsonmap["ville"]
+    print('ville:', global.ville)
+    global.device = jsonmap["device"]
+    print('device:', global.device)
+end
 
 def mqttprint(texte)
     import mqtt
