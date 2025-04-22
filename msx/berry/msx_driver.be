@@ -109,7 +109,7 @@ tasmota.add_cron(mycron, /-> msx.hour(), "every_hour")
 mqttprint("cron hour:" + mycron)
 # set 4 hours cron
 tasmota.add_cron("01 01 */4 * * *", /-> msx.every_4hours(), "every_4_hours")
-set power ON every minute
+# set power ON every minute
 tasmota.add_cron("* * * * * *", /-> msx.every_minutes(), "every_minutes")
 
 return msx
