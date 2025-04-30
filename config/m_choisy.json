@@ -70,7 +70,7 @@
                     "color": 0,
                     "column": 1,
                     "location": "TOTAL",
-                    "master": "main_total",
+                    "master": "virtuel_total",
                     "row": 1,
                     "shape": "PieConso",
                     "slave": [
@@ -82,7 +82,7 @@
                     "color": 0,
                     "column": 1,
                     "location": "Total",
-                    "master": "main_total",
+                    "master": "virtuel_total",
                     "row": 2,
                     "shape": "consocard",
                     "slave": []
