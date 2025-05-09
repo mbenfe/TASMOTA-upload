@@ -77,7 +77,7 @@ class MSX
         end
         var myjson = json.load(data)
         var power = myjson["ENERGY"]["ApparentPower"]
-        var Energy = power - self.previousPower
+        var Energy = (power + self.previousPower) / 2
         Energy/=3600
         self.conso.update(Energy)
         self.tick+=1
