@@ -14,6 +14,7 @@ class MSX
     var conso
     var tick
     var previousPower 
+    var Energy
 
     def loadconfig()
         import json
@@ -48,6 +49,7 @@ class MSX
         print("conso loaded")
         self.previousPower = 0
         self.tick = 0
+        self.Energy = 0
     end
 
     def midnight()
@@ -62,31 +64,33 @@ class MSX
         if hour != 23
             self.conso.mqtt_publish('hours')
         end
-    end
-
-    def every_4hours()
         self.conso.sauvegarde()
     end
+
 
     def every_second()
         var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client,global.ville, global.device)
         var data = tasmota.read_sensors()
         var etat = tasmota.get_power()
+
         if(etat[0] == false)
             tasmota.set_power(0,true)
         end
         var myjson = json.load(data)
-        var power = myjson["ENERGY"]["ApparentPower"]
-        var Energy = (power + self.previousPower) / 2
-        Energy/=3600
-        self.conso.update(Energy)
+
+        var power = myjson["ENERGY"]["Power"]
+        self.Energy += real((power + self.previousPower) / 2)
         self.tick+=1
         self.previousPower = power
         if self.tick == 15
             self.tick = 0
+            self.Energy=real(real(self.Energy)/real(240))
+            self.conso.update(self.Energy)
+            self.Energy = 0
             var payload = string.format('{"Device":"%s","Name":"%s","ActivePower":%.2f}', global.device, global.device, power)
             mqtt.publish(topic, payload, true)      
         end
+
     end
 end
 
@@ -106,7 +110,5 @@ mqttprint("cron midnight:" + mycron)
 mycron = string.format("59 %d * * * *", 50 + delay)
 tasmota.add_cron(mycron, /-> msx.hour(), "every_hour")
 mqttprint("cron hour:" + mycron)
-# set 4 hours cron
-tasmota.add_cron("01 01 */4 * * *", /-> msx.every_4hours(), "every_4_hours")
 
 return msx
