@@ -85,7 +85,7 @@ class MSX
         self.previousPower = power
         if self.tick == 15
             self.tick = 0
-            self.Energy=real(real(self.Energy)/real(240))
+            self.Energy=real(real(self.Energy)/real(3600))
             self.conso.update(self.Energy)
             self.Energy = 0
             var payload = string.format('{"Device":"%s","Name":"%s","ActivePower":%.2f,"hier":%f}', global.device, global.device, power,hier)
