@@ -79,6 +79,7 @@ class MSX
         var myjson = json.load(data)
 
         var power = myjson["ENERGY"]["Power"]
+        var hier = myjson["ENERGY"]["Yesterday"]
         self.Energy += real((power + self.previousPower) / 2)
         self.tick+=1
         self.previousPower = power
@@ -87,7 +88,7 @@ class MSX
             self.Energy=real(real(self.Energy)/real(240))
             self.conso.update(self.Energy)
             self.Energy = 0
-            var payload = string.format('{"Device":"%s","Name":"%s","ActivePower":%.2f}', global.device, global.device, power)
+            var payload = string.format('{"Device":"%s","Name":"%s","ActivePower":%.2f,"hier":%f}', global.device, global.device, power,hier)
             mqtt.publish(topic, payload, true)      
         end
 
