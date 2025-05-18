@@ -42,7 +42,7 @@ class conso
         self.cout.insert(name, 0)  
     end
 
-    def calcul_cout(month, day_of_week, myjson, chanel)
+    def calcul_cout(month,day_of_week, myjson, chanel)
         var target
         var name
         var kwh
@@ -76,49 +76,42 @@ class conso
                 end
             end
         end
-        heures_creuses /= 1000
-        heures_pleines /= 1000
-        if (month >= global.coutjson["electricite"]["sh_debut"] || month <= global.coutjson["electricite"]["sh_fin"])
+        heures_creuses/=1000
+        heures_pleines/=1000
+        if(month >= global.coutjson["electricite"]["sh_debut"] || month <= global.coutjson["electricite"]["sh_fin"])
             saison = global.coutjson["electricite"]["sh"]
         else
             saison = global.coutjson["electricite"]["sb"]
         end
 
-        taxable = (saison["hp_acheminement_cc"] + saison["hp_acheminement_cs"] + saison["hp_acheminement_cg"]) * heures_pleines
-        taxable += (saison["hc_acheminement_cc"] + saison["hc_acheminement_cs"] + saison["hc_acheminement_cg"]) * heures_creuses
 
-        # heures pleines
-        hp_cout_conso = (saison["hp_tarif"] + saison["cee"] + saison["hp_obligation"]) * heures_pleines
-        hp_cout_acheminement = (saison["hp_acheminement_cc"] + saison["hp_acheminement_cs"] + saison["hp_acheminement_cg"] + saison["hp_acheminement_conso"]) * heures_pleines
+        taxable = (saison["hp_acheminement_cc"]+saison["hp_acheminement_cs"]+saison["hp_acheminement_cg"])*heures_pleines
+        taxable += (saison["hc_acheminement_cc"]+saison["hc_acheminement_cs"]+saison["hc_acheminement_cg"])*heures_creuses
+ 
+        #heures pleines
 
-        if (heures_pleines != 0)
-            hp_cout_taxes = taxable * saison["taxe_acheminement"] * (1 - real(heures_creuses) / real(heures_pleines)) + saison["hp_sp"] * heures_pleines
+        hp_cout_conso = (saison["hp_tarif"]+saison["cee"]+saison["hp_obligation"])*heures_pleines
+        hp_cout_acheminement = (saison["hp_acheminement_cc"] +saison["hp_acheminement_cs"]+saison["hp_acheminement_cg"]+ saison["hp_acheminement_conso"])*heures_pleines
+
+        if(heures_pleines != 0)
+            hp_cout_taxes = taxable * saison["taxe_acheminement"]*(1-real(heures_creuses)/real(heures_pleines)) + saison["hp_sp"]*heures_pleines
         else
-            hp_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hp_sp"] * heures_pleines
+            hp_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hp_sp"]*heures_pleines
         end
         hp_cout = hp_cout_conso + hp_cout_acheminement + hp_cout_taxes
+       #heures creuses
+        hc_cout_conso = (saison["hc_tarif"]+saison["cee"]+saison["hc_obligation"])*heures_creuses
+        hc_cout_acheminement = (saison["hc_acheminement_cc"] +saison["hc_acheminement_cs"]+saison["hc_acheminement_cg"]+ saison["hc_acheminement_conso"])*heures_creuses
 
-        # heures creuses
-        hc_cout_conso = (saison["hc_tarif"] + saison["cee"] + saison["hc_obligation"]) * heures_creuses
-        hc_cout_acheminement = (saison["hc_acheminement_cc"] + saison["hc_acheminement_cs"] + saison["hc_acheminement_cg"] + saison["hc_acheminement_conso"]) * heures_creuses
-
-        if (heures_pleines != 0)
-            hc_cout_taxes = taxable * saison["taxe_acheminement"] * real(heures_creuses) / real(heures_pleines) + saison["hc_sp"] * heures_creuses
+        if(heures_pleines != 0)
+            hc_cout_taxes = taxable * saison["taxe_acheminement"]*real(heures_creuses)/real(heures_pleines) + saison["hc_sp"]*heures_creuses
         else
-            hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"] * heures_creuses
+            hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"]*heures_creuses
         end
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
         target = string.format("c_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
         self.week_couts_json[self.day_list[day_of_week]] = hp_cout + hc_cout
-
-        # Return additional details for publishing
-        return {
-            "heures_creuses": heures_creuses,
-            "heures_pleines": heures_pleines,
-            "hc_cout": hc_cout,
-            "hp_cout": hp_cout
-        }
     end
 
     def init_conso()
@@ -127,15 +120,15 @@ class conso
 
         ligne = string.format('{"hours":""}')
         var mainjson = json.load(ligne)
-        mainjson.insert("days", "")
-        mainjson.insert("months", "")
+        mainjson.insert("days","")
+        mainjson.insert("months","")
         print(mainjson)
-        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, global.device, self.get_hours())
-        mainjson["hours"] = json.load(ligne)
-        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, global.device, self.get_days())
-        mainjson["days"] = json.load(ligne)
-        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, global.device, self.get_months())
-        mainjson["months"] = json.load(ligne)
+        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.device,self.get_hours())
+        mainjson["hours"]=json.load(ligne)
+        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',global.device,global.device,self.get_days())
+        mainjson["days"]=json.load(ligne)
+        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}',global.device,global.device,self.get_months())
+        mainjson["months"]=json.load(ligne)
         ligne = json.dump(mainjson)
         return ligne
     end
@@ -165,9 +158,9 @@ class conso
         self.init_cout()
         if (path.exists("couts.json"))
             file = open("couts.json", "rt")
-            ligne = file.read()
-            self.week_couts_json = json.load(ligne)
-            file.close()
+                ligne = file.read()
+                self.week_couts_json = json.load(ligne)
+                file.close()
         else
             self.week_couts_json = map()
             self.week_couts_json = json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}')
@@ -198,9 +191,9 @@ class conso
                 self.num_day_month[2] = 28  # Année non bissextile, février a 28 jours
             end
         end    
-        self.consojson["hours"]["DATA"][str(hour)] += data
-        self.consojson["days"]["DATA"][self.day_list[day_of_week]] += data
-        self.consojson["months"]["DATA"][self.month_list[month]] += data
+        self.consojson["hours"]["DATA"][str(hour)]+=data
+        self.consojson["days"]["DATA"][self.day_list[day_of_week]]+=data
+        self.consojson["months"]["DATA"][self.month_list[month]]+=data
     end
 
     def sauvegarde()
@@ -232,70 +225,59 @@ class conso
         var ligne
 
         var stringdevice
-        stringdevice = string.format("%s", global.device)
-        var cout_details
-
-        if (scope == "hours")
-            topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
-            payload_hours = self.consojson["hours"]["DATA"]
-            ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, global.device, json.dump(payload_hours))
-            mqtt.publish(topic, ligne, true)
-            self.consojson["hours"]["DATA"][str(hour + 1)] = 0
+        stringdevice = string.format("%s",global.device)
+        if(scope=="hours")
+            print("mqtt_publish hours")
+            print(self.consojson)
+            topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice)
+            payload_hours=self.consojson["hours"]["DATA"]
+            ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}',global.device,global.device,json.dump(payload_hours))
+            mqtt.publish(topic,ligne,true)
+            self.consojson["hours"]["DATA"][str(hour+1)]=0
         else
-            topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
-            payload_hours = self.consojson["hours"]["DATA"]
-            ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, global.device, json.dump(payload_hours))
-            mqtt.publish(topic, ligne, true)
-            self.consojson["hours"]["DATA"][str(0)] = 0
+            topic = string.format("gw/%s/%s/%s/tele/PWHOURS",global.client,global.ville,stringdevice)
+            payload_hours=self.consojson["hours"]["DATA"]
+            ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}',global.device,global.device,json.dump(payload_hours))
+            mqtt.publish(topic,ligne,true)
+            self.consojson["hours"]["DATA"][str(0)]=0
 
-            topic = string.format("gw/%s/%s/%s/tele/PWDAYS", global.client, global.ville, stringdevice)
-            payload_days = self.consojson["days"]["DATA"]
-            ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}', global.device, global.device, json.dump(payload_days))
-            mqtt.publish(topic, ligne, true)
+            topic = string.format("gw/%s/%s/%s/tele/PWDAYS",global.client,global.ville,stringdevice)
+            payload_days=self.consojson["days"]["DATA"]
+            ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}',global.device,global.device,json.dump(payload_days))
+            mqtt.publish(topic,ligne,true)
             if day == 6
-                self.consojson["days"]["DATA"]["Dim"] = 0
+                self.consojson["days"]["DATA"]["Dim"]=0
             else
-                self.consojson["days"]["DATA"][str(self.day_list[day_of_week + 1])] = 0
+                self.consojson["days"]["DATA"][str(self.day_list[day_of_week+1])]=0
             end
-            topic = string.format("gw/%s/%s/%s/tele/PWMONTHS", global.client, global.ville, stringdevice)
-            payload_months = self.consojson["months"]["DATA"]
-            ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}', global.device, global.device, json.dump(payload_months))
-            mqtt.publish(topic, ligne, true)
+            topic = string.format("gw/%s/%s/%s/tele/PWMONTHS",global.client,global.ville,stringdevice)
+            payload_months=self.consojson["months"]["DATA"]
+            ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}',global.device,global.device,json.dump(payload_months))
+            mqtt.publish(topic,ligne,true)
             # RAZ next month if end of the month
-            if (day == self.num_day_month[month])  # si dernier jour
-                if (month == 12) # decembre
-                    self.consojson["months"]["DATA"]["Jan"] = 0
+            if(day==self.num_day_month[month])  # si dernier jour
+                if(month == 12) # decembre
+                    self.consojson["months"]["DATA"]["Jan"]=0
                 else
-                    self.consojson["months"]["DATA"][str(self.month_list[month + 1])]
+                    self.consojson["months"]["DATA"][str(self.month_list[month+1])]
                 end
             end
-            # consommation
+                # consommation
             if scope != "hours"
-                cout_details = self.calcul_cout(month, day_of_week, payload_hours, global.device)
-                # Publish additional details
-                var topic_details = string.format("gw/%s/%s/%s/tele/CONSO_DETAILS", global.client, global.ville, global.device)
-                var payload_details = string.format(
-                    '{"Device":"%s","heures_creuses":%.3f,"heures_pleines":%.3f,"hc_cout":%.3f,"hp_cout":%.3f}',
-                    global.device,
-                    cout_details["heures_creuses"],
-                    cout_details["heures_pleines"],
-                    cout_details["hc_cout"],
-                    cout_details["hp_cout"]
-                )
-                mqtt.publish(topic_details, payload_details, true)
+                self.calcul_cout(month,day_of_week, payload_hours, global.device)
             end
         end
         for k: self.cout.keys()
             if (scope != "hours" && k != "c_*")
                 # du jour
                 topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
-                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', global.device, k, global.coutjson['surface'], self.cout[k], self.day_list[day_of_week])
+                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', global.device,k, global.coutjson['surface'],self.cout[k],self.day_list[day_of_week])
                 mqtt.publish(topic, ligne, true)
                 # de la semaine
                 topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.device)
                 payload_week = self.week_couts_json
                 ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
-                    global.device, global.device, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
+                global.device, global.device, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
                 mqtt.publish(topic, ligne, true)
             end
         end
