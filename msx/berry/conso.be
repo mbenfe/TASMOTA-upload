@@ -3,6 +3,7 @@ import json
 import string
 import mqtt
 import global
+import math
 
 class conso
     var consojson
@@ -107,7 +108,8 @@ class conso
         else
             hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"] * heures_creuses
         end
-        hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
+        # malek
+        hc_cout = math.abs(hc_cout_conso) + math.abs(hc_cout_acheminement) + math.abs(hc_cout_taxes)
         target = string.format("c_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
         self.week_couts_json[self.day_list[day_of_week]] = hp_cout + hc_cout
