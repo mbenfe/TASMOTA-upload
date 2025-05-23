@@ -2,6 +2,7 @@ import mqtt
 import string
 import json
 import global
+import math
 
 # Define mqttprint function
 def mqttprint(texte)
@@ -15,6 +16,14 @@ class CHX
     var day_list
     var setup_device
     var setup_general
+
+    var previous_state
+    var current_state
+
+    var Energy
+    var previousPower
+    var tick
+    var conso
 
 
     def mysetup_device(topic, idx, payload_s, payload_b)
@@ -48,6 +57,7 @@ class CHX
         payload = string.format('{"Device":"%s","Name":"%s","TYPE":"SETUP","DATA":%s}', 
         global.device, global.device, buffer)
         mqtt.publish(newtopic, payload, true)
+        self.every_minute()
     end
 
     def mysetup_general(topic, idx, payload_s, payload_b)
@@ -60,7 +70,6 @@ class CHX
         var newtopic
         var payload
 
-        newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
 
 
         self.setup_general['mode'] = myjson['DATA']['mode']
@@ -79,6 +88,7 @@ class CHX
         file.write(buffer)
         file.close()
 
+        newtopic = string.format("gw/%s/%s/chauffage_general/set/SETUP", global.client, global.ville)
         payload = string.format('{"Device":"%s","Name":"chauffage_general","TYPE":"SETUP","DATA":%s}', 
         global.device, buffer)
         mqtt.publish(newtopic, payload, true)
@@ -108,7 +118,15 @@ class CHX
         self.subscribes()
         gpio.pin_mode(self.gate, gpio.OUTPUT)
         gpio.digital_write(self.gate, 0)    # allumé gete is inverted
+        self.previous_state = 0
+        self.current_state = 0
         tasmota.set_timer(30000,/-> self.mypush())
+        
+        import conso
+        self.conso = conso
+        self.previousPower = 0
+        self.tick = 0
+        self.Energy = 0
     end
 
     def mypush()
@@ -139,7 +157,7 @@ class CHX
         end
         myjson = file.read()
         file.close()
-        newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device )
+        newtopic = string.format("gw/%s/%s/chauffage_general/set/SETUP", global.client, global.ville, global.device )
         payload = string.format('{"Device":"%s","Name":"chauffage_general","TYPE":"SETUP","DATA":%s}',
                 global.device, myjson)
         mqtt.publish(newtopic, payload, true)
@@ -152,7 +170,7 @@ class CHX
 
         topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
         mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup_device(topic, idx, payload_s, payload_b))
-        topic = string.format("app/%s/%s/chauffage_general/set/SETUP", global.client, global.ville, global.device)
+        topic = string.format("app/%s/%s/chauffage_general/set/SETUP", global.client, global.ville)
         mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup_general(topic, idx, payload_s, payload_b))
         mqttprint("subscribed to device SETUP and generale SETUP for : "+global.device)
     end
@@ -169,18 +187,17 @@ class CHX
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var jour = self.day_list[day_of_week]
         var data = tasmota.read_sensors()
-        var slot
         if(data == nil)
             return
         end
         if(hour >= 6 && hour <9)
-            slot = "matin"
+            global.slot = "matin"
         elif(hour >= 9 && hour < 17)
-            slot = "journee"
+            global.slot = "journee"
         elif(hour >= 17 && hour < 23)
-            slot = "soir"
+            global.slot = "soir"
         else
-            slot = "nuit"
+            global.slot = "nuit"
         end
         if (day_of_week == 0 || day_of_week == 6)
             jour = "weekend"
@@ -191,50 +208,111 @@ class CHX
         if(!myjson.contains("AHT2X"))
             return
         end
-        var temperature = myjson["AHT2X"]["Temperature"]
-        var humidity = myjson["AHT2X"]["Humidity"]    
-        var target
+        global.temperature = myjson["AHT2X"]["Temperature"]
+        global.humidity = myjson["AHT2X"]["Humidity"]    
         var payload
-        var power
         var topic
+
+        global.targetHum = self.setup_general['absence']['humidite']
+
 
         if(self.setup_general['mode']=='AUTO')
             if (self.setup_device['linked'] == true)
-                target = self.setup_general[jour][slot]
+                global.target = self.setup_general[jour][global.slot]
             else
-                target = self.setup_device[jour][slot]
+                global.target = self.setup_device[jour][global.slot]
             end
-            if (temperature < target+self.setup_device['offset'])
+            if (global.temperature < global.target+self.setup_device['offset'])
                 gpio.digital_write(self.gate, 0)
-                power = 1
+                global.power = 1
+                tasmota.delay(2000)
             else
                 gpio.digital_write(self.gate, 1)
-                power = 0
+                global.power = 0
+                tasmota.delay(2000)
+            end
+            if self.current_state != global.power
+                self.setup_device['alarm'] = true
+            else
+                self.setup_device['alarm'] = false
             end
         elif(self.setup_general['mode']=='ABSENCE')
-            target = self.setup_general['absence']['temperature']
-            if (temperature < target+self.setup_device['offset'])
+            global.target = self.setup_general['absence']['temperature']
+            if (global.temperature < global.target+self.setup_device['offset'] || global.humidity > global.targetHum)
                 gpio.digital_write(self.gate, 0)
-                power = 1
+                global.power = 1
+                tasmota.delay(2000)
             else
                 gpio.digital_write(self.gate, 1)
-                power = 0
+                global.power = 0
+                tasmota.delay(2000)
+            end
+            if self.current_state != global.power
+                self.setup_device['alarm'] = true
+            else
+                self.setup_device['alarm'] = false
             end
         else # mode MANUEL
-            target = 99
+            global.target = 99
             gpio.digital_write(self.gate, 0)
-            power = 1
+            global.power = self.current_state
+
         end  
+
         topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
-        payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"aht20":%.2f,"Humidity":%.2f,"slot":"%s","offset":%.1f,"location":"%s","Target":%.1f,"Power":%d,"mode":"%s","linked":%s}',
-                global.device, global.device, temperature-self.setup_device['offset'], temperature,humidity,slot,self.setup_device['offset'],global.location,target,power,self.setup_general['mode'],self.setup_device['linked'])
+        payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"aht20":%.2f,"Humidity":%.2f,"slot":"%s","offset":%.1f,"location":"%s","Target":%.1f,"TargetHum":%d,"Power":%d,"mode":"%s","linked":%s,"puissance":%d,"alarm":%s}',
+                global.device, global.device, global.temperature-self.setup_device['offset'], global.temperature,global.humidity,global.slot,self.setup_device['offset'],global.location,global.target,global.targetHum,global.power,self.setup_general['mode'],self.setup_device['linked'],self.setup_device['puissance'],self.setup_device['alarm'])
         mqtt.publish(topic, payload, true)
     end
 
     def every_second()
+        var data = tasmota.read_sensors()
+        var myjson = json.load(data)
+        var measured_power = myjson["ENERGY"]["Power"]
+        if(measured_power > 50)
+            # sauvegarde de la puissance du chauffage
+            if(self.setup_device['puissance'] == 0)
+                self.setup_device['puissance'] = int((myjson['ENERGY']['Power']+250) / 500)*500
+                var file = open("setup_device.json", "wt")
+                file.write(json.dump(self.setup_device))
+                file.close()
+            end
+            self.current_state = 1
+        else
+            self.current_state = 0
+        end
+        if(self.current_state != self.previous_state)
+            self.previous_state = self.current_state
+            self.every_minute()
+        end
+        # sauvegarde de l'energie
+        self.Energy += real((measured_power + self.previousPower) / 2)
+        self.tick+=1
+        self.previousPower = measured_power
+        if self.tick == 15
+            self.tick = 0
+            self.Energy=real(real(self.Energy)/real(3600))
+            self.conso.update(self.Energy)
+            self.Energy = 0
+        end
     end
 end
 
 chx = CHX()
 tasmota.add_driver(chx)
+var now = tasmota.rtc()
+var delay
+var mycron
+math.srand(size(global.device)*size(global.ville))
+var random = math.rand()
+delay = random % 10
+# set midnight cron
+mycron = string.format("59 %d 23 * * *", 50 + delay)
+tasmota.add_cron(mycron, /-> chx.midnight(), "every_day")
+mqttprint("cron midnight:" + mycron)
+# set hour cron
+mycron = string.format("59 %d * * * *", 50 + delay)
+tasmota.add_cron(mycron, /-> chx.hour(), "every_hour")
+mqttprint("cron hour:" + mycron)
+
 tasmota.add_cron("0 * * * * *", /-> chx.every_minute(), "every_min_@0_s")

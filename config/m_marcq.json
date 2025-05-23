@@ -29,7 +29,9 @@
                     "column": 1,
                     "row": 1,
                     "master": "chauffage_general",
-                    "slave": [],
+                    "slave": [
+                        ""
+                    ],
                     "color": 0
                 },
                 {
@@ -46,6 +48,24 @@
                     "location": "Salon",
                     "column": 1,
                     "row": 3,
+                    "master": "chx-salon-droite",
+                    "slave": [],
+                    "color": 0
+                },
+                {
+                    "shape": "debug",
+                    "location": "Cuisine",
+                    "column": 1,
+                    "row": 4,
+                    "master": "chx-cuisine",
+                    "slave": [],
+                    "color": 0
+                },
+                {
+                    "shape": "debug",
+                    "location": "Salon",
+                    "column": 1,
+                    "row": 5,
                     "master": "chx-salon-droite",
                     "slave": [],
                     "color": 0
