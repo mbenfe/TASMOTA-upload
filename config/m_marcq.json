@@ -29,9 +29,7 @@
                     "column": 1,
                     "row": 1,
                     "master": "chauffage_general",
-                    "slave": [
-                        ""
-                    ],
+                    "slave": [],
                     "color": 0
                 },
                 {
@@ -51,24 +49,23 @@
                     "master": "chx-salon-droite",
                     "slave": [],
                     "color": 0
-                },
+                }
+            ]
+        },
+        {
+            "type": "iRideau",
+            "label": "Rideau",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
                 {
-                    "shape": "debug",
-                    "location": "Cuisine",
+                    "shape": "Thermoscreens",
+                    "color": 0,
                     "column": 1,
-                    "row": 4,
-                    "master": "chx-cuisine",
-                    "slave": [],
-                    "color": 0
-                },
-                {
-                    "shape": "debug",
-                    "location": "Salon",
-                    "column": 1,
-                    "row": 5,
-                    "master": "chx-salon-droite",
-                    "slave": [],
-                    "color": 0
+                    "row": 1,
+                    "location": "Droite",
+                    "master": "rdx-droite",
+                    "slave": []
                 }
             ]
         }

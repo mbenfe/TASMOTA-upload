@@ -1,4 +1,4 @@
-var version = "1.0.022025 initiale"
+var version = "1.0.052025 initiale"
 
 import string
 import global
