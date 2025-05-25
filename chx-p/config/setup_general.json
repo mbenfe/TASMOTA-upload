@@ -1,1 +1,19 @@
-{"mode":"AUTO","semaine":{"matin":19,"journee":19,"soir":19,"nuit":19},"weekend":{"matin":19,"journee":19,"soir":19,"nuit":19},"absence":{"temperature":13,"humidite":65}}
+{
+    "mode": "AUTO",
+    "semaine": {
+        "matin": 19,
+        "journee": 19,
+        "soir": 19,
+        "nuit": 19
+    },
+    "weekend": {
+        "matin": 19,
+        "journee": 19,
+        "soir": 19,
+        "nuit": 19
+    },
+    "absence": {
+        "temperature": 13,
+        "humidite": 65
+    }
+}

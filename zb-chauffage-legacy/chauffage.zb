@@ -1,0 +1,33 @@
+#Z2Tv1
+# module de commande fil pilote chauffage
+:CHAUFFAGE-01,ADOMELEC
+0006/1000,Type
+0006/1001,Type
+0006/1002,Type
+0006/1003,Type
+0006/1010,DATA
+0006/1011,DATA
+0006/1012,DATA
+0006/1013,DATA
+0006/1014,Mode
+0006/1015,FactoryReset
+0006/1016,Location
+0006/1017,OffsetTemp
+0006/1018,TimeTempRep
+0006/1019,TimePowerRep
+0006/101A,LedOnOff
+0006/101B,StorageFlag
+0006/101C,RebootFlag
+0006/101D,VirtualPower
+0006/101E,Target
+# chauffage particulier
+0006/1030,SemaineMatin
+0006/1031,SemaineJournee
+0006/1032,SemaineSoir
+0006/1033,SemaineNuit
+0006/1034,WeMatin
+0006/1035,WeJournee
+0006/1036,WeSoir
+0006/1037,WeNuit
+0006/1038,AwayTemp 
+0006/1039,AwayHum
