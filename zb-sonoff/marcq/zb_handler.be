@@ -27,12 +27,13 @@ class my_zb_handler
         for k: self.sensors.keys()
             print(k)
         end
+        self.subscribes()
     end
 
 
     def frame_received(event_type, frame, attr_list, idx)
-        print("------------- frame received -----------------------")
-        print(f"shortaddr=0x{idx:04X} {event_type=} {frame=}")
+        # print("------------- frame received -----------------------")
+        # print(f"shortaddr=0x{idx:04X} {event_type=} {frame=}")
     end
 
     def attributes_raw(event_type, frame, attr_list, idx)
