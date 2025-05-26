@@ -31,11 +31,12 @@ class my_zb_handler
 
 
     def frame_received(event_type, frame, attr_list, idx)
+        print("------------- frame received -----------------------")
         print(f"shortaddr=0x{idx:04X} {event_type=} {frame=}")
     end
 
     def attributes_raw(event_type, frame, attr_list, idx)
-         print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
+        #  print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
     end
     
     def attributes_refined(event_type, frame, attr_list, idx)
@@ -82,7 +83,7 @@ class my_zb_handler
      end
 
     def attributes_final(event_type, frame, attr_list, idx)
-        print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
+        # print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
     end
 end
 
