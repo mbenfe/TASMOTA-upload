@@ -65,5 +65,5 @@ mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile', getfile)
 
 mqttprint('load zb_handler.be')
-mqttprint('wait for 30 seconds ....')
-tasmota.set_timer(30000,launch_driver)
+mqttprint('wait for 45 seconds ....')
+tasmota.set_timer(45000,launch_driver)
