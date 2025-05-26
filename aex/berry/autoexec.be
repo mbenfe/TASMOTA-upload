@@ -212,7 +212,7 @@ end
 # Function to launch the driver
 def launch_driver()
     mqttprint('mqtt connected -> launch driver')
-    tasmota.load('chx_driver.be')
+    tasmota.load('aerotherme_drive_driver.be')
 end
 
 # Function to get the version of the files

@@ -49,6 +49,11 @@ def getfile(cmd, idx, payload, payload_json)
     return st
 end
 
+# Function to launch the driver
+def launch_driver()
+    mqttprint('mqtt connected -> launch driver')
+    tasmota.load('zb_handler.be')
+end
 
 
 
@@ -60,4 +65,5 @@ mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile', getfile)
 
 mqttprint('load zb_handler.be')
-tasmota.load('zb_handler.be')
+mqttprint('wait for 30 seconds ....')
+tasmota.set_timer(30000,launch_driver)
