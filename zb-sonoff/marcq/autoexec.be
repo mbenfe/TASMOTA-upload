@@ -78,6 +78,8 @@ tasmota.add_cmd('getfile', getfile)
 
 loadconfig()
 
-mqttprint('load zb_handler.be')
-mqttprint('wait for 45 seconds ....')
-tasmota.set_timer(45000,launch_driver)
+# mqttprint('load zb_handler.be')
+# mqttprint('wait for 45 seconds ....')
+# tasmota.set_timer(45000,launch_driver)
+
+tasmota.load("supervisor.be")
