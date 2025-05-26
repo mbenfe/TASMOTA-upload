@@ -45,7 +45,7 @@ class my_zb_handler
         # var hexa = string.format("0x%04X",idx)
 
         # print("attributes_refined: ", mydevice.name, " ", hexa, " ", myjson)
-        print("attributes_refined: ")
+        # print("attributes_refined: ")
 
         # if !self.sensors.contains(mydevice.name)
         #     self.sensors.insert(mydevice.name,{})
