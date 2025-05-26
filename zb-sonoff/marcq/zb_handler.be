@@ -19,15 +19,13 @@ class my_zb_handler
         self.sensors = map()
         print("waiting for Zigbee handler to start")
         print(zigbee.info())
-            
-        end
+
         print("Zigbee handler started")
         for device: zigbee
             self.sensors.insert(device.name,{})
         end
         for k: self.sensors.keys()
             print(k)
-
         end
     end
 

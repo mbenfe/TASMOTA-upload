@@ -76,6 +76,8 @@ mqttprint("serial log disabled")
 mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile', getfile)
 
+loadconfig()
+
 mqttprint('load zb_handler.be')
 mqttprint('wait for 45 seconds ....')
 tasmota.set_timer(45000,launch_driver)
