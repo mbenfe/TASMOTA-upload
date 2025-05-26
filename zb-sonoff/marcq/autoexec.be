@@ -13,6 +13,18 @@ def mqttprint(texte)
     mqtt.publish(topic, texte, true)
 end
 
+# Define loadconfig function
+def loadconfig()
+    var file = open("esp32.cfg", "rt")
+    var buffer = file.read()
+    file.close()
+    var myjson = json.load(buffer)
+    global.ville = myjson["ville"]
+    global.device = myjson["device"]
+    global.client = myjson["client"]
+end
+
+
 def getfile(cmd, idx, payload, payload_json)
     import string
     import path
