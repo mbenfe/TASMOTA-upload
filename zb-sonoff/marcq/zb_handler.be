@@ -50,7 +50,7 @@ class my_zb_handler
         print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
     end
 
-        def mysetup(topic, idx, payload_s, payload_b)
+    def acknowledge(topic, idx, payload_s, payload_b)
         var myjson = json.load(string.tolower(payload_s))
         if myjson == nil
             mqttprint("Error: Failed to parse JSON payload")
@@ -68,12 +68,12 @@ class my_zb_handler
 
      def subscribes()
         var topic 
-        # chauffage
-        for k: self.sensors.keys()
-            topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, k)
+        
+        for device: zigbee
+            topic = string.format("app/%s/%s/%04X/set/SETUP", global.client, global.ville, device.shortaddr)
             mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.acknowlege(topic, idx, payload_s, payload_b))
+            print("subscribe to topic: ", topic)
         end
-
     end
 
 end
