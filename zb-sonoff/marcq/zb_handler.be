@@ -35,12 +35,12 @@ class my_zb_handler
     end
 
     def attributes_raw(event_type, frame, attr_list, idx)
-#         print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
+         print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
     end
     
     def attributes_refined(event_type, frame, attr_list, idx)
-        print("--------------------------------------------------")
-        print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
+        # print("--------------------------------------------------")
+        # print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
         # var myjson = json.load(str(attr_list))
         # var topic
         # var mydevice = zigbee[idx]
@@ -82,7 +82,7 @@ class my_zb_handler
      end
 
     def attributes_final(event_type, frame, attr_list, idx)
-    #    print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
+        print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
     end
 end
 
