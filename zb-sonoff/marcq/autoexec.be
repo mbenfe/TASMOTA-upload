@@ -64,7 +64,7 @@ end
 # Function to launch the driver
 def launch_driver()
     mqttprint('mqtt connected -> launch driver')
-#    tasmota.load('zb_handler.be')
+    tasmota.load('zb_handler.be')
 end
 
 
