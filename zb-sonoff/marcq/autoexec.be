@@ -9,7 +9,7 @@ import path
 
 # Define mqttprint function
 def mqttprint(texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
+    var topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client,global.ville, global.device)
     mqtt.publish(topic, texte, true)
 end
 
