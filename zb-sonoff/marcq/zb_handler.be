@@ -39,10 +39,11 @@ class my_zb_handler
     end
     
     def attributes_refined(event_type, frame, attr_list, idx)
-        # var myjson = json.load(str(attr_list))
-        # var topic
-        # var mydevice = zigbee[idx]
-        # var hexa = string.format("0x%04X",idx)
+        print("--------------------------------------------------")
+        var myjson = json.load(str(attr_list))
+        var topic
+        var mydevice = zigbee[idx]
+        var hexa = string.format("0x%04X",idx)
 
         # print("attributes_refined: ", mydevice.name, " ", hexa, " ", myjson)
         # print("attributes_refined: ")
