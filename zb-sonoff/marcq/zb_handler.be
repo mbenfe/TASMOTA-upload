@@ -71,7 +71,7 @@ class my_zb_handler
         var topic 
         
         for device: zigbee
-            topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, device.name)
+            topic = string.format("app/%s/%s/%s/tele/SENSOR", global.client, global.ville, device.name)
             mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.acknowlege(topic, idx, payload_s, payload_b))
             print("subscribe to topic: ", topic)
         end
