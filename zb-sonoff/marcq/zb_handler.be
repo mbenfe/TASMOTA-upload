@@ -18,7 +18,7 @@ class my_zb_handler
     def init()
         self.sensors = map()
         print("waiting for Zigbee handler to start")
-        while zigbee.started() == false
+        print(zigbee.info())
             
         end
         print("Zigbee handler started")
