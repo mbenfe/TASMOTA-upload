@@ -3,7 +3,7 @@ class Supervisor
     end
 
     def every_second()
-        var sensors = read_sensors()
+        var sensors = tasmota.read_sensors()
         print(sensors)
     end
 
