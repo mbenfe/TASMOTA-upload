@@ -26,7 +26,7 @@ class CHX
     var conso
 
 
-    def mysetup_device(topic, idx, payload_s, payload_b)
+    def ack_setup_device(topic, idx, payload_s, payload_b)
         var myjson = json.load(payload_s)
         if myjson == nil
             mqttprint("Error: Failed to parse JSON payload")
@@ -60,7 +60,7 @@ class CHX
         self.every_minute()
     end
 
-    def mysetup_general(topic, idx, payload_s, payload_b)
+    def ack_setup_general(topic, idx, payload_s, payload_b)
         var myjson = json.load(payload_s)
         if myjson == nil
             mqttprint("Error: Failed to parse JSON payload")
@@ -101,6 +101,8 @@ class CHX
     def init()
         var file
         var myjson
+        print('-----------------------------------------')
+        print('- CHX Driver init                       -')
         # read setup_device.json
         file = open("setup_device.json", "rt")
         myjson = file.read()
@@ -120,21 +122,24 @@ class CHX
         gpio.digital_write(self.gate, 0)    # allumé gete is inverted
         self.previous_state = 0
         self.current_state = 0
-        tasmota.set_timer(30000,/-> self.mypush())
+        tasmota.set_timer(30000,/-> self.push_device_general_setup())
         
         import conso
         self.conso = conso
         self.previousPower = 0
         self.tick = 0
         self.Energy = 0
+        print('-----------------------------------------')
     end
 
-    def mypush()
+    def push_device_general_setup()
         var file
         var myjson        
         var name
         var  newtopic
         var payload
+        print('-----------------------------------------')
+        print('- push_device_general_setup             -')
 
         name = "setup_device.json"
         file = open(name, "rt")
@@ -161,6 +166,7 @@ class CHX
         payload = string.format('{"Device":"%s","Name":"chauffage_general","TYPE":"SETUP","DATA":%s}',
                 global.device, myjson)
         mqtt.publish(newtopic, payload, true)
+        print('-----------------------------------------')
     end
 
     # Function to subscribe to MQTT topics
@@ -169,11 +175,23 @@ class CHX
         # chauffage
 
         topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
-        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup_device(topic, idx, payload_s, payload_b))
+        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.ack_setup_device(topic, idx, payload_s, payload_b))
         topic = string.format("app/%s/%s/chauffage_general/set/SETUP", global.client, global.ville)
-        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup_general(topic, idx, payload_s, payload_b))
+        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.ack_setup_general(topic, idx, payload_s, payload_b))
         mqttprint("subscribed to device SETUP and generale SETUP for : "+global.device)
     end
+
+    def every_hour()
+        var now = tasmota.rtc()
+        var rtc = tasmota.time_dump(now["local"])
+        var hour = rtc["hour"]
+        # publish if not midnight
+        if hour != 23
+            self.conso.mqtt_publish('hours')
+        end
+        self.conso.sauvegarde()
+    end
+
 
     def every_minute()
         var now = tasmota.rtc()
@@ -312,7 +330,7 @@ tasmota.add_cron(mycron, /-> chx.midnight(), "every_day")
 mqttprint("cron midnight:" + mycron)
 # set hour cron
 mycron = string.format("59 %d * * * *", 50 + delay)
-tasmota.add_cron(mycron, /-> chx.hour(), "every_hour")
+tasmota.add_cron(mycron, /-> chx.every_hour(), "every_hour")
 mqttprint("cron hour:" + mycron)
 
 tasmota.add_cron("0 * * * * *", /-> chx.every_minute(), "every_min_@0_s")
