@@ -47,8 +47,8 @@ class my_zb_handler
     end
 
     def attributes_final(event_type, frame, attr_list, idx)
-        print("------------ attributes final ---------------")
-        print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
+        # print("------------ attributes final ---------------")
+        # print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
     end
 
     def acknowledge(topic, idx, payload_s, payload_b)
