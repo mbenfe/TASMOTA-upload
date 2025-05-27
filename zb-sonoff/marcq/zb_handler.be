@@ -54,7 +54,8 @@ class my_zb_handler
     def acknowledge(topic, idx, payload_s, payload_b)
         var myjson = json.load(string.tolower(payload_s))
         if myjson.contains("power")
-            var command = string.format('zbsend { "Device":"%s", send {"power":%d} }', myjson["name"], myjson["power"])
+            var command = string.format('zbsend { "Device":"%s", "send" {"power":%d} }', myjson["name"], myjson["power"])
+            print("command: ", command)
             tasmota.cmd(command)
             tasmota.resp_cmnd("done")   
         end
