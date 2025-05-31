@@ -1,3 +1,7 @@
 
 appuyer sur l'interupteur apres avoir lancé la commande:
 zbbind {"Device":"inter_cuisine","Endpoint":1,"Cluster":6,"ToDevice":"switch_cuisine","ToEndpoint":1}
+zbbind {"Device":"inter_salon","Endpoint":1,"Cluster":6,"ToDevice":"switch_salon","ToEndpoint":1}
+zbbind {"Device":"inter_chauffage","Endpoint":1,"Cluster":6,"ToDevice":"switch_chauffage","ToEndpoint":1}
+
+zbsend {"device":"switch_salon","send":{"power":2}}
