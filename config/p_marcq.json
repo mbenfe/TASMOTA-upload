@@ -1,8 +1,7 @@
-
 {
     "dl4-garage": {
-        "mode": "tri",
-        "root": ["ecl1"],
+        "mode": "mono",
+        "root": ["principal","chauffage","chauffe-eau","salon"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]

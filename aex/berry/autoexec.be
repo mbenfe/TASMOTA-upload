@@ -141,56 +141,35 @@ def dir(cmd, idx, payload, payload_json)
 end
 
 # Function to set thermostat parameters
-def set(cmd, idx, payload, payload_json)
+def cal(cmd, idx, payload, payload_json)
     var arguments
     var file 
     var myjson
-    var thermostat
+    var calibration
     var name
     arguments = string.split(payload, ' ')
-    name ="thermostat_" + str(arguments[0]) + ".json"
+    name ="calibration.json"
     file = open(name, "rt")
     myjson = file.read()
     file.close()
-    thermostat = json.load(myjson)  
-    if arguments[1] == "offset"
-        thermostat['offset'] = real(arguments[2])
-    elif arguments[1] == "ouvert"
-        thermostat['ouvert'] = real(arguments[2])
-    elif arguments[1] == "ferme"
-        thermostat['ferme'] = real(arguments[2])
-    elif arguments[1] == "lundi"
-        thermostat['lundi']['debut'] = real(arguments[2])
-        thermostat['lundi']['fin'] = real(arguments[3])
-    elif arguments[1] == "mardi"
-        thermostat['mardi']['debut'] = real(arguments[2])
-        thermostat['mardi']['fin'] = real(arguments[3])
-    elif arguments[1] == "mercredi"
-        thermostat['mercredi']['debut'] = real(arguments[2])
-        thermostat['mercredi']['fin'] = real(arguments[3])
-    elif arguments[1] == "jeudi"
-        thermostat['jeudi']['debut'] = real(arguments[2])
-        thermostat['jeudi']['fin'] = real(arguments[3])
-    elif arguments[1] == "vendredi"
-        thermostat['vendredi']['debut'] = real(arguments[2])
-        thermostat['vendredi']['fin'] = real(arguments[3])
-    elif arguments[1] == "samedi"
-        thermostat['samedi']['debut'] = real(arguments[2])
-        thermostat['samedi']['fin'] = real(arguments[3])
-    elif arguments[1] == "dimanche"
-        thermostat['dimanche']['debut'] = real(arguments[2])
-        thermostat['dimanche']['fin'] = real(arguments[3])
+
+    calibration = json.load(myjson)  
+    if string.tolower(arguments[0]) == "pt1"
+        calibration['pt1'] = real(global.average_temperature1)*real(global.factor1)/real(arguments[1])
+        print("avg: " + str(global.average_temperature1)," factor: " + str(global.factor1), "calibration: " + str(calibration['pt1']))
+        global.factor1 = calibration['pt1']
+        print("calibration['pt1'] = " + str(calibration['pt1']))
+    elif string.tolower(arguments[0]) == "pt2"
+        calibration['pt2'] = real(global.average_temperature2)*real(global.factor2)/real(arguments[1])
+        global.factor2 = calibration['pt2']
+        print("calibration['pt2'] = " + str(calibration['pt2']))
     end
-    var buffer = json.dump(thermostat)
+    var buffer = json.dump(calibration)
+    print(buffer)
     file = open(name, "wt")
     file.write(buffer)
     file.close()
-
-    var topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville, global.device+"_"+str(arguments[0]))
-    mqtt.publish(topic, buffer, true)
-
-    tasmota.resp_cmnd('done')
-    tasmota.cmd("restart 1")
+    tasmota.resp_cmnd_done()
 end
 
 # Function to get thermostat parameters
@@ -257,10 +236,12 @@ mqttprint("location:" + str(global.location))
 
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
-tasmota.add_cmd('set', set)
+tasmota.add_cmd('cal', cal)
 
 mqttprint('load command.be')
 tasmota.load('command.be')
+mqttprint('load ads1115.be')
+tasmota.load('ads1115.be')
 mqttprint('load ds18b20.be')
 tasmota.load('ds18b20.be')
 mqttprint('load pt1000.be')

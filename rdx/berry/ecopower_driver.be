@@ -2,6 +2,7 @@ import mqtt
 import string
 import json
 import global
+import gpio
 
 # Define mqttprint function
 def mqttprint(texte)
@@ -11,29 +12,48 @@ def mqttprint(texte)
 end
 
 class RDX
+    var io_rst
+    var io_bsl
     var temperature
     var status
     var scheduler
     var reglage
     var day_list
 
-    def acknowlege(topic, idx, payload_s, payload_b)
+    var rx
+    var tx
+    var ser
+
+    def set_stm32()
+        var status = string.format("%d:%d:%d:%d",self.status['onoff'],self.status['mode'],self.status['fanspeed'],self.status['heatpower'])
+        self.ser.write(bytes().fromstring(status))
+        print('status send to stm32:',status)
+    end
+    
+
+    def acknowlege_app(topic, idx, payload_s, payload_b)
         var myjson
         var newtopic
-        var payload
+        var newpayload
         var file
         var buffer
 
         myjson = json.load(payload_s)
+        print("acknowledge_app:", topic," ",payload_s)
         newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
-        mqtt.publish(newtopic, payload_s, true)
+        newpayload = string.format('{"Device":"%s","Name":"%s","DATA":%s}',
+                    global.device, global.device, payload_s)
+        mqtt.publish(newtopic, newpayload, true)
         file = open("setup.json", "wt")
         file.write(payload_s)
         file.close()
+
         self.temperature = myjson["temperature"]
         self.status = myjson["status"]
         self.scheduler = myjson["scheduler"]
         self.reglage = myjson["reglage"]
+        print("setup.json read done")
+        self.set_stm32()
     end
 
     def mypush()
@@ -57,27 +77,42 @@ class RDX
 
     def init()
         import path
-        mqttprint('init')
-        var file
+       var file
         var buffer
         var myjson
         var topic
-        file = open("setup.json", "rt")
+        mqttprint('init')
+        mqttprint('io init')
+        self.io_rst = 18
+        self.io_bsl = 19
+        gpio.pin_mode(self.io_rst, gpio.OUTPUT)
+        gpio.pin_mode(self.io_bsl, gpio.OUTPUT)
+        mqttprint('io mode set')
+        gpio.digital_write(self.io_rst, 1)    
+        gpio.digital_write(self.io_bsl, 0)    
+        mqttprint('io init done')
+       file = open("setup.json", "rt")
         if(file == nil)
             mqttprint("file not found: setup.json")
             return
         end
         buffer = file.read()
         myjson = json.load(buffer)
-        print('------------------------------------------')
-        print(myjson)
+
         file.close()
         self.scheduler = myjson["scheduler"]
         self.status = myjson["status"]
         self.reglage = myjson["reglage"]
         self.temperature = myjson["temperature"]
         self.day_list = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
-        self.subscribes()   
+
+        self.rx = 8
+        self.tx = 7
+        gpio.pin_mode(self.rx,gpio.INPUT)
+        gpio.pin_mode(self.tx,gpio.OUTPUT)
+        self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1)
+        self.set_stm32()
+         self.subscribes()   
         tasmota.set_timer(30000,/-> self.mypush())
 
     end
@@ -86,7 +121,7 @@ class RDX
         var topic 
         # rideaux
         topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
-        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.acknowlege(topic, idx, payload_s, payload_b))
+        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.acknowlege_app(topic, idx, payload_s, payload_b))
         mqttprint("subscribed to SETUP")
     end
 

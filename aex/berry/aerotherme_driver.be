@@ -150,10 +150,12 @@ class AEROTHERME
 
         var temperature = ds18b20.poll()
         if (temperature == nil || temperature == -99)
-            mqttprint("Error: Failed to read temperature")
-            return
+            mqttprint("Error: Failed to read temperature from DS18B20")
+
         end
 
+        print("--------------------------------------------------")
+        print("PT1: ", global.average_temperature1, "°C   PT2: ", global.average_temperature2, "°C  heap: ", tasmota.get_free_heap())
 
 
         for i:0..global.nombre-1
@@ -194,12 +196,12 @@ class AEROTHERME
 
     # Function to execute every second
     def every_second()
-        if (self.count == 5)
-            var temperature = pt1000.poll(0)
-            self.count = 0
-        else
-            self.count = self.count + 1
-        end
+        # if (self.count == 5)
+        #     var temperature = pt1000.poll(0)
+        #     self.count = 0
+        # else
+        #     self.count = self.count + 1
+        # end
 #        print(temperature)
     end
 end

@@ -2,10 +2,10 @@
     "temperature": 20.0,
     "reglage": 0,
     "status": {
+        "onoff": 0,
         "mode": 0,
         "fanspeed": 1,
-        "onoff": 0,
-        "hetposer": 1
+        "heatpower": 1
     },
     "scheduler": {
         "lundi": {
