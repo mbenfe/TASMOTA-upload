@@ -62,7 +62,7 @@ class ADS1115
         self.wire._write(0xC0)   # MSB
         self.wire._write(0x83)   # LSB
         self.wire._end_transmission()
-        tasmota.delay(80)
+#        tasmota.delay(8)
         var measure = self.wire.read_bytes(self.i2c_addr, 0x00, 2)
         var value = (measure[0] << 8) | measure[1]
         if value >= 0x8000
@@ -83,7 +83,7 @@ class ADS1115
         self.wire._write(0xD0)   # MSB
         self.wire._write(0x83)   # LSB
         self.wire._end_transmission()
-        tasmota.delay(80)
+#        tasmota.delay(8)
         measure = self.wire.read_bytes(self.i2c_addr, 0x00, 2)
         value = (measure[0] << 8) | measure[1]
         if value >= 0x8000
@@ -107,5 +107,4 @@ class ADS1115
 end
 
 ads1115 = ADS1115()
-ads1115.init()
 tasmota.add_driver(ads1115)
