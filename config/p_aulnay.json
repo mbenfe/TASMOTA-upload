@@ -90,5 +90,12 @@
             "produit": "PWX12",
             "techno": ["ct","ct","ct"],
             "ratio": ["1000","1000","1000"]
+        },
+    "dl4-tmono-boulangerie": {
+        "mode": "mono",
+        "root": ["*","machine_glacon","*","*"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["2000"]
         }
     }

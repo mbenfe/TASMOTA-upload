@@ -1120,9 +1120,9 @@
                     "id": 1,
                     "location": "vide",
                     "shape": "sonde",
-                    "column": 1920,
+                    "column": 3620,
                     "row": 1015,
-                    "master": "sonde1",
+                    "master": "th_exterieur",
                     "slave": [],
                     "color": 0,
                     "etage": 2,
@@ -1132,9 +1132,9 @@
                     "id": 2,
                     "location": "vide",
                     "shape": "sonde",
-                    "column": 1920,
-                    "row": 1015,
-                    "master": "sonde2",
+                    "column": 3300,
+                    "row": 400,
+                    "master": "th_acceuil",
                     "slave": [],
                     "color": 0,
                     "etage": 2,
@@ -1144,9 +1144,9 @@
                     "id": 3,
                     "location": "vide",
                     "shape": "sonde",
-                    "column": 1920,
-                    "row": 1015,
-                    "master": "sonde3",
+                    "column": 3300,
+                    "row": 1515,
+                    "master": "th_consignes",
                     "slave": [],
                     "color": 0,
                     "etage": 2,
@@ -1156,9 +1156,9 @@
                     "id": 4,
                     "location": "vide",
                     "shape": "sonde",
-                    "column": 1920,
-                    "row": 1015,
-                    "master": "sonde4",
+                    "column": 3100,
+                    "row": 450,
+                    "master": "th_caisse_7",
                     "slave": [],
                     "color": 0,
                     "etage": 2,
@@ -1168,9 +1168,57 @@
                     "id": 5,
                     "location": "vide",
                     "shape": "sonde",
-                    "column": 1920,
-                    "row": 1015,
-                    "master": "sonde5",
+                    "column": 3100,
+                    "row": 1215,
+                    "master": "th_caisse_1",
+                    "slave": [],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0
+                },
+                {
+                    "id": 6,
+                    "location": "vide",
+                    "shape": "sonde",
+                    "column": 1800,
+                    "row": 1815,
+                    "master": "th_frites_surgelees",
+                    "slave": [],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0
+                },
+                {
+                    "id": 7,
+                    "location": "vide",
+                    "shape": "sonde",
+                    "column": 2350,
+                    "row": 800,
+                    "master": "th_poires",
+                    "slave": [],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0
+                },
+                {
+                    "id": 9,
+                    "location": "vide",
+                    "shape": "sonde",
+                    "column": 2350,
+                    "row": 1000,
+                    "master": "th_salades",
+                    "slave": [],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0
+                },
+                {
+                    "id": 10,
+                    "location": "vide",
+                    "shape": "sonde",
+                    "column": 300,
+                    "row": 1000,
+                    "master": "th_bio",
                     "slave": [],
                     "color": 0,
                     "etage": 2,
@@ -1183,7 +1231,53 @@
             "label": "Conso",
             "level": 1,
             "virtuel": 0,
-            "data": []
+            "data": [
+                {
+                    "location": "Tableau Principal",
+                    "shape": "ConsoBar",
+                    "column": 1600,
+                    "row": 50,
+                    "master": "main",
+                    "slave": [
+                        "main",
+                        "mainT_H",
+                        "mainT_D",
+                        "mainT_M"
+                    ],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0
+                },
+                {
+                    "location": "Froid",
+                    "shape": "ConsoBar",
+                    "column": 2150,
+                    "row": 50,
+                    "master": "froid",
+                    "slave": [
+                        "main",
+                        "froidT_H",
+                        "froidT_D",
+                        "froidT_M"
+                    ],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0
+                },
+                {
+                    "location": "TGBT",
+                    "shape": "PieChart",
+                    "column": 0,
+                    "row": 0,
+                    "master": "main",
+                    "slave": [
+                        "froid"
+                    ],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0
+                }
+            ]
         }
     ]
 }
