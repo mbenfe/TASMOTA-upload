@@ -54,17 +54,6 @@
         "device": "AK-PC730",
         "label": "Boulangerie"
     },
-    "3": {
-        "Name": "CFNegBoulang3",
-        "status": {},
-        "alias_sonde": "TherAir",
-        "alias_cutout": "CutoutTemp",
-        "poste": "NA",
-        "categorie": "devneg",
-        "genre": "CF-",
-        "device": "AK-CC550",
-        "label": "Boulangerie"
-    },
     "4": {
         "Name": "CFDechets4",
         "status": {},
