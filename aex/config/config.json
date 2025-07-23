@@ -1,0 +1,142 @@
+{
+    "aulnay": {
+        "aex-1-2": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "left",
+                "led": "led1"
+            },
+            "2": {
+                "button": "right",
+                "led": "led4"
+            }
+        },
+        "aex-3-4": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "left",
+                "led": "led1"
+            },
+            "2": {
+                "button": "right",
+                "led": "led4"
+            }
+        },
+        "aex-5-6": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "left",
+                "led": "led1"
+            },
+            "2": {
+                "button": "right",
+                "led": "led4"
+            }
+        },
+        "aex-7-8": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "left",
+                "led": "led1"
+            },
+            "2": {
+                "button": "right",
+                "led": "led4"
+            }
+        }
+    },
+    "coubron": {
+        "aex-1": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "center",
+                "led": "led2"
+            }
+        },
+        "aex-2": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "center",
+                "led": "led2"
+            }
+        },
+        "aex-3": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "center",
+                "led": "led2"
+            }
+        },
+        "aex-4": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "center",
+                "led": "led2"
+            }
+        },
+        "aex-5": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "center",
+                "led": "led2"
+            }
+        },
+        "aex-6": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "center",
+                "led": "led2"
+            }
+        },
+        "aex-7": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "center",
+                "led": "led2"
+            }
+        },
+        "aex-8": {
+            "pt1": "nok",
+            "pt2": "nok",
+            "ds1": "nok",
+            "ds2": "nok",
+            "1": {
+                "button": "center",
+                "led": "led2"
+            }
+        }
+    }
+}

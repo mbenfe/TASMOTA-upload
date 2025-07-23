@@ -1,35 +1,123 @@
 import mqtt
 import string
+import global
 
-class PT1000
+class ADS1115
+    var i2c_addr
+    var wire
+    var temperature1
+    var temperature2
+    var sample
+
+
     def init()
-        tasmota.cmd("sensor12 s2")
-        tasmota.resp_cmnd("sensor12 s2 done")
+        self.i2c_addr = 0x48  # ADS1115 I2C address
+        self.wire = tasmota.wire_scan(self.i2c_addr)
+        if self.wire == nil
+            print("ADS1115 not found on I2C bus")
+            return
+        end
+        print("ADS1115 found!")
+        self.temperature1 = []
+        self.temperature2 = []
+        for i:0..59
+            self.temperature1.insert(i,0)
+            self.temperature2.insert(i,0)
+        end
+        if (path.exists("calibration.json"))
+            var file = open("calibration.json", "rt")
+            var myjson = file.read()
+            file.close()
+            var calibration = json.load(myjson)
+            global.factor1 = real(calibration["pt1"])
+            global.factor2 = real(calibration["pt2"])
+        else
+            print("calibration.json not found, using default factors")
+            global.factor1 = 150
+            global.factor2 = 150
+            var file = open("calibration.json", "wt")
+            var calibration = json.dump({"pt1": global.factor1, "pt2": global.factor2})
+            file.write(calibration)
+            file.close()
+        end
+        self.sample = 0
     end
 
-    def poll(pt1000)
-        var data = tasmota.read_sensors()
-        if(data == nil)
-            return -99
+    def every_second()
+        var measure
+        var value
+        if (global.config["pt1"] != "nok")
+            # PT1 on A0, PGA = ±6.144V (highest FSR), DR = 8SPS
+            self.wire._begin_transmission(self.i2c_addr)
+            self.wire._write(0x01)
+            # Config register for A0, 8SPS, PGA=±6.144V:
+            # MSB: 0xC0 = 1100 0000
+            #   [15] OS        = 1 (start single conversion)
+            #   [14:12] MUX[2:0]= 100 (AIN0 vs GND)
+            #   [11:9] PGA[2:0]= 000 (FSR = ±6.144V)
+            #   [8] MODE       = 0 (continuous conversion)
+            # LSB: 0x83 = 1000 0011
+            #   [7:5] DR[2:0]  = 000 (8 SPS)
+            #   [4] COMP_MODE  = 0 (traditional comparator)
+            #   [3] COMP_POL   = 0 (active low)
+            #   [2] COMP_LAT   = 0 (non-latching)
+            #   [1:0] COMP_QUE = 11 (disable comparator)
+            self.wire._write(0xC0)   # MSB
+            self.wire._write(0x83)   # LSB
+            self.wire._end_transmission()
+    #        tasmota.delay(8)
+            measure = self.wire.read_bytes(self.i2c_addr, 0x00, 2)
+            value = (measure[0] << 8) | measure[1]
+            if value >= 0x8000
+                value = value - 0x10000
+            end
+            self.temperature1.setitem(self.sample, (real(value) / real(global.factor1)))
         end
-        var myjson = json.load(data)
-        print("--------------------")
-        print('measure:'+str(myjson["ADS1115"]["A0"]))
-        if(myjson["ADS1115"] != nil && pt1000 == 0)
-            var Van1 = real(myjson["ADS1115"]["A0"])/real(32768)*real(2.048)
-            print("Van1:",Van1)
-#            var Rpt1000 = 10000*(Van1/(5-Van1))
-            var Rpt1000 = 10000*(Van1/(5-Van1))/2
-            print("Rpt1000:",Rpt1000)
-            var temperature = (Rpt1000-1000)/3.85
-            print("temperature:",temperature)
-            return temperature
+
+        if (global.config["pt2"] != "nok")
+            # PT2 on A1, PGA = ±6.144V (highest FSR), DR = 8SPS
+            self.wire._begin_transmission(self.i2c_addr)
+            self.wire._write(0x01)
+            # Config register for A1, 8SPS, PGA=±6.144V:
+            # MSB: 0xD0 = 1101 0000
+            #   [15] OS        = 1 (start single conversion)
+            #   [14:12] MUX[2:0]= 101 (AIN1 vs GND)
+            #   [11:9] PGA[2:0]= 000 (FSR = ±6.144V)
+            #   [8] MODE       = 0 (continuous conversion)
+            # LSB: 0x83 = 1000 0011 (same as above)
+            self.wire._write(0xD0)   # MSB
+            self.wire._write(0x83)   # LSB
+            self.wire._end_transmission()
+    #        tasmota.delay(8)
+            measure = self.wire.read_bytes(self.i2c_addr, 0x00, 2)
+            value = (measure[0] << 8) | measure[1]
+            if value >= 0x8000
+                value = value - 0x10000
+            end
+            self.temperature2.setitem(self.sample, (real(value) / real(global.factor2)))
+        end
+
+        if self.sample == 59
+            self.sample = 0
+            global.average_temperature1 = 0
+            global.average_temperature2 = 0
+            if(global.config["pt1"] != "nok")
+                for i:0..59
+                    global.average_temperature1 += self.temperature1.item(i)
+                end
+                global.average_temperature1 /= 60
+            end
+            if(global.config["pt2"] != "nok")
+                for i:0..59
+                    global.average_temperature2 += self.temperature2.item(i)
+                end
+                global.average_temperature2 /= 60 
+            end
         else
-            return -99
+            self.sample += 1
         end
     end
 end
 
-pt1000 = PT1000()
-pt1000.init()
-tasmota.add_driver(pt1000)
+ads1115 = ADS1115()
+tasmota.add_driver(ads1115)

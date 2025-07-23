@@ -10,12 +10,6 @@ import path
 var ser                # serial object
 var bsl_out = 32   
 
-# Define mqttprint function
-def mqttprint(texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
-    mqtt.publish(topic, texte, true)
-end
-
 # Define loadconfig function
 def loadconfig()
     var file = open("esp32.cfg", "rt")
@@ -24,41 +18,17 @@ def loadconfig()
     var myjson = json.load(buffer)
     global.ville = myjson["ville"]
     global.device = myjson["device"]
-    global.nombre = myjson["nombre"]
-    global.location = list()
-    for i:0..global.nombre-1
-        global.location.insert(i,myjson["location"][i])
-    end
+    global.location = myjson["location"]
     global.client = myjson["client"]
-
-
-    file = open("config.json", "rt")
-    if(file == nil)
-        mqttprint("Error: Failed to open config.json")
-        file.close()
-        return
-    end
-    buffer = file.read()
-    file.close()
-    myjson = json.load(buffer)
-    global.config = myjson[global.ville][global.device]
-    mqttprint("config: " + str(global.config))
-    if(global.config["pt1"] != "nok")
-        global.tempsource = "pt1"
-    elif(global.config["pt2"] != "nok")
-        global.tempsource = "pt2"
-    elif(global.config["ds1"] != "nok")
-        global.tempsource = "ds1"
-    elif(global.config["ds2"] != "nok")
-        global.tempsource = "ds2"
-    else
-        global.tempsource = "dsin"
-    end
 end
 
+# Define mqttprint function
+def mqttprint(texte)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
+    mqtt.publish(topic, texte, true)
+end
 
 #-------------------------------- FONCTIONS -----------------------------------------#
-# Function to update the city in the configuration file
 def ville(cmd, idx, payload, payload_json)
     import json
     var file = open("esp32.cfg", "rt")
@@ -73,7 +43,6 @@ def ville(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-# Function to update the device in the configuration file
 def device(cmd, idx, payload, payload_json)
     import json
     var file = open("esp32.cfg", "rt")
@@ -88,18 +57,12 @@ def device(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-# Function to update the location in the configuration file
 def location(cmd, idx, payload, payload_json)
     import json
-    var file
-    var buffer
-    var myjson
-    var arguments
-    arguments = string.split(payload, ' ')
-    file = open("esp32.cfg", "rt")
-    buffer = file.read()
-    myjson = json.load(buffer)
-    myjson["location"][int(arguments[0])] = arguments[1]
+    var file = open("esp32.cfg", "rt")
+    var buffer = file.read()
+    var myjson = json.load(buffer)
+    myjson["location"] = payload
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg", "wt")
@@ -108,7 +71,6 @@ def location(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-# Function to download a file from a URL and save it locally
 def getfile(cmd, idx, payload, payload_json)
     import string
     import path
@@ -145,7 +107,6 @@ def getfile(cmd, idx, payload, payload_json)
     return st
 end
 
-# Function to list files in the root directory and their details
 def dir(cmd, idx, payload, payload_json)
     import path
     var liste
@@ -165,55 +126,69 @@ def dir(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd_done()
 end
 
-# Function to set thermostat parameters
-def cal(cmd, idx, payload, payload_json)
-    var arguments
-    var file 
-    var myjson
-    var calibration
-    var name
-    arguments = string.split(payload, ' ')
-    name ="calibration.json"
-    file = open(name, "rt")
-    myjson = file.read()
+def set(cmd, idx, payload, payload_json)
+    var arguments = string.split(payload, ' ')
+    var file = open("thermostat_intermarche.json", "rt")
+    var myjson = file.read()
     file.close()
-
-    calibration = json.load(myjson)  
-    if string.tolower(arguments[0]) == "pt1"
-        calibration['pt1'] = real(global.average_temperature1)*real(global.factor1)/real(arguments[1])
-        print("avg: " + str(global.average_temperature1)," factor: " + str(global.factor1), "calibration: " + str(calibration['pt1']))
-        global.factor1 = calibration['pt1']
-        print("calibration['pt1'] = " + str(calibration['pt1']))
-    elif string.tolower(arguments[0]) == "pt2"
-        calibration['pt2'] = real(global.average_temperature2)*real(global.factor2)/real(arguments[1])
-        global.factor2 = calibration['pt2']
-        print("calibration['pt2'] = " + str(calibration['pt2']))
+    var thermostat = json.load(myjson)  
+    if arguments[0] == "offset"
+        thermostat['offset'] = real(arguments[1])
+    elif arguments[0] == "ouvert"
+        thermostat['ouvert'] = real(arguments[1])
+    elif arguments[0] == "ferme"
+        thermostat['ferme'] = real(arguments[1])
+    elif arguments[0] == "lundi"
+        thermostat['lundi']['debut'] = real(arguments[1])
+        thermostat['lundi']['fin'] = real(arguments[2])
+    elif arguments[0] == "mardi"
+        thermostat['mardi']['debut'] = real(arguments[1])
+        thermostat['mardi']['fin'] = real(arguments[2])
+    elif arguments[0] == "mercredi"
+        thermostat['mercredi']['debut'] = real(arguments[1])
+        thermostat['mercredi']['fin'] = real(arguments[2])
+    elif arguments[0] == "jeudi"
+        thermostat['jeudi']['debut'] = real(arguments[1])
+        thermostat['jeudi']['fin'] = real(arguments[2])
+    elif arguments[0] == "vendredi"
+        thermostat['vendredi']['debut'] = real(arguments[1])
+        thermostat['vendredi']['fin'] = real(arguments[2])
+    elif arguments[0] == "samedi"
+        thermostat['samedi']['debut'] = real(arguments[1])
+        thermostat['samedi']['fin'] = real(arguments[2])
+    elif arguments[0] == "dimanche"
+        thermostat['dimanche']['debut'] = real(arguments[1])
+        thermostat['dimanche']['fin'] = real(arguments[2])
     end
-    var buffer = json.dump(calibration)
-    print(buffer)
-    file = open(name, "wt")
+    var buffer = json.dump(thermostat)
+    file = open("thermostat_intermarche.json", "wt")
     file.write(buffer)
     file.close()
-    tasmota.resp_cmnd_done()
+
+    var topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville, global.device)
+    mqtt.publish(topic, buffer, true)
+
+    tasmota.resp_cmnd('done')
+    tasmota.cmd("restart 1")
 end
 
-# Function to get thermostat parameters
 def get(cmd, idx, payload, payload_json)
-    var file
-    var myjson
-    var name
-    name ="thermostat_" + payload + ".json"
-    file = open(name, "rt")
-    myjson = file.read()
+    var file = open("thermostat_intermarche.json", "rt")
+    var myjson = file.read()
     file.close()
 
-    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device+"_"+payload)
+    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device)
     mqtt.publish(topic, myjson, true)
 
     tasmota.resp_cmnd('done')
 end
 
-# Function to get the version of the files
+
+def launch_driver()
+    mqttprint('mqtt connected -> launch driver')
+    tasmota.load('chx_driver.be')
+end
+
 def getversion()
     var fichier
     var files = path.listdir("/")
@@ -255,17 +230,7 @@ mqttprint("location:" + str(global.location))
 
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
-tasmota.add_cmd('cal', cal)
 
-
-mqttprint('load ds18b20.be')
-tasmota.load('ds18b20.be')
-mqttprint('load pt1000.be')
-tasmota.load('pt1000.be')
-mqttprint('load command.be')
-tasmota.load('command.be')
-mqttprint('load aerotherme_driver')
-tasmota.load('aerotherme_driver.be')
-mqttprint('load io.be')
-tasmota.load('io.be')
+mqttprint('load hitachi_driver')
+tasmota.load('hitachi_driver.be')
 

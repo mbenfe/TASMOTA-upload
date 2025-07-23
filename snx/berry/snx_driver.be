@@ -76,7 +76,7 @@ class STM32
         gpio.digital_write(self.bsl_out, 0)
         gpio.digital_write(self.rst_out, 1)
         gpio.digital_write(self.statistic, 0)
-#        gpio.digital_write(self.ready,1)
+        gpio.digital_write(self.ready,1)
 
     #    tasmota.add_fast_loop(/-> self.fast_loop())
     end
@@ -91,8 +91,8 @@ class STM32
         var numitem
         var myjson
         var topic
-        gpio.digital_write(self.ready,1)
         if self.ser.available()
+            gpio.digital_write(self.ready,0)
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
             gpio.digital_write(self.statistic,1)
@@ -146,7 +146,7 @@ class STM32
             end
         end
         gpio.digital_write(self.statistic,0)
-#        gpio.digital_write(self.ready,1)
+        gpio.digital_write(self.ready,1)
     end
 
     def get_statistic()

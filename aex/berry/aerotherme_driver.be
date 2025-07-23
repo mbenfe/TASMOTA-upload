@@ -58,7 +58,9 @@ class AEROTHERME
         global.device, arguments[3], buffer)
         mqtt.publish(newtopic, payload, true)
 
-        gpio.digital_write(self.relay[i], self.setups[i]['onoff'])
+        if(self.setups[i]['onoff']==true)
+            # tbd
+        end
     end
 
     # Initialization function
@@ -91,11 +93,6 @@ class AEROTHERME
         self.relay = list()
         self.relay.insert(0, 18)
         self.relay.insert(1, 19)
-        gpio.pin_mode(self.relay[0], gpio.OUTPUT)
-        gpio.digital_write(self.relay[0], 0)    
-        gpio.pin_mode(self.relay[1], gpio.OUTPUT)
-        gpio.digital_write(self.relay[1], 0)  
-        self.count = 0  
         tasmota.set_timer(30000,/-> self.mypush())
     end
 
@@ -148,15 +145,18 @@ class AEROTHERME
 
         var target
 
-        var temperature = ds18b20.poll()
-        if (temperature == nil || temperature == -99)
-            mqttprint("Error: Failed to read temperature from DS18B20")
+        var temperature = 0.0
 
+        if(global.tempsource == "ds1" || global.tempsource == "ds2" || global.tempsource == "dsin")
+            temperature = ds18b20.poll()
+
+        elif(global.tempsource == "pt1")
+            temperature=global.average_temperature1
+        elif(global.tempsource == "pt2")
+            temperature=global.average_temperature2
+        else
+            temperature = -99
         end
-
-        print("--------------------------------------------------")
-        print("PT1: ", global.average_temperature1, "°C   PT2: ", global.average_temperature2, "°C  heap: ", tasmota.get_free_heap())
-
 
         for i:0..global.nombre-1
             if (hour >= self.setups[i][jour]['debut'] && hour < self.setups[i][jour]['fin'])
@@ -165,8 +165,8 @@ class AEROTHERME
                 target = self.setups[i]['ferme']
             end
 
-            payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.f}', 
-                    global.device, global.device+'_'+str(i+1), temperature-self.setups[i]['offset'], self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target)
+            payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.f,"source":"%s"}', 
+                    global.device, global.device+'_'+str(i+1), temperature-self.setups[i]['offset'], self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target,global.tempsource)
             topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device+"_"+str(i + 1))
             mqtt.publish(topic, payload, true)
             topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.device+"_"+str(i + 1))
@@ -196,13 +196,6 @@ class AEROTHERME
 
     # Function to execute every second
     def every_second()
-        # if (self.count == 5)
-        #     var temperature = pt1000.poll(0)
-        #     self.count = 0
-        # else
-        #     self.count = self.count + 1
-        # end
-#        print(temperature)
     end
 end
 

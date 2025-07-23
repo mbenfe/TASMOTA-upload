@@ -1194,7 +1194,7 @@
                     "id": 1,
                     "location": "exterieur",
                     "shape": "sonde",
-                    "column": 3220,
+                    "column": 3620,
                     "row": 1015,
                     "master": "th_exterieur",
                     "slave": [],
@@ -1206,8 +1206,8 @@
                     "id": 2,
                     "location": "Boucherie",
                     "shape": "sonde",
-                    "column": 1800,
-                    "row": 320,
+                    "column": 3300,
+                    "row": 400,
                     "master": "th_boucherie",
                     "slave": [],
                     "color": 0,
@@ -1218,8 +1218,8 @@
                     "id": 3,
                     "location": "Entree",
                     "shape": "sonde",
-                    "column": 2800,
-                    "row": 515,
+                    "column": 3300,
+                    "row": 1515,
                     "master": "th_bl_entree",
                     "slave": [],
                     "color": 0,
@@ -1230,8 +1230,8 @@
                     "id": 4,
                     "location": "Surgelés",
                     "shape": "sonde",
-                    "column": 2100,
-                    "row": 850,
+                    "column": 3100,
+                    "row": 450,
                     "master": "th_surgeles",
                     "slave": [],
                     "color": 0,
@@ -1242,9 +1242,21 @@
                     "id": 5,
                     "location": "Animaux",
                     "shape": "sonde",
-                    "column": 1100,
+                    "column": 3100,
                     "row": 1215,
                     "master": "th_tg_animaux",
+                    "slave": [],
+                    "color": 0,
+                    "etage": 2,
+                    "rotate": 0
+                },
+                {
+                    "id": 6,
+                    "location": "vide",
+                    "shape": "sonde",
+                    "column": 1800,
+                    "row": 1815,
+                    "master": "th_frites_surgelees",
                     "slave": [],
                     "color": 0,
                     "etage": 2,
@@ -1254,7 +1266,7 @@
                     "id": 7,
                     "location": "SAS Entrée",
                     "shape": "sonde",
-                    "column": 3100,
+                    "column": 2350,
                     "row": 800,
                     "master": "th_sas",
                     "slave": [],
@@ -1266,7 +1278,7 @@
                     "id": 10,
                     "location": "Caisses",
                     "shape": "sonde",
-                    "column": 2800,
+                    "column": 300,
                     "row": 1000,
                     "master": "th_caisses",
                     "slave": [],
@@ -1278,8 +1290,8 @@
                     "id": 8,
                     "location": "Lacets",
                     "shape": "sonde",
-                    "column": 2800,
-                    "row": 1400,
+                    "column": 300,
+                    "row": 1000,
                     "master": "th_lacets",
                     "slave": [],
                     "color": 0,
@@ -1336,7 +1348,7 @@
                     "etage": 2,
                     "rotate": 0,
                     "width": 1500,
-                    "height": 1450
+                    "height": 1500
                 },
                 {
                     "id": 1,
@@ -1355,14 +1367,14 @@
                     "categorie": "main",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 2,
                     "location": "Froid",
                     "shape": "ConsoBar",
-                    "column": 2350,
+                    "column": 2150,
                     "row": 50,
                     "master": "froid",
                     "slave": [
@@ -1375,14 +1387,14 @@
                     "categorie": "froid",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 3,
                     "location": "Rooftops",
                     "shape": "ConsoBar",
-                    "column": 3100,
+                    "column": 2700,
                     "row": 50,
                     "master": "gene_rooftops",
                     "slave": [
@@ -1395,15 +1407,15 @@
                     "categorie": "chauffage",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 2,
                     "location": "Chauffages",
                     "shape": "PieChart",
                     "column": 50,
-                    "row": 2350,
+                    "row": 1600,
                     "master": "gene_rooftops",
                     "slave": [
                         "rooftop_51",
@@ -1413,15 +1425,15 @@
                     "categorie": "",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 400,
+                    "height": 400
                 },
                 {
                     "id": 3,
-                    "location": "PETIT TABLEAU 1",
+                    "location": "TD1",
                     "shape": "PieChart",
-                    "column": 50,
-                    "row": 3100,
+                    "column": 500,
+                    "row": 1600,
                     "master": "gene_tab1",
                     "slave": [
                         "onduleur",
@@ -1431,15 +1443,15 @@
                     "categorie": "td",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 400,
+                    "height": 400
                 },
                 {
                     "id": 4,
-                    "location": "PETIT TABLEAU 2",
+                    "location": "TD2",
                     "shape": "PieChart",
-                    "column": 50,
-                    "row": 3850,
+                    "column": 950,
+                    "row": 1600,
                     "master": "gene_tab2",
                     "slave": [
                         "travees",
@@ -1449,15 +1461,15 @@
                     "categorie": "td",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 400,
+                    "height": 400
                 },
                 {
                     "id": 4,
                     "location": "Eclairage exterieur",
                     "shape": "ConsoBar",
-                    "column": 2350,
-                    "row": 1550,
+                    "column": 3250,
+                    "row": 50,
                     "master": "ecl_ext",
                     "slave": [
                         "main",
@@ -1469,15 +1481,15 @@
                     "categorie": "eclairage",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 5,
                     "location": "Station service",
                     "shape": "ConsoBar",
                     "column": 1600,
-                    "row": 800,
+                    "row": 500,
                     "master": "td_station",
                     "slave": [
                         "main",
@@ -1489,15 +1501,15 @@
                     "categorie": "station",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 6,
                     "location": "Poissonerie",
                     "shape": "ConsoBar",
-                    "column": 2350,
-                    "row": 800,
+                    "column": 2150,
+                    "row": 500,
                     "master": "td_poissonerie",
                     "slave": [
                         "main",
@@ -1509,15 +1521,15 @@
                     "categorie": "td",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 7,
                     "location": "CF Reserve",
                     "shape": "ConsoBar",
-                    "column": 3100,
-                    "row": 800,
+                    "column": 2700,
+                    "row": 500,
                     "master": "CF-reserve",
                     "slave": [
                         "main",
@@ -1529,15 +1541,15 @@
                     "categorie": "froid",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 8,
                     "location": "Eclairage Fruits & Legumes",
                     "shape": "ConsoBar",
-                    "column": 3100,
-                    "row": 1550,
+                    "column": 3250,
+                    "row": 500,
                     "master": "ecl_f&l",
                     "slave": [
                         "main",
@@ -1549,15 +1561,15 @@
                     "categorie": "eclairage",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 9,
                     "location": "Divers",
                     "shape": "ConsoBar",
                     "column": 1600,
-                    "row": 1550,
+                    "row": 950,
                     "master": "gene_divers",
                     "slave": [
                         "main",
@@ -1569,15 +1581,15 @@
                     "categorie": "divers",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 10,
-                    "location": "PETIT TABLEAU 1",
+                    "location": "TAB1",
                     "shape": "ConsoBar",
-                    "column": 800,
-                    "row": 3100,
+                    "column": 2150,
+                    "row": 950,
                     "master": "gene_tab1",
                     "slave": [
                         "main",
@@ -1589,15 +1601,15 @@
                     "categorie": "td",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 11,
                     "location": "Bureaux",
                     "shape": "ConsoBar",
-                    "column": 2300,
-                    "row": 3100,
+                    "column": 2700,
+                    "row": 950,
                     "master": "bureaux",
                     "slave": [
                         "main",
@@ -1609,15 +1621,15 @@
                     "categorie": "td",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 12,
                     "location": "Onduleur",
                     "shape": "ConsoBar",
-                    "column": 1550,
-                    "row": 3100,
+                    "column": 3250,
+                    "row": 950,
                     "master": "onduleur",
                     "slave": [
                         "main",
@@ -1629,15 +1641,15 @@
                     "categorie": "divers",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 13,
-                    "location": "PETIT TABLEAU 2",
+                    "location": "TAB2",
                     "shape": "ConsoBar",
-                    "column": 800,
-                    "row": 3850,
+                    "column": 1600,
+                    "row": 1400,
                     "master": "gene_tab2",
                     "slave": [
                         "main",
@@ -1649,15 +1661,15 @@
                     "categorie": "td",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 14,
                     "location": "Travees",
                     "shape": "ConsoBar",
-                    "column": 1550,
-                    "row": 3850,
+                    "column": 2150,
+                    "row": 1400,
                     "master": "travees",
                     "slave": [
                         "main",
@@ -1669,15 +1681,15 @@
                     "categorie": "divers",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 },
                 {
                     "id": 15,
                     "location": "Caisses",
                     "shape": "ConsoBar",
-                    "column": 2300,
-                    "row": 3850,
+                    "column": 2700,
+                    "row": 1400,
                     "master": "caisses",
                     "slave": [
                         "main",
@@ -1689,88 +1701,10 @@
                     "categorie": "divers",
                     "etage": 2,
                     "rotate": 0,
-                    "width": 700,
-                    "height": 700
-                },
-                {
-                    "id": 16,
-                    "location": "51KW",
-                    "shape": "ConsoBar",
-                    "column": 800,
-                    "row": 2350,
-                    "master": "rooftop_51",
-                    "slave": [
-                        "main",
-                        "rooftop_51_H",
-                        "rooftop_51_D",
-                        "rooftop_51_M"
-                    ],
-                    "color": 0,
-                    "etage": 2,
-                    "rotate": 0,
-                    "width": 700,
-                    "height": 700
-                },
-                {
-                    "id": 17,
-                    "location": "36KW",
-                    "shape": "ConsoBar",
-                    "column": 1550,
-                    "row": 2350,
-                    "master": "rooftop1_36",
-                    "slave": [
-                        "main",
-                        "rooftop1_36_H",
-                        "rooftop1_36_D",
-                        "rooftop1_36_M"
-                    ],
-                    "color": 0,
-                    "etage": 2,
-                    "rotate": 0,
-                    "width": 700,
-                    "height": 700
-                },
-                {
-                    "id": 18,
-                    "location": "PETIT TABLEAU 1",
-                    "shape": "ConsoBar",
-                    "column": 50,
-                    "row": 1550,
-                    "master": "gene_tab1",
-                    "slave": [
-                        "main",
-                        "gene_tab1_H",
-                        "gene_tab1_D",
-                        "gene_tab1_M"
-                    ],
-                    "color": 0,
-                    "etage": 2,
-                    "rotate": 0,
-                    "width": 700,
-                    "height": 700
-                },
-                {
-                    "id": 19,
-                    "location": "PETIT TABLEAU 2",
-                    "shape": "ConsoBar",
-                    "column": 800,
-                    "row": 1550,
-                    "master": "gene_tab2",
-                    "slave": [
-                        "main",
-                        "gene_tab2_H",
-                        "gene_tab2_D",
-                        "gene_tab2_M"
-                    ],
-                    "color": 0,
-                    "etage": 2,
-                    "rotate": 0,
-                    "width": 700,
-                    "height": 700
+                    "width": 500,
+                    "height": 400
                 }
-            ],
-            "width": 3750,
-            "height": 3200
+            ]
         }
     ]
 }

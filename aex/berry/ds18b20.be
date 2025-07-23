@@ -17,14 +17,13 @@ class DS18B20
             return -99
         end
         var myjson = json.load(data)
+        print("DS18B20 data: " + str(myjson))
         if !myjson.contains("DS18B20")
             return -99
         end
          print("--------------------")
          print('measure:'+str(myjson["DS18B20"]["Temperature"]))
-         print('measure:'+str(myjson["DS18B20"]["Humidity"]))
-         print('measure:'+str(myjson["DS18B20"]["Status"]))
-         print('measure:'+str(myjson["DS18B20"]["Reglage"]))
+
         var temperature = myjson["DS18B20"]["Temperature"]
          return temperature
     end
