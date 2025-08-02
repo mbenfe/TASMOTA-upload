@@ -130,7 +130,7 @@ class STM32
                         end
                     else
                         print('json error:',mylist[i])
-                        self.mqttprint('json error:' + mylist[i])
+                     #   self.mqttprint('json error:' + mylist[i])
                     end
                 end
             elif (buffer[0] == 42)     # * -> json statistic
