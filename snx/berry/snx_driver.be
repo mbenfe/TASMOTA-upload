@@ -20,6 +20,13 @@ class STM32
     var device
     var topic 
 
+    def mqttprint(texte)
+        import mqtt
+        var topic = string.format("gw/inter/%s/%s/tele/DEBUG2", ville, device)
+        mqtt.publish(topic, texte, true)
+    end
+
+
     def loadconfig()
         import json
         var jsonstring
@@ -95,7 +102,6 @@ class STM32
             gpio.digital_write(self.ready,0)
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            gpio.digital_write(self.statistic,1)
             var buffer = self.ser.read()
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
@@ -124,6 +130,7 @@ class STM32
                         end
                     else
                         print('json error:',mylist[i])
+                        self.mqttprint('json error:' + mylist[i])
                     end
                 end
             elif (buffer[0] == 42)     # * -> json statistic
@@ -145,7 +152,6 @@ class STM32
                 mqtt.publish(topic,mystring,true)
             end
         end
-        gpio.digital_write(self.statistic,0)
         gpio.digital_write(self.ready,1)
     end
 
