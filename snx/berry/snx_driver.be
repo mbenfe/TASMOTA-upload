@@ -6,6 +6,7 @@ import json
 
 
 class STM32
+    var errors
     var mapID
     var mapFunc
     var ser
@@ -22,7 +23,7 @@ class STM32
 
     def mqttprint(texte)
         import mqtt
-        var topic = string.format("gw/inter/%s/%s/tele/DEBUG2", ville, device)
+        var topic = string.format("gw/inter/%s/%s/tele/DEBUG2", self.ville, self.device)
         mqtt.publish(topic, texte, true)
     end
 
@@ -60,6 +61,7 @@ class STM32
     
         self.mapID = {}
         self.mapFunc = {}
+        self.errors = {}
 
         self.loadconfig()
 
@@ -92,6 +94,27 @@ class STM32
         self.read_uart(2)
     end
 
+    def map_error(json_string)
+        data = json.load(json_string)
+
+        if data["ERREUR"] != "Type introuvable"
+            return
+        end
+
+        dev_type = data["type"]
+        reg = data["registre"]
+
+        if not self.errors.get(dev_type)
+            self.errors[dev_type] = []
+        end
+
+        # Vérifier présence préalable
+        if self.errors[dev_type].find(reg) == nil
+            self.errors[dev_type].push(reg)
+        end
+    end
+
+
     def read_uart(timeout)
         var mystring
         var mylist
@@ -114,6 +137,10 @@ class STM32
                         if myjson.contains('ID')
                             if myjson["ID"] == 0 || myjson["ID"] == -1
                                 topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
+                                if myjson.contains('ERREUR')
+                                    self.mqttprint('error: ' + myjson["ERREUR"])
+                                    self.map_error(mylist[i])
+                                end
                             elif myjson["ID"] == -2
                                 topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
                             elif myjson["ID"] == -3
@@ -143,8 +170,10 @@ class STM32
                     mqtt.publish(topic,mylist[i],true)
                 end
             elif (buffer[0] == 58)     # : -> debug text
-                topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
+                self.mqttprint('debug: ' + buffer.asstring())
                 mystring = buffer.asstring()
+                myjson = json.load(mystring)
+                topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
                 mqtt.publish(topic,mystring,true)
             else
                 topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)

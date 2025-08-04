@@ -234,38 +234,47 @@ def getversion()
     tasmota.resp_cmnd_done()
 end
 
+def launch_driver()
+    print("load io driver")
+    #mqttprint('load io.be')
+    tasmota.load('io.be')
+    print("io driver loaded")
+end
+
 #-------------------------------- BASH -----------------------------------------#
-tasmota.cmd("seriallog 0")
-mqttprint("serial log disabled")
 
-mqttprint('AUTOEXEC: create commande getfile')
-tasmota.add_cmd('getfile', getfile)
+# tasmota.cmd("seriallog 0")
+# mqttprint("serial log disabled")
 
-tasmota.add_cmd('dir', dir)
-tasmota.add_cmd('ville', ville)
-tasmota.add_cmd('device', device)
-tasmota.add_cmd('location', location)
+# mqttprint('AUTOEXEC: create commande getfile')
+# tasmota.add_cmd('getfile', getfile)
 
-# Initialize configuration
-loadconfig()
-mqttprint("ville:" + str(global.ville))
-mqttprint("client:" + str(global.client))
-mqttprint("device:" + str(global.device))
-mqttprint("location:" + str(global.location))
+# tasmota.add_cmd('dir', dir)
+# tasmota.add_cmd('ville', ville)
+# tasmota.add_cmd('device', device)
+# tasmota.add_cmd('location', location)
 
-tasmota.add_cmd('getversion', getversion)
-tasmota.add_cmd('get', get)
-tasmota.add_cmd('cal', cal)
+# # Initialize configuration
+# loadconfig()
+# mqttprint("ville:" + str(global.ville))
+# mqttprint("client:" + str(global.client))
+# mqttprint("device:" + str(global.device))
+# mqttprint("location:" + str(global.location))
+
+# tasmota.add_cmd('getversion', getversion)
+# tasmota.add_cmd('get', get)
+# tasmota.add_cmd('cal', cal)
 
 
-mqttprint('load ds18b20.be')
-tasmota.load('ds18b20.be')
-mqttprint('load pt1000.be')
-tasmota.load('pt1000.be')
-mqttprint('load command.be')
-tasmota.load('command.be')
-mqttprint('load aerotherme_driver')
-tasmota.load('aerotherme_driver.be')
-mqttprint('load io.be')
-tasmota.load('io.be')
+# #mqttprint('load ds18b20.be')
+# #tasmota.load('ds18b20.be')
+# #mqttprint('load pt1000.be')
+# #tasmota.load('pt1000.be')
+# #mqttprint('load command.be')
+# #tasmota.load('command.be')
+# #mqttprint('load aerotherme_driver')
+# #tasmota.load('aerotherme_driver.be')
+
+print(" wait 10s for drivers loading")
+tasmota.set_timer(10000,launch_driver)
 
