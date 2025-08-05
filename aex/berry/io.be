@@ -16,7 +16,7 @@
 import string
 
 class PCF8574A
-    var i2c_addr, wire, state
+    var i2c_addr, wire, state,last_input_state,input_state
 
     def init()
         self.i2c_addr = 0x3F
@@ -27,6 +27,8 @@ class PCF8574A
         end
         print("PCF8574 found!")
         self.state = 0xFF  # All high = inputs
+        self.last_input_state = 0xFF
+        self.input_state = 0xFF
         self.write_pins(self.state)
     end
 
@@ -58,23 +60,23 @@ class PCF8574A
     def every_250ms()
         if self.wire == nil return end
 
-        var input_state = self.read_pins()
-        print(input_state)
-
-        if ((input_state & 0x02) == 0x02)  # P1 button pressed
+        self.input_state = self.read_pins()
+        print(self.input_state)
+        if ((self.input_state & 0x02) == 0x02) && ((self.last_input_state & 0x02) == 0x00)  # P1 button pressed
             print("P1 pressed")
             self.toggle_bit(0)          # Toggle LED1 on P0
         end
 
-        if ((input_state & 0x04) == 0x04)  # P2 button pressed
+        if ((self.input_state & 0x04) == 0x04) && ((self.last_input_state & 0x04) == 0x00)  # P2 button pressed
             print("P2 pressed")
             self.toggle_bit(4)          # Toggle LED2 on P4
         end
 
-        if ((input_state & 0x08) == 0x08)  # P3 button pressed
+        if ((self.input_state & 0x08) == 0x08) && ((self.last_input_state & 0x08) == 0x00)  # P3 button pressed
             print("P3 pressed")
             self.toggle_bit(6)          # Toggle LED4 on P6
         end
+        self.last_input_state = self.input_state
     end
 end
 

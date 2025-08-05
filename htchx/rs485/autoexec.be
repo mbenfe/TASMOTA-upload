@@ -231,6 +231,6 @@ mqttprint("location:" + str(global.location))
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
 
-mqttprint('load hitachi_driver')
-tasmota.load('hitachi_driver.be')
+mqttprint('load hlink_sniffer_driver')
+tasmota.load('hlink_sniffer_driver.be')
 
