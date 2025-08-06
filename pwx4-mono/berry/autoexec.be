@@ -19,8 +19,9 @@ var ville
 
 def mqttprint(texte)
     import mqtt
+    var payload = string.format("{\"texte\":\"%s\"}", texte)
     var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
-    mqtt.publish(topic,texte,true)
+    mqtt.publish(topic,payload,true)
 end
 
 def Calibration(cmd, idx, payload, payload_json)

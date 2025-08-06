@@ -3,116 +3,84 @@
         "aex-1": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "left",
-            "led": "led1"
+            "ds": "nok"
         },
         "aex-2": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "right",
-            "led": "led4"
+            "ds": "nok"
         },
         "aex-3": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "left",
-            "led": "led1"
+            "ds": "nok"
         },
         "aex-4": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "right",
-            "led": "led4"
+            "ds": "nok"
         },
         "aex-5": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "left",
-            "led": "led1"
+            "ds": "nok"
         },
         "aex-6": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "right",
-            "led": "led4"
+            "ds": "nok"
         },
         "aex-7": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "left",
-            "led": "led1"
+            "ds": "nok"
         },
         "aex-8": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "right",
-            "led": "led4"
+            "ds": "nok"
         }
     },
     "coubron": {
         "aex-1": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "center",
-            "led": "led2"
+            "ds": "nok"
         },
         "aex-2": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "center",
-            "led": "led2"
+            "ds": "nok"
         },
         "aex-3": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "center",
-            "led": "led2"
+            "ds": "nok"
         },
         "aex-4": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "center",
-            "led": "led2"
+            "ds": "nok"
         },
         "aex-5": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "center",
-            "led": "led2"
+            "ds": "nok"
         },
         "aex-6": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "center",
-            "led": "led2"
+            "ds": "nok"
         },
         "aex-7": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "center",
-            "led": "led2"
+            "ds": "nok"
         },
         "aex-8": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok",
-            "button": "center",
-            "led": "led2"
+            "ds": "nok"
         }
     }
 }

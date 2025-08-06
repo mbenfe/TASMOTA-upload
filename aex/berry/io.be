@@ -114,6 +114,7 @@ class PCF8574A
 
         self.last_input_state = self.input_state
     end
+    
 end
 
 var pcf = PCF8574A()

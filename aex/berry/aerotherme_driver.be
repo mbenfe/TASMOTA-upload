@@ -3,6 +3,7 @@ import string
 import json
 import global
 
+
 # Define mqttprint function
 # Define mqttprint function
 def mqttprint(texte)
@@ -13,7 +14,6 @@ def mqttprint(texte)
 end
 
 class AEROTHERME
-    var ds18b20
     var relay
     var day_list
     var setups
@@ -146,13 +146,14 @@ class AEROTHERME
 
         var temperature = 0.0
 
-        if(global.tempsource[0] == "ds"  || global.tempsource == "dsin")
-            temperature = ds18b20.poll()
+        print(ds18b20)
 
-        elif(global.tempsource == "pt")
-            temperature=global.average_temperature1
+        if(global.tempsource[0] == "ds")
+            temperature = ds18b20.poll("ds")
+        elif(global.tempsource[0] == "dsin")
+            temperature = ds18b20.poll("dsin")
         elif(global.tempsource[0] == "pt")
-            temperature=global.average_temperature2
+            temperature=global.average_temperature
         else
             temperature = -99
         end
@@ -165,7 +166,7 @@ class AEROTHERME
             end
 
             payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.f,"source":"%s"}', 
-                    global.esp_device, global.devices[i], temperature-self.setups[i]['offset'], self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target,global.tempsource)
+                    global.esp_device, global.devices[i], temperature-self.setups[i]['offset'], self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target,global.tempsource[0])
             topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.devices[i])
             mqtt.publish(topic, payload, true)
             topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.devices[i])

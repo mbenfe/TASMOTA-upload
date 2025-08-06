@@ -10,25 +10,32 @@ class DS18B20
     end
 
 
-    def poll()
+    def poll(target)
+        var temperature = -99
         var data = tasmota.read_sensors()
         if(data == nil)
             return -99
         end
         var myjson = json.load(data)
         print("DS18B20 data: " + str(myjson))
-        if !myjson.contains("DS18B20")
+        if !myjson.contains("DS18B20-1") && target == "dsin"
             return -99
         end
-         print("--------------------")
-         print('measure:'+str(myjson["DS18B20"]["Temperature"]))
+        if !myjson.contains("DS18B20-2") && target == "ds"
+            return -99
+        end
 
-        var temperature = myjson["DS18B20"]["Temperature"]
-         return temperature
+        if target == "dsin"
+            temperature = myjson["DS18B20-1"]["Temperature"]
+        elif target == "ds"
+            temperature = myjson["DS18B20-2"]["Temperature"]
+        else
+            return -99
+        end
+        return temperature
     end
 
 end
 
 ds18b20 = DS18B20()
-ds18b20.init()
 tasmota.add_driver(ds18b20)

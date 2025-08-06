@@ -1,4 +1,4 @@
-var version = "1.0.112024 initiale"
+var version = "1.0.082025 initiale"
 
 import string
 import global
@@ -57,33 +57,32 @@ def loadconfig()
     
     # Create config list based on nombre
     global.config = []
-    global.tempsource = []
+    global.tempsource = []  # Start empty
     
     for i:0..global.nombre-1
         # Get config for each device
-        var device_name = global.devices[i]  # device is now a list
+        var device_name = global.devices[i]
         global.config.push(myjson[global.ville][device_name])
         mqttprint("config[" + str(i) + "]: " + str(global.config[i]))
         
-        # Create tempsource list for each device - dsin is always included
-        var sensors = ["dsin"]
-        
-        # Check each sensor and add to list if available
+        # Add sensors to flat list if available (dsin will be added last)
         if(global.config[i]["remote"] != "nok")
-            sensors.push("remote")
+            global.tempsource.push("remote")
         end
         if(global.config[i]["pt"] != "nok")
-            sensors.push("pt")
+            global.tempsource.push("pt")
         end
-
         if(global.config[i]["ds"] != "nok")
-            sensors.push("ds")
+            global.tempsource.push("ds")
         end
-        
-        global.tempsource.push(sensors)
-        mqttprint("Available sensors for device " + str(i) + ": " + str(global.tempsource[i]))
     end
-    mqttprint('config.json loaded')
+    
+    # Always add dsin at the end
+    global.tempsource.push("dsin")
+    mqttprint("Available sensors: " + str(global.tempsource))
+    mqttprint("source: " + str(global.tempsource[0]))
+
+    print('config.json loaded')
 end
 
 
@@ -216,11 +215,12 @@ def cal(cmd, idx, payload, payload_json)
     calibration = json.load(myjson)  
 
     calibration['pt'] = real(global.average_temperature)*real(global.factor)/real(arguments[1])
-    mqttprint("avg: " + str(global.average_temperature)," factor: " + str(global.factor), "calibration: " + str(calibration['pt']))
+    print("avg: " + str(global.average_temperature)," factor: " + str(global.factor), "calibration: " + str(calibration['pt']))
     global.factor = calibration['pt']
-    mqttprint("calibration['pt'] = " + str(calibration['pt']))
-
+    print("calibration['pt'] = " + str(calibration['pt']))
+    
     var buffer = json.dump(calibration)
+    print(buffer)
     file = open(name, "wt")
     file.write(buffer)
     file.close()
