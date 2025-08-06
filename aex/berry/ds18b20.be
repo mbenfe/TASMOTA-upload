@@ -3,7 +3,6 @@ import string
 
 class DS18B20
     var i2c_addr
-    var wire
     var humidity
     var temperature
 

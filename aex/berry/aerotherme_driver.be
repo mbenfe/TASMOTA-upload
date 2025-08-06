@@ -4,9 +4,11 @@ import json
 import global
 
 # Define mqttprint function
+# Define mqttprint function
 def mqttprint(texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
-    mqtt.publish(topic, texte, true)
+    var payload =string.format("{\"texte\":\"%s\"}", texte)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.esp_device)
+    mqtt.publish(topic, payload, true)
     return true
 end
 
@@ -23,8 +25,6 @@ class AEROTHERME
             mqttprint("Error: Failed to parse JSON payload")
             return
         end
-
-        print("-----------------------------------------------------------------")
 
         var arguments = string.split(topic, '/')
         var device = string.split(arguments[3], '_')
@@ -54,8 +54,9 @@ class AEROTHERME
         end
         file.write(buffer)
         file.close()
+        
         payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
-        global.device, arguments[3], buffer)
+        global.devices[i], arguments[3], buffer)
         mqtt.publish(newtopic, payload, true)
 
         if(self.setups[i]['onoff']==true)
@@ -68,8 +69,6 @@ class AEROTHERME
         var file
         var myjson        
         self.setups = list()
-        print("init setups")
-        print(global.nombre)
         for i:0..global.nombre-1
             var name = "setup_" + str(i + 1) + ".json"
             file = open(name, "rt")
@@ -86,14 +85,15 @@ class AEROTHERME
             end
             self.setups.insert(i,json_data)  
         end 
-        print("init setups done")
         self.day_list = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]
-        mqttprint("subscription MQTT")
+        mqttprint("subscription MQTT...")
         self.subscribes()
+        mqttprint('MQTT subscription done')
         self.relay = list()
         self.relay.insert(0, 18)
         self.relay.insert(1, 19)
         tasmota.set_timer(30000,/-> self.mypush())
+        
     end
 
     def mypush()
@@ -108,10 +108,9 @@ class AEROTHERME
             end
             myjson = file.read()
             file.close()
-            var  newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device + "_" + str(i + 1))
+            var  newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.devices[i])
             var payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}',
-                    global.device, global.device + "_" + str(i + 1), myjson)
-            print('setup:', newtopic, ' ', payload)
+                    global.esp_device, global.devices[i], myjson)
             mqtt.publish(newtopic, payload, true)
         end 
     end
@@ -121,9 +120,9 @@ class AEROTHERME
         var topic 
         # aerotherme
         for i:0..global.nombre-1
-            topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device + "_" + str(i + 1))
+            topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.devices[i])
             mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup(topic, idx, payload_s, payload_b))
-            mqttprint("subscribed to SETUP:"+global.device + "_" + str(i + 1))
+            mqttprint("subscribed to SETUP:"+global.devices[i])
         end
     end
 
@@ -147,12 +146,12 @@ class AEROTHERME
 
         var temperature = 0.0
 
-        if(global.tempsource == "ds1" || global.tempsource == "ds2" || global.tempsource == "dsin")
+        if(global.tempsource[0] == "ds"  || global.tempsource == "dsin")
             temperature = ds18b20.poll()
 
-        elif(global.tempsource == "pt1")
+        elif(global.tempsource == "pt")
             temperature=global.average_temperature1
-        elif(global.tempsource == "pt2")
+        elif(global.tempsource[0] == "pt")
             temperature=global.average_temperature2
         else
             temperature = -99
@@ -166,28 +165,28 @@ class AEROTHERME
             end
 
             payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.f,"source":"%s"}', 
-                    global.device, global.device+'_'+str(i+1), temperature-self.setups[i]['offset'], self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target,global.tempsource)
-            topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device+"_"+str(i + 1))
+                    global.esp_device, global.devices[i], temperature-self.setups[i]['offset'], self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target,global.tempsource)
+            topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.devices[i])
             mqtt.publish(topic, payload, true)
-            topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.device+"_"+str(i + 1))
+            topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.devices[i])
             if (hour >= self.setups[i][jour]['debut'] && hour < self.setups[i][jour]['fin'])
                 if (temperature < self.setups[i]['ouvert'] + self.setups[i]['offset'])
                     gpio.digital_write(self.relay[i], 0)
-                    payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device+"_"+str(i + 1))
+                    payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.esp_device, global.devices[i])
                     mqtt.publish(topic, payload, true)
                 else
                     gpio.digital_write(self.relay[i], 1)
-                    payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.device, global.device+"_"+str(i + 1))
+                    payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.esp_device, global.devices[i])
                     mqtt.publish(topic, payload, true)
                 end
             else
                 if (temperature < self.setups[i]['ferme'] + self.setups[i]['offset'])
                     gpio.digital_write(self.relay[i], 0)
-                    payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.device, global.device+"_"+str(i + 1))
+                    payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.esp_device, global.devices[i])
                     mqtt.publish(topic, payload, true)
                 else
                     gpio.digital_write(self.relay[i], 1)
-                    payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.device, global.device+"_"+str(i + 1))
+                    payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.esp_device, global.devices[i])
                     mqtt.publish(topic, payload, true)
                 end
             end        

@@ -12,26 +12,39 @@ var bsl_out = 32
 
 # Define mqttprint function
 def mqttprint(texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
-    mqtt.publish(topic, texte, true)
+    var payload =string.format("{\"texte\":\"%s\"}", texte)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.esp_device)
+    mqtt.publish(topic, payload, true)
 end
 
 # Define loadconfig function
 def loadconfig()
+    print("loading esp32.cfg")
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     file.close()
     var myjson = json.load(buffer)
     global.ville = myjson["ville"]
-    global.device = myjson["device"]
+    print(myjson["devices"])
+    global.devices = myjson["devices"]  # Changed from "device" to "devices"
     global.nombre = myjson["nombre"]
     global.location = list()
     for i:0..global.nombre-1
         global.location.insert(i,myjson["location"][i])
     end
+    
     global.client = myjson["client"]
+    # Create concatenated device name: "aex-1-2"
+    global.esp_device = global.devices[0]  # Start with "aex-1"
+    for i:1..size(global.devices)-1
+        var parts = string.split(global.devices[i], '-')
+        global.esp_device += "-" + parts[1]  # Add "-2", "-3", etc.
+    end
 
+    print('esp32.cfg loaded')
 
+    print('loading config.json')
+    
     file = open("config.json", "rt")
     if(file == nil)
         mqttprint("Error: Failed to open config.json")
@@ -41,19 +54,36 @@ def loadconfig()
     buffer = file.read()
     file.close()
     myjson = json.load(buffer)
-    global.config = myjson[global.ville][global.device]
-    mqttprint("config: " + str(global.config))
-    if(global.config["pt1"] != "nok")
-        global.tempsource = "pt1"
-    elif(global.config["pt2"] != "nok")
-        global.tempsource = "pt2"
-    elif(global.config["ds1"] != "nok")
-        global.tempsource = "ds1"
-    elif(global.config["ds2"] != "nok")
-        global.tempsource = "ds2"
-    else
-        global.tempsource = "dsin"
+    
+    # Create config list based on nombre
+    global.config = []
+    global.tempsource = []
+    
+    for i:0..global.nombre-1
+        # Get config for each device
+        var device_name = global.devices[i]  # device is now a list
+        global.config.push(myjson[global.ville][device_name])
+        mqttprint("config[" + str(i) + "]: " + str(global.config[i]))
+        
+        # Create tempsource list for each device - dsin is always included
+        var sensors = ["dsin"]
+        
+        # Check each sensor and add to list if available
+        if(global.config[i]["remote"] != "nok")
+            sensors.push("remote")
+        end
+        if(global.config[i]["pt"] != "nok")
+            sensors.push("pt")
+        end
+
+        if(global.config[i]["ds"] != "nok")
+            sensors.push("ds")
+        end
+        
+        global.tempsource.push(sensors)
+        mqttprint("Available sensors for device " + str(i) + ": " + str(global.tempsource[i]))
     end
+    mqttprint('config.json loaded')
 end
 
 
@@ -79,7 +109,12 @@ def device(cmd, idx, payload, payload_json)
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     var myjson = json.load(buffer)
-    myjson["device"] = payload
+    
+    # Parse payload as space-separated list of devices
+    var device_list = string.split(payload, ' ')
+    myjson["devices"] = device_list  # Changed from "device" to "devices"
+    myjson["nombre"] = size(device_list)  # Update nombre automatically
+    
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg", "wt")
@@ -179,18 +214,13 @@ def cal(cmd, idx, payload, payload_json)
     file.close()
 
     calibration = json.load(myjson)  
-    if string.tolower(arguments[0]) == "pt1"
-        calibration['pt1'] = real(global.average_temperature1)*real(global.factor1)/real(arguments[1])
-        print("avg: " + str(global.average_temperature1)," factor: " + str(global.factor1), "calibration: " + str(calibration['pt1']))
-        global.factor1 = calibration['pt1']
-        print("calibration['pt1'] = " + str(calibration['pt1']))
-    elif string.tolower(arguments[0]) == "pt2"
-        calibration['pt2'] = real(global.average_temperature2)*real(global.factor2)/real(arguments[1])
-        global.factor2 = calibration['pt2']
-        print("calibration['pt2'] = " + str(calibration['pt2']))
-    end
+
+    calibration['pt'] = real(global.average_temperature)*real(global.factor)/real(arguments[1])
+    mqttprint("avg: " + str(global.average_temperature)," factor: " + str(global.factor), "calibration: " + str(calibration['pt']))
+    global.factor = calibration['pt']
+    mqttprint("calibration['pt'] = " + str(calibration['pt']))
+
     var buffer = json.dump(calibration)
-    print(buffer)
     file = open(name, "wt")
     file.write(buffer)
     file.close()
@@ -202,12 +232,12 @@ def get(cmd, idx, payload, payload_json)
     var file
     var myjson
     var name
-    name ="thermostat_" + payload + ".json"
+    name ="setup_" + payload + ".json"
     file = open(name, "rt")
     myjson = file.read()
     file.close()
 
-    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device+"_"+payload)
+    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.esp_device+"_"+payload)
     mqtt.publish(topic, myjson, true)
 
     tasmota.resp_cmnd('done')
@@ -235,46 +265,48 @@ def getversion()
 end
 
 def launch_driver()
-    print("load io driver")
-    #mqttprint('load io.be')
+    mqttprint('load io.be')
     tasmota.load('io.be')
-    print("io driver loaded")
+    mqttprint('io driver loaded')
+
+    mqttprint('load ds18b20.be')
+    tasmota.load('ds18b20.be')
+    mqttprint('ds18b20 driver loaded')
+
+    mqttprint('load aerotherme_driver')
+    tasmota.load('aerotherme_driver.be')
+    mqttprint('aerotherme_driver loaded')
 end
 
 #-------------------------------- BASH -----------------------------------------#
 
-# tasmota.cmd("seriallog 0")
-# mqttprint("serial log disabled")
+tasmota.cmd("seriallog 0")
+mqttprint("serial log disabled")
 
-# mqttprint('AUTOEXEC: create commande getfile')
-# tasmota.add_cmd('getfile', getfile)
+mqttprint('AUTOEXEC: create commande getfile')
+tasmota.add_cmd('getfile', getfile)
 
-# tasmota.add_cmd('dir', dir)
-# tasmota.add_cmd('ville', ville)
-# tasmota.add_cmd('device', device)
-# tasmota.add_cmd('location', location)
+tasmota.add_cmd('dir', dir)
+tasmota.add_cmd('ville', ville)
+tasmota.add_cmd('device', device)
+tasmota.add_cmd('location', location)
 
-# # Initialize configuration
-# loadconfig()
-# mqttprint("ville:" + str(global.ville))
-# mqttprint("client:" + str(global.client))
-# mqttprint("device:" + str(global.device))
-# mqttprint("location:" + str(global.location))
+# Initialize configuration
+loadconfig()
+mqttprint("ville:" + str(global.ville))
+mqttprint("client:" + str(global.client))
+mqttprint("device:" + str(global.devices))
+mqttprint("location:" + str(global.location))
+mqttprint("esp_device:" + str(global.esp_device))
 
-# tasmota.add_cmd('getversion', getversion)
-# tasmota.add_cmd('get', get)
-# tasmota.add_cmd('cal', cal)
+tasmota.add_cmd('getversion', getversion)
+tasmota.add_cmd('get', get)
+tasmota.add_cmd('cal', cal)
 
-
-# #mqttprint('load ds18b20.be')
-# #tasmota.load('ds18b20.be')
 # #mqttprint('load pt1000.be')
 # #tasmota.load('pt1000.be')
 # #mqttprint('load command.be')
 # #tasmota.load('command.be')
-# #mqttprint('load aerotherme_driver')
-# #tasmota.load('aerotherme_driver.be')
 
 print(" wait 10s for drivers loading")
 tasmota.set_timer(10000,launch_driver)
-

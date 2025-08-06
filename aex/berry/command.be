@@ -1,8 +1,10 @@
 # Define mqttprint function
 def mqttprint(texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
-    mqtt.publish(topic, texte, true)
+    var payload =string.format("{\"texte\":\"%s\"}", texte)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.esp_device)
+    mqtt.publish(topic, payload, true)
 end
+
 
 # Function to upload a file to the WebDAV server using webclient (wc)
 def pushfile(cmd, idx, payload, payload_json)
