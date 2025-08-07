@@ -4,8 +4,6 @@ import json
 import global
 
 
-# Define mqttprint function
-# Define mqttprint function
 def mqttprint(texte)
     var payload =string.format("{\"texte\":\"%s\"}", texte)
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.esp_device)
@@ -144,19 +142,23 @@ class AEROTHERME
 
         var target
 
-        var temperature = 0.0
+        var temperature = [-99,-99]
 
-        print(ds18b20)
-
-        if(global.tempsource[0] == "ds")
-            temperature = ds18b20.poll("ds")
-        elif(global.tempsource[0] == "dsin")
-            temperature = ds18b20.poll("dsin")
-        elif(global.tempsource[0] == "pt")
-            temperature=global.average_temperature
-        else
-            temperature = -99
+        
+        for i:0..global.nombre-1
+            print("tempsource: " + str(global.tempsource[i]))
+            if(global.tempsource[i][0] == "ds")
+                temperature[i] = ds18b20.poll("ds")
+            elif(global.tempsource[i][0] == "dsin")
+                temperature[i] = ds18b20.poll("dsin")
+            elif(global.tempsource[i][0] == "pt")
+                temperature[i] = global.average_temperature
+            else
+                temperature[i] = -99
+            end
         end
+
+
 
         for i:0..global.nombre-1
             if (hour >= self.setups[i][jour]['debut'] && hour < self.setups[i][jour]['fin'])
@@ -166,12 +168,12 @@ class AEROTHERME
             end
 
             payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.f,"source":"%s"}', 
-                    global.esp_device, global.devices[i], temperature-self.setups[i]['offset'], self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target,global.tempsource[0])
+                    global.esp_device, global.devices[i], temperature[i]-self.setups[i]['offset'], self.setups[i]['ouvert'], self.setups[i]['ferme'], self.setups[i]['offset'], global.location[i], target,global.tempsource[i][0])
             topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.devices[i])
             mqtt.publish(topic, payload, true)
             topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.devices[i])
             if (hour >= self.setups[i][jour]['debut'] && hour < self.setups[i][jour]['fin'])
-                if (temperature < self.setups[i]['ouvert'] + self.setups[i]['offset'])
+                if (temperature[i] < self.setups[i]['ouvert'] + self.setups[i]['offset'])
                     gpio.digital_write(self.relay[i], 0)
                     payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.esp_device, global.devices[i])
                     mqtt.publish(topic, payload, true)
@@ -181,7 +183,7 @@ class AEROTHERME
                     mqtt.publish(topic, payload, true)
                 end
             else
-                if (temperature < self.setups[i]['ferme'] + self.setups[i]['offset'])
+                if (temperature[i] < self.setups[i]['ferme'] + self.setups[i]['offset'])
                     gpio.digital_write(self.relay[i], 0)
                     payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.esp_device, global.devices[i])
                     mqtt.publish(topic, payload, true)

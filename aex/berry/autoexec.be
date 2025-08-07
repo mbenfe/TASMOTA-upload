@@ -58,7 +58,11 @@ def loadconfig()
     # Create config list based on nombre
     global.config = []
     global.tempsource = []  # Start empty
-    
+    print('tempsource to be configured')
+    for i:0..global.nombre-1
+        global.tempsource.push([])
+    end
+    print('tempsource before: ' + str(global.tempsource))
     for i:0..global.nombre-1
         # Get config for each device
         var device_name = global.devices[i]
@@ -67,22 +71,44 @@ def loadconfig()
         
         # Add sensors to flat list if available (dsin will be added last)
         if(global.config[i]["remote"] != "nok")
-            global.tempsource.push("remote")
+            global.tempsource[i].push("remote")
         end
         if(global.config[i]["pt"] != "nok")
-            global.tempsource.push("pt")
+            global.tempsource[i].push("pt")
         end
         if(global.config[i]["ds"] != "nok")
-            global.tempsource.push("ds")
+            global.tempsource[i].push("ds")
         end
+        
+        # Always add dsin at the end
+        global.tempsource[i].push("dsin")    
     end
+    print('tempsource after: ' + str(global.tempsource))
     
-    # Always add dsin at the end
-    global.tempsource.push("dsin")
-    mqttprint("Available sensors: " + str(global.tempsource))
-    mqttprint("source: " + str(global.tempsource[0]))
 
+    mqttprint("Available sensors: " + str(global.tempsource))
+    for i:0..global.nombre-1    
+        mqttprint("source: " + str(global.tempsource[i]))
+    end
     print('config.json loaded')
+
+    # initialize calibration
+    if (path.exists("calibration.json"))
+        file = open("calibration.json", "rt")
+        buffer = file.read()
+        file.close()
+        myjson = json.load(buffer)
+        global.factor = real(myjson["pt"])
+        global.dsin_offset = real(myjson["dsin_offset"])
+    else
+        print("calibration.json not found, using default factors")
+        global.factor = 150
+        global.dsin_offset = 0
+        file = open("calibration.json", "wt")
+        myjson = json.dump({"pt": global.factor, "dsin_offset": global.dsin_offset})
+        file.write(myjson)
+        file.close()
+    end
 end
 
 
@@ -207,6 +233,11 @@ def cal(cmd, idx, payload, payload_json)
     var calibration
     var name
     arguments = string.split(payload, ' ')
+    if size(arguments) < 2
+        mqttprint("Error: Invalid arguments for cal command .e.g cal pt 21 or cal dsin 21")
+        tasmota.resp_cmnd('Invalid arguments')
+        return
+    end
     name ="calibration.json"
     file = open(name, "rt")
     myjson = file.read()
@@ -214,10 +245,19 @@ def cal(cmd, idx, payload, payload_json)
 
     calibration = json.load(myjson)  
 
-    calibration['pt'] = real(global.average_temperature)*real(global.factor)/real(arguments[1])
-    print("avg: " + str(global.average_temperature)," factor: " + str(global.factor), "calibration: " + str(calibration['pt']))
-    global.factor = calibration['pt']
-    print("calibration['pt'] = " + str(calibration['pt']))
+    if arguments[0] == 'pt'
+        calibration['pt'] = real(global.average_temperature)*real(global.factor)/real(arguments[1])
+        print("avg: " + str(global.average_temperature)," factor: " + str(global.factor), "calibration: " + str(calibration['pt']))
+        global.factor = calibration['pt']
+        print("calibration['pt'] = " + str(calibration['pt']))
+    elif arguments[0] == 'dsin'
+        calibration['dsin_offset'] = real(arguments[1])-global.dsin
+        print("dsin_offset: " + str(calibration['dsin_offset']))
+    else
+        mqttprint("Error: Invalid sensor type. Use 'pt' or 'dsin'.")
+        tasmota.resp_cmnd('Invalid sensor type')
+        return
+    end
     
     var buffer = json.dump(calibration)
     print(buffer)

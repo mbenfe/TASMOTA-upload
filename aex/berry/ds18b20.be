@@ -7,17 +7,21 @@ class DS18B20
     var temperature
 
     def init()
+        global.dsin = -99
     end
 
 
     def poll(target)
         var temperature = -99
+        global.dsin = -99
         var data = tasmota.read_sensors()
         if(data == nil)
             return -99
         end
         var myjson = json.load(data)
-        print("DS18B20 data: " + str(myjson))
+        if(myjson.contains("DS18B20-1"))
+            global.dsin = myjson["DS18B20-1"]["Temperature"]
+        end
         if !myjson.contains("DS18B20-1") && target == "dsin"
             return -99
         end
@@ -26,7 +30,7 @@ class DS18B20
         end
 
         if target == "dsin"
-            temperature = myjson["DS18B20-1"]["Temperature"]
+            temperature = global.dsin + global.dsin_offset
         elif target == "ds"
             temperature = myjson["DS18B20-2"]["Temperature"]
         else
