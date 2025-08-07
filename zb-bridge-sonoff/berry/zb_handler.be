@@ -75,9 +75,14 @@ class my_zb_handler
             end    
         end
         
-        if myjson.contains("Temperature") && myjson["Temperature"] > -25 &&  myjson["Temperature"] < 100 
-            topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
-            mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)
+        if myjson.contains("Temperature")
+            if(myjson["Temperature"] > -25 &&  myjson["Temperature"] < 100 )
+                topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
+                mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)
+            else
+                topic = string.format("gw/adomelec/alarm/%s", mydevice.name)
+                mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)
+            end
         elif myjson.contains("Contact")  
             topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
             mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)
@@ -89,6 +94,7 @@ class my_zb_handler
     def attributes_final(event_type, frame, attr_list, idx)
         # print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
     end
+
 end
 
 var my_handler = my_zb_handler()

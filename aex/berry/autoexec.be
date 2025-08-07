@@ -58,11 +58,11 @@ def loadconfig()
     # Create config list based on nombre
     global.config = []
     global.tempsource = []  # Start empty
-    print('tempsource to be configured')
+    global.remote_temp = []  # Initialize remote temperature list
     for i:0..global.nombre-1
         global.tempsource.push([])
+        global.remote_temp.push(-99)  # Initialize remote temperature to -99
     end
-    print('tempsource before: ' + str(global.tempsource))
     for i:0..global.nombre-1
         # Get config for each device
         var device_name = global.devices[i]
@@ -72,6 +72,8 @@ def loadconfig()
         # Add sensors to flat list if available (dsin will be added last)
         if(global.config[i]["remote"] != "nok")
             global.tempsource[i].push("remote")
+            global.remote_temp[i] = -99
+#            subscribes(global.config[i]["remote"])  # Subscribe to remote sensor topic
         end
         if(global.config[i]["pt"] != "nok")
             global.tempsource[i].push("pt")
@@ -83,7 +85,6 @@ def loadconfig()
         # Always add dsin at the end
         global.tempsource[i].push("dsin")    
     end
-    print('tempsource after: ' + str(global.tempsource))
     
 
     mqttprint("Available sensors: " + str(global.tempsource))
@@ -317,6 +318,8 @@ def launch_driver()
     tasmota.load('aerotherme_driver.be')
     mqttprint('aerotherme_driver loaded')
 end
+
+
 
 #-------------------------------- BASH -----------------------------------------#
 

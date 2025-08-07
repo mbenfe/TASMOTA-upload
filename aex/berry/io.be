@@ -63,7 +63,26 @@ class PCF8574A
         return 0xFF
     end
 
-    def toggle_bit(bit)
+    def onoff(level, index)
+        var bit
+        if global.nombre == 2
+            if index == 0  # led1
+                bit = 0
+            else           # led4
+                bit = 5
+            end
+        else
+            bit = 7   # led2
+        end
+        if level == 1
+            global.io = global.io & ~(1 << bit)  # Set bit to 0
+        else
+            global.io = global.io | (1 << bit)   # Set bit to 1
+        end
+        self.write_pins(global.io)
+    end
+
+    def toggle_bit(bit)        
         global.io = global.io ^ (1 << bit)
         global.io = global.io | 0x0E  # P1, P2, P3 à 1
 #        print("toggle bit: " + str(bit) + " state: " + string.hex(global.io))
@@ -71,6 +90,7 @@ class PCF8574A
     end
 
     def every_250ms()
+        var payload, topic,buffer
         if global.wire == nil return end
 
         self.input_state = self.read_pins()
@@ -81,7 +101,13 @@ class PCF8574A
         if ((self.input_state & 0x02) == 0x02) && ((self.last_input_state & 0x02) == 0x00 && self.left_pressed == false)  # P1 button pressed
 #            print("P1 pressed")
             self.left_pressed = true
-            self.toggle_bit(0)          # Toggle LED1 on P0
+            self.toggle_bit(0)    
+            global.setups[0]['onoff'] = global.setups[0]['onoff'] == 1 ? 0 : 1
+            buffer = json.dump(global.setups[0])
+            topic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.devices[0])      # Toggle LED1 on P0
+            payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
+                    global.esp_device, global.devices[0], buffer)
+            mqtt.publish(topic, payload, true)
         end
         # edge down detection left button
         if ((self.input_state & 0x02) == 0x00) && ((self.last_input_state & 0x02) == 0x02 && self.left_pressed == true)  # P1 button pressed
@@ -93,7 +119,13 @@ class PCF8574A
         if ((self.input_state & 0x04) == 0x04) && ((self.last_input_state & 0x04) == 0x00 && self.middle_pressed == false)  # P2 button pressed
 #            print("P2 pressed")
             self.middle_pressed = true
-            self.toggle_bit(7)          # Toggle LED2 on P7
+            self.toggle_bit(7)     
+            global.setups[0]['onoff'] = global.setups[0]['onoff'] == 1 ? 0 : 1
+            buffer = json.dump(global.setups[0])
+            topic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.devices[0])      # Toggle LED1 on P0
+            payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
+                    global.esp_device, global.devices[0], buffer)
+            mqtt.publish(topic, payload, true)
         end
         # edge down detection middle button
         if ((self.input_state & 0x04) == 0x00) && ((self.last_input_state & 0x04) == 0x04 && self.middle_pressed == true)  # P2 button released
@@ -104,7 +136,13 @@ class PCF8574A
         if ((self.input_state & 0x08) == 0x08) && ((self.last_input_state & 0x08) == 0x00 && self.right_pressed == false)  # P3 button pressed
 #            print("P3 pressed")
             self.right_pressed = true
-            self.toggle_bit(5)          # Toggle LED4 on P5
+            self.toggle_bit(5)       
+            global.setups[1]['onoff'] = global.setups[1]['onoff'] == 1 ? 0 : 1
+            buffer = json.dump(global.setups[1])
+            topic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.devices[1])      # Toggle LED4 on P5
+            payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
+                    global.esp_device, global.devices[1], buffer)
+            mqtt.publish(topic, payload, true)
         end
         # edge down detection right button
         if ((self.input_state & 0x08) == 0x00) && ((self.last_input_state & 0x08) == 0x08 && self.right_pressed == true)  # P3 button released
