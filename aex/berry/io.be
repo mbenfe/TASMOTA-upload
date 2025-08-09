@@ -108,7 +108,8 @@ class PCF8574A
             payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
                     global.esp_device, global.devices[0], buffer)
             mqtt.publish(topic, payload, true)
-        end
+            global.aerotherme.every_minute()  # Update the state immediately
+       end
         # edge down detection left button
         if ((self.input_state & 0x02) == 0x00) && ((self.last_input_state & 0x02) == 0x02 && self.left_pressed == true)  # P1 button pressed
 #            print("P1 released")
@@ -126,6 +127,7 @@ class PCF8574A
             payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
                     global.esp_device, global.devices[0], buffer)
             mqtt.publish(topic, payload, true)
+            global.aerotherme.every_minute()  # Update the state immediately
         end
         # edge down detection middle button
         if ((self.input_state & 0x04) == 0x00) && ((self.last_input_state & 0x04) == 0x04 && self.middle_pressed == true)  # P2 button released
@@ -143,6 +145,7 @@ class PCF8574A
             payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
                     global.esp_device, global.devices[1], buffer)
             mqtt.publish(topic, payload, true)
+            global.aerotherme.every_minute()  # Update the state immediately
         end
         # edge down detection right button
         if ((self.input_state & 0x08) == 0x00) && ((self.last_input_state & 0x08) == 0x08 && self.right_pressed == true)  # P3 button released
@@ -156,4 +159,5 @@ class PCF8574A
 end
 
 var pcf = PCF8574A()
+global.pcf = pcf  # Add this line to make pcf accessible globally
 tasmota.add_driver(pcf)

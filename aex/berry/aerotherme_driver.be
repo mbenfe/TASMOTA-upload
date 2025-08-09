@@ -64,11 +64,9 @@ class AEROTHERME
         global.esp_device, arguments[3], buffer)
         mqtt.publish(newtopic, payload, true)
 
-        pcf.onoff(global.setups[index]['onoff'],index)
-
-        if(global.setups[index]['onoff']==true)
-            # tbd
-        end
+        # switch on/off leds
+        global.pcf.onoff(global.setups[index]['onoff'],index)
+        self.every_minute()  # Update the state immediately
     end
 
     # Initialization function
@@ -97,8 +95,12 @@ class AEROTHERME
         self.subscribes()
         mqttprint('MQTT subscription done')
         self.relay = list()
-        self.relay.insert(0, 18)
-        self.relay.insert(1, 19)
+        self.relay.insert(0, 19)
+        self.relay.insert(1, 18)
+        gpio.pin_mode(self.relay[0], gpio.OUTPUT)
+        gpio.pin_mode(self.relay[1], gpio.OUTPUT)
+        gpio.digital_write(self.relay[0], 1)  # Set relay 1 to OFF
+        gpio.digital_write(self.relay[1], 1)  # Set relay 2 to OFF
         tasmota.set_timer(30000,/-> self.mypush())
 
         for i:0..global.nombre-1
@@ -139,6 +141,7 @@ class AEROTHERME
     end
 
     # Function to execute every minute
+    # Function to execute every minute
     def every_minute()
         var now = tasmota.rtc()
         var rtc = tasmota.time_dump(now["local"])
@@ -153,12 +156,10 @@ class AEROTHERME
 
         var payload
         var topic
-
         var target
-
+        var power
         var temperature = [-99,-99]
 
-        
         for i:0..global.nombre-1
             if(global.tempsource[i][0] == "ds")
                 temperature[i] = ds18b20.poll("ds")
@@ -173,41 +174,32 @@ class AEROTHERME
             end
         end
 
-
-
         for i:0..global.nombre-1
             if (hour >= global.setups[i][jour]['debut'] && hour < global.setups[i][jour]['fin'])
                 target = global.setups[i]['ouvert']
+
+                if (temperature[i] < target && global.setups[i]['onoff'] == 1)
+                    gpio.digital_write(self.relay[i], 1)
+                    power = 1
+                else
+                    gpio.digital_write(self.relay[i], 0)
+                    power = 0
+                end
             else
                 target = global.setups[i]['ferme']
+                if (temperature[i] < target && global.setups[i]['onoff'] == 1)
+                    gpio.digital_write(self.relay[i], 1)
+                    power = 1
+                else
+                    gpio.digital_write(self.relay[i], 0)
+                    power = 0
+                end
             end
 
-            payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%1.f,"offset":%.1f,"location":"%s","Target":%.f,"source":"%s"}', 
-                    global.esp_device, global.devices[i], temperature[i]-global.setups[i]['offset'], global.setups[i]['ouvert'], global.setups[i]['ferme'], global.setups[i]['offset'], global.location[i], target,global.tempsource[i][0])
+            payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d}', 
+                global.esp_device, global.devices[i], temperature[i]-global.setups[i]['offset'], global.setups[i]['ouvert'], global.setups[i]['ferme'], global.setups[i]['offset'], global.location[i], target, global.tempsource[i][0], power)
             topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.devices[i])
             mqtt.publish(topic, payload, true)
-            topic = string.format("gw/%s/%s/%s/tele/STATE", global.client, global.ville, global.devices[i])
-            if (hour >= global.setups[i][jour]['debut'] && hour < global.setups[i][jour]['fin'])
-                if (temperature[i] < global.setups[i]['ouvert'] + global.setups[i]['offset'])
-                    gpio.digital_write(self.relay[i], 0)
-                    payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.esp_device, global.devices[i])
-                    mqtt.publish(topic, payload, true)
-                else
-                    gpio.digital_write(self.relay[i], 1)
-                    payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.esp_device, global.devices[i])
-                    mqtt.publish(topic, payload, true)
-                end
-            else
-                if (temperature[i] < global.setups[i]['ferme'] + global.setups[i]['offset'])
-                    gpio.digital_write(self.relay[i], 0)
-                    payload = string.format('{"Device":"%s","Name":"%s","Power":1}', global.esp_device, global.devices[i])
-                    mqtt.publish(topic, payload, true)
-                else
-                    gpio.digital_write(self.relay[i], 1)
-                    payload = string.format('{"Device":"%s","Name":"%s","Power":0}', global.esp_device, global.devices[i])
-                    mqtt.publish(topic, payload, true)
-                end
-            end        
         end
     end
 
@@ -250,5 +242,6 @@ class AEROTHERME
 end
 
 var aerotherme = AEROTHERME()
+global.aerotherme = aerotherme  # Add this line to make aerotherme accessible globally
 tasmota.add_driver(aerotherme)
 tasmota.add_cron("0 * * * * *", /-> aerotherme.every_minute(), "every_min_@0_s")
