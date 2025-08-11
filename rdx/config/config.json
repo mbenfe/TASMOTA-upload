@@ -1,0 +1,21 @@
+{
+    "mery": {
+        "rdx-g": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "nok"
+        },
+        "rdx-d": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "nok"
+        }
+    },
+    "argenteuil": {
+        "rdx-1": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "nok"
+        }
+    }
+}
