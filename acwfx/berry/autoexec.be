@@ -7,13 +7,10 @@ import json
 import gpio
 import path
 
-var ser                # serial object
-var bsl_out = 32   
-
 # Define mqttprint function
 def mqttprint(texte)
     var payload =string.format("{\"texte\":\"%s\"}", texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.esp_device)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
     mqtt.publish(topic, payload, true)
 end
 
@@ -24,72 +21,12 @@ def loadconfig()
     var buffer = file.read()
     file.close()
     var myjson = json.load(buffer)
+    global.client = myjson["client"]
     global.ville = myjson["ville"]
-    print(myjson["device"])
     global.device = myjson["device"]  # Changed from "devices" to "device"
     global.location = myjson["location"]
-     
-    global.client = myjson["client"]
-    global.drivers = myjson["drivers"]
-    
+    global.driver = myjson["driver"]
     print('esp32.cfg loaded')
-
-    print('loading config.json')
-    
-    file = open("config.json", "rt")
-    if(file == nil)
-        mqttprint("Error: Failed to open config.json")
-        file.close()
-        return
-    end
-    buffer = file.read()
-    file.close()
-    myjson = json.load(buffer)
-    
-    # Create config list based on nombre
-    global.config = myjson[global.ville][global.device]
-    global.remote_temp=(-99)  # Initialize remote temperature to -99
-    global.config=myjson[global.ville][global.device]
-    mqttprint("config:" + str(global.config))
-        
-    # Add sensors to flat list if available (dsin will be added last)
-    global.tempsource = []
-    if(global.config["remote"] != "nok")
-        global.tempsource.push("remote")
-        global.remote_temp = -99
-    end
-    if(global.config["pt"] != "nok")
-        global.tempsource.push("pt")
-    end
-    if(global.config["ds"] != "nok")
-        global.tempsource.push("ds")
-    end
-        
-    # Always add dsin at the end
-    global.tempsource.push("dsin")    
-    
-
-    mqttprint("Available sensors: " + str(global.tempsource))
-  
-    print('config.json loaded')
-
-    # initialize calibration
-    if (path.exists("calibration.json"))
-        file = open("calibration.json", "rt")
-        buffer = file.read()
-        file.close()
-        myjson = json.load(buffer)
-        global.factor = real(myjson["pt"])
-        global.dsin_offset = real(myjson["dsin_offset"])
-    else
-        print("calibration.json not found, using default factors")
-        global.factor = 150
-        global.dsin_offset = 0
-        file = open("calibration.json", "wt")
-        myjson = json.dump({"pt": global.factor, "dsin_offset": global.dsin_offset})
-        file.write(myjson)
-        file.close()
-    end
 end
 
 
@@ -286,13 +223,21 @@ def getversion()
 end
 
 def launch_driver()
-    for i:0..size(global.drivers)-1
-        mqttprint('load ' + global.drivers[i])
-        tasmota.load(global.drivers[i])
-        mqttprint(global.drivers[i] + ' driver loaded')
-    end
+    mqttprint('load ' + global.driver)
+    tasmota.load(global.driver)
+    mqttprint(global.driver + ' driver loaded')
+    # tasmota.load("flashex_driver.be")
+    # mqttprint('flashex_driver loaded')
 end
 
+def Stm32Reset()
+    print('RESET:reset STM32')
+    gpio.digital_write(global.rst_pin, 0)
+    tasmota.delay(5)               # wait 5ms
+    gpio.digital_write(global.rst_pin, 1)
+    tasmota.resp_cmnd('STM32 reset')
+    print('RESET:free heap:',tasmota.get_free_heap())
+end
 
 
 #-------------------------------- BASH -----------------------------------------#
@@ -312,13 +257,14 @@ tasmota.add_cmd('location', location)
 loadconfig()
 mqttprint("ville:" + str(global.ville))
 mqttprint("client:" + str(global.client))
-mqttprint("device:" + str(global.devices))
+mqttprint("device:" + str(global.device))
 mqttprint("location:" + str(global.location))
-mqttprint("esp_device:" + str(global.esp_device))
+mqttprint("driver:" + str(global.driver))
 
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
 tasmota.add_cmd('cal', cal)
+tasmota.add_cmd('stm32reset', Stm32Reset)
 
 print(" wait 10s for drivers loading")
 tasmota.set_timer(10000,launch_driver)

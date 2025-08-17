@@ -3,84 +3,84 @@
         "aex-1": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-2": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-3": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-4": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-5": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-6": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-7": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-8": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         }
     },
     "coubron": {
         "aex-1": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-2": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-3": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-4": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-5": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-6": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-7": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "aex-8": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         }
     }
 }

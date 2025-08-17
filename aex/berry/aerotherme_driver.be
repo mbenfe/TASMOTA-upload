@@ -99,8 +99,8 @@ class AEROTHERME
         self.relay.insert(1, 18)
         gpio.pin_mode(self.relay[0], gpio.OUTPUT)
         gpio.pin_mode(self.relay[1], gpio.OUTPUT)
-        gpio.digital_write(self.relay[0], 1)  # Set relay 1 to OFF
-        gpio.digital_write(self.relay[1], 1)  # Set relay 2 to OFF
+        gpio.digital_write(self.relay[0], 0)  # Set relay 1 to OFF
+        gpio.digital_write(self.relay[1], 0)  # Set relay 2 to OFF
         tasmota.set_timer(30000,/-> self.mypush())
 
         for i:0..global.nombre-1
@@ -158,7 +158,7 @@ class AEROTHERME
         var topic
         var target
         var power
-        var temperature = [-99,-99]
+        var temperature = [99,99]
 
         for i:0..global.nombre-1
             if(global.tempsource[i][0] == "ds")
@@ -170,7 +170,7 @@ class AEROTHERME
             elif(global.tempsource[i][0] == "remote")
                 temperature[i] = global.remote_temp[i]
             else
-                temperature[i] = -99
+                temperature[i] = 99
             end
         end
 

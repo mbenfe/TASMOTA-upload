@@ -48,7 +48,7 @@ def loadconfig()
     
     # Create config list based on nombre
     global.config = myjson[global.ville][global.device]
-    global.remote_temp=(-99)  # Initialize remote temperature to -99
+    global.remote_temp=(99)  # Initialize remote temperature to 99
     global.config=myjson[global.ville][global.device]
     mqttprint("config:" + str(global.config))
         
@@ -56,7 +56,7 @@ def loadconfig()
     global.tempsource = []
     if(global.config["remote"] != "nok")
         global.tempsource.push("remote")
-        global.remote_temp = -99
+        global.remote_temp = 99
     end
     if(global.config["pt"] != "nok")
         global.tempsource.push("pt")

@@ -71,10 +71,10 @@ class flasher
         self.ville = myjson["ville"]
         self.device = myjson["device"]
 
-        gpio.pin_mode(self.rx, gpio.INPUT)
+        gpio.pin_mode(self.rx, gpio.INPUT_PULLUP)
         gpio.pin_mode(self.tx, gpio.OUTPUT)
 
-        self.ser = serial(rx, tx, 115200, serial.SERIAL_8E1)
+        self.ser = serial(self.rx, self.tx, 115200, serial.SERIAL_8E1)
         self.ser.flush()
         # reset STM32
         gpio.pin_mode(self.rst, gpio.OUTPUT)
@@ -82,11 +82,11 @@ class flasher
 
         #------------- INTIALISE BOOT -------------------------#
         mqttprint('FLASH:initialise boot sequence')
-        gpio.digital_write(self.rst, 0)    # trigger BSL
+        gpio.digital_write(self.rst, 0)    # trigger RST
         tasmota.delay(10)                  # wait 10ms
         gpio.digital_write(self.bsl, 1)    # trigger BSL
         tasmota.delay(10)                  # wait 10ms
-        gpio.digital_write(self.rst, 1)    # trigger BSL
+        gpio.digital_write(self.rst, 1)    # trigger RST
         tasmota.delay(100)                 # wait 10ms
 
         self.ser.write(0x7F)
@@ -94,7 +94,7 @@ class flasher
         print("FLASH:ret=" + str(ret))
         if ret != '79'
             print('resp:' + str(ret))
-            gpio.digital_write(bsl, 0)    # reset bsl
+            gpio.digital_write(self.bsl, 0)    # reset bsl
             raise 'erreur initialisation', 'NACK'
         end
     end
@@ -174,7 +174,6 @@ class flasher
     #                                   ECRITURE FICHIER                                 #
     #------------------------------------------------------------------------------------#
     def flash(filename)
-        var bsl
         var tas = tasmota
         var yield = tasmota.yield
         var cfile = filename + 'c'

@@ -139,7 +139,7 @@ class RDX
         var topic
         var target
         var power
-        var temperature = [-99,-99]
+        var temperature = [99,99]
 
 
         if(global.tempsource[0] == "ds")
@@ -151,7 +151,7 @@ class RDX
         elif(global.tempsource[0] == "remote")
             temperature = global.remote_temp[0]
         else
-            temperature = -99
+            temperature = 99
         end
 
 

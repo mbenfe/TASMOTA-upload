@@ -25,20 +25,24 @@ def loadconfig()
     file.close()
     var myjson = json.load(buffer)
     global.ville = myjson["ville"]
-    print(myjson["devices"])
     global.devices = myjson["devices"]  # Changed from "device" to "devices"
+    print(global.devices)
     global.nombre = myjson["nombre"]
     global.location = list()
+    print(str(global.nombre))
     for i:0..global.nombre-1
         global.location.insert(i,myjson["location"][i])
     end
     
     global.client = myjson["client"]
+    print(global.client)
     # Create concatenated device name: "aex-1-2"
     global.esp_device = global.devices[0]  # Start with "aex-1"
-    for i:1..size(global.devices)-1
-        var parts = string.split(global.devices[i], '-')
-        global.esp_device += "-" + parts[1]  # Add "-2", "-3", etc.
+    if(global.nombre > 1)
+        for i:1..size(global.devices)-1
+            var parts = string.split(global.devices[i], '-')
+            global.esp_device += "-" + parts[1]  # Add "-2", "-3", etc.
+        end
     end
 
     print('esp32.cfg loaded')
@@ -61,7 +65,7 @@ def loadconfig()
     global.remote_temp = []  # Initialize remote temperature list
     for i:0..global.nombre-1
         global.tempsource.push([])
-        global.remote_temp.push(-99)  # Initialize remote temperature to -99
+        global.remote_temp.push(99)  # Initialize remote temperature to 99
     end
     for i:0..global.nombre-1
         # Get config for each device
@@ -72,7 +76,7 @@ def loadconfig()
         # Add sensors to flat list if available (dsin will be added last)
         if(global.config[i]["remote"] != "nok")
             global.tempsource[i].push("remote")
-            global.remote_temp[i] = -99
+            global.remote_temp[i] = 99
 #            subscribes(global.config[i]["remote"])  # Subscribe to remote sensor topic
         end
         if(global.config[i]["pt"] != "nok")
@@ -101,12 +105,14 @@ def loadconfig()
         myjson = json.load(buffer)
         global.factor = real(myjson["pt"])
         global.dsin_offset = real(myjson["dsin_offset"])
+        global.ds_offset = real(myjson["ds_offset"])
     else
         print("calibration.json not found, using default factors")
         global.factor = 150
         global.dsin_offset = 0
+        global.ds_offset = 0
         file = open("calibration.json", "wt")
-        myjson = json.dump({"pt": global.factor, "dsin_offset": global.dsin_offset})
+        myjson = json.dump({"pt": global.factor, "dsin_offset": global.dsin_offset, "ds_offset": global.ds_offset})
         file.write(myjson)
         file.close()
     end
@@ -254,6 +260,9 @@ def cal(cmd, idx, payload, payload_json)
     elif arguments[0] == 'dsin'
         calibration['dsin_offset'] = real(arguments[1])-global.dsin
         print("dsin_offset: " + str(calibration['dsin_offset']))
+    elif arguments[0] == 'ds'
+        calibration['ds_offset'] = real(arguments[1])-global.ds
+        print("ds_offset: " + str(calibration['ds_offset']))
     else
         mqttprint("Error: Invalid sensor type. Use 'pt' or 'dsin'.")
         tasmota.resp_cmnd('Invalid sensor type')

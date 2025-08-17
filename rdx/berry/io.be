@@ -16,24 +16,27 @@ import string
 import global
 
 class PCF8574A
-    var pcf8574a_addr, state,last_input_state,input_state
+    var I2C_button_led_addr, I2C_relay_addr
+    var state,last_input_state,input_state
     var left_pressed, middle_pressed, right_pressed
 
     def init()
         var list_devices
-        self.pcf8574a_addr = 0x3F
+        print("init io driver...")
+        self.I2C_button_led_addr = 0x3F
         if global.wire == nil
-            global.wire = tasmota.wire_scan(self.pcf8574a_addr)
+            global.wire = tasmota.wire_scan(self.I2C_button_led_addr)
             list_devices = global.wire.scan()
+            print("Wire devices found: " + str(list_devices))
             if (list_devices.find(0x3F)== nil)
-                print("PCF8574A not found")
+                print("PCF8574A buttons/leds not found")
             else
-                print("PCF8574A found!")
+                print("PCF8574A buttons/leds found!")
             end
-            if (list_devices.find(0x48)== nil)
-                print("ADS1115 not found")
+            if (list_devices.find(0x38)== nil)
+                print("PCF8574A relays not found")
             else
-                print("ADS1115 found!")
+                print("PCF8574A relays found!")
             end
         end
         global.io = 0xFF  # All high = inputs
@@ -43,11 +46,12 @@ class PCF8574A
         self.left_pressed = false
         self.middle_pressed = false 
         self.right_pressed = false
+        print("io driver initialized")
     end
 
     def write_pins(value)
         if global.wire != nil
-            global.wire._begin_transmission(self.pcf8574a_addr)
+            global.wire._begin_transmission(self.I2C_button_led_addr)
             global.wire._write(value)
             global.wire._end_transmission()
         end
@@ -57,7 +61,7 @@ class PCF8574A
         var data
         if global.wire != nil
  #           print(global.io)
-            data = global.wire.read(self.pcf8574a_addr, global.io, 1)
+            data = global.wire.read(self.I2C_button_led_addr, global.io, 1)
             return (data != nil ) ? data : 0xF1
         end
         return 0xFF
