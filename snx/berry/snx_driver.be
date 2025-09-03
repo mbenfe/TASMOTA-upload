@@ -143,6 +143,7 @@ class STM32
                                     self.mqttprint('error: ' + mylist[i])
                                     self.map_error(mylist[i])
                                 end
+                                mqtt.publish(topic,mylist[i],true)
                             elif myjson["ID"] == -2
                                 topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
                                 mqtt.publish(topic,mylist[i],true)
