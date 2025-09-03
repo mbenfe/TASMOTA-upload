@@ -140,7 +140,7 @@ class STM32
                             if myjson["ID"] == 0 || myjson["ID"] == -1
                                 topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
                                 if myjson.contains('ERREUR')
-                                    self.mqttprint('error: ' + myjson["ERREUR"])
+                                    self.mqttprint('error: ' + str(myjson))
                                     self.map_error(mylist[i])
                                 end
                             elif myjson["ID"] == -2
