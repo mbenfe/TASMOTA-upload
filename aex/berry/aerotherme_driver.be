@@ -12,7 +12,6 @@ def mqttprint(texte)
 end
 
 class AEROTHERME
-    var relay
     var day_list
     var count
 
@@ -94,13 +93,13 @@ class AEROTHERME
         mqttprint("subscription MQTT...")
         self.subscribes()
         mqttprint('MQTT subscription done')
-        self.relay = list()
-        self.relay.insert(0, 19)
-        self.relay.insert(1, 18)
-        gpio.pin_mode(self.relay[0], gpio.OUTPUT)
-        gpio.pin_mode(self.relay[1], gpio.OUTPUT)
-        gpio.digital_write(self.relay[0], 0)  # Set relay 1 to OFF
-        gpio.digital_write(self.relay[1], 0)  # Set relay 2 to OFF
+        global.relay = list()
+        global.relay.insert(0, 19)
+        global.relay.insert(1, 18)
+        gpio.pin_mode(global.relay[0], gpio.OUTPUT)
+        gpio.pin_mode(global.relay[1], gpio.OUTPUT)
+        gpio.digital_write(global.relay[0], 0)  # Set relay 1 to OFF
+        gpio.digital_write(global.relay[1], 0)  # Set relay 2 to OFF
         tasmota.set_timer(30000,/-> self.mypush())
 
         for i:0..global.nombre-1
@@ -179,19 +178,19 @@ class AEROTHERME
                 target = global.setups[i]['ouvert']
 
                 if (temperature[i] < target && global.setups[i]['onoff'] == 1)
-                    gpio.digital_write(self.relay[i], 1)
+                    gpio.digital_write(global.relay[i], 1)
                     power = 1
                 else
-                    gpio.digital_write(self.relay[i], 0)
+                    gpio.digital_write(global.relay[i], 0)
                     power = 0
                 end
             else
                 target = global.setups[i]['ferme']
                 if (temperature[i] < target && global.setups[i]['onoff'] == 1)
-                    gpio.digital_write(self.relay[i], 1)
+                    gpio.digital_write(global.relay[i], 1)
                     power = 1
                 else
-                    gpio.digital_write(self.relay[i], 0)
+                    gpio.digital_write(global.relay[i], 0)
                     power = 0
                 end
             end

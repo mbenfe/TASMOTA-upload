@@ -82,5 +82,27 @@
             "pt": "nok",
             "ds": "ok"
         }
+    },
+    "saint-maur": {
+        "aex-1": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "ok"
+        },
+        "aex-2": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "ok"
+        },
+        "aex-3": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "ok"
+        },
+        "aex-4": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "ok"
+        }
     }
 }

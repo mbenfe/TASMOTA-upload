@@ -314,6 +314,20 @@ def getversion()
     tasmota.resp_cmnd_done()
 end
 
+def stop()
+    for i:0..global.nombre-1
+        gpio.digital_write(global.relay[0], 0)  # Set relay 1 to OFF
+        gpio.digital_write(global.relay[1], 0)  # Set relay 2 to OFF
+    end 
+end
+
+def start()
+    for i:0..global.nombre-1
+        gpio.digital_write(global.relay[0], 1)  # Set relay 1 to ON
+        gpio.digital_write(global.relay[1], 1)  # Set relay 2 to ON
+    end
+end
+
 def launch_driver()
     mqttprint('load io.be')
     tasmota.load('io.be')
@@ -342,6 +356,8 @@ tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('ville', ville)
 tasmota.add_cmd('device', device)
 tasmota.add_cmd('location', location)
+tasmota.add_cmd('stop', stop)
+tasmota.add_cmd('start', start)
 
 # Initialize configuration
 loadconfig()

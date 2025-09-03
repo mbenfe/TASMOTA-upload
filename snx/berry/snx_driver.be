@@ -95,23 +95,25 @@ class STM32
     end
 
     def map_error(json_string)
-        data = json.load(json_string)
+        var data = json.load(json_string)
 
         if data["ERREUR"] != "Type introuvable"
             return
         end
 
-        dev_type = data["type"]
-        reg = data["registre"]
+        var dev_type = data["type"]
+        var reg = data["registre"]
 
-        if not self.errors.get(dev_type)
-            self.errors[dev_type] = []
-        end
+        # TODO
 
-        # Vérifier présence préalable
-        if self.errors[dev_type].find(reg) == nil
-            self.errors[dev_type].push(reg)
-        end
+        # if not self.errors.get(dev_type)
+        #     self.errors[dev_type] = []
+        # end
+
+        # # Vérifier présence préalable
+        # if self.errors[dev_type].find(reg) == nil
+        #     self.errors[dev_type].push(reg)
+        # end
     end
 
 
@@ -143,14 +145,17 @@ class STM32
                                 end
                             elif myjson["ID"] == -2
                                 topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
+                                mqtt.publish(topic,mylist[i],true)
                             elif myjson["ID"] == -3
                                 topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
+                                mqtt.publish(topic,mylist[i],true)
                             elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
+                                mqtt.publish(topic,mylist[i],true)
                             else
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(int(myjson["ID"])))
-                            end
-                            mqtt.publish(topic,mylist[i],true)
+                                mqtt.publish(topic,mylist[i],true)
+                           end
                         else
                             topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
                             mqtt.publish(topic,mylist[i],true)
