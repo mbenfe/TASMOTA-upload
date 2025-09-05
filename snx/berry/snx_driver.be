@@ -101,10 +101,21 @@ class STM32
             return
         end
 
-        var dev_type = data["type"]
+        var dev_type = data["type"]    
+        if dev_type ==""
+           return
+        end
+
         var reg = data["registre"]
 
-        # TODO
+        if reg != ""
+           if !self.errors.contains(reg)
+              self.errors.insert(reg,{"name":"tbd","ratio":1,"liste":[]})
+           end
+           if self.errors[reg]["liste"] == nil
+              self.erros[reg]["liste"].push(dev_type)
+           end
+        end
 
         # if not self.errors.get(dev_type)
         #     self.errors[dev_type] = []
@@ -114,6 +125,17 @@ class STM32
         # if self.errors[dev_type].find(reg) == nil
         #     self.errors[dev_type].push(reg)
         # end
+    end
+
+    def save()
+        var file = open("error.json","wt")
+        if file == nil
+           return
+        end
+        var buffer = json.dump(self.errors)
+        file.write(buffer)
+        print("sauvegarde error : ",str(size(buffer))) 
+        file.close()
     end
 
 
@@ -143,7 +165,7 @@ class STM32
                                     self.mqttprint('error: ' + mylist[i])
                                     self.map_error(mylist[i])
                                 end
-#                                mqtt.publish(topic,mylist[i],true)
+                     #           mqtt.publish(topic,mylist[i],true)
                             elif myjson["ID"] == -2
                                 topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
                                 mqtt.publish(topic,mylist[i],true)
@@ -201,3 +223,4 @@ stm32 = STM32()
 tasmota.add_driver(stm32)
 tasmota.add_fast_loop(/-> stm32.fast_loop())
 tasmota.add_cron("59 59 23 * * *",  /-> stm32.get_statistic(), "every_day")
+tasmota.add_cron("0 * * * * *", /-> stm32.save(), "save")
