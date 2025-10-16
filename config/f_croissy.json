@@ -1,0 +1,457 @@
+{
+  "100": {
+    "device": "AK-PC551-0170",
+    "name": "CentNegative_100",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "condenseur"
+  },
+  "10": {
+    "device": "AK-CC550-A-019x",
+    "name": "SurgelaPortes_10",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine-"
+  },
+  "11": {
+    "device": "AK-CC550-A-019x",
+    "name": "SurgelaPortes_11",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine-"
+  },
+  "12": {
+    "device": "AK-CC550-A-019x",
+    "name": "SurgelaPortes_12",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine-"
+  },
+  "13": {
+    "device": "AK-CC550-A-019x",
+    "name": "SurgelaPortes_13",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine-"
+  },
+  "14": {
+    "device": "AK-CC550-A-012x",
+    "name": "TgBacSurg_14",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac-"
+  },
+  "15": {
+    "device": "AK-CC550-A-012x",
+    "name": "TgBacSurg_15",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac-"
+  },
+  "16": {
+    "device": "AK-CC550-A-019x",
+    "name": "BacSurgela_16",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac-"
+  },
+  "17": {
+    "device": "AK-CC550-A-019x",
+    "name": "BacSurgela_17",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac-"
+  },
+  "18": {
+    "device": "AK-CC550-A-012x",
+    "name": "BacSurgela_18",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac-"
+  },
+  "19": {
+    "device": "AK-CC550-A-015x",
+    "name": "BacSurgela_19",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac-"
+  },
+  "20": {
+    "device": "AK-CC550-A-012x",
+    "name": "TgBacSurg_20",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac-"
+  },
+  "59": {
+    "device": "AK-CC55SCUI-017x",
+    "name": "CfSurgReserve_59",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF-"
+  },
+  "2": {
+    "device": "AK-CC55SCUI-015x",
+    "name": "CfSurgelaGroupe_2",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF-"
+  },
+  "69": {
+    "device": "EKC202D1-015x",
+    "name": "CfSurgBoulang_69",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF-"
+  },
+  "101": {
+    "device": "AK-PC551-0170",
+    "name": "CentPositive_101",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "condenseur"
+  },
+  "71": {
+    "device": "EKC302D-012x",
+    "name": "ClimSdm_71",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "climatisation"
+  },
+  "0": {
+    "device": "EKC302D-012x",
+    "name": "CfPositiveBoul_0",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "68": {
+    "device": "AK-CC550-A-012x",
+    "name": "CfPoisson_68",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "67": {
+    "device": "AK-CC550-A-015x",
+    "name": "CfCremerie_67",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "66": {
+    "device": "AK-CC550-A-019x",
+    "name": "CfCarcasses_66",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "65": {
+    "device": "AK-CC550-A-019x",
+    "name": "LaboBoucherie_65",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "64": {
+    "device": "AK-CC550-A-012x",
+    "name": "CfSuif_64",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "63": {
+    "device": "AK-CC550A-020x",
+    "name": "CfBoucherie_63",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "62": {
+    "device": "AK-CC550-A-012x",
+    "name": "CfFruitLegumes_62",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "61": {
+    "device": "AK-CC550-A-012x",
+    "name": "CfTraiteur_61",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "60": {
+    "device": "AK-CC550-A-012x",
+    "name": "CfCharcuterie_60",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+"
+  },
+  "58": {
+    "device": "AK-CC550-A-018x",
+    "name": "SaurisserieLs_58",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "57": {
+    "device": "AK-CC550-A-018x",
+    "name": "SaurisserieLs_57",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "56": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_56",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "55": {
+    "device": "AK-CC550-A-019x",
+    "name": "YaourtLs_55",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "54": {
+    "device": "AK-CC550-A-019x",
+    "name": "YaourtLs_54",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "53": {
+    "device": "AK-CC550-A-019x",
+    "name": "YaourtLs_53",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "52": {
+    "device": "AK-CC550-A-019x",
+    "name": "YaourtLs_52",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "51": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_51",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "50": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_50",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "49": {
+    "device": "AK-CC550-A-019x",
+    "name": "UltraFrais_49",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "48": {
+    "device": "AK-CC550-A-019x",
+    "name": "UltraFrais_48",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "47": {
+    "device": "AK-CC550-A-019x",
+    "name": "UltraFrais_47",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "46": {
+    "device": "AK-CC550-A-019x",
+    "name": "UltraFrais_46",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "45": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_45",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "44": {
+    "device": "AK-CC550-A-019x",
+    "name": "FromageLs_44",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "43": {
+    "device": "AK-CC550-A-019x",
+    "name": "FromageLs_43",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "42": {
+    "device": "AK-CC550-A-019x",
+    "name": "FromageLs_42",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "41": {
+    "device": "AK-CC550-A-019x",
+    "name": "FromageLs_41",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "40": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_40",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "39": {
+    "device": "AK-CC550-A-019x",
+    "name": "TraiteurLs_39",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "38": {
+    "device": "AK-CC550-A-019x",
+    "name": "TraiteurLs_38",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "37": {
+    "device": "AK-CC550-A-019x",
+    "name": "TraiteurLs_37",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "36": {
+    "device": "AK-CC550-A-019x",
+    "name": "TraiteurLs_36",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "35": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_35",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "34": {
+    "device": "AK-CC550-A-019x",
+    "name": "CharcuterieLs_34",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "33": {
+    "device": "AK-CC550-A-019x",
+    "name": "CharcuterieLs_33",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "32": {
+    "device": "AK-CC550-A-019x",
+    "name": "CharcuterieLs_32",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "31": {
+    "device": "AK-CC550-A-019x",
+    "name": "CharcuterieLs_31",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "30": {
+    "device": "AK-CC550-A-019x",
+    "name": "BoucherieLs_30",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "29": {
+    "device": "AK-CC550-A-019x",
+    "name": "BoucherieLs_29",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "28": {
+    "device": "AK-CC550-A-019x",
+    "name": "BoucherieLs_28",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "27": {
+    "device": "AK-CC550-A-019x",
+    "name": "BoucherieLs_27",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "26": {
+    "device": "AK-CC550-A-019x",
+    "name": "4eGamme_26",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+"
+  },
+  "25": {
+    "device": "AK-CC550-A-018x",
+    "name": "TraiteurFe_25",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "24": {
+    "device": "AK-CC550-A-018x",
+    "name": "Charcut/fromTrad_24",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "23": {
+    "device": "AK-CC550-A-018x",
+    "name": "Charcut/fromTrad_23",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "22": {
+    "device": "AK-CC550-A-019x",
+    "name": "BoucherieTrad_22",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  },
+  "21": {
+    "device": "AK-CC550-A-018x",
+    "name": "BoucherieTrad_21",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "bac+"
+  }
+}

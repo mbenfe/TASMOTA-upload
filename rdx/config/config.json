@@ -3,12 +3,12 @@
         "rdx-g": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         },
         "rdx-d": {
             "remote": "nok",
             "pt": "nok",
-            "ds": "nok"
+            "ds": "ok"
         }
     },
     "argenteuil": {
@@ -16,6 +16,13 @@
             "remote": "nok",
             "pt": "nok",
             "ds": "nok"
+        }
+    },
+    "aulnay": {
+        "rdx-1": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "ok"
         }
     }
 }

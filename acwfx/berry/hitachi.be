@@ -12,7 +12,6 @@ def mqttprint(texte)
 end
 
 class RDX
-    var relay
     var day_list
     var count
 
@@ -29,8 +28,6 @@ class RDX
         newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
 
         global.setup['onoff'] = myjson['DATA']['onoff']
-        global.setup['fanspeed'] = myjson['DATA']['fanspeed']
-        global.setup['heatpower'] = myjson['DATA']['heatpower']
         # attention ne pas changer offset !!!!!!!!
         global.setup['ouvert'] = myjson['DATA']['ouvert']
         global.setup['ferme'] = myjson['DATA']['ferme']
@@ -57,9 +54,7 @@ class RDX
         mqtt.publish(newtopic, payload, true)
 
         # switch on/off leds
-        global.pcf.update_onoff_led()
-        global.pcf.update_heat_power_leds()
-        global.pcf.update_fan_speed_leds()
+        global.pcf.onoff(global.setup['onoff'])
         self.every_minute()  # Update the state immediately
     end
 
@@ -86,19 +81,28 @@ class RDX
         mqttprint("subscription MQTT...")
         self.subscribes()
         mqttprint('MQTT subscription done')
-#malek        self.relay = list()
-#malek        self.relay.insert(0, 19)
-#malek        self.relay.insert(1, 18)
-#malek        gpio.pin_mode(self.relay[0], gpio.OUTPUT)
-#malek        gpio.pin_mode(self.relay[1], gpio.OUTPUT)
-#malek        gpio.digital_write(self.relay[0], 1)  # Set relay 1 to OFF
-#malek        gpio.digital_write(self.relay[1], 1)  # Set relay 2 to OFF
+        global.relay = list()
+        global.relay.insert(0, 19)
+        global.relay.insert(1, 18)
+        gpio.pin_mode(global.relay[0], gpio.OUTPUT)
+        gpio.pin_mode(global.relay[1], gpio.OUTPUT)
+        print("set relay to ON")
+        gpio.digital_write(global.relay[0], 1)  # Set relay 1 to ON
+        gpio.digital_write(global.relay[1], 1)  # Set relay 2 to ON
+        tasmota.delay(500)
+        gpio.digital_write(global.relay[0], 0)  # Set relay 1 to OFF
+        gpio.digital_write(global.relay[1], 0)  # Set relay 2 to OFF
+        tasmota.delay(500)
+        print("relay ON")
+        gpio.digital_write(global.relay[0], 1)  # Set relay 1 to ON
+        gpio.digital_write(global.relay[1], 1)  # Set relay 2 to ON
+
         tasmota.set_timer(30000,/-> self.mypush())
 
 
-        if(global.config["remote"] != "nok")
-            self.subscribes_sensors(global.config["remote"])  # Subscribe to remote sensor topic
-        end
+#        if(global.config["remote"] != "nok")
+#            self.subscribes_sensors(global.config["remote"])  # Subscribe to remote sensor topic
+#        end
     end
 
     def mypush()
@@ -146,42 +150,35 @@ class RDX
         var temperature = [99,99]
 
 
-        if(global.tempsource[0] == "ds")
-            temperature = ds18b20.poll("ds")
-        elif(global.tempsource[0] == "dsin")
-            temperature = ds18b20.poll("dsin")
-        elif(global.tempsource[0] == "pt")
-            temperature = global.average_temperature
-        elif(global.tempsource[0] == "remote")
-            temperature = global.remote_temp[0]
-        else
-            temperature = 99
-        end
+
+
 
         if (hour >= global.setup[jour]['debut'] && hour < global.setup[jour]['fin'])
                 target = global.setup['ouvert']
 
             if (temperature < target && global.setup['onoff'] == 1)
-#malek                gpio.digital_write(self.relay[i], 1)
+#malek                gpio.digital_write(global.relay[i], 1)
                 power = 1
             else
-#malek                gpio.digital_write(self.relay[i], 0)
+#malek                gpio.digital_write(global.relay[i], 0)
                 power = 0
             end
-        else
-            target = global.setup['ferme']
-            if (temperature < target && global.setup['onoff'] == 1)
-#malek                    gpio.digital_write(self.relay[i], 1)
-                power = 1
             else
-#malek                    gpio.digital_write(self.relay[i], 0)
-                power = 0
-            end
-        end
-        payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"fanspeed":%d,"heatpower":%d,"location":"%s","Target":%.1f,"source":"%s","Power":%d}', 
+                target = global.setup['ferme']
+                if (temperature < target && global.setup['onoff'] == 1)
+#malek                    gpio.digital_write(global.relay[i], 1)
+                    power = 1
+                else
+#malek                    gpio.digital_write(global.relay[i], 0)
+                    power = 0
+                end
+
+
+            payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"fandspeed":%d,"heatpower":%d,"location":"%s","Target":%.1f,"source":"%s","Power":%d}', 
                 global.device, global.device, temperature, global.setup['ouvert'], global.setup['ferme'], global.setup['fanspeed'], global.setup['heatpower'], global.location, target, global.tempsource[0], power)
-        topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
-        mqtt.publish(topic, payload, true)
+            topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
+            mqtt.publish(topic, payload, true)
+        end
     end
 
     # Function to execute every second

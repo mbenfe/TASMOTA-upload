@@ -33,6 +33,12 @@ class my_zb_handler
         self.subscribes()
         self.state_detecteur_escalier = 0
         self.state_detecteur_entree = 0
+
+        var alarm_payload = {
+            "timestamp": tasmota.time_str(tasmota.rtc()['local']),
+            "alarm": "ouverture"
+            }
+        print(alarm_payload)
     end
 
 
@@ -56,16 +62,38 @@ class my_zb_handler
     end
 
     def attributes_final(event_type, frame, attr_list, idx)
-        # print("------------ attributes final ---------------")
-        # print(f"shortaddr=0x{idx:04X} {event_type=} {attr_list=}")
         var myjson
         var command
 
         var contact = zigbee.item("contact_entree")
- 
+
         if contact.shortaddr == idx
             tasmota.cmd('zbsend { "Device":"switch_entree", "send" : {"power":1} }')
         #    tasmota.set_timer(60000, /-> self.timeout())
+            
+            # Publish alarm message
+            var alarm_payload = {
+                "timestamp": tasmota.time_str(tasmota.rtc()['local']),
+                "Name":"porte",
+                "Contact":1,
+                "alarm": "ouverture"
+            }
+            for i: 0..attr_list.size()-1
+                myjson = attr_list[i].tomap()
+                if myjson['key']=='Contact' && myjson['val']==1
+                    alarm_payload["state"] = myjson['val']
+                    var alarm_topic = "gw/benfeghoul/marcq/alarms"
+                    mqtt.publish(alarm_topic, json.dump(alarm_payload), true)
+                    tasmota.delay(5)
+                    var alarm_payload = {
+                        "timestamp": tasmota.time_str(tasmota.rtc()['local']),
+                        "Name":"porte",
+                        "Contact":0,
+                        "alarm": "ouverture"
+                    }
+                    mqtt.publish(alarm_topic, json.dump(alarm_payload), true)
+               end
+            end
         end
 
         var escalier = zigbee.item("detecteur_escalier")

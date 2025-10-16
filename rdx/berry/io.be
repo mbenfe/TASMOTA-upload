@@ -8,9 +8,9 @@
 # P6: Led3 = bit 6
 # P7: Led2 = bit 7
 #
-# P1 pressed toogle Led1 P0 bit 0
-# P2 pressed toogle Led3 P5 bit 5
-# P3 pressed toogle Led4 P6 bit 6
+# P1 = system on off default state is off, when pressed toogle Led1 P0 bit 0 if on then all other led take their state, if off all other led off
+# P2  = heat power, default state is 1, state can be 1 or 2 for 1 led 2 = on for 2 led 2=off and led 3 = on
+# P3 = fan speed, default state = 1,state can be 1,2 or 3. when 1 led 4 = on and led 5 = off, when 2 led 4 = off and led 5 = on when 3 led 4 and 5 are on
 
 import string
 import global
@@ -39,7 +39,11 @@ class PCF8574A
                 print("PCF8574A relays found!")
             end
         end
-        global.io = 0xFF  # All high = inputs
+        
+        # No need to initialize these here since they come from setup.json via frico_driver
+        # global.setup['onoff'], global.setup['fanspeed'], global.setup['heatpower'] are loaded in frico_driver
+        
+        global.io = 0xFF  # All high = inputs, all LEDs off
         self.last_input_state = 0xFF
         self.input_state = 0xFF
         self.write_pins(global.io)
@@ -60,25 +64,18 @@ class PCF8574A
     def read_pins()
         var data
         if global.wire != nil
- #           print(global.io)
             data = global.wire.read(self.I2C_button_led_addr, global.io, 1)
             return (data != nil ) ? data : 0xF1
         end
         return 0xFF
     end
 
-    def onoff(level, index)
+    def update_onoff_led()
         var bit
-        if global.nombre == 2
-            if index == 0  # led1
-                bit = 0
-            else           # led4
-                bit = 5
-            end
-        else
-            bit = 7   # led2
-        end
-        if level == 1
+
+        bit = 0   # led1
+
+        if global.setup['onoff'] == 1
             global.io = global.io & ~(1 << bit)  # Set bit to 0
         else
             global.io = global.io | (1 << bit)   # Set bit to 1
@@ -86,78 +83,139 @@ class PCF8574A
         self.write_pins(global.io)
     end
 
-    def toggle_bit(bit)        
-        global.io = global.io ^ (1 << bit)
-        global.io = global.io | 0x0E  # P1, P2, P3 à 1
-#        print("toggle bit: " + str(bit) + " state: " + string.hex(global.io))
+    def update_heat_power_leds()
+        # Safety check for setup
+        if global.setup == nil || global.setup.find('onoff') == nil || global.setup.find('heatpower') == nil
+            return
+        end
+        
+        # Only update if system is on
+        if global.setup['onoff'] == 1
+            if global.setup['heatpower'] == 1
+                # LED2 on, LED3 off
+                global.io = global.io & ~(1 << 7)  # LED2 on (bit 7 = 0)
+                global.io = global.io | (1 << 6)   # LED3 off (bit 6 = 1)
+            else  # heatpower == 2
+                # LED2 off, LED3 on
+                global.io = global.io | (1 << 7)   # LED2 off (bit 7 = 1)
+                global.io = global.io & ~(1 << 6)  # LED3 on (bit 6 = 0)
+            end
+        else
+            # System OFF - turn off both heat LEDs
+            global.io = global.io | (1 << 7)   # LED2 off (bit 7 = 1)
+            global.io = global.io | (1 << 6)   # LED3 off (bit 6 = 1)
+        end
+        self.write_pins(global.io)
+    end
+
+    def update_fan_speed_leds()
+      
+        # Only update if system is on
+        if global.setup['onoff'] == 1
+            if global.setup['fanspeed'] == 1
+                # LED4 on, LED5 off
+                global.io = global.io & ~(1 << 5)  # LED4 on (bit 5 = 0)
+                global.io = global.io | (1 << 4)   # LED5 off (bit 4 = 1)
+            elif global.setup['fanspeed'] == 2
+                # LED4 off, LED5 on
+                global.io = global.io | (1 << 5)   # LED4 off (bit 5 = 1)
+                global.io = global.io & ~(1 << 4)  # LED5 on (bit 4 = 0)
+            else  # fanspeed == 3
+                # LED4 on, LED5 on
+                global.io = global.io & ~(1 << 5)  # LED4 on (bit 5 = 0)
+                global.io = global.io & ~(1 << 4)  # LED5 on (bit 4 = 0)
+            end
+        else
+            # System OFF - turn off both fan LEDs
+            global.io = global.io | (1 << 5)   # LED4 off (bit 5 = 1)
+            global.io = global.io | (1 << 4)   # LED5 off (bit 4 = 1)
+        end
         self.write_pins(global.io)
     end
 
     def every_250ms()
-        var payload, topic,buffer
+        var detect_pressed = false
+        var payload, topic, buffer
         if global.wire == nil return end
 
         self.input_state = self.read_pins()
 
-#        print(self.input_state)
-
-        # edge up detection left button
-        if ((self.input_state & 0x02) == 0x02) && ((self.last_input_state & 0x02) == 0x00 && self.left_pressed == false)  # P1 button pressed
-#            print("P1 pressed")
+        # P1 button - System ON/OFF
+        if ((self.input_state & 0x02) == 0x02) && ((self.last_input_state & 0x02) == 0x00 && self.left_pressed == false)
             self.left_pressed = true
-            self.toggle_bit(0)    
-            global.setups[0]['onoff'] = global.setups[0]['onoff'] == 1 ? 0 : 1
-            buffer = json.dump(global.setups[0])
-            topic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.devices[0])      # Toggle LED1 on P0
-            payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
-                    global.esp_device, global.devices[0], buffer)
-            mqtt.publish(topic, payload, true)
-            global.aerotherme.every_minute()  # Update the state immediately
-       end
-        # edge down detection left button
-        if ((self.input_state & 0x02) == 0x00) && ((self.last_input_state & 0x02) == 0x02 && self.left_pressed == true)  # P1 button pressed
-#            print("P1 released")
+            # Toggle system on/off state
+            global.setup['onoff'] = global.setup['onoff'] == 1 ? 0 : 1
+            
+            if global.setup['onoff'] == 1
+                # System ON - LED1 on, other LEDs take their state
+                global.io = global.io & ~(1 << 0)  # LED1 on (bit 0 = 0)
+                # Set other LEDs based on current states
+                self.update_heat_power_leds()
+                self.update_fan_speed_leds()
+            else
+                # System OFF - all LEDs off
+                global.io = global.io | 0xF0  # Turn off all LEDs (bits 4,5,6,7 = 1)
+                global.io = global.io | (1 << 0)   # LED1 off (bit 0 = 1)
+            end
+            global.io = global.io | 0x0E  # Keep buttons high (P1, P2, P3)
+            self.write_pins(global.io)
+        end
+        
+        # P1 button release
+        if ((self.input_state & 0x02) == 0x00) && ((self.last_input_state & 0x02) == 0x02 && self.left_pressed == true)
             self.left_pressed = false
+            detect_pressed = true
         end
 
-        # edge up detection middle button
-        if ((self.input_state & 0x04) == 0x04) && ((self.last_input_state & 0x04) == 0x00 && self.middle_pressed == false)  # P2 button pressed
-#            print("P2 pressed")
+        # P2 button - Heat power (only if system is on)
+        if ((self.input_state & 0x04) == 0x04) && ((self.last_input_state & 0x04) == 0x00 && self.middle_pressed == false)
             self.middle_pressed = true
-            self.toggle_bit(7)     
-            global.setups[0]['onoff'] = global.setups[0]['onoff'] == 1 ? 0 : 1
-            buffer = json.dump(global.setups[0])
-            topic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.devices[0])      # Toggle LED1 on P0
-            payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
-                    global.esp_device, global.devices[0], buffer)
-            mqtt.publish(topic, payload, true)
-            global.aerotherme.every_minute()  # Update the state immediately
+            if global.setup['onoff'] == 1  # Only if system is on
+                global.setup['heatpower'] = global.setup['heatpower'] == 1 ? 2 : 1
+                self.update_heat_power_leds()
+                global.io = global.io | 0x0E  # Keep buttons high
+                self.write_pins(global.io)
+            end
         end
-        # edge down detection middle button
-        if ((self.input_state & 0x04) == 0x00) && ((self.last_input_state & 0x04) == 0x04 && self.middle_pressed == true)  # P2 button released
-#            print("P2 released")
+        
+        # P2 button release
+        if ((self.input_state & 0x04) == 0x00) && ((self.last_input_state & 0x04) == 0x04 && self.middle_pressed == true)
             self.middle_pressed = false
+
+            if global.setup['onoff'] == 1  # Only if system is on
+                detect_pressed = true
+            end
         end
-        # edge up detection right button
-        if ((self.input_state & 0x08) == 0x08) && ((self.last_input_state & 0x08) == 0x00 && self.right_pressed == false)  # P3 button pressed
-#            print("P3 pressed")
+
+        # P3 button - Fan speed (only if system is on)
+        if ((self.input_state & 0x08) == 0x08) && ((self.last_input_state & 0x08) == 0x00 && self.right_pressed == false)
             self.right_pressed = true
-            self.toggle_bit(5)       
-            global.setups[1]['onoff'] = global.setups[1]['onoff'] == 1 ? 0 : 1
-            buffer = json.dump(global.setups[1])
-            topic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.devices[1])      # Toggle LED4 on P5
-            payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
-                    global.esp_device, global.devices[1], buffer)
-            mqtt.publish(topic, payload, true)
-            global.aerotherme.every_minute()  # Update the state immediately
+            if global.setup['onoff'] == 1  # Only if system is on
+                global.setup['fanspeed'] = global.setup['fanspeed'] + 1
+                if global.setup['fanspeed'] > 3
+                    global.setup['fanspeed'] = 1
+                end
+                self.update_fan_speed_leds()
+                global.io = global.io | 0x0E  # Keep buttons high
+                self.write_pins(global.io)
+            end
         end
-        # edge down detection right button
-        if ((self.input_state & 0x08) == 0x00) && ((self.last_input_state & 0x08) == 0x08 && self.right_pressed == true)  # P3 button released
-#            print("P3 released")
+        
+        # P3 button release
+        if ((self.input_state & 0x08) == 0x00) && ((self.last_input_state & 0x08) == 0x08 && self.right_pressed == true)
             self.right_pressed = false
+            if global.setup['onoff'] == 1  # Only if system is on
+                detect_pressed = true
+            end
         end
 
         self.last_input_state = self.input_state
+        if detect_pressed == true
+            payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
+                global.device, global.device, json.dump(global.setup))
+            topic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
+            mqtt.publish(topic, payload, true)
+        end
     end
     
 end

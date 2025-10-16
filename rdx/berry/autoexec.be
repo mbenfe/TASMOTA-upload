@@ -1,5 +1,11 @@
 var version = "1.0.082025 initiale"
 
+
+# IO7 ds18b20 out
+# IO8 SDA
+# IO20 SCL
+# IO21 ds18b20 in
+
 import string
 import global
 import mqtt
@@ -30,7 +36,7 @@ def loadconfig()
     global.location = myjson["location"]
      
     global.client = myjson["client"]
-    global.drivers = myjson["drivers"]
+    global.driver = myjson["driver"]
     
     print('esp32.cfg loaded')
 
@@ -286,11 +292,18 @@ def getversion()
 end
 
 def launch_driver()
-    for i:0..size(global.drivers)-1
-        mqttprint('load ' + global.drivers[i])
-        tasmota.load(global.drivers[i])
-        mqttprint(global.drivers[i] + ' driver loaded')
-    end
+    mqttprint('load io.be')
+    tasmota.load('io.be')
+    mqttprint('io driver loaded')
+
+    mqttprint('load ds18b20.be')
+    tasmota.load('ds18b20.be')
+    mqttprint('ds18b20 driver loaded')
+
+    mqttprint('load ' + global.driver)
+    tasmota.load(global.driver)
+    mqttprint(global.driver + ' driver loaded')
+
 end
 
 
@@ -312,9 +325,9 @@ tasmota.add_cmd('location', location)
 loadconfig()
 mqttprint("ville:" + str(global.ville))
 mqttprint("client:" + str(global.client))
-mqttprint("device:" + str(global.devices))
+mqttprint("device:" + str(global.device))
 mqttprint("location:" + str(global.location))
-mqttprint("esp_device:" + str(global.esp_device))
+mqttprint("driver:" + str(global.driver))
 
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)

@@ -83,6 +83,7 @@ class AEROTHERME
             myjson = file.read()
             file.close()
             var json_data = json.load(myjson)
+            print(json_data)
             if json_data == nil
                 mqttprint("Error: Failed to parse JSON from file " + name)
                 continue

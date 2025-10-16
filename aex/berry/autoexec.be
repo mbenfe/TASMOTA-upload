@@ -319,13 +319,15 @@ def stop()
         gpio.digital_write(global.relay[0], 0)  # Set relay 1 to OFF
         gpio.digital_write(global.relay[1], 0)  # Set relay 2 to OFF
     end 
+    tasmota.resp_cmnd('stop done')
 end
 
 def start()
     for i:0..global.nombre-1
         gpio.digital_write(global.relay[0], 1)  # Set relay 1 to ON
         gpio.digital_write(global.relay[1], 1)  # Set relay 2 to ON
-    end
+    end    
+    tasmota.resp_cmnd('start done')
 end
 
 def launch_driver()

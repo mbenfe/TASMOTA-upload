@@ -1,1 +1,845 @@
-{"applications":[{"label":"Negatif","level":1,"type":"iFroidNegatif","virtuel":0,"data":[{"master":"CFNegBoulang18","color":0,"column":1,"row":1,"location":"","shape":"CF-","slave":["froid"]},{"master":"CFNegSSol20","color":0,"column":2,"row":1,"location":"","shape":"CF-","slave":["froid"]},{"master":"CFNegDrive23","color":0,"column":1,"row":2,"location":"","shape":"CF-","slave":["froid"]},{"master":"SurgPorte70","color":0,"column":1,"row":3,"location":"","shape":"VITRINE-","slave":["froid"]},{"master":"SurgPorte71","color":0,"column":2,"row":3,"location":"","shape":"VITRINE-","slave":["froid"]},{"master":"SurgPorte72","color":0,"column":3,"row":3,"location":"","shape":"VITRINE-","slave":["froid"]},{"master":"SurgPorte73","color":0,"column":4,"row":3,"location":"","shape":"VITRINE-","slave":["froid"]},{"master":"SurgPorte74","color":0,"column":1,"row":4,"location":"","shape":"VITRINE-","slave":["froid"]},{"master":"SurgPorte75","color":0,"column":2,"row":4,"location":"","shape":"VITRINE-","slave":["froid"]},{"master":"SurgPorte76","color":0,"column":3,"row":4,"location":"","shape":"VITRINE-","slave":["froid"]},{"master":"SurgPorte77","color":0,"column":4,"row":4,"location":"","shape":"VITRINE-","slave":["froid"]},{"master":"SurgPorte78","color":0,"column":1,"row":5,"location":"","shape":"VITRINE-","slave":["froid"]}]},{"label":"Positif","level":1,"type":"iFroidPositif","virtuel":0,"data":[{"master":"CFSuif7","color":0,"column":1,"row":1,"location":"","shape":"CF+","slave":["froid"]},{"master":"CFCarcasse8","color":0,"column":2,"row":1,"location":"","shape":"CF+","slave":["froid"]},{"master":"LaboBoucherie9","color":0,"column":1,"row":2,"location":"","shape":"CF+","slave":["froid"]},{"master":"CFCremerie10","color":0,"column":2,"row":2,"location":"","shape":"CF+","slave":["froid"]},{"master":"CFCremerie19","color":0,"column":1,"row":3,"location":"","shape":"CF+","slave":["froid"]},{"master":"CFFetLegume22","color":0,"column":2,"row":3,"location":"","shape":"CF+","slave":["froid"]},{"master":"CFDrive24","color":0,"column":1,"row":4,"location":"","shape":"CF+","slave":["froid"]},{"master":"CFPoisson57","color":0,"column":2,"row":4,"location":"","shape":"CF+","slave":["froid"]},{"master":"LaboPoisson58","color":0,"column":1,"row":5,"location":"","shape":"CF+","slave":["froid"]},{"master":"LaitFrais25","color":0,"column":1,"row":6,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CharcutFE26","color":0,"column":2,"row":6,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CharcutFE27","color":0,"column":3,"row":6,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"Salade28","color":0,"column":4,"row":6,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TraiteurLS30","color":0,"column":1,"row":7,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TraiteurLS31","color":0,"column":2,"row":7,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TraiteurLS32","color":0,"column":3,"row":7,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TraiteurLS33","color":0,"column":4,"row":7,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TGCarcut34","color":0,"column":1,"row":8,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CharcutLS35","color":0,"column":2,"row":8,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CharcutLS36","color":0,"column":3,"row":8,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CharcutLS37","color":0,"column":4,"row":8,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TGBoucherie38","color":0,"column":1,"row":9,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"BoucherieLS39","color":0,"column":2,"row":9,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"BoucherieLS40","color":0,"column":3,"row":9,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"BoucherieLS41","color":0,"column":4,"row":9,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TGVolaille42","color":0,"column":1,"row":10,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"VolailleLS43","color":0,"column":2,"row":10,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"VolailleLS44","color":0,"column":3,"row":10,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"VolailleLS45","color":0,"column":4,"row":10,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TGVolaille46","color":0,"column":1,"row":11,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"BouchTrad48","color":0,"column":2,"row":11,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CharcutTrad49","color":0,"column":3,"row":11,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CharcutTrad50","color":0,"column":4,"row":11,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CharcutTrad51","color":0,"column":1,"row":12,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CaveJambon52","color":0,"column":2,"row":12,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CaveFromage53","color":0,"column":3,"row":12,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"CharcutFE54","color":0,"column":4,"row":12,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TGFromage59","color":0,"column":1,"row":13,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"FromageLS60","color":0,"column":2,"row":13,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"FromageLS61","color":0,"column":3,"row":13,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"FromageLS62","color":0,"column":4,"row":13,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TGFromage63","color":0,"column":1,"row":14,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"YahourtLS64","color":0,"column":2,"row":14,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"YahourtLS65","color":0,"column":3,"row":14,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"YahourtLS66","color":0,"column":4,"row":14,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"YahourtLS67","color":0,"column":1,"row":15,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"YahourtLS68","color":0,"column":2,"row":15,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"YahourtLS69","color":0,"column":3,"row":15,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TourBoucherie79","color":0,"column":4,"row":15,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TraiteurSV80","color":0,"column":1,"row":16,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"TGTraiteurSV81","color":0,"column":2,"row":16,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"PoissonSV82","color":0,"column":3,"row":16,"location":"","shape":"VITRINE+","slave":["froid"]},{"master":"PoissonSV83","color":0,"column":4,"row":16,"location":"","shape":"VITRINE+","slave":["froid"]}]}]}
+{
+    "applications": [
+        {
+            "type": "Home",
+            "label": "Home",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "OpenWeather",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "MAISON",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Total/Froid/Parking/divers 1/divers 2/divers 3/divers 4/divers 5/divers/boulangerie",
+                    "master": "c_main",
+                    "slave": [
+                        "c_froid",
+                        "c_tdparking",
+                        "c_divers1",
+                        "c_divers2",
+                        "c_divers3",
+                        "c_divers4",
+                        "c_divers5",
+                        "c_diversold",
+                        "c_boulangerie"
+                    ]
+                },
+                {
+                    "shape": "ParetoTemp",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Exterieur/Boulangerie/Ascenseur/CLS/Caisse 4/Legumes/TV Pub/En ce moment/Cuisine/Poissonerie/TG froid 35",
+                    "master": "th_exterieur",
+                    "slave": [
+                        "th_boulangerie",
+                        "th_ascensseur",
+                        "th_caisse_auto",
+                        "th_caisse_4",
+                        "th_legumes",
+                        "th_tv",
+                        "th_en_ce_moment",
+                        "th_cuisine",
+                        "th_poissonerie",
+                        "th_tg35"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Negatif",
+            "level": 1,
+            "type": "iFroidNegatif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "location": "Chambres froides négatives",
+                    "master": "",
+                    "row": 1,
+                    "slave": []
+                },
+                {
+                    "master": "CFNegBoulang18",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "",
+                    "shape": "CF-",
+                    "slave": [
+                        "est_CFNegBoulang18"
+                    ]
+                },
+                {
+                    "master": "CFNegSSol20",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "",
+                    "shape": "CF-",
+                    "slave": [
+                        "est_CFNegSSol20"
+                    ]
+                },
+                {
+                    "master": "CFNegDrive23",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
+                    "shape": "CF-",
+                    "slave": [
+                        "est_CFNegDrive23"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "location": "Meubles surgelées",
+                    "master": "",
+                    "row": 4,
+                    "slave": []
+                },
+                {
+                    "master": "SurgPorte70",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
+                    "shape": "VITRINE-",
+                    "slave": [
+                        "est_SurgPorte70"
+                    ]
+                },
+                {
+                    "master": "SurgPorte71",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
+                    "shape": "VITRINE-",
+                    "slave": [
+                        "est_SurgPorte71"
+                    ]
+                },
+                {
+                    "master": "SurgPorte72",
+                    "color": 0,
+                    "column": 3,
+                    "row": 5,
+                    "location": "",
+                    "shape": "VITRINE-",
+                    "slave": [
+                        "est_SurgPorte72"
+                    ]
+                },
+                {
+                    "master": "SurgPorte73",
+                    "color": 0,
+                    "column": 4,
+                    "row": 5,
+                    "location": "",
+                    "shape": "VITRINE-",
+                    "slave": [
+                        "est_SurgPorte73"
+                    ]
+                },
+                {
+                    "master": "SurgPorte74",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
+                    "shape": "VITRINE-",
+                    "slave": [
+                        "est_SurgPorte74"
+                    ]
+                },
+                {
+                    "master": "SurgPorte75",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
+                    "shape": "VITRINE-",
+                    "slave": [
+                        "est_SurgPorte75"
+                    ]
+                },
+                {
+                    "master": "SurgPorte76",
+                    "color": 0,
+                    "column": 3,
+                    "row": 6,
+                    "location": "",
+                    "shape": "VITRINE-",
+                    "slave": [
+                        "est_SurgPorte76"
+                    ]
+                },
+                {
+                    "master": "SurgPorte77",
+                    "color": 0,
+                    "column": 4,
+                    "row": 6,
+                    "location": "",
+                    "shape": "VITRINE-",
+                    "slave": [
+                        "est_SurgPorte77"
+                    ]
+                },
+                {
+                    "master": "SurgPorte78",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
+                    "shape": "VITRINE-",
+                    "slave": [
+                        "est_SurgPorte78"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "location": "Bacs surgelés",
+                    "master": "",
+                    "row": 8,
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "label": "Positif",
+            "level": 1,
+            "type": "iFroidPositif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "location": "Chambres froides positives",
+                    "master": "",
+                    "row": 1,
+                    "slave": []
+                },
+                {
+                    "master": "CFSuif7",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "",
+                    "shape": "CF+",
+                    "slave": [
+                        "est_CFSuif7"
+                    ]
+                },
+                {
+                    "master": "CFCarcasse8",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "",
+                    "shape": "CF+",
+                    "slave": [
+                        "est_CFCarcasse8"
+                    ]
+                },
+                {
+                    "master": "LaboBoucherie9",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
+                    "shape": "CF+",
+                    "slave": [
+                        "est_LaboBoucherie9"
+                    ]
+                },
+                {
+                    "master": "CFCremerie10",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "",
+                    "shape": "CF+",
+                    "slave": [
+                        "est_CFCremerie10"
+                    ]
+                },
+                {
+                    "master": "CFCremerie19",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
+                    "shape": "CF+",
+                    "slave": [
+                        "est_CFCremerie19"
+                    ]
+                },
+                {
+                    "master": "CFFetLegume22",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "",
+                    "shape": "CF+",
+                    "slave": [
+                        "est_CFFetLegume22"
+                    ]
+                },
+                {
+                    "master": "CFDrive24",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
+                    "shape": "CF+",
+                    "slave": [
+                        "est_CFDrive24"
+                    ]
+                },
+                {
+                    "master": "CFPoisson57",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
+                    "shape": "CF+",
+                    "slave": [
+                        "est_CFPoisson57"
+                    ]
+                },
+                {
+                    "master": "LaboPoisson58",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
+                    "shape": "CF+",
+                    "slave": [
+                        "est_LaboPoisson58"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "location": "Meubles froid positif",
+                    "master": "",
+                    "row": 7,
+                    "slave": []
+                },
+                {
+                    "master": "LaitFrais25",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_LaitFrais25"
+                    ]
+                },
+                {
+                    "master": "CharcutFE26",
+                    "color": 0,
+                    "column": 2,
+                    "row": 8,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CharcutFE26"
+                    ]
+                },
+                {
+                    "master": "CharcutFE27",
+                    "color": 0,
+                    "column": 3,
+                    "row": 8,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CharcutFE27"
+                    ]
+                },
+                {
+                    "master": "Salade28",
+                    "color": 0,
+                    "column": 4,
+                    "row": 8,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_Salade28"
+                    ]
+                },
+                {
+                    "master": "TraiteurLS30",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TraiteurLS30"
+                    ]
+                },
+                {
+                    "master": "TraiteurLS31",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TraiteurLS31"
+                    ]
+                },
+                {
+                    "master": "TraiteurLS32",
+                    "color": 0,
+                    "column": 3,
+                    "row": 9,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TraiteurLS32"
+                    ]
+                },
+                {
+                    "master": "TraiteurLS33",
+                    "color": 0,
+                    "column": 4,
+                    "row": 9,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TraiteurLS33"
+                    ]
+                },
+                {
+                    "master": "TGCarcut34",
+                    "color": 0,
+                    "column": 1,
+                    "row": 10,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TGCarcut34"
+                    ]
+                },
+                {
+                    "master": "CharcutLS35",
+                    "color": 0,
+                    "column": 2,
+                    "row": 10,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CharcutLS35"
+                    ]
+                },
+                {
+                    "master": "CharcutLS36",
+                    "color": 0,
+                    "column": 3,
+                    "row": 10,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CharcutLS36"
+                    ]
+                },
+                {
+                    "master": "CharcutLS37",
+                    "color": 0,
+                    "column": 4,
+                    "row": 10,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CharcutLS37"
+                    ]
+                },
+                {
+                    "master": "TGBoucherie38",
+                    "color": 0,
+                    "column": 1,
+                    "row": 11,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TGBoucherie38"
+                    ]
+                },
+                {
+                    "master": "BoucherieLS39",
+                    "color": 0,
+                    "column": 2,
+                    "row": 11,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_BoucherieLS39"
+                    ]
+                },
+                {
+                    "master": "BoucherieLS40",
+                    "color": 0,
+                    "column": 3,
+                    "row": 11,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_BoucherieLS40"
+                    ]
+                },
+                {
+                    "master": "BoucherieLS41",
+                    "color": 0,
+                    "column": 4,
+                    "row": 11,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_BoucherieLS41"
+                    ]
+                },
+                {
+                    "master": "TGVolaille42",
+                    "color": 0,
+                    "column": 1,
+                    "row": 12,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TGVolaille42"
+                    ]
+                },
+                {
+                    "master": "VolailleLS43",
+                    "color": 0,
+                    "column": 2,
+                    "row": 12,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_VolailleLS43"
+                    ]
+                },
+                {
+                    "master": "VolailleLS44",
+                    "color": 0,
+                    "column": 3,
+                    "row": 12,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_VolailleLS44"
+                    ]
+                },
+                {
+                    "master": "VolailleLS45",
+                    "color": 0,
+                    "column": 4,
+                    "row": 12,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_VolailleLS45"
+                    ]
+                },
+                {
+                    "master": "TGVolaille46",
+                    "color": 0,
+                    "column": 1,
+                    "row": 13,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TGVolaille46"
+                    ]
+                },
+                {
+                    "master": "BouchTrad48",
+                    "color": 0,
+                    "column": 2,
+                    "row": 13,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_BouchTrad48"
+                    ]
+                },
+                {
+                    "master": "CharcutTrad49",
+                    "color": 0,
+                    "column": 3,
+                    "row": 13,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CharcutTrad49"
+                    ]
+                },
+                {
+                    "master": "CharcutTrad50",
+                    "color": 0,
+                    "column": 4,
+                    "row": 13,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CharcutTrad50"
+                    ]
+                },
+                {
+                    "master": "CharcutTrad51",
+                    "color": 0,
+                    "column": 1,
+                    "row": 14,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CharcutTrad51"
+                    ]
+                },
+                {
+                    "master": "CaveJambon52",
+                    "color": 0,
+                    "column": 2,
+                    "row": 14,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CaveJambon52"
+                    ]
+                },
+                {
+                    "master": "CaveFromage53",
+                    "color": 0,
+                    "column": 3,
+                    "row": 14,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CaveFromage53"
+                    ]
+                },
+                {
+                    "master": "CharcutFE54",
+                    "color": 0,
+                    "column": 4,
+                    "row": 14,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_CharcutFE54"
+                    ]
+                },
+                {
+                    "master": "TGFromage59",
+                    "color": 0,
+                    "column": 1,
+                    "row": 15,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TGFromage59"
+                    ]
+                },
+                {
+                    "master": "FromageLS60",
+                    "color": 0,
+                    "column": 2,
+                    "row": 15,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_FromageLS60"
+                    ]
+                },
+                {
+                    "master": "FromageLS61",
+                    "color": 0,
+                    "column": 3,
+                    "row": 15,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_FromageLS61"
+                    ]
+                },
+                {
+                    "master": "FromageLS62",
+                    "color": 0,
+                    "column": 4,
+                    "row": 15,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_FromageLS62"
+                    ]
+                },
+                {
+                    "master": "TGFromage63",
+                    "color": 0,
+                    "column": 1,
+                    "row": 16,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TGFromage63"
+                    ]
+                },
+                {
+                    "master": "YahourtLS64",
+                    "color": 0,
+                    "column": 2,
+                    "row": 16,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_YahourtLS64"
+                    ]
+                },
+                {
+                    "master": "YahourtLS65",
+                    "color": 0,
+                    "column": 3,
+                    "row": 16,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_YahourtLS65"
+                    ]
+                },
+                {
+                    "master": "YahourtLS66",
+                    "color": 0,
+                    "column": 4,
+                    "row": 16,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_YahourtLS66"
+                    ]
+                },
+                {
+                    "master": "YahourtLS67",
+                    "color": 0,
+                    "column": 1,
+                    "row": 17,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_YahourtLS67"
+                    ]
+                },
+                {
+                    "master": "YahourtLS68",
+                    "color": 0,
+                    "column": 2,
+                    "row": 17,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_YahourtLS68"
+                    ]
+                },
+                {
+                    "master": "YahourtLS69",
+                    "color": 0,
+                    "column": 3,
+                    "row": 17,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_YahourtLS69"
+                    ]
+                },
+                {
+                    "master": "TourBoucherie79",
+                    "color": 0,
+                    "column": 4,
+                    "row": 17,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TourBoucherie79"
+                    ]
+                },
+                {
+                    "master": "TraiteurSV80",
+                    "color": 0,
+                    "column": 1,
+                    "row": 18,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TraiteurSV80"
+                    ]
+                },
+                {
+                    "master": "TGTraiteurSV81",
+                    "color": 0,
+                    "column": 2,
+                    "row": 18,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_TGTraiteurSV81"
+                    ]
+                },
+                {
+                    "master": "PoissonSV82",
+                    "color": 0,
+                    "column": 3,
+                    "row": 18,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_PoissonSV82"
+                    ]
+                },
+                {
+                    "master": "PoissonSV83",
+                    "color": 0,
+                    "column": 4,
+                    "row": 18,
+                    "location": "",
+                    "shape": "VITRINE+",
+                    "slave": [
+                        "est_PoissonSV83"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "location": "Bacs froid positif",
+                    "master": "",
+                    "row": 20,
+                    "slave": []
+                }
+            ]
+        }
+    ]
+}
