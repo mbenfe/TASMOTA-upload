@@ -1,4 +1,7 @@
-var version = "1.0.112024 initiale"
+var version = "2.0.102025 aht20 auto"
+
+# SDA IO21
+# SCL IO
 
 import string
 import global
