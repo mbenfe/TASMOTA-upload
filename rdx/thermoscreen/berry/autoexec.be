@@ -1,10 +1,7 @@
 var version = "1.0.082025 initiale"
 
 
-# IO7 ds18b20 out
-# IO8 SDA
-# IO20 SCL
-# IO21 ds18b20 in
+# IO8 ds18b20 in
 
 import string
 import global
@@ -36,7 +33,6 @@ def loadconfig()
     global.location = myjson["location"]
      
     global.client = myjson["client"]
-    global.driver = myjson["driver"]
     
     print('esp32.cfg loaded')
 
@@ -51,6 +47,20 @@ def loadconfig()
     buffer = file.read()
     file.close()
     myjson = json.load(buffer)
+
+    print('loading setup.json')
+    
+    file = open("setup.json", "rt")
+    if(file == nil)
+        mqttprint("Error: Failed to open setup.json")
+        file.close()
+        return
+    end
+    buffer = file.read()
+    file.close()
+    global.setup    = json.load(buffer)
+    print('setup.json loaded')
+    print(global.setup)
     
     # Create config list based on nombre
     global.config = myjson[global.ville][global.device]
@@ -64,12 +74,7 @@ def loadconfig()
         global.tempsource.push("remote")
         global.remote_temp = 99
     end
-    if(global.config["pt"] != "nok")
-        global.tempsource.push("pt")
-    end
-    if(global.config["ds"] != "nok")
-        global.tempsource.push("ds")
-    end
+
         
     # Always add dsin at the end
     global.tempsource.push("dsin")    
@@ -292,18 +297,9 @@ def getversion()
 end
 
 def launch_driver()
-    mqttprint('load io.be')
-    tasmota.load('io.be')
-    mqttprint('io driver loaded')
-
-    mqttprint('load ds18b20.be')
-    tasmota.load('ds18b20.be')
-    mqttprint('ds18b20 driver loaded')
-
-    mqttprint('load ' + global.driver)
-    tasmota.load(global.driver)
-    mqttprint(global.driver + ' driver loaded')
-
+    mqttprint('load thermoscreen_driver.be')
+    tasmota.load("thermoscreen_driver.be")
+    mqttprint("thermoscreen_driver loaded")
 end
 
 
@@ -327,7 +323,6 @@ mqttprint("ville:" + str(global.ville))
 mqttprint("client:" + str(global.client))
 mqttprint("device:" + str(global.device))
 mqttprint("location:" + str(global.location))
-mqttprint("driver:" + str(global.driver))
 
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)

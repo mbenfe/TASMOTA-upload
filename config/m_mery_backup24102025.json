@@ -12,26 +12,6 @@
                     "location": "TGBT",
                     "master": "main",
                     "row": 1,
-                    "shape": "PieConso",
-                    "slave": [
-                        "froid",
-                        "ecl_ext",
-                        "gene_rooftops",
-                        "td_station",
-                        "td_poissonerie",
-                        "CF-reserve",
-                        "ecl_f&l",
-                        "gene_divers",
-                        "gene_tab1",
-                        "gene_tab2"
-                    ]
-                },
-                {
-                    "color": 0,
-                    "column": 1,
-                    "location": "TGBT",
-                    "master": "main",
-                    "row": 1,
                     "shape": "consocard",
                     "slave": []
                 }

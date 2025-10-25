@@ -1,0 +1,23 @@
+{
+    "dl4-fpos": {
+        "mode": "tri",
+        "root": ["fpos"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["2000"]
+    },
+    "dl4-fneg": {
+        "mode": "tri",
+        "root": ["fneg"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["2000"]
+    },
+    "dl4-main": {
+        "mode": "tri",
+        "root": ["main"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["4000"]
+    } 
+}

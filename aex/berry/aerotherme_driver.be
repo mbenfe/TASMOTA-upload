@@ -196,8 +196,8 @@ class AEROTHERME
                 end
             end
 
-            payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d}', 
-                global.esp_device, global.devices[i], temperature[i]-global.setups[i]['offset'], global.setups[i]['ouvert'], global.setups[i]['ferme'], global.setups[i]['offset'], global.location[i], target, global.tempsource[i][0], power)
+            payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d,"onoff":%d}', 
+                global.esp_device, global.devices[i], temperature[i]-global.setups[i]['offset'], global.setups[i]['ouvert'], global.setups[i]['ferme'], global.setups[i]['offset'], global.location[i], target, global.tempsource[i][0], power,global.setups[i]['onoff'])
             topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.devices[i])
             mqtt.publish(topic, payload, true)
         end
