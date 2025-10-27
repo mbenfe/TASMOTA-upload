@@ -16,7 +16,7 @@ var bsl_out = 32
 # Define mqttprint function
 def mqttprint(texte)
     var payload =string.format("{\"texte\":\"%s\"}", texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.esp_device)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
     mqtt.publish(topic, payload, true)
 end
 
@@ -297,7 +297,7 @@ def getversion()
 end
 
 def launch_driver()
-    mqttprint('load thermoscreen_driver.be')
+    mqttprint("load thermoscreen_driver.be")
     tasmota.load("thermoscreen_driver.be")
     mqttprint("thermoscreen_driver loaded")
 end

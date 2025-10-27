@@ -42,7 +42,7 @@ class RDX
         temperature = global.dsin + global.dsin_offset
         return temperature
     end
-    
+
     def set_stm32()
         var status = string.format("%d:%d:%d:%d",global.setup['onoff'],global.setup['mode'],global.setup['fanspeed'],global.setup['heatpower'])
         self.ser.write(bytes().fromstring(status))
@@ -60,18 +60,13 @@ class RDX
         myjson = json.load(payload_s)
         print("acknowledge_app:", topic," ",payload_s)
         newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
-        newpayload = string.format('{"Device":"%s","Name":"%s","DATA":%s}',
-                    global.device, global.device, payload_s)
+        newpayload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}',
+                    global.device, global.device, json.dump(myjson["DATA"]))
         mqtt.publish(newtopic, newpayload, true)
+        global.setup    = myjson["DATA"] 
         file = open("setup.json", "wt")
-        file.write(payload_s)
+        file.write(json.dump(global.setup))
         file.close()
-
-        self.temperature = myjson["temperature"]
-        self.status = myjson["status"]
-        self.scheduler = myjson["scheduler"]
-        self.reglage = myjson["reglage"]
-        print("setup.json read done")
         self.set_stm32()
     end
 
@@ -87,7 +82,7 @@ class RDX
         myjson = file.read()
         file.close()
         var  newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
-        var payload = string.format('{"Device":"%s","Name":"setup_%s","DATA":%s}',
+        var payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}',
                     global.device, global.device, myjson)
         print('setup:', newtopic, ' ', payload)
         mqtt.publish(newtopic, payload, true) 
@@ -100,27 +95,27 @@ class RDX
         var buffer
         var myjson
         var topic
-        mqttprint('init')
-        mqttprint('io init')
-        # self.io_rst = 18
+        # mqttprint('init')
+        # mqttprint('io init')
+        self.io_rst = 18
         # self.io_bsl = 19
-        # gpio.pin_mode(self.io_rst, gpio.OUTPUT)
+        gpio.pin_mode(self.io_rst, gpio.OUTPUT)
         # gpio.pin_mode(self.io_bsl, gpio.OUTPUT)
         # mqttprint('io mode set')
-        # gpio.digital_write(self.io_rst, 1)    
+        gpio.digital_write(self.io_rst, 1)    
         # gpio.digital_write(self.io_bsl, 0)    
         # mqttprint('io init done')
 
-        # self.day_list = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
+        self.day_list = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
-        # self.rx = 8
-        # self.tx = 7
-        # gpio.pin_mode(self.rx,gpio.INPUT)
-        # gpio.pin_mode(self.tx,gpio.OUTPUT)
-        # self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1)
- #       self.set_stm32()
- #       self.subscribes()   
- #       tasmota.set_timer(30000,/-> self.mypush())
+        self.rx = 6
+        self.tx = 7
+        gpio.pin_mode(self.rx,gpio.INPUT)
+        gpio.pin_mode(self.tx,gpio.OUTPUT)
+        self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1)
+        self.set_stm32()
+        self.subscribes()   
+        tasmota.set_timer(30000,/-> self.mypush())
 
     end
 
@@ -133,9 +128,55 @@ class RDX
     end
 
     def every_minute()
+        var now = tasmota.rtc()
+        var rtc = tasmota.time_dump(now["local"])
+        var second = rtc["sec"]
+        var minute = rtc["min"]
+        var hour = rtc["hour"]
+        var day = rtc["day"]
+        var month = rtc["month"]
+        var year = rtc["year"]
+        var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var jour = self.day_list[day_of_week]
+
+        var target,status
+
+        if (hour >= global.setup[jour]['debut'] && hour < global.setup[jour]['fin'])
+            target = global.setup['ouvert']
+            status = "ouvert"
+        else
+            target = global.setup['ferme']
+            status = "ferme"
+        end
+
+
+        var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
+
         var temperature = self.poll()
-        print("thermoscreen temperature:", temperature)
-    end  
+        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"onoff":%d,"target":%d,"etat":"%s"}', 
+                global.device, global.device, temperature, global.setup['ouvert'], global.setup['ferme'], global.setup['onoff'],target,status)
+        mqtt.publish(topic, payload, true)
+   end
+
+    def fast_loop()
+        self.read_uart(2)
+    end
+
+    def read_uart(timeout)
+        if self.ser.available()
+            var due = tasmota.millis() + timeout
+            while !tasmota.time_reached(due) end
+            var buffer = self.ser.read()
+            self.ser.flush()
+            var mystring = buffer.asstring()
+            var mylist = string.split(mystring, '\n')
+            var numitem = size(mylist)
+            for i: 0..numitem-2
+                print('->', mylist[i])
+            end
+        end
+    end
+
 
     def every_second()
     end

@@ -1,4 +1,4 @@
-# layout:
+# layout mezzanine pcf8574a:
 # P0: Led1 = bit 0
 # P1: left button = bit 1
 # P2: middle button = bit 2
@@ -11,6 +11,22 @@
 # P1 = system on off default state is off, when pressed toogle Led1 P0 bit 0 if on then all other led take their state, if off all other led off
 # P2  = heat power, default state is 1, state can be 1 or 2 for 1 led 2 = on for 2 led 2=off and led 3 = on
 # P3 = fan speed, default state = 1,state can be 1,2 or 3. when 1 led 4 = on and led 5 = off, when 2 led 4 = off and led 5 = on when 3 led 4 and 5 are on
+
+
+#layout relay pcf8574a:
+# P0: relay_onoff
+# P1: relay_heatpower1
+# P2: relay_heatpower2
+# P3: relay_fanspeed1
+# P4: relay_fanspeed2   
+# P5: relay_fanspeed3
+#the way it works:
+# power on relay is 1, power off relay is 0
+# heatpower 1 : relay_heatpower1 = 1 and relay_heatpower2 = 0
+# heatpowwer 2 : relay_heatpower1 = 1  and relay_heatpower2 = 1  
+# fanspeed 1 : relay_fanspeed1 = 1 and relay_fanspeed2 = 0 and relay_fanspeed3 = 0
+# fanspeed 2 : relay_fanspeed1 = 0 and relay_fanspeed2 = 1 and relay_fanspeed3 = 0
+# fanspeed 3 : relay_fanspeed1 = 0 and relay_fanspeed2 = 0 and relay_fanspeed3 = 1
 
 import string
 import global

@@ -1,10 +1,10 @@
 var version = "1.0.082025 initiale"
 
-
+# template  {"NAME":"Frico","GPIO":[1,1,1,1,1,1,1,640,608,1,1,1,1,1,1,1,1,1,609,641,1,1],"FLAG":0,"BASE":1}
 # IO7 ds18b20 out
 # IO8 SDA
-# IO20 SCL
-# IO21 ds18b20 in
+# IO18 SCL
+# IO19 ds18b20 in
 
 import string
 import global
@@ -22,6 +22,7 @@ def mqttprint(texte)
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.esp_device)
     mqtt.publish(topic, payload, true)
 end
+
 
 # Define loadconfig function
 def loadconfig()
@@ -239,6 +240,9 @@ def cal(cmd, idx, payload, payload_json)
     elif arguments[0] == 'dsin'
         calibration['dsin_offset'] = real(arguments[1])-global.dsin
         print("dsin_offset: " + str(calibration['dsin_offset']))
+    elif arguments[0] == 'ds'
+        calibration['ds_offset'] = real(arguments[1])-global.ds
+        print("ds_offset: " + str(calibration['ds_offset']))
     else
         mqttprint("Error: Invalid sensor type. Use 'pt' or 'dsin'.")
         tasmota.resp_cmnd('Invalid sensor type')
@@ -291,6 +295,7 @@ def getversion()
 end
 
 def launch_driver()
+
     mqttprint('load io.be')
     tasmota.load('io.be')
     mqttprint('io driver loaded')
@@ -299,7 +304,7 @@ def launch_driver()
     tasmota.load('ds18b20.be')
     mqttprint('ds18b20 driver loaded')
 
-    mqttprint('load frico_driver.be)
+    mqttprint('load frico_driver.be')
     tasmota.load("frico_driver.be")
     mqttprint('frico driver loaded')
 

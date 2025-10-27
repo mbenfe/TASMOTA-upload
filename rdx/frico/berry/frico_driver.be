@@ -86,13 +86,6 @@ class RDX
         mqttprint("subscription MQTT...")
         self.subscribes()
         mqttprint('MQTT subscription done')
-#malek        self.relay = list()
-#malek        self.relay.insert(0, 19)
-#malek        self.relay.insert(1, 18)
-#malek        gpio.pin_mode(self.relay[0], gpio.OUTPUT)
-#malek        gpio.pin_mode(self.relay[1], gpio.OUTPUT)
-#malek        gpio.digital_write(self.relay[0], 1)  # Set relay 1 to OFF
-#malek        gpio.digital_write(self.relay[1], 1)  # Set relay 2 to OFF
         tasmota.set_timer(30000,/-> self.mypush())
 
 
@@ -162,20 +155,9 @@ class RDX
                 target = global.setup['ouvert']
 
             if (temperature < target && global.setup['onoff'] == 1)
-#malek                gpio.digital_write(self.relay[i], 1)
-                power = 1
+                power = 1  # Heating ON
             else
-#malek                gpio.digital_write(self.relay[i], 0)
-                power = 0
-            end
-        else
-            target = global.setup['ferme']
-            if (temperature < target && global.setup['onoff'] == 1)
-#malek                    gpio.digital_write(self.relay[i], 1)
-                power = 1
-            else
-#malek                    gpio.digital_write(self.relay[i], 0)
-                power = 0
+                power = 0  # Heating OFF
             end
         end
         payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"fanspeed":%d,"heatpower":%d,"location":"%s","Target":%.1f,"source":"%s","Power":%d}', 
