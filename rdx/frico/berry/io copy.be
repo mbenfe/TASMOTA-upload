@@ -40,7 +40,6 @@ class PCF8574A
         var list_devices
         print("init io driver...")
         self.I2C_button_led_addr = 0x3F
-        self.I2C_relay_addr = 0x38
         if global.wire == nil
             global.wire = tasmota.wire_scan(self.I2C_button_led_addr)
             list_devices = global.wire.scan()
@@ -64,10 +63,6 @@ class PCF8574A
         self.last_input_state = 0xFF
         self.input_state = 0xFF
         self.write_pins(global.io)
-        
-        # Initialize relays to OFF state
-        self.write_relay_pins(0x00)
-        
         self.left_pressed = false
         self.middle_pressed = false 
         self.right_pressed = false
@@ -89,60 +84,6 @@ class PCF8574A
             return (data != nil ) ? data : 0xF1
         end
         return 0xFF
-    end
-
-    def write_relay_pins(value)
-        if global.wire != nil
-            global.wire._begin_transmission(self.I2C_relay_addr)
-            global.wire._write(value)
-            global.wire._end_transmission()
-        end
-    end
-
-    def update_relays()
-        # Safety check for setup
-        if global.setup == nil || global.setup.find('onoff') == nil
-            return
-        end
-        
-        var relay_state = 0x00  # Start with all relays off
-        
-        # P0: relay_onoff
-        if global.setup['onoff'] == 1
-            relay_state = relay_state | (1 << 0)  # Set bit 0
-        end
-        
-        # Only control other relays if system is on
-        if global.setup['onoff'] == 1
-            # Heatpower relays (P1, P2) - exactly as documented
-            if global.setup['heatpower'] == 1
-                # heatpower 1: relay_heatpower1 = 1 and relay_heatpower2 = 0
-                relay_state = relay_state | (1 << 1)   # P1: relay_heatpower1 = 1
-                # P2: relay_heatpower2 = 0 (already 0)
-            elif global.setup['heatpower'] == 2
-                # heatpower 2: relay_heatpower1 = 1 and relay_heatpower2 = 1
-                relay_state = relay_state | (1 << 1)   # P1: relay_heatpower1 = 1
-                relay_state = relay_state | (1 << 2)   # P2: relay_heatpower2 = 1
-            end
-            
-            # Fanspeed relays (P3, P4, P5) - exactly as documented
-            if global.setup['fanspeed'] == 1
-                # fanspeed 1: relay_fanspeed1 = 1, fanspeed2 = 0, fanspeed3 = 0
-                relay_state = relay_state | (1 << 3)   # P3: relay_fanspeed1 = 1
-                # P4, P5 already 0
-            elif global.setup['fanspeed'] == 2
-                # fanspeed 2: relay_fanspeed1 = 0, fanspeed2 = 1, fanspeed3 = 0
-                relay_state = relay_state | (1 << 4)   # P4: relay_fanspeed2 = 1
-                # P3, P5 already 0
-            elif global.setup['fanspeed'] == 3
-                # fanspeed 3: relay_fanspeed1 = 0, fanspeed2 = 0, fanspeed3 = 1
-                relay_state = relay_state | (1 << 5)   # P5: relay_fanspeed3 = 1
-                # P3, P4 already 0
-            end
-        end
-        
-        self.write_relay_pins(relay_state)
-        print("Relays updated: 0x" + string.format("%02X", relay_state))
     end
 
     def update_onoff_led()
@@ -234,8 +175,6 @@ class PCF8574A
             end
             global.io = global.io | 0x0E  # Keep buttons high (P1, P2, P3)
             self.write_pins(global.io)
-            # Update relays immediately when system state changes
-            self.update_relays()
         end
         
         # P1 button release
@@ -252,8 +191,6 @@ class PCF8574A
                 self.update_heat_power_leds()
                 global.io = global.io | 0x0E  # Keep buttons high
                 self.write_pins(global.io)
-                # Update relays when heat power changes
-                self.update_relays()
             end
         end
         
@@ -277,8 +214,6 @@ class PCF8574A
                 self.update_fan_speed_leds()
                 global.io = global.io | 0x0E  # Keep buttons high
                 self.write_pins(global.io)
-                # Update relays when fan speed changes
-                self.update_relays()
             end
         end
         

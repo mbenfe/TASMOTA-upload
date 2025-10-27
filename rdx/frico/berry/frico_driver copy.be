@@ -15,7 +15,6 @@ class RDX
     var relay
     var day_list
     var count
-    var last_power_state  # ← Add this line
 
     def mysetup(topic, idx, payload_s, payload_b)
         var myjson = json.load(payload_s)
@@ -57,17 +56,10 @@ class RDX
         global.device, global.device, buffer)
         mqtt.publish(newtopic, payload, true)
 
-        # Update both LEDs and relays when setup changes via MQTT
-        if global.pcf != nil
-            global.pcf.update_onoff_led()
-            global.pcf.update_heat_power_leds()
-            global.pcf.update_fan_speed_leds()
-            global.pcf.update_relays()  # ← Add this line
-            mqttprint("LEDs and relays updated from MQTT")
-        else
-            mqttprint("Warning: PCF driver not available")
-        end
-        
+        # switch on/off leds
+        global.pcf.update_onoff_led()
+        global.pcf.update_heat_power_leds()
+        global.pcf.update_fan_speed_leds()
         self.every_minute()  # Update the state immediately
     end
 
@@ -75,6 +67,7 @@ class RDX
     def init()
         var file
         var myjson        
+
 
         var name = "setup.json"
         file = open(name, "rt")
@@ -87,30 +80,17 @@ class RDX
         if global.setup == nil
             mqttprint("Error: Failed to parse JSON from file " + name)
         end
-   
+       
+
         self.day_list = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]
         mqttprint("subscription MQTT...")
         self.subscribes()
         mqttprint('MQTT subscription done')
         tasmota.set_timer(30000,/-> self.mypush())
 
-        # Initialize relays based on loaded setup (with delay to ensure PCF is ready)
-        tasmota.set_timer(2000, /-> self.init_relays())
 
         if(global.config["remote"] != "nok")
             self.subscribes_sensors(global.config["remote"])  # Subscribe to remote sensor topic
-        end
-
-        self.last_power_state = -1  # Initialize to invalid state to force first update
-    end
-
-    def init_relays()
-        if global.pcf != nil
-            global.pcf.update_relays()
-            mqttprint("Relays initialized from setup")
-        else
-            mqttprint("Warning: PCF driver not ready, retrying...")
-            tasmota.set_timer(1000, /-> self.init_relays())  # Retry in 1 second
         end
     end
 
@@ -149,14 +129,15 @@ class RDX
         var day = rtc["day"]
         var month = rtc["month"]
         var year = rtc["year"]
-        var day_of_week = rtc["weekday"]
+        var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var jour = self.day_list[day_of_week]
 
         var payload
         var topic
         var target
         var power
-        var temperature = 99
+        var temperature = [99,99]
+
 
         if(global.tempsource[0] == "ds")
             temperature = ds18b20.poll("ds")
@@ -171,38 +152,14 @@ class RDX
         end
 
         if (hour >= global.setup[jour]['debut'] && hour < global.setup[jour]['fin'])
-            target = global.setup['ouvert']
+                target = global.setup['ouvert']
 
             if (temperature < target && global.setup['onoff'] == 1)
                 power = 1  # Heating ON
             else
                 power = 0  # Heating OFF
             end
-        else
-            power = 0  # Outside schedule
-            target = global.setup['ferme']
         end
-
-        # Only update relays if power state has changed (0→1 or 1→0)
-        if power != self.last_power_state
-            if power == 1
-                # Power changed to ON - apply full setup
-                if global.pcf != nil
-                    global.pcf.update_relays()
-                end
-            else
-                # Power changed to OFF - minimal relay state
-                if global.pcf != nil
-                    var relay_state = 0x00
-                    if global.setup['onoff'] == 1
-                        relay_state = 0x01  # Only onoff relay on
-                    end
-                    global.pcf.write_relay_pins(relay_state)
-                end
-            end
-            self.last_power_state = power  # Update stored state
-        end
-        
         payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"fanspeed":%d,"heatpower":%d,"location":"%s","Target":%.1f,"source":"%s","Power":%d}', 
                 global.device, global.device, temperature, global.setup['ouvert'], global.setup['ferme'], global.setup['fanspeed'], global.setup['heatpower'], global.location, target, global.tempsource[0], power)
         topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)

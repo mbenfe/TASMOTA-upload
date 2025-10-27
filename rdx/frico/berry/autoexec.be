@@ -87,10 +87,12 @@ def loadconfig()
         myjson = json.load(buffer)
         global.factor = real(myjson["pt"])
         global.dsin_offset = real(myjson["dsin_offset"])
+        global.ds_offset = real(myjson["ds_offset"])
     else
         print("calibration.json not found, using default factors")
         global.factor = 150
         global.dsin_offset = 0
+        global.ds_offset = 0
         file = open("calibration.json", "wt")
         myjson = json.dump({"pt": global.factor, "dsin_offset": global.dsin_offset})
         file.write(myjson)
@@ -335,6 +337,10 @@ mqttprint("location:" + str(global.location))
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
 tasmota.add_cmd('cal', cal)
+
+# Set DS18B20 sensor reading interval to 60 seconds (instead of default 300 seconds)
+tasmota.cmd("TelePeriod 60")
+mqttprint("DS18B20 sensor reading interval set to 60 seconds")
 
 print(" wait 10s for drivers loading")
 tasmota.set_timer(10000,launch_driver)
