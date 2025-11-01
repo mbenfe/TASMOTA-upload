@@ -92,13 +92,24 @@
                 },
                 {
                     "color": 0,
-                    "column": 2,
+                    "column": 1,
                     "location": "droite",
                     "master": "rdx-d",
-                    "row": 1,
+                    "row": 2,
                     "shape": "frico",
                     "slave": [
                         "setup_rdx-d"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "central",
+                    "master": "rdx-c",
+                    "row": 3,
+                    "shape": "frico",
+                    "slave": [
+                        "setup_rdx-c"
                     ]
                 }
             ]

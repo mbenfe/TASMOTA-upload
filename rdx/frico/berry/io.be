@@ -35,12 +35,13 @@ class PCF8574A
     var I2C_button_led_addr, I2C_relay_addr
     var state,last_input_state,input_state
     var left_pressed, middle_pressed, right_pressed
+    var relay_toggle
 
     def init()
         var list_devices
         print("init io driver...")
         self.I2C_button_led_addr = 0x3F
-        self.I2C_relay_addr = 0x38
+        self.I2C_relay_addr = 0x38  # ← Change back to 0x38
         if global.wire == nil
             global.wire = tasmota.wire_scan(self.I2C_button_led_addr)
             list_devices = global.wire.scan()
@@ -50,11 +51,12 @@ class PCF8574A
             else
                 print("PCF8574A buttons/leds found!")
             end
-            if (list_devices.find(0x38)== nil)
+            if (list_devices.find(0x38)== nil)  # ← Change back to 0x38
                 print("PCF8574A relays not found")
             else
                 print("PCF8574A relays found!")
             end
+            self.relay_toggle = false
         end
         
         # No need to initialize these here since they come from setup.json via frico_driver
@@ -93,9 +95,17 @@ class PCF8574A
 
     def write_relay_pins(value)
         if global.wire != nil
+            print("RELAY DEBUG: Writing 0x" + string.format("%02X", value) + " to PCF8574A at 0x38")
+            
+            # Read current state first (like you do for buttons)
+            var current_state = global.wire.read(self.I2C_relay_addr, 0xFF, 1)
+            print("RELAY: Current state before write: 0x" + string.format("%02X", current_state != nil ? current_state : 0xFF))
+            
+            # Now write the new value
             global.wire._begin_transmission(self.I2C_relay_addr)
             global.wire._write(value)
             global.wire._end_transmission()
+            print("RELAY: Write complete")
         end
     end
 
@@ -142,7 +152,18 @@ class PCF8574A
         end
         
         self.write_relay_pins(relay_state)
-        print("Relays updated: 0x" + string.format("%02X", relay_state))
+        
+        # Enhanced debug message
+        var debug_msg = "Relays 0x" + string.format("%02X", relay_state) + ": "
+        debug_msg += "P0_onoff=" + str((relay_state & 0x01) ? 1 : 0) + " "
+        debug_msg += "P1_heat1=" + str((relay_state & 0x02) ? 1 : 0) + " "
+        debug_msg += "P2_heat2=" + str((relay_state & 0x04) ? 1 : 0) + " "
+        debug_msg += "P3_fan1=" + str((relay_state & 0x08) ? 1 : 0) + " "
+        debug_msg += "P4_fan2=" + str((relay_state & 0x10) ? 1 : 0) + " "
+        debug_msg += "P5_fan3=" + str((relay_state & 0x20) ? 1 : 0)
+        debug_msg += " [onoff:" + str(global.setup['onoff']) + " heat:" + str(global.setup['heatpower']) + " fan:" + str(global.setup['fanspeed']) + "]"
+        
+        print(debug_msg)
     end
 
     def update_onoff_led()
@@ -184,7 +205,11 @@ class PCF8574A
     end
 
     def update_fan_speed_leds()
-      
+        # Safety check for setup
+        if global.setup == nil || global.setup.find('onoff') == nil || global.setup.find('fanspeed') == nil
+            return
+        end
+        
         # Only update if system is on
         if global.setup['onoff'] == 1
             if global.setup['fanspeed'] == 1
@@ -297,6 +322,25 @@ class PCF8574A
             topic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
             mqtt.publish(topic, payload, true)
         end
+    end
+
+    def every_second()
+        # # Toggle all relays for testing
+        # if self.relay_toggle == nil
+        #     self.relay_toggle = false
+        # end
+
+        # if self.relay_toggle
+        #     # Turn all relays ON
+        #     self.write_relay_pins(0x3F)  # All 6 relays on (bits 0-5)
+        #     print("RELAY TEST: All relays ON (0x3F)")
+        # else
+        #     # Turn all relays OFF
+        #     self.write_relay_pins(0x00)  # All relays off
+        #     print("RELAY TEST: All relays OFF (0x00)")
+        # end
+
+        # self.relay_toggle = !self.relay_toggle  # ← Use ! instead of not
     end
     
 end

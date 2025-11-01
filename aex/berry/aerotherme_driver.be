@@ -209,6 +209,7 @@ class AEROTHERME
 
     def remote_sensor(topic, idx, payload_s, payload_b)
         var myjson = json.load(payload_s)
+        print("remote sensor data received: " + payload_s)
         if myjson == nil
             mqttprint("Error: Failed to parse JSON payload")
             return
@@ -236,6 +237,7 @@ class AEROTHERME
         var topic
         topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client, global.ville, sensor)
         mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.remote_sensor(topic, idx, payload_s, payload_b))
+        print("subscribed to remote sensor:" + topic)
     end
     
 

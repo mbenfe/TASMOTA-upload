@@ -19,7 +19,7 @@ var bsl_out = 32
 # Define mqttprint function
 def mqttprint(texte)
     var payload =string.format("{\"texte\":\"%s\"}", texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.esp_device)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
     mqtt.publish(topic, payload, true)
 end
 
@@ -340,7 +340,9 @@ tasmota.add_cmd('cal', cal)
 
 # Set DS18B20 sensor reading interval to 60 seconds (instead of default 300 seconds)
 tasmota.cmd("TelePeriod 60")
+tasmota.cmd("MqttLog 0")
 mqttprint("DS18B20 sensor reading interval set to 60 seconds")
+mqttprint("Automatic MQTT telemetry disabled, Berry MQTT still active")
 
 print(" wait 10s for drivers loading")
 tasmota.set_timer(10000,launch_driver)
