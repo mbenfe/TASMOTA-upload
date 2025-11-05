@@ -325,22 +325,22 @@ class PCF8574A
     end
 
     def every_second()
-        # # Toggle all relays for testing
-        # if self.relay_toggle == nil
-        #     self.relay_toggle = false
-        # end
+        # Toggle all relays for testing
+        if self.relay_toggle == nil
+            self.relay_toggle = false
+        end
 
-        # if self.relay_toggle
-        #     # Turn all relays ON
-        #     self.write_relay_pins(0x3F)  # All 6 relays on (bits 0-5)
-        #     print("RELAY TEST: All relays ON (0x3F)")
-        # else
-        #     # Turn all relays OFF
-        #     self.write_relay_pins(0x00)  # All relays off
-        #     print("RELAY TEST: All relays OFF (0x00)")
-        # end
+        if self.relay_toggle
+            # Turn all relays ON
+            self.write_relay_pins(0x01)  # All 6 relays on (bits 0-5)
+            print("RELAY TEST: All relays ON (0x01)")
+        else
+            # Turn all relays OFF
+            self.write_relay_pins(0x00)  # All relays off
+            print("RELAY TEST: All relays OFF (0x00)")
+        end
 
-        # self.relay_toggle = !self.relay_toggle  # ← Use ! instead of not
+        self.relay_toggle = !self.relay_toggle  # ← Use ! instead of not
     end
     
 end

@@ -11,8 +11,6 @@ def mqttprint(texte)
     return true
 end
 
-
-
 class RDX
     var io_rst
     var io_bsl
@@ -49,7 +47,6 @@ class RDX
         print('status send to stm32:',status)
     end
     
-
     def acknowlege_app(topic, idx, payload_s, payload_b)
         var myjson
         var newtopic
@@ -88,10 +85,9 @@ class RDX
         mqtt.publish(newtopic, payload, true) 
     end
 
-
     def init()
         import path
-       var file
+        var file
         var buffer
         var myjson
         var topic
@@ -113,10 +109,10 @@ class RDX
         gpio.pin_mode(self.rx,gpio.INPUT)
         gpio.pin_mode(self.tx,gpio.OUTPUT)
         self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1)
+
         self.set_stm32()
         self.subscribes()   
         tasmota.set_timer(30000,/-> self.mypush())
-
     end
 
     def subscribes()
@@ -149,14 +145,13 @@ class RDX
             status = "ferme"
         end
 
-
         var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
 
         var temperature = self.poll()
         var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"onoff":%d,"target":%d,"etat":"%s"}', 
                 global.device, global.device, temperature, global.setup['ouvert'], global.setup['ferme'], global.setup['onoff'],target,status)
         mqtt.publish(topic, payload, true)
-   end
+    end
 
     def fast_loop()
         self.read_uart(2)
@@ -172,11 +167,21 @@ class RDX
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
             for i: 0..numitem-2
-                print('->', mylist[i])
+                var split = string.split(mylist[i], ":")
+                global.setup['onoff'] = int(split[0])
+                global.setup['mode'] = int(split[1])
+                global.setup['fanspeed'] = int(split[2])
+                global.setup['heatpower'] = int(split[3])
+                var file = open("setup.json", "wt")
+                file.write(json.dump(global.setup))
+                file.close()
+                var  newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
+                var payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}',
+                    global.device, global.device, json.dump(global.setup))
+                mqtt.publish(newtopic, payload, true) 
             end
         end
     end
-
 
     def every_second()
     end
@@ -184,5 +189,6 @@ end
 
 rdx = RDX()
 
+tasmota.add_fast_loop(/-> rdx.fast_loop())
 tasmota.add_driver(rdx)
 tasmota.add_cron("0 * * * * *", /-> rdx.every_minute(), "every_min_@0_s")
