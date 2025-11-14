@@ -223,22 +223,25 @@ def getversion()
 end
 
 def launch_driver()
-    mqttprint('load ' + global.driver)
-    tasmota.load(global.driver)
+    var driver = string.format("%s_driver.be",global.driver);
+    mqttprint('load ' + driver)
+    tasmota.load(driver)
     mqttprint(global.driver + ' driver loaded')
-    # tasmota.load("flashex_driver.be")
-    # mqttprint('flashex_driver loaded')
+
 end
 
-def Stm32Reset()
-    print('RESET:reset STM32')
-    gpio.digital_write(global.rst_pin, 0)
-    tasmota.delay(5)               # wait 5ms
-    gpio.digital_write(global.rst_pin, 1)
-    tasmota.resp_cmnd('STM32 reset')
-    print('RESET:free heap:',tasmota.get_free_heap())
+
+def stop()
+    gpio.digital_write(global.relay[0], 0)  # Set relay 1 to OFF
+    gpio.digital_write(global.relay[1], 0)  # Set relay 2 to OFF
+    tasmota.resp_cmnd('stop done')
 end
 
+def start()
+    gpio.digital_write(global.relay[0], 1)  # Set relay 1 to ON
+    gpio.digital_write(global.relay[1], 1)  # Set relay 2 to ON
+    tasmota.resp_cmnd('start done')
+end
 
 #-------------------------------- BASH -----------------------------------------#
 
@@ -264,7 +267,8 @@ mqttprint("driver:" + str(global.driver))
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
 tasmota.add_cmd('cal', cal)
-tasmota.add_cmd('stm32reset', Stm32Reset)
+tasmota.add_cmd('start', start)
+tasmota.add_cmd('stop', stop)
 
 print(" wait 10s for drivers loading")
 tasmota.set_timer(10000,launch_driver)

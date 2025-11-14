@@ -15,8 +15,7 @@ class RDX
     var relay
     var day_list
     var count
-    var last_power_state  # ← Add this line
-
+ 
     def mysetup(topic, idx, payload_s, payload_b)
         var myjson = json.load(payload_s)
         if myjson == nil
@@ -101,7 +100,6 @@ class RDX
             self.subscribes_sensors(global.config["remote"])  # Subscribe to remote sensor topic
         end
 
-        self.last_power_state = -1  # Initialize to invalid state to force first update
     end
 
     def init_relays()
@@ -183,25 +181,10 @@ class RDX
             target = global.setup['ferme']
         end
 
-        # Only update relays if power state has changed (0→1 or 1→0)
-        if power != self.last_power_state
-            if power == 1
-                # Power changed to ON - apply full setup
-                if global.pcf != nil
-                    global.pcf.update_relays()
-                end
-            else
-                # Power changed to OFF - minimal relay state
-                if global.pcf != nil
-                    var relay_state = 0x00
-                    if global.setup['onoff'] == 1
-                        relay_state = 0x01  # Only onoff relay on
-                    end
-                    global.pcf.write_relay_pins(relay_state)
-                end
-            end
-            self.last_power_state = power  # Update stored state
-        end
+        # # Only update relays if power state has changed (0→1 or 1→0)
+         #         if global.pcf != nil
+        #             global.pcf.update_relays()
+        #         end
         
         payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"fanspeed":%d,"heatpower":%d,"location":"%s","Target":%.1f,"source":"%s","Power":%d}', 
                 global.device, global.device, temperature, global.setup['ouvert'], global.setup['ferme'], global.setup['fanspeed'], global.setup['heatpower'], global.location, target, global.tempsource[0], power)

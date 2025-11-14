@@ -26,6 +26,14 @@ class RDX
 
     def poll()
         var temperature = 99
+        
+        # Priority 1: Use remote sensor if available and valid
+        if (global.config["remote"] != "nok" && global.remote_temp != nil)
+            temperature = global.remote_temp
+            return temperature
+        end
+        
+        # Priority 2: Fallback to local DS18B20
         global.dsin = 99
         var data = tasmota.read_sensors()
         if(data == nil)
@@ -34,11 +42,11 @@ class RDX
         var myjson = json.load(data)
         if(myjson.contains("DS18B20"))
             global.dsin = myjson["DS18B20"]["Temperature"]
-        else
-            return 99
+            temperature = global.dsin + global.dsin_offset
+            return temperature
         end
-        temperature = global.dsin + global.dsin_offset
-        return temperature
+        
+        return 99  # No temperature source available
     end
 
     def set_stm32()
@@ -65,6 +73,7 @@ class RDX
         file.write(json.dump(global.setup))
         file.close()
         self.set_stm32()
+        self.every_minute()
     end
 
     def mypush()
@@ -83,6 +92,7 @@ class RDX
                     global.device, global.device, myjson)
         print('setup:', newtopic, ' ', payload)
         mqtt.publish(newtopic, payload, true) 
+        self.every_minute()
     end
 
     def init()
@@ -113,6 +123,10 @@ class RDX
         self.set_stm32()
         self.subscribes()   
         tasmota.set_timer(30000,/-> self.mypush())
+      
+        if (global.config["remote"] != "nok")           
+            self.subscribes_sensors(global.config["remote"])
+        end
     end
 
     def subscribes()
@@ -135,7 +149,7 @@ class RDX
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var jour = self.day_list[day_of_week]
 
-        var target,status
+        var target,status,power,temperature
 
         if (hour >= global.setup[jour]['debut'] && hour < global.setup[jour]['fin'])
             target = global.setup['ouvert']
@@ -145,11 +159,20 @@ class RDX
             status = "ferme"
         end
 
+        temperature = self.poll()
+        if(temperature < target)
+            self.set_stm32()
+            power = 1
+        else
+            var standby = string.format("%d:%d:1:1",global.setup['onoff'],global.setup['mode'])
+            self.ser.write(bytes().fromstring(standby))
+            power = 0
+        end
+
         var topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
 
-        var temperature = self.poll()
-        var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"onoff":%d,"target":%d,"etat":"%s"}', 
-                global.device, global.device, temperature, global.setup['ouvert'], global.setup['ferme'], global.setup['onoff'],target,status)
+         var payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"onoff":%d,"target":%d,"etat":"%s","power":%d}',
+                global.device, global.device, temperature, global.setup['ouvert'], global.setup['ferme'], global.setup['onoff'],target,status,power)
         mqtt.publish(topic, payload, true)
     end
 
@@ -183,7 +206,29 @@ class RDX
         end
     end
 
-    def every_second()
+    def remote_sensor(topic, idx, payload_s, payload_b)
+        var myjson = json.load(payload_s)
+        print("remote sensor data received: " + payload_s)
+        if myjson == nil
+            mqttprint("Error: Failed to parse JSON payload")
+            return
+        end
+        var sensor = myjson["Name"]
+        if global.config["remote"] == sensor
+            if myjson.contains("Temperature")
+                global.remote_temp = real(myjson["Temperature"])
+
+            else
+                mqttprint("Error: Temperature data not found in payload for device " + sensor)
+            end
+        end
+    end
+    # Function to subscribe to MQTT topics
+    def subscribes_sensors(sensor)
+        var topic
+        topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client, global.ville, sensor)
+        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.remote_sensor(topic, idx, payload_s, payload_b))
+        print("subscribed to remote sensor:" + topic)
     end
 end
 

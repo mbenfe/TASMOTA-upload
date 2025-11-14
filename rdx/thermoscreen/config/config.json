@@ -27,12 +27,24 @@
     },
     "choisy": {
         "rdx-g": {
-            "remote": "zb-th_galerie_entree",
+            "remote": "th_galerie_entree",
             "pt": "nok",
             "ds": "nok"
         },
         "rdx-d": {
-            "remote": "zb-th_galerie_entree",
+            "remote": "th_galerie_entree",
+            "pt": "nok",
+            "ds": "nok"
+        }
+    },
+    "neuilly": {
+        "rdx-g": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "nok"
+        },
+        "rdx-d": {
+            "remote": "nok",
             "pt": "nok",
             "ds": "nok"
         }

@@ -12,36 +12,20 @@
 # P2  = heat power, default state is 1, state can be 1 or 2 for 1 led 2 = on for 2 led 2=off and led 3 = on
 # P3 = fan speed, default state = 1,state can be 1,2 or 3. when 1 led 4 = on and led 5 = off, when 2 led 4 = off and led 5 = on when 3 led 4 and 5 are on
 
-
-#layout relay pcf8574a:
-# P0: relay_onoff
-# P1: relay_heatpower1
-# P2: relay_heatpower2
-# P3: relay_fanspeed1
-# P4: relay_fanspeed2   
-# P5: relay_fanspeed3
-#the way it works:
-# power on relay is 1, power off relay is 0
-# heatpower 1 : relay_heatpower1 = 1 and relay_heatpower2 = 0
-# heatpowwer 2 : relay_heatpower1 = 1  and relay_heatpower2 = 1  
-# fanspeed 1 : relay_fanspeed1 = 1 and relay_fanspeed2 = 0 and relay_fanspeed3 = 0
-# fanspeed 2 : relay_fanspeed1 = 0 and relay_fanspeed2 = 1 and relay_fanspeed3 = 0
-# fanspeed 3 : relay_fanspeed1 = 0 and relay_fanspeed2 = 0 and relay_fanspeed3 = 1
-
 import string
 import global
 
 class PCF8574A
-    var I2C_button_led_addr, I2C_relay_addr
+    var I2C_button_led_addr
     var state,last_input_state,input_state
     var left_pressed, middle_pressed, right_pressed
-    var relay_toggle
+    var ser, rx, tx
 
     def init()
         var list_devices
         print("init io driver...")
         self.I2C_button_led_addr = 0x3F
-        self.I2C_relay_addr = 0x38  # ← Change back to 0x38
+    
         if global.wire == nil
             global.wire = tasmota.wire_scan(self.I2C_button_led_addr)
             list_devices = global.wire.scan()
@@ -51,13 +35,7 @@ class PCF8574A
             else
                 print("PCF8574A buttons/leds found!")
             end
-            if (list_devices.find(0x38)== nil)  # ← Change back to 0x38
-                print("PCF8574A relays not found")
-            else
-                print("PCF8574A relays found!")
-            end
-            self.relay_toggle = false
-        end
+         end
         
         # No need to initialize these here since they come from setup.json via frico_driver
         # global.setup['onoff'], global.setup['fanspeed'], global.setup['heatpower'] are loaded in frico_driver
@@ -67,13 +45,17 @@ class PCF8574A
         self.input_state = 0xFF
         self.write_pins(global.io)
         
-        # Initialize relays to OFF state
-        self.write_relay_pins(0x00)
-        
         self.left_pressed = false
         self.middle_pressed = false 
         self.right_pressed = false
         print("io driver initialized")
+        self.rx = 6
+        self.tx = 20
+        gpio.pin_mode(self.rx,gpio.INPUT)
+        gpio.pin_mode(self.tx,gpio.OUTPUT)
+        self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1)
+        print("stm32 serial initialized")
+ 
     end
 
     def write_pins(value)
@@ -93,77 +75,10 @@ class PCF8574A
         return 0xFF
     end
 
-    def write_relay_pins(value)
-        if global.wire != nil
-            print("RELAY DEBUG: Writing 0x" + string.format("%02X", value) + " to PCF8574A at 0x38")
-            
-            # Read current state first (like you do for buttons)
-            var current_state = global.wire.read(self.I2C_relay_addr, 0xFF, 1)
-            print("RELAY: Current state before write: 0x" + string.format("%02X", current_state != nil ? current_state : 0xFF))
-            
-            # Now write the new value
-            global.wire._begin_transmission(self.I2C_relay_addr)
-            global.wire._write(value)
-            global.wire._end_transmission()
-            print("RELAY: Write complete")
-        end
-    end
-
     def update_relays()
-        # Safety check for setup
-        if global.setup == nil || global.setup.find('onoff') == nil
-            return
-        end
-        
-        var relay_state = 0x00  # Start with all relays off
-        
-        # P0: relay_onoff
-        if global.setup['onoff'] == 1
-            relay_state = relay_state | (1 << 0)  # Set bit 0
-        end
-        
-        # Only control other relays if system is on
-        if global.setup['onoff'] == 1
-            # Heatpower relays (P1, P2) - exactly as documented
-            if global.setup['heatpower'] == 1
-                # heatpower 1: relay_heatpower1 = 1 and relay_heatpower2 = 0
-                relay_state = relay_state | (1 << 1)   # P1: relay_heatpower1 = 1
-                # P2: relay_heatpower2 = 0 (already 0)
-            elif global.setup['heatpower'] == 2
-                # heatpower 2: relay_heatpower1 = 1 and relay_heatpower2 = 1
-                relay_state = relay_state | (1 << 1)   # P1: relay_heatpower1 = 1
-                relay_state = relay_state | (1 << 2)   # P2: relay_heatpower2 = 1
-            end
-            
-            # Fanspeed relays (P3, P4, P5) - exactly as documented
-            if global.setup['fanspeed'] == 1
-                # fanspeed 1: relay_fanspeed1 = 1, fanspeed2 = 0, fanspeed3 = 0
-                relay_state = relay_state | (1 << 3)   # P3: relay_fanspeed1 = 1
-                # P4, P5 already 0
-            elif global.setup['fanspeed'] == 2
-                # fanspeed 2: relay_fanspeed1 = 0, fanspeed2 = 1, fanspeed3 = 0
-                relay_state = relay_state | (1 << 4)   # P4: relay_fanspeed2 = 1
-                # P3, P5 already 0
-            elif global.setup['fanspeed'] == 3
-                # fanspeed 3: relay_fanspeed1 = 0, fanspeed2 = 0, fanspeed3 = 1
-                relay_state = relay_state | (1 << 5)   # P5: relay_fanspeed3 = 1
-                # P3, P4 already 0
-            end
-        end
-        
-        self.write_relay_pins(relay_state)
-        
-        # Enhanced debug message
-        var debug_msg = "Relays 0x" + string.format("%02X", relay_state) + ": "
-        debug_msg += "P0_onoff=" + str((relay_state & 0x01) ? 1 : 0) + " "
-        debug_msg += "P1_heat1=" + str((relay_state & 0x02) ? 1 : 0) + " "
-        debug_msg += "P2_heat2=" + str((relay_state & 0x04) ? 1 : 0) + " "
-        debug_msg += "P3_fan1=" + str((relay_state & 0x08) ? 1 : 0) + " "
-        debug_msg += "P4_fan2=" + str((relay_state & 0x10) ? 1 : 0) + " "
-        debug_msg += "P5_fan3=" + str((relay_state & 0x20) ? 1 : 0)
-        debug_msg += " [onoff:" + str(global.setup['onoff']) + " heat:" + str(global.setup['heatpower']) + " fan:" + str(global.setup['fanspeed']) + "]"
-        
-        print(debug_msg)
+        var status = string.format("%d:%d:%d",global.setup['onoff'],global.setup['fanspeed'],global.setup['heatpower'])
+        self.ser.write(bytes().fromstring(status))
+        print('status send to stm32:',status)
     end
 
     def update_onoff_led()
@@ -322,27 +237,7 @@ class PCF8574A
             topic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
             mqtt.publish(topic, payload, true)
         end
-    end
-
-    def every_second()
-        # Toggle all relays for testing
-        if self.relay_toggle == nil
-            self.relay_toggle = false
-        end
-
-        if self.relay_toggle
-            # Turn all relays ON
-            self.write_relay_pins(0x01)  # All 6 relays on (bits 0-5)
-            print("RELAY TEST: All relays ON (0x01)")
-        else
-            # Turn all relays OFF
-            self.write_relay_pins(0x00)  # All relays off
-            print("RELAY TEST: All relays OFF (0x00)")
-        end
-
-        self.relay_toggle = !self.relay_toggle  # ← Use ! instead of not
-    end
-    
+    end    
 end
 
 var pcf = PCF8574A()
