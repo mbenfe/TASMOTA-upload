@@ -1,6 +1,6 @@
-# push_v2.be
+# push_all.be
 # Complete upload: check/create directory + upload files via WebDAV
-# Uses Mem1 for password storage (no secrets in code)
+# Aggregates dir_check.be and push_fs.be logic
 
 import json
 import string
@@ -13,12 +13,10 @@ var WEBDAV_PORT = 5005
 var SHARE_NAME = "webdav"
 var ROOT_FIXED = "tasmotafs"
 var USERNAME   = "tasmota"
+var PASSWORD   = "PushToulouse#86"
 
-# Password retrieved from Mem1 (set once: Mem1 PushToulouse#86)
-var PASSWORD = tasmota.cmd("Mem1")["Mem1"]
-
-# WebDAV Basic Auth computed at runtime
-var AUTH_BASIC = ""
+# WebDAV Basic Auth: base64("tasmota:PushToulouse#86")
+var AUTH_BASIC = "Basic dGFzbW90YTpQdXNoVG91bG91c2UjODY="
 
 # Loaded from esp32.cfg
 var ville = ""
@@ -56,34 +54,6 @@ def url_encode(texte)
         i += 1
     end
     return result
-end
-
-def base64_encode(text)
-    var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-    var input_bytes = bytes().fromstring(text)
-    var result = ""
-    var i = 0
-    
-    while i < size(input_bytes)
-        var b1 = input_bytes[i]
-        var b2 = (i + 1 < size(input_bytes)) ? input_bytes[i + 1] : 0
-        var b3 = (i + 2 < size(input_bytes)) ? input_bytes[i + 2] : 0
-        
-        var n = (b1 << 16) | (b2 << 8) | b3
-        
-        result += b64[(n >> 18) & 0x3F]
-        result += b64[(n >> 12) & 0x3F]
-        result += (i + 1 < size(input_bytes)) ? b64[(n >> 6) & 0x3F] : "="
-        result += (i + 2 < size(input_bytes)) ? b64[n & 0x3F] : "="
-        
-        i += 3
-    end
-    
-    return result
-end
-
-def init_auth()
-    AUTH_BASIC = "Basic " + base64_encode(USERNAME + ":" + PASSWORD)
 end
 
 # ============================================
@@ -307,7 +277,7 @@ def upload_all_files()
         if !path.isdir(filepath)
             if size(filename) > 0 && filename[0..0] == "."
                 skipped += 1
-            elif filename == "push_v2.be" || filename == "esp32.cfg"
+            elif filename == "push.be" || filename == "esp32.cfg"
                 skipped += 1
             else
                 if upload_one_file(filepath)
@@ -334,7 +304,7 @@ def process_device(ville_param, device_param, sid)
     device = device_param
     
     print("============================================================")
-    print("PUSH_V2 - " + ville + "/" + device)
+    print("PUSH - " + ville + "/" + device)
     print("============================================================")
     
     ensure_target_directory(sid)
@@ -350,8 +320,6 @@ def process_device(ville_param, device_param, sid)
 end
 
 def main()
-    init_auth()
-    
     var file = open("esp32.cfg", "rt")
     if file == nil
         fail("Impossible de lire esp32.cfg", nil)
