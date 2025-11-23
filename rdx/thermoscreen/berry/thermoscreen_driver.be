@@ -210,7 +210,7 @@ class RDX
             self.set_stm32()
             power = 1
         else
-//            var standby = string.format("%d:%d:1:1",global.setup['onoff'],global.setup['mode'])
+#            var standby = string.format("%d:%d:1:1",global.setup['onoff'],global.setup['mode'])
             var standby = string.format("%0:%d:%d:%d",global.setup['mode'],global.setup['fanspeed'],global.setup['heatpower'])
             self.ser.write(bytes().fromstring(standby))
             power = 0

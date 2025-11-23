@@ -284,12 +284,14 @@ class conso
                     if month == 12  # décembre
                         self.consojson["months"][i]["DATA"]["Jan"] = 0
                     else
-                        self.consojson["months"][i]["DATA"][str(self.month_list[month + 1])]
+                        self.consojson["months"][i]["DATA"][self.month_list[month + 1]] = 0  # ← ADD = 0
                     end
                 end
                # consommation
                 if scope != "hours"
-                    self.calcul_cout(month, day_of_week, payload_hours, global.configjson[global.device]["root"][i])
+                    # Calculate YESTERDAY's cost (the day that just ended)
+                    var yesterday = (day_of_week - 1 + 7) % 7
+                    self.calcul_cout(month, yesterday, payload_hours, global.configjson[global.device]["root"][i])
                 end
             end
         end
