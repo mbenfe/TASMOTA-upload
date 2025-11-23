@@ -15,6 +15,50 @@ class RDX
     var relay
     var day_list
     var count
+
+    def check_gpio()
+        # Check if GPIOs are configured correctly
+        var gpio_result = tasmota.cmd("Gpio")
+        
+        if gpio_result != nil
+            # Check GPIO7 (DS18x20-1 - 1312)
+            if gpio_result['GPIO7'] != nil
+                if !gpio_result['GPIO7'].contains('1312')
+                    mqttprint("WARNING: GPIO7 not DS18x20-1! Reconfiguring...")
+                    tasmota.cmd("Gpio7 1312")
+                end
+            end
+            
+            # Check GPIO8 (SDA-1 - 640)
+            if gpio_result['GPIO8'] != nil
+                if !gpio_result['GPIO8'].contains('640')
+                    mqttprint("WARNING: GPIO8 not SDA-1! Reconfiguring...")
+                    tasmota.cmd("Gpio8 640")
+                end
+            end
+            
+            # Check GPIO18 (SCL-1 - 608)
+            if gpio_result['GPIO18'] != nil
+                if !gpio_result['GPIO18'].contains('608')
+                    mqttprint("WARNING: GPIO18 not SCL-1! Reconfiguring...")
+                    tasmota.cmd("Gpio18 608")
+                end
+            end
+            
+            # Check GPIO19 (DS18x20-2 - 1313) - LAST
+            if gpio_result['GPIO19'] != nil
+                if !gpio_result['GPIO19'].contains('1313')
+                    mqttprint("WARNING: GPIO19 not DS18x20-2! Reconfiguring...")
+                    tasmota.cmd("Gpio19 1313")
+                end
+            end
+        else
+            mqttprint("ERROR: Cannot read GPIO configuration")
+            return false
+        end
+        
+        return true
+    end
  
     def mysetup(topic, idx, payload_s, payload_b)
         var myjson = json.load(payload_s)
@@ -155,6 +199,8 @@ class RDX
         var target
         var power
         var temperature = 99
+
+        self.check_gpio()
 
         if(global.tempsource[0] == "ds")
             temperature = ds18b20.poll("ds")
