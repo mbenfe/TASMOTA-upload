@@ -76,7 +76,7 @@ class my_zb_handler
         end
         
         if myjson.contains("Temperature")
-            if(myjson["Temperature"] > -25 &&  myjson["Temperature"] < 100 )
+            if(myjson["Temperature"] > -25 &&  myjson["Temperature"] < 50 )
                 topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client,global.ville, mydevice.name)
                 mqtt.publish(topic, json.dump(self.sensors[mydevice.name]), true)
             else

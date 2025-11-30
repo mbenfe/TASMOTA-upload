@@ -1,0 +1,215 @@
+{
+    "applications": [
+        {
+            "type": "Home",
+            "label": "Home",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "OpenWeather",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "MAISON",
+                    "master": "",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "label": "Conso",
+            "level": 1,
+            "type": "PieConso",
+            "virtuel": 0,
+            "data": [
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "TGBT",
+                    "master": "main",
+                    "row": 1,
+                    "slave": [
+                        "fpos",
+                        "fneg",
+                        "caisses",
+                        "drive",
+                        "fext",
+                        "ecext",
+                        "station"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Magasin",
+            "level": 1,
+            "type": "iAerotherm",
+            "virtuel": 0,
+            "data": [
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Boisson",
+                    "master": "aerotherme-1-2_1",
+                    "row": 1,
+                    "slave": [
+                        "aerotherme-1-2_1"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 2,
+                    "location": "Surgeles",
+                    "master": "aerotherme-1-2_2",
+                    "row": 1,
+                    "slave": [
+                        "aerotherme-1-2_1"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Vitrine centre",
+                    "master": "aerotherm3",
+                    "row": 2,
+                    "slave": [
+                        "aerotherm3"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 2,
+                    "location": "Caisses",
+                    "master": "aerotherm4",
+                    "row": 2,
+                    "slave": [
+                        "aerotherm4"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Traiteur",
+                    "master": "aerotherm5",
+                    "row": 3,
+                    "slave": [
+                        "aerotherm5"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 2,
+                    "location": "Accueil",
+                    "master": "aerotherm6",
+                    "row": 3,
+                    "slave": [
+                        "aerotherm6"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Entree Magasin",
+                    "master": "aerotherm7",
+                    "row": 4,
+                    "slave": [
+                        "aerotherm7"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Direction",
+            "level": 1,
+            "type": "iChauffage",
+            "virtuel": 0,
+            "data": [
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Anne & Bruno",
+                    "master": "ch6_d",
+                    "row": 1,
+                    "slave": [
+                        "ch6_d",
+                        "ch7_d"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 2,
+                    "location": "Corinne",
+                    "master": "ch5_d",
+                    "row": 1,
+                    "slave": [
+                        "ch5_d"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Cuisine",
+                    "master": "ch4_d",
+                    "row": 2,
+                    "slave": [
+                        "ch4_d"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 2,
+                    "location": "Bureau Libre",
+                    "master": "ch3_d",
+                    "row": 2,
+                    "slave": [
+                        "ch3_d"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Salle reunion",
+                    "master": "ch1_d",
+                    "row": 3,
+                    "slave": [
+                        "ch1_d",
+                        "ch2_d"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Bureau cafe",
+                    "master": "ch4_r",
+                    "row": 4,
+                    "slave": [
+                        "ch4_r"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 2,
+                    "location": "Mezzanine Didier",
+                    "master": "ch5_r",
+                    "row": 4,
+                    "slave": [
+                        "ch5_r"
+                    ]
+                },
+                {
+                    "color": 0,
+                    "column": 1,
+                    "location": "Salle reserve",
+                    "master": "ch1_r",
+                    "row": 1,
+                    "slave": [
+                        "ch1_r",
+                        "ch2_r",
+                        "ch3_r"
+                    ]
+                }
+            ]
+        }
+    ]
+}

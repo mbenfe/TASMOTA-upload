@@ -1,7 +1,7 @@
 var version = "2.0.102025 aht20 auto"
 
 # SDA IO21
-# SCL IO9
+# SCL IO
 
 import string
 import global

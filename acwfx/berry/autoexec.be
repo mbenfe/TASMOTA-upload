@@ -1,7 +1,4 @@
-var version = "2.0.102025 aht20 auto"
-
-# SDA IO21
-# SCL IO9
+var version = "1.0.082025 initiale"
 
 import string
 import global
@@ -10,28 +7,31 @@ import json
 import gpio
 import path
 
-var ser                # serial object
-var bsl_out = 32   
+# Define mqttprint function
+def mqttprint(texte)
+    var payload =string.format("{\"texte\":\"%s\"}", texte)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
+    mqtt.publish(topic, payload, true)
+end
 
 # Define loadconfig function
 def loadconfig()
+    print("loading esp32.cfg")
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     file.close()
     var myjson = json.load(buffer)
-    global.ville = myjson["ville"]
-    global.device = myjson["device"]
-    global.location = myjson["location"]
     global.client = myjson["client"]
+    global.ville = myjson["ville"]
+    global.device = myjson["device"]  # Changed from "devices" to "device"
+    global.location = myjson["location"]
+    global.driver = myjson["driver"]
+    print('esp32.cfg loaded')
 end
 
-# Define mqttprint function
-def mqttprint(texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
-    mqtt.publish(topic, texte, true)
-end
 
 #-------------------------------- FONCTIONS -----------------------------------------#
+# Function to update the city in the configuration file
 def ville(cmd, idx, payload, payload_json)
     import json
     var file = open("esp32.cfg", "rt")
@@ -46,12 +46,18 @@ def ville(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
+# Function to update the device in the configuration file
 def device(cmd, idx, payload, payload_json)
     import json
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     var myjson = json.load(buffer)
-    myjson["device"] = payload
+    
+    # Parse payload as space-separated list of devices
+    var device_list = string.split(payload, ' ')
+    myjson["devices"] = device_list  # Changed from "device" to "devices"
+    myjson["nombre"] = size(device_list)  # Update nombre automatically
+    
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg", "wt")
@@ -60,12 +66,18 @@ def device(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
+# Function to update the location in the configuration file
 def location(cmd, idx, payload, payload_json)
     import json
-    var file = open("esp32.cfg", "rt")
-    var buffer = file.read()
-    var myjson = json.load(buffer)
-    myjson["location"] = payload
+    var file
+    var buffer
+    var myjson
+    var arguments
+    arguments = string.split(payload, ' ')
+    file = open("esp32.cfg", "rt")
+    buffer = file.read()
+    myjson = json.load(buffer)
+    myjson["location"][int(arguments[0])] = arguments[1]
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg", "wt")
@@ -74,6 +86,7 @@ def location(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
+# Function to download a file from a URL and save it locally
 def getfile(cmd, idx, payload, payload_json)
     import string
     import path
@@ -110,6 +123,7 @@ def getfile(cmd, idx, payload, payload_json)
     return st
 end
 
+# Function to list files in the root directory and their details
 def dir(cmd, idx, payload, payload_json)
     import path
     var liste
@@ -129,69 +143,65 @@ def dir(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd_done()
 end
 
-def set(cmd, idx, payload, payload_json)
-    var arguments = string.split(payload, ' ')
-    var file = open("thermostat_intermarche.json", "rt")
-    var myjson = file.read()
-    file.close()
-    var thermostat = json.load(myjson)  
-    if arguments[0] == "offset"
-        thermostat['offset'] = real(arguments[1])
-    elif arguments[0] == "ouvert"
-        thermostat['ouvert'] = real(arguments[1])
-    elif arguments[0] == "ferme"
-        thermostat['ferme'] = real(arguments[1])
-    elif arguments[0] == "lundi"
-        thermostat['lundi']['debut'] = real(arguments[1])
-        thermostat['lundi']['fin'] = real(arguments[2])
-    elif arguments[0] == "mardi"
-        thermostat['mardi']['debut'] = real(arguments[1])
-        thermostat['mardi']['fin'] = real(arguments[2])
-    elif arguments[0] == "mercredi"
-        thermostat['mercredi']['debut'] = real(arguments[1])
-        thermostat['mercredi']['fin'] = real(arguments[2])
-    elif arguments[0] == "jeudi"
-        thermostat['jeudi']['debut'] = real(arguments[1])
-        thermostat['jeudi']['fin'] = real(arguments[2])
-    elif arguments[0] == "vendredi"
-        thermostat['vendredi']['debut'] = real(arguments[1])
-        thermostat['vendredi']['fin'] = real(arguments[2])
-    elif arguments[0] == "samedi"
-        thermostat['samedi']['debut'] = real(arguments[1])
-        thermostat['samedi']['fin'] = real(arguments[2])
-    elif arguments[0] == "dimanche"
-        thermostat['dimanche']['debut'] = real(arguments[1])
-        thermostat['dimanche']['fin'] = real(arguments[2])
+# Function to set thermostat parameters
+def cal(cmd, idx, payload, payload_json)
+    var arguments
+    var file 
+    var myjson
+    var calibration
+    var name
+    arguments = string.split(payload, ' ')
+    if size(arguments) < 2
+        mqttprint("Error: Invalid arguments for cal command .e.g cal pt 21 or cal dsin 21")
+        tasmota.resp_cmnd('Invalid arguments')
+        return
     end
-    var buffer = json.dump(thermostat)
-    file = open("thermostat_intermarche.json", "wt")
+    name ="calibration.json"
+    file = open(name, "rt")
+    myjson = file.read()
+    file.close()
+
+    calibration = json.load(myjson)  
+
+    if arguments[0] == 'pt'
+        calibration['pt'] = real(global.average_temperature)*real(global.factor)/real(arguments[1])
+        print("avg: " + str(global.average_temperature)," factor: " + str(global.factor), "calibration: " + str(calibration['pt']))
+        global.factor = calibration['pt']
+        print("calibration['pt'] = " + str(calibration['pt']))
+    elif arguments[0] == 'dsin'
+        calibration['dsin_offset'] = real(arguments[1])-global.dsin
+        print("dsin_offset: " + str(calibration['dsin_offset']))
+    else
+        mqttprint("Error: Invalid sensor type. Use 'pt' or 'dsin'.")
+        tasmota.resp_cmnd('Invalid sensor type')
+        return
+    end
+    
+    var buffer = json.dump(calibration)
+    print(buffer)
+    file = open(name, "wt")
     file.write(buffer)
     file.close()
-
-    var topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville, global.device)
-    mqtt.publish(topic, buffer, true)
-
-    tasmota.resp_cmnd('done')
-    tasmota.cmd("restart 1")
+    tasmota.resp_cmnd_done()
 end
 
+# Function to get thermostat parameters
 def get(cmd, idx, payload, payload_json)
-    var file = open("thermostat_intermarche.json", "rt")
-    var myjson = file.read()
+    var file
+    var myjson
+    var name
+    name ="setup_" + payload + ".json"
+    file = open(name, "rt")
+    myjson = file.read()
     file.close()
 
-    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device)
+    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.esp_device+"_"+payload)
     mqtt.publish(topic, myjson, true)
 
     tasmota.resp_cmnd('done')
 end
 
-
-def launch_driver()
-    mqttprint('mqtt connected -> launch driver')
-    tasmota.load('chx_driver.be')
-end
-
+# Function to get the version of the files
 def getversion()
     var fichier
     var files = path.listdir("/")
@@ -212,7 +222,26 @@ def getversion()
     tasmota.resp_cmnd_done()
 end
 
+def launch_driver()
+    mqttprint('load ' + global.driver)
+    tasmota.load(global.driver)
+    mqttprint(global.driver + ' driver loaded')
+    # tasmota.load("flashex_driver.be")
+    # mqttprint('flashex_driver loaded')
+end
+
+def Stm32Reset()
+    print('RESET:reset STM32')
+    gpio.digital_write(global.rst_pin, 0)
+    tasmota.delay(5)               # wait 5ms
+    gpio.digital_write(global.rst_pin, 1)
+    tasmota.resp_cmnd('STM32 reset')
+    print('RESET:free heap:',tasmota.get_free_heap())
+end
+
+
 #-------------------------------- BASH -----------------------------------------#
+
 tasmota.cmd("seriallog 0")
 mqttprint("serial log disabled")
 
@@ -230,13 +259,12 @@ mqttprint("ville:" + str(global.ville))
 mqttprint("client:" + str(global.client))
 mqttprint("device:" + str(global.device))
 mqttprint("location:" + str(global.location))
+mqttprint("driver:" + str(global.driver))
 
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
-tasmota.add_cmd('set', set)
+tasmota.add_cmd('cal', cal)
+tasmota.add_cmd('stm32reset', Stm32Reset)
 
-mqttprint('load command.be')
-tasmota.load('command.be')
-
-mqttprint('load chx_driver')
-tasmota.load('chx_driver.be')
+print(" wait 10s for drivers loading")
+tasmota.set_timer(10000,launch_driver)

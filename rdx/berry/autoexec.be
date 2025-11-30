@@ -1,7 +1,4 @@
-var version = "2.0.102025 aht20 auto"
-
-# SDA IO21
-# SCL IO9
+var version = "1.0.022025 initiale"
 
 import string
 import global
@@ -11,7 +8,6 @@ import gpio
 import path
 
 var ser                # serial object
-var bsl_out = 32   
 
 # Define loadconfig function
 def loadconfig()
@@ -20,9 +16,10 @@ def loadconfig()
     file.close()
     var myjson = json.load(buffer)
     global.ville = myjson["ville"]
+    global.client = myjson["client"]
     global.device = myjson["device"]
     global.location = myjson["location"]
-    global.client = myjson["client"]
+    global.driver = myjson["driver"]
 end
 
 # Define mqttprint function
@@ -59,6 +56,22 @@ def device(cmd, idx, payload, payload_json)
     file.close()
     tasmota.resp_cmnd('done')
 end
+
+def setdriver(cmd, idx, payload, payload_json)
+    import json
+    mqttprint('set driver:' + payload)
+    var file = open("esp32.cfg", "rt")
+    var buffer = file.read()
+    var myjson = json.load(buffer)
+    myjson["driver"] = payload
+    buffer = json.dump(myjson)
+    file.close()
+    file = open("esp32.cfg", "wt")
+    file.write(buffer)
+    file.close()
+    tasmota.resp_cmnd('done')
+end
+
 
 def location(cmd, idx, payload, payload_json)
     import json
@@ -131,65 +144,53 @@ end
 
 def set(cmd, idx, payload, payload_json)
     var arguments = string.split(payload, ' ')
-    var file = open("thermostat_intermarche.json", "rt")
+    var file = open("horaires.json", "rt")
     var myjson = file.read()
     file.close()
-    var thermostat = json.load(myjson)  
-    if arguments[0] == "offset"
-        thermostat['offset'] = real(arguments[1])
-    elif arguments[0] == "ouvert"
-        thermostat['ouvert'] = real(arguments[1])
-    elif arguments[0] == "ferme"
-        thermostat['ferme'] = real(arguments[1])
-    elif arguments[0] == "lundi"
-        thermostat['lundi']['debut'] = real(arguments[1])
-        thermostat['lundi']['fin'] = real(arguments[2])
+    var horaires = json.load(myjson)  
+    if arguments[0] == "lundi"
+        horaires['lundi']['debut'] = real(arguments[1])
+        horaires['lundi']['fin'] = real(arguments[2])
     elif arguments[0] == "mardi"
-        thermostat['mardi']['debut'] = real(arguments[1])
-        thermostat['mardi']['fin'] = real(arguments[2])
+        horaires['mardi']['debut'] = real(arguments[1])
+        horaires['mardi']['fin'] = real(arguments[2])
+    elif arguments[0] == "mardi"
+        horaires['mercredi']['debut'] = real(arguments[1])
+        horaires['mercredi']['fin'] = real(arguments[2])
+    elif arguments[0] == "mardi"
+        horaires['jeudi']['debut'] = real(arguments[1])
+        horaires['jeudi']['fin'] = real(arguments[2])
+    elif arguments[0] == "mardi"
+        horaires['vendredi']['debut'] = real(arguments[1])
+        horaires['vendredi']['fin'] = real(arguments[2])
     elif arguments[0] == "mercredi"
-        thermostat['mercredi']['debut'] = real(arguments[1])
-        thermostat['mercredi']['fin'] = real(arguments[2])
+        horaires['samedi']['debut'] = real(arguments[1])
+        horaires['samedi']['fin'] = real(arguments[2])
     elif arguments[0] == "jeudi"
-        thermostat['jeudi']['debut'] = real(arguments[1])
-        thermostat['jeudi']['fin'] = real(arguments[2])
-    elif arguments[0] == "vendredi"
-        thermostat['vendredi']['debut'] = real(arguments[1])
-        thermostat['vendredi']['fin'] = real(arguments[2])
-    elif arguments[0] == "samedi"
-        thermostat['samedi']['debut'] = real(arguments[1])
-        thermostat['samedi']['fin'] = real(arguments[2])
-    elif arguments[0] == "dimanche"
-        thermostat['dimanche']['debut'] = real(arguments[1])
-        thermostat['dimanche']['fin'] = real(arguments[2])
+        horaires['dimanche']['debut'] = real(arguments[1])
+        horaires['dimanche']['fin'] = real(arguments[2])
     end
-    var buffer = json.dump(thermostat)
-    file = open("thermostat_intermarche.json", "wt")
+    var buffer = json.dump(horaires)
+    file = open("hhoraires.json", "wt")
     file.write(buffer)
     file.close()
 
-    var topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville, global.device)
+    var topic = string.format("app/%s/%s/%s/set/HORAIRES", global.client, global.ville, global.device)
     mqtt.publish(topic, buffer, true)
 
     tasmota.resp_cmnd('done')
     tasmota.cmd("restart 1")
 end
 
-def get(cmd, idx, payload, payload_json)
-    var file = open("thermostat_intermarche.json", "rt")
-    var myjson = file.read()
-    file.close()
-
-    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device)
-    mqtt.publish(topic, myjson, true)
-
-    tasmota.resp_cmnd('done')
-end
-
-
 def launch_driver()
+    import path
+    var name = global.driver + '_driver.be'
     mqttprint('mqtt connected -> launch driver')
-    tasmota.load('chx_driver.be')
+    if path.exists(name)
+        tasmota.load(global.driver+'_driver.be')
+    else
+        mqttprint('driver not found: ' + name)
+    end
 end
 
 def getversion()
@@ -223,20 +224,18 @@ tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('ville', ville)
 tasmota.add_cmd('device', device)
 tasmota.add_cmd('location', location)
-
+tasmota.add_cmd('setdriver', setdriver)
 # Initialize configuration
 loadconfig()
 mqttprint("ville:" + str(global.ville))
 mqttprint("client:" + str(global.client))
 mqttprint("device:" + str(global.device))
 mqttprint("location:" + str(global.location))
+mqttprint("driver:" + str(global.driver))
 
 tasmota.add_cmd('getversion', getversion)
-tasmota.add_cmd('get', get)
-tasmota.add_cmd('set', set)
 
 mqttprint('load command.be')
 tasmota.load('command.be')
 
-mqttprint('load chx_driver')
-tasmota.load('chx_driver.be')
+launch_driver()

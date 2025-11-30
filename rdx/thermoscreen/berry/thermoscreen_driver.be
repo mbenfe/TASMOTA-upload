@@ -54,21 +54,6 @@ class RDX
         var gpio_result = tasmota.cmd("Gpio")
         
         if gpio_result != nil
-            # Check GPIO6 (I2C SCL - 608)
-            if gpio_result['GPIO6'] != nil
-                if !gpio_result['GPIO6'].contains('608')
-                    mqttprint("WARNING: GPIO6 not I2C SCL! Reconfiguring...")
-                    tasmota.cmd("Gpio6 608")
-                end
-            end
-            
-            # Check GPIO7 (I2C SDA - 640)
-            if gpio_result['GPIO7'] != nil
-                if !gpio_result['GPIO7'].contains('640')
-                    mqttprint("WARNING: GPIO7 not I2C SDA! Reconfiguring...")
-                    tasmota.cmd("Gpio7 640")
-                end
-            end
             
             # Check GPIO8 (DS18x20-1 - 1312)
             if gpio_result['GPIO8'] != nil
@@ -76,15 +61,7 @@ class RDX
                     mqttprint("WARNING: GPIO8 not DS18x20-1! Reconfiguring...")
                     tasmota.cmd("Gpio8 1312")
                 end
-            end
-            
-            # Check GPIO20 (DS18x20-2 - 1313)
-            if gpio_result['GPIO20'] != nil
-                if !gpio_result['GPIO20'].contains('1313')
-                    mqttprint("WARNING: GPIO20 not DS18x20-2! Reconfiguring...")
-                    tasmota.cmd("Gpio20 1313")
-                end
-            end
+            end            
         else
             mqttprint("ERROR: Cannot read GPIO configuration")
             return false
@@ -211,7 +188,7 @@ class RDX
             power = 1
         else
 #            var standby = string.format("%d:%d:1:1",global.setup['onoff'],global.setup['mode'])
-            var standby = string.format("%0:%d:%d:%d",global.setup['mode'],global.setup['fanspeed'],global.setup['heatpower'])
+            var standby = string.format("0:%d:%d:%d",global.setup['mode'],global.setup['fanspeed'],global.setup['heatpower'])
             self.ser.write(bytes().fromstring(standby))
             power = 0
         end
