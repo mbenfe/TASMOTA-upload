@@ -1,0 +1,7 @@
+IO9 1W out (external DS18B20 #1)
+IO21 Marche
+IO20 Arret
+IO6  Chauffage
+IO7 Ventillation
+IO18 Relay 2
+IO19 Relay 1
