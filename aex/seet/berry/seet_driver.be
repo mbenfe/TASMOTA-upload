@@ -94,9 +94,9 @@ class AEROTHERME
         global.setup['dimanche'] = myjson['DATA']['dimanche']
        
         var buffer = json.dump(global.setup)
-        var file = open("setup_device.json", "wt")
+        var file = open("setup.json", "wt")
         if file == nil
-            mqttprint("Error: Failed to open setup_device.json for writing")
+            mqttprint("Error: Failed to open setup.json for writing")
             return
         end
         file.write(buffer)
@@ -113,16 +113,16 @@ class AEROTHERME
     def init()
         var file
         var myjson        
-        file = open("setup_device.json", "rt")
+        file = open("setup.json", "rt")
         if file == nil
-            mqttprint("Error: Failed to open setup_device.json")
+            mqttprint("Error: Failed to open setup.json")
             return
         end
         myjson = file.read()
         file.close()
         global.setup = json.load(myjson)
         if global.setup == nil
-            mqttprint("Error: Failed to parse setup_device.json")
+            mqttprint("Error: Failed to parse setup.json")
             return
         end
         print(global.setup)
@@ -158,7 +158,7 @@ class AEROTHERME
     end
 
     # Poll IO inputs every 250ms and control relays accordingly
-    def every_250ms()
+    def every_second()
         var marche = gpio.digital_read(global.io_marche)
         var arret = gpio.digital_read(global.io_arret)
         var chauffage = gpio.digital_read(global.io_chauffage)
@@ -168,27 +168,27 @@ class AEROTHERME
             # Stop: both relays OFF
             gpio.digital_write(global.relay1, 0)  # Relay 1 OFF
             gpio.digital_write(global.relay2, 0)  # Relay 2 OFF
-        elif marche == 1
+        elif marche == 1 && global.power == 1 && global.setup['onoff'] == 1
             # Start: both relays ON
             gpio.digital_write(global.relay1, 1)  # Relay 1 ON
             gpio.digital_write(global.relay2, 1)  # Relay 2 ON
         elif chauffage == 1
             # Heating: Relay 1 OFF, Relay 2 ON
-            gpio.digital_write(global.relay1, 0)  # Relay 1 OFF
-            gpio.digital_write(global.relay2, 1)  # Relay 2 ON
+            gpio.digital_write(global.relay1, 1)  # Relay 1 OFF
+            gpio.digital_write(global.relay2, 0)  # Relay 2 ON
         elif ventilation == 1
             # Ventilation: Relay 1 ON, Relay 2 OFF
-            gpio.digital_write(global.relay1, 1)  # Relay 1 ON
-            gpio.digital_write(global.relay2, 0)  # Relay 2 OFF
+            gpio.digital_write(global.relay1, 0)  # Relay 1 ON
+            gpio.digital_write(global.relay2, 1)  # Relay 2 OFF
         end
     end
 
     def mypush()
         var file
         var myjson        
-        file = open("setup_device.json", "rt")
+        file = open("setup.json", "rt")
         if file == nil
-            mqttprint("Error: Failed to open setup_device.json")
+            mqttprint("Error: Failed to open setup.json")
             return
         end
         myjson = file.read()
@@ -217,7 +217,6 @@ class AEROTHERME
         var payload
         var topic
         var target
-        var power
         var temperature = 99
 
         self.check_gpio()
@@ -228,7 +227,7 @@ class AEROTHERME
         var chauffage = gpio.digital_read(global.io_chauffage)
         var ventilation = gpio.digital_read(global.io_ventilation)
         
-        if marche == 0 && arret == 0 && chauffage == 0 && ventilation == 0
+        if marche == 1
             # No IO input active - use scheduled temperature control
             if(global.tempsource[0] == "ds")
                 temperature = self.poll("ds")
@@ -246,36 +245,32 @@ class AEROTHERME
                 target = global.setup['ouvert']
                 if (temperature < target && global.setup['onoff'] == 1)
                     gpio.digital_write(global.relay1, 1)
-                    power = 1
+                    gpio.digital_write(global.relay2, 1)
+                    global.power = 1
                 else
                     gpio.digital_write(global.relay1, 0)
-                    power = 0
+                    gpio.digital_write(global.relay2, 0)
+                    global.power = 0
                 end
             else
                 target = global.setup['ferme']
                 if (temperature < target && global.setup['onoff'] == 1)
                     gpio.digital_write(global.relay1, 1)
-                    power = 1
+                    gpio.digital_write(global.relay2, 1)
+                    global.power = 1
                 else
                     gpio.digital_write(global.relay1, 0)
-                    power = 0
+                    global.power = 0
                 end
             end
-        else
-            # IO input is active - rely on poll_io() for relay control
-            target = -1  # Not applicable
-            power = (gpio.digital_read(global.relay1) || gpio.digital_read(global.relay2)) ? 1 : 0
         end
 
         payload = string.format('{"Device":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d,"onoff":%d}', 
-            global.device, temperature-global.setup['offset'], global.setup['ouvert'], global.setup['ferme'], global.setup['offset'], global.location, target, global.tempsource[0], power, global.setup['onoff'])
+            global.device, temperature-global.setup['offset'], global.setup['ouvert'], global.setup['ferme'], global.setup['offset'], global.location, target, global.tempsource[0], global.power, global.setup['onoff'])
         topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
     end
 
-    # Function to execute every second
-    def every_second()
-    end
 
     def remote_sensor(topic, idx, payload_s, payload_b)
         var myjson = json.load(payload_s)

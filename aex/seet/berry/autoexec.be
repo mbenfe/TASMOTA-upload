@@ -18,7 +18,7 @@ import path
 # CONFIGURATION HIERARCHY:
 # 1. esp32.cfg - Device identity (ville, device, location, client)
 # 2. config.json - Sensor availability per ville/device
-# 3. setup_device.json - Heating/cooling setpoints and schedules
+# 3. setup.json - Heating/cooling setpoints and schedules
 # 4. calibration.json - Temperature sensor offsets
 #
 # HARDWARE:
@@ -55,7 +55,7 @@ import path
 # 4. Register MQTT commands (getfile, dir, ville, device, location, etc.)
 # 5. Wait 10 seconds (delay for MQTT broker connection)
 # 6. Load seet_driver.be → launches driver with:
-#    - Load setup_device.json → heating/cooling schedules
+#    - Load setup.json → heating/cooling schedules
 #    - GPIO configuration (inputs + outputs)
 #    - MQTT subscriptions
 #    - every_250ms() loop for IO polling
@@ -295,7 +295,7 @@ def get(cmd, idx, payload, payload_json)
     var file
     var myjson
     var name
-    name = "setup_device.json"
+    name = "setup.json"
     file = open(name, "rt")
     myjson = file.read()
     file.close()
