@@ -65,6 +65,9 @@ class AEROTHERME
             mqttprint("Error: Failed to parse JSON payload")
             return
         end
+        print( "mysetup called")
+        print( "Topic: " + topic)
+        print( "SETUP data received: " + payload_s)
         var arguments = string.split(topic, '/')
         var index = 99
         for i:0..size(global.config)-1
@@ -108,6 +111,10 @@ class AEROTHERME
         mqtt.publish(newtopic, payload, true)
 
         # switch on/off leds
+        if(global.pcf == nil)
+            mqttprint("Error: PCF driver not found") 
+            return 
+        end
         global.pcf.onoff(global.setups[index]['onoff'],index)
         self.every_minute()  # Update the state immediately
     end

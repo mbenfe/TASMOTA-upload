@@ -378,5 +378,5 @@ tasmota.add_cmd('cal', cal)
 # #mqttprint('load command.be')
 # #tasmota.load('command.be')
 
-print(" wait 10s for drivers loading")
-tasmota.set_timer(10000,launch_driver)
+print(" wait 30s for drivers loading")
+tasmota.set_timer(30000,launch_driver)

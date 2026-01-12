@@ -29,17 +29,31 @@ class CHX
         var payload
         newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
 
-        self.setups['mode'] = myjson['mode']
-        # attention ne pas changer offset !!!!!!!!
-        self.setups['ouvert'] = myjson['ouvert']
-        self.setups['ferme'] = myjson['ferme']
-        self.setups['lundi'] = myjson['lundi']
-        self.setups['mardi'] = myjson['mardi']
-        self.setups['mercredi'] = myjson['mercredi']
-        self.setups['jeudi'] = myjson['jeudi']
-        self.setups['vendredi'] = myjson['vendredi']
-        self.setups['samedi'] = myjson['samedi']
-        self.setups['dimanche'] = myjson['dimanche']
+        if(myjson.contains("data"))
+            self.setups['mode'] = myjson['data']['mode']
+            # attention ne pas changer offset !!!!!!!!
+            self.setups['ouvert'] = myjson['data']['ouvert']
+            self.setups['ferme'] = myjson['data']['ferme']
+            self.setups['lundi'] = myjson['data']['lundi']
+            self.setups['mardi'] = myjson['data']['mardi']
+            self.setups['mercredi'] = myjson['data']['mercredi']
+            self.setups['jeudi'] = myjson['data']['jeudi']
+            self.setups['vendredi'] = myjson['data']['vendredi']
+            self.setups['samedi'] = myjson['data']['samedi']
+            self.setups['dimanche'] = myjson['data']['dimanche']
+        else
+            self.setups['mode'] = myjson['mode']
+            # attention ne pas changer offset !!!!!!!!
+            self.setups['ouvert'] = myjson['ouvert']
+            self.setups['ferme'] = myjson['ferme']
+            self.setups['lundi'] = myjson['lundi']
+            self.setups['mardi'] = myjson['mardi']
+            self.setups['mercredi'] = myjson['mercredi']
+            self.setups['jeudi'] = myjson['jeudi']
+            self.setups['vendredi'] = myjson['vendredi']
+            self.setups['samedi'] = myjson['samedi']
+            self.setups['dimanche'] = myjson['dimanche']
+        end
         
         var buffer = json.dump(self.setups)
         var name = "thermostat_intermarche.json"
@@ -98,6 +112,36 @@ class CHX
         mqttprint("subscribed to SETUP:"+global.device)
     end
 
+        def check_gpio()
+        # Check if GPIOs are configured correctly
+        var gpio_result = tasmota.cmd("Gpio")
+        
+        if gpio_result != nil
+             
+            # Check GPI21 (SDA-1 - 640)
+            if gpio_result['GPIO21'] != nil
+                if !gpio_result['GPIO21'].contains('640')
+                    mqttprint("WARNING: GPIO21 not SDA-1! Reconfiguring...")
+                    tasmota.cmd("Gpio21 640")
+                end
+            end
+            
+            # Check GPIO09 (SCL-1 - 608)
+            if gpio_result['GPIO9'] != nil
+                if !gpio_result['GPIO9'].contains('608')
+                    mqttprint("WARNING: GPIO9 not SCL-1! Reconfiguring...")
+                    tasmota.cmd("Gpio9 608")
+                end
+            end
+        else
+            mqttprint("ERROR: Cannot read GPIO configuration")
+            return false
+        end
+        
+        return true
+    end
+
+
     def every_minute()
         var now = tasmota.rtc()
         var rtc = tasmota.time_dump(now["local"])
@@ -109,7 +153,11 @@ class CHX
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var jour = self.day_list[day_of_week]
-        var data = tasmota.read_sensors()
+        var data
+
+        self.check_gpio()
+
+        data = tasmota.read_sensors()
         if(data == nil)
             return
         end

@@ -32,23 +32,12 @@ class AEROTHERME
             return 99
         end
         var myjson = json.load(data)
-        if(myjson.contains("DS18B20-1"))
-            global.dsin = myjson["DS18B20-1"]["Temperature"]
-        end
-        if !myjson.contains("DS18B20-1") && target == "dsin"
-            return 99
-        end
-        if !myjson.contains("DS18B20-2") && target == "ds"
-            return 99
+        if(myjson.contains("DS18B20"))
+            global.dsin = myjson["DS18B20"]["Temperature"]
         end
 
-        if target == "dsin"
-            temperature = global.dsin + global.dsin_offset
-        elif target == "ds"
-            temperature = myjson["DS18B20-2"]["Temperature"]+ global.ds_offset
-        else
-            return 99
-        end
+        temperature = global.dsin + global.dsin_offset
+        
         return temperature
     end
 
@@ -194,8 +183,8 @@ class AEROTHERME
         myjson = file.read()
         file.close()
         var newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
-        var payload = string.format('{"Device":"%s","Name":"setup","TYPE":"SETUP","DATA":%s}',
-                global.device, myjson)
+        var payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}',
+                global.device, global.device, myjson)
         mqtt.publish(newtopic, payload, true)
     end
 
@@ -265,10 +254,11 @@ class AEROTHERME
             end
         end
 
-        payload = string.format('{"Device":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d,"onoff":%d}', 
-            global.device, temperature-global.setup['offset'], global.setup['ouvert'], global.setup['ferme'], global.setup['offset'], global.location, target, global.tempsource[0], global.power, global.setup['onoff'])
+        payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d,"onoff":%d}', 
+            global.device, global.device, temperature-global.setup['offset'], global.setup['ouvert'], global.setup['ferme'], global.setup['offset'], global.location, target, global.tempsource[0], global.power, global.setup['onoff'])
         topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
+        self.mypush()
     end
 
 
@@ -299,4 +289,4 @@ end
 var aerotherme = AEROTHERME()
 global.aerotherme = aerotherme  # Add this line to make aerotherme accessible globally
 tasmota.add_driver(aerotherme)
-tasmota.add_cron("0 * * * * *", /-> aerotherme.every_minute(), "every_min_@0_s")
+tasmota.add_cron("10 * * * * *", /-> aerotherme.every_minute(), "every_min_@0_s")
