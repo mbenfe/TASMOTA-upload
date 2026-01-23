@@ -16,6 +16,7 @@ class AEROTHERME
     var count
 
     def check_gpio()
+
         # Check if GPIOs are configured correctly
         var gpio_result = tasmota.cmd("Gpio")
         

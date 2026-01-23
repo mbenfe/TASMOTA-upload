@@ -344,9 +344,55 @@ def launch_driver()
     mqttprint('aerotherme_driver loaded')
 end
 
+def check_gpio()
+
+    # Check if GPIOs are configured correctly
+    var gpio_result = tasmota.cmd("Gpio")
+    
+    if gpio_result != nil
+        # Check GPIO6 (I2C SCL - 608)
+        if gpio_result['GPIO6'] != nil
+            if !gpio_result['GPIO6'].contains('608')
+                mqttprint("WARNING: GPIO6 not I2C SCL! Reconfiguring...")
+                tasmota.cmd("Gpio6 608")
+            end
+        end
+        
+        # Check GPIO7 (I2C SDA - 640)
+        if gpio_result['GPIO7'] != nil
+            if !gpio_result['GPIO7'].contains('640')
+                mqttprint("WARNING: GPIO7 not I2C SDA! Reconfiguring...")
+                tasmota.cmd("Gpio7 640")
+            end
+        end
+        
+        # Check GPIO8 (DS18x20-1 - 1312)
+        if gpio_result['GPIO8'] != nil
+            if !gpio_result['GPIO8'].contains('1312')
+                mqttprint("WARNING: GPIO8 not DS18x20-1! Reconfiguring...")
+                tasmota.cmd("Gpio8 1312")
+            end
+        end
+        
+        # Check GPIO20 (DS18x20-2 - 1313)
+        if gpio_result['GPIO20'] != nil
+            if !gpio_result['GPIO20'].contains('1313')
+                mqttprint("WARNING: GPIO20 not DS18x20-2! Reconfiguring...")
+                tasmota.cmd("Gpio20 1313")
+            end
+        end
+    else
+        mqttprint("ERROR: Cannot read GPIO configuration")
+        return false
+    end
+    
+    return true
+end
 
 
 #-------------------------------- BASH -----------------------------------------#
+
+check_gpio()
 
 tasmota.cmd("seriallog 0")
 mqttprint("serial log disabled")

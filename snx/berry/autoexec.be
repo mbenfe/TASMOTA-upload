@@ -32,6 +32,18 @@ def init()
     var myjson=json.load(buffer)
     ville=myjson["ville"]
     device=myjson["device"]
+    global.statistic_pin=14
+    global.ready_pin=27
+    gpio.pin_mode(global.statistic_pin,gpio.OUTPUT)
+    gpio.pin_mode(global.ready_pin,gpio.OUTPUT)
+ 
+    gpio.digital_write(global.statistic_pin, 0)
+    gpio.digital_write(global.ready_pin,1)
+
+    gpio.pin_mode(rst_in,gpio.OUTPUT)
+    gpio.pin_mode(bsl_in,gpio.OUTPUT)
+    gpio.digital_write(rst_in, 1)
+    gpio.digital_write(bsl_in, 0)
 end
 
 def mqttprint(texte)
@@ -42,24 +54,14 @@ end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Stm32Reset(cmd, idx, payload, payload_json)
-    if (payload=='in')
-        gpio.pin_mode(rst_in,gpio.OUTPUT)
-        gpio.pin_mode(bsl_in,gpio.OUTPUT)
-        gpio.digital_write(rst_in, 1)
-        gpio.digital_write(bsl_in, 0)
-  
+    if (payload=='in') 
         gpio.digital_write(rst_in, 0)
         tasmota.delay(100)               # wait 10ms
         gpio.digital_write(rst_in, 1)
         tasmota.delay(100)               # wait 10ms
         tasmota.resp_cmnd('STM32 IN reset')
     end
-    if (payload=='out')
-        gpio.pin_mode(rst_out,gpio.OUTPUT)
-        gpio.pin_mode(bsl_out,gpio.OUTPUT)
-        gpio.digital_write(rst_out, 1)
-        gpio.digital_write(bsl_out, 0)
-  
+    if (payload=='out')  
         gpio.digital_write(rst_out, 0)
         tasmota.delay(100)               # wait 10ms
         gpio.digital_write(rst_out, 1)
@@ -279,6 +281,13 @@ def launch_driver()
     tasmota.resp_cmnd_done()
 end
 
+def statistic()
+        gpio.digital_write(global.statistic_pin, 1)
+        tasmota.delay(1)
+        gpio.digital_write(global.statistic_pin, 0)
+    end
+
+
 
 
 #-------------------------------- BASH -----------------------------------------#
@@ -300,6 +309,7 @@ tasmota.add_cmd('ville',ville)
 tasmota.add_cmd('device',device)
 
 tasmota.add_cmd('getversion',getversion)
+tasmota.add_cmd('statistic',statistic)
 
 
 init()

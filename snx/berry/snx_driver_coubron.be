@@ -3,11 +3,9 @@ var version = "1.0.112024 ready to H7"
 import mqtt
 import string
 import json
-import global
 
 
 class STM32
-    var errors
     var mapID
     var mapFunc
     var ser
@@ -15,17 +13,12 @@ class STM32
     var bsl_in  
     var rst_out  
     var bsl_out   
-     var client 
+    var ready
+    var statistic
+    var client 
     var ville
     var device
     var topic 
-
-    def mqttprint(texte)
-        import mqtt
-        var topic = string.format("gw/inter/%s/%s/tele/DEBUG2", self.ville, self.device)
-        mqtt.publish(topic, texte, true)
-    end
-
 
     def loadconfig()
         import json
@@ -55,10 +48,11 @@ class STM32
         self.bsl_in=21   
         self.rst_out=33   
         self.bsl_out=32   
-        
+        self.statistic=14
+        self.ready=27
+    
         self.mapID = {}
         self.mapFunc = {}
-        self.errors = {}
 
         self.loadconfig()
 
@@ -75,68 +69,21 @@ class STM32
         gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
         gpio.pin_mode(self.rst_out,gpio.OUTPUT)
         gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
+        gpio.pin_mode(self.statistic,gpio.OUTPUT)
+        gpio.pin_mode(self.ready,gpio.OUTPUT)
         gpio.digital_write(self.bsl_in, 0)
         gpio.digital_write(self.rst_in, 1)
         gpio.digital_write(self.bsl_out, 0)
         gpio.digital_write(self.rst_out, 1)
+        gpio.digital_write(self.statistic, 0)
+#        gpio.digital_write(self.ready,1)
 
-        gpio.pin_mode(global.statistic_pin,gpio.OUTPUT)
-        gpio.pin_mode(global.ready_pin,gpio.OUTPUT)
-
-        gpio.digital_write(global.statistic_pin, 0)
-        gpio.digital_write(global.ready_pin,1)
-
-        tasmota.add_fast_loop(/-> self.fast_loop())
+    #    tasmota.add_fast_loop(/-> self.fast_loop())
     end
 
     def fast_loop()
         self.read_uart(2)
     end
-
-    def map_error(json_string)
-        var data = json.load(json_string)
-
-        if data["ERREUR"] != "Type introuvable"
-            return
-        end
-
-        var dev_type = data["type"]    
-        if dev_type ==""
-           return
-        end
-
-        var reg = data["registre"]
-
-        if reg != ""
-           if !self.errors.contains(reg)
-              self.errors.insert(reg,{"name":"tbd","ratio":1,"liste":[]})
-           end
-           if self.errors[reg]["liste"] == nil
-              self.erros[reg]["liste"].push(dev_type)
-           end
-        end
-
-        # if not self.errors.get(dev_type)
-        #     self.errors[dev_type] = []
-        # end
-
-        # # Vérifier présence préalable
-        # if self.errors[dev_type].find(reg) == nil
-        #     self.errors[dev_type].push(reg)
-        # end
-    end
-
-    def save()
-        var file = open("error.json","wt")
-        if file == nil
-           return
-        end
-        var buffer = json.dump(self.errors)
-        file.write(buffer)
-        print("sauvegarde error : ",str(size(buffer))) 
-        file.close()
-    end
-
 
     def read_uart(timeout)
         var mystring
@@ -144,14 +91,14 @@ class STM32
         var numitem
         var myjson
         var topic
+        gpio.digital_write(self.ready,1)
         if self.ser.available()
-            gpio.digital_write(global.ready_pin,0)
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
+            gpio.digital_write(self.statistic,1)
             var buffer = self.ser.read()
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
-                print ('json telemetry')
                 mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
@@ -161,35 +108,21 @@ class STM32
                         if myjson.contains('ID')
                             if myjson["ID"] == 0 || myjson["ID"] == -1
                                 topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
-                                if myjson.contains('ERREUR')
-                                    self.mqttprint('error: ' + mylist[i])
-                                    self.map_error(mylist[i])
-                                end
-                     #           mqtt.publish(topic,mylist[i],true)
-                            elif myjson["ID"] == -2
-                                topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
-                                mqtt.publish(topic,mylist[i],true)
-                            elif myjson["ID"] == -3
-                                topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
-                                mqtt.publish(topic,mylist[i],true)
                             elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
-                                mqtt.publish(topic,mylist[i],true)
                             else
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(int(myjson["ID"])))
-                                mqtt.publish(topic,mylist[i],true)
-                           end
+                            end
+                            mqtt.publish(topic,mylist[i],true)
                         else
                             topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
                             mqtt.publish(topic,mylist[i],true)
                         end
                     else
                         print('json error:',mylist[i])
-                        self.mqttprint('json error:' + mylist[i])
                     end
                 end
             elif (buffer[0] == 42)     # * -> json statistic
-                print ('json statistic')
                 mystring = buffer[1..-1].asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
@@ -199,11 +132,8 @@ class STM32
                     mqtt.publish(topic,mylist[i],true)
                 end
             elif (buffer[0] == 58)     # : -> debug text
-                print ('debug text')
-                self.mqttprint('debug: ' + buffer.asstring())
-                mystring = buffer.asstring()
-                myjson = json.load(mystring)
                 topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
+                mystring = buffer.asstring()
                 mqtt.publish(topic,mystring,true)
             else
                 topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)
@@ -211,13 +141,14 @@ class STM32
                 mqtt.publish(topic,mystring,true)
             end
         end
-        gpio.digital_write(global.ready_pin,1)
+        gpio.digital_write(self.statistic,0)
+#        gpio.digital_write(self.ready,1)
     end
 
     def get_statistic()
-         gpio.digital_write(global.statistic_pin, 1)
+         gpio.digital_write(self.statistic, 1)
          tasmota.delay(1)
-         gpio.digital_write(global.statistic_pin, 0)
+         gpio.digital_write(self.statistic, 0)
     end
 end
 
@@ -225,4 +156,3 @@ stm32 = STM32()
 tasmota.add_driver(stm32)
 tasmota.add_fast_loop(/-> stm32.fast_loop())
 tasmota.add_cron("59 59 23 * * *",  /-> stm32.get_statistic(), "every_day")
-tasmota.add_cron("0 * * * * *", /-> stm32.save(), "save")
