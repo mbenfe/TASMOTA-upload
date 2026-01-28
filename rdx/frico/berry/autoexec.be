@@ -1,67 +1,17 @@
 var version = "1.0.082025 initiale"
 
+# template  {"NAME":"Frico","GPIO":[1,1,1,1,1,1,1,640,608,1,1,1,1,1,1,1,1,1,609,641,1,1],"FLAG":0,"BASE":1}
+# IO7 ds18b20 out
+# IO8 SDA
+# IO18 SCL
+# IO19 ds18b20 in
+
 import string
 import global
 import mqtt
 import json
 import gpio
 import path
-
-#================================================================================
-# SEET DEVICE - Aerotherme Control System
-#================================================================================
-# 
-# ARCHITECTURE:
-# This device manages a small heating/ventilation unit with manual and 
-# scheduled control modes via temperature monitoring.
-#
-# CONFIGURATION HIERARCHY:
-# 1. esp32.cfg - Device identity (ville, device, location, client)
-# 2. config.json - Sensor availability per ville/device
-# 3. setup.json - Heating/cooling setpoints and schedules
-# 4. calibration.json - Temperature sensor offsets
-#
-# HARDWARE:
-# - GPIO9: DS18B20 temperature sensor (external)
-# - GPIO21: Manual input "Marche" (start/run)
-# - GPIO20: Manual input "Arret" (stop)
-# - GPIO6: Manual input "Chauffage" (heating mode)
-# - GPIO7: Manual input "Ventilation" (ventilation mode)
-# - GPIO19: Relay 1 output
-# - GPIO18: Relay 2 output
-#
-# CONTROL MODES:
-# Priority 1: Manual IO inputs (every 250ms via poll_io/every_250ms)
-#   - GPIO21=1 → Both relays ON
-#   - GPIO20=1 → Both relays OFF
-#   - GPIO6=1  → Relay1=OFF, Relay2=ON (heating only)
-#   - GPIO7=1  → Relay1=ON, Relay2=OFF (ventilation only)
-# Priority 2: Scheduled temperature control (every minute via every_minute)
-#   - When no manual IO is active, temperature controls relays based on:
-#     * Time-of-day schedules (ouvert/ferme temps)
-#     * Target temperature (ouvert/ferme setpoints)
-#     * Temperature source (DS18B20, remote MQTT, etc.)
-#
-# MQTT COMMUNICATION:
-# - Subscribe: app/{client}/{ville}/{device}/set/SETUP → receives setup changes
-# - Subscribe: gw/{client}/{ville}/zb-{sensor}/tele/SENSOR → remote temperatures
-# - Publish: gw/{client}/{ville}/{device}/tele/SENSOR → every minute telemetry
-# - Publish: gw/{client}/{ville}/{device}/tele/PRINT → debug messages
-#
-# STARTUP SEQUENCE:
-# 1. Load esp32.cfg → set global.ville, global.device, global.location, global.client
-# 2. Load config.json → set global.config (sensor availability)
-# 3. Load calibration.json → set sensor offsets
-# 4. Register MQTT commands (getfile, dir, ville, device, location, etc.)
-# 5. Wait 10 seconds (delay for MQTT broker connection)
-# 6. Load seet_driver.be → launches driver with:
-#    - Load setup.json → heating/cooling schedules
-#    - GPIO configuration (inputs + outputs)
-#    - MQTT subscriptions
-#    - every_250ms() loop for IO polling
-#    - every_minute() loop for temperature control & telemetry
-#
-#================================================================================
 
 var ser                # serial object
 var bsl_out = 32   
@@ -73,6 +23,52 @@ def mqttprint(texte)
     mqtt.publish(topic, payload, true)
 end
 
+def check_gpio()
+    # Check if GPIOs are configured correctly
+    var gpio_result = tasmota.cmd("Gpio")
+    
+    if gpio_result != nil
+        # Check GPIO7 (DS18x20-1 - 1312)
+        if gpio_result['GPIO7'] != nil
+            if !gpio_result['GPIO7'].contains('1312')
+                mqttprint("WARNING: GPIO7 not DS18x20-1! Reconfiguring...")
+                tasmota.cmd("Gpio7 1312")
+            end
+        end
+        
+        # Check GPIO8 (SDA-1 - 640)
+        if gpio_result['GPIO8'] != nil
+            if !gpio_result['GPIO8'].contains('640')
+                mqttprint("WARNING: GPIO8 not SDA-1! Reconfiguring...")
+                tasmota.cmd("Gpio8 640")
+            end
+        end
+        
+        # Check GPIO18 (SCL-1 - 608)
+        if gpio_result['GPIO18'] != nil
+            if !gpio_result['GPIO18'].contains('608')
+                mqttprint("WARNING: GPIO18 not SCL-1! Reconfiguring...")
+                tasmota.cmd("Gpio18 608")
+            end
+        end
+        
+        # Check GPIO19 (DS18x20-2 - 1313) - LAST
+        if gpio_result['GPIO19'] != nil
+            if !gpio_result['GPIO19'].contains('1313')
+                mqttprint("WARNING: GPIO19 not DS18x20-2! Reconfiguring...")
+                tasmota.cmd("Gpio19 1313")
+            end
+        end
+    else
+        mqttprint("ERROR: Cannot read GPIO configuration")
+        return false
+    end
+    
+    return true
+end
+
+
+
 # Define loadconfig function
 def loadconfig()
     print("loading esp32.cfg")
@@ -81,41 +77,51 @@ def loadconfig()
     file.close()
     var myjson = json.load(buffer)
     global.ville = myjson["ville"]
-    global.device = myjson["device"]
+    print(myjson["device"])
+    global.device = myjson["device"]  # Changed from "devices" to "device"
     global.location = myjson["location"]
+     
     global.client = myjson["client"]
     
     print('esp32.cfg loaded')
-    print('ville: ' + str(global.ville))
-    print('device: ' + str(global.device))
-    print('location: ' + str(global.location))
-    print('client: ' + str(global.client))
 
     print('loading config.json')
+    
     file = open("config.json", "rt")
-    if(file != nil)
-        buffer = file.read()
-        file.close()
-        myjson = json.load(buffer)
-        global.config = myjson[global.ville][global.device]
-        mqttprint("config loaded: " + str(global.config))
-        
-        # Initialize sensor sources
-        global.tempsource = []
-        if(global.config["remote"] != "nok")
-            global.tempsource.push("remote")
-        end
-        if(global.config["pt"] != "nok")
-            global.tempsource.push("pt")
-        end
-        if(global.config["ds"] != "nok")
-            global.tempsource.push("ds")
-        end
-        global.tempsource.push("dsin")
-        mqttprint("Available sensors: " + str(global.tempsource))
-    else
+    if(file == nil)
         mqttprint("Error: Failed to open config.json")
+        file.close()
+        return
     end
+    buffer = file.read()
+    file.close()
+    myjson = json.load(buffer)
+    
+    # Create config list based on nombre
+    global.config = myjson[global.ville][global.device]
+    global.remote_temp=(99)  # Initialize remote temperature to 99
+    global.config=myjson[global.ville][global.device]
+    mqttprint("config:" + str(global.config))
+        
+    # Add sensors to flat list if available (dsin will be added last)
+    global.tempsource = []
+    if(global.config["remote"] != "nok")
+        global.tempsource.push("remote")
+        global.remote_temp = 99
+    end
+    if(global.config["pt"] != "nok")
+        global.tempsource.push("pt")
+    end
+    if(global.config["ds"] != "nok")
+        global.tempsource.push("ds")
+    end
+        
+    # Always add dsin at the end
+    global.tempsource.push("dsin")    
+    
+
+    mqttprint("Available sensors: " + str(global.tempsource))
+  
     print('config.json loaded')
 
     # initialize calibration
@@ -133,11 +139,14 @@ def loadconfig()
         global.dsin_offset = 0
         global.ds_offset = 0
         file = open("calibration.json", "wt")
-        myjson = json.dump({"pt": global.factor, "dsin_offset": global.dsin_offset, "ds_offset": global.ds_offset})
+        myjson = json.dump({"pt": global.factor, "dsin_offset": global.dsin_offset})
         file.write(myjson)
         file.close()
     end
 end
+
+
+#-------------------------------- FONCTIONS -----------------------------------------#
 # Function to update the city in the configuration file
 def ville(cmd, idx, payload, payload_json)
     import json
@@ -159,7 +168,12 @@ def device(cmd, idx, payload, payload_json)
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     var myjson = json.load(buffer)
-    myjson["device"] = payload
+    
+    # Parse payload as space-separated list of devices
+    var device_list = string.split(payload, ' ')
+    myjson["devices"] = device_list  # Changed from "device" to "devices"
+    myjson["nombre"] = size(device_list)  # Update nombre automatically
+    
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg", "wt")
@@ -295,12 +309,12 @@ def get(cmd, idx, payload, payload_json)
     var file
     var myjson
     var name
-    name = "setup.json"
+    name ="setup_" + payload + ".json"
     file = open(name, "rt")
     myjson = file.read()
     file.close()
 
-    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device)
+    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.esp_device+"_"+payload)
     mqtt.publish(topic, myjson, true)
 
     tasmota.resp_cmnd('done')
@@ -327,47 +341,22 @@ def getversion()
     tasmota.resp_cmnd_done()
 end
 
-def stop()
-    if global.relay1 != nil && global.relay2 != nil
-        gpio.digital_write(global.relay1, 0)  # Set relay 1 to OFF
-        gpio.digital_write(global.relay2, 0)  # Set relay 2 to OFF
-    end 
-    tasmota.resp_cmnd('stop done')
-end
-
-def start()
-    if global.relay1 != nil && global.relay2 != nil
-        gpio.digital_write(global.relay1, 1)  # Set relay 1 to ON
-        gpio.digital_write(global.relay2, 1)  # Set relay 2 to ON
-    end    
-    tasmota.resp_cmnd('start done')
-end
-
 def launch_driver()
-    mqttprint('load seet_driver')
-    tasmota.load('seet_driver.be')
-    mqttprint('seet_driver loaded')
+
+    mqttprint('load io.be')
+    tasmota.load('io.be')
+    mqttprint('io driver loaded')
+
+    mqttprint('load ds18b20.be')
+    tasmota.load('ds18b20.be')
+    mqttprint('ds18b20 driver loaded')
+
+    mqttprint('load frico_driver.be')
+    tasmota.load("frico_driver.be")
+    mqttprint('frico driver loaded')
+
 end
 
-def check_gpio()
-    # Check if GPIOs are configured correctly for DS18B20
-    var gpio_result = tasmota.cmd("Gpio")
-    
-    if gpio_result != nil
-        # Check GPIO9 (DS18x20-1 - 1312)
-        if gpio_result['GPIO9'] != nil
-            if !gpio_result['GPIO9'].contains('1312')
-                mqttprint("WARNING: GPIO9 not DS18x20-1! Reconfiguring...")
-                tasmota.cmd("Gpio9 1312")
-            end
-        end
-    else
-        mqttprint("ERROR: Cannot read GPIO configuration")
-        return false
-    end
-    print("GPIO configuration OK in autoexec.be")
-    return true
-end
 
 
 #-------------------------------- BASH -----------------------------------------#
@@ -384,8 +373,6 @@ tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('ville', ville)
 tasmota.add_cmd('device', device)
 tasmota.add_cmd('location', location)
-tasmota.add_cmd('stop', stop)
-tasmota.add_cmd('start', start)
 
 # Initialize configuration
 loadconfig()
@@ -398,6 +385,11 @@ tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
 tasmota.add_cmd('cal', cal)
 
+# Set DS18B20 sensor reading interval to 60 seconds (instead of default 300 seconds)
+tasmota.cmd("TelePeriod 60")
+tasmota.cmd("MqttLog 0")
+mqttprint("DS18B20 sensor reading interval set to 60 seconds")
+mqttprint("Automatic MQTT telemetry disabled, Berry MQTT still active")
 
-print("------------------------------------- wait 30s for drivers loading -------------------------------------")
-tasmota.set_timer(30000,launch_driver)
+print(" wait 10s for drivers loading")
+tasmota.set_timer(10000,launch_driver)

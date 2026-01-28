@@ -1,0 +1,40 @@
+{
+    "mery": {
+        "rdx-g": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "ok"
+        },
+        "rdx-d": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "ok"
+        }
+    },
+    "argenteuil": {
+        "rdx-1": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "nok"
+        }
+    },
+    "aulnay": {
+        "rdx-1": {
+            "remote": "nok",
+            "pt": "nok",
+            "ds": "ok"
+        }
+    },
+    "choisy": {
+        "rdx-g": {
+            "remote": "zb-th_galerie_entree",
+            "pt": "nok",
+            "ds": "nok"
+        },
+        "rdx-d": {
+            "remote": "zb-th_galerie_entree",
+            "pt": "nok",
+            "ds": "nok"
+        }
+    }
+}

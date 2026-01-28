@@ -20,12 +20,30 @@ def mqttprint(texte)
     return true
 end
 
+def get_cron_second()
+    # Hash FNV-1a 32 bits, bonne dispersion, déterministe
+    var combined = string.format("%s|%s", global.ville, global.device)
+
+    var hash = 2166136261  # offset basis FNV-1a 32-bit
+
+    for i : 0 .. size(combined) - 1
+        var val = string.byte(combined, i)
+        hash = (hash ^ val) & 0xFFFFFFFF
+        hash = (hash * 16777619) & 0xFFFFFFFF
+    end
+
+    # Petit "finalizer" pour améliorer la diffusion avant modulo 60
+    hash = (hash ^ (hash >> 16)) & 0xFFFFFFFF
+
+    return hash % 60
+end
+
 class AEROTHERME
     var day_list
     var count
 
-        def poll(target)
-        var temperature = 99
+    def poll()
+        global.temperature = 99
         global.dsin = 99
         var data = tasmota.read_sensors()
         if(data == nil)
@@ -36,9 +54,7 @@ class AEROTHERME
             global.dsin = myjson["DS18B20"]["Temperature"]
         end
 
-        temperature = global.dsin + global.dsin_offset
-        
-        return temperature
+        global.temperature = global.dsin + global.dsin_offset
     end
 
 
@@ -62,10 +78,12 @@ class AEROTHERME
         return true
     end
 
-    def mysetup(topic, idx, payload_s, payload_b)
+    def acknowledge_mysetup(topic, idx, payload_s, payload_b)
+        print("debug: function acknowledge_mysetup() started")
         var myjson = json.load(payload_s)
         if myjson == nil
             mqttprint("Error: Failed to parse JSON payload")
+            print("debug: function acknowledge_mysetup() ended with error myjson==nil")
             return
         end
         var newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
@@ -86,6 +104,7 @@ class AEROTHERME
         var file = open("setup.json", "wt")
         if file == nil
             mqttprint("Error: Failed to open setup.json for writing")
+            print("debug: function acknowledge_mysetup() ended with error file==nil")
             return
         end
         file.write(buffer)
@@ -94,14 +113,22 @@ class AEROTHERME
         var payload = string.format('{"Device":"%s","Name":"setup","TYPE":"SETUP","DATA":%s}', 
         global.device, buffer)
         mqtt.publish(newtopic, payload, true)
+        tasmota.delay(5)
 
-        self.every_minute()  # Update the state immediately
+        # payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d,"onoff":%d,"Marche":%d}', 
+        #     global.device, global.device, global.temperature-global.setup['offset'], global.setup['ouvert'], global.setup['ferme'], global.setup['offset'], global.location, global.target, global.tempsource[0], global.power, global.setup['onoff'], gpio.digital_read(global.io_marche))
+        # newtopic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
+        # mqtt.publish(newtopic, payload, true)
+        self.every_minute()
+        print("debug: function acknowledge_mysetup() ended successfully")
     end
 
     # Initialization function
     def init()
         var file
         var myjson        
+        global.temperature = 99
+        global.target = 0
         file = open("setup.json", "rt")
         if file == nil
             mqttprint("Error: Failed to open setup.json")
@@ -138,8 +165,13 @@ class AEROTHERME
         gpio.pin_mode(global.io_arret, gpio.INPUT)
         gpio.pin_mode(global.io_chauffage, gpio.INPUT)
         gpio.pin_mode(global.io_ventilation, gpio.INPUT)
+
+        print(" Marche : " + str(global.io_marche))
+        print(" Arret : " + str(global.io_arret))
+        print(" Chauffage : " + str(global.io_chauffage))
+        print(" Ventilation : " + str(global.io_ventilation))
         
-        tasmota.set_timer(30000,/-> self.mypush())
+        tasmota.set_timer(30000,/-> self.send_stored_setup())
 
         if(global.config["remote"] != "nok")
             self.subscribes_sensors(global.config["remote"])  # Subscribe to remote sensor topic
@@ -163,16 +195,16 @@ class AEROTHERME
             gpio.digital_write(global.relay2, 1)  # Relay 2 ON
         elif chauffage == 1
             # Heating: Relay 1 OFF, Relay 2 ON
-            gpio.digital_write(global.relay1, 1)  # Relay 1 OFF
-            gpio.digital_write(global.relay2, 0)  # Relay 2 ON
+            gpio.digital_write(global.relay1, 0)  # Relay 1 OFF
+            gpio.digital_write(global.relay2, 1)  # Relay 2 ON
         elif ventilation == 1
             # Ventilation: Relay 1 ON, Relay 2 OFF
-            gpio.digital_write(global.relay1, 0)  # Relay 1 ON
-            gpio.digital_write(global.relay2, 1)  # Relay 2 OFF
+            gpio.digital_write(global.relay1, 1)  # Relay 1 ON
+            gpio.digital_write(global.relay2, 0)  # Relay 2 OFF
         end
     end
 
-    def mypush()
+    def send_stored_setup()
         var file
         var myjson        
         file = open("setup.json", "rt")
@@ -191,7 +223,7 @@ class AEROTHERME
     # Function to subscribe to MQTT topics
     def subscribes()
         var topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
-        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup(topic, idx, payload_s, payload_b))
+        mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.acknowledge_mysetup(topic, idx, payload_s, payload_b))
         mqttprint("subscribed to SETUP: " + global.device)
     end
 
@@ -205,8 +237,6 @@ class AEROTHERME
 
         var payload
         var topic
-        var target
-        var temperature = 99
 
         self.check_gpio()
 
@@ -215,24 +245,24 @@ class AEROTHERME
         var arret = gpio.digital_read(global.io_arret)
         var chauffage = gpio.digital_read(global.io_chauffage)
         var ventilation = gpio.digital_read(global.io_ventilation)
-        
+                
         if marche == 1
             # No IO input active - use scheduled temperature control
             if(global.tempsource[0] == "ds")
-                temperature = self.poll("ds")
+                self.poll("ds")
             elif(global.tempsource[0] == "dsin")
-                temperature = self.poll("dsin")
+                self.poll("dsin")
             elif(global.tempsource[0] == "pt")
-                temperature = global.average_temperature
+                global.temperature = global.average_temperature
             elif(global.tempsource[0] == "remote")
-                temperature = global.remote_temp[0]
+                global.temperature = global.remote_temp[0]
             else
-                temperature = 99
+                global.temperature = 99
             end
 
             if (hour >= global.setup[jour]['debut'] && hour < global.setup[jour]['fin'])
-                target = global.setup['ouvert']
-                if (temperature < target && global.setup['onoff'] == 1)
+                global.target = global.setup['ouvert']
+                if (global.temperature < global.target && global.setup['onoff'] == 1)
                     gpio.digital_write(global.relay1, 1)
                     gpio.digital_write(global.relay2, 1)
                     global.power = 1
@@ -242,8 +272,8 @@ class AEROTHERME
                     global.power = 0
                 end
             else
-                target = global.setup['ferme']
-                if (temperature < target && global.setup['onoff'] == 1)
+                global.target = global.setup['ferme']
+                if (global.temperature < global.target && global.setup['onoff'] == 1)
                     gpio.digital_write(global.relay1, 1)
                     gpio.digital_write(global.relay2, 1)
                     global.power = 1
@@ -254,11 +284,10 @@ class AEROTHERME
             end
         end
 
-        payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d,"onoff":%d}', 
-            global.device, global.device, temperature-global.setup['offset'], global.setup['ouvert'], global.setup['ferme'], global.setup['offset'], global.location, target, global.tempsource[0], global.power, global.setup['onoff'])
+        payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d,"onoff":%d,"Marche":%d}', 
+            global.device, global.device, global.temperature-global.setup['offset'], global.setup['ouvert'], global.setup['ferme'], global.setup['offset'], global.location, global.target, global.tempsource[0], global.power, global.setup['onoff'], gpio.digital_read(global.io_marche))
         topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
-        self.mypush()
     end
 
 
@@ -289,4 +318,9 @@ end
 var aerotherme = AEROTHERME()
 global.aerotherme = aerotherme  # Add this line to make aerotherme accessible globally
 tasmota.add_driver(aerotherme)
-tasmota.add_cron("10 * * * * *", /-> aerotherme.every_minute(), "every_min_@0_s")
+
+# Calculate cron second from device identity to distribute polling
+var cron_second = get_cron_second()
+print("Cron second for device " + global.device + " is " + str(cron_second))
+var cron_pattern = string.format("%d * * * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> aerotherme.every_minute(), "every_min_@0_s")

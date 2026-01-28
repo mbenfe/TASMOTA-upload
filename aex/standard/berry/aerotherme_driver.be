@@ -300,4 +300,4 @@ end
 var aerotherme = AEROTHERME()
 global.aerotherme = aerotherme  # Add this line to make aerotherme accessible globally
 tasmota.add_driver(aerotherme)
-tasmota.add_cron("0 * * * * *", /-> aerotherme.every_minute(), "every_min_@0_s")
+tasmota.add_cron("10 * * * * *", /-> aerotherme.every_minute(), "every_min_@0_s")

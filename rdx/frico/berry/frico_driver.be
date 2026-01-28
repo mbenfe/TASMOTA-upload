@@ -269,4 +269,4 @@ end
 var rdx = RDX()
 global.rdx = rdx  # Add this line to make rdx accessible globally
 tasmota.add_driver(rdx)
-tasmota.add_cron("0 * * * * *", /-> rdx.every_minute(), "every_min_@0_s")
+tasmota.add_cron("15 * * * * *", /-> rdx.every_minute(), "every_min_@0_s")

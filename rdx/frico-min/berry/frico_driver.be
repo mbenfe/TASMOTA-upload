@@ -152,7 +152,7 @@ class RDX
             mqttprint("Relays initialized from setup")
         else
             mqttprint("Warning: PCF driver not ready, retrying...")
-            tasmota.set_timer(1000, /-> self.init_relays())  # Retry in 1 second
+            tasmota.set_timer(30000, /-> self.init_relays())  # Retry in 30 seconds
         end
     end
 
@@ -269,4 +269,4 @@ end
 var rdx = RDX()
 global.rdx = rdx  # Add this line to make rdx accessible globally
 tasmota.add_driver(rdx)
-tasmota.add_cron("0 * * * * *", /-> rdx.every_minute(), "every_min_@0_s")
+tasmota.add_cron("15 * * * * *", /-> rdx.every_minute(), "every_min_@0_s")

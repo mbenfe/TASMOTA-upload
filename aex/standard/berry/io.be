@@ -24,6 +24,10 @@ class PCF8574A
         self.pcf8574a_addr = 0x3F
         if global.wire == nil
             global.wire = tasmota.wire_scan(self.pcf8574a_addr)
+            if global.wire == nil
+                print("ERROR: I2C wire_scan failed - cannot initialize")
+                return
+            end
             list_devices = global.wire.scan()
             if (list_devices.find(0x3F)== nil)
                 print("PCF8574A not found")
