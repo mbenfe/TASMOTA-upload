@@ -21,21 +21,14 @@ def mqttprint(texte)
 end
 
 def get_cron_second()
-    # Hash FNV-1a 32 bits, bonne dispersion, déterministe
     var combined = string.format("%s|%s", global.ville, global.device)
+    var sum = 0
 
-    var hash = 2166136261  # offset basis FNV-1a 32-bit
-
-    for i : 0 .. size(combined) - 1
-        var val = string.byte(combined, i)
-        hash = (hash ^ val) & 0xFFFFFFFF
-        hash = (hash * 16777619) & 0xFFFFFFFF
+    for i : 1 .. size(combined)
+        sum += string.byte(combined, i)
     end
 
-    # Petit "finalizer" pour améliorer la diffusion avant modulo 60
-    hash = (hash ^ (hash >> 16)) & 0xFFFFFFFF
-
-    return hash % 60
+    return sum % 60
 end
 
 class AEROTHERME
@@ -311,7 +304,14 @@ class AEROTHERME
         mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.remote_sensor(topic, idx, payload_s, payload_b))
         print("subscribed to remote sensor:" + topic)
     end
-    
+
+    def every_hour()
+        var now = tasmota.rtc()
+        var timestamp = tasmota.time_str(now["local"])
+        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', global.device, global.device, timestamp)
+        mqtt.publish(topic, payload, true)
+    end
 
 end
 
@@ -324,3 +324,5 @@ var cron_second = get_cron_second()
 print("Cron second for device " + global.device + " is " + str(cron_second))
 var cron_pattern = string.format("%d * * * * *", cron_second)
 tasmota.add_cron(cron_pattern, /-> aerotherme.every_minute(), "every_min_@0_s")
+cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
+tasmota.add_cron(cron_pattern, /-> aerotherme.every_hour(), "every_hour_@0_s")
