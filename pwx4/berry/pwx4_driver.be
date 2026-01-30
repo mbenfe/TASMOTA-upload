@@ -4,7 +4,16 @@ import mqtt
 import string
 import json
 import global
-import math
+
+def get_cron_second()
+    var combined = string.format("%s|%s", global.ville, global.device)
+    var sum = 0
+    for i : 0 .. size(combined) - 1
+        sum += string.byte(combined[i])
+    end
+    print("cron for " + combined + " is " + str(sum))
+    return sum % 60
+end
 
 class PWX4
     var ser
@@ -125,21 +134,18 @@ end
 pwx4 = PWX4()
 tasmota.add_driver(pwx4)
 var now = tasmota.rtc()
-var delay
-var mycron
-math.srand(size(global.device)*size(global.ville))
-var random = math.rand()
-delay = random % 10
 tasmota.add_fast_loop(/-> pwx4.fast_loop())
 # set midnight cron
-mycron = string.format("59 %d 23 * * *", 50 + delay)
+var cron_second = get_cron_second()
+var mycron = string.format("%d 59 23 * * *", cron_second)
 tasmota.add_cron(mycron, /-> pwx4.midnight(), "every_day")
-mqttprint("cron midnight:" + mycron)
+print("cron midnight:" + mycron)
 # set hour cron
-mycron = string.format("59 %d * * * *", 50 + delay)
+mycron = string.format("%d 59 * * * *", cron_second)
 tasmota.add_cron(mycron, /-> pwx4.hour(), "every_hour")
-mqttprint("cron hour:" + mycron)
+print("cron hour:" + mycron)
 # set 4 hours cron
-tasmota.add_cron("01 01 */4 * * *", /-> pwx4.every_4hours(), "every_4_hours")
+mycron = string.format("%d 0 */4 * * *", cron_second)
+tasmota.add_cron(mycron, /-> pwx4.every_4hours(), "every_4_hours")
 
 return pwx4
