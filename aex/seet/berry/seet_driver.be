@@ -24,10 +24,11 @@ def get_cron_second()
     var combined = string.format("%s|%s", global.ville, global.device)
     var sum = 0
 
-    for i : 1 .. size(combined)
-        sum += string.byte(combined, i)
+    for i : 0 .. size(combined) - 1
+ #       print("Debug: Char " + str(i) + " is " + string.char(combined, i) + " with ASCII " + str(string.byte(combined, i))) 
+        sum += string.byte(combined[i])
     end
-
+    print("Debug: Sum of ASCII values for " + combined + " is " + str(sum))
     return sum % 60
 end
 
@@ -37,17 +38,16 @@ class AEROTHERME
 
     def poll()
         global.temperature = 99
-        global.dsin = 99
         var data = tasmota.read_sensors()
         if(data == nil)
             return 99
         end
         var myjson = json.load(data)
         if(myjson.contains("DS18B20"))
-            global.dsin = myjson["DS18B20"]["Temperature"]
+            global.ds = myjson["DS18B20"]["Temperature"]
         end
 
-        global.temperature = global.dsin + global.dsin_offset
+        global.temperature = global.ds + global.ds_offset
     end
 
 
@@ -107,13 +107,19 @@ class AEROTHERME
         global.device, buffer)
         mqtt.publish(newtopic, payload, true)
         tasmota.delay(5)
-
-        # payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"offset":%.1f,"location":"%s","Target":%.1f,"source":"%s","Power":%d,"onoff":%d,"Marche":%d}', 
-        #     global.device, global.device, global.temperature-global.setup['offset'], global.setup['ouvert'], global.setup['ferme'], global.setup['offset'], global.location, global.target, global.tempsource[0], global.power, global.setup['onoff'], gpio.digital_read(global.io_marche))
-        # newtopic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
-        # mqtt.publish(newtopic, payload, true)
         self.every_minute()
         print("debug: function acknowledge_mysetup() ended successfully")
+    end
+
+    def update_app_with_mysetup(topic, idx, payload_s, payload_b)
+        mqttprint(" update app")
+        var newtopic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
+        var buffer = json.dump(global.setup)
+        var payload = string.format('{"Device":"%s","Name":"setup","TYPE":"SETUP","DATA":%s}', 
+        global.device, buffer)
+        mqtt.publish(newtopic, payload, true)
+        tasmota.delay(5)
+        self.every_minute()
     end
 
     # Initialization function
@@ -122,6 +128,7 @@ class AEROTHERME
         var myjson        
         global.temperature = 99
         global.target = 0
+        global.ds = 0
         file = open("setup.json", "rt")
         if file == nil
             mqttprint("Error: Failed to open setup.json")
@@ -217,7 +224,9 @@ class AEROTHERME
     def subscribes()
         var topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
         mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.acknowledge_mysetup(topic, idx, payload_s, payload_b))
-        mqttprint("subscribed to SETUP: " + global.device)
+        topic = string.format("app/%s/%s/%s/get/SETUP", global.client, global.ville, global.device)
+        mqtt.subscribe(topic,/ -> self.update_app_with_mysetup())
+        mqttprint("subscribed to SETUP: " + global.device + "app get setupr")
     end
 
     # Function to execute every minute
@@ -242,9 +251,7 @@ class AEROTHERME
         if marche == 1
             # No IO input active - use scheduled temperature control
             if(global.tempsource[0] == "ds")
-                self.poll("ds")
-            elif(global.tempsource[0] == "dsin")
-                self.poll("dsin")
+                self.poll()
             elif(global.tempsource[0] == "pt")
                 global.temperature = global.average_temperature
             elif(global.tempsource[0] == "remote")
@@ -272,6 +279,7 @@ class AEROTHERME
                     global.power = 1
                 else
                     gpio.digital_write(global.relay1, 0)
+                    gpio.digital_write(global.relay2, 0)
                     global.power = 0
                 end
             end
