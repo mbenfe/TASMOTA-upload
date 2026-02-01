@@ -11,7 +11,7 @@ def get_cron_second()
     for i : 0 .. size(combined) - 1
         sum += string.byte(combined[i])
     end
-    print("cron for " + combined + " is " + str(sum))
+    print("cron for " + combined + " is " + str(sum % 60))
     return sum % 60
 end
 
@@ -152,5 +152,6 @@ print("cron hour:" + cron_pattern)
 # set 4 hours cron
 cron_pattern = string.format("%d 0 */4 * * *", cron_second)
 tasmota.add_cron(cron_pattern, /-> global.pwx12.every_4hours(), "every_4_hours")
+print("cron every 4 hours:" + cron_pattern)
 
 # return pwx12

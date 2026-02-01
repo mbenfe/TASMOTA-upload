@@ -27,9 +27,9 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
-    "dl12-bureau": {
+    "dl12-bureaux": {
         "mode": ["tri","tri","tri"],
-        "root": ["gen_bu","eclairage","chauffage"],
+        "root": ["chauffage","eclairage","gene_bu"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
