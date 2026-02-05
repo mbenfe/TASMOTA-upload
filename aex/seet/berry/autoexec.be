@@ -1,4 +1,4 @@
-var version = "1.0.082025 initiale"
+var version = "1.0.022026 set"
 
 import string
 import global
@@ -343,6 +343,22 @@ def start()
     tasmota.resp_cmnd('start done')
 end
 
+def set(cmd, idx, payload, payload_json)
+    var arguments
+    arguments = string.split(payload, ' ')
+    if size(arguments) < 2
+        mqttprint("Error: Invalid arguments for set. e.g set 0 1")
+        tasmota.resp_cmnd('Invalid arguments')
+        return
+    end
+
+    if global.relay1 != nil && global.relay2 != nil
+        gpio.digital_write(global.relay1, int(arguments[0]))
+        gpio.digital_write(global.relay2, int(arguments[1]))
+    end
+    tasmota.resp_cmnd('set done')
+end
+
 def launch_driver()
     mqttprint('load seet_driver')
     tasmota.load('seet_driver.be')
@@ -374,6 +390,13 @@ end
 
 check_gpio()
 
+global.relay1 = 19
+global.relay2 = 18
+gpio.pin_mode(global.relay1, gpio.OUTPUT)
+gpio.pin_mode(global.relay2, gpio.OUTPUT)
+gpio.digital_write(global.relay1, 0)
+gpio.digital_write(global.relay2, 0)
+
 tasmota.cmd("seriallog 0")
 mqttprint("serial log disabled")
 
@@ -386,6 +409,8 @@ tasmota.add_cmd('device', device)
 tasmota.add_cmd('location', location)
 tasmota.add_cmd('stop', stop)
 tasmota.add_cmd('start', start)
+tasmota.add_cmd('set', set)
+mqttprint('AUTOEXEC: commande set added')
 
 # Initialize configuration
 loadconfig()

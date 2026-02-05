@@ -1,0 +1,1082 @@
+{
+  "11": {
+    "device": "AK-PC782AB-041x",
+    "name": "SuctionLtAuto_11",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "SuctionLtAuto_11",
+    "categorie": "devpos"
+  },
+  "3": {
+    "device": "AK-CC55-017x",
+    "name": "ClimSdm_3",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "ClimSdm_3",
+    "categorie": "devpos"
+  },
+  "5": {
+    "device": "AK-CC55-017x",
+    "name": "LaboEmballage_5",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "LaboEmballage_5",
+    "categorie": "devpos"
+  },
+  "7": {
+    "device": "AK-CC55-017x",
+    "name": "CfBarquettes_7",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfBarquettes_7",
+    "categorie": "devpos"
+  },
+  "9": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_9",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_9",
+    "categorie": "devpos"
+  },
+  "10": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_10",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_10",
+    "categorie": "devpos"
+  },
+  "13": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_13",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_13",
+    "categorie": "devpos"
+  },
+  "14": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_14",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_14",
+    "categorie": "devpos"
+  },
+  "15": {
+    "device": "AK-CC55-017x",
+    "name": "CfPosVitre_15",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfPosVitre_15",
+    "categorie": "devpos"
+  },
+  "16": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_16",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleSv_16",
+    "categorie": "devpos"
+  },
+  "17": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_17",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleSv_17",
+    "categorie": "devpos"
+  },
+  "18": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_18",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleSv_18",
+    "categorie": "devpos"
+  },
+  "19": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_19",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleSv_19",
+    "categorie": "devpos"
+  },
+  "20": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleLibanais_20",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleLibanais_20",
+    "categorie": "devpos"
+  },
+  "21": {
+    "device": "AK-CC55-017x",
+    "name": "AngleCharc/from_21",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "AngleCharc/from_21",
+    "categorie": "devpos"
+  },
+  "22": {
+    "device": "AK-CC55-017x",
+    "name": "AngleCharc/from_22",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "AngleCharc/from_22",
+    "categorie": "devpos"
+  },
+  "23": {
+    "device": "AK-CC55-017x",
+    "name": "TradCharc/from_23",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TradCharc/from_23",
+    "categorie": "devpos"
+  },
+  "24": {
+    "device": "AK-CC55-017x",
+    "name": "TradCharc/from_24",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TradCharc/from_24",
+    "categorie": "devpos"
+  },
+  "25": {
+    "device": "AK-CC55-017x",
+    "name": "TradCharc/from_25",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TradCharc/from_25",
+    "categorie": "devpos"
+  },
+  "26": {
+    "device": "AK-CC55-017x",
+    "name": "TradCharc/from_26",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TradCharc/from_26",
+    "categorie": "devpos"
+  },
+  "27": {
+    "device": "AK-CC55-017x",
+    "name": "LaboSushi_27",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "LaboSushi_27",
+    "categorie": "devpos"
+  },
+  "29": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_29",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleSv_29",
+    "categorie": "devpos"
+  },
+  "30": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_30",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleSv_30",
+    "categorie": "devpos"
+  },
+  "31": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeubleSv_31",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgMeubleSv_31",
+    "categorie": "devpos"
+  },
+  "32": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_32",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgMeublePos_32",
+    "categorie": "devpos"
+  },
+  "33": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_33",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_33",
+    "categorie": "devpos"
+  },
+  "34": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_34",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_34",
+    "categorie": "devpos"
+  },
+  "35": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_35",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgMeublePos_35",
+    "categorie": "devpos"
+  },
+  "36": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_36",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_36",
+    "categorie": "devpos"
+  },
+  "37": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_37",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_37",
+    "categorie": "devpos"
+  },
+  "38": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeubleSv_38",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgMeubleSv_38",
+    "categorie": "devpos"
+  },
+  "39": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_39",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleSv_39",
+    "categorie": "devpos"
+  },
+  "40": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_40",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_40",
+    "categorie": "devpos"
+  },
+  "41": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_41",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_41",
+    "categorie": "devpos"
+  },
+  "42": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_42",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_42",
+    "categorie": "devpos"
+  },
+  "43": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_43",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_43",
+    "categorie": "devpos"
+  },
+  "44": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeubleSv_44",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgMeubleSv_44",
+    "categorie": "devpos"
+  },
+  "45": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_45",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleSv_45",
+    "categorie": "devpos"
+  },
+  "46": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_46",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_46",
+    "categorie": "devpos"
+  },
+  "47": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_47",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_47",
+    "categorie": "devpos"
+  },
+  "48": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_48",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_48",
+    "categorie": "devpos"
+  },
+  "49": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_49",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_49",
+    "categorie": "devpos"
+  },
+  "50": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_50",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgMeublePos_50",
+    "categorie": "devpos"
+  },
+  "51": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_51",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_51",
+    "categorie": "devpos"
+  },
+  "52": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_52",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_52",
+    "categorie": "devpos"
+  },
+  "53": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_53",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_53",
+    "categorie": "devpos"
+  },
+  "54": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_54",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgMeublePos_54",
+    "categorie": "devpos"
+  },
+  "55": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_55",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_55",
+    "categorie": "devpos"
+  },
+  "56": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_56",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_56",
+    "categorie": "devpos"
+  },
+  "57": {
+    "device": "AK-CC55-017x",
+    "name": "SasNegBoulang_57",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "SasNegBoulang_57",
+    "categorie": "devpos"
+  },
+  "62": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_62",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgMeublePos_62",
+    "categorie": "devpos"
+  },
+  "63": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_63",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_63",
+    "categorie": "devpos"
+  },
+  "64": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_64",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_64",
+    "categorie": "devpos"
+  },
+  "65": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_65",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_65",
+    "categorie": "devpos"
+  },
+  "66": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_66",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_66",
+    "categorie": "devpos"
+  },
+  "67": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_67",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_67",
+    "categorie": "devpos"
+  },
+  "68": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_68",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_68",
+    "categorie": "devpos"
+  },
+  "69": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_69",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_69",
+    "categorie": "devpos"
+  },
+  "70": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_70",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_70",
+    "categorie": "devpos"
+  },
+  "71": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleMarae_71",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleMarae_71",
+    "categorie": "devpos"
+  },
+  "0": {
+    "device": "DGS-012x",
+    "name": "Dgs121LaboPresta_0",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "Dgs121LaboPresta_0",
+    "categorie": "devpos"
+  },
+  "73": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleMarae_73",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleMarae_73",
+    "categorie": "devpos"
+  },
+  "74": {
+    "device": "AK-CC55-017x",
+    "name": "TradBoucherie_74",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TradBoucherie_74",
+    "categorie": "devpos"
+  },
+  "75": {
+    "device": "AK-CC55-017x",
+    "name": "TradBoucherie_75",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TradBoucherie_75",
+    "categorie": "devpos"
+  },
+  "76": {
+    "device": "AK-CC55-017x",
+    "name": "TradBoucherie_76",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TradBoucherie_76",
+    "categorie": "devpos"
+  },
+  "77": {
+    "device": "AK-CC55-017x",
+    "name": "TradBoucherie_77",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TradBoucherie_77",
+    "categorie": "devpos"
+  },
+  "78": {
+    "device": "AK-CC55-017x",
+    "name": "CfProduitsFinis_78",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfProduitsFinis_78",
+    "categorie": "devpos"
+  },
+  "80": {
+    "device": "AK-CC55-017x",
+    "name": "LaboBoucherie_80",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "LaboBoucherie_80",
+    "categorie": "devpos"
+  },
+  "82": {
+    "device": "AK-CC55-017x",
+    "name": "CfMatiarePremia_82",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfMatiarePremia_82",
+    "categorie": "devpos"
+  },
+  "84": {
+    "device": "AK-CC55-017x",
+    "name": "LocalSuifs_84",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "LocalSuifs_84",
+    "categorie": "devpos"
+  },
+  "86": {
+    "device": "AK-CC55-017x",
+    "name": "CfF&l_86",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfF&l_86",
+    "categorie": "devpos"
+  },
+  "100": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_100",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_100",
+    "categorie": "devpos"
+  },
+  "101": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_101",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_101",
+    "categorie": "devpos"
+  },
+  "102": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_102",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_102",
+    "categorie": "devpos"
+  },
+  "103": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_103",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_103",
+    "categorie": "devpos"
+  },
+  "104": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_104",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_104",
+    "categorie": "devpos"
+  },
+  "105": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_105",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_105",
+    "categorie": "devpos"
+  },
+  "106": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_106",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_106",
+    "categorie": "devpos"
+  },
+  "107": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_107",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_107",
+    "categorie": "devpos"
+  },
+  "108": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_108",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_108",
+    "categorie": "devpos"
+  },
+  "109": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_109",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_109",
+    "categorie": "devpos"
+  },
+  "110": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_110",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_110",
+    "categorie": "devpos"
+  },
+  "111": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_111",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_111",
+    "categorie": "devpos"
+  },
+  "112": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_112",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_112",
+    "categorie": "devpos"
+  },
+  "113": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_113",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_113",
+    "categorie": "devpos"
+  },
+  "114": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_114",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_114",
+    "categorie": "devpos"
+  },
+  "115": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_115",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeublePos_115",
+    "categorie": "devpos"
+  },
+  "116": {
+    "device": "AK-CC55-017x",
+    "name": "CfPosDrive_116",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfPosDrive_116",
+    "categorie": "devpos"
+  },
+  "120": {
+    "device": "AK-CC55-017x",
+    "name": "LaboPrestataire_120",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "LaboPrestataire_120",
+    "categorie": "devpos"
+  },
+  "122": {
+    "device": "AK-CC55-017x",
+    "name": "CfPosR-_122",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfPosR-_122",
+    "categorie": "devpos"
+  },
+  "124": {
+    "device": "AK-CC55-017x",
+    "name": "LaboR-_124",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "LaboR-_124",
+    "categorie": "devpos"
+  },
+  "126": {
+    "device": "AK-CC55-017x",
+    "name": "TourTradBouch_126",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TourTradBouch_126",
+    "categorie": "devpos"
+  },
+  "12": {
+    "device": "AK-PC782AB-041x",
+    "name": "SuctionLtSec_12",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "SuctionLtSec_12",
+    "categorie": "devpos"
+  },
+  "59": {
+    "device": "AK-CC55-017x",
+    "name": "CfNegBoulang_59",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfNegBoulang_59",
+    "categorie": "devpos"
+  },
+  "88": {
+    "device": "AK-CC55-017x",
+    "name": "CfNagative_88",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfNagative_88",
+    "categorie": "devpos"
+  },
+  "90": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_90",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleNag_90",
+    "categorie": "devpos"
+  },
+  "91": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_91",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleNag_91",
+    "categorie": "devpos"
+  },
+  "92": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_92",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleNag_92",
+    "categorie": "devpos"
+  },
+  "93": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_93",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleNag_93",
+    "categorie": "devpos"
+  },
+  "94": {
+    "device": "AK-CC55-017x",
+    "name": "TgBacNag_94",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgBacNag_94",
+    "categorie": "devpos"
+  },
+  "95": {
+    "device": "AK-CC55-017x",
+    "name": "BacNag_95",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "BacNag_95",
+    "categorie": "devpos"
+  },
+  "96": {
+    "device": "AK-CC55-017x",
+    "name": "BacNag_96",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "BacNag_96",
+    "categorie": "devpos"
+  },
+  "97": {
+    "device": "AK-CC55-017x",
+    "name": "TgBacNag_97",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "TgBacNag_97",
+    "categorie": "devpos"
+  },
+  "98": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_98",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleNag_98",
+    "categorie": "devpos"
+  },
+  "99": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_99",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "MeubleNag_99",
+    "categorie": "devpos"
+  },
+  "61": {
+    "device": "EKC302D-011x",
+    "name": "CfNegBoulangSec_61",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "CfNegBoulangSec_61",
+    "categorie": "devpos"
+  },
+  "4": {
+    "device": "DGS-012x",
+    "name": "Dgs4Sdm_4",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "Dgs4Sdm_4",
+    "categorie": "devpos"
+  },
+  "6": {
+    "device": "DGS-012x",
+    "name": "Dgs6LaboEmballage_6",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "Dgs6LaboEmballage_6",
+    "categorie": "devpos"
+  },
+  "28": {
+    "device": "DGS-012x",
+    "name": "Dgs28LaboSushi_28",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "Dgs28LaboSushi_28",
+    "categorie": "devpos"
+  },
+  "58": {
+    "device": "DGS-012x",
+    "name": "Dgs58SasNegBoul_58",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "Dgs58SasNegBoul_58",
+    "categorie": "devpos"
+  },
+  "60": {
+    "device": "DGS-012x",
+    "name": "Dgs60CfNegBoul_60",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "Dgs60CfNegBoul_60",
+    "categorie": "devpos"
+  },
+  "79": {
+    "device": "DGS-012x",
+    "name": "Dgs79CfProdFinis_79",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "Dgs79CfProdFinis_79",
+    "categorie": "devpos"
+  },
+  "81": {
+    "device": "DGS-012x",
+    "name": "Dgs81LaboBouch_81",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "Dgs81LaboBouch_81",
+    "categorie": "devpos"
+  },
+  "85": {
+    "device": "DGS-012x",
+    "name": "Dgs85LocalSuifs_85",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "Dgs85LocalSuifs_85",
+    "categorie": "devpos"
+  },
+  "87": {
+    "device": "DGS-012x",
+    "name": "Dgs87CfF&l_87",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "Dgs87CfF&l_87",
+    "categorie": "devpos"
+  },
+  "89": {
+    "device": "DGS-012x",
+    "name": "Dgs89CfNagative_89",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "Dgs89CfNagative_89",
+    "categorie": "devpos"
+  },
+  "117": {
+    "device": "DGS-012x",
+    "name": "Dgs117CfDrive_117",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "Dgs117CfDrive_117",
+    "categorie": "devpos"
+  },
+  "8": {
+    "device": "DGS-012x",
+    "name": "Dgs8CfBarquettes_8",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "Dgs8CfBarquettes_8",
+    "categorie": "devpos"
+  },
+  "123": {
+    "device": "DGS-012x",
+    "name": "Dgs123CfPosR-_123",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "CF+",
+    "Name": "Dgs123CfPosR-_123",
+    "categorie": "devpos"
+  },
+  "125": {
+    "device": "DGS-012x",
+    "name": "Dgs125LaboR-_125",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "genre": "vitrine+",
+    "Name": "Dgs125LaboR-_125",
+    "categorie": "devpos"
+  }
+}

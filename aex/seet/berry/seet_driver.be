@@ -190,8 +190,8 @@ class AEROTHERME
             gpio.digital_write(global.relay1, 0)  # Relay 1 OFF
             gpio.digital_write(global.relay2, 0)  # Relay 2 OFF
         elif marche == 1 && global.power == 1 && global.setup['onoff'] == 1
-            # Start: both relays ON
-            gpio.digital_write(global.relay1, 1)  # Relay 1 ON
+            # Marche: Relay 1 OFF, Relay 2 ON (depends on temperature via global.power)
+            gpio.digital_write(global.relay1, 0)  # Relay 1 OFF
             gpio.digital_write(global.relay2, 1)  # Relay 2 ON
         elif chauffage == 1
             # Heating: Relay 1 OFF, Relay 2 ON
@@ -263,7 +263,7 @@ class AEROTHERME
             if (hour >= global.setup[jour]['debut'] && hour < global.setup[jour]['fin'])
                 global.target = global.setup['ouvert']
                 if (global.temperature < global.target && global.setup['onoff'] == 1)
-                    gpio.digital_write(global.relay1, 1)
+                    gpio.digital_write(global.relay1, 0)
                     gpio.digital_write(global.relay2, 1)
                     global.power = 1
                 else
@@ -274,7 +274,7 @@ class AEROTHERME
             else
                 global.target = global.setup['ferme']
                 if (global.temperature < global.target && global.setup['onoff'] == 1)
-                    gpio.digital_write(global.relay1, 1)
+                    gpio.digital_write(global.relay1, 0)
                     gpio.digital_write(global.relay2, 1)
                     global.power = 1
                 else

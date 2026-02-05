@@ -76,13 +76,6 @@
         "techno": ["ct"],
         "ratio": ["1000"]
     },
-    "dl4-eclpub2": {
-        "mode": "tri",
-        "root": ["eclpub2"],
-        "produit": "PWX4",
-        "techno": ["ct"],
-        "ratio": ["1000"]
-    },
     "dl12-caisses": {
         "mode": ["tri","tri","tri"],
         "root": ["gene_pc_caisses","gene_divers","gene_tdcaisses"],
