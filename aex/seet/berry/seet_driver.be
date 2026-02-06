@@ -72,7 +72,6 @@ class AEROTHERME
     end
 
     def acknowledge_mysetup(topic, idx, payload_s, payload_b)
-        print("debug: function acknowledge_mysetup() started")
         var myjson = json.load(payload_s)
         if myjson == nil
             mqttprint("Error: Failed to parse JSON payload")
@@ -108,12 +107,11 @@ class AEROTHERME
         mqtt.publish(newtopic, payload, true)
         tasmota.delay(5)
         self.every_minute()
-        print("debug: function acknowledge_mysetup() ended successfully")
     end
 
     def update_app_with_mysetup(topic, idx, payload_s, payload_b)
         mqttprint(" update app")
-        var newtopic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
+        var newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
         var buffer = json.dump(global.setup)
         var payload = string.format('{"Device":"%s","Name":"setup","TYPE":"SETUP","DATA":%s}', 
         global.device, buffer)
