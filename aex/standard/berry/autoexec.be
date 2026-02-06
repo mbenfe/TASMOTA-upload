@@ -339,9 +339,9 @@ def launch_driver()
     tasmota.load('ds18b20.be')
     mqttprint('ds18b20 driver loaded')
 
-    mqttprint('load aerotherme_driver')
-    tasmota.load('aerotherme_driver.be')
-    mqttprint('aerotherme_driver loaded')
+    mqttprint('load standard_driver')
+    tasmota.load('standard_driver.be')
+    mqttprint('standard_driver loaded')
 end
 
 def check_gpio()
