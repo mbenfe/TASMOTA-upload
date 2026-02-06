@@ -113,8 +113,8 @@ class AEROTHERME
         mqttprint(" update app")
         var newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, global.device)
         var buffer = json.dump(global.setup)
-        var payload = string.format('{"Device":"%s","Name":"setup","TYPE":"SETUP","DATA":%s}', 
-        global.device, buffer)
+        var payload = string.format('{"Device":"%s","Name":"%d","TYPE":"SETUP","DATA":%s}', 
+        global.device,global.device, buffer)
         mqtt.publish(newtopic, payload, true)
         tasmota.delay(5)
         self.every_minute()
