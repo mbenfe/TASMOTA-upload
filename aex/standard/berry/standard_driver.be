@@ -12,7 +12,7 @@ def mqttprint(texte)
 end
 
 def get_cron_second()
-    var combined = string.format("%s|%s", global.ville, global.device)
+    var combined = string.format("%s|%s", global.ville, global.esp_device)
     var sum = 0
     for i : 0 .. size(combined) - 1
         sum += string.byte(combined[i])
@@ -320,7 +320,7 @@ var aerotherme = AEROTHERME()
 global.aerotherme = aerotherme  # Add this line to make aerotherme accessible globally
 tasmota.add_driver(aerotherme)
 var cron_second = get_cron_second()
-print("Cron second for device " + global.device + " is " + str(cron_second))
+print("Cron second for device " + global.esp_device + " is " + str(cron_second))
 var cron_pattern = string.format("%d * * * * *", cron_second)
 tasmota.add_cron(cron_pattern, /-> aerotherme.every_minute(), "every_min_@0_s")
 cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
