@@ -17,8 +17,8 @@ def get_cron_second()
     for i : 0 .. size(combined) - 1
         sum += string.byte(combined[i])
     end
+    print("Debug: Sum of ASCII values for " + combined + " is " + str(sum))
     return sum % 60
-    print("cron for " + combined + " is " + str(sum))
 end
 
 
@@ -131,6 +131,28 @@ class AEROTHERME
         self.every_minute()  # Update the state immediately
     end
 
+    def update_app_with_mysetup(topic, idx, payload_s, payload_b)
+        var arguments = string.split(topic, '/')
+        var index = 99
+        for i:0..size(global.config)-1
+            if global.devices[i] == arguments[3]
+                index = i
+                break
+            end
+        end
+        if(index == 99)
+            mqttprint("Error: Device " + arguments[3] + " not found in device list")
+            return
+        end
+        var newtopic = string.format("gw/%s/%s/%s/set/SETUP", global.client, global.ville, arguments[3])
+        var buffer = json.dump(global.setups[index])
+        var payload = string.format('{"Device":"%s","Name":"setup_%s","TYPE":"SETUP","DATA":%s}', 
+        global.esp_device, arguments[3], buffer)
+        mqtt.publish(newtopic, payload, true)
+        tasmota.delay(5)
+        self.every_minute()
+    end
+
     # Initialization function
     def init()
         var file
@@ -199,6 +221,8 @@ class AEROTHERME
         for i:0..global.nombre-1
             topic = string.format("app/%s/%s/%s/set/SETUP", global.client, global.ville, global.devices[i])
             mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.mysetup(topic, idx, payload_s, payload_b))
+            topic = string.format("app/%s/%s/%s/get/SETUP", global.client, global.ville, global.devices[i])
+            mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.update_app_with_mysetup(topic, idx, payload_s, payload_b))
             mqttprint("subscribed to SETUP:"+global.devices[i])
         end
     end
