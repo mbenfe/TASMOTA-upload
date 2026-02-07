@@ -15,7 +15,7 @@
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
-        "root": ["station","eclext","pc_bl"],
+        "root": ["station","eclext","eclres1"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]

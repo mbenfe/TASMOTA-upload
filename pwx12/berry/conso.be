@@ -279,6 +279,7 @@ class conso
 
         for i:0..2
             stringdevice = string.format("%s-%d", global.device, i + 1)
+            var channel_name = self.consojson["hours"][i]["Name"]
             if (scope == "hours" && global.configjson[global.device]["root"][i] != "*")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
@@ -287,7 +288,10 @@ class conso
                 self.consojson["hours"][i]["DATA"][str((hour + 1) % 24)] = 0
             elif (global.configjson[global.device]["root"][i] != "*")
                 # ✅ CALCULATE YESTERDAY'S COST FIRST (before resetting hour 0)
-                self.calcul_cout(month, yesterday, self.consojson["hours"][i]["DATA"], global.configjson[global.device]["root"][i])
+                if !self.week_couts_json.contains(channel_name)
+                    self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                end
+                self.calcul_cout(month, yesterday, self.consojson["hours"][i]["DATA"], channel_name)
                 
                 # THEN publish hours
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
@@ -322,9 +326,12 @@ class conso
         
         # Publish costs
         for i:0..2
-            var channel_name = global.configjson[global.device]["root"][i]
+            var channel_name = self.consojson["hours"][i]["Name"]
             if (scope != "hours" && channel_name != "*")
                 var cost_key = string.format("c_%s", channel_name)
+                if !self.week_couts_json.contains(channel_name)
+                    self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                end
                 
                 # Cost of yesterday (the day that just ended)
                 topic = string.format("gw/%s/%s/%s-%d/tele/COUT", global.client, global.ville, global.device, i + 1)
