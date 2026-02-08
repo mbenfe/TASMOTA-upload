@@ -132,7 +132,17 @@ class PWX12
         self.logger.store()
     end
 
+    def heartbeat()
+        var now = tasmota.rtc()
+        var timestamp = tasmota.time_str(now["local"])
+        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.esp_device)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', global.esp_device, global.esp_device, timestamp)
+        mqtt.publish(topic, payload, true)
+    end
+
 end
+
+
 
 global.pwx12 = PWX12()
 tasmota.add_driver(global.pwx12)
@@ -149,6 +159,10 @@ print("cron midnight:" + cron_pattern)
 cron_pattern = string.format("%d 59 * * * *", cron_second)
 tasmota.add_cron(cron_pattern, /-> global.pwx12.hour(), "every_hour")
 print("cron hour:" + cron_pattern)
+# set heartbeat cron
+cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.heartbeat(), "every_hour")
+print("cron heartbeat:" + cron_pattern)
 # set 4 hours cron
 cron_pattern = string.format("%d 0 */4 * * *", cron_second)
 tasmota.add_cron(cron_pattern, /-> global.pwx12.every_4hours(), "every_4_hours")

@@ -228,12 +228,12 @@ class conso
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
 
-        # Vérification de l'année bissextile
-        if (month == 2)  # Si c'est février
+        # Verification de l'annee bissextile
+        if (month == 2)  # Si c'est fevrier
             if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
-                self.num_day_month[2] = 29  # Année bissextile, février a 29 jours
+                self.num_day_month[2] = 29  # Annee bissextile, fevrier a 29 jours
             else
-                self.num_day_month[2] = 28  # Année non bissextile, février a 28 jours
+                self.num_day_month[2] = 28  # Annee non bissextile, fevrier a 28 jours
             end
         end    
 
@@ -287,7 +287,7 @@ class conso
                 mqtt.publish(topic, ligne, true)
                 self.consojson["hours"][i]["DATA"][str((hour + 1) % 24)] = 0
             elif (global.configjson[global.device]["root"][i] != "*")
-                # ✅ CALCULATE YESTERDAY'S COST FIRST (before resetting hour 0)
+                # CALCULATE YESTERDAY'S COST FIRST (before resetting hour 0)
                 if !self.week_couts_json.contains(channel_name)
                     self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                 end

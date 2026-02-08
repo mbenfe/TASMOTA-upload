@@ -20,9 +20,16 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
-    "dl12-boulange1": {
+    "dl12-boulangerie1": {
         "mode": ["tri","tri","tri"],
-        "root": ["four1","four2","f4f6"],
+        "root": ["gene_pc","fou1","gene_boulangerie"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-boulangerie2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["four2","CF","provisoir_mf"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
