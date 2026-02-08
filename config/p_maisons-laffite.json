@@ -22,7 +22,7 @@
     },
     "dl12-boulangerie1": {
         "mode": ["tri","tri","tri"],
-        "root": ["gene_pc","fou1","gene_boulangerie"],
+        "root": ["gene_pc","four1","gene_boulangerie"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]

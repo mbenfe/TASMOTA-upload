@@ -12,15 +12,15 @@ var tx = 17
 var rst = 2   
 var bsl = 13   
 
-var device
-var ville
+global.device = nil
+global.ville = nil
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
 def mqttprint(texte)
     import mqtt
     var payload = string.format("{\"texte\":\"%s\"}", texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", ville, device)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
     mqtt.publish(topic, payload, true)
 end
 
@@ -141,6 +141,7 @@ def ville(cmd, idx, payload, payload_json)
     var buffer = file.read()
     var myjson = json.load(buffer)
     myjson["ville"] = payload
+    global.ville = payload
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg", "wt")
@@ -155,6 +156,7 @@ def device(cmd, idx, payload, payload_json)
     var buffer = file.read()
     var myjson = json.load(buffer)
     myjson["device"] = payload
+    global.device = payload
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg", "wt")
@@ -360,21 +362,31 @@ def update()
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     var myjson = json.load(buffer)
-    var ville = myjson["ville"]
+    global.ville = myjson["ville"]
+    var ville = global.ville
+    file.close()
+    mqttprint("update: start")
     hold()
     var name = string.format("c_%s.json", ville)
-    file.close()
     var command = string.format("getfile config/%s", name)
+    mqttprint("update: " + command)
     tasmota.cmd(command)
     name = string.format("p_%s.json", ville)
     command = string.format("getfile config/%s", name)
+    mqttprint("update: " + command)
     tasmota.cmd(command)
+    mqttprint("update: getfile pwx12/berry/command.be")
     tasmota.cmd("getfile pwx12/berry/command.be")
+    mqttprint("update: getfile pwx12/berry/conso.be")
     tasmota.cmd("getfile pwx12/berry/conso.be")   
+    mqttprint("update: getfile pwx12/berry/flasher.be")
     tasmota.cmd("getfile pwx12/berry/flasher.be")
+    mqttprint("update: getfile pwx12/berry/logger.be")
     tasmota.cmd("getfile pwx12/berry/logger.be")
+    mqttprint("update: getfile pwx12/berry/pwx12_driver.be")
     tasmota.cmd("getfile pwx12/berry/pwx12_driver.be")
     start()
+    mqttprint("update: done")
 end
 
 def couts()

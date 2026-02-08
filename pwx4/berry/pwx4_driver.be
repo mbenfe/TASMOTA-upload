@@ -129,6 +129,14 @@ class PWX4
         self.logger.store()
     end
 
+    def heartbeat()
+        var now = tasmota.rtc()
+        var timestamp = tasmota.time_str(now["local"])
+        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', global.device, global.device, timestamp)
+        mqtt.publish(topic, payload, true)
+    end
+
 end
 
 pwx4 = PWX4()
@@ -144,6 +152,10 @@ print("cron midnight:" + mycron)
 mycron = string.format("%d 59 * * * *", cron_second)
 tasmota.add_cron(mycron, /-> pwx4.hour(), "every_hour")
 print("cron hour:" + mycron)
+# set heartbeat cron
+mycron = string.format("%d %d * * * *", cron_second, cron_second)
+tasmota.add_cron(mycron, /-> pwx4.heartbeat(), "every_hour")
+print("cron heartbeat:" + mycron)
 # set 4 hours cron
 mycron = string.format("%d 0 */4 * * *", cron_second)
 tasmota.add_cron(mycron, /-> pwx4.every_4hours(), "every_4_hours")

@@ -7,15 +7,15 @@ import json
 import gpio
 import path  
 
-var device
-var ville
+global.device = nil
+global.ville = nil
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
 def mqttprint(texte)
     import mqtt
     var payload = string.format("{\"texte\":\"%s\"}", texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT",ville,device)
+    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
     mqtt.publish(topic,payload,true)
 end
 
@@ -126,12 +126,31 @@ def Stm32Reset()
         tasmota.resp_cmnd("STM32 reset")
 end
 
+def hold()
+    # Hold STM32 in reset and keep boot pin low.
+    gpio.pin_mode(global.rst_pin, gpio.OUTPUT)
+    gpio.pin_mode(global.bsl_pin, gpio.OUTPUT)
+    gpio.digital_write(global.bsl_pin, 0)
+    gpio.digital_write(global.rst_pin, 0)
+    tasmota.resp_cmnd("done")
+end
+
+def start()
+    # Release reset and keep boot pin low for normal boot.
+    gpio.pin_mode(global.rst_pin, gpio.OUTPUT)
+    gpio.pin_mode(global.bsl_pin, gpio.OUTPUT)
+    gpio.digital_write(global.bsl_pin, 0)
+    gpio.digital_write(global.rst_pin, 1)
+    tasmota.resp_cmnd("done")
+end
+
 def ville(cmd, idx,payload, payload_json)
     import json
     var file = open("esp32.cfg","rt")
     var buffer = file.read()
     var myjson=json.load(buffer)
     myjson["ville"]=payload
+    global.ville = payload
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg","wt")
@@ -146,6 +165,7 @@ def device(cmd, idx,payload, payload_json)
     var buffer = file.read()
     var myjson=json.load(buffer)
     myjson["device"]=payload
+    global.device = payload
     buffer = json.dump(myjson)
     file.close()
     file = open("esp32.cfg","wt")
@@ -203,6 +223,8 @@ def getfile(cmd, idx, payload, payload_json)
     var message
     var nom_fichier = string.split(payload, '/').pop()
 
+    hold()
+
     mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
     mqttprint(filepath)
@@ -211,6 +233,7 @@ def getfile(cmd, idx, payload, payload_json)
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
         tasmota.resp_cmnd("Erreur d'initialisation du client web.")
+        start()
         return
     end
 
@@ -222,6 +245,7 @@ def getfile(cmd, idx, payload, payload_json)
         mqttprint(message)
         tasmota.resp_cmnd("Erreur de téléchargement.")
         wc.close()
+        start()
         return
     end
 
@@ -230,6 +254,7 @@ def getfile(cmd, idx, payload, payload_json)
     mqttprint('Fetched ' + str(bytes_written))
     message = 'uploaded:' + nom_fichier
     tasmota.resp_cmnd(message)
+    start()
     return st
 end
 
@@ -300,6 +325,8 @@ end
 
 def help()
     mqttprint("Stm32reset:reset du STM32")
+    mqttprint("hold: hold STM32 in reset")
+    mqttprint("start: release STM32 reset")
     mqttprint("getfile <path/filename>: load file")
     mqttprint("sendconfig p_<name>.json: configure pwx")
     mqttprint("ville <nom>: set ville")
@@ -339,20 +366,33 @@ def update()
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     var myjson = json.load(buffer)
-    var ville = myjson["ville"]
+    global.ville = myjson["ville"]
+    var ville = global.ville
     var name = string.format("c_%s.json", ville)
     file.close()
+    mqttprint("update: start")
+    hold()
     var command = string.format("getfile config/%s", name)
+    mqttprint("update: " + command)
     tasmota.cmd(command)
     name = string.format("p_%s.json", ville)
     command = string.format("getfile config/%s", name)
+    mqttprint("update: " + command)
     tasmota.cmd(command)
+    mqttprint("update: getfile pwx4/berry/autoexec.be")
     tasmota.cmd("getfile pwx4/berry/autoexec.be")
+    mqttprint("update: getfile pwx4/berry/command.be")
     tasmota.cmd("getfile pwx4/berry/command.be")
+    mqttprint("update: getfile pwx4/berry/conso.be")
     tasmota.cmd("getfile pwx4/berry/conso.be")   
+    mqttprint("update: getfile pwx4/berry/flasher.be")
     tasmota.cmd("getfile pwx4/berry/flasher.be")
+    mqttprint("update: getfile pwx4/berry/logger.be")
     tasmota.cmd("getfile pwx4/berry/logger.be")
+    mqttprint("update: getfile pwx4/berry/pwx4_driver.be")
     tasmota.cmd("getfile pwx4/berry/pwx4_driver.be")
+    start()
+    mqttprint("update: done")
 end
 
 def couts()
@@ -365,6 +405,8 @@ print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
 
 tasmota.add_cmd("Stm32reset", Stm32Reset)
+tasmota.add_cmd("hold", hold)
+tasmota.add_cmd("start", start)
 tasmota.add_cmd("getfile", getfile)
 tasmota.add_cmd("sendconfig", sendconfig)
 tasmota.add_cmd("ville", ville)

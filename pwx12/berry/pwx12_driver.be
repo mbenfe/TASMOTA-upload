@@ -135,8 +135,8 @@ class PWX12
     def heartbeat()
         var now = tasmota.rtc()
         var timestamp = tasmota.time_str(now["local"])
-        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.esp_device)
-        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', global.esp_device, global.esp_device, timestamp)
+        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', global.device, global.device, timestamp)
         mqtt.publish(topic, payload, true)
     end
 
