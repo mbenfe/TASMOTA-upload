@@ -42,20 +42,6 @@
     "techno": ["ct"],
     "ratio": ["2000"]
     },
-"dl4-froid": {
-    "mode": "tri",
-    "root": ["froid"],
-    "produit": "PWX4",
-    "techno": ["ct"],
-    "ratio": ["4000"]
-    },
-"dl12-ext": {
-    "mode": ["tri","tri","tri"],
-    "root": ["gene_ext1","gene_ext2","station"],
-    "produit": "PWX12",
-    "techno": ["ct","ct","ct","ct"],
-    "ratio": ["2000","1000","1000"]
-},
 "dl12-boulangerie1": {
     "mode": ["tri","tri","tri"],
     "root": ["force","grandfour","gen_boulangerie"],
@@ -97,5 +83,19 @@
     "produit": "PWX12",
     "techno": ["ct","ct","ct"],
     "ratio": ["1000","1000","1000"]
-}
+},
+"dl4-froid": {
+    "mode": "tri",
+    "root": ["froid"],
+    "produit": "PWX4",
+    "techno": ["ct"],
+    "ratio": ["4000"]
+    },
+"dl12-ext": {
+    "mode": ["tri","tri","tri"],
+    "root": ["gene_ext1","gene_ext2","station"],
+    "produit": "PWX12",
+    "techno": ["ct","ct","ct","ct"],
+    "ratio": ["2000","1000","1000"]
+    }
 }

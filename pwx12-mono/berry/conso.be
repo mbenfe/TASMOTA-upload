@@ -308,11 +308,15 @@ class conso
             nb_channel = 12
         end
 
+        # Calculate yesterday for cost calculation
+        var yesterday = (day_of_week - 1 + 7) % 7
+
 
         var stringdevice
 
         for i:0..nb_channel-1
             stringdevice = string.format("%s-%d", global.device, i + 1)
+            var channel_name = self.consojson["hours"][i]["Name"]
             if (scope == "hours" && global.configjson[global.device]["root"][i] != "*")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
@@ -320,6 +324,12 @@ class conso
                 mqtt.publish(topic, ligne, true)
                 self.consojson["hours"][i]["DATA"][str((hour + 1) % 24)] = 0
             elif (global.configjson[global.device]["root"][i] != "*")
+                # CALCULATE YESTERDAY'S COST FIRST (before resetting hour 0)
+                if !self.week_couts_json.contains(channel_name)
+                    self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                end
+                self.calcul_cout(month, yesterday, self.consojson["hours"][i]["DATA"], channel_name)
+
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
                 ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_hours))
@@ -340,30 +350,33 @@ class conso
                     if (month == 12)  # decembre
                         self.consojson["months"][i]["DATA"]["Jan"] = 0
                     else
-                        self.consojson["months"][i]["DATA"][str(self.month_list[month + 1])]
+                        self.consojson["months"][i]["DATA"][self.month_list[month + 1]] = 0
                     end
-                end
-               # consommation
-                if scope != "hours"
-                    self.calcul_cout(month,day_of_week, payload_hours, global.configjson[global.device]["root"][i])
                 end
             end
         end
-        var i = 0
-        for k: self.cout.keys()
-            i+=1
-            if (scope != "hours" && k != "c_*")
-                # du jour courant
-                topic = string.format("gw/%s/%s/%s-%d/tele/COUT", global.client, global.ville, global.device, i)
-                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', global.device,k, global.coutjson['surface'],self.cout[k],self.day_list[day_of_week])
+        # Publish costs
+        for i:0..nb_channel-1
+            var channel_name = self.consojson["hours"][i]["Name"]
+            if (scope != "hours" && channel_name != "*")
+                var cost_key = string.format("c_%s", channel_name)
+                if !self.week_couts_json.contains(channel_name)
+                    self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                end
+
+                # Cost of yesterday (the day that just ended)
+                topic = string.format("gw/%s/%s/%s-%d/tele/COUT", global.client, global.ville, global.device, i + 1)
+                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
+                    global.device, cost_key, global.coutjson['surface'], self.cout[cost_key], self.day_list[yesterday])
                 mqtt.publish(topic, ligne, true)
-                # de la semaine
-                topic = string.format("gw/%s/%s/%s-%d/tele/COUTS", global.client, global.ville, global.global.device, i)
-                payload_week = self.week_couts_json[global.configjson[global.device]["root"][i-1]]
+
+                # Week costs
+                topic = string.format("gw/%s/%s/%s-%d/tele/COUTS", global.client, global.ville, global.device, i + 1)
+                payload_week = self.week_couts_json[channel_name]
                 ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
-                global.device, global.configjson[global.device]["root"][i-1], payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
+                    global.device, channel_name, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
                 mqtt.publish(topic, ligne, true)
-             end
+            end
         end
     end
 end

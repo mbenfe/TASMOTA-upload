@@ -282,10 +282,11 @@ def launch_driver()
 end
 
 def statistic()
-        gpio.digital_write(global.statistic_pin, 1)
-        tasmota.delay(1)
-        gpio.digital_write(global.statistic_pin, 0)
-    end
+    gpio.digital_write(global.statistic_pin, 1)
+    tasmota.delay(1)
+    gpio.digital_write(global.statistic_pin, 0)
+    tasmota.resp_cmnd_done()
+end
 
 
 

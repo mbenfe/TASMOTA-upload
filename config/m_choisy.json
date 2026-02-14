@@ -21,7 +21,7 @@
                     "column": 1,
                     "row": 2,
                     "location": "Magasin/Eclairage 1/Boulangerie/Labo/Bornes/Onduleur/Bureaux/Eclairage 2/Cimatisation/Libre",
-                    "master": "c_gene_ext1",
+                    "master": "c_w_gene_ext1",
                     "slave": [
                         "c_ecl1",
                         "c_gen_boulangerie",
@@ -35,10 +35,29 @@
                     ]
                 },
                 {
-                    "shape": "ParetoTemp",
+                    "shape": "iCoutsTable",
                     "color": 0,
                     "column": 1,
                     "row": 3,
+                    "location": "Magasin/Eclairage 1/Boulangerie/Labo/Bornes/Onduleur/Bureaux/Eclairage 2/Cimatisation/Libre",
+                    "master": "c_w_gene_ext1",
+                    "slave": [
+                        "c_w_ecl1",
+                        "c_w_gen_boulangerie",
+                        "c_w_gene_labo",
+                        "c_w_bornes",
+                        "c_w_onduleur",
+                        "c_w_bureaux",
+                        "c_w_ecl2",
+                        "c_w_td_clim",
+                        "c_w_libre"
+                    ]
+                },
+                {
+                    "shape": "ParetoTemp",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
                     "location": "Exterieur/Clim 1/Clim 2/Clim 3/Clim 4/Animaux/Caisses/Pains/Fruits & Legumes/Entree galerie/Frais/Portiques/Savons/Piles/Cartes",
                     "master": "th_exterieure",
                     "slave": [

@@ -15,7 +15,7 @@
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
-        "root": ["station","eclext","eclres1"],
+        "root": ["station","eclext","pc_16A_magasin"],
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -55,14 +55,13 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["2000","2000","2000"]
     },
-"dl4-rideau": {
+    "dl4-rideau": {
         "mode": "tri",
         "root": ["rideau"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]
     },
-
     "dl4-tdmag": {
         "mode": "tri",
         "root": ["td_magasin"],

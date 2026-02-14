@@ -19,5 +19,40 @@
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["4000"]
-    } 
+    }, 
+    "dl4-station": {
+        "mode": "tri",
+        "root": ["main"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    }, 
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rampe5-1-divecl","fourampe8-10-14-12-div","ColonneA"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","2000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_boulangerie","four36kw","ColonneB"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","4000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rampe3-6-1-2-div","rampe2-9-div","CoffretEntree"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-bureaux": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_boulangerie","onduleur","gene_bureaux"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","4000"]
+    }
 }

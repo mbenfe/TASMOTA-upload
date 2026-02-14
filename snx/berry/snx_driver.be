@@ -5,6 +5,16 @@ import string
 import json
 import global
 
+def get_cron_second()
+    var combined = string.format("%s|%s", global.ville, global.device)
+    var sum = 0
+    for i : 0 .. size(combined) - 1
+        sum += string.byte(combined[i])
+    end
+    print("cron for " + combined + " is " + str(sum % 60))
+    return sum % 60
+end
+
 
 class STM32
     var errors
@@ -151,7 +161,6 @@ class STM32
             var buffer = self.ser.read()
             self.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
-                print ('json telemetry')
                 mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
@@ -179,9 +188,6 @@ class STM32
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(int(myjson["ID"])))
                                 mqtt.publish(topic,mylist[i],true)
                            end
-                        else
-                            topic=string.format("gw/%s/%s/s_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
-                            mqtt.publish(topic,mylist[i],true)
                         end
                     else
                         print('json error:',mylist[i])
@@ -189,22 +195,27 @@ class STM32
                     end
                 end
             elif (buffer[0] == 42)     # * -> json statistic
-                print ('json statistic')
-                mystring = buffer[1..-1].asstring()
+                mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
                 for i:0..numitem-2
-                    myjson = json.load(mylist[i])
-                    topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson["ID"]))
-                    mqtt.publish(topic,mylist[i],true)
+                    var line = mylist[i]
+                    if size(line) > 0
+                        if line[0] == '\r'
+                            line = line[1..-1]
+                        end
+                        if line[0] == '*'
+                            line = line[1..-1]
+                        end
+                        myjson = json.load(line)
+                        if myjson != nil && myjson.contains("ID")
+                            topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
+                            mqtt.publish(topic,line,true)
+                        else
+                            self.mqttprint('json statistic error:' + line)
+                        end
+                    end
                 end
-            elif (buffer[0] == 58)     # : -> debug text
-                print ('debug text')
-                self.mqttprint('debug: ' + buffer.asstring())
-                mystring = buffer.asstring()
-                myjson = json.load(mystring)
-                topic=string.format("gw/%s/%s/%s/tele/PRINT",self.client,self.ville,str(myjson["ID"]))
-                mqtt.publish(topic,mystring,true)
             else
                 topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)
                 mystring = buffer.asstring()
@@ -219,10 +230,23 @@ class STM32
          tasmota.delay(1)
          gpio.digital_write(global.statistic_pin, 0)
     end
+
+    def heartbeat()
+        var now = tasmota.rtc()
+        var timestamp = tasmota.time_str(now["local"])
+        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", self.client, self.ville, self.device)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', self.device, self.device, timestamp)
+        mqtt.publish(topic, payload, true)
+    end
 end
 
 stm32 = STM32()
 tasmota.add_driver(stm32)
 tasmota.add_fast_loop(/-> stm32.fast_loop())
-tasmota.add_cron("59 59 23 * * *",  /-> stm32.get_statistic(), "every_day")
-tasmota.add_cron("0 * * * * *", /-> stm32.save(), "save")
+var cron_second = get_cron_second()
+var cron_pattern = string.format("%d 59 23 * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> stm32.get_statistic(), "every_day")
+print("cron statistic:" + cron_pattern)
+cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
+tasmota.add_cron(cron_pattern, /-> stm32.heartbeat(), "every_hour")
+print("cron heartbeat:" + cron_pattern)
