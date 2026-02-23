@@ -5,6 +5,16 @@ import string
 import json
 import math
 
+def get_cron_second()
+    var combined = string.format("%s|%s", global.ville, global.device)
+    var sum = 0
+    for i : 0 .. size(combined) - 1
+        sum += string.byte(combined[i])
+    end
+    print("cron for " + combined + " is " + str(sum % 60))
+    return sum % 60
+end
+
 class PWX12
     var ser
     var rx
@@ -123,27 +133,36 @@ class PWX12
         self.logger.store()
     end
 
+    def heartbeat()
+        var now = tasmota.rtc()
+        var timestamp = tasmota.time_str(now["local"])
+        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', global.device, global.device, timestamp)
+        mqtt.publish(topic, payload, true)
+    end
+
 end
 
 global.pwx12 = PWX12()
 tasmota.add_driver(global.pwx12)
 var now = tasmota.rtc()
-var delay
-var mycron
-math.srand(size(global.device)*size(global.ville))
-var random = math.rand()
-delay = random % 10
-print('delay:', delay)
 tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
+var cron_second = get_cron_second()
 # set midnight cron
-mycron = string.format("59 %d 23 * * *", 50 + delay)
-tasmota.add_cron(mycron, /-> global.pwx12.midnight(), "every_day")
-mqttprint("cron midnight:" + mycron)
+var cron_pattern = string.format("%d 59 23 * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.midnight(), "every_day")
+print("cron midnight:" + cron_pattern)
 # set hour cron
-mycron = string.format("59 %d * * * *", 50 + delay)
-tasmota.add_cron(mycron, /-> global.pwx12.hour(), "every_hour")
-mqttprint("cron hour:" + mycron)
+cron_pattern = string.format("%d 59 * * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.hour(), "every_hour")
+print("cron hour:" + cron_pattern)
+# set heartbeat cron
+cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.heartbeat(), "every_hour")
+print("cron heartbeat:" + cron_pattern)
 # set 4 hours cron
-tasmota.add_cron("01 01 */4 * * *", /-> global.pwx12.every_4hours(), "every_4_hours")
+cron_pattern = string.format("%d 0 */4 * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.every_4hours(), "every_4_hours")
+print("cron every 4 hours:" + cron_pattern)
 
 # return pwx12
