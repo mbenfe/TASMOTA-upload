@@ -1,4 +1,4 @@
-var version = "1.0.112024 ready to H7"
+var version = "1.0.022026 use shared global.ser"
 
 import mqtt
 import string
@@ -20,7 +20,6 @@ class STM32
     var errors
     var mapID
     var mapFunc
-    var ser
     var rst_in  
     var bsl_in  
     var rst_out  
@@ -73,11 +72,6 @@ class STM32
         self.loadconfig()
 
         print('DRIVER: serial init done')
-        # lecture STM32 IN pour debug
-        # self.ser = serial(36,1,921600,serial.SERIAL_8N1)
-        # pinout flasher
-        # serial speed limite (choisy)
-        self.ser = serial(17,16,921600,serial.SERIAL_8N1)
     
         # setup boot pins for stm32: reset disable & boot normal
 
@@ -86,9 +80,7 @@ class STM32
         gpio.pin_mode(self.rst_out,gpio.OUTPUT)
         gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
         gpio.digital_write(self.bsl_in, 0)
-        gpio.digital_write(self.rst_in, 1)
         gpio.digital_write(self.bsl_out, 0)
-        gpio.digital_write(self.rst_out, 1)
 
         gpio.pin_mode(global.statistic_pin,gpio.OUTPUT)
         gpio.pin_mode(global.ready_pin,gpio.OUTPUT)
@@ -154,12 +146,12 @@ class STM32
         var numitem
         var myjson
         var topic
-        if self.ser.available()
+        if global.ser.available()
             gpio.digital_write(global.ready_pin,0)
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            var buffer = self.ser.read()
-            self.ser.flush()
+            var buffer = global.ser.read()
+            global.ser.flush()
             if(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')

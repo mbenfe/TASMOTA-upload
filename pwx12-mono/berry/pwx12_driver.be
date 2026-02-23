@@ -5,16 +5,6 @@ import string
 import json
 import math
 
-def get_cron_second()
-    var combined = string.format("%s|%s", global.ville, global.device)
-    var sum = 0
-    for i : 0 .. size(combined) - 1
-        sum += string.byte(combined[i])
-    end
-    print("cron for " + combined + " is " + str(sum % 60))
-    return sum % 60
-end
-
 class PWX12
     var ser
     var rx
@@ -52,6 +42,7 @@ class PWX12
 
     def init()
         self.loadconfig()
+        global.nb_channel = 12
         import conso
         self.conso = conso
         import logger
@@ -72,7 +63,7 @@ class PWX12
     end
 
     def fast_loop()
-        self.read_uart(2)
+        self.read_uart(5)
     end
 
     def read_uart(timeout)
@@ -87,22 +78,16 @@ class PWX12
             var topic
             var split
             var ligne
-            var nb_channel
-            if global.configjson[global.device]["mode"][0] == "tri"
-                nb_channel = 3
-            else
-                nb_channel = 12
-            end
             for i: 0..numitem-2
                 if mylist[i][0] == 'C'
-                    print('C:', mylist[i])
+                    print(mylist[i])
                     self.conso.update(mylist[i])
                     topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                     mqtt.publish(topic, mylist[i], true)
                 elif mylist[i][0] == 'W'
                     # self.logger.log_data(mylist[i])
                     split = string.split(mylist[i], ':')
-                    for j: 0..nb_channel-1
+                    for j: 0..global.nb_channel-1
                         if global.configjson[global.device]["root"][j] != "*"
                             topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
                             ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
@@ -138,37 +123,27 @@ class PWX12
         self.logger.store()
     end
 
-    def heartbeat()
-        var now = tasmota.rtc()
-        var timestamp = tasmota.time_str(now["local"])
-        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
-        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', global.device, global.device, timestamp)
-        mqtt.publish(topic, payload, true)
-    end
-
 end
 
 global.pwx12 = PWX12()
 tasmota.add_driver(global.pwx12)
 var now = tasmota.rtc()
+var delay
+var mycron
+math.srand(size(global.device)*size(global.ville))
+var random = math.rand()
+delay = random % 10
+print('delay:', delay)
 tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
-# set cron seconds
-var cron_second = get_cron_second()
 # set midnight cron
-var mycron = string.format("%d 59 23 * * *", cron_second)
+mycron = string.format("59 %d 23 * * *", 50 + delay)
 tasmota.add_cron(mycron, /-> global.pwx12.midnight(), "every_day")
 mqttprint("cron midnight:" + mycron)
 # set hour cron
-mycron = string.format("%d 59 * * * *", cron_second)
+mycron = string.format("59 %d * * * *", 50 + delay)
 tasmota.add_cron(mycron, /-> global.pwx12.hour(), "every_hour")
 mqttprint("cron hour:" + mycron)
-# set heartbeat cron
-mycron = string.format("%d %d * * * *", cron_second, cron_second)
-tasmota.add_cron(mycron, /-> global.pwx12.heartbeat(), "every_hour")
-mqttprint("cron heartbeat:" + mycron)
 # set 4 hours cron
-mycron = string.format("%d 0 */4 * * *", cron_second)
-tasmota.add_cron(mycron, /-> global.pwx12.every_4hours(), "every_4_hours")
-mqttprint("cron every 4 hours:" + mycron)
+tasmota.add_cron("01 01 */4 * * *", /-> global.pwx12.every_4hours(), "every_4_hours")
 
 # return pwx12

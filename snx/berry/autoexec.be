@@ -1,4 +1,4 @@
-var version = "1.0.112024 getversion"
+var version = "1.0.022026 boot rst_out hold + global.ser + cmd s"
 
 import string
 import global
@@ -10,8 +10,6 @@ import path
 var device
 var ville
 
-var ser                # serial object
-
 def mqttprint(texte)
     import mqtt
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", ville, device)
@@ -22,6 +20,12 @@ var rst_out=33
 var bsl_out=32   
 var rst_in=19
 var bsl_in=21   
+
+# keep STM32 OUT in reset from boot start
+gpio.pin_mode(rst_out,gpio.OUTPUT)
+gpio.pin_mode(bsl_out,gpio.OUTPUT)
+gpio.digital_write(bsl_out, 0)
+gpio.digital_write(rst_out, 0)
 
 #-------------------------------- FONCTIONS -----------------------------------------#
 def init()
@@ -44,6 +48,14 @@ def init()
     gpio.pin_mode(bsl_in,gpio.OUTPUT)
     gpio.digital_write(rst_in, 1)
     gpio.digital_write(bsl_in, 0)
+
+    gpio.pin_mode(rst_out,gpio.OUTPUT)
+    gpio.pin_mode(bsl_out,gpio.OUTPUT)
+    gpio.digital_write(bsl_out, 0)
+    gpio.digital_write(rst_out, 0)
+
+    global.ser=serial(17,16,921600,serial.SERIAL_8N1)
+
 end
 
 def mqttprint(texte)
@@ -141,7 +153,6 @@ def sendconfig(cmd, idx,payload, payload_json)
     var buffer
     var myjson
     var total = '';
-    var ser
     var header
     mqttprint('send:'+payload)
     ############################ fichier config ###################
@@ -206,11 +217,25 @@ def sendconfig(cmd, idx,payload, payload_json)
     file.write(finalsend)
     file.close()
    
-    ser=serial(25,26,230400,serial.SERIAL_8N1)
+    if global.ser == nil
+        tasmota.resp_cmnd("serial not ready")
+        return
+    end
     var mybytes=bytes().fromstring(finalsend)
-    ser.flush()
-    ser.write(mybytes)
+    global.ser.flush()
+    global.ser.write(mybytes)
     tasmota.resp_cmnd("config sent")
+end
+
+def sends(cmd, idx, payload, payload_json)
+    if global.ser == nil
+        tasmota.resp_cmnd("serial not ready")
+        return
+    end
+    var mybytes=bytes().fromstring("s")
+    global.ser.flush()
+    global.ser.write(mybytes)
+    tasmota.resp_cmnd("s sent")
 end
 
 def readconfig(cmd, idx,payload, payload_json)
@@ -259,6 +284,8 @@ end
 def launch_driver()
     mqttprint('mqtt connected -> launch driver')
     tasmota.load('snx_driver.be')
+    gpio.digital_write(rst_out, 1)
+    mqttprint('AUTOEXEC: STM32 OUT reset released')
  end
 
  def getversion()
@@ -303,6 +330,7 @@ tasmota.add_cmd('getfile',getfile)
 
 mqttprint('AUTOEXEC: create commande sendconfig')
 tasmota.add_cmd('sendconfig',sendconfig)
+tasmota.add_cmd('s',sends)
 tasmota.add_cmd('readconfig',readconfig)
 tasmota.add_cmd('dir',dir)
 

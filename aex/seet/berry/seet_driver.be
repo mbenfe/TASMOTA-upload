@@ -311,7 +311,7 @@ class AEROTHERME
         print("subscribed to remote sensor:" + topic)
     end
 
-    def every_hour()
+    def heartbeat()
         var now = tasmota.rtc()
         var timestamp = tasmota.time_str(now["local"])
         var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
@@ -331,4 +331,4 @@ print("Cron second for device " + global.device + " is " + str(cron_second))
 var cron_pattern = string.format("%d * * * * *", cron_second)
 tasmota.add_cron(cron_pattern, /-> aerotherme.every_minute(), "every_min_@0_s")
 cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
-tasmota.add_cron(cron_pattern, /-> aerotherme.every_hour(), "every_hour_@0_s")
+tasmota.add_cron(cron_pattern, /-> aerotherme.heartbeat(), "every_hour_@0_s")

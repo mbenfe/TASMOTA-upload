@@ -36,7 +36,7 @@
     },
     "dl4-tgbt2": {
         "mode": "tri",
-        "root": ["rampe2"],
+        "root": ["rampe7-12"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["1000"]

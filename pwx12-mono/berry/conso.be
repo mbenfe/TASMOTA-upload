@@ -31,21 +31,41 @@ class conso
         return ligne
     end
 
+    def is_valid_number_token(token)
+        if token == nil || token == ""
+            return false
+        end
+        var dot_count = 0
+        var start = 0
+        if token[0] == '-' || token[0] == '+'
+            if size(token) == 1
+                return false
+            end
+            start = 1
+        end
+        for i:start..size(token)-1
+            var c = token[i]
+            if c == '.'
+                dot_count += 1
+                if dot_count > 1
+                    return false
+                end
+            elif c < '0' || c > '9'
+                return false
+            end
+        end
+        return true
+    end
+
     def init_cout()
         var name = string.format("c_%s.json", global.ville)
         var file = open(name, "rt")
         var ligne = file.read()
-        var nb_channel
-        if global.configjson[global.device]["mode"][0] == "tri"
-            nb_channel = 3
-        else
-            nb_channel = 12
-        end
 
         file.close()
         global.coutjson = json.load(ligne)
         self.cout = map()
-        for i:0..nb_channel-1
+        for i:0..global.nb_channel-1
             name = string.format("c_%s", global.configjson[global.device]["root"][i])
             self.cout.insert(name, 0)
         end   
@@ -127,7 +147,6 @@ class conso
         var file
         var ligne
         var name = string.format("p_%s.json", global.ville)
-        var nb_channel
         import path
         if (path.exists(name))
             file = open(name, "rt")
@@ -139,12 +158,7 @@ class conso
                 var mainjson = json.load(ligne)
                 mainjson.insert("days",[])
                 mainjson.insert("months",[])
-                if global.configjson[global.device]["mode"][0] == "tri"
-                    nb_channel = 3
-                else
-                    nb_channel = 12
-                end
-                for i:0..nb_channel-1
+                for i:0..global.nb_channel-1
                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],self.get_hours())
                    mainjson["hours"].insert(i,json.load(ligne))
                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}',global.device,global.configjson[global.device]["root"][i],self.get_days())
@@ -165,14 +179,14 @@ class conso
 
         var ligne
         var file
-        var nb_channel
+
+        global.nb_channel = 12
 
         if path.exists("conso.json")
             file = open("conso.json", "rt")
             if file.size() != 0
                 ligne = file.read()
                 self.consojson = json.load(ligne)
-                print(self.consojson)
                 file.close()
                 var name = string.format("p_%s.json", global.ville)
                 file = open(name, 'rt')
@@ -185,7 +199,6 @@ class conso
                 file.write(ligne)
                 file.close()
                 print("fichier sauvegarde de consommation cree !")
-                print(ligne)
             end
         else
             ligne = self.init_conso()
@@ -193,7 +206,6 @@ class conso
             file.write(ligne)
             file.close()
             print("fichier sauvegarde de consommation cree !")
-            print(ligne)
         end
 
         self.day_list = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
@@ -201,18 +213,12 @@ class conso
         self.num_day_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         self.init_cout()
 
-        if global.configjson[global.device]["mode"][0] == "tri"
-            nb_channel = 3
-        else
-            nb_channel = 12
-        end
-
         if (path.exists("couts.json"))
             file = open("couts.json", "rt")
                 ligne = file.read()
                 self.week_couts_json = json.load(ligne)
                 if self.week_couts_json.size() > 3
-                    for i:0..nb_channel-1
+                    for i:0..global.nb_channel-1
                         self.week_couts_json.insert(global.configjson[global.device]["root"][i], json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                     end
                     file = open("couts.json", "wt")
@@ -224,7 +230,7 @@ class conso
                 file.close()
         else
             self.week_couts_json = map()
-            for i:0..nb_channel-1
+            for i:0..global.nb_channel-1
                 if(global.configjson[global.device]["root"][i] != "*")
                     print(global.configjson[global.device]["root"][i])
                     self.week_couts_json.insert(global.configjson[global.device]["root"][i], json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
@@ -239,7 +245,32 @@ class conso
     end
 
     def update(data)
+        if data == nil || size(data) < 3
+            print("conso.update: payload vide")
+            return
+        end
+
+        if data[0] != 'C'
+            print("conso.update: payload non C")
+            return
+        end
+
+        if self.consojson == nil || !self.consojson.contains("hours") || !self.consojson.contains("days") || !self.consojson.contains("months")
+            print("conso.update: consojson invalide")
+            return
+        end
+
         var split = string.split(data, ":")
+        if size(split) != (global.nb_channel + 1)
+            print("conso.update: split invalide")
+            return
+        end
+
+        if split[0] != "C"
+            print("conso.update: entete invalide")
+            return
+        end
+
         var now = tasmota.rtc()
         var rtc = tasmota.time_dump(now["local"])
         var second = rtc["sec"]
@@ -249,12 +280,10 @@ class conso
         var month = rtc["month"]
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
-        var nb_channel
-        
-        if global.configjson[global.device]["mode"][0] == "tri"
-            nb_channel = 3
-        else
-            nb_channel = 12
+
+        if size(self.consojson["hours"]) < global.nb_channel || size(self.consojson["days"]) < global.nb_channel || size(self.consojson["months"]) < global.nb_channel
+            print("conso.update: structure conso incomplete")
+            return
         end
 
         # Vérification de l'année bissextile
@@ -266,10 +295,16 @@ class conso
             end
         end    
 
-        for i:0..nb_channel-1
-            self.consojson["hours"][i]["DATA"][str(hour)] += real(split[i + 1])
-            self.consojson["days"][i]["DATA"][self.day_list[day_of_week]] += real(split[i + 1])
-            self.consojson["months"][i]["DATA"][self.month_list[month]] += real(split[i + 1])
+        for i:0..global.nb_channel-1
+            var token = string.split(split[i + 1], ",")[0]
+            if !self.is_valid_number_token(token)
+                print("conso.update: token invalide idx " + str(i))
+                return
+            end
+            var value = real(token)
+            self.consojson["hours"][i]["DATA"][str(hour)] += value
+            self.consojson["days"][i]["DATA"][self.day_list[day_of_week]] += value
+            self.consojson["months"][i]["DATA"][self.month_list[month]] += value
         end
     end
 
@@ -300,23 +335,12 @@ class conso
         var payload_months
         var payload_week
         var ligne
-        var nb_channel
-
-        if global.configjson[global.device]["mode"][0] == "tri"
-            nb_channel = 3
-        else
-            nb_channel = 12
-        end
-
-        # Calculate yesterday for cost calculation
-        var yesterday = (day_of_week - 1 + 7) % 7
 
 
         var stringdevice
 
-        for i:0..nb_channel-1
+        for i:0..global.nb_channel-1
             stringdevice = string.format("%s-%d", global.device, i + 1)
-            var channel_name = self.consojson["hours"][i]["Name"]
             if (scope == "hours" && global.configjson[global.device]["root"][i] != "*")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
@@ -324,12 +348,6 @@ class conso
                 mqtt.publish(topic, ligne, true)
                 self.consojson["hours"][i]["DATA"][str((hour + 1) % 24)] = 0
             elif (global.configjson[global.device]["root"][i] != "*")
-                # CALCULATE YESTERDAY'S COST FIRST (before resetting hour 0)
-                if !self.week_couts_json.contains(channel_name)
-                    self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
-                end
-                self.calcul_cout(month, yesterday, self.consojson["hours"][i]["DATA"], channel_name)
-
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
                 ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_hours))
@@ -350,33 +368,30 @@ class conso
                     if (month == 12)  # decembre
                         self.consojson["months"][i]["DATA"]["Jan"] = 0
                     else
-                        self.consojson["months"][i]["DATA"][self.month_list[month + 1]] = 0
+                        self.consojson["months"][i]["DATA"][str(self.month_list[month + 1])]
                     end
+                end
+               # consommation
+                if scope != "hours"
+                    self.calcul_cout(month,day_of_week, payload_hours, global.configjson[global.device]["root"][i])
                 end
             end
         end
-        # Publish costs
-        for i:0..nb_channel-1
-            var channel_name = self.consojson["hours"][i]["Name"]
-            if (scope != "hours" && channel_name != "*")
-                var cost_key = string.format("c_%s", channel_name)
-                if !self.week_couts_json.contains(channel_name)
-                    self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
-                end
-
-                # Cost of yesterday (the day that just ended)
-                topic = string.format("gw/%s/%s/%s-%d/tele/COUT", global.client, global.ville, global.device, i + 1)
-                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
-                    global.device, cost_key, global.coutjson['surface'], self.cout[cost_key], self.day_list[yesterday])
+        var i = 0
+        for k: self.cout.keys()
+            i+=1
+            if (scope != "hours" && k != "c_*")
+                # du jour courant
+                topic = string.format("gw/%s/%s/%s-%d/tele/COUT", global.client, global.ville, global.device, i)
+                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', global.device,k, global.coutjson['surface'],self.cout[k],self.day_list[day_of_week])
                 mqtt.publish(topic, ligne, true)
-
-                # Week costs
-                topic = string.format("gw/%s/%s/%s-%d/tele/COUTS", global.client, global.ville, global.device, i + 1)
-                payload_week = self.week_couts_json[channel_name]
+                # de la semaine
+                topic = string.format("gw/%s/%s/%s-%d/tele/COUTS", global.client, global.ville, global.global.device, i)
+                payload_week = self.week_couts_json[global.configjson[global.device]["root"][i-1]]
                 ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
-                    global.device, channel_name, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
+                global.device, global.configjson[global.device]["root"][i-1], payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
                 mqtt.publish(topic, ligne, true)
-            end
+             end
         end
     end
 end
