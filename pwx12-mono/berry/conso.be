@@ -280,6 +280,7 @@ class conso
         var month = rtc["month"]
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var day_for_cost = day_of_week
 
         if size(self.consojson["hours"]) < global.nb_channel || size(self.consojson["days"]) < global.nb_channel || size(self.consojson["months"]) < global.nb_channel
             print("conso.update: structure conso incomplete")
@@ -373,7 +374,7 @@ class conso
                 end
                # consommation
                 if scope != "hours"
-                    self.calcul_cout(month,day_of_week, payload_hours, global.configjson[global.device]["root"][i])
+                    self.calcul_cout(month,day_for_cost, payload_hours, global.configjson[global.device]["root"][i])
                 end
             end
         end
@@ -381,9 +382,9 @@ class conso
         for k: self.cout.keys()
             i+=1
             if (scope != "hours" && k != "c_*")
-                # du jour courant
+                # cout du jour courant (cron 23:59)
                 topic = string.format("gw/%s/%s/%s-%d/tele/COUT", global.client, global.ville, global.device, i)
-                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', global.device,k, global.coutjson['surface'],self.cout[k],self.day_list[day_of_week])
+                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', global.device,k, global.coutjson['surface'],self.cout[k],self.day_list[day_for_cost])
                 mqtt.publish(topic, ligne, true)
                 # de la semaine
                 topic = string.format("gw/%s/%s/%s-%d/tele/COUTS", global.client, global.ville, global.global.device, i)

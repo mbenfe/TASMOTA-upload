@@ -1,0 +1,162 @@
+var version = "2.0.0 avec cron specifique"
+
+import mqtt
+import string
+import json
+import math
+
+def get_cron_second()
+    var combined = string.format("%s|%s", global.ville, global.device)
+    var sum = 0
+    for i : 0 .. size(combined) - 1
+        sum += string.byte(combined[i])
+    end
+    print("cron for " + combined + " is " + str(sum % 60))
+    return sum % 60
+end
+
+
+class PWX12
+    var ser
+    var rx
+    var tx
+
+    var logger
+    var root
+    var topic 
+    var conso
+
+    def loadconfig()
+        import json
+        var jsonstring
+        var file 
+        file = open("esp32.cfg", "rt")
+        if file.size() == 0
+            print('creat esp32 config file')
+            file = open("esp32.cfg", "wt")
+            jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
+            file.write(jsonstring)
+            file.close()
+            file = open("esp32.cfg", "rt")
+        end
+        var buffer = file.read()
+        var jsonmap = json.load(buffer)
+        global.client = jsonmap["client"]
+        print('client:', global.client)
+        global.ville = jsonmap["ville"]
+        print('ville:', global.ville)
+        global.device = jsonmap["device"]
+        print('device:', global.device)
+    end
+
+    def init()
+        self.loadconfig()
+        import conso
+        self.conso = conso
+        import logger
+        self.logger = logger
+        self.rx = 18
+        self.tx = 19
+
+        print('DRIVER: serial init done')
+        print('heap:', tasmota.get_free_heap())
+        self.ser = serial(self.rx, self.tx, 115200, serial.SERIAL_8N1) 
+    end
+
+    def fast_loop()
+        self.read_uart(2)
+    end
+
+    def read_uart(timeout)
+        if self.ser.available()
+            var due = tasmota.millis() + timeout
+            while !tasmota.time_reached(due) end
+            var buffer = self.ser.read()
+            self.ser.flush()
+            var mystring = buffer.asstring()
+            var mylist = string.split(mystring, '\n')
+            var numitem = size(mylist)
+            var topic
+            var split
+            var ligne
+            for i: 0..numitem-2
+                if mylist[i][0] == 'C'
+                    self.conso.update(mylist[i])
+                    topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                    mqtt.publish(topic, mylist[i], true)
+                elif mylist[i][0] == 'W'
+                    # self.logger.log_data(mylist[i])
+                    split = string.split(mylist[i], ':')
+                    for j: 0..2
+                        if global.configjson[global.device]["root"][j] != "*"
+                            topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
+                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
+                            mqtt.publish(topic, ligne, true)
+                        end
+                    end
+                else
+                    print('PWX12->', mylist[i])
+                end
+            end
+        end
+    end
+
+    def midnight()
+        self.conso.mqtt_publish('all')
+    end
+
+    def hour()
+        var now = tasmota.rtc()
+        var rtc = tasmota.time_dump(now["local"])
+        var hour = rtc["hour"]
+        # publish if not midnight
+        if hour != 23
+            self.conso.mqtt_publish('hours')
+        end
+    end
+
+    def every_4hours()
+        self.conso.sauvegarde()
+    end
+
+    def testlog()
+        self.logger.store()
+    end
+
+    def heartbeat()
+        var now = tasmota.rtc()
+        var timestamp = tasmota.time_str(now["local"])
+        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', global.device, global.device, timestamp)
+        mqtt.publish(topic, payload, true)
+    end
+
+end
+
+
+
+global.pwx12 = PWX12()
+tasmota.add_driver(global.pwx12)
+var now = tasmota.rtc()
+
+tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
+
+var cron_second = get_cron_second()
+# set midnight cron
+var cron_pattern = string.format("%d 59 23 * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.midnight(), "every_day")
+print("cron midnight:" + cron_pattern)
+# set hour cron
+cron_pattern = string.format("%d 59 * * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.hour(), "every_hour")
+print("cron hour:" + cron_pattern)
+# set heartbeat cron
+cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.heartbeat(), "every_hour")
+print("cron heartbeat:" + cron_pattern)
+# set 4 hours cron
+cron_pattern = string.format("%d 0 */4 * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.every_4hours(), "every_4_hours")
+print("cron every 4 hours:" + cron_pattern)
+
+# return pwx12

@@ -1,0 +1,16 @@
+{
+    "pwx12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["fneg","fpos","main"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","1000"]
+    },
+    "pwx4-tgbt": {
+        "mode": "tri",
+        "root": ["main"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["4000"]
+    }
+}

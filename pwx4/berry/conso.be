@@ -254,8 +254,8 @@ class conso
         var payload_week
         var ligne
 
-        # Calculate yesterday outside the loop for use in COUT
-        var yesterday = (day_of_week - 1 + 7) % 7
+        # Cron runs at 23:59, so costs belong to current weekday
+        var day_for_cost = day_of_week
 
         var stringdevice
         for i:0..0
@@ -267,8 +267,8 @@ class conso
                 mqtt.publish(topic, ligne, true)
                 self.consojson["hours"][i]["DATA"][str((hour + 1) % 24)] = 0
             else
-                # ✅ CALCULATE YESTERDAY'S COST FIRST (before resetting hour 0)
-                self.calcul_cout(month, yesterday, self.consojson["hours"][i]["DATA"], global.configjson[global.device]["root"][i])
+                # Calculate current day's cost first (before resetting hour 0)
+                self.calcul_cout(month, day_for_cost, self.consojson["hours"][i]["DATA"], global.configjson[global.device]["root"][i])
                 
                 # Publish hours
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
@@ -301,13 +301,13 @@ class conso
             end
         end
 
-        # Publish costs (yesterday is now defined outside the loop)
+        # Publish costs
         for k: self.cout.keys()
             if scope != "hours" && k != "c_*"
-                # Cost of yesterday (the day that just ended)
+                # Cost of current day (cron runs at 23:59)
                 topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
                 ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
-                    global.device, k, global.coutjson['surface'], self.cout[k], self.day_list[yesterday])
+                    global.device, k, global.coutjson['surface'], self.cout[k], self.day_list[day_for_cost])
                 mqtt.publish(topic, ligne, true)
 
                 # Week costs

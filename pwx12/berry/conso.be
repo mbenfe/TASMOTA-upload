@@ -272,8 +272,8 @@ class conso
         var payload_week
         var ligne
 
-        # Calculate yesterday for cost calculation
-        var yesterday = (day_of_week - 1 + 7) % 7
+        # Cron runs at 23:59, so costs belong to current weekday
+        var day_for_cost = day_of_week
 
         var stringdevice
 
@@ -287,11 +287,11 @@ class conso
                 mqtt.publish(topic, ligne, true)
                 self.consojson["hours"][i]["DATA"][str((hour + 1) % 24)] = 0
             elif (global.configjson[global.device]["root"][i] != "*")
-                # CALCULATE YESTERDAY'S COST FIRST (before resetting hour 0)
+                # Calculate current day's cost first (before resetting hour 0)
                 if !self.week_couts_json.contains(channel_name)
                     self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                 end
-                self.calcul_cout(month, yesterday, self.consojson["hours"][i]["DATA"], channel_name)
+                self.calcul_cout(month, day_for_cost, self.consojson["hours"][i]["DATA"], channel_name)
                 
                 # THEN publish hours
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
@@ -333,10 +333,10 @@ class conso
                     self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                 end
                 
-                # Cost of yesterday (the day that just ended)
+                # Cost of current day (cron runs at 23:59)
                 topic = string.format("gw/%s/%s/%s-%d/tele/COUT", global.client, global.ville, global.device, i + 1)
                 ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
-                    global.device, cost_key, global.coutjson['surface'], self.cout[cost_key], self.day_list[yesterday])
+                    global.device, cost_key, global.coutjson['surface'], self.cout[cost_key], self.day_list[day_for_cost])
                 mqtt.publish(topic, ligne, true)
                 
                 # Week costs

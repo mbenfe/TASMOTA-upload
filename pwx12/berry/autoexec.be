@@ -419,8 +419,6 @@ tasmota.add_cmd('update', update)
 tasmota.add_cmd('couts', couts)
 
 ############################################################
-tasmota.cmd("Init")
-tasmota.delay(500)
 tasmota.load("pwx12_driver.be")
 print(global.pwx12)
 tasmota.load("command.be")
