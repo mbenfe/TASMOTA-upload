@@ -122,7 +122,7 @@ class CHX
         mqttprint("subscribed to SETUP:"+global.device)
     end
 
-        def check_gpio()
+    def check_gpio()
         # Check if GPIOs are configured correctly
         var gpio_result = tasmota.cmd("Gpio")
         
@@ -130,7 +130,7 @@ class CHX
              
             # Check GPI21 (SDA-1 - 640)
             if gpio_result['GPIO21'] != nil
-                if !gpio_result['GPIO21'].contains('640')
+                if !gpio_result['GPIO21'].contains('I2C SDA')
                     mqttprint("WARNING: GPIO21 not SDA-1! Reconfiguring...")
                     tasmota.cmd("Gpio21 640")
                 end
@@ -138,7 +138,7 @@ class CHX
             
             # Check GPIO09 (SCL-1 - 608)
             if gpio_result['GPIO9'] != nil
-                if !gpio_result['GPIO9'].contains('608')
+                if !gpio_result['GPIO9'].contains('I2C SCL')
                     mqttprint("WARNING: GPIO9 not SCL-1! Reconfiguring...")
                     tasmota.cmd("Gpio9 608")
                 end
