@@ -295,8 +295,12 @@ class RDX
 
     def update_relays()
         var status = string.format("%d:%d:%d",global.power,global.setup['fanspeed'],global.setup['heatpower'])
-        self.ser.write(bytes().fromstring(status))
-        print('status send to stm32:',status)
+        if global.ser != nil
+            global.ser.write(bytes().fromstring(status))
+            print('status send to stm32:',status)
+        else
+            mqttprint("Warning: serial not ready")
+        end
     end
    
 

@@ -13,7 +13,7 @@ import json
 import gpio
 import path
 
-var ser                # serial object
+global.ser = nil       # shared serial object
 var bsl_out = 32   
 
 # Define mqttprint function

@@ -19,7 +19,7 @@ class PCF8574A
     var I2C_button_led_addr
     var state,last_input_state,input_state
     var left_pressed, middle_pressed, right_pressed
-    var ser, rx, tx
+    var rx, tx
 
     def init()
         var list_devices
@@ -53,7 +53,7 @@ class PCF8574A
         self.tx = 20
         gpio.pin_mode(self.rx,gpio.INPUT)
         gpio.pin_mode(self.tx,gpio.OUTPUT)
-        self.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1)
+        global.ser = serial(self.rx,self.tx,115200,serial.SERIAL_8N1)
         print("stm32 serial initialized")
  
     end
@@ -77,8 +77,10 @@ class PCF8574A
 
     def update_relays()
         var status = string.format("%d:%d:%d",global.setup['onoff'],global.setup['fanspeed'],global.setup['heatpower'])
-        self.ser.write(bytes().fromstring(status))
-        print('status send to stm32:',status)
+        if global.ser != nil
+            global.ser.write(bytes().fromstring(status))
+            print('status send to stm32:',status)
+        end
     end
 
     def update_onoff_led()
