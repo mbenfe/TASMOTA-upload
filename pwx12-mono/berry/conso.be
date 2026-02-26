@@ -280,7 +280,6 @@ class conso
         var month = rtc["month"]
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
-        var day_for_cost = day_of_week
 
         if size(self.consojson["hours"]) < global.nb_channel || size(self.consojson["days"]) < global.nb_channel || size(self.consojson["months"]) < global.nb_channel
             print("conso.update: structure conso incomplete")
@@ -330,6 +329,7 @@ class conso
         var month = rtc["month"]
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var day_for_cost = day_of_week
         var topic
         var payload_hours
         var payload_days

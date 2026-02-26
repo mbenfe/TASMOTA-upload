@@ -239,7 +239,6 @@ class conso
         var month = rtc["month"]
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
-        var day_for_cost = day_of_week
         var nb_channel
         
         if global.configjson[global.device]["mode"][0] == "tri"
@@ -285,6 +284,7 @@ class conso
         var month = rtc["month"]
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var day_for_cost = day_of_week
         var topic
         var payload_hours
         var payload_days

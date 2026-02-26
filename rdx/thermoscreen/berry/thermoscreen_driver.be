@@ -57,7 +57,7 @@ class RDX
             
             # Check GPIO8 (DS18x20-1 - 1312)
             if gpio_result['GPIO8'] != nil
-                if !gpio_result['GPIO8'].contains('1312')
+                if !gpio_result['GPIO8'].contains('DS18x201')
                     mqttprint("WARNING: GPIO8 not DS18x20-1! Reconfiguring...")
                     tasmota.cmd("Gpio8 1312")
                 end

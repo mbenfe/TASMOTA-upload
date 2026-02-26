@@ -23,7 +23,7 @@ class RDX
         if gpio_result != nil
             # Check GPIO7 (DS18x20-1 - 1312)
             if gpio_result['GPIO7'] != nil
-                if !gpio_result['GPIO7'].contains('1312')
+                if !gpio_result['GPIO7'].contains('DS18x201')
                     mqttprint("WARNING: GPIO7 not DS18x20-1! Reconfiguring...")
                     tasmota.cmd("Gpio7 1312")
                 end
@@ -31,7 +31,7 @@ class RDX
             
             # Check GPIO8 (SDA-1 - 640)
             if gpio_result['GPIO8'] != nil
-                if !gpio_result['GPIO8'].contains('640')
+                if !gpio_result['GPIO8'].contains('I2C SDA')
                     mqttprint("WARNING: GPIO8 not SDA-1! Reconfiguring...")
                     tasmota.cmd("Gpio8 640")
                 end
@@ -39,7 +39,7 @@ class RDX
             
             # Check GPIO18 (SCL-1 - 608)
             if gpio_result['GPIO18'] != nil
-                if !gpio_result['GPIO18'].contains('608')
+                if !gpio_result['GPIO18'].contains('I2C SCL')
                     mqttprint("WARNING: GPIO18 not SCL-1! Reconfiguring...")
                     tasmota.cmd("Gpio18 608")
                 end
@@ -47,7 +47,7 @@ class RDX
             
             # Check GPIO19 (DS18x20-2 - 1313) - LAST
             if gpio_result['GPIO19'] != nil
-                if !gpio_result['GPIO19'].contains('1313')
+                if !gpio_result['GPIO19'].contains('DS18x202')
                     mqttprint("WARNING: GPIO19 not DS18x20-2! Reconfiguring...")
                     tasmota.cmd("Gpio19 1313")
                 end

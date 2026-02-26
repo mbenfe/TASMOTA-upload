@@ -117,15 +117,6 @@ class STM32
               self.erros[reg]["liste"].push(dev_type)
            end
         end
-
-        # if not self.errors.get(dev_type)
-        #     self.errors[dev_type] = []
-        # end
-
-        # # Vérifier présence préalable
-        # if self.errors[dev_type].find(reg) == nil
-        #     self.errors[dev_type].push(reg)
-        # end
     end
 
     def save()
@@ -135,7 +126,6 @@ class STM32
         end
         var buffer = json.dump(self.errors)
         file.write(buffer)
-        print("sauvegarde error : ",str(size(buffer))) 
         file.close()
     end
 
@@ -182,8 +172,8 @@ class STM32
                            end
                         end
                     else
-                        print('json error:',mylist[i])
-                        self.mqttprint('json error:' + mylist[i])
+                        print('ESP32: json error:',mylist[i])
+                        self.mqttprint('ESP32:json error:' + mylist[i])
                     end
                 end
             elif (buffer[0] == 42)     # * -> json statistic
@@ -204,7 +194,7 @@ class STM32
                             topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
                             mqtt.publish(topic,line,true)
                         else
-                            self.mqttprint('json statistic error:' + line)
+                            self.mqttprint('ESP32 json statistic error:' + line)
                         end
                     end
                 end

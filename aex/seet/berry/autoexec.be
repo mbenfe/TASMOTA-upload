@@ -372,7 +372,7 @@ def check_gpio()
     if gpio_result != nil
         # Check GPIO9 (DS18x20-1 - 1312)
         if gpio_result['GPIO9'] != nil
-            if !gpio_result['GPIO9'].contains('1312')
+            if !gpio_result['GPIO9'].contains('DS18x201')
                 mqttprint("WARNING: GPIO9 not DS18x20-1! Reconfiguring...")
                 tasmota.cmd("Gpio9 1312")
             end
