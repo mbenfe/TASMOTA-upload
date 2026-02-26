@@ -155,6 +155,8 @@ class RDX
             self.subscribes_sensors(global.config["remote"])  # Subscribe to remote sensor topic
         end
 
+        global.power = global.setup['onoff']
+
     end
 
     def init_relays()
@@ -208,7 +210,6 @@ class RDX
         var payload
         var topic
         var target
-        var power
         var temperature = 99
 
         self.check_gpio()
@@ -225,26 +226,25 @@ class RDX
             temperature = 99
         end
 
+        global.power = global.setup['onoff']
+
         if (hour >= global.setup[jour]['debut'] && hour < global.setup[jour]['fin'])
             target = global.setup['ouvert']
 
-            if (temperature < target && global.setup['onoff'] == 1)
-                power = 1  # Heating ON
+            if (temperature < target && global.power == 1)
+                global.power = 1
             else
-                power = 0  # Heating OFF
+                global.power = 0
             end
         else
-            power = 0  # Outside schedule
+            global.power = 0
             target = global.setup['ferme']
         end
 
-        # # Only update relays if power state has changed (0→1 or 1→0)
-         #         if global.pcf != nil
-        #             global.pcf.update_relays()
-        #         end
+        self.update_relays()
         
         payload = string.format('{"Device":"%s","Name":"%s","Temperature":%.2f,"ouvert":%.1f,"ferme":%.1f,"fanspeed":%d,"heatpower":%d,"location":"%s","Target":%.1f,"source":"%s","Power":%d}', 
-                global.device, global.device, temperature, global.setup['ouvert'], global.setup['ferme'], global.setup['fanspeed'], global.setup['heatpower'], global.location, target, global.tempsource[0], power)
+            global.device, global.device, temperature, global.setup['ouvert'], global.setup['ferme'], global.setup['fanspeed'], global.setup['heatpower'], global.location, target, global.tempsource[0], global.power)
         topic = string.format("gw/%s/%s/%s/tele/SENSOR", global.client, global.ville, global.device)
         mqtt.publish(topic, payload, true)
     end
@@ -292,7 +292,13 @@ class RDX
         topic = string.format("gw/%s/%s/zb-%s/tele/SENSOR", global.client, global.ville, sensor)
         mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.remote_sensor(topic, idx, payload_s, payload_b))
     end
-    
+
+    def update_relays()
+        var status = string.format("%d:%d:%d",global.power,global.setup['fanspeed'],global.setup['heatpower'])
+        self.ser.write(bytes().fromstring(status))
+        print('status send to stm32:',status)
+    end
+   
 
 end
 
