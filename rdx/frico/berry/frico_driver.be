@@ -4,6 +4,17 @@ import json
 import global
 
 
+def get_cron_second()
+    var combined = string.format("%s|%s", global.ville, global.device)
+    var sum = 0
+    for i : 0 .. size(combined) - 1
+        sum += string.byte(combined[i])
+    end
+    print("cron for " + combined + " is " + str(sum % 60))
+    return sum % 60
+end
+
+
 def mqttprint(texte)
     var payload =string.format("{\"texte\":\"%s\"}", texte)
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
@@ -242,6 +253,14 @@ class RDX
     def every_second()
     end
 
+    def heartbeat()
+        var now = tasmota.rtc()
+        var timestamp = tasmota.time_str(now["local"])
+        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', global.device, global.device, timestamp)
+        mqtt.publish(topic, payload, true)
+    end
+
     def remote_sensor(topic, idx, payload_s, payload_b)
         var myjson = json.load(payload_s)
         if myjson == nil
@@ -269,4 +288,12 @@ end
 var rdx = RDX()
 global.rdx = rdx  # Add this line to make rdx accessible globally
 tasmota.add_driver(rdx)
-tasmota.add_cron("15 * * * * *", /-> rdx.every_minute(), "every_min_@0_s")
+var cron_second = get_cron_second()
+
+var cron_pattern = string.format("%d * * * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> rdx.every_minute(), "every_minute")
+print("cron every_minute:" + cron_pattern)
+
+cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
+tasmota.add_cron(cron_pattern, /-> rdx.heartbeat(), "every_hour")
+print("cron heartbeat:" + cron_pattern)
