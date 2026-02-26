@@ -216,8 +216,19 @@ class STM32
     def heartbeat()
         var now = tasmota.rtc()
         var timestamp = tasmota.time_str(now["local"])
+        var wifi = tasmota.wifi()
+        var ap = "unknown"
+        var ip = "unknown"
+        if wifi != nil
+            if wifi.contains("ssid") && wifi["ssid"] != nil
+                ap = str(wifi["ssid"])
+            end
+            if wifi.contains("ip") && wifi["ip"] != nil
+                ip = str(wifi["ip"])
+            end
+        end
         var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", self.client, self.ville, self.device)
-        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s"}', self.device, self.device, timestamp)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s","AccessPoint":"%s","IpAddress":"%s"}', self.device, self.device, timestamp, ap, ip)
         mqtt.publish(topic, payload, true)
     end
 end
