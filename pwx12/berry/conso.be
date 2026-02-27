@@ -279,7 +279,7 @@ class conso
 
         for i:0..2
             stringdevice = string.format("%s-%d", global.device, i + 1)
-            var channel_name = self.consojson["hours"][i]["Name"]
+            var channel_name = global.configjson[global.device]["root"][i]
             if (scope == "hours" && global.configjson[global.device]["root"][i] != "*")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
@@ -326,7 +326,7 @@ class conso
         
         # Publish costs
         for i:0..2
-            var channel_name = self.consojson["hours"][i]["Name"]
+            var channel_name = global.configjson[global.device]["root"][i]
             if (scope != "hours" && channel_name != "*")
                 var cost_key = string.format("c_%s", channel_name)
                 if !self.week_couts_json.contains(channel_name)
