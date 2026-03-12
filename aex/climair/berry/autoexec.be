@@ -280,10 +280,6 @@ def start()
 end
 
 def launch_driver()
-    mqttprint('load ds18b20.be')
-    tasmota.load('ds18b20.be')
-    mqttprint('ds18b20 driver loaded')
-
     mqttprint('load climair_driver')
     tasmota.load('climair_driver.be')
     mqttprint('climair_driver loaded')

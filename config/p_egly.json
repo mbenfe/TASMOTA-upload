@@ -1,16 +1,23 @@
 {
-    "pwx12-tgbt1": {
-        "mode": ["tri","tri","tri"],
-        "root": ["fneg","fpos","main"],
-        "produit": "PWX12",
-        "techno": ["ct","ct","ct"],
-        "ratio": ["2000","2000","1000"]
-    },
-    "pwx4-tgbt": {
+    "pwx4-sdm1": {
         "mode": "tri",
-        "root": ["main"],
+        "root": ["gene_froid"],
         "produit": "PWX4",
         "techno": ["ct"],
         "ratio": ["4000"]
+    },
+   "pwx4-sdm2": {
+        "mode": "tri",
+        "root": ["m1+"],
+        "produit": "PWX4",
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "pwx12-sdm1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["m2+","m3+","m4+"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     }
 }

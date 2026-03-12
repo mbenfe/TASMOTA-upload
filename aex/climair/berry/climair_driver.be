@@ -26,6 +26,41 @@ class CLIMAIR
     var day_list
     var count
 
+    def read_ds_temperature(target)
+        var data = tasmota.read_sensors()
+        if data == nil
+            return 99
+        end
+        var sensors = json.load(data)
+        if sensors == nil
+            return 99
+        end
+
+        global.dsin = 99
+        global.ds = 99
+
+        if sensors.contains("DS18B20-1")
+            global.dsin = sensors["DS18B20-1"]["Temperature"]
+        end
+        if sensors.contains("DS18B20-2")
+            global.ds = sensors["DS18B20-2"]["Temperature"]
+        end
+
+        if target == "dsin"
+            if global.dsin == 99
+                return 99
+            end
+            return global.dsin + global.dsin_offset
+        elif target == "ds"
+            if global.ds == 99
+                return 99
+            end
+            return global.ds + global.ds_offset
+        end
+
+        return 99
+    end
+
     def check_gpio()
 
         # Check if GPIOs are configured correctly
@@ -135,6 +170,7 @@ class CLIMAIR
             return
         end
         self.day_list = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]
+
         mqttprint("subscription MQTT...")
         self.subscribes()
         mqttprint('MQTT subscription done')
@@ -199,9 +235,9 @@ class CLIMAIR
         self.check_gpio()
 
         if(global.tempsource[0] == "ds")
-            temperature = ds18b20.poll("ds")
+            temperature = self.read_ds_temperature("ds")
         elif(global.tempsource[0] == "dsin")
-            temperature = ds18b20.poll("dsin")
+            temperature = self.read_ds_temperature("dsin")
         elif(global.tempsource[0] == "remote")
             temperature = global.remote_temp
         else

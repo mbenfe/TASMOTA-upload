@@ -12,7 +12,7 @@ ESP32-based thermostat controller using Tasmota Berry scripting. Controls heatin
    - Loads `config.json` (sensor mappings per device/city)
    - Loads `calibration.json` (temperature offsets)
    - Registers CLI commands (`getfile`, `dir`, `ville`, `device`, `cal`, etc.)
-   - Delays 30s then loads drivers: `ds18b20.be` → `climair_driver.be`
+   - Delays 30s then loads driver: `climair_driver.be`
 
 2. **[climair_driver.be](berry/climair_driver.be)** - Main control logic class `CLIMAIR`
    - Subscribes to MQTT topics `app/{client}/{ville}/{device}/set/SETUP` for schedule updates
@@ -20,8 +20,8 @@ ESP32-based thermostat controller using Tasmota Berry scripting. Controls heatin
    - Publishes telemetry to `gw/{client}/{ville}/{device}/tele/SENSOR`
    - Controls GPIO 18/19 relays based on temperature vs. time-based setpoints
 
-3. **[ds18b20.be](berry/ds18b20.be)** - Temperature sensor driver
-   - Polls `DS18B20-1` (internal) and `DS18B20-2` (external) via Tasmota API
+3. **DS18B20 reading path**
+   - `climair_driver.be` reads `tasmota.read_sensors()` directly
    - Applies calibration offsets from `global.dsin_offset` / `global.ds_offset`
 
 ### Data Flow
@@ -152,7 +152,7 @@ cal ds 20.5       // Sets DS18B20-2 offset
 
 5. **Offset Field**: In `setup.json`, `offset` is loaded but should NOT be changed by MQTT updates.
 
-6. **Driver Load Order**: Must be `ds18b20.be` → `climair_driver.be`.
+6. **Driver Load Order**: Load `climair_driver.be`.
 
 ## Berry Language Notes
 - Uses Tasmota's Berry dialect (embedded scripting for ESP32)
