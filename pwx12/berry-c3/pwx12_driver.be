@@ -17,9 +17,7 @@ end
 
 
 class PWX12
-    var ser
-    var rx
-    var tx
+    var rx_partial
 
     var logger
     var root
@@ -55,12 +53,10 @@ class PWX12
         self.conso = conso
         import logger
         self.logger = logger
-        self.rx = 18
-        self.tx = 19
+        self.rx_partial = ""
 
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
-        self.ser = serial(self.rx, self.tx, 115200, serial.SERIAL_8N1) 
     end
 
     def fast_loop()
@@ -68,34 +64,57 @@ class PWX12
     end
 
     def read_uart(timeout)
-        if self.ser.available()
+        if global.serial.available()
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            var buffer = self.ser.read()
-            self.ser.flush()
-            var mystring = buffer.asstring()
+            var buffer = global.serial.read()
+            global.serial.flush()
+            var mystring = self.rx_partial + buffer.asstring()
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
+            self.rx_partial = mylist[numitem - 1]
             var topic
             var split
             var ligne
+            var line
             for i: 0..numitem-2
-                if mylist[i][0] == 'C'
-                    self.conso.update(mylist[i])
-                    topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                    mqtt.publish(topic, mylist[i], true)
-                elif mylist[i][0] == 'W'
+                line = mylist[i]
+                if size(line) == 0
+                    continue
+                end
+
+                # normalize CRLF from STM32
+                split = string.split(line, '\r')
+                line = split[0]
+                if size(line) == 0
+                    continue
+                end
+
+                if line[0] == 'C'
+                    split = string.split(line, ':')
+                    if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
+                        self.conso.update(line)
+                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                        mqtt.publish(topic, line, true)
+                    else
+                        print('PWX12-> malformed C frame:', line)
+                    end
+                elif line[0] == 'W'
                     # self.logger.log_data(mylist[i])
-                    split = string.split(mylist[i], ':')
-                    for j: 0..2
-                        if global.configjson[global.device]["root"][j] != "*"
-                            topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
-                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
-                            mqtt.publish(topic, ligne, true)
+                    split = string.split(line, ':')
+                    if size(split) >= 4
+                        for j: 0..2
+                            if global.configjson[global.device]["root"][j] != "*"
+                                topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
+                                ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
+                                mqtt.publish(topic, ligne, true)
+                            end
                         end
+                    else
+                        print('PWX12-> malformed W frame:', line)
                     end
                 else
-                    print('PWX12->', mylist[i])
+                    print('PWX12->', line)
                 end
             end
         end
@@ -142,6 +161,20 @@ class PWX12
         mqtt.publish(topic, payload, true)
     end
 
+    def sync_time()
+        var now = tasmota.rtc()
+        if now == nil || !now.contains("utc")
+            print("sync: rtc utc unavailable")
+            return
+        end
+
+        var epoch = int(now["utc"])
+        var cmd = string.format("SET TIME %d\r\n", epoch)
+        global.serial.flush()
+        global.serial.write(bytes().fromstring(cmd))
+        print("sync sent: " + cmd)
+    end
+
 end
 
 
@@ -169,5 +202,10 @@ print("cron heartbeat:" + cron_pattern)
 cron_pattern = string.format("%d 0 */4 * * *", cron_second)
 tasmota.add_cron(cron_pattern, /-> global.pwx12.every_4hours(), "every_4_hours")
 print("cron every 4 hours:" + cron_pattern)
+
+# set 5 minutes sync cron
+cron_pattern = string.format("%d */5 * * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx12.sync_time(), "every_5_minutes_sync")
+print("cron every 5 minutes sync:" + cron_pattern)
 
 # return pwx12

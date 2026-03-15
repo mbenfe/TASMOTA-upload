@@ -7,8 +7,8 @@ import json
 import gpio
 import path
 
-var rx = 16    
-var tx = 17    
+global.rx = 18
+global.tx = 19
 var rst = 2   
 var bsl = 13   
 
@@ -34,19 +34,37 @@ end
 
 def Calibration(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload), " ")
-    if (argument[0] != "VA" && argument[0] != "VB" && argument[0] != "VC" && argument[0] != "IA" && argument[0] != "IB" && argument[0] != "IC" && argument[0] != "IN" 
-        || argument[1] == "")
+    if (size(argument) == 0 || argument[0] == "")
         mqttprint("erreur arguments")
         return
     end
+
+    if (argument[0] != "VA" && argument[0] != "VB" && argument[0] != "VC" && argument[0] != "IA" && argument[0] != "IB" && argument[0] != "IC" && argument[0] != "IN")
+        mqttprint("erreur arguments")
+        return
+    end
+
+    if (argument[0] == "VA" || argument[0] == "VB" || argument[0] == "VC")
+        if (size(argument) < 2 || argument[1] == "")
+            mqttprint("erreur arguments")
+            return
+        end
+    else
+        # For current calibration, enforce channel index 1..3 before reaching STM32.
+        if (size(argument) < 3 || argument[1] == "" || argument[2] == "" || (argument[1] != "1" && argument[1] != "2" && argument[1] != "3"))
+            mqttprint("erreur arguments")
+            return
+        end
+    end
+
     var token
     if (argument[0] == "VA" || argument[0] == "VB" || argument[0] == "VC")
         token = string.format("CAL %s %s", argument[0], argument[1])
     else
         token = string.format("CAL %s %s %s", argument[0], argument[1], argument[2])
     end
-    global.serialSend.flush()
-    global.serialSend.write(bytes().fromstring(token))
+    global.serial.flush()
+    global.serial.write(bytes().fromstring(token))
     mqttprint(token)
     tasmota.resp_cmnd_done()
 end
@@ -62,10 +80,10 @@ def SetCommand(cmd, idx, payload, payload_json)
         return
     end
 
-    global.serialSend.flush()
+    global.serial.flush()
 
     if (argument[0] == "RESET")
-        global.serialSend.write(bytes().fromstring("SET RESET"))
+        global.serial.write(bytes().fromstring("SET RESET"))
         mqttprint("SET RESET")
         tasmota.resp_cmnd_done()
         return
@@ -77,7 +95,7 @@ def SetCommand(cmd, idx, payload, payload_json)
             return
         end
         var token_mode = string.format("SET MODE %s", argument[1])
-        global.serialSend.write(bytes().fromstring(token_mode))
+        global.serial.write(bytes().fromstring(token_mode))
         mqttprint(token_mode)
         tasmota.resp_cmnd_done()
         return
@@ -89,7 +107,7 @@ def SetCommand(cmd, idx, payload, payload_json)
             return
         end
         var token_type = string.format("SET TYPE %s", argument[1])
-        global.serialSend.write(bytes().fromstring(token_type))
+        global.serial.write(bytes().fromstring(token_type))
         mqttprint(token_type)
         tasmota.resp_cmnd_done()
         return
@@ -97,14 +115,14 @@ def SetCommand(cmd, idx, payload, payload_json)
 
     if (argument[0] == "CONFIG")
         var token_config = string.format("SET %s", payload)
-        global.serialSend.write(bytes().fromstring(token_config))
+        global.serial.write(bytes().fromstring(token_config))
         mqttprint(token_config)
         tasmota.resp_cmnd_done()
         return
     end
 
-    if (argument[0] == "STORAGE" || argument[0] == "STORE")
-        global.serialSend.write(bytes().fromstring("SET STORAGE"))
+    if (argument[0] == "STORAGE")
+        global.serial.write(bytes().fromstring("SET STORAGE"))
         mqttprint("SET STORAGE")
         tasmota.resp_cmnd_done()
         return
@@ -124,24 +142,24 @@ def GetCommand(cmd, idx, payload, payload_json)
         return
     end
 
-    global.serialSend.flush()
+    global.serial.flush()
 
     if (argument[0] == "CAL")
-        global.serialSend.write(bytes().fromstring("GET CAL"))
+        global.serial.write(bytes().fromstring("GET CAL"))
         mqttprint('GET CAL')
         tasmota.resp_cmnd_done()
         return
     end
 
     if (argument[0] == "REG" || argument[0] == "CONFIG")
-        global.serialSend.write(bytes().fromstring("GET REG"))
+        global.serial.write(bytes().fromstring("GET REG"))
         mqttprint('GET REG')
         tasmota.resp_cmnd_done()
         return
     end
 
     if (argument[0] == "MODE")
-        global.serialSend.write(bytes().fromstring("GET MODE"))
+        global.serial.write(bytes().fromstring("GET MODE"))
         mqttprint('GET MODE')
         tasmota.resp_cmnd_done()
         return
@@ -183,9 +201,9 @@ end
 # ============================================================
 
 def Init()
-    gpio.pin_mode(rx, gpio.INPUT)
-    gpio.pin_mode(tx, gpio.OUTPUT)
-    global.serialSend = serial(rx, tx, 115200, serial.SERIAL_8N1)
+    gpio.pin_mode(global.rx, gpio.INPUT)
+    gpio.pin_mode(global.tx, gpio.OUTPUT)
+    global.serial = serial(global.rx, global.tx, 115200, serial.SERIAL_8N1)
     mqttprint('serial initialised')
     tasmota.resp_cmnd_done()
 end
@@ -342,10 +360,10 @@ def sendconfig(cmd, idx, payload, payload_json)
         end
     end
     if (trouve == true)
-        global.serialSend.flush()
+        global.serial.flush()
         total = "SET " + total
         var mybytes = bytes().fromstring(total)
-        global.serialSend.write(mybytes)
+        global.serial.write(mybytes)
         mqttprint(str(total))
         tasmota.resp_cmnd("config sent")
     else
@@ -491,6 +509,7 @@ tasmota.add_cmd('update', update)
 tasmota.add_cmd('couts', couts)
 
 ############################################################
+Init()
 tasmota.load("pwx12_driver.be")
 print(global.pwx12)
 tasmota.load("command.be")

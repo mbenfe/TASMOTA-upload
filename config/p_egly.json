@@ -19,5 +19,19 @@
         "produit": "PWX12",
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
+    },
+    "pwx12-tgbtext1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["retour_solaire","general_tgbtext","station"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "pwx12-tgbtext2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["tbd1","tbd2","tbd3"],
+        "produit": "PWX12",
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
     }
 }
