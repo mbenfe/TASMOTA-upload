@@ -165,6 +165,13 @@ def GetCommand(cmd, idx, payload, payload_json)
         return
     end
 
+    if (argument[0] == "ENERGY")
+        global.serial.write(bytes().fromstring("GET ENERGY"))
+        mqttprint('GET ENERGY')
+        tasmota.resp_cmnd_done()
+        return
+    end
+
     mqttprint("GET inconnu")
 end
 
@@ -406,6 +413,7 @@ def help()
     mqttprint("get CAL")
     mqttprint("get REG")
     mqttprint("get MODE")
+    mqttprint("get ENERGY")
     mqttprint("cal <parameter> <value> (VA, VB ou VC)")
     mqttprint("ex: cal VA 235")
     mqttprint("cal <device> <parameter> <value> (IA, IB ou IC)")

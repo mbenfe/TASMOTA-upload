@@ -3,6 +3,7 @@
         "mode": "tri",
         "root": ["eclpk1"],
         "produit": "PWX4",
+        "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["2000"]
     },   
@@ -10,6 +11,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["pctriphase","repartiteur","divers"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["2000","2000","2000"]
     },
@@ -17,6 +19,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["clim","protection","general"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["2000","2000","2000"]
     },
@@ -24,6 +27,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["froid","main","*"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","rogowski","ct"],
         "ratio": ["2000","3003","1000"]
     },
@@ -31,6 +35,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["divers1","divers2","divers3"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
@@ -38,6 +43,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["diversold","boulangerie","tdparking"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["2000","2000","2000"]
     },
@@ -45,6 +51,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["divers4","divers5","*"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     }

@@ -3,6 +3,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["ecl1","ecl2","ecl3"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
@@ -10,6 +11,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["divers_ecl","eclext","ecl4"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
@@ -17,6 +19,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["main","froid1","froid2"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["rogowski","ct","ct"],
         "ratio": ["3003","2000","2000"]
     },
@@ -24,6 +27,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["lavage","tg","station"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
@@ -31,6 +35,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["chauffage","eclairage","gene_bu"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
@@ -38,6 +43,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["gen_pc","f_sventile","f_rotatif"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","2000"]
     },
@@ -45,6 +51,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["CF","pctetra","gen_bo"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","2000"]
     },
@@ -52,6 +59,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["pc_labo","gen_labo","rotissoire"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
@@ -59,6 +67,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["pc_bl","mono1","mono2"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
@@ -66,6 +75,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["ga_ecl2","ga_gen_ecl1","ga_eclext"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
@@ -73,6 +83,7 @@
         "mode": "tri",
         "root": ["gen_ga"],
         "produit": "PWX4",
+        "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]
     },
@@ -80,6 +91,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["gene_pc_caisses","gene_divers","gene_tdcaisses"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     }

@@ -99,6 +99,14 @@ class PWX12
                     else
                         print('PWX12-> malformed C frame:', line)
                     end
+                elif line[0] == 'D'
+                    split = string.split(line, ':')
+                    if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
+                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                        mqtt.publish(topic, line, true)
+                    else
+                        print('PWX12-> malformed D frame:', line)
+                    end
                 elif line[0] == 'W'
                     # self.logger.log_data(mylist[i])
                     split = string.split(line, ':')
@@ -125,13 +133,11 @@ class PWX12
     end
 
     def hour()
-        var now = tasmota.rtc()
-        var rtc = tasmota.time_dump(now["local"])
-        var hour = rtc["hour"]
-        # publish if not midnight
-        if hour != 23
-            self.conso.mqtt_publish('hours')
-        end
+        self.conso.mqtt_publish('hours')
+
+        # Additional hourly request for hardware energy delta (returned as raw D frame).
+        global.serial.flush()
+        global.serial.write(bytes().fromstring("GET ENERGY"))
     end
 
     def every_4hours()

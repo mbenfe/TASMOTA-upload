@@ -3,6 +3,7 @@
         "mode": "mono",
         "root": ["td_garage","buanderie","chaufferie","*"],
         "produit": "PWX4",
+        "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]
         },
@@ -10,6 +11,7 @@
         "mode": "mono",
         "root": ["principal","1","2","3","*","4","5","6","*","7","8","*"],
         "produit": "PWX12",
+        "PGA": ["1","1","1"],
         "techno": ["ct"],
         "ratio": ["1000"]
     }
