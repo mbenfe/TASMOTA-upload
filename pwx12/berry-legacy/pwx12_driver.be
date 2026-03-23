@@ -17,6 +17,11 @@ end
 
 
 class PWX12
+    var ser
+    var rx
+    var tx
+    var bsl
+    var rst
     var rx_partial
     var pending_cfg_cmd
     var cfg_next_send_ms
@@ -57,16 +62,26 @@ class PWX12
         self.conso = conso
         import logger
         self.logger = logger
+        self.rx = 3
+        self.tx = 1
+        self.rst = 2
+        self.bsl = 13
         self.rx_partial = ""
         self.pending_cfg_cmd = nil
         self.cfg_next_send_ms = 0
         self.cfg_attempts = 0
         self.cfg_ack = false
 
-        self.prepare_config_push()
-
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
+        self.ser = serial(self.rx, self.tx, 115200, serial.SERIAL_8N1) 
+        # setup boot pins for stm32: reset disable & boot normal
+        gpio.pin_mode(self.rst, gpio.OUTPUT)
+        gpio.pin_mode(self.bsl, gpio.OUTPUT)
+        gpio.digital_write(self.bsl, 0)
+        gpio.digital_write(self.rst, 1)
+
+        self.prepare_config_push()
     end
 
     def _arr_get(arr, idx, fallback)
@@ -145,11 +160,10 @@ class PWX12
             return
         end
 
-        # Ensure STM32 is released from reset before sending config.
         tasmota.cmd("start")
         tasmota.delay(120)
-        global.serial.flush()
-        global.serial.write(bytes().fromstring(self.pending_cfg_cmd))
+        self.ser.flush()
+        self.ser.write(bytes().fromstring(self.pending_cfg_cmd))
         self.cfg_attempts += 1
         self.cfg_next_send_ms = tasmota.millis() + 800
         print("CFG: sent attempt " + str(self.cfg_attempts))
@@ -161,11 +175,11 @@ class PWX12
     end
 
     def read_uart(timeout)
-        if global.serial.available()
+        if self.ser.available()
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            var buffer = global.serial.read()
-            global.serial.flush()
+            var buffer = self.ser.read()
+            self.ser.flush()
             var mystring = self.rx_partial + buffer.asstring()
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
@@ -180,7 +194,6 @@ class PWX12
                     continue
                 end
 
-                # normalize CRLF from STM32
                 split = string.split(line, '\r')
                 line = split[0]
                 if size(line) == 0
@@ -205,7 +218,6 @@ class PWX12
                         print('PWX12-> malformed D frame:', line)
                     end
                 elif line[0] == 'W'
-                    # self.logger.log_data(mylist[i])
                     split = string.split(line, ':')
                     if size(split) >= 4
                         for j: 0..2
@@ -219,7 +231,6 @@ class PWX12
                         print('PWX12-> malformed W frame:', line)
                     end
                 elif line[0] == '{'
-                    # JSON frames from STM32 (e.g. calibration payload).
                     if string.find(line, '"type":"calibration"') != -1
                         topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
                         mqtt.publish(topic, line, true)
@@ -244,11 +255,16 @@ class PWX12
     end
 
     def hour()
-        self.conso.mqtt_publish('hours')
+        var now = tasmota.rtc()
+        var rtc = tasmota.time_dump(now["local"])
+        var hour = rtc["hour"]
+        # publish if not midnight
+        if hour != 23
+            self.conso.mqtt_publish('hours')
+        end
 
-        # Additional hourly request for hardware energy delta (returned as raw D frame).
-        global.serial.flush()
-        global.serial.write(bytes().fromstring("GET ENERGY"))
+        self.ser.flush()
+        self.ser.write(bytes().fromstring("GET ENERGY"))
     end
 
     def every_4hours()
@@ -287,8 +303,8 @@ class PWX12
 
         var epoch = int(now["utc"])
         var cmd = string.format("SET TIME %d\r\n", epoch)
-        global.serial.flush()
-        global.serial.write(bytes().fromstring(cmd))
+        self.ser.flush()
+        self.ser.write(bytes().fromstring(cmd))
         print("sync sent: " + cmd)
     end
 

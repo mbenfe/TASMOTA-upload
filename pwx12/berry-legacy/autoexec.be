@@ -7,8 +7,8 @@ import json
 import gpio
 import path
 
-global.rx = 18
-global.tx = 19
+var rx = 16    
+var tx = 17    
 var rst = 2   
 var bsl = 13   
 
@@ -141,8 +141,8 @@ def SetCommand(cmd, idx, payload, payload_json)
         return
     end
 
-    if (argument[0] == "STORAGE")
-        global.serial.write(bytes().fromstring("SET STORAGE"))
+    if (argument[0] == "STORAGE" || argument[0] == "STORE")
+        global.serialSend.write(bytes().fromstring("SET STORAGE"))
         mqttprint("SET STORAGE")
         tasmota.resp_cmnd_done()
         return
