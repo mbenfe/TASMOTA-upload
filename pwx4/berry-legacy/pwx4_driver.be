@@ -16,7 +16,13 @@ def get_cron_second()
 end
 
 
-class PWX12
+class PWX4
+    var serSend
+    var serReceive
+    var rx
+    var tx
+    var bsl
+    var rst
     var rx_partial
     var pending_cfg_cmd
     var cfg_next_send_ms
@@ -57,16 +63,34 @@ class PWX12
         self.conso = conso
         import logger
         self.logger = logger
+        self.rx = 3
+        self.tx = 1
+        self.rst = 2
+        self.bsl = 13
         self.rx_partial = ""
         self.pending_cfg_cmd = nil
         self.cfg_next_send_ms = 0
         self.cfg_attempts = 0
         self.cfg_ack = false
 
-        self.prepare_config_push()
-
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
+        if global.serSend == nil
+            global.serSend = serial(16, 17, 115200, serial.SERIAL_8N1)
+        end
+        if global.serReceive == nil
+            global.serReceive = serial(self.rx, self.tx, 115200, serial.SERIAL_8N1)
+        end
+        self.serSend = global.serSend
+        self.serReceive = global.serReceive
+        global.ser = self.serSend
+        # setup boot pins for stm32: reset disable & boot normal
+        gpio.pin_mode(self.rst, gpio.OUTPUT)
+        gpio.pin_mode(self.bsl, gpio.OUTPUT)
+        gpio.digital_write(self.bsl, 0)
+        gpio.digital_write(self.rst, 1)
+
+        self.prepare_config_push()
     end
 
     def _arr_get(arr, idx, fallback)
@@ -98,34 +122,20 @@ class PWX12
         var produit = str(dev["produit"])
 
         var r0 = self._arr_get(dev["root"], 0, "*")
-        var r1 = self._arr_get(dev["root"], 1, "*")
-        var r2 = self._arr_get(dev["root"], 2, "*")
-
         var t0 = self._arr_get(dev["techno"], 0, "ct")
-        var t1 = self._arr_get(dev["techno"], 1, "ct")
-        var t2 = self._arr_get(dev["techno"], 2, "ct")
-
         var q0 = self._arr_get(dev["ratio"], 0, "1000")
-        var q1 = self._arr_get(dev["ratio"], 1, "1000")
-        var q2 = self._arr_get(dev["ratio"], 2, "1000")
-
         var p0 = self._arr_get(dev["PGA"], 0, "1")
-        var p1 = self._arr_get(dev["PGA"], 1, "1")
-        var p2 = self._arr_get(dev["PGA"], 2, "1")
-
         var m0 = self._arr_get(dev["mode"], 0, "tri")
-        var m1 = self._arr_get(dev["mode"], 1, "tri")
-        var m2 = self._arr_get(dev["mode"], 2, "tri")
 
         self.pending_cfg_cmd = string.format(
-            "SET CONFIG %s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s\\r\\n",
+            "SET CONFIG %s:%s:%s:%s:%s:%s:%s\\n",
             global.device,
-            r0, r1, r2,
+            r0,
             produit,
-            t0, t1, t2,
-            q0, q1, q2,
-            p0, p1, p2,
-            m0, m1, m2
+            t0,
+            q0,
+            p0,
+            m0
         )
 
         self.cfg_attempts = 0
@@ -145,13 +155,13 @@ class PWX12
             return
         end
 
-        # Ensure STM32 is released from reset before sending config.
         tasmota.cmd("start")
         tasmota.delay(120)
-        global.ser.flush()
-        global.ser.write(bytes().fromstring(self.pending_cfg_cmd))
+        self.serSend.flush()
+        self.serSend.write(bytes().fromstring(self.pending_cfg_cmd))
         self.cfg_attempts += 1
         self.cfg_next_send_ms = tasmota.millis() + 800
+        print("CFG: cmd=" + self.pending_cfg_cmd)
         print("CFG: sent attempt " + str(self.cfg_attempts))
     end
 
@@ -160,81 +170,78 @@ class PWX12
         self.read_uart(2)
     end
 
+    def process_uart_line(line)
+        var topic
+        var split
+        var ligne
+
+        if line[0] == 'C'
+            split = string.split(line, ':')
+            if size(split) >= 2 && size(split[1]) > 0
+                self.conso.update(line)
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            else
+                print('PWX4-> malformed C frame:', line)
+            end
+        elif line[0] == 'D'
+            split = string.split(line, ':')
+            if size(split) >= 2 && size(split[1]) > 0
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            else
+                print('PWX4-> malformed D frame:', line)
+            end
+        elif line[0] == 'W'
+            split = string.split(line, ':')
+            if size(split) >= 2
+                if global.configjson[global.device]["root"][0] != "*"
+                    topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
+                    ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][0], real(split[1]))
+                    mqtt.publish(topic, ligne, true)
+                end
+            else
+                print('PWX4-> malformed W frame:', line)
+            end
+        elif line[0] == '{'
+            if string.find(line, '"type":"calibration"') != -1
+                if string.find(line, '"group":"') != -1
+                    topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                    mqtt.publish(topic, line, true)
+                else
+                    topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
+                    mqtt.publish(topic, line, true)
+                end
+            else
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            end
+        else
+            if string.find(line, "config done") != -1
+                self.cfg_ack = true
+                self.pending_cfg_cmd = nil
+                print("CFG: STM32 acknowledged")
+            end
+            print('PWX4->', line)
+        end
+    end
+
     def read_uart(timeout)
-        if global.ser.available()
+        if self.serReceive.available()
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            var buffer = global.ser.read()
-            global.ser.flush()
-            var mystring = self.rx_partial + buffer.asstring()
+            var buffer = self.serReceive.read()
+            self.serReceive.flush()
+            var mystring = buffer.asstring()
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
-            self.rx_partial = mylist[numitem - 1]
-            var topic
-            var split
-            var ligne
             var line
             for i: 0..numitem-2
                 line = mylist[i]
                 if size(line) == 0
                     continue
                 end
-
-                # normalize CRLF from STM32
-                split = string.split(line, '\r')
-                line = split[0]
-                if size(line) == 0
-                    continue
-                end
-
-                if line[0] == 'C'
-                    split = string.split(line, ':')
-                    if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
-                        self.conso.update(line)
-                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    else
-                        print('PWX12-> malformed C frame:', line)
-                    end
-                elif line[0] == 'D'
-                    split = string.split(line, ':')
-                    if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
-                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    else
-                        print('PWX12-> malformed D frame:', line)
-                    end
-                elif line[0] == 'W'
-                    # self.logger.log_data(mylist[i])
-                    split = string.split(line, ':')
-                    if size(split) >= 4
-                        for j: 0..2
-                            if global.configjson[global.device]["root"][j] != "*"
-                                topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
-                                ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
-                                mqtt.publish(topic, ligne, true)
-                            end
-                        end
-                    else
-                        print('PWX12-> malformed W frame:', line)
-                    end
-                elif line[0] == '{'
-                    # JSON frames from STM32 (e.g. calibration payload).
-                    if string.find(line, '"type":"calibration"') != -1
-                        topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    else
-                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    end
-                else
-                    if string.find(line, "config done") != -1
-                        self.cfg_ack = true
-                        self.pending_cfg_cmd = nil
-                        print("CFG: STM32 acknowledged")
-                    end
-                    print('PWX12->', line)
-                end
+                self.process_uart_line(line)
             end
         end
     end
@@ -244,11 +251,16 @@ class PWX12
     end
 
     def hour()
-        self.conso.mqtt_publish('hours')
+        var now = tasmota.rtc()
+        var rtc = tasmota.time_dump(now["local"])
+        var hour = rtc["hour"]
+        # publish if not midnight
+        if hour != 23
+            self.conso.mqtt_publish('hours')
+        end
 
-        # Additional hourly request for hardware energy delta (returned as raw D frame).
-        global.ser.flush()
-        global.ser.write(bytes().fromstring("GET ENERGY"))
+        self.serSend.flush()
+        self.serSend.write(bytes().fromstring("GET ENERGY\n"))
     end
 
     def every_4hours()
@@ -278,51 +290,32 @@ class PWX12
         mqtt.publish(topic, payload, true)
     end
 
-    def sync_time()
-        var now = tasmota.rtc()
-        if now == nil || !now.contains("utc")
-            print("sync: rtc utc unavailable")
-            return
-        end
-
-        var epoch = int(now["utc"])
-        var cmd = string.format("SET TIME %d\r\n", epoch)
-        global.ser.flush()
-        global.ser.write(bytes().fromstring(cmd))
-        print("sync sent: " + cmd)
-    end
-
 end
 
 
 
-global.pwx12 = PWX12()
-tasmota.add_driver(global.pwx12)
+global.pwx4 = PWX4()
+tasmota.add_driver(global.pwx4)
 var now = tasmota.rtc()
 
-tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
+tasmota.add_fast_loop(/-> global.pwx4.fast_loop())
 
 var cron_second = get_cron_second()
 # set midnight cron
 var cron_pattern = string.format("%d 59 23 * * *", cron_second)
-tasmota.add_cron(cron_pattern, /-> global.pwx12.midnight(), "every_day")
+tasmota.add_cron(cron_pattern, /-> global.pwx4.midnight(), "every_day")
 print("cron midnight:" + cron_pattern)
 # set hour cron
 cron_pattern = string.format("%d 59 * * * *", cron_second)
-tasmota.add_cron(cron_pattern, /-> global.pwx12.hour(), "every_hour")
+tasmota.add_cron(cron_pattern, /-> global.pwx4.hour(), "every_hour")
 print("cron hour:" + cron_pattern)
 # set heartbeat cron
 cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
-tasmota.add_cron(cron_pattern, /-> global.pwx12.heartbeat(), "every_hour")
+tasmota.add_cron(cron_pattern, /-> global.pwx4.heartbeat(), "every_hour")
 print("cron heartbeat:" + cron_pattern)
 # set 4 hours cron
 cron_pattern = string.format("%d 0 */4 * * *", cron_second)
-tasmota.add_cron(cron_pattern, /-> global.pwx12.every_4hours(), "every_4_hours")
+tasmota.add_cron(cron_pattern, /-> global.pwx4.every_4hours(), "every_4_hours")
 print("cron every 4 hours:" + cron_pattern)
 
-# set 5 minutes sync cron
-cron_pattern = string.format("%d */5 * * * *", cron_second)
-tasmota.add_cron(cron_pattern, /-> global.pwx12.sync_time(), "every_5_minutes_sync")
-print("cron every 5 minutes sync:" + cron_pattern)
-
-# return pwx12
+# return pwx4
