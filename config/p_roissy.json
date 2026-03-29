@@ -4,15 +4,15 @@
         "root": ["main"],
         "produit": "PWX4",
         "PGA": ["1"],
-        "techno": "rogowski",
-        "ratio": "3003"
+        "techno": ["rogowski"],
+        "ratio": ["3003"]
     },
     "dl12-tgbt1": {
         "mode": ["tri","tri","tri"],
         "root": ["froid","tdcaisses","tdlabo"],
         "produit": "PWX12",
         "PGA": ["1","1","1"],
-        "techno": ["ct","ct","ct","ct"],
+        "techno": ["ct","ct","ct"],
         "ratio": ["4000","1000","4000"]
     },
     "dl12-tgbt2": {

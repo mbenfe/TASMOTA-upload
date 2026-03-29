@@ -38,10 +38,8 @@ class conso
         file.close()
         global.coutjson = json.load(ligne)
         self.cout = map()
-        for i:0..0
-            name = string.format("c_%s", global.configjson[global.device]["root"][i])
-            self.cout.insert(name, 0)
-        end
+        name = string.format("c_%s", global.configjson[global.device]["root"][0])
+        self.cout.insert(name, 0)
     end
 
     def calcul_cout(month, day_of_week, myjson, chanel)
@@ -99,7 +97,6 @@ class conso
             hp_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hp_sp"] * heures_pleines
         end
         hp_cout = hp_cout_conso + hp_cout_acheminement + hp_cout_taxes
-
         # heures creuses
         hc_cout_conso = (saison["hc_tarif"] + saison["cee"] + saison["hc_obligation"]) * heures_creuses
         hc_cout_acheminement = (saison["hc_acheminement_cc"] + saison["hc_acheminement_cs"] + saison["hc_acheminement_cg"] + saison["hc_acheminement_conso"]) * heures_creuses
@@ -125,20 +122,17 @@ class conso
             ligne = file.read()
             file.close()
             global.configjson = json.load(ligne)
+            print(global.configjson[global.device])
             if global.configjson[global.device]["produit"] == "PWX4"
-                ligne = string.format('{"hours":[]}')
+                ligne = string.format('{}')
                 var mainjson = json.load(ligne)
-                mainjson.insert("days", [])
-                mainjson.insert("months", [])
-                for i:0..0
-                    if global.configjson[global.device]["mode"] == "tri"
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], self.get_hours())
-                        mainjson["hours"].insert(i, json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], self.get_days())
-                        mainjson["days"].insert(i, json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], self.get_months())
-                        mainjson["months"].insert(i, json.load(ligne))
-                    end
+                if global.configjson[global.device]["mode"] == "tri"
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][0], self.get_hours())
+                    mainjson.insert("hours", json.load(ligne))
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, global.configjson[global.device]["root"][0], self.get_days())
+                    mainjson.insert("days", json.load(ligne))
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, global.configjson[global.device]["root"][0], self.get_months())
+                    mainjson.insert("months", json.load(ligne))
                 end
                 ligne = json.dump(mainjson)
                 return ligne
@@ -148,22 +142,52 @@ class conso
         end
     end
 
+    def normalize_conso_schema()
+        var changed = false
+
+        if self.consojson.contains("hours") && type(self.consojson["hours"]) == "list"
+            if size(self.consojson["hours"]) > 0
+                self.consojson["hours"] = self.consojson["hours"][0]
+                changed = true
+            end
+        end
+
+        if self.consojson.contains("days") && type(self.consojson["days"]) == "list"
+            if size(self.consojson["days"]) > 0
+                self.consojson["days"] = self.consojson["days"][0]
+                changed = true
+            end
+        end
+
+        if self.consojson.contains("months") && type(self.consojson["months"]) == "list"
+            if size(self.consojson["months"]) > 0
+                self.consojson["months"] = self.consojson["months"][0]
+                changed = true
+            end
+        end
+
+        return changed
+    end
+
     def init()
         import path
 
         var ligne
         var file
+        var legacy_indexed_json = false
+        var name = string.format("p_%s.json", global.ville)
+        file = open(name, "rt")
+        ligne = file.read()
+        global.configjson = json.load(ligne)
+        file.close()
+
         if path.exists("conso.json")
             file = open("conso.json", "rt")
             if file.size() != 0
                 ligne = file.read()
+                legacy_indexed_json = string.find(ligne, '"hours":[{') != -1 || string.find(ligne, '"days":[{') != -1 || string.find(ligne, '"months":[{') != -1
                 self.consojson = json.load(ligne)
                 print(self.consojson)
-                file.close()
-                var name = string.format("p_%s.json", global.ville)
-                file = open(name, "rt")
-                ligne = file.read()
-                global.configjson = json.load(ligne)
                 file.close()
             else
                 ligne = self.init_conso()
@@ -171,6 +195,8 @@ class conso
                 file.write(ligne)
                 file.close()
                 print("fichier sauvegarde de consommation cree !")
+                print(ligne)
+                self.consojson = json.load(ligne)
             end
         else
             ligne = self.init_conso()
@@ -178,7 +204,44 @@ class conso
             file.write(ligne)
             file.close()
             print("fichier sauvegarde de consommation cree !")
+            print(ligne)
+            self.consojson = json.load(ligne)
         end
+
+        var normalized_in_init = self.normalize_conso_schema()
+        if !normalized_in_init && legacy_indexed_json
+            print("CONSO init: forcing indexed migration from raw file signature")
+            if self.consojson.contains("hours") && size(self.consojson["hours"]) > 0
+                self.consojson["hours"] = self.consojson["hours"][0]
+                normalized_in_init = true
+            end
+            if self.consojson.contains("days") && size(self.consojson["days"]) > 0
+                self.consojson["days"] = self.consojson["days"][0]
+                normalized_in_init = true
+            end
+            if self.consojson.contains("months") && size(self.consojson["months"]) > 0
+                self.consojson["months"] = self.consojson["months"][0]
+                normalized_in_init = true
+            end
+        end
+
+        print("CONSO init: normalize changed=" + str(normalized_in_init))
+
+        if normalized_in_init
+            file = open("conso.json", "wt")
+            ligne = json.dump(self.consojson)
+            file.write(ligne)
+            file.close()
+
+            file = open("conso.json", "rt")
+            ligne = file.read()
+            file.close()
+            self.consojson = json.load(ligne)
+            print("fichier sauvegarde de consommation converti sans index !")
+        else
+            print("CONSO init: schema already non-indexed")
+        end
+
         self.day_list = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
         self.month_list = ["", "Jan", "Fev", "Mars", "Avr", "Mai", "Juin", "Juil", "Aout", "Sept", "Oct", "Nov", "Dec"]
         self.num_day_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -199,16 +262,29 @@ class conso
     end
 
     def update(data)
+        if self.normalize_conso_schema()
+            var migrated = json.dump(self.consojson)
+            var migrated_file = open("conso.json", "wt")
+            migrated_file.write(migrated)
+            migrated_file.close()
+            print("fichier sauvegarde de consommation converti sans index (runtime) !")
+        end
+
         var split = string.split(data, ":")
+        if size(split) < 2
+            return
+        end
+
+        if split[0] != "C"
+            return
+        end
+
         var now = tasmota.rtc()
         var rtc = tasmota.time_dump(now["local"])
-        var second = rtc["sec"]
-        var minute = rtc["min"]
         var hour = rtc["hour"]
-        var day = rtc["day"]
         var month = rtc["month"]
         var year = rtc["year"]
-        var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var day_of_week = rtc["weekday"] % 7
 
         # Vérification de l'année bissextile
         if month == 2  # Si c'est février
@@ -219,11 +295,20 @@ class conso
             end
         end
 
-        for i:0..0
-            self.consojson["hours"][i]["DATA"][str(hour)] += real(split[i + 1])
-            self.consojson["days"][i]["DATA"][self.day_list[day_of_week]] += real(split[i + 1])
-            self.consojson["months"][i]["DATA"][self.month_list[month]] += real(split[i + 1])
+        if day_of_week < 0 || day_of_week >= size(self.day_list)
+            print(string.format("CONSO index debug: day_of_week=%d day_list_size=%d raw_weekday=%d frame=%s", day_of_week, size(self.day_list), rtc["weekday"], data))
+            return
         end
+
+        if month < 0 || month >= size(self.month_list)
+            print(string.format("CONSO index debug: month=%d month_list_size=%d frame=%s", month, size(self.month_list), data))
+            return
+        end
+
+        var delta = real(split[1])
+        self.consojson["hours"]["DATA"][str(hour)] += delta
+        self.consojson["days"]["DATA"][self.day_list[day_of_week]] += delta
+        self.consojson["months"]["DATA"][self.month_list[month]] += delta
     end
 
     def sauvegarde()
@@ -240,13 +325,10 @@ class conso
     def mqtt_publish(scope)
         var now = tasmota.rtc()
         var rtc = tasmota.time_dump(now["local"])
-        var second = rtc["sec"]
-        var minute = rtc["min"]
         var hour = rtc["hour"]
         var day = rtc["day"]
         var month = rtc["month"]
-        var year = rtc["year"]
-        var day_of_week = rtc["weekday"]
+            var day_of_week = rtc["weekday"] % 7
         var topic
         var payload_hours
         var payload_days
@@ -258,65 +340,65 @@ class conso
         var day_for_cost = day_of_week
 
         var stringdevice
-        for i:0..0
-            stringdevice = string.format("%s", global.device)
-            if scope == "hours"
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
-                payload_hours = self.consojson["hours"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_hours))
-                mqtt.publish(topic, ligne, true)
-                self.consojson["hours"][i]["DATA"][str((hour + 1) % 24)] = 0
-            else
-                # Calculate current day's cost first (before resetting hour 0)
-                self.calcul_cout(month, day_for_cost, self.consojson["hours"][i]["DATA"], global.configjson[global.device]["root"][i])
-                
-                # Publish hours
-                topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
-                payload_hours = self.consojson["hours"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_hours))
-                mqtt.publish(topic, ligne, true)
-                self.consojson["hours"][i]["DATA"][str(0)] = 0
+        stringdevice = string.format("%s", global.device)
+        var channel_name = global.configjson[global.device]["root"][0]
+        if scope == "hours" && channel_name != "*"
+            topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
+            payload_hours = self.consojson["hours"]["DATA"]
+            ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, json.dump(payload_hours))
+            mqtt.publish(topic, ligne, true)
+            self.consojson["hours"]["DATA"][str((hour + 1) % 24)] = 0
+        elif channel_name != "*"
+            # Calculate current day's cost first (before resetting hour 0)
+            self.calcul_cout(month, day_for_cost, self.consojson["hours"]["DATA"], channel_name)
+            
+            # THEN publish hours
+            topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
+            payload_hours = self.consojson["hours"]["DATA"]
+            ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, json.dump(payload_hours))
+            mqtt.publish(topic, ligne, true)
+            self.consojson["hours"]["DATA"][str(0)] = 0
 
-                # Publish days
-                topic = string.format("gw/%s/%s/%s/tele/PWDAYS", global.client, global.ville, stringdevice)
-                payload_days = self.consojson["days"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_days))
-                mqtt.publish(topic, ligne, true)
-                self.consojson["days"][i]["DATA"][self.day_list[(day_of_week + 1) % 7]] = 0
-                
-                # Publish months
-                topic = string.format("gw/%s/%s/%s/tele/PWMONTHS", global.client, global.ville, stringdevice)
-                payload_months = self.consojson["months"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_months))
-                mqtt.publish(topic, ligne, true)
-                
-                # RAZ next month if end of the month
-                if day == self.num_day_month[month]
-                    if month == 12
-                        self.consojson["months"][i]["DATA"]["Jan"] = 0
-                    else
-                        self.consojson["months"][i]["DATA"][self.month_list[month + 1]] = 0
-                    end
+            # Publish days
+            topic = string.format("gw/%s/%s/%s/tele/PWDAYS", global.client, global.ville, stringdevice)
+            payload_days = self.consojson["days"]["DATA"]
+            ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, json.dump(payload_days))
+            mqtt.publish(topic, ligne, true)
+            self.consojson["days"]["DATA"][self.day_list[(day_of_week + 1) % 7]] = 0
+            
+            # Publish months
+            topic = string.format("gw/%s/%s/%s/tele/PWMONTHS", global.client, global.ville, stringdevice)
+            payload_months = self.consojson["months"]["DATA"]
+            ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, json.dump(payload_months))
+            mqtt.publish(topic, ligne, true)
+            
+            # RAZ next month if end of the month
+            if day == self.num_day_month[month]
+                if month == 12
+                    self.consojson["months"]["DATA"]["Jan"] = 0
+                else
+                    self.consojson["months"]["DATA"][self.month_list[month + 1]] = 0
                 end
             end
         end
 
         # Publish costs
-        for k: self.cout.keys()
-            if scope != "hours" && k != "c_*"
-                # Cost of current day (cron runs at 23:59)
-                topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
-                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
-                    global.device, k, global.coutjson['surface'], self.cout[k], self.day_list[day_for_cost])
-                mqtt.publish(topic, ligne, true)
+        channel_name = global.configjson[global.device]["root"][0]
+        if scope != "hours" && channel_name != "*"
+            var cost_key = string.format("c_%s", channel_name)
 
-                # Week costs
-                topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.device)
-                payload_week = self.week_couts_json
-                ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
-                    global.device, global.configjson[global.device]["root"][0], payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
-                mqtt.publish(topic, ligne, true)
-            end
+            # Cost of current day (cron runs at 23:59)
+            topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
+            ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
+                global.device, cost_key, global.coutjson['surface'], self.cout[cost_key], self.day_list[day_for_cost])
+            mqtt.publish(topic, ligne, true)
+
+            # Week costs
+            topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.device)
+            payload_week = self.week_couts_json
+            ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
+                global.device, channel_name, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
+            mqtt.publish(topic, ligne, true)
         end
     end
 end

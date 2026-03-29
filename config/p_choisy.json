@@ -109,7 +109,7 @@
     "root": ["gene_ext1","gene_ext2","station"],
     "produit": "PWX12",
     "PGA": ["1","1","1"],
-    "techno": ["ct","ct","ct","ct"],
+    "techno": ["ct","ct","ct"],
     "ratio": ["2000","1000","1000"]
     }
 }

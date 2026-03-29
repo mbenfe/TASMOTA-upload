@@ -1,4 +1,4 @@
-var version = "2.0.032025 with update"
+var version = "2.0.032026 with calibration"
 
 import string
 import global
@@ -16,6 +16,7 @@ var bsl = 13
 
 global.device = nil
 global.ville = nil
+global.client = nil
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
@@ -297,20 +298,42 @@ end
 # ============================================================
 
 def Init()
+    import json
+    var file = open("esp32.cfg", "rt")
+    if file == nil || file.size() == 0
+        if file != nil
+            file.close()
+        end
+        file = open("esp32.cfg", "wt")
+        var jsonstring = string.format('{"ville":"unknown","client":"inter","device":"unknown"}')
+        file.write(jsonstring)
+        file.close()
+        file = open("esp32.cfg", "rt")
+    end
+
+    var buffer = file.read()
+    file.close()
+    var jsonmap = json.load(buffer)
+    if jsonmap == nil
+        mqttprint("CONFIG: invalid esp32.cfg")
+        return
+    end
+
+    global.client = jsonmap["client"]
+    global.ville = jsonmap["ville"]
+    global.device = jsonmap["device"]
+    print('client:', global.client)
+    print('ville:', global.ville)
+    print('device:', global.device)
+
     gpio.pin_mode(rxSend, gpio.INPUT)
     gpio.pin_mode(txSend, gpio.OUTPUT)
     gpio.pin_mode(rxReceive, gpio.INPUT)
     gpio.pin_mode(txReceive, gpio.OUTPUT)
 
-    # STM32 USART1 path (ESP32 UART2 IO16/17) for commands send to STM32.
     global.serSend = serial(rxSend, txSend, 115200, serial.SERIAL_8N1)
-    # STM32 USART3 path (ESP32 UART0 IO3/1) for telemetry receive from STM32.
     global.serReceive = serial(rxReceive, txReceive, 115200, serial.SERIAL_8N1)
-
-    # Backward compatibility for scripts still using global.ser.
-    global.ser = global.serSend
-    mqttprint('serial send/receive initialised')
-    tasmota.resp_cmnd_done()
+    mqttprint('serial initialised')
 end
 
 def ville(cmd, idx, payload, payload_json)
@@ -667,4 +690,3 @@ tasmota.add_cmd('couts', couts)
 Init()
 tasmota.load("pwx4_driver.be")
 print(global.pwx4)
-tasmota.load("command.be")

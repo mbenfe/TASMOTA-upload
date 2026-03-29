@@ -419,10 +419,5 @@ tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('get', get)
 tasmota.add_cmd('cal', cal)
 
-# #mqttprint('load pt1000.be')
-# #tasmota.load('pt1000.be')
-# #mqttprint('load command.be')
-# #tasmota.load('command.be')
-
 print(" wait 30s for drivers loading")
 tasmota.set_timer(30000,launch_driver)

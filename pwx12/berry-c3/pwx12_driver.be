@@ -4,6 +4,7 @@ import mqtt
 import string
 import json
 import math
+import global
 
 def get_cron_second()
     var combined = string.format("%s|%s", global.ville, global.device)
@@ -23,7 +24,6 @@ class PWX12
     var cfg_attempts
     var cfg_ack
 
-    var logger
     var root
     var topic 
     var conso
@@ -55,9 +55,7 @@ class PWX12
         self.loadconfig()
         import conso
         self.conso = conso
-        import logger
-        self.logger = logger
-        self.rx_partial = ""
+         self.rx_partial = ""
         self.pending_cfg_cmd = nil
         self.cfg_next_send_ms = 0
         self.cfg_attempts = 0
@@ -118,7 +116,7 @@ class PWX12
         var m2 = self._arr_get(dev["mode"], 2, "tri")
 
         self.pending_cfg_cmd = string.format(
-            "SET CONFIG %s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s\\r\\n",
+            "SET CONFIG %s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s\\n",
             global.device,
             r0, r1, r2,
             produit,
@@ -166,74 +164,27 @@ class PWX12
             while !tasmota.time_reached(due) end
             var buffer = global.ser.read()
             global.ser.flush()
-            var mystring = self.rx_partial + buffer.asstring()
+            var mystring = buffer.asstring()
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
-            self.rx_partial = mylist[numitem - 1]
             var topic
             var split
-            var ligne
-            var line
+			var ligne
             for i: 0..numitem-2
-                line = mylist[i]
-                if size(line) == 0
-                    continue
-                end
-
-                # normalize CRLF from STM32
-                split = string.split(line, '\r')
-                line = split[0]
-                if size(line) == 0
-                    continue
-                end
-
-                if line[0] == 'C'
-                    split = string.split(line, ':')
-                    if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
-                        self.conso.update(line)
-                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    else
-                        print('PWX12-> malformed C frame:', line)
-                    end
-                elif line[0] == 'D'
-                    split = string.split(line, ':')
-                    if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
-                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    else
-                        print('PWX12-> malformed D frame:', line)
-                    end
-                elif line[0] == 'W'
+                if mylist[i][0] == 'C'
+                    self.conso.update(mylist[i])
+                    topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                    mqtt.publish(topic, mylist[i], true)
+                elif mylist[i][0] == 'W'
                     # self.logger.log_data(mylist[i])
-                    split = string.split(line, ':')
-                    if size(split) >= 4
-                        for j: 0..2
-                            if global.configjson[global.device]["root"][j] != "*"
-                                topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
-                                ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
-                                mqtt.publish(topic, ligne, true)
-                            end
-                        end
-                    else
-                        print('PWX12-> malformed W frame:', line)
-                    end
-                elif line[0] == '{'
-                    # JSON frames from STM32 (e.g. calibration payload).
-                    if string.find(line, '"type":"calibration"') != -1
-                        topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    else
-                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
+                    split = string.split(mylist[i], ':')
+                    for j: 0..0
+                        topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
+                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
+                        mqtt.publish(topic, ligne, true)
                     end
                 else
-                    if string.find(line, "config done") != -1
-                        self.cfg_ack = true
-                        self.pending_cfg_cmd = nil
-                        print("CFG: STM32 acknowledged")
-                    end
-                    print('PWX12->', line)
+                    print('PWX12->', mylist[i])
                 end
             end
         end
@@ -255,10 +206,6 @@ class PWX12
         self.conso.sauvegarde()
     end
 
-    def testlog()
-        self.logger.store()
-    end
-
     def heartbeat()
         var now = tasmota.rtc()
         var timestamp = tasmota.time_str(now["local"])
@@ -276,20 +223,6 @@ class PWX12
         var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
         var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s","AccessPoint":"%s","IpAddress":"%s"}', global.device, global.device, timestamp, ap, ip)
         mqtt.publish(topic, payload, true)
-    end
-
-    def sync_time()
-        var now = tasmota.rtc()
-        if now == nil || !now.contains("utc")
-            print("sync: rtc utc unavailable")
-            return
-        end
-
-        var epoch = int(now["utc"])
-        var cmd = string.format("SET TIME %d\r\n", epoch)
-        global.ser.flush()
-        global.ser.write(bytes().fromstring(cmd))
-        print("sync sent: " + cmd)
     end
 
 end
@@ -319,10 +252,5 @@ print("cron heartbeat:" + cron_pattern)
 cron_pattern = string.format("%d 0 */4 * * *", cron_second)
 tasmota.add_cron(cron_pattern, /-> global.pwx12.every_4hours(), "every_4_hours")
 print("cron every 4 hours:" + cron_pattern)
-
-# set 5 minutes sync cron
-cron_pattern = string.format("%d */5 * * * *", cron_second)
-tasmota.add_cron(cron_pattern, /-> global.pwx12.sync_time(), "every_5_minutes_sync")
-print("cron every 5 minutes sync:" + cron_pattern)
 
 # return pwx12

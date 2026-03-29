@@ -228,7 +228,7 @@ end
 # ============================================================
 
 def Init()
-    gpio.pin_mode(global.rx, gpio.INPUT)
+    gpio.pin_mode(global.rx, gpio.INPUT_PULLUP)
     gpio.pin_mode(global.tx, gpio.OUTPUT)
     global.ser = serial(global.rx, global.tx, 115200, serial.SERIAL_8N1)
     mqttprint('serial initialised')
@@ -539,5 +539,3 @@ tasmota.add_cmd('couts', couts)
 ############################################################
 Init()
 tasmota.load("pwx12_driver.be")
-print(global.pwx12)
-tasmota.load("command.be")

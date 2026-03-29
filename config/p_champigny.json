@@ -12,12 +12,12 @@
         "root": ["ctgendole","pchorspublic","eclgondoles"],
         "produit": "PWX12",
         "PGA": ["1","1","1"],
-        "techno": ["cd","ct","ct","ct"],
+        "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
     },
     "dl12-tgbt3": {
         "mode": ["tri","tri","tri"],
-        "root": ["pcpublic","eclprive","ecldeco","*"],
+        "root": ["pcpublic","eclprive","ecldeco"],
         "produit": "PWX12",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],

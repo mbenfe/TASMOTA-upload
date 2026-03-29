@@ -3,7 +3,6 @@ var version = "2.0.0 avec cron specifique"
 import mqtt
 import string
 import json
-import math
 
 def get_cron_second()
     var combined = string.format("%s|%s", global.ville, global.device)
@@ -19,11 +18,6 @@ end
 class PWX4
     var serSend
     var serReceive
-    var rx
-    var tx
-    var bsl
-    var rst
-    var rx_partial
     var pending_cfg_cmd
     var cfg_next_send_ms
     var cfg_attempts
@@ -34,40 +28,11 @@ class PWX4
     var topic 
     var conso
 
-    def loadconfig()
-        import json
-        var jsonstring
-        var file 
-        file = open("esp32.cfg", "rt")
-        if file.size() == 0
-            print('creat esp32 config file')
-            file = open("esp32.cfg", "wt")
-            jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
-            file.write(jsonstring)
-            file.close()
-            file = open("esp32.cfg", "rt")
-        end
-        var buffer = file.read()
-        var jsonmap = json.load(buffer)
-        global.client = jsonmap["client"]
-        print('client:', global.client)
-        global.ville = jsonmap["ville"]
-        print('ville:', global.ville)
-        global.device = jsonmap["device"]
-        print('device:', global.device)
-    end
-
     def init()
-        self.loadconfig()
         import conso
         self.conso = conso
         import logger
         self.logger = logger
-        self.rx = 3
-        self.tx = 1
-        self.rst = 2
-        self.bsl = 13
-        self.rx_partial = ""
         self.pending_cfg_cmd = nil
         self.cfg_next_send_ms = 0
         self.cfg_attempts = 0
@@ -75,20 +40,13 @@ class PWX4
 
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
-        if global.serSend == nil
-            global.serSend = serial(16, 17, 115200, serial.SERIAL_8N1)
-        end
-        if global.serReceive == nil
-            global.serReceive = serial(self.rx, self.tx, 115200, serial.SERIAL_8N1)
-        end
         self.serSend = global.serSend
         self.serReceive = global.serReceive
+        if self.serSend == nil || self.serReceive == nil
+            print('DRIVER ERROR: global.serSend/global.serReceive are nil, Init() must run in autoexec before loading driver')
+            return
+        end
         global.ser = self.serSend
-        # setup boot pins for stm32: reset disable & boot normal
-        gpio.pin_mode(self.rst, gpio.OUTPUT)
-        gpio.pin_mode(self.bsl, gpio.OUTPUT)
-        gpio.digital_write(self.bsl, 0)
-        gpio.digital_write(self.rst, 1)
 
         self.prepare_config_push()
     end
@@ -128,7 +86,7 @@ class PWX4
         var m0 = self._arr_get(dev["mode"], 0, "tri")
 
         self.pending_cfg_cmd = string.format(
-            "SET CONFIG %s:%s:%s:%s:%s:%s:%s\\n",
+            "SET CONFIG %s_%s_%s_%s_%s_%s_%s\n",
             global.device,
             r0,
             produit,
