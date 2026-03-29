@@ -17,57 +17,18 @@ end
 
 
 class PWX12
-    var serSend
-    var serReceive
-    var rx
-    var tx
-    var bsl
-    var rst
-    var rx_partial
     var pending_cfg_cmd
     var cfg_next_send_ms
     var cfg_attempts
     var cfg_ack
 
-    var logger
     var root
     var topic 
     var conso
 
-    def loadconfig()
-        import json
-        var jsonstring
-        var file 
-        file = open("esp32.cfg", "rt")
-        if file.size() == 0
-            print('creat esp32 config file')
-            file = open("esp32.cfg", "wt")
-            jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
-            file.write(jsonstring)
-            file.close()
-            file = open("esp32.cfg", "rt")
-        end
-        var buffer = file.read()
-        var jsonmap = json.load(buffer)
-        global.client = jsonmap["client"]
-        print('client:', global.client)
-        global.ville = jsonmap["ville"]
-        print('ville:', global.ville)
-        global.device = jsonmap["device"]
-        print('device:', global.device)
-    end
-
     def init()
-        self.loadconfig()
         import conso
         self.conso = conso
-        import logger
-        self.logger = logger
-        self.rx = 3
-        self.tx = 1
-        self.rst = 2
-        self.bsl = 13
-        self.rx_partial = ""
         self.pending_cfg_cmd = nil
         self.cfg_next_send_ms = 0
         self.cfg_attempts = 0
@@ -75,20 +36,6 @@ class PWX12
 
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
-        if global.serSend == nil
-            global.serSend = serial(16, 17, 115200, serial.SERIAL_8N1)
-        end
-        if global.serReceive == nil
-            global.serReceive = serial(self.rx, self.tx, 115200, serial.SERIAL_8N1)
-        end
-        self.serSend = global.serSend
-        self.serReceive = global.serReceive
-        global.ser = self.serSend
-        # setup boot pins for stm32: reset disable & boot normal
-        gpio.pin_mode(self.rst, gpio.OUTPUT)
-        gpio.pin_mode(self.bsl, gpio.OUTPUT)
-        gpio.digital_write(self.bsl, 0)
-        gpio.digital_write(self.rst, 1)
 
         self.prepare_config_push()
     end
@@ -171,8 +118,8 @@ class PWX12
 
         tasmota.cmd("start")
         tasmota.delay(120)
-        self.serSend.flush()
-        self.serSend.write(bytes().fromstring(self.pending_cfg_cmd))
+        global.serSend.flush()
+        global.serSend.write(bytes().fromstring(self.pending_cfg_cmd))
         self.cfg_attempts += 1
         self.cfg_next_send_ms = tasmota.millis() + 800
         print("CFG: cmd=" + self.pending_cfg_cmd)
@@ -208,7 +155,7 @@ class PWX12
             end
         elif line[0] == 'W'
             split = string.split(line, ':')
-            if size(split) >= 4
+            if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
                 for j: 0..2
                     if global.configjson[global.device]["root"][j] != "*"
                         topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
@@ -243,11 +190,11 @@ class PWX12
     end
 
     def read_uart(timeout)
-        if self.serReceive.available()
+        if global.serReceive.available()
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            var buffer = self.serReceive.read()
-            self.serReceive.flush()
+            var buffer = global.serReceive.read()
+            global.serReceive.flush()
             var mystring = buffer.asstring()
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
@@ -275,16 +222,12 @@ class PWX12
             self.conso.mqtt_publish('hours')
         end
 
-        self.serSend.flush()
-        self.serSend.write(bytes().fromstring("GET ENERGY\n"))
+        global.serSend.flush()
+        global.serSend.write(bytes().fromstring("GET ENERGY\n"))
     end
 
     def every_4hours()
         self.conso.sauvegarde()
-    end
-
-    def testlog()
-        self.logger.store()
     end
 
     def heartbeat()

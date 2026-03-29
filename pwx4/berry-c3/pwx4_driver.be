@@ -74,21 +74,21 @@ class PWX4
         var dev = all_cfg[global.device]
         var produit = str(dev["produit"])
 
-        var r0 = self._arr_get(dev["root"], 0, "*")
-        var t0 = self._arr_get(dev["techno"], 0, "ct")
-        var q0 = self._arr_get(dev["ratio"], 0, "1000")
-        var p0 = self._arr_get(dev["PGA"], 0, "1")
-        var m0 = self._arr_get(dev["mode"], 0, "tri")
+        var root_name = self._arr_get(dev["root"], 0, "*")
+        var sensor_techno = self._arr_get(dev["techno"], 0, "ct")
+        var current_ratio = self._arr_get(dev["ratio"], 0, "1000")
+        var pga_gain = self._arr_get(dev["PGA"], 0, "1")
+        var mode = self._arr_get(dev["mode"], 0, "tri")
 
+        # PWX4 compact config payload: single-channel parameters only.
         self.pending_cfg_cmd = string.format(
-            "SET CONFIG %s_%s_%s_%s_%s_%s_%s\n",
-            global.device,
-            r0,
+            "SET CONFIG %s:%s:%s:%s:%s:%s\n",
+            root_name,
             produit,
-            t0,
-            q0,
-            p0,
-            m0
+            sensor_techno,
+            current_ratio,
+            pga_gain,
+            mode
         )
 
         self.cfg_attempts = 0

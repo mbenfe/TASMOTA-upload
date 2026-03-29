@@ -70,7 +70,7 @@ class conso
         for j:0..23
             if j >= global.coutjson["electricite"]["hc_debut"] || j < global.coutjson["electricite"]["hc_fin"]
                 if myjson.contains(str(j))
-                   heures_creuses += myjson[str(j)]
+                    heures_creuses += myjson[str(j)]
                 end
             else
                 if myjson.contains(str(j))
