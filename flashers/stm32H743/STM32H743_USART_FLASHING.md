@@ -97,7 +97,7 @@ From the Tasmota Berry console:
 Command sequence:
 
 import flasher as f
-f.ld("mery_auto.hex")
+f.ld("auto_mery.hex")
 f.chk()
 f.fl(true)
 

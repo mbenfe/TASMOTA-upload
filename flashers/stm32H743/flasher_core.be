@@ -11,7 +11,7 @@ import global
 class stm32h743_flasher
   static FLASH_START = 0x08000000
   static FLASH_END = 0x08200000      # exclusive, 2 MB window for H743 variants
-  static CORE_VERSION = "2026-03-31-align-pack-v1"
+  static CORE_VERSION = "2026-03-31-align-pack-v2-32b"
 
   var filename
   var file_checked
@@ -133,7 +133,7 @@ class stm32h743_flasher
     self.flash_records = 0
     self.flash_bytes = 0
     self.flash_writes = 0
-    print("FLH: step 6/7 - writing aligned 8-byte flash blocks")
+    print("FLH: step 6/7 - writing aligned 32-byte flash words")
   end
 
   def _flush_pending_slot()
@@ -141,7 +141,7 @@ class stm32h743_flasher
       self.flasher.cmd_write_memory(self.pending_slot_addr, self.pending_slot)
       self.flash_writes += 1
       if self.flash_writes <= 8 || (self.flash_writes & 0x7F) == 0
-        print(format("FLH: write progress writes=%i addr=0x%08X len=8", self.flash_writes, self.pending_slot_addr))
+        print(format("FLH: write progress writes=%i addr=0x%08X len=32", self.flash_writes, self.pending_slot_addr))
       end
     end
     self.pending_slot_addr = -1
@@ -161,16 +161,16 @@ class stm32h743_flasher
       print(format("FLH: parse progress records=%i bytes=%i last=0x%08X len=%i", self.flash_records, self.flash_bytes, addr, sz))
     end
 
-    # Pack arbitrary HEX records into aligned 8-byte flash doublewords.
+    # Pack arbitrary HEX records into aligned 32-byte flash words for STM32H743.
     for i:0..sz-1
       var a = addr + i
-      var slot_addr = a & ~0x7
-      var slot_off = a & 0x7
+      var slot_addr = a & ~0x1F
+      var slot_off = a & 0x1F
 
       if slot_addr != self.pending_slot_addr
         self._flush_pending_slot()
         self.pending_slot_addr = slot_addr
-        self.pending_slot = bytes("FFFFFFFFFFFFFFFF")
+        self.pending_slot = bytes("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
       end
 
       self.pending_slot[slot_off] = payload[i]
@@ -184,7 +184,13 @@ class stm32h743_flasher
     self._flush_pending_slot()
     print(format("FLH: write summary records=%i bytes=%i aligned_writes=%i", self.flash_records, self.flash_bytes, self.flash_writes))
     print("FLH: step 6.5/7 - jump to user firmware")
-    self.flasher.cmd_go(self.FLASH_START)
+    try
+      self.flasher.cmd_go(self.FLASH_START)
+    except .. as e, m
+      # Some targets jump immediately and may emit trailing noise bytes.
+      # Flashing is already complete at this stage; keep this as warning only.
+      print("FLH: warning: GO handshake non-fatal: " + m)
+    end
     print("FLH: step 6.9/7 - restore normal boot mode")
     self.flasher.leave_system_bootloader()
   end

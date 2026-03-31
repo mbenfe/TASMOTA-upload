@@ -97,7 +97,6 @@ class stm32h743_usart_flasher
     while !tasmota.time_reached(due)
       if global.serflash.available()
         var b = global.serflash.read()
-        if self.debug print("rx:", b) end
         if size(b) > 0
           return b
         end
@@ -167,7 +166,6 @@ class stm32h743_usart_flasher
       end
 
       last = b
-      if self.debug print("rx:", b) end
 
       for i:0..size(b)-1
         var v = b[i]
@@ -222,7 +220,6 @@ class stm32h743_usart_flasher
     var p = bytes("0000")
     p[0] = cmd & 0xFF
     p[1] = (~cmd) & 0xFF
-    if self.debug print(format("FLH: cmd=0x%02X", cmd)) end
     global.serflash.write(p)
     self.expect_ack(500, format("send_cmd 0x%02X", cmd))
   end
