@@ -132,11 +132,6 @@ def SetCommand(cmd, idx, payload, payload_json)
         return
     end
 
-    if (argument[0] == "CONFIG")
-        sendconfig(cmd, idx, nil, payload_json)
-        return
-    end
-
     mqttprint("SET inconnu")
 end
 
@@ -439,7 +434,7 @@ def sendconfig(cmd, idx, payload, payload_json)
     file.close()
     myjson = json.load(buffer)
     for key:myjson.keys()
-        if (key == device)
+        if (key == global.device)
             trouve = true
             var p0 = "1"
             var p1 = "1"
@@ -540,7 +535,7 @@ def sendconfig(cmd, idx, payload, payload_json)
         mqttprint(str(total))
         tasmota.resp_cmnd("config sent")
     else
-        mqttprint("device " + str(device) + " non trouvé")
+        mqttprint("device " + str(global.device) + " non trouve")
         tasmota.resp_cmnd("config not sent")
     end
 end

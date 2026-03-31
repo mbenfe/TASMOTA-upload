@@ -2,4 +2,5 @@
 .secrets
 *.xlsx
 *.kvdat
+*.pdf
 utils/push.be
