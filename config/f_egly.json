@@ -1,0 +1,155 @@
+{
+  "1": {
+    "device": "AK-CC55-017x",
+    "name": "1tg1SurgPorte_1",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "2": {
+    "device": "AK-CC55-017x",
+    "name": "2SurgPorte_2",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "3": {
+    "device": "AK-CC55-017x",
+    "name": "3SurgPorte_3",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "4": {
+    "device": "AK-CC55-017x",
+    "name": "4SurgPorte_4",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "5": {
+    "device": "AK-CC55-017x",
+    "name": "5SurgPorte_5",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "6": {
+    "device": "AK-CC55-017x",
+    "name": "6Tg2SurgPorte_6",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "7": {
+    "device": "AK-CC55-017x",
+    "name": "Tg2SurgPorte_7",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "8": {
+    "device": "AK-CC55-017x",
+    "name": "8SurgPorte_8",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "9": {
+    "device": "AK-CC55-017x",
+    "name": "9SurgPorte_9",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "10": {
+    "device": "AK-CC55-017x",
+    "name": "10SurgPorte_10",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "11": {
+    "device": "AK-CC55-017x",
+    "name": "11SurgPorte_11",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "12": {
+    "device": "AK-CC55-017x",
+    "name": "12Tg1SurgPorte_12",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine-",
+    "categorie": "devneg"
+  },
+  "13": {
+    "device": "AK-CC55-017x",
+    "name": "13CfCongel_13",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "CF+",
+    "categorie": "devneg"
+  },
+  "14": {
+    "device": "AK-CC55-017x",
+    "name": "14CfCongel_14",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "CF+",
+    "categorie": "devneg"
+  },
+  "15": {
+    "device": "AK-CC55-017x",
+    "name": "15CfCremerie_15",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "CF+",
+    "categorie": "devpos"
+  },
+  "16": {
+    "device": "AK-CC55-017x",
+    "name": "16FromageCoupe_16",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine+",
+    "categorie": "devpos"
+  },
+  "17": {
+    "device": "AK-CC55-017x",
+    "name": "17FromageCoupe_17",
+    "alias_sonde": "TherAir",
+    "alias_cutout": "Cutout",
+    "alias_state": "CtrlState",
+    "genre": "vitrine+",
+    "categorie": "devpos"
+  }
+}
