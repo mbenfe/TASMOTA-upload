@@ -89,17 +89,17 @@ Notes:
 From the Tasmota Berry console:
 
 1. Import the STM32 flasher wrapper.
-2. Ensure hardware was initialized at boot by autoexec/global.
-3. Load your Intel HEX file.
-4. Validate the HEX.
-5. Flash with debug enabled.
+2. Load your Intel HEX file.
+3. Validate the HEX.
+4. Flash.
 
-Command sequence:
+Command sequence (two commands):
 
 import flasher as f
-f.ld("auto_mery.hex")
-f.chk()
-f.fl(true)
+f.check("auto_mery.hex")
+
+import flasher as f
+f.flash("auto_mery.hex")
 
 ## 10. Alignment Error: write alignment violation
 
