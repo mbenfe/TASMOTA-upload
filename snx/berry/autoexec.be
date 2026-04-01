@@ -342,9 +342,6 @@ tasmota.add_cmd('statistic',statistic)
 
 
 init()
-
-load('command.be')
-
 mqttprint('load snx_driver & loader')
 mqttprint('wait for 5 seconds ....')
 tasmota.set_timer(5000,launch_driver)
