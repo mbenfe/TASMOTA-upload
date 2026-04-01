@@ -7,12 +7,12 @@
             "virtuel": 0,
             "data": [
                 {
+                    "shape": "PieConso",
                     "color": 0,
                     "column": 1,
+                    "row": 1,
                     "location": "TGBT",
                     "master": "main",
-                    "row": 1,
-                    "shape": "PieConso",
                     "slave": [
                         "froid",
                         "ecl_ext",
@@ -27,12 +27,12 @@
                     ]
                 },
                 {
+                    "shape": "consocard",
                     "color": 0,
                     "column": 1,
+                    "row": 1,
                     "location": "TGBT",
                     "master": "main",
-                    "row": 1,
-                    "shape": "consocard",
                     "slave": []
                 }
             ]

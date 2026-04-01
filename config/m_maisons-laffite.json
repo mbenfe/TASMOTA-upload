@@ -1,1 +1,1020 @@
-{"applications":[{"type":"Home","label":"Home","level":1,"virtuel":0,"data":[{"shape":"OpenWeather","color":0,"column":1,"row":1,"location":"MAISON","master":"","slave":[]},{"shape":"iCoutsPareto","color":0,"column":1,"row":2,"location":"Total/Froid1/Froid2/Parking/Rideau/Second TGBT","master":"c_w_main","slave":["c_froid1","c_froid2","c_gene_parking","c_rideau","c_gene_second_tgbt"]},{"shape":"spacer","color":2,"column":1,"location":"Temperatures RDC","master":"","row":3,"slave":[]},{"shape":"ParetoTemp","color":0,"column":1,"row":4,"location":"Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/Légumes","master":"th_exterieur","slave":["th_cls","th_caisse_2","th_rdc_pains","th_escalator","th_traiteur","th_sushi","th_legumes"]},{"shape":"spacer","color":2,"column":1,"location":"Temperatures RDC-1","master":"","row":5,"slave":[]},{"shape":"ParetoTemp","color":0,"column":1,"row":6,"location":"Exterieur/Escalator/Surgelés/Biscottes/Animaux/Coca Cola","master":"th_exterieur","slave":["th_ss_escalator","th_surgeles","th_biscottes","th_animaux","th_coca"]}]},{"label":"Negatif","level":1,"type":"iFroidNegatif","virtuel":0,"data":[{"shape":"spacer","color":2,"column":1,"location":"RDC:Chambres froides négatives","master":"","row":1,"slave":[]},{"master":"CfNegBoulang_59","color":0,"column":1,"row":2,"location":"Boulangerie","shape":"CF-","slave":[]},{"shape":"spacer","color":2,"column":1,"location":"R-1:Chambres froides négatives","master":"","row":3,"slave":[]},{"master":"CfNagative_88","color":0,"column":1,"row":4,"location":"","shape":"CF-","slave":[]},{"shape":"spacer","color":2,"column":1,"location":"R-1:Bacs surgelés","master":"","row":5,"slave":[]},{"master":"TgBacNag_94","color":0,"column":1,"row":6,"location":"TG","shape":"bac-","slave":[]},{"master":"BacNag_95","color":0,"column":2,"row":6,"location":"","shape":"bac-","slave":[]},{"master":"BacNag_96","color":0,"column":1,"row":7,"location":"","shape":"bac-","slave":[]},{"master":"TgBacNag_97","color":0,"column":2,"row":7,"location":"TG","shape":"bac-","slave":[]},{"shape":"spacer","color":2,"column":1,"location":"R-1:Vitrines surgelés","master":"","row":8,"slave":[]},{"master":"MeubleNag_90","color":0,"column":1,"row":9,"location":"","shape":"vitrine-","slave":[]},{"master":"MeubleNag_91","color":0,"column":2,"row":9,"location":"","shape":"vitrine-","slave":[]},{"master":"MeubleNag_92","color":0,"column":3,"row":9,"location":"","shape":"vitrine-","slave":[]},{"master":"MeubleNag_93","color":0,"column":4,"row":9,"location":"","shape":"vitrine-","slave":[]},{"master":"MeubleNag_98","color":0,"column":1,"row":10,"location":"","shape":"vitrine-","slave":[]},{"master":"MeubleNag_99","color":0,"column":2,"row":10,"location":"","shape":"vitrine-","slave":[]}]},{"label":"Positif","level":1,"type":"iFroidPositif","virtuel":0,"data":[{"shape":"spacer","color":2,"column":1,"location":"RDC:Chambres froides positives","master":"","row":1,"slave":[]},{"master":"CfPosVitre_15","color":0,"column":1,"row":2,"location":"Vitrée","shape":"CF+","slave":[]},{"master":"LaboSushi_27","color":0,"column":2,"row":2,"location":"Sushi","shape":"CF+","slave":[]},{"master":"CfF&l_86","color":0,"column":1,"row":3,"location":"Fruits & Légumes","shape":"CF+","slave":[]},{"master":"CfMatiarePremia_82","color":0,"column":2,"row":3,"location":"Matiere Première","shape":"CF+","slave":[]},{"master":"LocalSuifs_84","color":0,"column":1,"row":4,"location":"Suifs","shape":"CF+","slave":[]},{"master":"LaboBoucherie_80","color":0,"column":2,"row":4,"location":"Labo Boucherie","shape":"CF+","slave":[]},{"master":"CfProduitsFinis_78","color":0,"column":1,"row":5,"location":"Produits Finis","shape":"CF+","slave":[]},{"shape":"spacer","color":2,"column":1,"location":"R-1:Chambres froides positives","master":"","row":6,"slave":[]},{"master":"LaboPrestataire_120","color":0,"column":1,"row":7,"location":"Prestataire","shape":"CF+","slave":[]},{"master":"CfPosR-_122","color":0,"column":2,"row":7,"location":"","shape":"CF+","slave":[]},{"master":"LaboR-_124","color":0,"column":1,"row":8,"location":"","shape":"CF+","slave":[]},{"master":"CfBarquettes_7","color":0,"column":2,"row":8,"location":"Barquettes","shape":"CF+","slave":[]},{"master":"LaboEmballage_5","color":0,"column":1,"row":9,"location":"Emballage","shape":"CF+","slave":[]},{"master":"CfPosDrive_116","color":0,"column":2,"row":9,"location":"Drive","shape":"CF+","slave":[]},{"shape":"spacer","color":2,"column":1,"location":"RDC:Vitrines positives","master":"","row":10,"slave":[]},{"master":"MeubleSv_16","color":0,"column":1,"row":11,"location":"Traiteur 1","shape":"vitrine+","slave":[]},{"master":"MeubleSv_17","color":0,"column":2,"row":11,"location":"Traiteur 2","shape":"vitrine+","slave":[]},{"master":"MeubleSv_18","color":0,"column":3,"row":11,"location":"Traiteur 3","shape":"vitrine+","slave":[]},{"master":"MeubleSv_19","color":0,"column":4,"row":11,"location":"Traiteur 4","shape":"vitrine+","slave":[]},{"master":"MeubleLibanais_20","color":0,"column":1,"row":12,"location":"Libanais","shape":"vitrine+","slave":[]},{"master":"AngleCharc/from_21","color":0,"column":2,"row":12,"location":"","shape":"vitrine+","slave":[]},{"master":"AngleCharc/from_22","color":0,"column":3,"row":12,"location":"","shape":"vitrine+","slave":[]},{"master":"TradCharc/from_23","color":0,"column":4,"row":12,"location":"","shape":"vitrine+","slave":[]},{"master":"TradCharc/from_24","color":0,"column":1,"row":13,"location":"","shape":"vitrine+","slave":[]},{"master":"TradCharc/from_25","color":0,"column":2,"row":13,"location":"","shape":"vitrine+","slave":[]},{"master":"TradCharc/from_26","color":0,"column":3,"row":13,"location":"","shape":"vitrine+","slave":[]},{"master":"MeubleMarae_71","color":0,"column":4,"row":13,"location":"Marée","shape":"vitrine+","slave":[]},{"master":"MeubleMarae_73","color":0,"column":1,"row":14,"location":"Marée","shape":"vitrine+","slave":[]},{"master":"MeublePos_9","color":0,"column":2,"row":14,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_10","color":0,"column":3,"row":14,"location":"","shape":"vitrine+","slave":[]},{"master":"TgMeubleSv_31","color":0,"column":4,"row":14,"location":"","shape":"vitrine+","slave":[]},{"master":"MeubleSv_29","color":0,"column":1,"row":15,"location":"","shape":"vitrine+","slave":[]},{"master":"MeubleSv_30","color":0,"column":2,"row":15,"location":"","shape":"vitrine+","slave":[]},{"master":"TGMeublePos_32","color":0,"column":3,"row":15,"location":"TG","shape":"vitrine+","slave":[]},{"master":"MeublePos_33","color":0,"column":4,"row":15,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_34","color":0,"column":1,"row":16,"location":"","shape":"vitrine+","slave":[]},{"master":"TgMeublePos_35","color":0,"column":2,"row":16,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_36","color":0,"column":3,"row":16,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_37","color":0,"column":4,"row":16,"location":"","shape":"vitrine+","slave":[]},{"master":"TgMeubleSv_38","color":0,"column":1,"row":17,"location":"TG","shape":"vitrine+","slave":[]},{"master":"MeublePos_13","color":0,"column":2,"row":17,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_40","color":0,"column":3,"row":17,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_41","color":0,"column":4,"row":17,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_42","color":0,"column":1,"row":18,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_43","color":0,"column":2,"row":18,"location":"","shape":"vitrine+","slave":[]},{"master":"MeubleSv_39","color":0,"column":3,"row":18,"location":"","shape":"vitrine+","slave":[]},{"master":"TradBoucherie_74","color":0,"column":4,"row":18,"location":"Boucherie","shape":"vitrine+","slave":[]},{"master":"TgMeubleSv_44","color":0,"column":1,"row":19,"location":"TG","shape":"vitrine+","slave":[]},{"master":"MeublePos_14","color":0,"column":2,"row":19,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_46","color":0,"column":3,"row":19,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_47","color":0,"column":4,"row":19,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_48","color":0,"column":1,"row":20,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_49","color":0,"column":2,"row":20,"location":"","shape":"vitrine+","slave":[]},{"master":"MeubleSv_45","color":0,"column":3,"row":20,"location":"","shape":"vitrine+","slave":[]},{"master":"TradBoucherie_75","color":0,"column":4,"row":20,"location":"Boucherie","shape":"vitrine+","slave":[]},{"master":"TradBoucherie_76","color":0,"column":1,"row":21,"location":"Boucherie","shape":"vitrine+","slave":[]},{"master":"TradBoucherie_77","color":0,"column":2,"row":21,"location":"Boucherie","shape":"vitrine+","slave":[]},{"master":"TgMeublePos_50","color":0,"column":3,"row":21,"location":"TG","shape":"vitrine+","slave":[]},{"master":"MeublePos_51","color":0,"column":4,"row":21,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_52","color":0,"column":1,"row":22,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_53","color":0,"column":2,"row":22,"location":"","shape":"vitrine+","slave":[]},{"master":"TgMeublePos_54","color":0,"column":3,"row":22,"location":"TG","shape":"vitrine+","slave":[]},{"master":"MeublePos_55","color":0,"column":4,"row":22,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_56","color":0,"column":1,"row":23,"location":"","shape":"vitrine+","slave":[]},{"master":"TgMeublePos_62","color":0,"column":2,"row":23,"location":"TG","shape":"vitrine+","slave":[]},{"master":"MeublePos_63","color":0,"column":3,"row":23,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_64","color":0,"column":4,"row":23,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_65","color":0,"column":1,"row":24,"location":"","shape":"vitrine+","slave":[]},{"shape":"spacer","color":2,"column":1,"location":"R-1:Vitrines positifs","master":"","row":25,"slave":[]},{"master":"MeublePos_100","color":0,"column":1,"row":26,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_101","color":0,"column":2,"row":26,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_102","color":0,"column":3,"row":26,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_103","color":0,"column":4,"row":26,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_104","color":0,"column":1,"row":27,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_105","color":0,"column":2,"row":27,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_106","color":0,"column":3,"row":27,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_107","color":0,"column":4,"row":27,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_108","color":0,"column":1,"row":28,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_109","color":0,"column":2,"row":28,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_110","color":0,"column":3,"row":28,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_111","color":0,"column":4,"row":28,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_112","color":0,"column":1,"row":29,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_113","color":0,"column":2,"row":29,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_114","color":0,"column":3,"row":29,"location":"","shape":"vitrine+","slave":[]},{"master":"MeublePos_115","color":0,"column":4,"row":29,"location":"","shape":"vitrine+","slave":[]}]}]}
+{
+    "applications": [
+        {
+            "type": "Home",
+            "label": "Home",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "OpenWeather",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "MAISON",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Total/Froid1/Froid2/Parking/Rideau/Second TGBT",
+                    "master": "c_w_main",
+                    "slave": [
+                        "c_froid1",
+                        "c_froid2",
+                        "c_gene_parking",
+                        "c_rideau",
+                        "c_gene_second_tgbt"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Temperatures RDC",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "ParetoTemp",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/Légumes",
+                    "master": "th_exterieur",
+                    "slave": [
+                        "th_cls",
+                        "th_caisse_2",
+                        "th_rdc_pains",
+                        "th_escalator",
+                        "th_traiteur",
+                        "th_sushi",
+                        "th_legumes"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 5,
+                    "location": "Temperatures RDC-1",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "ParetoTemp",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "Exterieur/Escalator/Surgelés/Biscottes/Animaux/Coca Cola",
+                    "master": "th_exterieur",
+                    "slave": [
+                        "th_ss_escalator",
+                        "th_surgeles",
+                        "th_biscottes",
+                        "th_animaux",
+                        "th_coca"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Negatif",
+            "level": 1,
+            "type": "iFroidNegatif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "RDC:Chambres froides négatives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Boulangerie",
+                    "master": "CfNegBoulang_59",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 3,
+                    "location": "R-1:Chambres froides négatives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
+                    "master": "CfNagative_88",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 5,
+                    "location": "R-1:Bacs surgelés",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "bac-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "TG",
+                    "master": "TgBacNag_94",
+                    "slave": []
+                },
+                {
+                    "shape": "bac-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
+                    "master": "BacNag_95",
+                    "slave": []
+                },
+                {
+                    "shape": "bac-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
+                    "master": "BacNag_96",
+                    "slave": []
+                },
+                {
+                    "shape": "bac-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "TG",
+                    "master": "TgBacNag_97",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 8,
+                    "location": "R-1:Vitrines surgelés",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "",
+                    "master": "MeubleNag_90",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "",
+                    "master": "MeubleNag_91",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 9,
+                    "location": "",
+                    "master": "MeubleNag_92",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 9,
+                    "location": "",
+                    "master": "MeubleNag_93",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 10,
+                    "location": "",
+                    "master": "MeubleNag_98",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 10,
+                    "location": "",
+                    "master": "MeubleNag_99",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "label": "Positif",
+            "level": 1,
+            "type": "iFroidPositif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "RDC:Chambres froides positives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Vitrée",
+                    "master": "CfPosVitre_15",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "Sushi",
+                    "master": "LaboSushi_27",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Fruits & Légumes",
+                    "master": "CfF&l_86",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "Matiere Première",
+                    "master": "CfMatiarePremia_82",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Suifs",
+                    "master": "LocalSuifs_84",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "Labo Boucherie",
+                    "master": "LaboBoucherie_80",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "Produits Finis",
+                    "master": "CfProduitsFinis_78",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 6,
+                    "location": "R-1:Chambres froides positives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "Prestataire",
+                    "master": "LaboPrestataire_120",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "",
+                    "master": "CfPosR-_122",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "",
+                    "master": "LaboR-_124",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 8,
+                    "location": "Barquettes",
+                    "master": "CfBarquettes_7",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "Emballage",
+                    "master": "LaboEmballage_5",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "Drive",
+                    "master": "CfPosDrive_116",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 10,
+                    "location": "RDC:Vitrines positives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 11,
+                    "location": "Traiteur 1",
+                    "master": "MeubleSv_16",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 11,
+                    "location": "Traiteur 2",
+                    "master": "MeubleSv_17",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 11,
+                    "location": "Traiteur 3",
+                    "master": "MeubleSv_18",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 11,
+                    "location": "Traiteur 4",
+                    "master": "MeubleSv_19",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 12,
+                    "location": "Libanais",
+                    "master": "MeubleLibanais_20",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 12,
+                    "location": "",
+                    "master": "AngleCharc/from_21",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 12,
+                    "location": "",
+                    "master": "AngleCharc/from_22",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 12,
+                    "location": "",
+                    "master": "TradCharc/from_23",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 13,
+                    "location": "",
+                    "master": "TradCharc/from_24",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 13,
+                    "location": "",
+                    "master": "TradCharc/from_25",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 13,
+                    "location": "",
+                    "master": "TradCharc/from_26",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 13,
+                    "location": "Marée",
+                    "master": "MeubleMarae_71",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 14,
+                    "location": "Marée",
+                    "master": "MeubleMarae_73",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 14,
+                    "location": "",
+                    "master": "MeublePos_9",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 14,
+                    "location": "",
+                    "master": "MeublePos_10",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 14,
+                    "location": "",
+                    "master": "TgMeubleSv_31",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 15,
+                    "location": "",
+                    "master": "MeubleSv_29",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 15,
+                    "location": "",
+                    "master": "MeubleSv_30",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 15,
+                    "location": "TG",
+                    "master": "TGMeublePos_32",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 15,
+                    "location": "",
+                    "master": "MeublePos_33",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 16,
+                    "location": "",
+                    "master": "MeublePos_34",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 16,
+                    "location": "",
+                    "master": "TgMeublePos_35",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 16,
+                    "location": "",
+                    "master": "MeublePos_36",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 16,
+                    "location": "",
+                    "master": "MeublePos_37",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 17,
+                    "location": "TG",
+                    "master": "TgMeubleSv_38",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 17,
+                    "location": "",
+                    "master": "MeublePos_13",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 17,
+                    "location": "",
+                    "master": "MeublePos_40",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 17,
+                    "location": "",
+                    "master": "MeublePos_41",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 18,
+                    "location": "",
+                    "master": "MeublePos_42",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 18,
+                    "location": "",
+                    "master": "MeublePos_43",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 18,
+                    "location": "",
+                    "master": "MeubleSv_39",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 18,
+                    "location": "Boucherie",
+                    "master": "TradBoucherie_74",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 19,
+                    "location": "TG",
+                    "master": "TgMeubleSv_44",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 19,
+                    "location": "",
+                    "master": "MeublePos_14",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 19,
+                    "location": "",
+                    "master": "MeublePos_46",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 19,
+                    "location": "",
+                    "master": "MeublePos_47",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 20,
+                    "location": "",
+                    "master": "MeublePos_48",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 20,
+                    "location": "",
+                    "master": "MeublePos_49",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 20,
+                    "location": "",
+                    "master": "MeubleSv_45",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 20,
+                    "location": "Boucherie",
+                    "master": "TradBoucherie_75",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 21,
+                    "location": "Boucherie",
+                    "master": "TradBoucherie_76",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 21,
+                    "location": "Boucherie",
+                    "master": "TradBoucherie_77",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 21,
+                    "location": "TG",
+                    "master": "TgMeublePos_50",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 21,
+                    "location": "",
+                    "master": "MeublePos_51",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 22,
+                    "location": "",
+                    "master": "MeublePos_52",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 22,
+                    "location": "",
+                    "master": "MeublePos_53",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 22,
+                    "location": "TG",
+                    "master": "TgMeublePos_54",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 22,
+                    "location": "",
+                    "master": "MeublePos_55",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 23,
+                    "location": "",
+                    "master": "MeublePos_56",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 23,
+                    "location": "TG",
+                    "master": "TgMeublePos_62",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 23,
+                    "location": "",
+                    "master": "MeublePos_63",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 23,
+                    "location": "",
+                    "master": "MeublePos_64",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 24,
+                    "location": "",
+                    "master": "MeublePos_65",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 25,
+                    "location": "R-1:Vitrines positifs",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 26,
+                    "location": "",
+                    "master": "MeublePos_100",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 26,
+                    "location": "",
+                    "master": "MeublePos_101",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 26,
+                    "location": "",
+                    "master": "MeublePos_102",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 26,
+                    "location": "",
+                    "master": "MeublePos_103",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 27,
+                    "location": "",
+                    "master": "MeublePos_104",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 27,
+                    "location": "",
+                    "master": "MeublePos_105",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 27,
+                    "location": "",
+                    "master": "MeublePos_106",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 27,
+                    "location": "",
+                    "master": "MeublePos_107",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 28,
+                    "location": "",
+                    "master": "MeublePos_108",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 28,
+                    "location": "",
+                    "master": "MeublePos_109",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 28,
+                    "location": "",
+                    "master": "MeublePos_110",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 28,
+                    "location": "",
+                    "master": "MeublePos_111",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 29,
+                    "location": "",
+                    "master": "MeublePos_112",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 29,
+                    "location": "",
+                    "master": "MeublePos_113",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 29,
+                    "location": "",
+                    "master": "MeublePos_114",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 29,
+                    "location": "",
+                    "master": "MeublePos_115",
+                    "slave": []
+                }
+            ]
+        }
+    ]
+}

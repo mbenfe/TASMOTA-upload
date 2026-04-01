@@ -239,144 +239,144 @@
             "virtuel": 0,
             "data": [
                 {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "",
                     "master": "CF-Reserve38",
-                    "color": 0,
-                    "column": 1,
-                    "row": 1,
-                    "location": "",
-                    "shape": "CF-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 1,
+                    "location": "",
                     "master": "CF-39",
-                    "color": 0,
-                    "column": 2,
-                    "row": 1,
-                    "location": "",
-                    "shape": "CF-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
                     "master": "vitirne-50",
-                    "color": 0,
-                    "column": 1,
-                    "row": 3,
-                    "location": "",
-                    "shape": "VITRINE-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "",
                     "master": "vitirne-51",
-                    "color": 0,
-                    "column": 2,
-                    "row": 3,
-                    "location": "",
-                    "shape": "VITRINE-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 3,
+                    "location": "",
                     "master": "vitirne-52",
-                    "color": 0,
-                    "column": 3,
-                    "row": 3,
-                    "location": "",
-                    "shape": "VITRINE-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 3,
+                    "location": "",
                     "master": "vitirne-53",
-                    "color": 0,
-                    "column": 4,
-                    "row": 3,
-                    "location": "",
-                    "shape": "VITRINE-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
                     "master": "vitirne-54",
-                    "color": 0,
-                    "column": 1,
-                    "row": 4,
-                    "location": "",
-                    "shape": "VITRINE-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "vitirne-55",
+                    "shape": "VITRINE-",
                     "color": 0,
                     "column": 2,
                     "row": 4,
                     "location": "",
-                    "shape": "VITRINE-",
+                    "master": "vitirne-55",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "vitirne-56",
+                    "shape": "VITRINE-",
                     "color": 0,
                     "column": 3,
                     "row": 4,
                     "location": "",
-                    "shape": "VITRINE-",
+                    "master": "vitirne-56",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "vitirne-57",
+                    "shape": "VITRINE-",
                     "color": 0,
                     "column": 4,
                     "row": 4,
                     "location": "",
-                    "shape": "VITRINE-",
+                    "master": "vitirne-57",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "vitirne-58",
+                    "shape": "VITRINE-",
                     "color": 0,
                     "column": 1,
                     "row": 5,
                     "location": "",
-                    "shape": "VITRINE-",
+                    "master": "vitirne-58",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "vitirne-59",
+                    "shape": "VITRINE-",
                     "color": 0,
                     "column": 2,
                     "row": 5,
                     "location": "",
-                    "shape": "VITRINE-",
+                    "master": "vitirne-59",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "vitirne-60",
+                    "shape": "VITRINE-",
                     "color": 0,
                     "column": 3,
                     "row": 5,
                     "location": "",
-                    "shape": "VITRINE-",
+                    "master": "vitirne-60",
                     "slave": [
                         "froid"
                     ]
@@ -390,430 +390,430 @@
             "virtuel": 0,
             "data": [
                 {
-                    "master": "CF+Reserve40",
+                    "shape": "CF+",
                     "color": 0,
                     "column": 1,
                     "row": 1,
                     "location": "",
-                    "shape": "CF+",
+                    "master": "CF+Reserve40",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "CFDrive41",
+                    "shape": "CF+",
                     "color": 0,
                     "column": 2,
                     "row": 1,
                     "location": "",
-                    "shape": "CF+",
+                    "master": "CFDrive41",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "CFFruitsetLegumes42",
+                    "shape": "CF+",
                     "color": 0,
                     "column": 1,
                     "row": 2,
                     "location": "",
-                    "shape": "CF+",
+                    "master": "CFFruitsetLegumes42",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
                     "master": "Vitrine+43",
-                    "color": 0,
-                    "column": 1,
-                    "row": 3,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "",
                     "master": "Vitrine+44",
-                    "color": 0,
-                    "column": 2,
-                    "row": 3,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 3,
+                    "location": "",
                     "master": "Vitrine+45",
-                    "color": 0,
-                    "column": 3,
-                    "row": 3,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 3,
+                    "location": "",
                     "master": "Vitrine+46",
-                    "color": 0,
-                    "column": 4,
-                    "row": 3,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
                     "master": "Vitrine+47",
-                    "color": 0,
-                    "column": 1,
-                    "row": 4,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "",
                     "master": "Vitrine+48",
-                    "color": 0,
-                    "column": 2,
-                    "row": 4,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 4,
+                    "location": "",
                     "master": "Vitrine+49",
-                    "color": 0,
-                    "column": 3,
-                    "row": 4,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 4,
+                    "location": "",
                     "master": "Vitrine+61",
-                    "color": 0,
-                    "column": 4,
-                    "row": 4,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
                     "master": "Vitrine+62",
-                    "color": 0,
-                    "column": 1,
-                    "row": 5,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
                     "master": "Vitrine+63",
-                    "color": 0,
-                    "column": 2,
-                    "row": 5,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 5,
+                    "location": "",
                     "master": "Vitrine+64",
-                    "color": 0,
-                    "column": 3,
-                    "row": 5,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 5,
+                    "location": "",
                     "master": "Vitrine+65",
-                    "color": 0,
-                    "column": 4,
-                    "row": 5,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
                     "master": "Vitrine+66",
-                    "color": 0,
-                    "column": 1,
-                    "row": 6,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
                     "master": "Vitrine+67",
-                    "color": 0,
-                    "column": 2,
-                    "row": 6,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 6,
+                    "location": "",
                     "master": "Vitrine+68",
-                    "color": 0,
-                    "column": 3,
-                    "row": 6,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 6,
+                    "location": "",
                     "master": "Vitrine+69",
-                    "color": 0,
-                    "column": 4,
-                    "row": 6,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
                     "master": "Vitrine+70",
-                    "color": 0,
-                    "column": 1,
-                    "row": 7,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "",
                     "master": "Vitrine+71",
-                    "color": 0,
-                    "column": 2,
-                    "row": 7,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 7,
+                    "location": "",
                     "master": "Vitrine+72",
-                    "color": 0,
-                    "column": 3,
-                    "row": 7,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 7,
+                    "location": "",
                     "master": "Vitrine+73",
-                    "color": 0,
-                    "column": 4,
-                    "row": 7,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "",
                     "master": "Vitrine+74",
-                    "color": 0,
-                    "column": 1,
-                    "row": 8,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 8,
+                    "location": "",
                     "master": "Vitrine+75",
-                    "color": 0,
-                    "column": 2,
-                    "row": 8,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 8,
+                    "location": "",
                     "master": "Vitrine+76",
-                    "color": 0,
-                    "column": 3,
-                    "row": 8,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 8,
+                    "location": "",
                     "master": "Vitrine+77",
-                    "color": 0,
-                    "column": 4,
-                    "row": 8,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "",
                     "master": "Vitrine+78",
-                    "color": 0,
-                    "column": 1,
-                    "row": 9,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "",
                     "master": "Vitrine+79",
-                    "color": 0,
-                    "column": 2,
-                    "row": 9,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 9,
+                    "location": "",
                     "master": "Vitrine+80",
-                    "color": 0,
-                    "column": 3,
-                    "row": 9,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 9,
+                    "location": "",
                     "master": "Vitrine+81",
-                    "color": 0,
-                    "column": 4,
-                    "row": 9,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 10,
+                    "location": "",
                     "master": "Vitrine+82",
-                    "color": 0,
-                    "column": 1,
-                    "row": 10,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 10,
+                    "location": "",
                     "master": "Vitrine+83",
-                    "color": 0,
-                    "column": 2,
-                    "row": 10,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "Vitrine+84",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
                     "row": 10,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "Vitrine+84",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "Vitrine+85",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
                     "row": 10,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "Vitrine+85",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "Vitrine+86",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
                     "row": 11,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "Vitrine+86",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "Vitrine+87",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 2,
                     "row": 11,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "Vitrine+87",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "Vitrine+88",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
                     "row": 11,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "Vitrine+88",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "regulateur",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
                     "row": 11,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "regulateur",
                     "slave": [
                         "froid"
                     ]

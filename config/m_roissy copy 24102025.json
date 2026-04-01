@@ -45,12 +45,12 @@
             "virtuel": 0,
             "data": [
                 {
+                    "shape": "PieConso",
                     "color": 0,
                     "column": 1,
+                    "row": 1,
                     "location": "TD LABO",
                     "master": "tdlabo",
-                    "row": 1,
-                    "shape": "PieConso",
                     "slave": [
                         "gene_station",
                         "gene_four_rot",
@@ -59,30 +59,30 @@
                     ]
                 },
                 {
+                    "shape": "consocard",
                     "color": 0,
                     "column": 1,
+                    "row": 2,
                     "location": "TGBT",
                     "master": "main",
-                    "row": 2,
-                    "shape": "consocard",
                     "slave": []
                 },
                 {
+                    "shape": "consocard",
                     "color": 0,
                     "column": 1,
+                    "row": 3,
                     "location": "TD LABO",
                     "master": "tdlabo",
-                    "row": 3,
-                    "shape": "consocard",
                     "slave": []
                 },
                 {
+                    "shape": "consocard",
                     "color": 0,
                     "column": 1,
+                    "row": 4,
                     "location": "PARKING",
                     "master": "gene_parking",
-                    "row": 4,
-                    "shape": "consocard",
                     "slave": []
                 }
             ]
@@ -97,40 +97,40 @@
                     "shape": "spacer",
                     "color": 2,
                     "column": 1,
+                    "row": 1,
                     "location": "Chambres froides négatives",
                     "master": "",
-                    "row": 1,
                     "slave": []
                 },
                 {
-                    "master": "SasSurgele61",
+                    "shape": "CF-",
                     "color": 0,
                     "column": 1,
                     "row": 2,
                     "location": "",
-                    "shape": "CF-",
+                    "master": "SasSurgele61",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "CFSurgDivers80",
+                    "shape": "CF-",
                     "color": 0,
                     "column": 2,
                     "row": 2,
                     "location": "",
-                    "shape": "CF-",
+                    "master": "CFSurgDivers80",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "CFSurgBoulang81",
+                    "shape": "CF-",
                     "color": 0,
                     "column": 1,
                     "row": 3,
                     "location": "",
-                    "shape": "CF-",
+                    "master": "CFSurgBoulang81",
                     "slave": [
                         "froid"
                     ]
@@ -139,40 +139,40 @@
                     "shape": "spacer",
                     "color": 2,
                     "column": 1,
+                    "row": 3,
                     "location": "Meubles surgelées",
                     "master": "",
-                    "row": 3,
                     "slave": []
                 },
                 {
-                    "master": "SurgeleMixte11",
+                    "shape": "VITRINE-",
                     "color": 0,
                     "column": 1,
                     "row": 4,
                     "location": "",
-                    "shape": "VITRINE-",
+                    "master": "SurgeleMixte11",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "SurgeleMixte12",
+                    "shape": "VITRINE-",
                     "color": 0,
                     "column": 2,
                     "row": 4,
                     "location": "",
-                    "shape": "VITRINE-",
+                    "master": "SurgeleMixte12",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "SurgeleMixte13",
+                    "shape": "VITRINE-",
                     "color": 0,
                     "column": 3,
                     "row": 4,
                     "location": "",
-                    "shape": "VITRINE-",
+                    "master": "SurgeleMixte13",
                     "slave": [
                         "froid"
                     ]
@@ -181,117 +181,117 @@
                     "shape": "spacer",
                     "color": 2,
                     "column": 1,
+                    "row": 4,
                     "location": "Bacs surgelés",
                     "master": "",
-                    "row": 4,
                     "slave": []
                 },
                 {
+                    "shape": "BAC-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
                     "master": "TGBacSurg10",
-                    "color": 0,
-                    "column": 1,
-                    "row": 5,
-                    "location": "",
-                    "shape": "BAC-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
                     "master": "BacSurgele14",
-                    "color": 0,
-                    "column": 2,
-                    "row": 5,
-                    "location": "",
-                    "shape": "BAC-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
                     "master": "BacSurgele15",
-                    "color": 0,
-                    "column": 1,
-                    "row": 6,
-                    "location": "",
-                    "shape": "BAC-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
                     "master": "BacSurgele16",
-                    "color": 0,
-                    "column": 2,
-                    "row": 6,
-                    "location": "",
-                    "shape": "BAC-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
                     "master": "TGBacSurg17",
-                    "color": 0,
-                    "column": 1,
-                    "row": 7,
-                    "location": "",
-                    "shape": "BAC-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "",
                     "master": "BacSurgele18",
-                    "color": 0,
-                    "column": 2,
-                    "row": 7,
-                    "location": "",
-                    "shape": "BAC-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "",
                     "master": "BacSurgele19",
-                    "color": 0,
-                    "column": 1,
-                    "row": 8,
-                    "location": "",
-                    "shape": "BAC-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 8,
+                    "location": "",
                     "master": "BacSurgele20",
-                    "color": 0,
-                    "column": 2,
-                    "row": 8,
-                    "location": "",
-                    "shape": "BAC-",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "BacSurgele21",
+                    "shape": "BAC-",
                     "color": 0,
                     "column": 1,
                     "row": 9,
                     "location": "",
-                    "shape": "BAC-",
+                    "master": "BacSurgele21",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "BacSurgele22",
+                    "shape": "BAC-",
                     "color": 0,
                     "column": 2,
                     "row": 9,
                     "location": "",
-                    "shape": "BAC-",
+                    "master": "BacSurgele22",
                     "slave": [
                         "froid"
                     ]
@@ -308,183 +308,183 @@
                     "shape": "spacer",
                     "color": 2,
                     "column": 1,
+                    "row": 1,
                     "location": "Chambres froides positives",
                     "master": "",
-                    "row": 1,
                     "slave": []
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "",
                     "master": "SasFrais60",
-                    "color": 0,
-                    "column": 1,
-                    "row": 2,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "",
                     "master": "CFBarquettes62",
-                    "color": 0,
-                    "column": 2,
-                    "row": 2,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
                     "master": "CFCharcuterie63",
-                    "color": 0,
-                    "column": 1,
-                    "row": 3,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "",
                     "master": "CFFetLegumes64",
-                    "color": 0,
-                    "column": 2,
-                    "row": 3,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
                     "master": "CFFromage65",
-                    "color": 0,
-                    "column": 1,
-                    "row": 4,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "",
                     "master": "LaboFromage66",
-                    "color": 0,
-                    "column": 2,
-                    "row": 4,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
                     "master": "CFCharcuterie67",
-                    "color": 0,
-                    "column": 1,
-                    "row": 5,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
                     "master": "LaboCharcuterie68",
-                    "color": 0,
-                    "column": 2,
-                    "row": 5,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
                     "master": "CFCarcasses69",
-                    "color": 0,
-                    "column": 1,
-                    "row": 6,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
                     "master": "CFBarquettes70",
-                    "color": 0,
-                    "column": 2,
-                    "row": 6,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
                     "master": "CFPFinis71",
-                    "color": 0,
-                    "column": 1,
-                    "row": 7,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "",
                     "master": "LocalDechet72",
-                    "color": 0,
-                    "column": 2,
-                    "row": 7,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "",
                     "master": "LaboBoucherie73",
-                    "color": 0,
-                    "column": 1,
-                    "row": 8,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 8,
+                    "location": "",
                     "master": "CFPoissons74",
-                    "color": 0,
-                    "column": 2,
-                    "row": 8,
-                    "location": "",
-                    "shape": "CF+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "LaboPoisson75",
+                    "shape": "CF+",
                     "color": 0,
                     "column": 1,
                     "row": 9,
                     "location": "",
-                    "shape": "CF+",
+                    "master": "LaboPoisson75",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "CFDrive76",
+                    "shape": "CF+",
                     "color": 0,
                     "column": 2,
                     "row": 9,
                     "location": "",
-                    "shape": "CF+",
+                    "master": "CFDrive76",
                     "slave": [
                         "froid"
                     ]
@@ -493,458 +493,458 @@
                     "shape": "spacer",
                     "color": 2,
                     "column": 1,
+                    "row": 10,
                     "location": "Meubles froid positif",
                     "master": "",
-                    "row": 10,
                     "slave": []
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 11,
+                    "location": "",
                     "master": "FraisEmbale1",
-                    "color": 0,
-                    "column": 1,
-                    "row": 11,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 11,
+                    "location": "",
                     "master": "CharcuteLS23",
-                    "color": 0,
-                    "column": 2,
-                    "row": 11,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 11,
+                    "location": "",
                     "master": "CharcuteLS24",
-                    "color": 0,
-                    "column": 3,
-                    "row": 11,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 11,
+                    "location": "",
                     "master": "CharcuteLS25",
-                    "color": 0,
-                    "column": 4,
-                    "row": 11,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 12,
+                    "location": "",
                     "master": "BoucherieLS29",
-                    "color": 0,
-                    "column": 1,
-                    "row": 12,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 12,
+                    "location": "",
                     "master": "BoucherieLS30",
-                    "color": 0,
-                    "column": 2,
-                    "row": 12,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 12,
+                    "location": "",
                     "master": "BoucherieLS31",
-                    "color": 0,
-                    "column": 3,
-                    "row": 12,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 12,
+                    "location": "",
                     "master": "FromageLS32",
-                    "color": 0,
-                    "column": 4,
-                    "row": 12,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 13,
+                    "location": "",
                     "master": "FromageLS33",
-                    "color": 0,
-                    "column": 1,
-                    "row": 13,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 13,
+                    "location": "",
                     "master": "TraiteurLS35",
-                    "color": 0,
-                    "column": 2,
-                    "row": 13,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 13,
+                    "location": "",
                     "master": "TraiteurLS36",
-                    "color": 0,
-                    "column": 3,
-                    "row": 13,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 13,
+                    "location": "",
                     "master": "TraiteurLS37",
-                    "color": 0,
-                    "column": 4,
-                    "row": 13,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 14,
+                    "location": "",
                     "master": "UltraFrais38",
-                    "color": 0,
-                    "column": 1,
-                    "row": 14,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 14,
+                    "location": "",
                     "master": "UltraFrais39",
-                    "color": 0,
-                    "column": 2,
-                    "row": 14,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 14,
+                    "location": "",
                     "master": "UltraFrais40",
-                    "color": 0,
-                    "column": 3,
-                    "row": 14,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 14,
+                    "location": "",
                     "master": "UltraFrais41",
-                    "color": 0,
-                    "column": 4,
-                    "row": 14,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 15,
+                    "location": "",
                     "master": "UltraFrais42",
-                    "color": 0,
-                    "column": 1,
-                    "row": 15,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 15,
+                    "location": "",
                     "master": "UltraFrais43",
-                    "color": 0,
-                    "column": 2,
-                    "row": 15,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 15,
+                    "location": "",
                     "master": "FromageLS44",
-                    "color": 0,
-                    "column": 3,
-                    "row": 15,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 15,
+                    "location": "",
                     "master": "FromageLS45",
-                    "color": 0,
-                    "column": 4,
-                    "row": 15,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 16,
+                    "location": "",
                     "master": "FromageLS46",
-                    "color": 0,
-                    "column": 1,
-                    "row": 16,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 16,
+                    "location": "",
                     "master": "4eGamme47",
-                    "color": 0,
-                    "column": 2,
-                    "row": 16,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 16,
+                    "location": "",
                     "master": "4eGamme48",
-                    "color": 0,
-                    "column": 3,
-                    "row": 16,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 16,
+                    "location": "",
                     "master": "TradBoucherie51",
-                    "color": 0,
-                    "column": 4,
-                    "row": 16,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 17,
+                    "location": "",
                     "master": "TradBoucherie52",
-                    "color": 0,
-                    "column": 1,
-                    "row": 17,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 17,
+                    "location": "",
                     "master": "TradBoucherie53",
-                    "color": 0,
-                    "column": 2,
-                    "row": 17,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 17,
+                    "location": "",
                     "master": "TradBoucherie54",
-                    "color": 0,
-                    "column": 3,
-                    "row": 17,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 17,
+                    "location": "",
                     "master": "TradCharcuterie55",
-                    "color": 0,
-                    "column": 4,
-                    "row": 17,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 18,
+                    "location": "",
                     "master": "TradCharcuterie56",
-                    "color": 0,
-                    "column": 1,
-                    "row": 18,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 18,
+                    "location": "",
                     "master": "TradCharcuterie57",
-                    "color": 0,
-                    "column": 2,
-                    "row": 18,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 18,
+                    "location": "",
                     "master": "TradCharcuterie58",
-                    "color": 0,
-                    "column": 3,
-                    "row": 18,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 18,
+                    "location": "",
                     "master": "SaurisserieLS59",
-                    "color": 0,
-                    "column": 4,
-                    "row": 18,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 19,
+                    "location": "",
                     "master": "TGFrais82",
-                    "color": 0,
-                    "column": 1,
-                    "row": 19,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 19,
+                    "location": "",
                     "master": "TGFrais83",
-                    "color": 0,
-                    "column": 2,
-                    "row": 19,
-                    "location": "",
-                    "shape": "VITRINE+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "TGFrais84",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
                     "row": 19,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "TGFrais84",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "TGFrais85",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
                     "row": 19,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "TGFrais85",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "TGFrais86",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
                     "row": 20,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "TGFrais86",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "TGFrais87",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 2,
                     "row": 20,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "TGFrais87",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "TraiteurLS92",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
                     "row": 20,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "TraiteurLS92",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "TraiteurLS93",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
                     "row": 20,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "TraiteurLS93",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "TraiteurLS94",
+                    "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
                     "row": 21,
                     "location": "",
-                    "shape": "VITRINE+",
+                    "master": "TraiteurLS94",
                     "slave": [
                         "froid"
                     ]
@@ -953,84 +953,84 @@
                     "shape": "spacer",
                     "color": 2,
                     "column": 1,
+                    "row": 21,
                     "location": "Bacs froid positif",
                     "master": "",
-                    "row": 21,
                     "slave": []
                 },
                 {
+                    "shape": "BAC+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 22,
+                    "location": "",
                     "master": "TGBacFrais2",
-                    "color": 0,
-                    "column": 1,
-                    "row": 22,
-                    "location": "",
-                    "shape": "BAC+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 22,
+                    "location": "",
                     "master": "BacFrais3",
-                    "color": 0,
-                    "column": 2,
-                    "row": 22,
-                    "location": "",
-                    "shape": "BAC+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 23,
+                    "location": "",
                     "master": "TGBacFrais4",
-                    "color": 0,
-                    "column": 1,
-                    "row": 23,
-                    "location": "",
-                    "shape": "BAC+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
+                    "shape": "BAC+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 23,
+                    "location": "",
                     "master": "BacPromo26",
-                    "color": 0,
-                    "column": 2,
-                    "row": 23,
-                    "location": "",
-                    "shape": "BAC+",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "BacPromo27",
+                    "shape": "BAC+",
                     "color": 0,
                     "column": 1,
                     "row": 24,
                     "location": "",
-                    "shape": "BAC+",
+                    "master": "BacPromo27",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "BacPromo28",
+                    "shape": "BAC+",
                     "color": 0,
                     "column": 2,
                     "row": 24,
                     "location": "",
-                    "shape": "BAC+",
+                    "master": "BacPromo28",
                     "slave": [
                         "froid"
                     ]
                 },
                 {
-                    "master": "AntiGaspiSV50",
+                    "shape": "BAC+",
                     "color": 0,
                     "column": 1,
                     "row": 25,
                     "location": "",
-                    "shape": "BAC+",
+                    "master": "AntiGaspiSV50",
                     "slave": [
                         "froid"
                     ]

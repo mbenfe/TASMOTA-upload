@@ -6,7 +6,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "condenseur",
-    "categorie": "condneg"
+    "categorie": "condneg",
+    "poste": "NA",
+    "status": {}
   },
   "10": {
     "device": "AK-CC550-A-019x",
@@ -15,7 +17,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "11": {
     "device": "AK-CC550-A-019x",
@@ -24,7 +28,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "12": {
     "device": "AK-CC550-A-019x",
@@ -33,7 +39,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "13": {
     "device": "AK-CC550-A-019x",
@@ -42,7 +50,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "14": {
     "device": "AK-CC550-A-012x",
@@ -51,7 +61,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "15": {
     "device": "AK-CC550-A-012x",
@@ -60,7 +72,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "16": {
     "device": "AK-CC550-A-019x",
@@ -69,7 +83,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "17": {
     "device": "AK-CC550-A-019x",
@@ -78,7 +94,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "18": {
     "device": "AK-CC550-A-012x",
@@ -87,7 +105,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "19": {
     "device": "AK-CC550-A-015x",
@@ -96,7 +116,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "20": {
     "device": "AK-CC550-A-012x",
@@ -105,7 +127,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "59": {
     "device": "AK-CC55SCUI-017x",
@@ -114,7 +138,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "2": {
     "device": "AK-CC55SCUI-015x",
@@ -123,7 +149,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "69": {
     "device": "EKC202D1-015x",
@@ -132,7 +160,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF-",
-    "categorie": "devneg"
+    "categorie": "devneg",
+    "poste": "NA",
+    "status": {}
   },
   "101": {
     "device": "AK-PC551-0170",
@@ -141,7 +171,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "condenseur",
-    "categorie": "condpos"
+    "categorie": "condpos",
+    "poste": "NA",
+    "status": {}
   },
   "71": {
     "device": "EKC302D-012x",
@@ -150,7 +182,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "climatisation",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "0": {
     "device": "EKC302D-012x",
@@ -159,7 +193,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "68": {
     "device": "AK-CC550-A-012x",
@@ -168,7 +204,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "67": {
     "device": "AK-CC550-A-015x",
@@ -177,7 +215,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "66": {
     "device": "AK-CC550-A-019x",
@@ -186,7 +226,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "65": {
     "device": "AK-CC550-A-019x",
@@ -195,7 +237,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "64": {
     "device": "AK-CC550-A-012x",
@@ -204,7 +248,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "63": {
     "device": "AK-CC550A-020x",
@@ -213,7 +259,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "62": {
     "device": "AK-CC550-A-012x",
@@ -222,7 +270,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "61": {
     "device": "AK-CC550-A-012x",
@@ -231,7 +281,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "60": {
     "device": "AK-CC550-A-012x",
@@ -240,7 +292,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "CF+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "58": {
     "device": "AK-CC550-A-018x",
@@ -249,7 +303,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "57": {
     "device": "AK-CC550-A-018x",
@@ -258,7 +314,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "56": {
     "device": "AK-CC550-A-019x",
@@ -267,7 +325,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "55": {
     "device": "AK-CC550-A-019x",
@@ -276,7 +336,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "54": {
     "device": "AK-CC550-A-019x",
@@ -285,7 +347,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "53": {
     "device": "AK-CC550-A-019x",
@@ -294,7 +358,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "52": {
     "device": "AK-CC550-A-019x",
@@ -303,7 +369,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "51": {
     "device": "AK-CC550-A-019x",
@@ -312,7 +380,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "50": {
     "device": "AK-CC550-A-019x",
@@ -321,7 +391,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "49": {
     "device": "AK-CC550-A-019x",
@@ -330,7 +402,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "48": {
     "device": "AK-CC550-A-019x",
@@ -339,7 +413,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "47": {
     "device": "AK-CC550-A-019x",
@@ -348,7 +424,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "46": {
     "device": "AK-CC550-A-019x",
@@ -357,7 +435,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "45": {
     "device": "AK-CC550-A-019x",
@@ -366,7 +446,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "44": {
     "device": "AK-CC550-A-019x",
@@ -375,7 +457,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "43": {
     "device": "AK-CC550-A-019x",
@@ -384,7 +468,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "42": {
     "device": "AK-CC550-A-019x",
@@ -393,7 +479,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "41": {
     "device": "AK-CC550-A-019x",
@@ -402,7 +490,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "40": {
     "device": "AK-CC550-A-019x",
@@ -411,7 +501,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "39": {
     "device": "AK-CC550-A-019x",
@@ -420,7 +512,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "38": {
     "device": "AK-CC550-A-019x",
@@ -429,7 +523,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "37": {
     "device": "AK-CC550-A-019x",
@@ -438,7 +534,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "36": {
     "device": "AK-CC550-A-019x",
@@ -447,7 +545,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "35": {
     "device": "AK-CC550-A-019x",
@@ -456,7 +556,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "34": {
     "device": "AK-CC550-A-019x",
@@ -465,7 +567,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "33": {
     "device": "AK-CC550-A-019x",
@@ -474,7 +578,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "32": {
     "device": "AK-CC550-A-019x",
@@ -483,7 +589,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "31": {
     "device": "AK-CC550-A-019x",
@@ -492,7 +600,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "30": {
     "device": "AK-CC550-A-019x",
@@ -501,7 +611,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "29": {
     "device": "AK-CC550-A-019x",
@@ -510,7 +622,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "28": {
     "device": "AK-CC550-A-019x",
@@ -519,7 +633,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "27": {
     "device": "AK-CC550-A-019x",
@@ -528,7 +644,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "26": {
     "device": "AK-CC550-A-019x",
@@ -537,7 +655,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "25": {
     "device": "AK-CC550-A-018x",
@@ -546,7 +666,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "24": {
     "device": "AK-CC550-A-018x",
@@ -555,7 +677,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "23": {
     "device": "AK-CC550-A-018x",
@@ -564,7 +688,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "22": {
     "device": "AK-CC550-A-019x",
@@ -573,7 +699,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   },
   "21": {
     "device": "AK-CC550-A-018x",
@@ -582,6 +710,8 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac+",
-    "categorie": "devpos"
+    "categorie": "devpos",
+    "poste": "NA",
+    "status": {}
   }
 }

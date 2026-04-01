@@ -52,93 +52,93 @@
             "data": [
                 {
                     "shape": "general",
-                    "location": "Cuisine",
+                    "color": 0,
                     "column": 1,
                     "row": 1,
+                    "location": "Cuisine",
                     "master": "chauffage_general",
-                    "slave": [],
-                    "color": 0
+                    "slave": []
                 },
                 {
                     "shape": "spacer",
                     "color": 2,
                     "column": 1,
+                    "row": 2,
                     "location": " 1er étage",
                     "master": "",
-                    "row": 2,
                     "slave": []
                 },
                 {
                     "shape": "convecteur",
-                    "location": "Cuisine",
+                    "color": 0,
                     "column": 1,
                     "row": 3,
+                    "location": "Cuisine",
                     "master": "chx-cuisine",
-                    "slave": [],
-                    "color": 0
+                    "slave": []
                 },
                 {
                     "shape": "convecteur",
-                    "location": "Salon",
+                    "color": 0,
                     "column": 1,
                     "row": 4,
+                    "location": "Salon",
                     "master": "chx-salon-gauche",
-                    "slave": [],
-                    "color": 0
+                    "slave": []
                 },
                 {
                     "shape": "convecteur",
-                    "location": "Salon",
+                    "color": 0,
                     "column": 2,
                     "row": 4,
+                    "location": "Salon",
                     "master": "chx-salon-droite",
-                    "slave": [],
-                    "color": 0
+                    "slave": []
                 },
                 {
                     "shape": "spacer",
                     "color": 2,
                     "column": 1,
+                    "row": 5,
                     "location": "étage chambres",
                     "master": "",
-                    "row": 5,
                     "slave": []
                 },
                 {
                     "shape": "convecteur",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
                     "location": "Parents",
-                    "column": 1,
-                    "row": 6,
                     "master": "chx-parents",
-                    "slave": [],
-                    "color": 0
+                    "slave": []
                 },
                 {
                     "shape": "convecteur",
-                    "location": "Martin",
+                    "color": 0,
                     "column": 2,
                     "row": 6,
+                    "location": "Martin",
                     "master": "chx-martin",
-                    "slave": [],
-                    "color": 0
+                    "slave": []
                 },
                 {
                     "shape": "convecteur",
-                    "location": "Bureau",
+                    "color": 0,
                     "column": 1,
                     "row": 7,
+                    "location": "Bureau",
                     "master": "chx-bureau",
-                    "slave": [],
-                    "color": 0
+                    "slave": []
                 },
                 {
                     "shape": "convecteur",
-                    "location": "Etienne",
+                    "color": 0,
                     "column": 2,
                     "row": 7,
+                    "location": "Etienne",
                     "master": "chx-etienne",
-                    "slave": [],
-                    "color": 0
+                    "slave": []
                 }
             ]
         },
