@@ -1,4 +1,4 @@
-var version = "2.0.032025 with update"
+var version = "2.0.032026 with calibration"
 
 import string
 import global
@@ -11,9 +11,6 @@ global.rx = 18
 global.tx = 19
 var rst = 2   
 var bsl = 13   
-
-global.device = nil
-global.ville = nil
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
@@ -40,7 +37,7 @@ def Calibration(cmd, idx, payload, payload_json)
     end
 
     if (argument[0] == "OFFSET")
-        var token_offset = "CAL OFFSET"
+        var token_offset = "CAL OFFSET\n"
         global.ser.flush()
         global.ser.write(bytes().fromstring(token_offset))
         mqttprint(token_offset)
@@ -68,9 +65,9 @@ def Calibration(cmd, idx, payload, payload_json)
 
     var token
     if (argument[0] == "VA" || argument[0] == "VB" || argument[0] == "VC")
-        token = string.format("CAL V %s %s", argument[0], argument[1])
+        token = string.format("CAL V %s %s\n", argument[0], argument[1])
     else
-        token = string.format("CAL I %s %s %s", argument[0], argument[1], argument[2])
+        token = string.format("CAL I %s %s %s\n", argument[0], argument[1], argument[2])
     end
     global.ser.flush()
     global.ser.write(bytes().fromstring(token))
@@ -84,6 +81,7 @@ end
 
 def SetCommand(cmd, idx, payload, payload_json)
     var argument = string.split(string.toupper(payload), " ")
+    var argument_raw = string.split(payload, " ")
     if (size(argument) == 0 || argument[0] == "")
         mqttprint("erreur arguments")
         return
@@ -92,8 +90,9 @@ def SetCommand(cmd, idx, payload, payload_json)
     global.ser.flush()
 
     if (argument[0] == "RESET")
-        global.ser.write(bytes().fromstring("SET RESET"))
-        mqttprint("SET RESET")
+        var token_reset = "SET RESET\n"
+        global.ser.write(bytes().fromstring(token_reset))
+        mqttprint(token_reset)
         tasmota.resp_cmnd_done()
         return
     end
@@ -110,9 +109,9 @@ def SetCommand(cmd, idx, payload, payload_json)
                 mqttprint("erreur arguments")
                 return
             end
-            token_mode = string.format("SET MODE CAL %s", argument[2])
+            token_mode = string.format("SET MODE CAL %s\n", argument[2])
         else
-            token_mode = string.format("SET MODE %s", argument[1])
+            token_mode = string.format("SET MODE %s\n", argument[1])
         end
 
         global.ser.write(bytes().fromstring(token_mode))
@@ -126,24 +125,9 @@ def SetCommand(cmd, idx, payload, payload_json)
             mqttprint("erreur arguments")
             return
         end
-        var token_type = string.format("SET TYPE %s", argument[1])
+        var token_type = string.format("SET TYPE %s\n", argument[1])
         global.ser.write(bytes().fromstring(token_type))
         mqttprint(token_type)
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    if (argument[0] == "CONFIG")
-        var token_config = string.format("SET %s", payload)
-        global.ser.write(bytes().fromstring(token_config))
-        mqttprint(token_config)
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    if (argument[0] == "STORAGE")
-        global.ser.write(bytes().fromstring("SET STORAGE"))
-        mqttprint("SET STORAGE")
         tasmota.resp_cmnd_done()
         return
     end
@@ -164,29 +148,29 @@ def GetCommand(cmd, idx, payload, payload_json)
 
     global.ser.flush()
 
+    if (argument[0] == "CONFIG")
+        global.ser.write(bytes().fromstring("GET CONFIG\n"))
+        mqttprint('GET CONFIG')
+        tasmota.resp_cmnd_done()
+        return
+    end
+
     if (argument[0] == "CAL")
-        global.ser.write(bytes().fromstring("GET CAL"))
+        global.ser.write(bytes().fromstring("GET CAL\n"))
         mqttprint('GET CAL')
         tasmota.resp_cmnd_done()
         return
     end
 
-    if (argument[0] == "REG" || argument[0] == "CONFIG")
-        global.ser.write(bytes().fromstring("GET REG"))
-        mqttprint('GET REG')
-        tasmota.resp_cmnd_done()
-        return
-    end
-
     if (argument[0] == "MODE")
-        global.ser.write(bytes().fromstring("GET MODE"))
+        global.ser.write(bytes().fromstring("GET MODE\n"))
         mqttprint('GET MODE')
         tasmota.resp_cmnd_done()
         return
     end
 
     if (argument[0] == "ENERGY")
-        global.ser.write(bytes().fromstring("GET ENERGY"))
+        global.ser.write(bytes().fromstring("GET ENERGY\n"))
         mqttprint('GET ENERGY')
         tasmota.resp_cmnd_done()
         return
@@ -228,41 +212,44 @@ end
 # ============================================================
 
 def Init()
+    import json
+    var file = open("esp32.cfg", "rt")
+    if file == nil || file.size() == 0
+        if file != nil
+            file.close()
+        end
+        file = open("esp32.cfg", "wt")
+        var jsonstring = string.format('{"ville":"unknown","client":"inter","device":"unknown"}')
+        file.write(jsonstring)
+        file.close()
+        file = open("esp32.cfg", "rt")
+    end
+
+    var buffer = file.read()
+    file.close()
+    var jsonmap = json.load(buffer)
+    if jsonmap == nil
+        mqttprint("CONFIG: invalid esp32.cfg")
+        return
+    end
+
+    global.client = jsonmap["client"]
+    global.ville = jsonmap["ville"]
+    global.device = jsonmap["device"]
+    print('client:', global.client)
+    print('ville:', global.ville)
+    print('device:', global.device)
+
     gpio.pin_mode(global.rx, gpio.INPUT_PULLUP)
     gpio.pin_mode(global.tx, gpio.OUTPUT)
     global.ser = serial(global.rx, global.tx, 115200, serial.SERIAL_8N1)
+
+    gpio.pin_mode(rst, gpio.OUTPUT)
+    gpio.pin_mode(bsl, gpio.OUTPUT)
+    gpio.digital_write(bsl, 0)
+    gpio.digital_write(rst, 1)
+
     mqttprint('serial initialised')
-    tasmota.resp_cmnd_done()
-end
-
-def ville(cmd, idx, payload, payload_json)
-    import json
-    var file = open("esp32.cfg", "rt")
-    var buffer = file.read()
-    var myjson = json.load(buffer)
-    myjson["ville"] = payload
-    global.ville = payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg", "wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd("done")
-end
-
-def device(cmd, idx, payload, payload_json)
-    import json
-    var file = open("esp32.cfg", "rt")
-    var buffer = file.read()
-    var myjson = json.load(buffer)
-    myjson["device"] = payload
-    global.device = payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg", "wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd("done")
 end
 
 def name(cmd, idx, payload, payload_json)
@@ -356,45 +343,131 @@ def sendconfig(cmd, idx, payload, payload_json)
     var file
     var buffer
     var myjson
-    var device
+    var config_file
     var total = ""
-    var header
     var trouve = false
-    mqttprint("send:" + payload)
-    ############################ fichier config ###################
-    file = open("esp32.cfg", "rt")
-    buffer = file.read()
-    myjson = json.load(buffer)
-    device = myjson["device"]
-    file.close()
+    
+    if (global.device == nil || global.ville == nil)
+        mqttprint("ERROR: device or ville not initialized (call Init first)")
+        tasmota.resp_cmnd("ERROR: device or ville not initialized")
+        return
+    end
+    
+    config_file = string.format("p_%s.json", global.ville)
+    mqttprint("send:" + config_file)
 
-    file = open(payload, "rt")
+    file = open(config_file, "rt")
     if (file == nil)
-        mqttprint("fichier non existant:" + payload)
+        mqttprint("fichier non existant:" + config_file)
         return
     end
     buffer = file.read()
     file.close()
     myjson = json.load(buffer)
     for key:myjson.keys()
-        if (key == device)
+        if (key == global.device)
             trouve = true
-            total = "CONFIG " + key + "_"
-                    + myjson[key]["root"][0] + "_" + myjson[key]["root"][1] + "_" + myjson[key]["root"][2] + "_" + myjson[key]["root"][3] + "_"
-                    + myjson[key]["produit"] + "_"
-                    + myjson[key]["techno"][0] + "_" + myjson[key]["techno"][1] + "_" + myjson[key]["techno"][2] + "_" + myjson[key]["techno"][3] + "_"
-                    + myjson[key]["ratio"][0] + "_" + myjson[key]["ratio"][1] + "_" + myjson[key]["ratio"][2] + "_" + myjson[key]["ratio"][3]
+            var p0 = "1"
+            var p1 = "1"
+            var p2 = "1"
+            var m0 = "tri"
+            var m1 = "tri"
+            var m2 = "tri"
+
+            if myjson[key].contains("PGA") && myjson[key]["PGA"] != nil
+                if size(myjson[key]["PGA"]) > 0 && myjson[key]["PGA"][0] != nil
+                    p0 = str(myjson[key]["PGA"][0])
+                end
+                if size(myjson[key]["PGA"]) > 1 && myjson[key]["PGA"][1] != nil
+                    p1 = str(myjson[key]["PGA"][1])
+                end
+                if size(myjson[key]["PGA"]) > 2 && myjson[key]["PGA"][2] != nil
+                    p2 = str(myjson[key]["PGA"][2])
+                end
+            end
+
+            if myjson[key].contains("mode") && myjson[key]["mode"] != nil
+                if type(myjson[key]["mode"]) == "list"
+                    if size(myjson[key]["mode"]) > 0 && myjson[key]["mode"][0] != nil
+                        m0 = str(myjson[key]["mode"][0])
+                    end
+                    if size(myjson[key]["mode"]) > 1 && myjson[key]["mode"][1] != nil
+                        m1 = str(myjson[key]["mode"][1])
+                    end
+                    if size(myjson[key]["mode"]) > 2 && myjson[key]["mode"][2] != nil
+                        m2 = str(myjson[key]["mode"][2])
+                    end
+                elif type(myjson[key]["mode"]) == "string"
+                    m0 = str(myjson[key]["mode"])
+                    m1 = m0
+                    m2 = m0
+                end
+            end
+
+            var r0 = "*"
+            var r1 = "*"
+            var r2 = "*"
+            if myjson[key].contains("root") && myjson[key]["root"] != nil
+                if size(myjson[key]["root"]) > 0 && myjson[key]["root"][0] != nil
+                    r0 = str(myjson[key]["root"][0])
+                end
+                if size(myjson[key]["root"]) > 1 && myjson[key]["root"][1] != nil
+                    r1 = str(myjson[key]["root"][1])
+                end
+                if size(myjson[key]["root"]) > 2 && myjson[key]["root"][2] != nil
+                    r2 = str(myjson[key]["root"][2])
+                end
+            end
+
+            var t0 = "ct"
+            var t1 = "ct"
+            var t2 = "ct"
+            if myjson[key].contains("techno") && myjson[key]["techno"] != nil
+                if size(myjson[key]["techno"]) > 0 && myjson[key]["techno"][0] != nil
+                    t0 = str(myjson[key]["techno"][0])
+                end
+                if size(myjson[key]["techno"]) > 1 && myjson[key]["techno"][1] != nil
+                    t1 = str(myjson[key]["techno"][1])
+                end
+                if size(myjson[key]["techno"]) > 2 && myjson[key]["techno"][2] != nil
+                    t2 = str(myjson[key]["techno"][2])
+                end
+            end
+
+            var q0 = "1000"
+            var q1 = "1000"
+            var q2 = "1000"
+            if myjson[key].contains("ratio") && myjson[key]["ratio"] != nil
+                if size(myjson[key]["ratio"]) > 0 && myjson[key]["ratio"][0] != nil
+                    q0 = str(myjson[key]["ratio"][0])
+                end
+                if size(myjson[key]["ratio"]) > 1 && myjson[key]["ratio"][1] != nil
+                    q1 = str(myjson[key]["ratio"][1])
+                end
+                if size(myjson[key]["ratio"]) > 2 && myjson[key]["ratio"][2] != nil
+                    q2 = str(myjson[key]["ratio"][2])
+                end
+            end
+
+            total = "CONFIG " + key + ":"
+                + r0 + ":" + r1 + ":" + r2 + ":"
+                + myjson[key]["produit"] + ":"
+                + t0 + ":" + t1 + ":" + t2 + ":"
+                + q0 + ":" + q1 + ":" + q2 + ":"
+                + p0 + ":" + p1 + ":" + p2 + ":"
+                + m0 + ":" + m1 + ":" + m2
         end
     end
+
     if (trouve == true)
         global.ser.flush()
-        total = "SET " + total
+        total = "SET " + total + "\n"
         var mybytes = bytes().fromstring(total)
         global.ser.write(mybytes)
         mqttprint(str(total))
         tasmota.resp_cmnd("config sent")
     else
-        mqttprint("device " + str(device) + " non trouvé")
+        mqttprint("device " + str(global.device) + " non trouve")
         tasmota.resp_cmnd("config not sent")
     end
 end
@@ -419,39 +492,55 @@ def dir(cmd, idx, payload, payload_json)
 end
 
 def help()
-    mqttprint("============================================================")
-    mqttprint("====================== STM32 COMMANDS ======================")
-    mqttprint("============================================================")
-    mqttprint("Stm32reset: reset du STM32")
-    mqttprint("hold: hold STM32 in reset")
-    mqttprint("start: release STM32 reset")
-    mqttprint("set RESET")
-    mqttprint("set MODE CAL <1|2|3> | set MODE <LOG|REG>")
-    mqttprint("set TYPE <MONO|TRI>")
-    mqttprint("set CONFIG ... (via sendconfig helper)")
-    mqttprint("set STORAGE")
-    mqttprint("get CAL")
-    mqttprint("get REG")
-    mqttprint("get MODE")
-    mqttprint("get ENERGY")
-    mqttprint("cal <parameter> <value> (VA, VB ou VC)")
-    mqttprint("ex: cal VA 235")
-    mqttprint("cal <device> <parameter> <value> (IA, IB ou IC)")
-    mqttprint("ex: cal IA 1 5.1")
-    mqttprint("sendconfig p_<name>.json: helper to send SET CONFIG")
-    mqttprint("============================================================")
-    mqttprint("====================== ESP32 COMMANDS ======================")
-    mqttprint("============================================================")
-    mqttprint("Init: initialize Berry serial link")
-    mqttprint("getfile <path/filename>: load file")
-    mqttprint("ville <nom>: set ville")
-    mqttprint("device <nom>: set device name")
-    mqttprint("name <old> <new>: rename in conso.json")
-    mqttprint("dir: list files")
-    mqttprint("getversion: show .be versions")
-    mqttprint("update: fetch scripts/config from github")
-    mqttprint("couts: publish conso costs")
-    mqttprint("h: this help")
+    print("==================== EXHAUSTIVE HELP ====================")
+    print("All tokens for set/get/cal are case-insensitive.")
+
+    print("[REGISTERED COMMANDS]")
+    print("Stm32reset | hold | start | set | get | cal")
+    print("Init | getfile | name | h | dir | getversion | update | couts")
+
+    print("[STM32 LINK CONTROL]")
+    print("Stm32reset")
+    print("hold")
+    print("start")
+
+    print("[STM32 SET COMMANDS]")
+    print("set MODE CAL <1|2|3>")
+    print("set MODE LOG")
+    print("set MODE REG")
+    print("set TYPE MONO")
+    print("set TYPE TRI")
+    print("set CONFIG")
+
+    print("[STM32 GET COMMANDS]")
+    print("get CAL")
+    print("get CONFIG   (query STM32 applied config as JSON)")
+    print("get MODE")
+    print("get ENERGY")
+
+    print("[STM32 CAL COMMANDS]")
+    print("cal OFFSET")
+    print("cal VA <voltage_ref>")
+    print("cal VB <voltage_ref>")
+    print("cal VC <voltage_ref>")
+    print("cal IA <device:1..3> <current_ref>")
+    print("cal IB <device:1..3> <current_ref>")
+    print("cal IC <device:1..3> <current_ref>")
+    print("examples: cal OFFSET | cal VA 235 | cal IA 1 5.1")
+
+    print("[ESP32 LOCAL COMMANDS]")
+    print("Init")
+    print("getfile <repo_path/filename>")
+    print("name <old_name> <new_name>")
+    print("dir")
+    print("getversion")
+    print("update")
+    print("couts")
+    print("h")
+
+    print("[NOTES]")
+    print("- UART single link on C3: commands and telemetry share same serial")
+    print("- update downloads: c_<ville>.json, p_<ville>.json, command.be, conso.be, flasher.be, logger.be, pwx12_driver.be")
     tasmota.resp_cmnd_done()
 end
 
@@ -480,28 +569,27 @@ def update()
     var buffer = file.read()
     var myjson = json.load(buffer)
     global.ville = myjson["ville"]
-    var ville = global.ville
     file.close()
     mqttprint("update: start")
     hold()
-    var name = string.format("c_%s.json", ville)
+    var name = string.format("c_%s.json", global.ville)
     var command = string.format("getfile config/%s", name)
     mqttprint("update: " + command)
     tasmota.cmd(command)
-    name = string.format("p_%s.json", ville)
+    name = string.format("p_%s.json", global.ville)
     command = string.format("getfile config/%s", name)
     mqttprint("update: " + command)
     tasmota.cmd(command)
-    mqttprint("update: getfile pwx12/berry/command.be")
-    tasmota.cmd("getfile pwx12/berry/command.be")
-    mqttprint("update: getfile pwx12/berry/conso.be")
-    tasmota.cmd("getfile pwx12/berry/conso.be")   
-    mqttprint("update: getfile pwx12/berry/flasher.be")
-    tasmota.cmd("getfile pwx12/berry/flasher.be")
-    mqttprint("update: getfile pwx12/berry/logger.be")
-    tasmota.cmd("getfile pwx12/berry/logger.be")
-    mqttprint("update: getfile pwx12/berry/pwx12_driver.be")
-    tasmota.cmd("getfile pwx12/berry/pwx12_driver.be")
+    mqttprint("update: getfile pwx12/berry-c3/command.be")
+    tasmota.cmd("getfile pwx12/berry-c3/command.be")
+    mqttprint("update: getfile pwx12/berry-c3/conso.be")
+    tasmota.cmd("getfile pwx12/berry-c3/conso.be")   
+    mqttprint("update: getfile pwx12/berry-c3/flasher.be")
+    tasmota.cmd("getfile pwx12/berry-c3/flasher.be")
+    mqttprint("update: getfile pwx12/berry-c3/logger.be")
+    tasmota.cmd("getfile pwx12/berry-c3/logger.be")
+    mqttprint("update: getfile pwx12/berry-c3/pwx12_driver.be")
+    tasmota.cmd("getfile pwx12/berry-c3/pwx12_driver.be")
     start()
     mqttprint("update: done")
 end
@@ -521,14 +609,11 @@ tasmota.add_cmd("hold", hold)
 tasmota.add_cmd("start", start)
 tasmota.add_cmd("set", SetCommand)
 tasmota.add_cmd("get", GetCommand)
-tasmota.add_cmd("sendconfig", sendconfig)
 tasmota.add_cmd("cal", Calibration)
 
 # ====================== ESP32 COMMANDS ======================
 tasmota.add_cmd("Init", Init)
 tasmota.add_cmd("getfile", getfile)
-tasmota.add_cmd("ville", ville)
-tasmota.add_cmd("device", device)
 tasmota.add_cmd("name", name)
 tasmota.add_cmd("h", help)
 tasmota.add_cmd('dir', dir)

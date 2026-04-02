@@ -28,43 +28,18 @@ class PWX12
     var topic 
     var conso
 
-    def loadconfig()
-        import json
-        var jsonstring
-        var file 
-        file = open("esp32.cfg", "rt")
-        if file.size() == 0
-            print('creat esp32 config file')
-            file = open("esp32.cfg", "wt")
-            jsonstring = string.format("{\"ville\":\"unknown\",\"client\":\"inter\",\"device\":\"unknown\"}")
-            file.write(jsonstring)
-            file.close()
-            file = open("esp32.cfg", "rt")
-        end
-        var buffer = file.read()
-        var jsonmap = json.load(buffer)
-        global.client = jsonmap["client"]
-        print('client:', global.client)
-        global.ville = jsonmap["ville"]
-        print('ville:', global.ville)
-        global.device = jsonmap["device"]
-        print('device:', global.device)
-    end
-
     def init()
-        self.loadconfig()
         import conso
         self.conso = conso
-         self.rx_partial = ""
         self.pending_cfg_cmd = nil
         self.cfg_next_send_ms = 0
         self.cfg_attempts = 0
         self.cfg_ack = false
 
-        self.prepare_config_push()
-
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
+
+        self.prepare_config_push()
     end
 
     def _arr_get(arr, idx, fallback)
@@ -116,7 +91,7 @@ class PWX12
         var m2 = self._arr_get(dev["mode"], 2, "tri")
 
         self.pending_cfg_cmd = string.format(
-            "SET CONFIG %s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s_%s\\n",
+            "SET CONFIG %s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s\\n",
             global.device,
             r0, r1, r2,
             produit,
@@ -158,6 +133,64 @@ class PWX12
         self.read_uart(2)
     end
 
+    def process_uart_line(line)
+        var topic
+        var split
+        var ligne
+
+        if line[0] == 'C'
+            split = string.split(line, ':')
+            if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
+                self.conso.update(line)
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            else
+                print('PWX12-> malformed C frame:', line)
+            end
+        elif line[0] == 'D'
+            split = string.split(line, ':')
+            if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            else
+                print('PWX12-> malformed D frame:', line)
+            end
+        elif line[0] == 'W'
+            split = string.split(line, ':')
+            if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
+                for j: 0..2
+                    if global.configjson[global.device]["root"][j] != "*"
+                        topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
+                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
+                        mqtt.publish(topic, ligne, true)
+                    end
+                end
+            else
+                print('PWX12-> malformed W frame:', line)
+            end
+        elif line[0] == '{'
+            if string.find(line, '"type":"calibration"') != -1
+                if string.find(line, '"group":"') != -1
+                    topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                    mqtt.publish(topic, line, true)
+                else
+                    topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
+                    mqtt.publish(topic, line, true)
+                end
+            else
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            end
+        else
+            if string.find(line, "config done") != -1
+                self.cfg_ack = true
+                self.pending_cfg_cmd = nil
+                print("CFG: STM32 acknowledged")
+            end
+            print('PWX12->', line)
+        end
+    end
+
     def read_uart(timeout)
         if global.ser.available()
             var due = tasmota.millis() + timeout
@@ -167,25 +200,13 @@ class PWX12
             var mystring = buffer.asstring()
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
-            var topic
-            var split
-			var ligne
+            var line
             for i: 0..numitem-2
-                if mylist[i][0] == 'C'
-                    self.conso.update(mylist[i])
-                    topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                    mqtt.publish(topic, mylist[i], true)
-                elif mylist[i][0] == 'W'
-                    # self.logger.log_data(mylist[i])
-                    split = string.split(mylist[i], ':')
-                    for j: 0..0
-                        topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
-                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
-                        mqtt.publish(topic, ligne, true)
-                    end
-                else
-                    print('PWX12->', mylist[i])
+                line = mylist[i]
+                if size(line) == 0
+                    continue
                 end
+                self.process_uart_line(line)
             end
         end
     end
@@ -195,11 +216,16 @@ class PWX12
     end
 
     def hour()
-        self.conso.mqtt_publish('hours')
+        var now = tasmota.rtc()
+        var rtc = tasmota.time_dump(now["local"])
+        var hour = rtc["hour"]
+        # publish if not midnight
+        if hour != 23
+            self.conso.mqtt_publish('hours')
+        end
 
-        # Additional hourly request for hardware energy delta (returned as raw D frame).
         global.ser.flush()
-        global.ser.write(bytes().fromstring("GET ENERGY"))
+        global.ser.write(bytes().fromstring("GET ENERGY\n"))
     end
 
     def every_4hours()

@@ -92,7 +92,9 @@ def SetCommand(cmd, idx, payload, payload_json)
     global.serSend.flush()
 
     if (argument[0] == "RESET")
-        mqttprint("SET RESET disabled; use Stm32reset")
+        var token_reset = "SET RESET\n"
+        global.serSend.write(bytes().fromstring(token_reset))
+        mqttprint(token_reset)
         tasmota.resp_cmnd_done()
         return
     end
@@ -177,71 +179,6 @@ def GetCommand(cmd, idx, payload, payload_json)
     end
 
     mqttprint("GET inconnu")
-end
-
-def pretty_print_config()
-    import json
-    import string
-
-    var file = open("esp32.cfg", "rt")
-    if file == nil
-        mqttprint("CONFIG: missing esp32.cfg")
-        return
-    end
-    var buffer = file.read()
-    file.close()
-    var runtime_cfg = json.load(buffer)
-    if runtime_cfg == nil
-        mqttprint("CONFIG: invalid esp32.cfg")
-        return
-    end
-
-    var ville = runtime_cfg["ville"]
-    var device = runtime_cfg["device"]
-    var cfg_file = string.format("p_%s.json", ville)
-
-    file = open(cfg_file, "rt")
-    if file == nil
-        mqttprint("CONFIG: missing " + cfg_file)
-        return
-    end
-    buffer = file.read()
-    file.close()
-    var all_cfg = json.load(buffer)
-    if all_cfg == nil || !all_cfg.contains(device)
-        mqttprint("CONFIG: device " + device + " not found in " + cfg_file)
-        return
-    end
-
-    var dev = all_cfg[device]
-    mqttprint("CONFIG SUMMARY")
-    mqttprint(string.format("ville=%s device=%s produit=%s", ville, device, str(dev["produit"])))
-
-    for i: 0..2
-        var name = "*"
-        var techno = "ct"
-        var ratio = "1000"
-        var pga = "1"
-        var mode = "tri"
-
-        if dev.contains("root") && dev["root"] != nil && size(dev["root"]) > i && dev["root"][i] != nil
-            name = str(dev["root"][i])
-        end
-        if dev.contains("techno") && dev["techno"] != nil && size(dev["techno"]) > i && dev["techno"][i] != nil
-            techno = str(dev["techno"][i])
-        end
-        if dev.contains("ratio") && dev["ratio"] != nil && size(dev["ratio"]) > i && dev["ratio"][i] != nil
-            ratio = str(dev["ratio"][i])
-        end
-        if dev.contains("PGA") && dev["PGA"] != nil && size(dev["PGA"]) > i && dev["PGA"][i] != nil
-            pga = str(dev["PGA"][i])
-        end
-        if dev.contains("mode") && dev["mode"] != nil && size(dev["mode"]) > i && dev["mode"][i] != nil
-            mode = str(dev["mode"][i])
-        end
-
-        mqttprint(string.format("ch%d Name=%s techno=%s ratio=%s pga=%s mode=%s", i + 1, name, techno, ratio, pga, mode))
-    end
 end
 
 def Stm32Reset()
@@ -518,12 +455,13 @@ def sendconfig(cmd, idx, payload, payload_json)
                 end
             end
 
-            # Group values per device/channel: produit then (root, techno, ratio, pga, mode) * 3.
             total = "CONFIG " + key + ":"
+                + r0 + ":" + r1 + ":" + r2 + ":"
                 + myjson[key]["produit"] + ":"
-                + r0 + ":" + t0 + ":" + q0 + ":" + p0 + ":" + m0 + ":"
-                + r1 + ":" + t1 + ":" + q1 + ":" + p1 + ":" + m1 + ":"
-                + r2 + ":" + t2 + ":" + q2 + ":" + p2 + ":" + m2
+                + t0 + ":" + t1 + ":" + t2 + ":"
+                + q0 + ":" + q1 + ":" + q2 + ":"
+                + p0 + ":" + p1 + ":" + p2 + ":"
+                + m0 + ":" + m1 + ":" + m2
         end
     end
 
