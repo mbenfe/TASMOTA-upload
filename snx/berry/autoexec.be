@@ -93,6 +93,8 @@ def getfile(cmd, idx, payload, payload_json)
     var message
     var nom_fichier = string.split(payload, '/').pop()
 
+    hold()
+
     mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
     mqttprint(filepath)
@@ -100,6 +102,7 @@ def getfile(cmd, idx, payload, payload_json)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
+        start()
         tasmota.resp_cmnd("Erreur d'initialisation du client web.")
         return
     end
@@ -112,6 +115,7 @@ def getfile(cmd, idx, payload, payload_json)
         mqttprint(message)
         tasmota.resp_cmnd("Erreur de t�l�chargement.")
         wc.close()
+        start()
         return
     end
 
@@ -119,6 +123,7 @@ def getfile(cmd, idx, payload, payload_json)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
     message = 'uploaded:' + nom_fichier
+    start()
     tasmota.resp_cmnd(message)
     return st
 end
