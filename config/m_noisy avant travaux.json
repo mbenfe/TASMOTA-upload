@@ -1,0 +1,990 @@
+{
+    "applications": [
+        {
+            "type": "Home",
+            "label": "Home",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "OpenWeather",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "MAISON",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Total/Climatisation/Caisse/Boucherie/Onduleur/Rampe Neuve/Four/Entrepot/Clim 1/Clim 2/Clim 3/Rampe Fond/Deco 1/Deco 2/Station/Boulangerie/Froid",
+                    "master": "c_main",
+                    "slave": [
+                        "c_tdclim",
+                        "c_gene_caisse",
+                        "c_gene_boucherie",
+                        "c_gene_onduleur",
+                        "c_rampe_neuve",
+                        "c_four",
+                        "c_td_entrepot",
+                        "c_clim1",
+                        "c_clim2",
+                        "c_clim3",
+                        "c_rampe_fond",
+                        "c_gene_deco1",
+                        "c_gene_deco2",
+                        "c_gene_station",
+                        "c_gene_boulangerie",
+                        "c_froid"
+                    ]
+                },
+                {
+                    "shape": "ParetoTemp",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Exterieur/Acceuil/Consignes/Caisse 7/Caisse 1/Poires/Bio/Salades/Surgeles",
+                    "master": "th_exterieur",
+                    "slave": [
+                        "th_acceuil",
+                        "th_consignes",
+                        "th_caisse_7",
+                        "th_caisse_1",
+                        "th_poires",
+                        "th_bio",
+                        "th_salades",
+                        "th_frites_surgelees"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "iClim",
+            "label": "Clim",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "HitachiCaisson",
+                    "color": 1,
+                    "column": 1,
+                    "row": 1,
+                    "location": "CAISSE 1",
+                    "master": "hitachi_caisse_1",
+                    "slave": [
+                        "th_caisse_1"
+                    ]
+                },
+                {
+                    "shape": "HitachiCaisson",
+                    "color": 1,
+                    "column": 1,
+                    "row": 2,
+                    "location": "CAISSE 2",
+                    "master": "hitachi_caisse_2",
+                    "slave": [
+                        "th_caisse_1"
+                    ]
+                },
+                {
+                    "shape": "HitachiCaisson",
+                    "color": 1,
+                    "column": 1,
+                    "row": 3,
+                    "location": "CAISSE 3",
+                    "master": "hitachi_caisse_3",
+                    "slave": [
+                        "th_caisse_7"
+                    ]
+                },
+                {
+                    "shape": "HitachiCaisson",
+                    "color": 2,
+                    "column": 1,
+                    "row": 4,
+                    "location": "RECEPTION 1",
+                    "master": "hitachi_reception_1",
+                    "slave": [
+                        "th_acceuil"
+                    ]
+                },
+                {
+                    "shape": "HitachiCaisson",
+                    "color": 2,
+                    "column": 1,
+                    "row": 5,
+                    "location": "RECEPTION 2",
+                    "master": "hitachi_reception_2",
+                    "slave": [
+                        "th_acceuil"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Negatif",
+            "level": 1,
+            "type": "iFroidNegatif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Chambres froides négatives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Boulangerie",
+                    "master": "CFNegBoulang3",
+                    "slave": [
+                        "est_CFNegBoulang3"
+                    ]
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "Surgeles",
+                    "master": "CFSurgeles11",
+                    "slave": [
+                        "est_CFSurgeles11"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Meubles surgelées",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "Mixtes 1",
+                    "master": "SurgMixtes1G70",
+                    "slave": [
+                        "est_SurgMixtes1G70"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "Mixtes 2",
+                    "master": "SurgMixtes1D71",
+                    "slave": [
+                        "est_SurgMixtes1D71"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 5,
+                    "location": "Mixtes 3",
+                    "master": "SurgMixtes2G72",
+                    "slave": [
+                        "est_SurgMixtes2G72"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 5,
+                    "location": "Mixtes 4",
+                    "master": "SurgMixtes2D73",
+                    "slave": [
+                        "est_SurgMixtes2D73"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "Mixtes 5",
+                    "master": "SurgMixtes3G74",
+                    "slave": [
+                        "est_SurgMixtes3G74"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "Mixtes 6",
+                    "master": "SurgMixtes3M75",
+                    "slave": [
+                        "est_SurgMixtes3M75"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 6,
+                    "location": "Mixtes 7",
+                    "master": "SurgMixtes3D76",
+                    "slave": [
+                        "est_SurgMixtes3D76"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 6,
+                    "location": "Mixtes 8",
+                    "master": "SurgMixtes477",
+                    "slave": [
+                        "est_SurgMixtes477"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "Porte 1",
+                    "master": "PortesSurgD78",
+                    "slave": [
+                        "est_PortesSurgD78"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "Porte 2",
+                    "master": "PortesSurgG79",
+                    "slave": [
+                        "est_PortesSurgG79"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 8,
+                    "location": "Bacs surgelés",
+                    "master": "",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "label": "Positif",
+            "level": 1,
+            "type": "iFroidPositif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Chambres froides positives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Dechets",
+                    "master": "CFDechets4",
+                    "slave": [
+                        "est_CFDechets4"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "Fruits & LÃ©gumes",
+                    "master": "CFFruitEtLegumes5",
+                    "slave": [
+                        "est_CFFruitEtLegumes5"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Suif",
+                    "master": "CFSuif6",
+                    "slave": [
+                        "est_CFSuif6"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "Labo Boucherie",
+                    "master": "CFProdFinis7",
+                    "slave": [
+                        "est_CFProdFinis7"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Caracasses",
+                    "master": "LaboBoucherie8",
+                    "slave": [
+                        "est_LaboBoucherie8"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "Fromage",
+                    "master": "CFCarcasses9",
+                    "slave": [
+                        "est_CFCarcasses9"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "Charcuterie",
+                    "master": "CFCharcuterie10",
+                    "slave": [
+                        "est_CFCharcuterie10"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "Drive",
+                    "master": "CFDRive12",
+                    "slave": [
+                        "est_CFDRive12"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "Poissonerie",
+                    "master": "CFPoissons13",
+                    "slave": [
+                        "est_CFPoissons13"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "Drive",
+                    "master": "CFDriveExt19",
+                    "slave": [
+                        "est_CFDriveExt19"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 8,
+                    "location": "Meubles froid positif",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "Fromage FE 1",
+                    "master": "FromageFE15",
+                    "slave": [
+                        "est_FromageFE15"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "Fromage FE 2",
+                    "master": "FromageFE16",
+                    "slave": [
+                        "est_FromageFE16"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 9,
+                    "location": "Fromage FE 3",
+                    "master": "FromageFE17",
+                    "slave": [
+                        "est_FromageFE17"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 9,
+                    "location": "Fromage FE 4",
+                    "master": "FromageFE18",
+                    "slave": [
+                        "est_FromageFE18"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 10,
+                    "location": "TG Fromage 1",
+                    "master": "TG1FromageFE20",
+                    "slave": [
+                        "est_TG1FromageFE20"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 10,
+                    "location": "Fromage FE 5",
+                    "master": "FromageFEG21",
+                    "slave": [
+                        "est_FromageFEG21"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 10,
+                    "location": "Fromage FE 6",
+                    "master": "FromageFED22",
+                    "slave": [
+                        "est_FromageFED22"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 10,
+                    "location": "TG Fromage 2",
+                    "master": "TGFromageLS23",
+                    "slave": [
+                        "est_TGFromageLS23"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 11,
+                    "location": "Fromage 1",
+                    "master": "FromageLSD24",
+                    "slave": [
+                        "est_FromageLSD24"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 11,
+                    "location": "Fromage 2",
+                    "master": "FromageLSM25",
+                    "slave": [
+                        "est_FromageLSM25"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 11,
+                    "location": "Fromage 3",
+                    "master": "FromageLSG26",
+                    "slave": [
+                        "est_FromageLSG26"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 11,
+                    "location": "4e Gamme",
+                    "master": "4emeGamme27",
+                    "slave": [
+                        "est_4emeGamme27"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 12,
+                    "location": "Cremerie 1",
+                    "master": "CremerieLS2D28",
+                    "slave": [
+                        "est_CremerieLS2D28"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 12,
+                    "location": "Cremerie 2",
+                    "master": "CremerieLS2M29",
+                    "slave": [
+                        "est_CremerieLS2M29"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 12,
+                    "location": "Cremerie 3",
+                    "master": "CremerieLS2G30",
+                    "slave": [
+                        "est_CremerieLS2G30"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 12,
+                    "location": "TG Traiteur 1",
+                    "master": "TG1TraiteurLS31",
+                    "slave": [
+                        "est_TG1TraiteurLS31"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 13,
+                    "location": "Cremerie 4",
+                    "master": "CremerieLS1D32",
+                    "slave": [
+                        "est_CremerieLS1D32"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 13,
+                    "location": "Cremerie 5",
+                    "master": "CremerieLS1M33",
+                    "slave": [
+                        "est_CremerieLS1M33"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 13,
+                    "location": "Cremerie 6",
+                    "master": "CremerieLS1G34",
+                    "slave": [
+                        "est_CremerieLS1G34"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 13,
+                    "location": "TG Traiteur 2",
+                    "master": "TG2TraiteurLS35",
+                    "slave": [
+                        "est_TG2TraiteurLS35"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 14,
+                    "location": "Traiteur 1",
+                    "master": "TraiteurLSD36",
+                    "slave": [
+                        "est_TraiteurLSD36"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 14,
+                    "location": "Traiteur 2",
+                    "master": "TraiteurLSM37",
+                    "slave": [
+                        "est_TraiteurLSM37"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 14,
+                    "location": "Traiteur 3",
+                    "master": "TraiteurLSG38",
+                    "slave": [
+                        "est_TraiteurLSG38"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 14,
+                    "location": "TG Boucherie 1",
+                    "master": "TG1BouchLS39",
+                    "slave": [
+                        "est_TG1BouchLS39"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 15,
+                    "location": "Charcuterie 1",
+                    "master": "CharcuterieLSD40",
+                    "slave": [
+                        "est_CharcuterieLSD40"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 15,
+                    "location": "Charcuterie 2",
+                    "master": "CharcuterieLSM41",
+                    "slave": [
+                        "est_CharcuterieLSM41"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 15,
+                    "location": "Charcuterie 3",
+                    "master": "CharcuterieLSG42",
+                    "slave": [
+                        "est_CharcuterieLSG42"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 15,
+                    "location": "TG Boucherie 2",
+                    "master": "TG2BouchLS43",
+                    "slave": [
+                        "est_TG2BouchLS43"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 16,
+                    "location": "Boucherie 1",
+                    "master": "BoucherieLSD44",
+                    "slave": [
+                        "est_BoucherieLSD44"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 16,
+                    "location": "Boucherie 2",
+                    "master": "BoucherieLSM45",
+                    "slave": [
+                        "est_BoucherieLSM45"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 16,
+                    "location": "Boucherie 3",
+                    "master": "BoucherieLSG46",
+                    "slave": [
+                        "est_BoucherieLSG46"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 16,
+                    "location": "TG Volaille",
+                    "master": "TGVolailleLS47",
+                    "slave": [
+                        "est_TGVolailleLS47"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 17,
+                    "location": "Volaille 1",
+                    "master": "VolailleLSD48",
+                    "slave": [
+                        "est_VolailleLSD48"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 17,
+                    "location": "Volaille 2",
+                    "master": "VolailleLSM49",
+                    "slave": [
+                        "est_VolailleLSM49"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 17,
+                    "location": "Volaille 3",
+                    "master": "VolailleLSG50",
+                    "slave": [
+                        "est_VolailleLSG50"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 17,
+                    "location": "TG Fromage 3",
+                    "master": "TG2FromageFE51",
+                    "slave": [
+                        "est_TG2FromageFE51"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 18,
+                    "location": "Legumes",
+                    "master": "LegumesOuvert52",
+                    "slave": [
+                        "est_LegumesOuvert52"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 18,
+                    "location": "Jus",
+                    "master": "JusDeFruits53",
+                    "slave": [
+                        "est_JusDeFruits53"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 18,
+                    "location": "Salades",
+                    "master": "Salade55",
+                    "slave": [
+                        "est_Salade55"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 18,
+                    "location": "Boucherie T 1",
+                    "master": "BouchTradG56",
+                    "slave": [
+                        "est_BouchTradG56"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 19,
+                    "location": "Boucherie T 2",
+                    "master": "BouchTradMG57",
+                    "slave": [
+                        "est_BouchTradMG57"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 19,
+                    "location": "Boucherie T 3",
+                    "master": "BouchTradMD58",
+                    "slave": [
+                        "est_BouchTradMD58"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 19,
+                    "location": "Boucherie T 4",
+                    "master": "BouchTradD59",
+                    "slave": [
+                        "est_BouchTradD59"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 19,
+                    "location": "TG Bac 1",
+                    "master": "TGBac60",
+                    "slave": [
+                        "est_TGBac60"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 20,
+                    "location": "FE 1",
+                    "master": "FE64",
+                    "slave": [
+                        "est_FE64"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 20,
+                    "location": "TG FE 1",
+                    "master": "TGFE65",
+                    "slave": [
+                        "est_TGFE65"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 20,
+                    "location": "FE 2",
+                    "master": "FE66",
+                    "slave": [
+                        "est_FE66"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 21,
+                    "location": "Bacs froid positif",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "BAC+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 22,
+                    "location": "Bac 1",
+                    "master": "Bac61",
+                    "slave": [
+                        "est_Bac61"
+                    ]
+                },
+                {
+                    "shape": "BAC+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 22,
+                    "location": "Bac 2",
+                    "master": "Bac62",
+                    "slave": [
+                        "est_Bac62"
+                    ]
+                },
+                {
+                    "shape": "BAC+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 23,
+                    "location": "TG Bac 2",
+                    "master": "TGBac63",
+                    "slave": [
+                        "est_TGBac63"
+                    ]
+                }
+            ]
+        }
+    ]
+}

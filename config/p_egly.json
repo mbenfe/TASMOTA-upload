@@ -45,7 +45,7 @@
         "produit": "PWX12",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
-        "ratio": ["2000","2000","4000"]
+        "ratio": ["2000","4000","2000"]
     },
     "pwx12-tgbtint3": {
         "mode": ["tri","tri","tri"],

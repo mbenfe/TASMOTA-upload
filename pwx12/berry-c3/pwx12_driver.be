@@ -125,6 +125,7 @@ class PWX12
         global.ser.write(bytes().fromstring(self.pending_cfg_cmd))
         self.cfg_attempts += 1
         self.cfg_next_send_ms = tasmota.millis() + 800
+        print("CFG: cmd=" + self.pending_cfg_cmd)
         print("CFG: sent attempt " + str(self.cfg_attempts))
     end
 

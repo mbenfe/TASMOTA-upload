@@ -20,8 +20,6 @@ class STM32
     var errors
     var mapID
     var mapFunc
-    var rst_in  
-    var bsl_in  
     var rst_out  
     var bsl_out   
      var client 
@@ -60,8 +58,6 @@ class STM32
     end
 
     def init()
-        self.rst_in=19   
-        self.bsl_in=21   
         self.rst_out=33   
         self.bsl_out=32   
         
@@ -75,11 +71,8 @@ class STM32
     
         # setup boot pins for stm32: reset disable & boot normal
 
-        gpio.pin_mode(self.rst_in,gpio.OUTPUT)
-        gpio.pin_mode(self.bsl_in,gpio.OUTPUT)
         gpio.pin_mode(self.rst_out,gpio.OUTPUT)
         gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
-        gpio.digital_write(self.bsl_in, 0)
         gpio.digital_write(self.bsl_out, 0)
 
         gpio.pin_mode(global.statistic_pin,gpio.OUTPUT)
@@ -213,6 +206,14 @@ class STM32
          gpio.digital_write(global.statistic_pin, 0)
     end
 
+    def stm32reset()
+        # Reset only STM32 OUT line.
+        gpio.digital_write(self.rst_out, 0)
+        tasmota.delay(100)
+        gpio.digital_write(self.rst_out, 1)
+        tasmota.delay(100)
+    end
+
     def heartbeat()
         var now = tasmota.rtc()
         var timestamp = tasmota.time_str(now["local"])
@@ -234,6 +235,7 @@ class STM32
 end
 
 stm32 = STM32()
+global.stm32 = stm32
 tasmota.add_driver(stm32)
 tasmota.add_fast_loop(/-> stm32.fast_loop())
 var cron_second = get_cron_second()

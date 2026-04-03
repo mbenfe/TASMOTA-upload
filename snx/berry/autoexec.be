@@ -18,8 +18,6 @@ end
 
 var rst_out=33
 var bsl_out=32   
-var rst_in=19
-var bsl_in=21   
 
 # keep STM32 OUT in reset from boot start
 gpio.pin_mode(rst_out,gpio.OUTPUT)
@@ -44,11 +42,6 @@ def init()
     gpio.digital_write(global.statistic_pin, 0)
     gpio.digital_write(global.ready_pin,1)
 
-    gpio.pin_mode(rst_in,gpio.OUTPUT)
-    gpio.pin_mode(bsl_in,gpio.OUTPUT)
-    gpio.digital_write(rst_in, 1)
-    gpio.digital_write(bsl_in, 0)
-
     gpio.pin_mode(rst_out,gpio.OUTPUT)
     gpio.pin_mode(bsl_out,gpio.OUTPUT)
     gpio.digital_write(bsl_out, 0)
@@ -65,49 +58,33 @@ def mqttprint(texte)
 end
 
 #-------------------------------- COMMANDES -----------------------------------------#
-def Stm32Reset(cmd, idx, payload, payload_json)
-    if (payload=='in') 
-        gpio.digital_write(rst_in, 0)
-        tasmota.delay(100)               # wait 10ms
-        gpio.digital_write(rst_in, 1)
-        tasmota.delay(100)               # wait 10ms
-        tasmota.resp_cmnd('STM32 IN reset')
-    end
-    if (payload=='out')  
+def Stm32Reset()
+    if global.stm32 != nil
+        global.stm32.stm32reset()
+    else
+        # Driver not loaded yet: fallback to OUT-only reset.
         gpio.digital_write(rst_out, 0)
-        tasmota.delay(100)               # wait 10ms
+        tasmota.delay(100)
         gpio.digital_write(rst_out, 1)
-        tasmota.delay(100)               # wait 10ms
-        tasmota.resp_cmnd('STM32 OUT reset')
+        tasmota.delay(100)
     end
+    tasmota.resp_cmnd('STM32 OUT reset')
 end
 
-def ville(cmd, idx,payload, payload_json)
-    import json
-    var file = open("esp32.cfg","rt")
-    var buffer = file.read()
-    var myjson=json.load(buffer)
-    myjson["ville"]=payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg","wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
+def hold()
+    gpio.pin_mode(rst_out, gpio.OUTPUT)
+    gpio.pin_mode(bsl_out, gpio.OUTPUT)
+    gpio.digital_write(bsl_out, 0)
+    gpio.digital_write(rst_out, 0)
+    tasmota.resp_cmnd("done")
 end
 
-def device(cmd, idx,payload, payload_json)
-    import json
-    var file = open("esp32.cfg","rt")
-    var buffer = file.read()
-    var myjson=json.load(buffer)
-    myjson["device"]=payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg","wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
+def start()
+    gpio.pin_mode(rst_out, gpio.OUTPUT)
+    gpio.pin_mode(bsl_out, gpio.OUTPUT)
+    gpio.digital_write(bsl_out, 0)
+    gpio.digital_write(rst_out, 1)
+    tasmota.resp_cmnd("done")
 end
 
 def getfile(cmd, idx, payload, payload_json)
@@ -144,122 +121,6 @@ def getfile(cmd, idx, payload, payload_json)
     message = 'uploaded:' + nom_fichier
     tasmota.resp_cmnd(message)
     return st
-end
-
-def sendconfig(cmd, idx,payload, payload_json)
-    import string
-    import json
-    var file
-    var buffer
-    var myjson
-    var total = '';
-    var header
-    mqttprint('send:'+payload)
-    ############################ fichier config ###################
-    file = open(payload,"rt")
-    if file == nil
-        mqttprint('fichier non existant:'+payload)
-        return
-    end
-    mqttprint("read buffer")
-    buffer = file.read()
-    file.close()
-    myjson = json.load(buffer)
-    for key:myjson.keys()
-        total+=key+' '+myjson[key]["Name"]+' '+myjson[key]["alias_sonde"]+' '+myjson[key]["alias_cutout"]+' '+myjson[key]["poste"]+' '+myjson[key]["categorie"]+' '+myjson[key]["genre"]+' '+myjson[key]["device"]+'\n'
-    end
-    header=string.format("config %d",myjson.size())
-    header+='\n'
-    header+=total
-    ############################ fichier device ###################
-    file = open("device.json","rt")
-    if file == nil
-        mqttprint('fichier device.json non existant:')
-        return
-    end
-    buffer = file.read()
-    file.close()
-    myjson = json.load(buffer)
-    total=''
-    for key:myjson.keys()
-        total+=key+' '+myjson[key]["name"]+' '+myjson[key]["type"]+' '+str(myjson[key]["ratio"])+' '+myjson[key]["categorie"]+'\n'
-    end
-    header+=string.format("device %d",myjson.size())
-    header+='\n'
-    header+=total
-    ############################ fichier controler ###################
-    file = open("controler.json","rt")
-    if file == nil
-        mqttprint('fichier controler non existant')
-        return
-    end
-    buffer = file.read()
-    file.close()
-    myjson = json.load(buffer)
-    total=''
-    for key:myjson.keys()
-        total+=key+' '+myjson[key]["name"]+' '+myjson[key]["type"]+' '+str(myjson[key]["ratio"])+' '+myjson[key]["categorie"]+'\n'
-    end
-    header+=string.format("controler %d",myjson.size())
-    header+='\n'
-    header+=total
-    mqttprint('taille initiale:'+str(size(header)))
-    var reste = 32 - ((size(header)+6) % 32)
-    mqttprint('reste:'+str(reste))
-    for i:0..reste-1
-        header+='*'
-    end
-    var finalsend=string.format("%5d\n",size(header)+6)
-    mqttprint('ajout header:'+str(size(finalsend)))
-    finalsend+=header
-    mqttprint('taille finale:'+(size(finalsend)))
-    file=open('stm32.cfg',"wt")
-    file.write(finalsend)
-    file.close()
-   
-    if global.ser == nil
-        tasmota.resp_cmnd("serial not ready")
-        return
-    end
-    var mybytes=bytes().fromstring(finalsend)
-    global.ser.flush()
-    global.ser.write(mybytes)
-    tasmota.resp_cmnd("config sent")
-end
-
-def sends(cmd, idx, payload, payload_json)
-    if global.ser == nil
-        tasmota.resp_cmnd("serial not ready")
-        return
-    end
-    var mybytes=bytes().fromstring("s")
-    global.ser.flush()
-    global.ser.write(mybytes)
-    tasmota.resp_cmnd("s sent")
-end
-
-def readconfig(cmd, idx,payload, payload_json)
-    var file
-    var buffer
-    var split
-    import path
-    if(!path.exists("stm32.cfg"))
-      mqttprint("fichier config non existant")
-    else
-        file = open("stm32.cfg")
-        buffer=file.read()
-        file.close()
-        split = string.split(buffer,'\n')
-        mqttprint(str(size(split))+" lignes")
-        for i:0..size(split)-1
-            if split[i][0]=='d' && split[i][1]=='e'   # detect device section to stop
-                break
-            else
-                mqttprint(split[i])
-            end
-        end
-    end
-    tasmota.resp_cmnd_done()
 end
 
 def dir(cmd, idx,payload, payload_json)
@@ -308,11 +169,35 @@ def launch_driver()
     tasmota.resp_cmnd_done()
 end
 
+def update()
+    mqttprint("update: start")
+    hold()
+
+    mqttprint("update: getfile snx/berry/autoexec.be")
+    tasmota.cmd("getfile snx/berry/autoexec.be")
+
+    mqttprint("update: getfile snx/berry/snx_driver.be")
+    tasmota.cmd("getfile snx/berry/snx_driver.be")
+
+    mqttprint("update: getfile flashers/stm32H743-SNX/flasher.be")
+    tasmota.cmd("getfile flashers/stm32H743-SNX/flasher.be")
+
+    mqttprint("update: getfile flashers/stm32H743-SNX/intelhex.be")
+    tasmota.cmd("getfile flashers/stm32H743-SNX/intelhex.be")
+
+    start()
+    mqttprint("update: done")
+end
+
 def statistic()
-    gpio.digital_write(global.statistic_pin, 1)
-    tasmota.delay(1)
-    gpio.digital_write(global.statistic_pin, 0)
-    tasmota.resp_cmnd_done()
+    if global.ser == nil
+        tasmota.resp_cmnd("serial not ready")
+        return
+    end
+    var mybytes = bytes().fromstring("s")
+    global.ser.flush()
+    global.ser.write(mybytes)
+    tasmota.resp_cmnd("s sent")
 end
 
 
@@ -324,20 +209,16 @@ mqttprint("serial log disabled")
 
 mqttprint('AUTOEXEC: create commande Stm32Reset')
 tasmota.add_cmd('Stm32reset',Stm32Reset)
+tasmota.add_cmd('hold',hold)
+tasmota.add_cmd('start',start)
 
 mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile',getfile)
 
-mqttprint('AUTOEXEC: create commande sendconfig')
-tasmota.add_cmd('sendconfig',sendconfig)
-tasmota.add_cmd('s',sends)
-tasmota.add_cmd('readconfig',readconfig)
 tasmota.add_cmd('dir',dir)
 
-tasmota.add_cmd('ville',ville)
-tasmota.add_cmd('device',device)
-
 tasmota.add_cmd('getversion',getversion)
+tasmota.add_cmd('update',update)
 tasmota.add_cmd('statistic',statistic)
 
 
