@@ -1,4 +1,4 @@
-var version = "1.0.022026 boot rst_out hold + global.ser + cmd s"
+var version = "1.0.032026 flasher"
 
 import string
 import global
