@@ -8,7 +8,7 @@
     "genre": "CF+",
     "brand": "default",
     "model": "default",
-    "volume": 355093
+    "volume": 14064
   },
   "2": {
     "device": "AK-CC55SCUI-015x",
@@ -28,9 +28,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine-",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "DLN4 5.02",
+    "volume": 4992
   },
   "11": {
     "device": "AK-CC550-A-019x",
@@ -39,9 +39,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine-",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "DLN4 4.02",
+    "volume": 3968
   },
   "12": {
     "device": "AK-CC550-A-019x",
@@ -50,9 +50,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine-",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "DLN4 5.02",
+    "volume": 4992
   },
   "13": {
     "device": "AK-CC550-A-019x",
@@ -61,9 +61,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine-",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "DLN4 4.02",
+    "volume": 3968
   },
   "14": {
     "device": "AK-CC550-A-012x",
@@ -72,9 +72,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "brand": "LINDE",
+    "model": "IRIOS SG3",
+    "volume": 1083
   },
   "15": {
     "device": "AK-CC550-A-012x",
@@ -83,9 +83,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "brand": "LINDE",
+    "model": "IRIOS SG3",
+    "volume": 1083
   },
   "16": {
     "device": "AK-CC550-A-019x",
@@ -94,9 +94,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "brand": "LINDE",
+    "model": "IRIOS SG3 375 A8",
+    "volume": 4275
   },
   "17": {
     "device": "AK-CC550-A-019x",
@@ -105,9 +105,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "brand": "LINDE",
+    "model": "IRIOS SG3 375 A8",
+    "volume": 4275
   },
   "18": {
     "device": "AK-CC550-A-012x",
@@ -116,9 +116,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "brand": "LINDE",
+    "model": "IRIOS SG3 375 C8",
+    "volume": 4275
   },
   "19": {
     "device": "AK-CC550-A-015x",
@@ -127,9 +127,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "brand": "CARRIER",
+    "model": "IRIOS SG3 188 C8",
+    "volume": 2143
   },
   "20": {
     "device": "AK-CC550-A-012x",
@@ -138,9 +138,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "bac-",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "brand": "LINDE",
+    "model": "IRIOS SG3",
+    "volume": 1083
   },
   "21": {
     "device": "AK-CC55SC-017x",
@@ -148,10 +148,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "BONNET NEVET",
+    "model": "HABILL.TOIT ZN375",
+    "volume": 2587
   },
   "22": {
     "device": "AK-CC55SC-017x",
@@ -159,10 +159,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "BONNET NEVET",
+    "model": "HABILL.TOIT ZN375",
+    "volume": 2587
   },
   "23": {
     "device": "AK-CC550-A-018x",
@@ -193,9 +193,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "SVLNU1-2.00",
+    "volume": 1320
   },
   "27": {
     "device": "AK-CC550-A-019x",
@@ -203,10 +203,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "28": {
     "device": "AK-CC550-A-019x",
@@ -214,10 +214,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "29": {
     "device": "AK-CC550-A-019x",
@@ -225,10 +225,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "30": {
     "device": "AK-CC550-A-019x",
@@ -236,10 +236,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "31": {
     "device": "AK-CC550-A-019x",
@@ -247,10 +247,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "32": {
     "device": "AK-CC550-A-019x",
@@ -258,10 +258,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "33": {
     "device": "AK-CC550-A-019x",
@@ -269,10 +269,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "34": {
     "device": "AK-CC550-A-019x",
@@ -280,10 +280,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953
   },
   "35": {
     "device": "AK-CC550-A-019x",
@@ -292,9 +292,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "VLCU1-C01",
+    "volume": 1732
   },
   "36": {
     "device": "AK-CC550-A-019x",
@@ -302,10 +302,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953
   },
   "37": {
     "device": "AK-CC550-A-019x",
@@ -313,10 +313,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "38": {
     "device": "AK-CC550-A-019x",
@@ -324,10 +324,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "39": {
     "device": "AK-CC550-A-019x",
@@ -335,10 +335,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "40": {
     "device": "AK-CC550-A-019x",
@@ -347,9 +347,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "VLCU1-C01",
+    "volume": 1732
   },
   "41": {
     "device": "AK-CC550-A-019x",
@@ -357,10 +357,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "42": {
     "device": "AK-CC550-A-019x",
@@ -368,10 +368,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "43": {
     "device": "AK-CC550-A-019x",
@@ -379,10 +379,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "44": {
     "device": "AK-CC550-A-019x",
@@ -390,10 +390,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953
   },
   "45": {
     "device": "AK-CC550-A-019x",
@@ -402,9 +402,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "VLCU1-C01",
+    "volume": 1732
   },
   "46": {
     "device": "AK-CC550-A-019x",
@@ -413,9 +413,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953
   },
   "47": {
     "device": "AK-CC550-A-019x",
@@ -424,9 +424,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "48": {
     "device": "AK-CC550-A-019x",
@@ -435,9 +435,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "49": {
     "device": "AK-CC550-A-019x",
@@ -446,9 +446,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "50": {
     "device": "AK-CC550-A-019x",
@@ -457,9 +457,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "VLCU1-C01",
+    "volume": 1732
   },
   "51": {
     "device": "AK-CC550-A-019x",
@@ -478,10 +478,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "53": {
     "device": "AK-CC550-A-019x",
@@ -489,10 +489,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "54": {
     "device": "AK-CC550-A-019x",
@@ -500,10 +500,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "55": {
     "device": "AK-CC550-A-019x",
@@ -511,10 +511,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitirine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953
   },
   "56": {
     "device": "AK-CC55SC-017x",
@@ -523,9 +523,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "BONNET NEVET",
+    "model": "SKYNNDT3",
+    "volume": 4493
   },
   "57": {
     "device": "AK-CC550-A-019x",
@@ -533,10 +533,10 @@
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
-    "genre": "bac+",
-    "brand": "default",
-    "model": "default",
-    "volume": 576
+    "genre": "vitrine+",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "58": {
     "device": "AK-CC550-A-018x",
@@ -545,9 +545,9 @@
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
     "genre": "vitrine+",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960
   },
   "59": {
     "device": "AK-CC55SCUI-017x",
@@ -706,9 +706,9 @@
   "76": {
     "name": "CharcutFe_76",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -717,9 +717,9 @@
   "77": {
     "name": "CharcutFe_77",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -728,9 +728,9 @@
   "78": {
     "name": "CharcutFe_78",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -739,9 +739,9 @@
   "79": {
     "name": "CharcutFe_79",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -750,9 +750,9 @@
   "80": {
     "name": "FromageFe_80",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -761,9 +761,9 @@
   "81": {
     "name": "FromageFe_81",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -772,9 +772,9 @@
   "82": {
     "name": "FromageFe_82",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -783,9 +783,9 @@
   "83": {
     "name": "FromageFe_83",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -794,9 +794,9 @@
   "84": {
     "name": "BoucherieFe_84",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -805,9 +805,9 @@
   "85": {
     "name": "BoucherieFe_85",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -816,9 +816,9 @@
   "86": {
     "name": "BoucherieFe_86",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -827,9 +827,9 @@
   "87": {
     "name": "BoucherieFe_87",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -838,9 +838,9 @@
   "88": {
     "name": "SaurisserieFe_88",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -849,9 +849,9 @@
   "89": {
     "name": "SaurisserieFe_89",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -860,9 +860,9 @@
   "90": {
     "name": "SaurisserieFe_90",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -871,9 +871,9 @@
   "91": {
     "name": "SaurisserieFe_91",
     "device": "AK-CC55SC-017x",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
@@ -906,7 +906,7 @@
     "device": "AK-PC551-0163",
     "brand": "default",
     "model": "default",
-    "volume": 1254,
+    "volume": 0,
     "alias_sonde": "TherAir",
     "alias_cutout": "Cutout",
     "alias_state": "CtrlState",
