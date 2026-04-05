@@ -113,7 +113,7 @@ def getfile(cmd, idx, payload, payload_json)
     if (st != 200)
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
-        tasmota.resp_cmnd("Erreur de t�l�chargement.")
+        tasmota.resp_cmnd("Erreur de telechargement.")
         wc.close()
         start()
         return

@@ -19,7 +19,6 @@ class WFX
 
     var topic 
 
-    var logger
     var conso
 
     def loadconfig()
@@ -51,8 +50,6 @@ class WFX
         self.loadconfig()
         import conso
         self.conso = conso
-        import logger
-        self.logger = logger
 
         self.rst_1=22   
         self.bsl_1=0   
@@ -98,7 +95,6 @@ class WFX
                     self.conso.update(mylist[i],1)
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
-                    self.logger.log_data(mylist[i])
                     topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,1)
                     ligne = string.format('{"Reception": "%s"}',mylist[i])
                     mqtt.publish(topic,ligne,true)
@@ -120,7 +116,6 @@ class WFX
                     self.conso.update(mylist[i],2)
                     print(mylist[i])
                 elif mylist[i][0] == 'W'
-                    self.logger.log_data(mylist[i])
                     topic = string.format("gw/%s/%s/%s-%d/tele/POWER",global.client,global.ville,global.device,2)
                     ligne = string.format('{"Reception": "%s"}',mylist[i])
                     mqtt.publish(topic,ligne,true)
@@ -158,10 +153,6 @@ class WFX
 
     def every_4hours()
         self.conso.sauvegarde()
-    end
-
-    def testlog()
-        self.logger.store()
     end
 
 end

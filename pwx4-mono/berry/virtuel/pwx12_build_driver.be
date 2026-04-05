@@ -11,7 +11,6 @@ class PWX4
     var bsl
     var rst
 
-    var logger
     var root
     var topic 
     var conso
@@ -141,8 +140,6 @@ class PWX4
         self.loadconfig()
         import conso
         self.conso = conso
-        import logger
-        self.logger = logger
         self.rx = 3
         self.tx = 1
         self.rst = 2
@@ -188,7 +185,6 @@ class PWX4
                     topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                     mqtt.publish(topic, mylist[i], true)
                 elif mylist[i][0] == 'W'
- #                       self.logger.log_data(mylist[i])
                     split = string.split(mylist[i], ':')
                     for j:0..2
                         topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j+1)
@@ -220,9 +216,6 @@ class PWX4
         self.conso.sauvegarde()
     end
 
-    def testlog()
-        self.logger.store()
-    end
 
 end
 

@@ -21,7 +21,6 @@ class PWX4
     var cfg_attempts
     var cfg_ack
 
-    var logger
     var root
     var topic 
     var conso
@@ -29,8 +28,6 @@ class PWX4
     def init()
         import conso
         self.conso = conso
-        import logger
-        self.logger = logger
         self.pending_cfg_cmd = nil
         self.cfg_next_send_ms = 0
         self.cfg_attempts = 0
@@ -214,9 +211,6 @@ class PWX4
         self.conso.sauvegarde()
     end
 
-    def testlog()
-        self.logger.store()
-    end
 
     def heartbeat()
         var now = tasmota.rtc()

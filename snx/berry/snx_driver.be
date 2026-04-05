@@ -80,8 +80,6 @@ class STM32
 
         gpio.digital_write(global.statistic_pin, 0)
         gpio.digital_write(global.ready_pin,1)
-
-        tasmota.add_fast_loop(/-> self.fast_loop())
     end
 
     def fast_loop()
@@ -121,7 +119,6 @@ class STM32
         file.write(buffer)
         file.close()
     end
-
 
     def read_uart(timeout)
         var mystring

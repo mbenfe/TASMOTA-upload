@@ -220,9 +220,6 @@ class PWX12
         self.conso.sauvegarde()
     end
 
-    def testlog()
-        self.logger.store()
-    end
 
 end
 
