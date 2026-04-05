@@ -220,7 +220,14 @@ class stm32h743_flasher
   def _expect_ack(timeout, stage)
     var due = tasmota.millis() + timeout
     var last = bytes()
+    var defer = 16
     while !tasmota.time_reached(due)
+      defer = defer - 1
+      if defer <= 0
+        tasmota.yield()
+        defer = 16
+      end
+
       var b = bytes()
       if size(self.rxbuf) > 0
         b = self.rxbuf
