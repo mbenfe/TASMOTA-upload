@@ -205,6 +205,32 @@ def statistic()
     tasmota.resp_cmnd("s sent")
 end
 
+def setmode(cmd, idx, payload, payload_json)
+    if global.stm32 == nil
+        tasmota.resp_cmnd("driver not ready")
+        return
+    end
+
+    var requested = ""
+    if payload != nil
+        requested = string.lower(str(payload))
+    end
+
+    if requested == ""
+        tasmota.resp_cmnd("mode=" + global.stm32.get_publish_mode())
+        return
+    end
+
+    var set_to = global.stm32.set_publish_mode(requested)
+    if set_to == nil
+        tasmota.resp_cmnd("invalid mode: " + requested + " (standard|error|debug|log|danfosslog|danfoss|consign)")
+        return
+    end
+
+    mqttprint("publish mode=" + set_to)
+    tasmota.resp_cmnd("mode=" + set_to)
+end
+
 
 
 
@@ -225,6 +251,7 @@ tasmota.add_cmd('dir',dir)
 tasmota.add_cmd('getversion',getversion)
 tasmota.add_cmd('update',update)
 tasmota.add_cmd('statistic',statistic)
+tasmota.add_cmd('set',setmode)
 
 
 init()

@@ -26,6 +26,7 @@ class STM32
     var ville
     var device
     var topic 
+    var publish_mode
 
     def mqttprint(texte)
         import mqtt
@@ -64,6 +65,7 @@ class STM32
         self.mapID = {}
         self.mapFunc = {}
         self.errors = {}
+        self.publish_mode = "standard"
 
         self.loadconfig()
 
@@ -80,6 +82,58 @@ class STM32
 
         gpio.digital_write(global.statistic_pin, 0)
         gpio.digital_write(global.ready_pin,1)
+    end
+
+    def set_publish_mode(mode)
+        if mode == nil
+            return self.publish_mode
+        end
+
+        var m = string.lower(str(mode))
+        if m == "standard" || m == "debug" || m == "error" || m == "log" || m == "danfosslog" || m == "danfoss" || m == "consign"
+            self.publish_mode = m
+            return self.publish_mode
+        end
+        return nil
+    end
+
+    def get_publish_mode()
+        return self.publish_mode
+    end
+
+    def _allow_publish(kind)
+        var mode = self.publish_mode
+        if mode == nil || mode == "standard"
+            return true
+        end
+
+        if mode == "debug" || mode == "error"
+            return kind == "debug" || kind == "print"
+        end
+
+        if mode == "log"
+            return kind == "danfosslog"
+        end
+
+        if mode == "danfosslog"
+            return kind == "danfosslog"
+        end
+
+        if mode == "danfoss"
+            return kind == "danfoss"
+        end
+
+        if mode == "consign"
+            return kind == "consign"
+        end
+
+        return true
+    end
+
+    def _publish_if_allowed(kind, topic, payload)
+        if self._allow_publish(kind)
+            mqtt.publish(topic, payload, true)
+        end
     end
 
     def fast_loop()
@@ -146,19 +200,19 @@ class STM32
                                     self.mqttprint('error: ' + mylist[i])
                                     self.map_error(mylist[i])
                                 end
-                     #           mqtt.publish(topic,mylist[i],true)
+                                self._publish_if_allowed("debug", topic, mylist[i])
                             elif myjson["ID"] == -2
                                 topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
-                                mqtt.publish(topic,mylist[i],true)
+                                self._publish_if_allowed("config", topic, mylist[i])
                             elif myjson["ID"] == -3
                                 topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
-                                mqtt.publish(topic,mylist[i],true)
+                                self._publish_if_allowed("consign", topic, mylist[i])
                             elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
-                                mqtt.publish(topic,mylist[i],true)
+                                self._publish_if_allowed("danfoss", topic, mylist[i])
                             else
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(int(myjson["ID"])))
-                                mqtt.publish(topic,mylist[i],true)
+                                self._publish_if_allowed("danfosslog", topic, mylist[i])
                            end
                         end
                     else
@@ -182,7 +236,7 @@ class STM32
                         myjson = json.load(line)
                         if myjson != nil && myjson.contains("ID")
                             topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
-                            mqtt.publish(topic,line,true)
+                            self._publish_if_allowed("statistic", topic, line)
                         else
                             self.mqttprint('ESP32 json statistic error:' + line)
                         end
@@ -191,7 +245,7 @@ class STM32
             else
                 topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)
                 mystring = buffer.asstring()
-                mqtt.publish(topic,mystring,true)
+                self._publish_if_allowed("print", topic, mystring)
             end
         end
         gpio.digital_write(global.ready_pin,1)
