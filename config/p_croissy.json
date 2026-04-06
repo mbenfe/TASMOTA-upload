@@ -15,6 +15,14 @@
         "techno": ["ct"],
         "ratio": ["2000"]
     },
+    "pwx4-froid-new": {
+        "mode": "tri",
+        "root": ["fpos2"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["2000"]
+    },
     "dl4-main": {
         "mode": "tri",
         "root": ["main"],
