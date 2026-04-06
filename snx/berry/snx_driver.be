@@ -89,7 +89,7 @@ class STM32
             return self.publish_mode
         end
 
-        var m = string.lower(str(mode))
+        var m = string.tolower(str(mode))
         if m == "standard" || m == "debug" || m == "error" || m == "log" || m == "danfosslog" || m == "danfoss" || m == "consign"
             self.publish_mode = m
             return self.publish_mode

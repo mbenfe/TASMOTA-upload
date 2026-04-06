@@ -213,7 +213,7 @@ def setmode(cmd, idx, payload, payload_json)
 
     var requested = ""
     if payload != nil
-        requested = string.lower(str(payload))
+        requested = string.tolower(str(payload))
     end
 
     if requested == ""
