@@ -1,4 +1,4 @@
-var version = "1.0.022026 use shared global.ser"
+var version = "1.0.042026 debug reorganized"
 
 import mqtt
 import string
@@ -30,7 +30,7 @@ class STM32
 
     def mqttprint(texte)
         import mqtt
-        var topic = string.format("gw/inter/%s/%s/tele/DEBUG2", self.ville, self.device)
+        var topic = string.format("gw/%s/%s/%s/tele/DEBUG2", self.client, self.ville, self.device)
         mqtt.publish(topic, texte, true)
     end
 
@@ -140,30 +140,6 @@ class STM32
         self.read_uart(2)
     end
 
-    def map_error(json_string)
-        var data = json.load(json_string)
-
-        if data["ERREUR"] != "Type introuvable"
-            return
-        end
-
-        var dev_type = data["type"]    
-        if dev_type ==""
-           return
-        end
-
-        var reg = data["registre"]
-
-        if reg != ""
-           if !self.errors.contains(reg)
-              self.errors.insert(reg,{"name":"tbd","ratio":1,"liste":[]})
-           end
-           if self.errors[reg]["liste"] == nil
-              self.erros[reg]["liste"].push(dev_type)
-           end
-        end
-    end
-
     def save()
         var file = open("error.json","wt")
         if file == nil
@@ -194,28 +170,31 @@ class STM32
                     myjson = json.load(mylist[i])
                     if myjson != nil
                         if myjson.contains('ID')
-                            if myjson["ID"] == 0 || myjson["ID"] == -1
-                                topic=string.format("gw/%s/%s/%s/tele/DEBUG",self.client,self.ville,self.device)
-                                if myjson.contains('ERREUR')
-                                    self.mqttprint('error: ' + mylist[i])
-                                    self.map_error(mylist[i])
+                            var msg_id = int(myjson["ID"])
+                            if msg_id < 0
+                                var kind = "debug"
+                                if msg_id == -1
+                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG1",self.client,self.ville,self.device)
+                                elif msg_id == -2
+                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
+                                elif msg_id == -25
+                                    kind = "config"
+                                    topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
+                                elif msg_id == -20
+                                    kind = "consign"
+                                    topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
+                                else
+                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
                                 end
-                                self._publish_if_allowed("debug", topic, mylist[i])
-                            elif myjson["ID"] == -2
-                                topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
-                                self._publish_if_allowed("config", topic, mylist[i])
-                            elif myjson["ID"] == -3
-                                topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
-                                self._publish_if_allowed("consign", topic, mylist[i])
+                                self._publish_if_allowed(kind, topic, mylist[i])
                             elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
-                                topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(int(myjson["ID"])))
+                                topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(msg_id))
                                 self._publish_if_allowed("danfoss", topic, mylist[i])
                             else
-                                topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(int(myjson["ID"])))
+                                topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(msg_id))
                                 var log_allowed = true
                                 if self.publish_mode == "log" || self.publish_mode == "danfosslog"
-                                    var log_id = int(myjson["ID"])
-                                    if log_id < 10 || log_id > 20
+                                    if msg_id < 10 || msg_id > 20
                                         log_allowed = false
                                     end
                                 end
