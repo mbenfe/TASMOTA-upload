@@ -34,6 +34,12 @@ class STM32
         mqtt.publish(topic, texte, true)
     end
 
+    def publish_json_error(context, raw_line)
+        var topic = string.format("gw/%s/%s/%s/tele/DEBUG3", self.client, self.ville, self.device)
+        var payload = json.dump({"Error":"json_error","Context":str(context),"Raw":str(raw_line)})
+        mqtt.publish(topic, payload, true)
+    end
+
 
     def loadconfig()
         import json
@@ -205,7 +211,7 @@ class STM32
                         end
                     else
                         print('ESP32: json error:',mylist[i])
-                        self.mqttprint('ESP32:json error:' + mylist[i])
+                        self.publish_json_error("telemetry", mylist[i])
                     end
                 end
             elif (buffer[0] == 42)     # * -> json statistic
@@ -226,7 +232,7 @@ class STM32
                             topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
                             self._publish_if_allowed("statistic", topic, line)
                         else
-                            self.mqttprint('ESP32 json statistic error:' + line)
+                            self.publish_json_error("statistic", line)
                         end
                     end
                 end
