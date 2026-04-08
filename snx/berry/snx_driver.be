@@ -195,6 +195,9 @@ class STM32
                             else
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(msg_id))
                                 var log_allowed = true
+                                if msg_id >= 10 && msg_id <= 20
+                                    log_allowed = false
+                                end
                                 if self.publish_mode == "log" || self.publish_mode == "danfosslog"
                                     if msg_id < 10 || msg_id > 20
                                         log_allowed = false
