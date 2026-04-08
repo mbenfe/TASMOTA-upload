@@ -212,7 +212,16 @@ class STM32
                                 self._publish_if_allowed("danfoss", topic, mylist[i])
                             else
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(int(myjson["ID"])))
-                                self._publish_if_allowed("danfosslog", topic, mylist[i])
+                                var log_allowed = true
+                                if self.publish_mode == "log" || self.publish_mode == "danfosslog"
+                                    var log_id = int(myjson["ID"])
+                                    if log_id < 10 || log_id > 20
+                                        log_allowed = false
+                                    end
+                                end
+                                if log_allowed
+                                    self._publish_if_allowed("danfosslog", topic, mylist[i])
+                                end
                            end
                         end
                     else
