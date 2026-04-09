@@ -169,6 +169,13 @@ def GetCommand(cmd, idx, payload, payload_json)
         return
     end
 
+    if (argument[0] == "TYPE")
+        global.ser.write(bytes().fromstring("GET TYPE\n"))
+        mqttprint('GET TYPE')
+        tasmota.resp_cmnd_done()
+        return
+    end
+
     if (argument[0] == "ENERGY")
         global.ser.write(bytes().fromstring("GET ENERGY\n"))
         mqttprint('GET ENERGY')
@@ -514,8 +521,9 @@ def help()
 
     print("[STM32 GET COMMANDS]")
     print("get CAL")
-    print("get CONFIG   (query STM32 applied config as JSON)")
+    print("get CONFIG   (query STM32 applied config/register dump)")
     print("get MODE")
+    print("get TYPE")
     print("get ENERGY")
 
     print("[STM32 CAL COMMANDS]")
@@ -540,7 +548,7 @@ def help()
 
     print("[NOTES]")
     print("- UART single link on C3: commands and telemetry share same serial")
-    print("- update downloads: c_<ville>.json, p_<ville>.json, command.be, conso.be, flasher.be, logger.be, pwx12_driver.be")
+    print("- update downloads: c_<ville>.json, p_<ville>.json, conso.be, flasher.be, intelhex.be, pwx12_driver.be")
     tasmota.resp_cmnd_done()
 end
 
@@ -580,14 +588,12 @@ def update()
     command = string.format("getfile config/%s", name)
     mqttprint("update: " + command)
     tasmota.cmd(command)
-    mqttprint("update: getfile pwx12/berry-c3/command.be")
-    tasmota.cmd("getfile pwx12/berry-c3/command.be")
     mqttprint("update: getfile pwx12/berry-c3/conso.be")
     tasmota.cmd("getfile pwx12/berry-c3/conso.be")   
-    mqttprint("update: getfile pwx12/berry-c3/flasher.be")
-    tasmota.cmd("getfile pwx12/berry-c3/flasher.be")
-    mqttprint("update: getfile pwx12/berry-c3/logger.be")
-    tasmota.cmd("getfile pwx12/berry-c3/logger.be")
+    mqttprint("update: getfile flashers/stm32C071-PWX/flasher.be")
+    tasmota.cmd("getfile flashers/stm32C071-PWX/flasher.be")
+    mqttprint("update: getfile flashers/stm32C071-PWX/intelhex.be")
+    tasmota.cmd("getfile flashers/stm32C071-PWX/intelhex.be")
     mqttprint("update: getfile pwx12/berry-c3/pwx12_driver.be")
     tasmota.cmd("getfile pwx12/berry-c3/pwx12_driver.be")
     start()

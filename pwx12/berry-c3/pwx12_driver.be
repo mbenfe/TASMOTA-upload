@@ -91,7 +91,7 @@ class PWX12
         var m2 = self._arr_get(dev["mode"], 2, "tri")
 
         self.pending_cfg_cmd = string.format(
-            "SET CONFIG %s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s\\n",
+            "SET CONFIG %s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s\n",
             global.device,
             r0, r1, r2,
             produit,
