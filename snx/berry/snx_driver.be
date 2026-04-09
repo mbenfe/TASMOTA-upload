@@ -230,7 +230,7 @@ class STM32
                         if size(line) > 0
                             myjson = json.load(line)
                             if myjson != nil && myjson.contains("ID")
-                                topic=string.format("gw/%s/%s/stat_%s/tele/STATISTIC",self.client,self.ville,str(myjson["Name"]))
+                                topic=string.format("gw/%s/%s/%s-%s/tele/STATISTIC",self.client,self.ville,self.device,str(int(myjson["ID"])))
                                 self._publish_if_allowed("statistic", topic, line)
                             else
                                 print("ESP32: json statistic error:", line)
