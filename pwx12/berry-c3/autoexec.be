@@ -188,30 +188,30 @@ end
 
 def Stm32Reset()
     print("Resetting STM32...")
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(rst, 0)
+    gpio.pin_mode(global.rst, gpio.OUTPUT)
+    gpio.pin_mode(global.bsl, gpio.OUTPUT)
+    gpio.digital_write(global.rst, 0)
     tasmota.delay(100)  # wait 10ms
-    gpio.digital_write(rst, 1)
+    gpio.digital_write(global.rst, 1)
     tasmota.delay(100)  # wait 10ms
     tasmota.resp_cmnd("STM32 reset")
 end
 
 def hold()
     # Hold STM32 in reset and keep boot pin low.
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 0)
+    gpio.pin_mode(global.rst, gpio.OUTPUT)
+    gpio.pin_mode(global.bsl, gpio.OUTPUT)
+    gpio.digital_write(global.bsl, 0)
+    gpio.digital_write(global.rst, 0)
     tasmota.resp_cmnd("done")
 end
 
 def start()
     # Release reset and keep boot pin low for normal boot.
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 1)
+    gpio.pin_mode(global.rst, gpio.OUTPUT)
+    gpio.pin_mode(global.bsl, gpio.OUTPUT)
+    gpio.digital_write(global.bsl, 0)
+    gpio.digital_write(global.rst, 1)
     tasmota.resp_cmnd("done")
 end
 
@@ -252,10 +252,10 @@ def Init()
     gpio.pin_mode(global.tx, gpio.OUTPUT)
     global.ser = serial(global.rx, global.tx, 460800, serial.SERIAL_8N1)
 
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 1)
+    gpio.pin_mode(global.rst, gpio.OUTPUT)
+    gpio.pin_mode(global.bsl, gpio.OUTPUT)
+    gpio.digital_write(global.bsl, 0)
+    gpio.digital_write(global.rst, 1)
 
     mqttprint('serial initialised')
 end
