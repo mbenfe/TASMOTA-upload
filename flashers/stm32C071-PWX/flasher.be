@@ -37,14 +37,14 @@ class stm32c071_flasher
   var bl_cmds
 
   def init()
-    global.rx = 18
-    global.tx = 19    
+    if type(global.rx) != 'int' global.rx = 18 end
+    if type(global.tx) != 'int' global.tx = 19 end
     gpio.pin_mode(global.rx,gpio.INPUT_PULLUP)
     gpio.pin_mode(global.tx,gpio.OUTPUT)
 
     global.serflash = serial(global.rx,global.tx,115200,serial.SERIAL_8E1)
-    global.bsl = 6
-    global.rst = 9
+    if type(global.bsl) != 'int' global.bsl = 6 end
+    if type(global.rst) != 'int' global.rst = 9 end
     gpio.pin_mode(global.bsl,gpio.OUTPUT)
     gpio.pin_mode(global.rst,gpio.OUTPUT)
     gpio.digital_write(global.bsl, 0)
