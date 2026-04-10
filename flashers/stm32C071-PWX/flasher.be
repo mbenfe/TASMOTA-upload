@@ -37,12 +37,12 @@ class stm32c071_flasher
   var bl_cmds
 
   def init()
-    if type(global.rx) != 'int' global.rx = 18 end
-    if type(global.tx) != 'int' global.tx = 19 end
-    gpio.pin_mode(global.rx,gpio.INPUT_PULLUP)
-    gpio.pin_mode(global.tx,gpio.OUTPUT)
+    global.rx_flash=7
+    global.tx_flash=8
+    gpio.pin_mode(global.rx_flash,gpio.INPUT_PULLUP)
+    gpio.pin_mode(global.tx_flash,gpio.OUTPUT)
 
-    global.serflash = serial(global.rx,global.tx,115200,serial.SERIAL_8E1)
+    global.serflash = serial(global.rx_flash,global.tx_flash,115200,serial.SERIAL_8E1)
     if type(global.bsl) != 'int' global.bsl = 6 end
     if type(global.rst) != 'int' global.rst = 9 end
     gpio.pin_mode(global.bsl,gpio.OUTPUT)
@@ -146,7 +146,7 @@ class stm32c071_flasher
     gpio.digital_write(global.rst, 0)
     tasmota.delay(20)
     gpio.digital_write(global.rst, 1)
-    global.serflash = serial(global.rx, global.tx, 115200, serial.SERIAL_8E1)
+    global.serflash = serial(global.rx_flash, global.tx_flash, 115200, serial.SERIAL_8E1)
     global.serflash.flush()
     tasmota.delay(120)
   end
