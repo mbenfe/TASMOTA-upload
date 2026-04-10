@@ -181,6 +181,7 @@ class PWX12
             else
                 topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                 mqtt.publish(topic, line, true)
+                print('PWX12->', line)
             end
         else
             if string.find(line, "config done") != -1
