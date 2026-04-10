@@ -611,6 +611,7 @@ tasmota.cmd("Teleperiod 0")
 
 # ====================== STM32 COMMANDS ======================
 tasmota.add_cmd("Stm32reset", Stm32Reset)
+tasmota.add_cmd("stm32reset", Stm32Reset)
 tasmota.add_cmd("hold", hold)
 tasmota.add_cmd("start", start)
 tasmota.add_cmd("set", SetCommand)
