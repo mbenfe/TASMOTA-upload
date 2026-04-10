@@ -187,6 +187,7 @@ def GetCommand(cmd, idx, payload, payload_json)
 end
 
 def Stm32Reset()
+    print("Resetting STM32...")
     gpio.pin_mode(rst, gpio.OUTPUT)
     gpio.pin_mode(bsl, gpio.OUTPUT)
     gpio.digital_write(rst, 0)
@@ -353,6 +354,8 @@ def sendconfig(cmd, idx, payload, payload_json)
     var config_file
     var total = ""
     var trouve = false
+
+    print("sendconfig called")
     
     if (global.device == nil || global.ville == nil)
         mqttprint("ERROR: device or ville not initialized (call Init first)")
@@ -611,7 +614,6 @@ print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
 
 # ====================== STM32 COMMANDS ======================
-tasmota.add_cmd("Stm32reset", Stm32Reset)
 tasmota.add_cmd("stm32reset", Stm32Reset)
 tasmota.add_cmd("hold", hold)
 tasmota.add_cmd("start", start)
