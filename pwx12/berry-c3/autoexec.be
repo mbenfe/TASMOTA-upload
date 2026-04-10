@@ -9,7 +9,7 @@ import path
 
 global.rx = 18
 global.tx = 19
-var rst = 2   
+var rst = 9   
 var bsl = 13   
 
 #-------------------------------- COMMANDES -----------------------------------------#

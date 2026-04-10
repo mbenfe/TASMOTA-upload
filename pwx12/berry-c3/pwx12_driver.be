@@ -68,37 +68,37 @@ class PWX12
         end
 
         var dev = all_cfg[global.device]
-        var produit = str(dev["produit"])
+        var product_name = str(dev["produit"])
 
-        var r0 = self._arr_get(dev["root"], 0, "*")
-        var r1 = self._arr_get(dev["root"], 1, "*")
-        var r2 = self._arr_get(dev["root"], 2, "*")
+        var root_ch1 = self._arr_get(dev["root"], 0, "*")
+        var root_ch2 = self._arr_get(dev["root"], 1, "*")
+        var root_ch3 = self._arr_get(dev["root"], 2, "*")
 
-        var t0 = self._arr_get(dev["techno"], 0, "ct")
-        var t1 = self._arr_get(dev["techno"], 1, "ct")
-        var t2 = self._arr_get(dev["techno"], 2, "ct")
+        var techno_ch1 = self._arr_get(dev["techno"], 0, "ct")
+        var techno_ch2 = self._arr_get(dev["techno"], 1, "ct")
+        var techno_ch3 = self._arr_get(dev["techno"], 2, "ct")
 
-        var q0 = self._arr_get(dev["ratio"], 0, "1000")
-        var q1 = self._arr_get(dev["ratio"], 1, "1000")
-        var q2 = self._arr_get(dev["ratio"], 2, "1000")
+        var ratio_ch1 = self._arr_get(dev["ratio"], 0, "1000")
+        var ratio_ch2 = self._arr_get(dev["ratio"], 1, "1000")
+        var ratio_ch3 = self._arr_get(dev["ratio"], 2, "1000")
 
-        var p0 = self._arr_get(dev["PGA"], 0, "1")
-        var p1 = self._arr_get(dev["PGA"], 1, "1")
-        var p2 = self._arr_get(dev["PGA"], 2, "1")
+        var pga_ch1 = self._arr_get(dev["PGA"], 0, "1")
+        var pga_ch2 = self._arr_get(dev["PGA"], 1, "1")
+        var pga_ch3 = self._arr_get(dev["PGA"], 2, "1")
 
-        var m0 = self._arr_get(dev["mode"], 0, "tri")
-        var m1 = self._arr_get(dev["mode"], 1, "tri")
-        var m2 = self._arr_get(dev["mode"], 2, "tri")
+        var mode_ch1 = self._arr_get(dev["mode"], 0, "tri")
+        var mode_ch2 = self._arr_get(dev["mode"], 1, "tri")
+        var mode_ch3 = self._arr_get(dev["mode"], 2, "tri")
 
         self.pending_cfg_cmd = string.format(
             "SET CONFIG %s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s\n",
             global.device,
-            r0, r1, r2,
-            produit,
-            t0, t1, t2,
-            q0, q1, q2,
-            p0, p1, p2,
-            m0, m1, m2
+            root_ch1, root_ch2, root_ch3,
+            product_name,
+            techno_ch1, techno_ch2, techno_ch3,
+            ratio_ch1, ratio_ch2, ratio_ch3,
+            pga_ch1, pga_ch2, pga_ch3,
+            mode_ch1, mode_ch2, mode_ch3
         )
 
         self.cfg_attempts = 0
