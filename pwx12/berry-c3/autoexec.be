@@ -303,16 +303,6 @@ def name(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-def getfile(cmd, idx, payload, payload_json)
-    var st = fetch_file(payload)
-    if st == 200
-        var nom_fichier = string.split(payload, '/').pop()
-        tasmota.resp_cmnd('uploaded:' + nom_fichier)
-    else
-        tasmota.resp_cmnd("Erreur de téléchargement.")
-    end
-end
-
 def fetch_file(payload)
     import string
     var message
@@ -342,6 +332,16 @@ def fetch_file(payload)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
     return st
+end
+
+def getfile(cmd, idx, payload, payload_json)
+    var st = fetch_file(payload)
+    if st == 200
+        var nom_fichier = string.split(payload, '/').pop()
+        tasmota.resp_cmnd('uploaded:' + nom_fichier)
+    else
+        tasmota.resp_cmnd("Erreur de téléchargement.")
+    end
 end
 
 def sendconfig(cmd, idx, payload, payload_json)
