@@ -609,29 +609,49 @@ def couts()
     tasmota.resp_cmnd_done()
 end
 
+def launch_driver()
+    tasmota.load("pwx12_driver.be")
+end
+
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
 
 # ====================== STM32 COMMANDS ======================
 tasmota.add_cmd("stm32reset", Stm32Reset)
+print("add_cmd:", "stm32reset")
 tasmota.add_cmd("hold", hold)
+print("add_cmd:", "hold")
 tasmota.add_cmd("start", start)
+print("add_cmd:", "start")
 tasmota.add_cmd("set", SetCommand)
+print("add_cmd:", "set")
 tasmota.add_cmd("get", GetCommand)
+print("add_cmd:", "get")
 tasmota.add_cmd("cal", Calibration)
+print("add_cmd:", "cal")
 
 # ====================== ESP32 COMMANDS ======================
 tasmota.add_cmd("Init", Init)
+print("add_cmd:", "Init")
 tasmota.add_cmd("getfile", getfile)
+print("add_cmd:", "getfile")
 tasmota.add_cmd("name", name)
+print("add_cmd:", "name")
 tasmota.add_cmd("sendconfig", sendconfig)
+print("add_cmd:", "sendconfig")
 tasmota.add_cmd("h", help)
+print("add_cmd:", "h")
 tasmota.add_cmd('dir', dir)
+print("add_cmd:", "dir")
 tasmota.add_cmd('getversion', getversion)
+print("add_cmd:", "getversion")
 tasmota.add_cmd('update', update)
+print("add_cmd:", "update")
 tasmota.add_cmd('couts', couts)
+print("add_cmd:", "couts")
 
 ############################################################
 Init()
-tasmota.load("pwx12_driver.be")
+print("wait 30s for driver loading")
+tasmota.set_timer(30000, launch_driver)
