@@ -42,7 +42,7 @@ class PWX12
         var ligne
 
         if string.find(line, "CONFIG ") == 0
-            var payload = string.sub(line, 7, size(line) - 1)
+            var payload = line[7..]
             split = string.split(payload, ':')
             if size(split) >= 17
                 topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
