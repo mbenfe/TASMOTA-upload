@@ -40,6 +40,7 @@ class PWX12
         print('heap:', tasmota.get_free_heap())
 
         self.prepare_config_push()
+        self.push_config_once()
     end
 
     def _arr_get(arr, idx, fallback)
@@ -107,30 +108,22 @@ class PWX12
         print("CFG: prepared for STM32")
     end
 
-    def try_push_config()
-        if self.pending_cfg_cmd == nil || self.cfg_ack
-            return
-        end
-        if self.cfg_attempts >= 4
-            return
-        end
-        if !tasmota.time_reached(self.cfg_next_send_ms)
+    def push_config_once()
+        if self.pending_cfg_cmd == nil
             return
         end
 
         # Ensure STM32 is released from reset before sending config.
         tasmota.cmd("start")
-        tasmota.delay(120)
+        tasmota.delay(1200)
         global.ser.flush()
         global.ser.write(bytes().fromstring(self.pending_cfg_cmd))
-        self.cfg_attempts += 1
-        self.cfg_next_send_ms = tasmota.millis() + 800
+        self.cfg_attempts = 1
         print("CFG: cmd=" + self.pending_cfg_cmd)
-        print("CFG: sent attempt " + str(self.cfg_attempts))
+        print("CFG: sent once at init")
     end
 
     def fast_loop()
-        self.try_push_config()
         self.read_uart(2)
     end
 
