@@ -600,6 +600,8 @@ def update()
     tasmota.cmd("getfile flashers/stm32C071-PWX/intelhex.be")
     mqttprint("update: getfile pwx12/berry-c3/pwx12_driver.be")
     tasmota.cmd("getfile pwx12/berry-c3/pwx12_driver.be")
+    mqttprint("update: getfile pwx12/berry-c3/autoexec.be")
+    tasmota.cmd("getfile pwx12/berry-c3/autoexec.be")
     start()
     mqttprint("update: done")
 end
