@@ -46,7 +46,7 @@ Notes:
 4. If needed, Readout Unprotect (0x92):
    - This can trigger mass erase and reset.
    - Reconnect and repeat handshake after reset.
-5. Erase (usually Extended Erase 0x44 on modern protocol versions).
+5. Erase (prefer Extended Erase 0x44 when supported; fallback to legacy Erase 0x43 if 0x44 is not advertised by GET).
 6. Write Memory (0x31) in chunks to user flash.
 7. Optional verify:
    - Read Memory (0x11), or
@@ -107,8 +107,8 @@ Cause:
 - A strict per-record alignment check can fail even when the firmware is valid.
 
 Current workspace behavior:
-- The flasher core now repacks HEX records into 8-byte aligned flash writes internally.
-- Missing bytes in a partial 8-byte slot are filled with 0xFF before write.
+- The flasher core repacks HEX records into 32-byte aligned flash slots internally.
+- Missing bytes in a partial 32-byte slot are filled with 0xFF before write.
 
 Result:
 - Valid HEX files with non-8-byte record lengths (such as 12-byte records) are accepted and flashed correctly.

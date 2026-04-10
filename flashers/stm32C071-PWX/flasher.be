@@ -33,6 +33,8 @@ class stm32c071_flasher
   var flash_records
   var flash_bytes
   var flash_writes
+  var bl_version
+  var bl_cmds
 
   def init()
     global.rx = 18
@@ -61,6 +63,8 @@ class stm32c071_flasher
     self.flash_records = 0
     self.flash_bytes = 0
     self.flash_writes = 0
+    self.bl_version = nil
+    self.bl_cmds = nil
   end
 
   def _load_hex(filename)
@@ -94,10 +98,12 @@ class stm32c071_flasher
 
     print("FLH: flashing started")
     self._start_link()
+    self._cmd_get()
+    print(format("FLH: bootloader version=0x%02X", self.bl_version))
     var idb = self._cmd_get_id()
     print("FLH: chip id bytes=" + str(idb))
 
-    self._cmd_extended_erase_mass()
+    self._cmd_erase_mass_auto()
 
     self.file_hex.parse(/ -> self._flash_pre(),
                         / address, len, data, offset -> self._flash_cb(address, len, data, offset),
@@ -309,6 +315,32 @@ class stm32c071_flasher
     return idb
   end
 
+  def _cmd_get()
+    self._send_cmd(0x00)
+    var n = self._recv_byte(500)
+    var payload = self._recv_exact(n + 1, 500)
+    self._expect_ack(500, "cmd_get payload")
+
+    if size(payload) <= 0
+      raise "protocol_error", "cmd_get: empty payload"
+    end
+
+    self.bl_version = payload[0]
+    self.bl_cmds = payload
+  end
+
+  def _supports_cmd(cmd)
+    if self.bl_cmds == nil || size(self.bl_cmds) <= 1
+      return false
+    end
+    for i:1..size(self.bl_cmds)-1
+      if self.bl_cmds[i] == (cmd & 0xFF)
+        return true
+      end
+    end
+    return false
+  end
+
   def _cmd_write_memory(addr, data)
     var len = size(data)
     if len <= 0 || len > 256
@@ -330,6 +362,26 @@ class stm32c071_flasher
     self._send_cmd(0x44)
     global.serflash.write(bytes("FFFF00"))
     self._expect_ack(30000, "cmd_extended_erase_mass")
+  end
+
+  def _cmd_erase_mass_legacy()
+    self._send_cmd(0x43)
+    global.serflash.write(bytes("FF00"))
+    self._expect_ack(30000, "cmd_erase_mass_legacy")
+  end
+
+  def _cmd_erase_mass_auto()
+    if self._supports_cmd(0x44)
+      print("FLH: erase command=0x44 (extended erase)")
+      self._cmd_extended_erase_mass()
+      return
+    end
+    if self._supports_cmd(0x43)
+      print("FLH: erase command=0x43 (legacy erase)")
+      self._cmd_erase_mass_legacy()
+      return
+    end
+    raise "protocol_error", "no supported erase command (0x44/0x43)"
   end
 
   def _cmd_go(addr)

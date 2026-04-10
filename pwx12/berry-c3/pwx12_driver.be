@@ -41,6 +41,29 @@ class PWX12
         var split
         var ligne
 
+        if string.find(line, "CONFIG ") == 0
+            var payload = string.sub(line, 7, size(line) - 1)
+            split = string.split(payload, ':')
+            if size(split) >= 17
+                topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
+                ligne = string.format(
+                    '{"device":"%s","root":["%s","%s","%s"],"produit":"%s","techno":["%s","%s","%s"],"ratio":[%s,%s,%s],"pga":[%s,%s,%s],"mode":["%s","%s","%s"]}',
+                    split[0],
+                    split[1], split[2], split[3],
+                    split[4],
+                    split[5], split[6], split[7],
+                    split[8], split[9], split[10],
+                    split[11], split[12], split[13],
+                    split[14], split[15], split[16]
+                )
+                mqtt.publish(topic, ligne, true)
+                print('PWX12 CONFIG->', ligne)
+            else
+                print('PWX12-> malformed CONFIG frame:', line)
+            end
+            return
+        end
+
         if line[0] == 'C'
             split = string.split(line, ':')
             if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
@@ -86,6 +109,8 @@ class PWX12
                 print('PWX12->', line)
             end
         else
+            topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+            mqtt.publish(topic, line, true)
             if string.find(line, "config done") != -1
                 print("CFG: STM32 acknowledged")
             end

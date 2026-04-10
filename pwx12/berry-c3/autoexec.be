@@ -250,7 +250,7 @@ def Init()
 
     gpio.pin_mode(global.rx, gpio.INPUT_PULLUP)
     gpio.pin_mode(global.tx, gpio.OUTPUT)
-    global.ser = serial(global.rx, global.tx, 115200, serial.SERIAL_8N1)
+    global.ser = serial(global.rx, global.tx, 460800, serial.SERIAL_8N1)
 
     gpio.pin_mode(rst, gpio.OUTPUT)
     gpio.pin_mode(bsl, gpio.OUTPUT)
@@ -524,7 +524,7 @@ def help()
 
     print("[STM32 GET COMMANDS]")
     print("get CAL")
-    print("get CONFIG   (query STM32 applied config/register dump)")
+    print("get CONFIG   (publishes JSON on .../tele/CONFIG)")
     print("get MODE")
     print("get TYPE")
     print("get ENERGY")
