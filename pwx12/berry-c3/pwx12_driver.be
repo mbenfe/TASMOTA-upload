@@ -19,10 +19,6 @@ end
 
 class PWX12
     var rx_partial
-    var pending_cfg_cmd
-    var cfg_next_send_ms
-    var cfg_attempts
-    var cfg_ack
 
     var root
     var topic 
@@ -31,96 +27,9 @@ class PWX12
     def init()
         import conso
         self.conso = conso
-        self.pending_cfg_cmd = nil
-        self.cfg_next_send_ms = 0
-        self.cfg_attempts = 0
-        self.cfg_ack = false
 
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
-
-        self.prepare_config_push()
-        self.push_config_once()
-    end
-
-    def _arr_get(arr, idx, fallback)
-        if arr != nil && size(arr) > idx && arr[idx] != nil
-            return str(arr[idx])
-        end
-        return fallback
-    end
-
-    def prepare_config_push()
-        import json
-        import string
-        var file_name = string.format("p_%s.json", global.ville)
-        var file = open(file_name, "rt")
-        if file == nil
-            print("CFG: missing file " + file_name)
-            return
-        end
-
-        var buffer = file.read()
-        file.close()
-        var all_cfg = json.load(buffer)
-        if all_cfg == nil || !all_cfg.contains(global.device)
-            print("CFG: missing device entry " + global.device)
-            return
-        end
-
-        var dev = all_cfg[global.device]
-        var product_name = str(dev["produit"])
-
-        var root_ch1 = self._arr_get(dev["root"], 0, "*")
-        var root_ch2 = self._arr_get(dev["root"], 1, "*")
-        var root_ch3 = self._arr_get(dev["root"], 2, "*")
-
-        var techno_ch1 = self._arr_get(dev["techno"], 0, "ct")
-        var techno_ch2 = self._arr_get(dev["techno"], 1, "ct")
-        var techno_ch3 = self._arr_get(dev["techno"], 2, "ct")
-
-        var ratio_ch1 = self._arr_get(dev["ratio"], 0, "1000")
-        var ratio_ch2 = self._arr_get(dev["ratio"], 1, "1000")
-        var ratio_ch3 = self._arr_get(dev["ratio"], 2, "1000")
-
-        var pga_ch1 = self._arr_get(dev["PGA"], 0, "1")
-        var pga_ch2 = self._arr_get(dev["PGA"], 1, "1")
-        var pga_ch3 = self._arr_get(dev["PGA"], 2, "1")
-
-        var mode_ch1 = self._arr_get(dev["mode"], 0, "tri")
-        var mode_ch2 = self._arr_get(dev["mode"], 1, "tri")
-        var mode_ch3 = self._arr_get(dev["mode"], 2, "tri")
-
-        self.pending_cfg_cmd = string.format(
-            "SET CONFIG %s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s\n",
-            global.device,
-            root_ch1, root_ch2, root_ch3,
-            product_name,
-            techno_ch1, techno_ch2, techno_ch3,
-            ratio_ch1, ratio_ch2, ratio_ch3,
-            pga_ch1, pga_ch2, pga_ch3,
-            mode_ch1, mode_ch2, mode_ch3
-        )
-
-        self.cfg_attempts = 0
-        self.cfg_ack = false
-        self.cfg_next_send_ms = tasmota.millis() + 1200
-        print("CFG: prepared for STM32")
-    end
-
-    def push_config_once()
-        if self.pending_cfg_cmd == nil
-            return
-        end
-
-        # Ensure STM32 is released from reset before sending config.
-        tasmota.cmd("start")
-        tasmota.delay(1200)
-        global.ser.flush()
-        global.ser.write(bytes().fromstring(self.pending_cfg_cmd))
-        self.cfg_attempts = 1
-        print("CFG: cmd=" + self.pending_cfg_cmd)
-        print("CFG: sent once at init")
     end
 
     def fast_loop()
@@ -178,8 +87,6 @@ class PWX12
             end
         else
             if string.find(line, "config done") != -1
-                self.cfg_ack = true
-                self.pending_cfg_cmd = nil
                 print("CFG: STM32 acknowledged")
             end
             print('PWX12->', line)
