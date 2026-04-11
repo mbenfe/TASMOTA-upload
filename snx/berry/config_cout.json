@@ -1,0 +1,77 @@
+{
+    "argenteuil": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "froid"
+    },
+    "aulnay": {
+        "cout_froid+": "fpos",
+        "cout_froid-": "fneg",
+        "cout_froid": "none"
+    },
+    "bezons": {
+        "cout_froid+": "fpos",
+        "cout_froid-": "fneg",
+        "cout_froid": "none"
+    },
+    "champigny": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "froid"
+    },
+    "chilly-mazarin": {
+        "cout_froid+": "fpos",
+        "cout_froid-": "fneg",
+        "cout_froid": "none"
+    },
+    "choisy": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "froid"
+    },
+    "coubron": {
+        "cout_froid+": "froid2",
+        "cout_froid-": "froid1",
+        "cout_froid": "none"
+    },
+    "croissy": {
+        "cout_froid+": "fpos",
+        "cout_froid-": "fneg",
+        "cout_froid": "none"
+    },
+    "egly": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "gene_froid"
+    },
+    "maisons-laffite": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "none"
+    },
+    "mery": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "froid"
+    },
+    "neuilly": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "froid"
+    },
+    "noisy": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "froid"
+    },
+    "roissy": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "froid"
+    },
+    "saint-maur": {
+        "cout_froid+": "none",
+        "cout_froid-": "none",
+        "cout_froid": "froid"
+    }
+}

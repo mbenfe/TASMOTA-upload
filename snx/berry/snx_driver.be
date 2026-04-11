@@ -178,6 +178,8 @@ class STM32
                                 elif msg_id == -20
                                     kind = "consign"
                                     topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
+                                elif msg_id == -31
+                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG4",self.client,self.ville,self.device)
                                 else
                                     topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
                                 end

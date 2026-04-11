@@ -1,1 +1,0 @@
-{"applications":[{"type":"Home","label":"Home","level":1,"virtuel":0,"data":[{"shape":"OpenWeather","color":0,"column":1,"row":1,"location":"MAISON","master":"","slave":[]}]},{"type":"iRideau","label":"Rideau","level":1,"virtuel":0,"data":[{"shape":"Thermoscreens","color":0,"column":1,"row":1,"location":"Droite","master":"rdx-droite","slave":[]}]}]}
