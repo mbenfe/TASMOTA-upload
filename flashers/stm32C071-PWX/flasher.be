@@ -37,14 +37,15 @@ class stm32c071_flasher
   var bl_cmds
 
   def init()
-    global.rx_flash=7
-    global.tx_flash=8
-    gpio.pin_mode(global.rx_flash,gpio.INPUT_PULLUP)
-    gpio.pin_mode(global.tx_flash,gpio.OUTPUT)
+    global.rx = 7
+    global.tx = 8
+    gpio.pin_mode(global.rx,gpio.INPUT_PULLUP)
+    gpio.pin_mode(global.tx,gpio.OUTPUT)
 
-    global.serflash = serial(global.rx_flash,global.tx_flash,115200,serial.SERIAL_8E1)
-    if type(global.bsl) != 'int' global.bsl = 6 end
-    if type(global.rst) != 'int' global.rst = 9 end
+    global.serflash = serial(global.rx,global.tx,57600,serial.SERIAL_8E1)    
+
+    global.bsl = 6
+    global.rst = 9
     gpio.pin_mode(global.bsl,gpio.OUTPUT)
     gpio.pin_mode(global.rst,gpio.OUTPUT)
     gpio.digital_write(global.bsl, 0)
@@ -63,7 +64,7 @@ class stm32c071_flasher
     self.flash_records = 0
     self.flash_bytes = 0
     self.flash_writes = 0
-    self.bl_version = nil
+    self.bl_version = -1
     self.bl_cmds = nil
   end
 
@@ -141,13 +142,18 @@ class stm32c071_flasher
   end
 
   def _enter_system_bootloader()
+
     global.serflash.flush()
+
     gpio.digital_write(global.bsl, 1)
     gpio.digital_write(global.rst, 0)
     tasmota.delay(20)
     gpio.digital_write(global.rst, 1)
-    global.serflash = serial(global.rx_flash, global.tx_flash, 115200, serial.SERIAL_8E1)
-    global.serflash.flush()
+
+    # global.serflash = serial(global.rx, global.tx, 115200, serial.SERIAL_8E1)
+    # global.serflash.flush()
+
+    # tasmota.delay(120)
     tasmota.delay(120)
   end
 
@@ -160,7 +166,8 @@ class stm32c071_flasher
   end
 
   def _sync()
-    global.serflash.flush()
+    # global.serflash.flush()
+    # global.serflash.write(bytes().fromstring("61"))
     global.serflash.write(bytes("7F"))
 
     var due = tasmota.millis() + 300
@@ -177,14 +184,21 @@ class stm32c071_flasher
           var v = b[i]
           last = v
           if v == 0x79 return true end
-          if v == 0x1F raise "protocol_error", "sync: received NACK" end
+          if v == 0x1F
+            gpio.digital_write(global.bsl, 0)
+            raise "protocol_error", "sync: received NACK"
+          end
         end
       else
         tasmota.delay(1)
       end
     end
 
-    if last >= 0 raise "protocol_error", format("sync: timeout waiting ACK, last=0x%02X", last) end
+    if last >= 0
+      gpio.digital_write(global.bsl, 0)
+      raise "protocol_error", format("sync: timeout waiting ACK, last=0x%02X", last)
+    end
+    gpio.digital_write(global.bsl, 0)
     raise "protocol_error", "sync: timeout waiting ACK (no response)"
   end
 
@@ -216,6 +230,7 @@ class stm32c071_flasher
       end
       tasmota.delay(2)
     end
+    gpio.digital_write(global.bsl, 0)
     raise "timeout_error", f"serial timeout waiting {sz} bytes"
   end
 
@@ -259,17 +274,21 @@ class stm32c071_flasher
 
         if v == 0x1F
           if i + 1 < size(b) self.rxbuf += b[i+1..] end
+          gpio.digital_write(global.bsl, 0)
           raise "protocol_error", format("%s: received NACK", stage)
         end
 
         if i + 1 < size(b) self.rxbuf += b[i+1..] end
+        gpio.digital_write(global.bsl, 0)
         raise "protocol_error", format("%s: expected ACK/NACK got 0x%02X", stage, v)
       end
     end
 
     if size(last) > 0
+      gpio.digital_write(global.bsl, 0)
       raise "protocol_error", format("%s: expected ACK/NACK timeout, last=%s", stage, str(last))
     end
+    gpio.digital_write(global.bsl, 0)
     raise "protocol_error", format("%s: expected ACK/NACK timeout (no response)", stage)
   end
 
@@ -441,11 +460,7 @@ class stm32c071_flasher
     self._flush_pending_slot()
     print(format("FLH: write summary records=%i bytes=%i aligned_writes=%i", self.flash_records, self.flash_bytes, self.flash_writes))
     print("FLH: step 6.5/7 - jump to user firmware")
-    try
-      self._cmd_go(self.FLASH_START)
-    except .. as e, m
-      print("FLH: warning: GO handshake non-fatal: " + m)
-    end
+    self._cmd_go(self.FLASH_START)
     print("FLH: step 6.9/7 - restore normal boot mode")
     self._leave_system_bootloader()
   end

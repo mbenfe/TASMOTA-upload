@@ -9,21 +9,13 @@ import path
 
 var device
 var ville
+var rst_out = 33
 
 def mqttprint(texte)
     import mqtt
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", ville, device)
     mqtt.publish(topic, texte, true)
 end
-
-var rst_out=33
-var bsl_out=32   
-
-# keep STM32 OUT in reset from boot start
-gpio.pin_mode(rst_out,gpio.OUTPUT)
-gpio.pin_mode(bsl_out,gpio.OUTPUT)
-gpio.digital_write(bsl_out, 0)
-gpio.digital_write(rst_out, 0)
 
 #-------------------------------- FONCTIONS -----------------------------------------#
 def init()
@@ -38,14 +30,11 @@ def init()
     global.ready_pin=27
     gpio.pin_mode(global.statistic_pin,gpio.OUTPUT)
     gpio.pin_mode(global.ready_pin,gpio.OUTPUT)
+    gpio.pin_mode(rst_out,gpio.OUTPUT)
  
     gpio.digital_write(global.statistic_pin, 0)
     gpio.digital_write(global.ready_pin,1)
-
-    gpio.pin_mode(rst_out,gpio.OUTPUT)
-    gpio.pin_mode(bsl_out,gpio.OUTPUT)
-    gpio.digital_write(bsl_out, 0)
-    gpio.digital_write(rst_out, 0)
+    gpio.digital_write(rst_out, 1)
 
     global.ser=serial(17,16,921600,serial.SERIAL_8N1)
 
@@ -59,31 +48,23 @@ end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Stm32Reset()
-    if global.stm32 != nil
-        global.stm32.stm32reset()
-    else
-        # Driver not loaded yet: fallback to OUT-only reset.
-        gpio.digital_write(rst_out, 0)
-        tasmota.delay(100)
-        gpio.digital_write(rst_out, 1)
-        tasmota.delay(100)
-    end
-    tasmota.resp_cmnd('STM32 OUT reset')
+    gpio.pin_mode(rst_out, gpio.OUTPUT)
+    gpio.digital_write(rst_out, 0)
+    tasmota.delay(5)
+    gpio.digital_write(rst_out, 1)
+    tasmota.delay(5)
+    tasmota.resp_cmnd('rst reset pulse')
 end
 
 def hold()
-    gpio.pin_mode(rst_out, gpio.OUTPUT)
-    gpio.pin_mode(bsl_out, gpio.OUTPUT)
-    gpio.digital_write(bsl_out, 0)
-    gpio.digital_write(rst_out, 0)
+    gpio.pin_mode(global.ready_pin, gpio.OUTPUT)
+    gpio.digital_write(global.ready_pin, 0)
     tasmota.resp_cmnd("done")
 end
 
 def start()
-    gpio.pin_mode(rst_out, gpio.OUTPUT)
-    gpio.pin_mode(bsl_out, gpio.OUTPUT)
-    gpio.digital_write(bsl_out, 0)
-    gpio.digital_write(rst_out, 1)
+    gpio.pin_mode(global.ready_pin, gpio.OUTPUT)
+    gpio.digital_write(global.ready_pin, 1)
     tasmota.resp_cmnd("done")
 end
 
@@ -150,8 +131,8 @@ end
 def launch_driver()
     mqttprint('mqtt connected -> launch driver')
     tasmota.load('snx_driver.be')
-    gpio.digital_write(rst_out, 1)
-    mqttprint('AUTOEXEC: STM32 OUT reset released')
+    gpio.digital_write(global.ready_pin, 1)
+    mqttprint('AUTOEXEC: ready pin enabled')
  end
 
  def getversion()

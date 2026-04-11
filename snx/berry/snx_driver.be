@@ -20,8 +20,6 @@ class STM32
     var errors
     var mapID
     var mapFunc
-    var rst_out  
-    var bsl_out   
      var client 
     var ville
     var device
@@ -59,9 +57,6 @@ class STM32
     end
 
     def init()
-        self.rst_out=33   
-        self.bsl_out=32   
-        
         self.mapID = {}
         self.mapFunc = {}
         self.errors = {}
@@ -71,12 +66,6 @@ class STM32
 
         print('DRIVER: serial init done')
     
-        # setup boot pins for stm32: reset disable & boot normal
-
-        gpio.pin_mode(self.rst_out,gpio.OUTPUT)
-        gpio.pin_mode(self.bsl_out,gpio.OUTPUT)
-        gpio.digital_write(self.bsl_out, 0)
-
         gpio.pin_mode(global.statistic_pin,gpio.OUTPUT)
         gpio.pin_mode(global.ready_pin,gpio.OUTPUT)
 
@@ -174,6 +163,10 @@ class STM32
                         if myjson.contains('ID')
                             var msg_id = int(myjson["ID"])
                             if msg_id < 0
+                                var now = tasmota.rtc()
+                                var timestamp = tasmota.time_str(now["local"])
+                                myjson["Time"] = timestamp
+                                var payload = json.dump(myjson)
                                 var kind = "debug"
                                 if msg_id == -1
                                     topic=string.format("gw/%s/%s/%s/tele/DEBUG1",self.client,self.ville,self.device)
@@ -188,7 +181,7 @@ class STM32
                                 else
                                     topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
                                 end
-                                self._publish_if_allowed(kind, topic, mylist[i])
+                                self._publish_if_allowed(kind, topic, payload)
                             elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(msg_id))
                                 self._publish_if_allowed("danfoss", topic, mylist[i])
@@ -256,10 +249,10 @@ class STM32
     end
 
     def stm32reset()
-        # Reset only STM32 OUT line.
-        gpio.digital_write(self.rst_out, 0)
+        # Keep compatibility helper without touching rst; rst is managed by autoexec Stm32Reset.
+        gpio.digital_write(global.ready_pin, 0)
         tasmota.delay(100)
-        gpio.digital_write(self.rst_out, 1)
+        gpio.digital_write(global.ready_pin, 1)
         tasmota.delay(100)
     end
 
