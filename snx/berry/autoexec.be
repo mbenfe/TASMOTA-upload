@@ -212,6 +212,50 @@ def setmode(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd("mode=" + set_to)
 end
 
+def sendsimu(cmd, idx, payload, payload_json)
+    if global.ser == nil
+        tasmota.resp_cmnd("serial not ready")
+        return
+    end
+
+    var sim_file = string.format("simulation_%s.json", ville)
+    var file = open(sim_file, "rt")
+    if file == nil
+        tasmota.resp_cmnd("missing file: " + sim_file)
+        return
+    end
+
+    var raw = file.read()
+    file.close()
+    var sim = json.load(raw)
+    if sim == nil
+        tasmota.resp_cmnd("invalid json: " + sim_file)
+        return
+    end
+
+    var sent = 0
+    gpio.pin_mode(global.ready_pin, gpio.OUTPUT)
+    gpio.digital_write(global.ready_pin, 0)
+    for id: sim.keys()
+        var entry = sim[id]
+        if entry != nil && entry.contains("DATA") && entry["DATA"] != nil
+            var line = string.format("simu %s", str(id))
+            var data = entry["DATA"]
+            for k: data.keys()
+                line += string.format(":%s:%s", str(k), str(data[k]))
+            end
+            var frame = bytes().fromstring(line)
+            global.ser.flush()
+            global.ser.write(frame)
+            tasmota.delay(5)
+            sent += 1
+        end
+    end
+    gpio.digital_write(global.ready_pin, 1)
+
+    tasmota.resp_cmnd(string.format("sendsimu sent %s frames from %s", str(sent), sim_file))
+end
+
 
 
 
@@ -233,6 +277,7 @@ tasmota.add_cmd('getversion',getversion)
 tasmota.add_cmd('update',update)
 tasmota.add_cmd('statistic',statistic)
 tasmota.add_cmd('set',setmode)
+tasmota.add_cmd('sendsimu',sendsimu)
 
 
 init()

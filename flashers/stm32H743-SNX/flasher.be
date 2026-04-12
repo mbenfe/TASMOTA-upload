@@ -93,16 +93,24 @@ class stm32h743_flasher
     end
 
     print("FLH: flashing started")
+    tasmota.yield()
     self._start_link()
+    tasmota.yield()
     var idb = self._cmd_get_id()
     print("FLH: chip id bytes=" + str(idb))
+    tasmota.yield()
 
     self._cmd_extended_erase_mass()
+    tasmota.yield()
 
     self.file_hex.parse(/ -> self._flash_pre(),
                         / address, len, data, offset -> self._flash_cb(address, len, data, offset),
                         / -> self._flash_post())
+    tasmota.yield()
 
+    print("FLH: finalize - restore normal boot mode")
+    self._leave_system_bootloader()
+    tasmota.yield()
     print("FLH: flashing completed")
   end
 
@@ -159,7 +167,14 @@ class stm32h743_flasher
 
     var due = tasmota.millis() + 300
     var last = -1
+    var defer = 16
     while !tasmota.time_reached(due)
+      defer = defer - 1
+      if defer <= 0
+        tasmota.yield()
+        defer = 16
+      end
+
       if global.serflash.available()
         var b = global.serflash.read()
         if size(b) == 0
@@ -196,7 +211,14 @@ class stm32h743_flasher
     end
 
     var due = tasmota.millis() + timeout
+    var defer = 16
     while !tasmota.time_reached(due)
+      defer = defer - 1
+      if defer <= 0
+        tasmota.yield()
+        defer = 16
+      end
+
       if global.serflash.available()
         var b = global.serflash.read()
         if size(b) > 0
@@ -329,6 +351,7 @@ class stm32h743_flasher
   def _cmd_extended_erase_mass()
     self._send_cmd(0x44)
     global.serflash.write(bytes("FFFF00"))
+    tasmota.yield()
     self._expect_ack(30000, "cmd_extended_erase_mass")
   end
 
@@ -351,6 +374,7 @@ class stm32h743_flasher
     if self.pending_slot != nil && self.pending_slot_has_data
       self._cmd_write_memory(self.pending_slot_addr, self.pending_slot)
       self.flash_writes += 1
+      tasmota.yield()
     end
     self.pending_slot_addr = -1
     self.pending_slot = nil
@@ -389,13 +413,8 @@ class stm32h743_flasher
     self._flush_pending_slot()
     print(format("FLH: write summary records=%i bytes=%i aligned_writes=%i", self.flash_records, self.flash_bytes, self.flash_writes))
     print("FLH: step 6.5/7 - jump to user firmware")
-    try
-      self._cmd_go(self.FLASH_START)
-    except .. as e, m
-      print("FLH: warning: GO handshake non-fatal: " + m)
-    end
-    print("FLH: step 6.9/7 - restore normal boot mode")
-    self._leave_system_bootloader()
+    self._cmd_go(self.FLASH_START)
+    print("FLH: step 6.9/7 - finalize handled by flash()")
   end
 
 end
