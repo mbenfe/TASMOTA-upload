@@ -5,7 +5,8 @@
     "brand": "default",
     "model": "default",
     "volume": 1254,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "1": {
     "device": "AK-CC550-012x",
@@ -13,7 +14,8 @@
     "brand": "default",
     "model": "default",
     "volume": 37500,
-    "genre": "CF-"
+    "genre": "CF-",
+    "OF": "ferme"
   },
   "2": {
     "device": "AK-CC550-018x",
@@ -21,7 +23,8 @@
     "brand": "default",
     "model": "default",
     "volume": 121286,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "3": {
     "device": "AK-CC55-017x",
@@ -29,7 +32,8 @@
     "brand": "default",
     "model": "default",
     "volume": 37500,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "4": {
     "device": "AK-CC55-017x",
@@ -37,7 +41,8 @@
     "brand": "default",
     "model": "default",
     "volume": 80662,
-    "genre": "CF-"
+    "genre": "CF-",
+    "OF": "ferme"
   },
   "5": {
     "device": "AK-CC55-017x",
@@ -45,7 +50,8 @@
     "brand": "default",
     "model": "default",
     "volume": 53687,
-    "genre": "CF-"
+    "genre": "CF-",
+    "OF": "ferme"
   },
   "6": {
     "device": "EKC302D-012x",
@@ -53,7 +59,8 @@
     "brand": "default",
     "model": "default",
     "volume": 64433,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "7": {
     "device": "AK-CC550-019x",
@@ -61,7 +68,8 @@
     "brand": "default",
     "model": "default",
     "volume": 37500,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "8": {
     "device": "AK-CC550-019x",
@@ -69,7 +77,8 @@
     "brand": "default",
     "model": "default",
     "volume": 37500,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "10": {
     "device": "EKC302D-012x",
@@ -77,7 +86,8 @@
     "brand": "default",
     "model": "default",
     "volume": 37500,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "11": {
     "device": "EKC302D-012x",
@@ -85,7 +95,8 @@
     "brand": "default",
     "model": "default",
     "volume": 37500,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "12": {
     "device": "AK-CC550-015x",
@@ -93,7 +104,8 @@
     "brand": "default",
     "model": "default",
     "volume": 19170,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "13": {
     "device": "EKC302D-012x",
@@ -101,7 +113,8 @@
     "brand": "default",
     "model": "default",
     "volume": 33390,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "15": {
     "device": "AK-CC550-019x",
@@ -109,7 +122,8 @@
     "brand": "EPTA",
     "model": "NC5LS5D",
     "volume": 3876,
-    "genre": "vitrine-"
+    "genre": "vitrine-",
+    "OF": "ferme"
   },
   "16": {
     "device": "AK-CC550-019x",
@@ -117,7 +131,8 @@
     "brand": "EPTA",
     "model": "NC5LS5D",
     "volume": 3876,
-    "genre": "vitrine-"
+    "genre": "vitrine-",
+    "OF": "ferme"
   },
   "17": {
     "device": "AK-CC550-019x",
@@ -125,7 +140,8 @@
     "brand": "EPTA",
     "model": "NC5LS4D",
     "volume": 4043,
-    "genre": "vitrine-"
+    "genre": "vitrine-",
+    "OF": "ferme"
   },
   "18": {
     "device": "AK-CC550-018x",
@@ -133,7 +149,8 @@
     "brand": "EPTA",
     "model": "APUIS2D",
     "volume": 1424,
-    "genre": "vitrine-"
+    "genre": "vitrine-",
+    "OF": "ferme"
   },
   "19": {
     "device": "AK-CC550-019x",
@@ -141,7 +158,8 @@
     "brand": "EPTA",
     "model": "NC5LS5D",
     "volume": 3876,
-    "genre": "vitrine-"
+    "genre": "vitrine-",
+    "OF": "ferme"
   },
   "20": {
     "device": "AK-CC550-019x",
@@ -149,7 +167,8 @@
     "brand": "EPTA",
     "model": "NC5LS5D",
     "volume": 3876,
-    "genre": "vitrine-"
+    "genre": "vitrine-",
+    "OF": "ferme"
   },
   "21": {
     "device": "AK-CC550-019x",
@@ -157,7 +176,8 @@
     "brand": "EPTA",
     "model": "NC5LS5D",
     "volume": 3876,
-    "genre": "vitrine-"
+    "genre": "vitrine-",
+    "OF": "ferme"
   },
   "22": {
     "device": "AK-CC550-019x",
@@ -165,7 +185,8 @@
     "brand": "EPTA",
     "model": "NC5LS2D",
     "volume": 1254,
-    "genre": "vitrine-"
+    "genre": "vitrine-",
+    "OF": "ferme"
   },
   "25": {
     "device": "AK-CC550-019x",
@@ -173,7 +194,8 @@
     "brand": "EPTA",
     "model": "TO1L-T4",
     "volume": 2223,
-    "genre": "bac-"
+    "genre": "bac-",
+    "OF": "ferme"
   },
   "26": {
     "device": "AK-CC550-019x",
@@ -181,7 +203,8 @@
     "brand": "EPTA",
     "model": "TORL-37",
     "volume": 4275,
-    "genre": "bac-"
+    "genre": "bac-",
+    "OF": "ferme"
   },
   "27": {
     "device": "AK-CC550-019x",
@@ -189,7 +212,8 @@
     "brand": "EPTA",
     "model": "TORL-37",
     "volume": 4275,
-    "genre": "bac-"
+    "genre": "bac-",
+    "OF": "ferme"
   },
   "30": {
     "device": "EKC202D1-015x",
@@ -197,7 +221,8 @@
     "brand": "BONNET NEVET",
     "model": "AMPHI II 11",
     "volume": 3384,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "31": {
     "device": "AK-CC550-018x",
@@ -205,7 +230,8 @@
     "brand": "EXKAL",
     "model": "LHBNB1-4.01",
     "volume": 1543,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "32": {
     "device": "AK-CC550-018x",
@@ -213,7 +239,8 @@
     "brand": "unknown",
     "model": "unknown",
     "volume": 1462,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ferme"
   },
   "33": {
     "device": "AK-CC550-018x",
@@ -221,7 +248,8 @@
     "brand": "EPTA",
     "model": "MUSNS18",
     "volume": 1096,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "34": {
     "device": "AK-CC550-018x",
@@ -229,7 +257,8 @@
     "brand": "EPTA",
     "model": "MUSNS37",
     "volume": 1096,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "35": {
     "device": "AK-CC550-018x",
@@ -237,7 +266,8 @@
     "brand": "EPTA",
     "model": "MUSNS37",
     "volume": 1096,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "36": {
     "device": "AK-CC550-012x",
@@ -245,7 +275,8 @@
     "brand": "default",
     "model": "default",
     "volume": 10260,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "37": {
     "device": "AK-CC55-017x",
@@ -253,7 +284,8 @@
     "brand": "default",
     "model": "default",
     "volume": 16704,
-    "genre": "CF-"
+    "genre": "CF-",
+    "OF": "ferme"
   },
   "38": {
     "device": "AK-CC550-018x",
@@ -261,7 +293,8 @@
     "brand": "EPTA",
     "model": "MUSNS18",
     "volume": 1096,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "39": {
     "device": "AK-CC550-018x",
@@ -269,7 +302,8 @@
     "brand": "EPTA",
     "model": "MUSNS25",
     "volume": 1522,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "40": {
     "device": "AK-CC550-018x",
@@ -277,7 +311,8 @@
     "brand": "EPTA",
     "model": "MUSNS25",
     "volume": 1522,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "41": {
     "device": "AK-CC55-017x",
@@ -285,7 +320,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNST3",
     "volume": 2185,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ouvert"
   },
   "42": {
     "device": "AK-CC550A-020x",
@@ -293,7 +329,8 @@
     "brand": "KRYSTAL",
     "model": "DIAMANT-4P",
     "volume": 2587,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "43": {
     "device": "AK-CC550A-020x",
@@ -301,7 +338,8 @@
     "brand": "KRYSTAL",
     "model": "DIAMANT-6P",
     "volume": 3960,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "44": {
     "device": "AK-CC550A-020x",
@@ -309,7 +347,8 @@
     "brand": "KRYSTAL",
     "model": "DIAMANT-6P",
     "volume": 3960,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "45": {
     "device": "AK-CC550A-020x",
@@ -317,7 +356,8 @@
     "brand": "KRYSTAL",
     "model": "DIAMANT-6P",
     "volume": 3960,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "46": {
     "device": "AK-CC55-017x",
@@ -325,7 +365,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNST3",
     "volume": 2185,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ouvert"
   },
   "47": {
     "device": "AK-CC550-018x",
@@ -333,7 +374,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "48": {
     "device": "AK-CC550-018x",
@@ -341,7 +383,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "49": {
     "device": "AK-CC550-018x",
@@ -349,7 +392,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "50": {
     "device": "AK-CC550-018x",
@@ -357,7 +401,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "51": {
     "device": "AK-CC550-012x",
@@ -365,7 +410,8 @@
     "brand": "default",
     "model": "default",
     "volume": 86728,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "52": {
     "device": "AK-CC550A-020x",
@@ -373,7 +419,8 @@
     "brand": "default",
     "model": "default",
     "volume": 29236,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "53": {
     "device": "AK-CC550-018x",
@@ -381,7 +428,8 @@
     "brand": "default",
     "model": "default",
     "volume": 29236,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "54": {
     "device": "AK-CC550-019x",
@@ -389,7 +437,8 @@
     "brand": "default",
     "model": "default",
     "volume": 37500,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "55": {
     "device": "AK-CC550-018x",
@@ -397,7 +446,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "56": {
     "device": "AK-CC550-018x",
@@ -405,7 +455,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "57": {
     "device": "AK-CC550-018x",
@@ -413,7 +464,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "58": {
     "device": "AK-CC550-018x",
@@ -421,7 +473,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "59": {
     "device": "AK-CC550-018x",
@@ -429,7 +482,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "60": {
     "device": "AK-CC550-018x",
@@ -437,7 +491,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "61": {
     "device": "AK-CC550-019x",
@@ -445,7 +500,8 @@
     "brand": "default",
     "model": "default",
     "volume": 37500,
-    "genre": "CF+"
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "62": {
     "device": "AK-CC550-018x",
@@ -453,7 +509,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "63": {
     "device": "AK-CC550-018x",
@@ -461,7 +518,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "64": {
     "device": "AK-CC550-018x",
@@ -469,7 +527,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "65": {
     "device": "AK-CC55-017x",
@@ -477,7 +536,8 @@
     "brand": "default",
     "model": "default",
     "volume": 1254,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "66": {
     "device": "AK-CC55-015x",
@@ -485,7 +545,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "67": {
     "device": "AK-CC55-015x",
@@ -493,7 +554,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "68": {
     "device": "AK-CC55-015x",
@@ -501,7 +563,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "69": {
     "device": "AK-CC55-015x",
@@ -509,7 +572,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "70": {
     "device": "AK-CC55-015x",
@@ -517,7 +581,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNST3",
     "volume": 2185,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ouvert"
   },
   "71": {
     "device": "AK-CC55-015x",
@@ -525,7 +590,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "72": {
     "device": "AK-CC55-015x",
@@ -533,7 +599,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "73": {
     "device": "AK-CC550-018x",
@@ -541,7 +608,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "74": {
     "device": "AK-CC550-018x",
@@ -549,7 +617,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYNS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "75": {
     "device": "AK-CC55-015x",
@@ -557,7 +626,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYCDT12",
     "volume": 2185,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ouvert"
   },
   "76": {
     "device": "AK-CC550-018x",
@@ -565,7 +635,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYLS25",
     "volume": 2975,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "77": {
     "device": "AK-CC550-018x",
@@ -573,7 +644,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYLS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "78": {
     "device": "AK-CC550-018x",
@@ -581,7 +653,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYLS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "79": {
     "device": "AK-CC550-018x",
@@ -589,7 +662,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYLS37",
     "volume": 4493,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ferme"
   },
   "80": {
     "device": "AK-CC55-015x",
@@ -597,7 +671,8 @@
     "brand": "BONNET NEVET",
     "model": "SKYCDT12",
     "volume": 2185,
-    "genre": "vitrine+"
+    "genre": "vitrine+",
+    "OF": "ouvert"
   },
   "81": {
     "device": "AK-CC55-017x",
@@ -605,7 +680,8 @@
     "brand": "EPTA",
     "model": "VELNS37",
     "volume": 1665,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ferme"
   },
   "82": {
     "device": "AK-CC55-017x",
@@ -613,7 +689,8 @@
     "brand": "EPTA",
     "model": "VELNST4",
     "volume": 360,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "83": {
     "device": "AK-CC55-017x",
@@ -621,7 +698,8 @@
     "brand": "EPTA",
     "model": "MUSNS37",
     "volume": 1096,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "84": {
     "device": "AK-CC55-017x",
@@ -629,7 +707,8 @@
     "brand": "EPTA",
     "model": "VELNST4",
     "volume": 360,
-    "genre": "bac+"
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "100": {
     "device": "AK-PC551-0170",
@@ -637,7 +716,8 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "controller"
+    "genre": "controller",
+    "OF": ""
   },
   "101": {
     "device": "AK-PC551-0170",
@@ -645,7 +725,8 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "controller"
+    "genre": "controller",
+    "OF": ""
   },
   "102": {
     "device": "EKC302D-012x",
@@ -653,6 +734,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "climatisation"
+    "genre": "climatisation",
+    "OF": ""
   }
 }
