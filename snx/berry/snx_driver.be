@@ -188,6 +188,9 @@ class STM32
                                 elif msg_id == -25
                                     kind = "config"
                                     topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
+                                elif msg_id == -26
+                                    kind = "volume"
+                                    topic=string.format("gw/%s/%s/%s/tele/VOLUME",self.client,self.ville,self.device)
                                 elif msg_id == -20
                                     kind = "consign"
                                     topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
