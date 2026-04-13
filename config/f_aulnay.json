@@ -1,666 +1,658 @@
 {
-    "0": {
-        "device": "AK-CC550-012x",
-        "name": "LaboCharcut_0",
-        "brand": "default",
-        "model": "default",
-        "volume": 1254,
-        "genre": "CF+"
-    },
-    "1": {
-        "device": "AK-CC550-012x",
-        "name": "SasSurgeles_1",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF-"
-    },
-    "2": {
-        "device": "AK-CC550-018x",
-        "name": "SasFrais_2",
-        "brand": "default",
-        "model": "default",
-        "volume": 121286,
-        "genre": "CF+"
-    },
-    "3": {
-        "device": "AK-CC55-017x",
-        "name": "CfDrive_3",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF+"
-    },
-    "4": {
-        "device": "AK-CC55-017x",
-        "name": "CfSurgeles_4",
-        "brand": "default",
-        "model": "default",
-        "volume": 80662,
-        "genre": "CF-"
-    },
-    "5": {
-        "device": "AK-CC55-017x",
-        "name": "CfSurgeles_5",
-        "brand": "default",
-        "model": "default",
-        "volume": 53687,
-        "genre": "CF-"
-    },
-    "6": {
-        "device": "EKC302D-012x",
-        "name": "CfFruitLeg_6",
-        "brand": "default",
-        "model": "default",
-        "volume": 64433,
-        "genre": "CF+"
-    },
-    "7": {
-        "device": "AK-CC550-019x",
-        "name": "CfCremerie_7",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF+"
-    },
-    "8": {
-        "device": "AK-CC550-019x",
-        "name": "CfCharcut_8",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF+"
-    },
-    "9": {
-        "device": "AK-CC550-012x",
-        "name": "LaboCharcut_9",
-        "brand": "default",
-        "model": "default",
-        "volume": 0,
-        "genre": "CF+"
-    },
-    "10": {
-        "device": "EKC302D-012x",
-        "name": "CfTraitTrad_10",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF+"
-    },
-    "11": {
-        "device": "EKC302D-012x",
-        "name": "CfFe_11",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF+"
-    },
-    "12": {
-        "device": "AK-CC550-015x",
-        "name": "LaboPoisson_12",
-        "brand": "default",
-        "model": "default",
-        "volume": 19170,
-        "genre": "CF+"
-    },
-    "13": {
-        "device": "EKC302D-012x",
-        "name": "CfPoisson_13",
-        "brand": "default",
-        "model": "default",
-        "volume": 33390,
-        "genre": "CF+"
-    },
-    "15": {
-        "device": "AK-CC550-019x",
-        "name": "SurgPorte_15",
-        "brand": "EPTA",
-        "model": "NC5LS5D",
-        "volume": 3876,
-        "genre": "vitrine-"
-    },
-    "16": {
-        "device": "AK-CC550-019x",
-        "name": "SurgPorte_16",
-        "brand": "EPTA",
-        "model": "NC5LS5D",
-        "volume": 3876,
-        "genre": "vitrine-"
-    },
-    "17": {
-        "device": "AK-CC550-019x",
-        "name": "SurgPorte_17",
-        "brand": "EPTA",
-        "model": "NC5LS4D",
-        "volume": 4043,
-        "genre": "vitrine-"
-    },
-    "18": {
-        "device": "AK-CC550-018x",
-        "name": "SurgPorte_18",
-        "brand": "EPTA",
-        "model": "APUIS2D",
-        "volume": 1424,
-        "genre": "vitrine-"
-    },
-    "19": {
-        "device": "AK-CC550-019x",
-        "name": "SurgPorte_19",
-        "brand": "EPTA",
-        "model": "NC5LS5D",
-        "volume": 3876,
-        "genre": "vitrine-"
-    },
-    "20": {
-        "device": "AK-CC550-019x",
-        "name": "SurgPorte_20",
-        "brand": "EPTA",
-        "model": "NC5LS5D",
-        "volume": 3876,
-        "genre": "vitrine-"
-    },
-    "21": {
-        "device": "AK-CC550-019x",
-        "name": "SurgPorte_21",
-        "brand": "EPTA",
-        "model": "NC5LS5D",
-        "volume": 3876,
-        "genre": "vitrine-"
-    },
-    "22": {
-        "device": "AK-CC550-019x",
-        "name": "TgSurgP_22",
-        "brand": "EPTA",
-        "model": "NC5LS2D",
-        "volume": 1254,
-        "genre": "vitrine-"
-    },
-    "25": {
-        "device": "AK-CC550-019x",
-        "name": "TgBacSurg_25",
-        "brand": "EPTA",
-        "model": "TO1L-T4",
-        "volume": 2223,
-        "genre": "bac-"
-    },
-    "26": {
-        "device": "AK-CC550-019x",
-        "name": "BacSurg_26",
-        "brand": "EPTA",
-        "model": "TORL-37",
-        "volume": 4275,
-        "genre": "bac-"
-    },
-    "27": {
-        "device": "AK-CC550-019x",
-        "name": "BacSurg_27",
-        "brand": "EPTA",
-        "model": "TORL-37",
-        "volume": 4275,
-        "genre": "bac-"
-    },
-    "30": {
-        "device": "EKC202D1-015x",
-        "name": "Fe_30",
-        "brand": "default",
-        "model": "default",
-        "volume": 576,
-        "genre": "bac+"
-    },
-    "31": {
-        "device": "AK-CC550-018x",
-        "name": "Fe_31",
-        "brand": "default",
-        "model": "default",
-        "volume": 576,
-        "genre": "bac+"
-    },
-    "32": {
-        "device": "AK-CC550-018x",
-        "name": "Fe_32",
-        "brand": "default",
-        "model": "default",
-        "volume": 576,
-        "genre": "bac+"
-    },
-    "33": {
-        "device": "AK-CC550-018x",
-        "name": "BouchTrad_33",
-        "brand": "default",
-        "model": "default",
-        "volume": 1254,
-        "genre": "vitrine+"
-    },
-    "34": {
-        "device": "AK-CC550-018x",
-        "name": "BouchTrad_34",
-        "brand": "default",
-        "model": "default",
-        "volume": 1254,
-        "genre": "vitrine+"
-    },
-    "35": {
-        "device": "AK-CC550-018x",
-        "name": "BouchTrad_35",
-        "brand": "default",
-        "model": "default",
-        "volume": 1254,
-        "genre": "vitrine+"
-    },
-    "36": {
-        "device": "AK-CC550-012x",
-        "name": "CfBoulang_36",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF+"
-    },
-    "37": {
-        "device": "AK-CC55-017x",
-        "name": "CfSurgBoulang_37",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF-"
-    },
-    "38": {
-        "device": "AK-CC550-018x",
-        "name": "CharcutTrad_38",
-        "brand": "default",
-        "model": "default",
-        "volume": 1254,
-        "genre": "vitrine+"
-    },
-    "39": {
-        "device": "AK-CC550-018x",
-        "name": "CharcutTrad_39",
-        "brand": "default",
-        "model": "default",
-        "volume": 1254,
-        "genre": "vitrine+"
-    },
-    "40": {
-        "device": "AK-CC550-018x",
-        "name": "CharcutTrad_40",
-        "brand": "default",
-        "model": "default",
-        "volume": 1254,
-        "genre": "vitrine+"
-    },
-    "41": {
-        "device": "AK-CC55-017x",
-        "name": "TgFrais_41",
-        "brand": "BONNET NEVET",
-        "model": "SKYNST3",
-        "volume": 2185,
-        "genre": "vitrine+"
-    },
-    "42": {
-        "device": "AK-CC550A-020x",
-        "name": "BouchLs_42",
-        "brand": "KRYSTAL",
-        "model": "DIAMANT-4P",
-        "volume": 2587,
-        "genre": "vitrine+"
-    },
-    "43": {
-        "device": "AK-CC550A-020x",
-        "name": "BouchLs_43",
-        "brand": "KRYSTAL",
-        "model": "DIAMANT-6P",
-        "volume": 3960,
-        "genre": "vitrine+"
-    },
-    "44": {
-        "device": "AK-CC550A-020x",
-        "name": "VolailleLs_44",
-        "brand": "KRYSTAL",
-        "model": "DIAMANT-6P",
-        "volume": 3960,
-        "genre": "vitrine+"
-    },
-    "45": {
-        "device": "AK-CC550A-020x",
-        "name": "VolailleLs_45",
-        "brand": "KRYSTAL",
-        "model": "DIAMANT-6P",
-        "volume": 3960,
-        "genre": "vitrine+"
-    },
-    "46": {
-        "device": "AK-CC55-017x",
-        "name": "TgFrais_46",
-        "brand": "BONNET NEVET",
-        "model": "SKYNST3",
-        "volume": 2185,
-        "genre": "vitrine+"
-    },
-    "47": {
-        "device": "AK-CC550-018x",
-        "name": "TraiteurLs_47",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "48": {
-        "device": "AK-CC550-018x",
-        "name": "TraiteurLs_48",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "49": {
-        "device": "AK-CC550-018x",
-        "name": "TraiteurLs_49",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "50": {
-        "device": "AK-CC550-018x",
-        "name": "TraiteurLs_50",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "51": {
-        "device": "AK-CC550-012x",
-        "name": "LaboBouch_51",
-        "brand": "default",
-        "model": "default",
-        "volume": 86728,
-        "genre": "CF+"
-    },
-    "52": {
-        "device": "AK-CC550A-020x",
-        "name": "CfCarcasse_52",
-        "brand": "default",
-        "model": "default",
-        "volume": 29236,
-        "genre": "CF+"
-    },
-    "53": {
-        "device": "AK-CC550-018x",
-        "name": "CfProdF_53",
-        "brand": "default",
-        "model": "default",
-        "volume": 29236,
-        "genre": "CF+"
-    },
-    "54": {
-        "device": "AK-CC550-019x",
-        "name": "CfBarquette_54",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF+"
-    },
-    "55": {
-        "device": "AK-CC550-018x",
-        "name": "Saurisserie_55",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "56": {
-        "device": "AK-CC550-018x",
-        "name": "Saurisserie_56",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "57": {
-        "device": "AK-CC550-018x",
-        "name": "Charcuterie_57",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "58": {
-        "device": "AK-CC550-018x",
-        "name": "Charcuterie_58",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "59": {
-        "device": "AK-CC550-018x",
-        "name": "Charcuterie_59",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "60": {
-        "device": "AK-CC550-018x",
-        "name": "Charcuterie_60",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "61": {
-        "device": "AK-CC550-019x",
-        "name": "CfSuif_61",
-        "brand": "default",
-        "model": "default",
-        "volume": 37500,
-        "genre": "CF+"
-    },
-    "62": {
-        "device": "AK-CC550-018x",
-        "name": "4eGamme_62",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "63": {
-        "device": "AK-CC550-018x",
-        "name": "4eGamme_63",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "64": {
-        "device": "AK-CC550-018x",
-        "name": "4eGamme_64",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "65": {
-        "device": "AK-CC55-017x",
-        "name": "TgFrais_65",
-        "brand": "default",
-        "model": "default",
-        "volume": 1254,
-        "genre": "vitrine+"
-    },
-    "66": {
-        "device": "AK-CC55-015x",
-        "name": "FromageLs_66",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "67": {
-        "device": "AK-CC55-015x",
-        "name": "FromageLs_67",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "68": {
-        "device": "AK-CC55-015x",
-        "name": "FromageLs_68",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "69": {
-        "device": "AK-CC55-015x",
-        "name": "FromageLs_69",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "70": {
-        "device": "AK-CC55-015x",
-        "name": "TgFrais_70",
-        "brand": "BONNET NEVET",
-        "model": "SKYNST3",
-        "volume": 2185,
-        "genre": "vitrine+"
-    },
-    "71": {
-        "device": "AK-CC55-015x",
-        "name": "UltraFrais_71",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "72": {
-        "device": "AK-CC55-015x",
-        "name": "UltraFrais_72",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "73": {
-        "device": "AK-CC550-018x",
-        "name": "UltraFrais_73",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "74": {
-        "device": "AK-CC550-018x",
-        "name": "UltraFrais_74",
-        "brand": "BONNET NEVET",
-        "model": "SKYNS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "75": {
-        "device": "AK-CC55-015x",
-        "name": "TgFrais_75",
-        "brand": "BONNET NEVET",
-        "model": "SKYCDT12",
-        "volume": 2185,
-        "genre": "vitrine+"
-    },
-    "76": {
-        "device": "AK-CC550-018x",
-        "name": "UltraFrais_76",
-        "brand": "BONNET NEVET",
-        "model": "SKYLS25",
-        "volume": 2975,
-        "genre": "vitrine+"
-    },
-    "77": {
-        "device": "AK-CC550-018x",
-        "name": "UltraFrais_77",
-        "brand": "BONNET NEVET",
-        "model": "SKYLS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "78": {
-        "device": "AK-CC550-018x",
-        "name": "UltraFrais_78",
-        "brand": "BONNET NEVET",
-        "model": "SKYLS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "79": {
-        "device": "AK-CC550-018x",
-        "name": "UltraFrais_79",
-        "brand": "BONNET NEVET",
-        "model": "SKYLS37",
-        "volume": 4493,
-        "genre": "vitrine+"
-    },
-    "80": {
-        "device": "AK-CC55-015x",
-        "name": "TgFrais_80",
-        "brand": "BONNET NEVET",
-        "model": "SKYCDT12",
-        "volume": 2185,
-        "genre": "vitrine+"
-    },
-    "81": {
-        "device": "AK-CC55-017x",
-        "name": "BacFe_81",
-        "brand": "default",
-        "model": "default",
-        "volume": 576,
-        "genre": "bac+"
-    },
-    "82": {
-        "device": "AK-CC55-017x",
-        "name": "TgBacFe_82",
-        "brand": "default",
-        "model": "default",
-        "volume": 576,
-        "genre": "bac+"
-    },
-    "83": {
-        "device": "AK-CC55-017x",
-        "name": "BacFe_83",
-        "brand": "default",
-        "model": "default",
-        "volume": 576,
-        "genre": "bac+"
-    },
-    "84": {
-        "device": "AK-CC55-017x",
-        "name": "TgBacFe_84",
-        "brand": "default",
-        "model": "default",
-        "volume": 576,
-        "genre": "bac+"
-    },
-    "100": {
-        "device": "AK-PC551-0170",
-        "name": "AspiNeg_100",
-        "brand": "default",
-        "model": "default",
-        "volume": 0,
-        "genre": "controller"
-    },
-    "101": {
-        "device": "AK-PC551-0170",
-        "name": "AspiPositive_101",
-        "brand": "default",
-        "model": "default",
-        "volume": 0,
-        "genre": "controller"
-    },
-    "102": {
-        "device": "EKC302D-012x",
-        "name": "ClimSdm_102",
-        "brand": "default",
-        "model": "default",
-        "volume": 0,
-        "genre": "climatisation"
-    }
+  "0": {
+    "device": "AK-CC550-012x",
+    "name": "LaboCharcut_0",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "CF+"
+  },
+  "1": {
+    "device": "AK-CC550-012x",
+    "name": "SasSurgeles_1",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF-"
+  },
+  "2": {
+    "device": "AK-CC550-018x",
+    "name": "SasFrais_2",
+    "brand": "default",
+    "model": "default",
+    "volume": 121286,
+    "genre": "CF+"
+  },
+  "3": {
+    "device": "AK-CC55-017x",
+    "name": "CfDrive_3",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+"
+  },
+  "4": {
+    "device": "AK-CC55-017x",
+    "name": "CfSurgeles_4",
+    "brand": "default",
+    "model": "default",
+    "volume": 80662,
+    "genre": "CF-"
+  },
+  "5": {
+    "device": "AK-CC55-017x",
+    "name": "CfSurgeles_5",
+    "brand": "default",
+    "model": "default",
+    "volume": 53687,
+    "genre": "CF-"
+  },
+  "6": {
+    "device": "EKC302D-012x",
+    "name": "CfFruitLeg_6",
+    "brand": "default",
+    "model": "default",
+    "volume": 64433,
+    "genre": "CF+"
+  },
+  "7": {
+    "device": "AK-CC550-019x",
+    "name": "CfCremerie_7",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+"
+  },
+  "8": {
+    "device": "AK-CC550-019x",
+    "name": "CfCharcut_8",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+"
+  },
+  "10": {
+    "device": "EKC302D-012x",
+    "name": "CfTraitTrad_10",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+"
+  },
+  "11": {
+    "device": "EKC302D-012x",
+    "name": "CfFe_11",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+"
+  },
+  "12": {
+    "device": "AK-CC550-015x",
+    "name": "LaboPoisson_12",
+    "brand": "default",
+    "model": "default",
+    "volume": 19170,
+    "genre": "CF+"
+  },
+  "13": {
+    "device": "EKC302D-012x",
+    "name": "CfPoisson_13",
+    "brand": "default",
+    "model": "default",
+    "volume": 33390,
+    "genre": "CF+"
+  },
+  "15": {
+    "device": "AK-CC550-019x",
+    "name": "SurgPorte_15",
+    "brand": "EPTA",
+    "model": "NC5LS5D",
+    "volume": 3876,
+    "genre": "vitrine-"
+  },
+  "16": {
+    "device": "AK-CC550-019x",
+    "name": "SurgPorte_16",
+    "brand": "EPTA",
+    "model": "NC5LS5D",
+    "volume": 3876,
+    "genre": "vitrine-"
+  },
+  "17": {
+    "device": "AK-CC550-019x",
+    "name": "SurgPorte_17",
+    "brand": "EPTA",
+    "model": "NC5LS4D",
+    "volume": 4043,
+    "genre": "vitrine-"
+  },
+  "18": {
+    "device": "AK-CC550-018x",
+    "name": "SurgPorte_18",
+    "brand": "EPTA",
+    "model": "APUIS2D",
+    "volume": 1424,
+    "genre": "vitrine-"
+  },
+  "19": {
+    "device": "AK-CC550-019x",
+    "name": "SurgPorte_19",
+    "brand": "EPTA",
+    "model": "NC5LS5D",
+    "volume": 3876,
+    "genre": "vitrine-"
+  },
+  "20": {
+    "device": "AK-CC550-019x",
+    "name": "SurgPorte_20",
+    "brand": "EPTA",
+    "model": "NC5LS5D",
+    "volume": 3876,
+    "genre": "vitrine-"
+  },
+  "21": {
+    "device": "AK-CC550-019x",
+    "name": "SurgPorte_21",
+    "brand": "EPTA",
+    "model": "NC5LS5D",
+    "volume": 3876,
+    "genre": "vitrine-"
+  },
+  "22": {
+    "device": "AK-CC550-019x",
+    "name": "TgSurgP_22",
+    "brand": "EPTA",
+    "model": "NC5LS2D",
+    "volume": 1254,
+    "genre": "vitrine-"
+  },
+  "25": {
+    "device": "AK-CC550-019x",
+    "name": "TgBacSurg_25",
+    "brand": "EPTA",
+    "model": "TO1L-T4",
+    "volume": 2223,
+    "genre": "bac-"
+  },
+  "26": {
+    "device": "AK-CC550-019x",
+    "name": "BacSurg_26",
+    "brand": "EPTA",
+    "model": "TORL-37",
+    "volume": 4275,
+    "genre": "bac-"
+  },
+  "27": {
+    "device": "AK-CC550-019x",
+    "name": "BacSurg_27",
+    "brand": "EPTA",
+    "model": "TORL-37",
+    "volume": 4275,
+    "genre": "bac-"
+  },
+  "30": {
+    "device": "EKC202D1-015x",
+    "name": "Fe_30",
+    "brand": "BONNET NEVET",
+    "model": "AMPHI II 11",
+    "volume": 3384,
+    "genre": "bac+"
+  },
+  "31": {
+    "device": "AK-CC550-018x",
+    "name": "Fe_31",
+    "brand": "EXKAL",
+    "model": "LHBNB1-4.01",
+    "volume": 1543,
+    "genre": "bac+"
+  },
+  "32": {
+    "device": "AK-CC550-018x",
+    "name": "Fe_32",
+    "brand": "unknown",
+    "model": "unknown",
+    "volume": 1462,
+    "genre": "bac+"
+  },
+  "33": {
+    "device": "AK-CC550-018x",
+    "name": "BouchTrad_33",
+    "brand": "EPTA",
+    "model": "MUSNS18",
+    "volume": 1096,
+    "genre": "bac+"
+  },
+  "34": {
+    "device": "AK-CC550-018x",
+    "name": "BouchTrad_34",
+    "brand": "EPTA",
+    "model": "MUSNS37",
+    "volume": 1096,
+    "genre": "bac+"
+  },
+  "35": {
+    "device": "AK-CC550-018x",
+    "name": "BouchTrad_35",
+    "brand": "EPTA",
+    "model": "MUSNS37",
+    "volume": 1096,
+    "genre": "bac+"
+  },
+  "36": {
+    "device": "AK-CC550-012x",
+    "name": "CfBoulang_36",
+    "brand": "default",
+    "model": "default",
+    "volume": 10260,
+    "genre": "CF+"
+  },
+  "37": {
+    "device": "AK-CC55-017x",
+    "name": "CfSurgBoulang_37",
+    "brand": "default",
+    "model": "default",
+    "volume": 16704,
+    "genre": "CF-"
+  },
+  "38": {
+    "device": "AK-CC550-018x",
+    "name": "CharcutTrad_38",
+    "brand": "EPTA",
+    "model": "MUSNS18",
+    "volume": 1096,
+    "genre": "bac+"
+  },
+  "39": {
+    "device": "AK-CC550-018x",
+    "name": "CharcutTrad_39",
+    "brand": "EPTA",
+    "model": "MUSNS25",
+    "volume": 1522,
+    "genre": "bac+"
+  },
+  "40": {
+    "device": "AK-CC550-018x",
+    "name": "CharcutTrad_40",
+    "brand": "EPTA",
+    "model": "MUSNS25",
+    "volume": 1522,
+    "genre": "bac+"
+  },
+  "41": {
+    "device": "AK-CC55-017x",
+    "name": "TgFrais_41",
+    "brand": "BONNET NEVET",
+    "model": "SKYNST3",
+    "volume": 2185,
+    "genre": "vitrine+"
+  },
+  "42": {
+    "device": "AK-CC550A-020x",
+    "name": "BouchLs_42",
+    "brand": "KRYSTAL",
+    "model": "DIAMANT-4P",
+    "volume": 2587,
+    "genre": "vitrine+"
+  },
+  "43": {
+    "device": "AK-CC550A-020x",
+    "name": "BouchLs_43",
+    "brand": "KRYSTAL",
+    "model": "DIAMANT-6P",
+    "volume": 3960,
+    "genre": "vitrine+"
+  },
+  "44": {
+    "device": "AK-CC550A-020x",
+    "name": "VolailleLs_44",
+    "brand": "KRYSTAL",
+    "model": "DIAMANT-6P",
+    "volume": 3960,
+    "genre": "vitrine+"
+  },
+  "45": {
+    "device": "AK-CC550A-020x",
+    "name": "VolailleLs_45",
+    "brand": "KRYSTAL",
+    "model": "DIAMANT-6P",
+    "volume": 3960,
+    "genre": "vitrine+"
+  },
+  "46": {
+    "device": "AK-CC55-017x",
+    "name": "TgFrais_46",
+    "brand": "BONNET NEVET",
+    "model": "SKYNST3",
+    "volume": 2185,
+    "genre": "vitrine+"
+  },
+  "47": {
+    "device": "AK-CC550-018x",
+    "name": "TraiteurLs_47",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "48": {
+    "device": "AK-CC550-018x",
+    "name": "TraiteurLs_48",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "49": {
+    "device": "AK-CC550-018x",
+    "name": "TraiteurLs_49",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "50": {
+    "device": "AK-CC550-018x",
+    "name": "TraiteurLs_50",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "51": {
+    "device": "AK-CC550-012x",
+    "name": "LaboBouch_51",
+    "brand": "default",
+    "model": "default",
+    "volume": 86728,
+    "genre": "CF+"
+  },
+  "52": {
+    "device": "AK-CC550A-020x",
+    "name": "CfCarcasse_52",
+    "brand": "default",
+    "model": "default",
+    "volume": 29236,
+    "genre": "CF+"
+  },
+  "53": {
+    "device": "AK-CC550-018x",
+    "name": "CfProdF_53",
+    "brand": "default",
+    "model": "default",
+    "volume": 29236,
+    "genre": "CF+"
+  },
+  "54": {
+    "device": "AK-CC550-019x",
+    "name": "CfBarquette_54",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+"
+  },
+  "55": {
+    "device": "AK-CC550-018x",
+    "name": "Saurisserie_55",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "56": {
+    "device": "AK-CC550-018x",
+    "name": "Saurisserie_56",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "57": {
+    "device": "AK-CC550-018x",
+    "name": "Charcuterie_57",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "58": {
+    "device": "AK-CC550-018x",
+    "name": "Charcuterie_58",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "59": {
+    "device": "AK-CC550-018x",
+    "name": "Charcuterie_59",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "60": {
+    "device": "AK-CC550-018x",
+    "name": "Charcuterie_60",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "61": {
+    "device": "AK-CC550-019x",
+    "name": "CfSuif_61",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+"
+  },
+  "62": {
+    "device": "AK-CC550-018x",
+    "name": "4eGamme_62",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "63": {
+    "device": "AK-CC550-018x",
+    "name": "4eGamme_63",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "64": {
+    "device": "AK-CC550-018x",
+    "name": "4eGamme_64",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "65": {
+    "device": "AK-CC55-017x",
+    "name": "TgFrais_65",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+"
+  },
+  "66": {
+    "device": "AK-CC55-015x",
+    "name": "FromageLs_66",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "67": {
+    "device": "AK-CC55-015x",
+    "name": "FromageLs_67",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "68": {
+    "device": "AK-CC55-015x",
+    "name": "FromageLs_68",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "69": {
+    "device": "AK-CC55-015x",
+    "name": "FromageLs_69",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "70": {
+    "device": "AK-CC55-015x",
+    "name": "TgFrais_70",
+    "brand": "BONNET NEVET",
+    "model": "SKYNST3",
+    "volume": 2185,
+    "genre": "vitrine+"
+  },
+  "71": {
+    "device": "AK-CC55-015x",
+    "name": "UltraFrais_71",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "72": {
+    "device": "AK-CC55-015x",
+    "name": "UltraFrais_72",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "73": {
+    "device": "AK-CC550-018x",
+    "name": "UltraFrais_73",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "74": {
+    "device": "AK-CC550-018x",
+    "name": "UltraFrais_74",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "75": {
+    "device": "AK-CC55-015x",
+    "name": "TgFrais_75",
+    "brand": "BONNET NEVET",
+    "model": "SKYCDT12",
+    "volume": 2185,
+    "genre": "vitrine+"
+  },
+  "76": {
+    "device": "AK-CC550-018x",
+    "name": "UltraFrais_76",
+    "brand": "BONNET NEVET",
+    "model": "SKYLS25",
+    "volume": 2975,
+    "genre": "vitrine+"
+  },
+  "77": {
+    "device": "AK-CC550-018x",
+    "name": "UltraFrais_77",
+    "brand": "BONNET NEVET",
+    "model": "SKYLS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "78": {
+    "device": "AK-CC550-018x",
+    "name": "UltraFrais_78",
+    "brand": "BONNET NEVET",
+    "model": "SKYLS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "79": {
+    "device": "AK-CC550-018x",
+    "name": "UltraFrais_79",
+    "brand": "BONNET NEVET",
+    "model": "SKYLS37",
+    "volume": 4493,
+    "genre": "vitrine+"
+  },
+  "80": {
+    "device": "AK-CC55-015x",
+    "name": "TgFrais_80",
+    "brand": "BONNET NEVET",
+    "model": "SKYCDT12",
+    "volume": 2185,
+    "genre": "vitrine+"
+  },
+  "81": {
+    "device": "AK-CC55-017x",
+    "name": "BacFe_81",
+    "brand": "EPTA",
+    "model": "VELNS37",
+    "volume": 1665,
+    "genre": "bac+"
+  },
+  "82": {
+    "device": "AK-CC55-017x",
+    "name": "TgBacFe_82",
+    "brand": "EPTA",
+    "model": "VELNST4",
+    "volume": 360,
+    "genre": "bac+"
+  },
+  "83": {
+    "device": "AK-CC55-017x",
+    "name": "BacFe_83",
+    "brand": "EPTA",
+    "model": "MUSNS37",
+    "volume": 1096,
+    "genre": "bac+"
+  },
+  "84": {
+    "device": "AK-CC55-017x",
+    "name": "TgBacFe_84",
+    "brand": "EPTA",
+    "model": "VELNST4",
+    "volume": 360,
+    "genre": "bac+"
+  },
+  "100": {
+    "device": "AK-PC551-0170",
+    "name": "AspiNeg_100",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "controller"
+  },
+  "101": {
+    "device": "AK-PC551-0170",
+    "name": "AspiPositive_101",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "controller"
+  },
+  "102": {
+    "device": "EKC302D-012x",
+    "name": "ClimSdm_102",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "climatisation"
+  }
 }
