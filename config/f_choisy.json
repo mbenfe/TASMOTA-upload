@@ -22,521 +22,521 @@
     "name": "SASSurgeles",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF-",
-    "OF": ""
+    "OF": "ferme"
   },
   "4": {
     "device": "AK-CC550",
     "name": "CFSurgeles",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF-",
-    "OF": ""
+    "OF": "ferme"
   },
   "5": {
     "device": "AK-CC550",
     "name": "CFCremerie",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "6": {
     "device": "AK-CC550",
     "name": "SASFrais",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "7": {
     "device": "AK-CC550",
     "name": "LocalBarquette",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "8": {
     "device": "AK-CC550",
     "name": "CFPoisson",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "9": {
     "device": "AK-CC550",
     "name": "CFPFBoucherie",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "10": {
     "device": "AK-CC550",
     "name": "CFCarcasses",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "11": {
     "device": "AK-CC550",
     "name": "CFSuif",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "12": {
     "device": "AK-CC550",
     "name": "LaboBoucherie",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "13": {
     "device": "AK-CC550",
     "name": "CFFromage",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "14": {
     "device": "AK-CC550",
     "name": "LaboFromage",
     "brand": "default",
     "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
   },
   "15": {
     "device": "AK-CC550",
     "name": "CFFruit&Leg",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "16": {
     "device": "AK-CC550",
     "name": "CFPositifBoul",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "17": {
     "device": "AK-CC550",
     "name": "CFNegBoul",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF-",
-    "OF": ""
+    "OF": "ferme"
   },
   "18": {
     "device": "AK-CC550",
     "name": "LaboBoulangerie",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "20": {
     "device": "AK-CC550",
     "name": "BoucherieLS1",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "21": {
     "device": "AK-CC550",
     "name": "BoucherieLS2",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "22": {
     "device": "AK-CC550",
     "name": "TraiteurLS1",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "23": {
     "device": "AK-CC550",
     "name": "TraiteurLS2",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "24": {
     "device": "AK-CC550",
     "name": "Snacking1",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "25": {
     "device": "AK-CC550",
     "name": "Snacking2",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "26": {
     "device": "AK-CC550",
     "name": "CharcutLSG",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "27": {
     "device": "AK-CC550",
     "name": "CharcutLSM",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "28": {
     "device": "AK-CC550",
     "name": "CharcutLSD",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "29": {
     "device": "AK-CC550",
     "name": "TGCharcutLS",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "30": {
     "device": "AK-CC550",
     "name": "CorpsGrasLSG",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "31": {
     "device": "AK-CC550",
     "name": "CorpsGrasLSM",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "32": {
     "device": "AK-CC550",
     "name": "CorpsGrasLSD",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "33": {
     "device": "AK-CC550",
     "name": "TGUltraFrais",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "34": {
     "device": "AK-CC550",
     "name": "FromagesLSG",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "35": {
     "device": "AK-CC550",
     "name": "FromagesLSM",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "36": {
     "device": "AK-CC550",
     "name": "FromagesLSD",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "37": {
     "device": "AK-CC550",
     "name": "UltraFrais1G",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "38": {
     "device": "AK-CC550",
     "name": "UltraFrais1M",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "39": {
     "device": "AK-CC550",
     "name": "UltraFrais1D",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "40": {
     "device": "AK-CC550",
     "name": "TGSurgeles1",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "41": {
     "device": "AK-CC550",
     "name": "UltraFrais2G",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "42": {
     "device": "AK-CC550",
     "name": "UltraFrais2M",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "43": {
     "device": "AK-CC550",
     "name": "UltraFrais2D",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "44": {
     "device": "AK-CC550",
     "name": "TGSurgeles2",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "45": {
     "device": "AK-CC550",
     "name": "SurgPortes3G",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "46": {
     "device": "AK-CC550",
     "name": "SurgPortes3M",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "47": {
     "device": "AK-CC550",
     "name": "SurgPortes3D",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "48": {
     "device": "AK-CC550",
     "name": "Fleg-JusG",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "49": {
     "device": "AK-CC550",
     "name": "Fleg-JusM",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "50": {
     "device": "AK-CC550",
     "name": "Fleg-JusD",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "51": {
     "device": "AK-CC550",
     "name": "SurgPortes1G",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "52": {
     "device": "AK-CC550",
     "name": "SurgPortes1M",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "53": {
     "device": "AK-CC550",
     "name": "SurgPortes1D",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "54": {
     "device": "AK-CC550",
     "name": "SurgPortes2G",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "55": {
     "device": "AK-CC550",
     "name": "SurgPortes2M",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "56": {
     "device": "AK-CC550",
     "name": "SurgPortes2D",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "57": {
     "device": "AK-CC550",
     "name": "PatisserieLS",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "69": {
     "device": "AK-CC550",
     "name": "CFCarcasses",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "70": {
     "device": "AK-CC550",
     "name": "CFBarquettes",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "71": {
     "device": "AK-CC550",
     "name": "CFPFinis",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "72": {
     "device": "AK-CC550",
     "name": "LocalDechet",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   }
 }
