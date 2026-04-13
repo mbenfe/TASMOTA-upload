@@ -5,3 +5,4 @@
 *.kvdat
 *.pdf
 utils/push.be
+*.ps1
