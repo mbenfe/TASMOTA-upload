@@ -150,19 +150,32 @@ class STM32
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
             var buffer = global.ser.read()
-            global.ser.flush()
             if buffer == nil || size(buffer) == 0
                 print("ESP32: empty uart buffer")
             elif(buffer[0]==123)         # { -> json tele metry
                 mystring = buffer.asstring()
                 mylist = string.split(mystring,'\n')
                 numitem = size(mylist)
-                for i:0..numitem-2
-                    myjson = json.load(mylist[i])
+                for i:0..numitem-1
+                    var raw = mylist[i]
+                    if size(raw) == 0
+                        continue
+                    end
+                    if raw[size(raw)-1] == '\r'
+                        raw = raw[0..size(raw)-2]
+                    end
+                    if size(raw) == 0
+                        continue
+                    end
+
+                    myjson = json.load(raw)
                     if myjson != nil
                         if myjson.contains('ID')
                             var msg_id = int(myjson["ID"])
-                            if msg_id < 0
+                            if myjson.contains("TYPE") && string.tolower(str(myjson["TYPE"])) == "historique"
+                                topic=string.format("gw/%s/%s/%s-%s/tele/STATISTIC",self.client,self.ville,self.device,str(msg_id))
+                                self._publish_if_allowed("statistic", topic, raw)
+                            elif msg_id < 0
                                 var now = tasmota.rtc()
                                 var timestamp = tasmota.time_str(now["local"])
                                 myjson["Time"] = timestamp
@@ -186,7 +199,7 @@ class STM32
                                 self._publish_if_allowed(kind, topic, payload)
                             elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(msg_id))
-                                self._publish_if_allowed("danfoss", topic, mylist[i])
+                                self._publish_if_allowed("danfoss", topic, raw)
                             else
                                 topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(msg_id))
                                 var log_allowed = true
@@ -199,40 +212,14 @@ class STM32
                                     end
                                 end
                                 if log_allowed
-                                    self._publish_if_allowed("danfosslog", topic, mylist[i])
+                                    self._publish_if_allowed("danfosslog", topic, raw)
                                 end
                            end
                         end
                     else
                         topic=string.format("gw/%s/%s/%s/tele/DEBUG3",self.client,self.ville,self.device)
-                        var payload = json.dump({"Error":"json_error","Raw":mylist[i]})
+                        var payload = json.dump({"Error":"json_error","Raw":raw})
                         mqtt.publish(topic, payload, true)
-                    end
-                end
-            elif (buffer[0] == 42)     # * -> json statistic
-                mystring = buffer.asstring()
-                mylist = string.split(mystring,'\n')
-                numitem = size(mylist)
-                for i:0..numitem-2
-                    var line = mylist[i]
-                    if size(line) > 0
-                        if line[0] == '\r'
-                            line = line[1..-1]
-                        end
-                        if size(line) > 0 && line[0] == '*'
-                            line = line[1..-1]
-                        end
-                        if size(line) > 0
-                            myjson = json.load(line)
-                            if myjson != nil && myjson.contains("ID")
-                                topic=string.format("gw/%s/%s/%s-%s/tele/STATISTIC",self.client,self.ville,self.device,str(int(myjson["ID"])))
-                                self._publish_if_allowed("statistic", topic, line)
-                            else
-                                print("ESP32: json statistic error:", line)
-                            end
-                        else
-                            print("ESP32: empty statistic line")
-                        end
                     end
                 end
             else

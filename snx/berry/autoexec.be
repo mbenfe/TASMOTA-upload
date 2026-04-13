@@ -186,6 +186,17 @@ def statistic()
     tasmota.resp_cmnd("s sent")
 end
 
+def mapstatistic()
+    if global.ser == nil
+        tasmota.resp_cmnd("serial not ready")
+        return
+    end
+    var mybytes = bytes().fromstring("m")
+    global.ser.flush()
+    global.ser.write(mybytes)
+    tasmota.resp_cmnd("m sent")
+end
+
 def setmode(cmd, idx, payload, payload_json)
     if global.stm32 == nil
         tasmota.resp_cmnd("driver not ready")
@@ -236,7 +247,27 @@ def sendsimu(cmd, idx, payload, payload_json)
     var sent = 0
     gpio.pin_mode(global.ready_pin, gpio.OUTPUT)
     gpio.digital_write(global.ready_pin, 0)
-    for id: sim.keys()
+
+    global.ser.write(bytes().fromstring("dummy"))
+    tasmota.delay(20)
+    var last_id = -1
+    while true
+        var next_key = nil
+        var next_id = 2147483647
+        for k: sim.keys()
+            var kid = int(k)
+            if kid > last_id && kid < next_id
+                next_id = kid
+                next_key = k
+            end
+        end
+
+        if next_key == nil
+            break
+        end
+
+        var id = next_key
+        last_id = next_id
         var entry = sim[id]
         if entry != nil && entry.contains("DATA") && entry["DATA"] != nil
             var line = string.format("simu %s", str(id))
@@ -245,9 +276,9 @@ def sendsimu(cmd, idx, payload, payload_json)
                 line += string.format(":%s:%s", str(k), str(data[k]))
             end
             var frame = bytes().fromstring(line)
-            global.ser.flush()
+            # global.ser.flush()
             global.ser.write(frame)
-            tasmota.delay(5)
+            tasmota.delay(20)
             sent += 1
         end
     end
@@ -276,6 +307,7 @@ tasmota.add_cmd('dir',dir)
 tasmota.add_cmd('getversion',getversion)
 tasmota.add_cmd('update',update)
 tasmota.add_cmd('statistic',statistic)
+tasmota.add_cmd('mapstatistic',mapstatistic)
 tasmota.add_cmd('set',setmode)
 tasmota.add_cmd('sendsimu',sendsimu)
 

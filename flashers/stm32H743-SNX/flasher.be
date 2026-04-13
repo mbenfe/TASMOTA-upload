@@ -93,24 +93,18 @@ class stm32h743_flasher
     end
 
     print("FLH: flashing started")
-    tasmota.yield()
     self._start_link()
-    tasmota.yield()
     var idb = self._cmd_get_id()
     print("FLH: chip id bytes=" + str(idb))
-    tasmota.yield()
 
     self._cmd_extended_erase_mass()
-    tasmota.yield()
 
     self.file_hex.parse(/ -> self._flash_pre(),
                         / address, len, data, offset -> self._flash_cb(address, len, data, offset),
                         / -> self._flash_post())
-    tasmota.yield()
 
     print("FLH: finalize - restore normal boot mode")
     self._leave_system_bootloader()
-    tasmota.yield()
     print("FLH: flashing completed")
   end
 
@@ -167,14 +161,7 @@ class stm32h743_flasher
 
     var due = tasmota.millis() + 300
     var last = -1
-    var defer = 16
     while !tasmota.time_reached(due)
-      defer = defer - 1
-      if defer <= 0
-        tasmota.yield()
-        defer = 16
-      end
-
       if global.serflash.available()
         var b = global.serflash.read()
         if size(b) == 0
@@ -211,14 +198,7 @@ class stm32h743_flasher
     end
 
     var due = tasmota.millis() + timeout
-    var defer = 16
     while !tasmota.time_reached(due)
-      defer = defer - 1
-      if defer <= 0
-        tasmota.yield()
-        defer = 16
-      end
-
       if global.serflash.available()
         var b = global.serflash.read()
         if size(b) > 0
@@ -242,13 +222,8 @@ class stm32h743_flasher
   def _expect_ack(timeout, stage)
     var due = tasmota.millis() + timeout
     var last = bytes()
-    var defer = 16
     while !tasmota.time_reached(due)
-      defer = defer - 1
-      if defer <= 0
-        tasmota.yield()
-        defer = 16
-      end
+      tasmota.yield()
 
       var b = bytes()
       if size(self.rxbuf) > 0
@@ -337,14 +312,18 @@ class stm32h743_flasher
       raise "value_error", "data length must be in range 1..256"
     end
 
+    tasmota.yield()
     self._send_cmd(0x31)
+    tasmota.yield()
     self._send_addr(addr)
+    tasmota.yield()
 
     var p = bytes()
     p.add((len - 1) & 0xFF)
     p += data
     p.add(self._xor_checksum(p))
     global.serflash.write(p)
+    tasmota.yield()
     self._expect_ack(2000, format("cmd_write_memory addr=0x%08X len=%i", addr, len))
   end
 
@@ -373,8 +352,8 @@ class stm32h743_flasher
   def _flush_pending_slot()
     if self.pending_slot != nil && self.pending_slot_has_data
       self._cmd_write_memory(self.pending_slot_addr, self.pending_slot)
-      self.flash_writes += 1
       tasmota.yield()
+      self.flash_writes += 1
     end
     self.pending_slot_addr = -1
     self.pending_slot = nil
@@ -392,7 +371,14 @@ class stm32h743_flasher
     self.flash_records += 1
     self.flash_bytes += sz
 
+    var defer = 32
     for i:0..sz-1
+      defer = defer - 1
+      if defer <= 0
+        tasmota.yield()
+        defer = 32
+      end
+
       var a = addr + i
       var slot_addr = a & ~0x1F
       var slot_off = a & 0x1F
