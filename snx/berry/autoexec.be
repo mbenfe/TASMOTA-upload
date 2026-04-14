@@ -36,7 +36,7 @@ def init()
     gpio.digital_write(global.ready_pin,1)
     gpio.digital_write(rst_out, 1)
 
-    global.ser=serial(17,16,921600,serial.SERIAL_8N1)
+    global.ser=serial(17,16,460800,serial.SERIAL_8N1)
 
 end
 
