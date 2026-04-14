@@ -197,6 +197,34 @@ def mapstatistic()
     tasmota.resp_cmnd("m sent")
 end
 
+def stm32mode(cmd, idx, payload, payload_json)
+    if global.ser == nil
+        tasmota.resp_cmnd("serial not ready")
+        return
+    end
+
+    var mode = ""
+    if payload != nil
+        mode = string.tolower(str(payload))
+    end
+
+    if mode == "log"
+        global.ser.flush()
+        global.ser.write(bytes().fromstring("ml"))
+        tasmota.resp_cmnd("stm32 mode=log (ml sent)")
+        return
+    end
+
+    if mode == "debug"
+        global.ser.flush()
+        global.ser.write(bytes().fromstring("md"))
+        tasmota.resp_cmnd("stm32 mode=debug (md sent)")
+        return
+    end
+
+    tasmota.resp_cmnd("invalid stm32mode: " + mode + " (log|debug)")
+end
+
 def setmode(cmd, idx, payload, payload_json)
     if global.stm32 == nil
         tasmota.resp_cmnd("driver not ready")
@@ -308,6 +336,7 @@ tasmota.add_cmd('getversion',getversion)
 tasmota.add_cmd('update',update)
 tasmota.add_cmd('statistic',statistic)
 tasmota.add_cmd('mapstatistic',mapstatistic)
+tasmota.add_cmd('stm32mode',stm32mode)
 tasmota.add_cmd('set',setmode)
 tasmota.add_cmd('sendsimu',sendsimu)
 
