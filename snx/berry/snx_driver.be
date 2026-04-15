@@ -185,6 +185,8 @@ class STM32
                                     topic=string.format("gw/%s/%s/%s/tele/DEBUG1",self.client,self.ville,self.device)
                                 elif msg_id == -2
                                     topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
+                                elif msg_id <= -100
+                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG_MODBUS",self.client,self.ville,self.device)
                                 elif msg_id == -25
                                     kind = "config"
                                     topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
