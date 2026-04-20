@@ -5,7 +5,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "vitrine+",
+    "genre": "detecteur",
     "OF": ""
   },
   "3": {
@@ -23,7 +23,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "vitrine+",
+    "genre": "detecteur",
     "OF": ""
   },
   "5": {
@@ -41,7 +41,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "vitrine+",
+    "genre": "detecteur",
     "OF": ""
   },
   "7": {
@@ -59,7 +59,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "CF+",
+    "genre": "detecteur",
     "OF": ""
   },
   "9": {
@@ -239,7 +239,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "vitrine+",
+    "genre": "detecteur",
     "OF": ""
   },
   "29": {
@@ -509,7 +509,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "vitrine+",
+    "genre": "detecteur",
     "OF": ""
   },
   "59": {
@@ -527,7 +527,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "CF+",
+    "genre": "detecteur",
     "OF": ""
   },
   "61": {
@@ -689,7 +689,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "CF+",
+    "genre": "detecteur",
     "OF": ""
   },
   "80": {
@@ -707,7 +707,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "vitrine+",
+    "genre": "detecteur",
     "OF": ""
   },
   "82": {
@@ -734,7 +734,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "vitrine+",
+    "genre": "detecteur",
     "OF": ""
   },
   "86": {
@@ -752,7 +752,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "CF+",
+    "genre": "detecteur",
     "OF": ""
   },
   "88": {
@@ -770,7 +770,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "CF+",
+    "genre": "detecteur",
     "OF": ""
   },
   "90": {
@@ -1022,7 +1022,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "CF+",
+    "genre": "detecteur",
     "OF": ""
   },
   "120": {
@@ -1049,7 +1049,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "CF+",
+    "genre": "detecteur",
     "OF": ""
   },
   "124": {
@@ -1067,7 +1067,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "vitrine+",
+    "genre": "detecteur",
     "OF": ""
   },
   "126": {
