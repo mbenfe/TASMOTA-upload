@@ -10,6 +10,7 @@ import path
 var device
 var ville
 var rst_out = 33
+var rst_in = 19
 
 def mqttprint(texte)
     import mqtt
@@ -47,13 +48,26 @@ def mqttprint(texte)
 end
 
 #-------------------------------- COMMANDES -----------------------------------------#
-def Stm32Reset()
-    gpio.pin_mode(rst_out, gpio.OUTPUT)
-    gpio.digital_write(rst_out, 0)
+def Stm32Reset(cmd, idx, payload, payload_json)
+    var arg = nil
+    if payload != nil
+        arg = string.tolower(str(payload))
+    end
+    var pin
+    if arg == nil or arg == "" or arg == "out"
+        pin = rst_out
+    elif arg == "in"
+        pin = rst_in
+    else
+        tasmota.resp_cmnd("Invalid argument: " + str(arg))
+        return
+    end
+    gpio.pin_mode(pin, gpio.OUTPUT)
+    gpio.digital_write(pin, 0)
     tasmota.delay(5)
-    gpio.digital_write(rst_out, 1)
+    gpio.digital_write(pin, 1)
     tasmota.delay(5)
-    tasmota.resp_cmnd('rst reset pulse')
+    tasmota.resp_cmnd("rst reset pulse " + (arg if arg != nil else "out"))
 end
 
 def hold()
