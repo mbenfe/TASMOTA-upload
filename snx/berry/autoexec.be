@@ -11,6 +11,7 @@ var device
 var ville
 var rst_out = 33
 var rst_in = 19 
+var bsl_in = 21
 
 def mqttprint(texte)
     import mqtt
@@ -33,11 +34,12 @@ def init()
     gpio.pin_mode(global.ready_pin,gpio.OUTPUT)
     gpio.pin_mode(rst_out,gpio.OUTPUT)
     gpio.pin_mode(rst_in,gpio.OUTPUT)
- 
+    gpio.pin_mode(bsl_in,gpio.OUTPUT)
     gpio.digital_write(global.statistic_pin, 0)
     gpio.digital_write(global.ready_pin,1)
     gpio.digital_write(rst_out, 1)
     gpio.digital_write(rst_in, 1)
+    gpio.digital_write(bsl_in, 0)
 
     global.ser=serial(17,16,921600,serial.SERIAL_8N1)
 
@@ -51,11 +53,11 @@ end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Stm32ResetIn(cmd, idx, payload, payload_json)
-    gpio.pin_mode(rst_in, gpio.OUTPUT)
-    gpio.digital_write(rst_in, 0)
-    tasmota.delay(5)
-    gpio.digital_write(rst_in, 1)
-    tasmota.delay(5)
+   gpio.digital_write(global.bsl, 0)
+    gpio.digital_write(global.rst, 0)
+    tasmota.delay(20)
+    gpio.digital_write(global.rst, 1)
+    tasmota.delay(120)
     tasmota.resp_cmnd("rst_in reset pulse")
 end
 def Stm32Reset(cmd, idx, payload, payload_json)
