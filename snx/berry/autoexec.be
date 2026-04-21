@@ -10,7 +10,7 @@ import path
 var device
 var ville
 var rst_out = 33
-var rst_in = 19
+var rst_in = 21 
 
 def mqttprint(texte)
     import mqtt
@@ -50,6 +50,14 @@ def mqttprint(texte)
 end
 
 #-------------------------------- COMMANDES -----------------------------------------#
+def Stm32ResetIn(cmd, idx, payload, payload_json)
+    gpio.pin_mode(rst_in, gpio.OUTPUT)
+    gpio.digital_write(rst_in, 0)
+    tasmota.delay(5)
+    gpio.digital_write(rst_in, 1)
+    tasmota.delay(5)
+    tasmota.resp_cmnd("rst_in reset pulse")
+end
 def Stm32Reset(cmd, idx, payload, payload_json)
     var arg = nil
     if payload != nil
@@ -347,6 +355,7 @@ mqttprint("serial log disabled")
 
 mqttprint('AUTOEXEC: create commande Stm32Reset')
 tasmota.add_cmd('Stm32reset',Stm32Reset)
+tasmota.add_cmd('Stm32resetin',Stm32ResetIn)
 tasmota.add_cmd('hold',hold)
 tasmota.add_cmd('start',start)
 

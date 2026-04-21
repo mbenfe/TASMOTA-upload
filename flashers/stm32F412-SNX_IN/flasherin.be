@@ -430,7 +430,7 @@ class stm32f412_flasher
       if slot_addr != self.pending_slot_addr
         self._flush_pending_slot()
         self.pending_slot_addr = slot_addr
-        self.pending_slot = bytes("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
+        self.pending_slot = bytes("0000000000000000000000000000000000000000000000000000000000000000")
       end
 
       self.pending_slot[slot_off] = payload[i]
