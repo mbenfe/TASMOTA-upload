@@ -45,8 +45,8 @@ class stm32f412_flasher
     gpio.pin_mode(global.tx,gpio.OUTPUT)
 
     global.serflash = serial(global.rx,global.tx,115200,serial.SERIAL_8E1)
-    global.bsl = 19
-    global.rst = 21
+    global.bsl = 21 #19
+    global.rst = 19 #21
     gpio.pin_mode(global.bsl,gpio.OUTPUT)
     gpio.pin_mode(global.rst,gpio.OUTPUT)
     gpio.digital_write(global.bsl, 0)

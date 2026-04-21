@@ -10,7 +10,7 @@ import path
 var device
 var ville
 var rst_out = 33
-var rst_in = 21 
+var rst_in = 19 
 
 def mqttprint(texte)
     import mqtt
