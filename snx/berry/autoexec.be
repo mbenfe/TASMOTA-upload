@@ -53,13 +53,14 @@ end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Stm32ResetIn(cmd, idx, payload, payload_json)
-   gpio.digital_write(global.bsl, 0)
-    gpio.digital_write(global.rst, 0)
+    gpio.digital_write(bsl_in, 0)
+    gpio.digital_write(rst_in, 0)
     tasmota.delay(20)
-    gpio.digital_write(global.rst, 1)
+    gpio.digital_write(rst_in, 1)
     tasmota.delay(120)
     tasmota.resp_cmnd("rst_in reset pulse")
 end
+
 def Stm32Reset(cmd, idx, payload, payload_json)
     var arg = nil
     if payload != nil
