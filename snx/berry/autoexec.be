@@ -53,6 +53,8 @@ end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 def Stm32ResetIn(cmd, idx, payload, payload_json)
+    gpio.pin_mode(bsl_in, gpio.OUTPUT)
+    gpio.pin_mode(rst_in, gpio.OUTPUT)
     gpio.digital_write(bsl_in, 0)
     gpio.digital_write(rst_in, 0)
     tasmota.delay(20)
