@@ -32,10 +32,12 @@ def init()
     gpio.pin_mode(global.statistic_pin,gpio.OUTPUT)
     gpio.pin_mode(global.ready_pin,gpio.OUTPUT)
     gpio.pin_mode(rst_out,gpio.OUTPUT)
+    gpio.pin_mode(rst_in,gpio.OUTPUT)
  
     gpio.digital_write(global.statistic_pin, 0)
     gpio.digital_write(global.ready_pin,1)
     gpio.digital_write(rst_out, 1)
+    gpio.digital_write(rst_in, 1)
 
     global.ser=serial(17,16,921600,serial.SERIAL_8N1)
 
@@ -54,7 +56,7 @@ def Stm32Reset(cmd, idx, payload, payload_json)
         arg = string.tolower(str(payload))
     end
     var pin
-    if arg == nil or arg == "" or arg == "out"
+    if arg == nil || arg == "" || arg == "out"
         pin = rst_out
     elif arg == "in"
         pin = rst_in
@@ -67,7 +69,11 @@ def Stm32Reset(cmd, idx, payload, payload_json)
     tasmota.delay(5)
     gpio.digital_write(pin, 1)
     tasmota.delay(5)
-    tasmota.resp_cmnd("rst reset pulse " + (arg if arg != nil else "out"))
+    var which = "out"
+    if arg != nil && arg != ""
+        which = arg
+    end
+    tasmota.resp_cmnd("rst reset pulse " + which)
 end
 
 def hold()
