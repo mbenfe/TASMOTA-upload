@@ -141,8 +141,7 @@ class STM32
 
     def read_uart(timeout)
         var mystring
-        var mylist
-        var numitem
+        var raw
         var myjson
         var topic
         if global.ser.available()
@@ -153,79 +152,64 @@ class STM32
             if buffer == nil || size(buffer) == 0
                 print("ESP32: empty uart buffer")
             elif(buffer[0]==123)         # { -> json tele metry
-                mystring = buffer.asstring()
-                mylist = string.split(mystring,'\n')
-                numitem = size(mylist)
-                for i:0..numitem-1
-                    var raw = mylist[i]
-                    if size(raw) == 0
-                        continue
-                    end
-                    if raw[size(raw)-1] == '\r'
-                        raw = raw[0..size(raw)-2]
-                    end
-                    if size(raw) == 0
-                        continue
-                    end
-
-                    myjson = json.load(raw)
-                    if myjson != nil
-                        if myjson.contains('ID')
-                            var msg_id = int(myjson["ID"])
-                            if myjson.contains("TYPE") && string.tolower(str(myjson["TYPE"])) == "historique"
-                                topic=string.format("gw/%s/%s/%s-%s/tele/STATISTIC",self.client,self.ville,self.device,str(msg_id))
-                                self._publish_if_allowed("statistic", topic, raw)
-                            elif msg_id < 0
-                                var now = tasmota.rtc()
-                                var timestamp = tasmota.time_str(now["local"])
-                                myjson["Time"] = timestamp
-                                var payload = json.dump(myjson)
-                                var kind = "debug"
-                                if msg_id == -1
-                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG1",self.client,self.ville,self.device)
-                                elif msg_id == -2
-                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
-                                elif msg_id <= -100
-                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG_MODBUS",self.client,self.ville,self.device)
-                                elif msg_id == -25
-                                    kind = "config"
-                                    topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
-                                elif msg_id == -26
-                                    kind = "volume"
-                                    topic=string.format("gw/%s/%s/%s/tele/VOLUME",self.client,self.ville,self.device)
-                                elif msg_id == -20
-                                    kind = "consign"
-                                    topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
-                                elif msg_id == -31
-                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG4",self.client,self.ville,self.device)
-                                else
-                                    topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
-                                end
-                                self._publish_if_allowed(kind, topic, payload)
-                            elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
-                                topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(msg_id))
-                                self._publish_if_allowed("danfoss", topic, raw)
+                raw = buffer.asstring()
+                myjson = json.load(raw)
+                if myjson != nil
+                    if myjson.contains('ID')
+                        var msg_id = int(myjson["ID"])
+                        if myjson.contains("TYPE") && string.tolower(str(myjson["TYPE"])) == "historique"
+                            topic=string.format("gw/%s/%s/%s-%s/tele/STATISTIC",self.client,self.ville,self.device,str(msg_id))
+                            self._publish_if_allowed("statistic", topic, raw)
+                        elif msg_id < 0
+                            var now = tasmota.rtc()
+                            var timestamp = tasmota.time_str(now["local"])
+                            myjson["Time"] = timestamp
+                            var payload = json.dump(myjson)
+                            var kind = "debug"
+                            if msg_id == -1
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG1",self.client,self.ville,self.device)
+                            elif msg_id == -2
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
+                            elif msg_id <= -100
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG_MODBUS",self.client,self.ville,self.device)
+                            elif msg_id == -25
+                                kind = "config"
+                                topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
+                            elif msg_id == -26
+                                kind = "volume"
+                                topic=string.format("gw/%s/%s/%s/tele/VOLUME",self.client,self.ville,self.device)
+                            elif msg_id == -20
+                                kind = "consign"
+                                topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
+                            elif msg_id == -31
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG4",self.client,self.ville,self.device)
                             else
-                                topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(msg_id))
-                                var log_allowed = true
-                                if msg_id >= 10 && msg_id <= 20
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
+                            end
+                            self._publish_if_allowed(kind, topic, payload)
+                        elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
+                            topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(msg_id))
+                            self._publish_if_allowed("danfoss", topic, raw)
+                        else
+                            topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(msg_id))
+                            var log_allowed = true
+                            if msg_id >= 10 && msg_id <= 20
+                                log_allowed = false
+                            end
+                            if self.publish_mode == "log" || self.publish_mode == "danfosslog"
+                                if msg_id < 10 || msg_id > 20
                                     log_allowed = false
                                 end
-                                if self.publish_mode == "log" || self.publish_mode == "danfosslog"
-                                    if msg_id < 10 || msg_id > 20
-                                        log_allowed = false
-                                    end
-                                end
-                                if log_allowed
-                                    self._publish_if_allowed("danfosslog", topic, raw)
-                                end
-                           end
+                            end
+                            if log_allowed
+                                self._publish_if_allowed("danfosslog", topic, raw)
+                            end
                         end
-                    else
-                        topic=string.format("gw/%s/%s/%s/tele/DEBUG3",self.client,self.ville,self.device)
-                        var payload = json.dump({"Error":"json_error","Raw":raw})
-                        mqtt.publish(topic, payload, true)
                     end
+                else
+                    topic=string.format("gw/%s/%s/%s/tele/DEBUG3",self.client,self.ville,self.device)
+                    var payload = json.dump({"Error":"json_error","Raw":raw})
+                    mqtt.publish(topic, payload, true)
                 end
             else
                 topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)
