@@ -1,0 +1,90 @@
+{
+    "dl4-fpos": {
+        "mode": "tri",
+        "root": ["fpos"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["2000"]
+    },
+    "dl4-fneg": {
+        "mode": "tri",
+        "root": ["fneg"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["2000"]
+    },
+    "pwx4-froid-new": {
+        "mode": "tri",
+        "root": ["fpos2"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["2000"]
+    },
+    "dl4-main": {
+        "mode": "tri",
+        "root": ["main"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["4000"]
+    }, 
+    "dl4-station": {
+        "mode": "tri",
+        "root": ["station"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    }, 
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rampe5-1-divecl","rampe8-10-14-12-div","ColonneA"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","2000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rampe3-6-1-2-div","rampe2-9-div","ColonneB"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","4000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["unknown","unknown","unknown"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","4000"]
+    },
+    "dl4-tgbt": {
+        "mode": "tri",
+        "root": ["CoffretEntree"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["4000"]
+    }, 
+    "dl12-bureaux": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_bureaux","td_boulangerie","onduleur"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","1000"]
+    },
+    "dl12-bac-mono": {
+        "mode": ["mono","mono","mono"],
+        "root": ["n1","bac1","bac2","bac3","n2","bac4","bac5","bac6","n3","bac7","bac8","bac9"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    }
+}

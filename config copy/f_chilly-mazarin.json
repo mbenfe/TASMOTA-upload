@@ -1,0 +1,524 @@
+{
+  "30": {
+    "device": "AK-CC550",
+    "name": "VolCharcut30",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "31": {
+    "device": "AK-CC550",
+    "name": "VolCharcut31",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "32": {
+    "device": "AK-CC55",
+    "name": "VolCharcut32",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "33": {
+    "device": "AK-CC55",
+    "name": "BoucherieLS33",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "34": {
+    "device": "AK-CC55",
+    "name": "BoucherieLS34",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "35": {
+    "device": "EKC302D",
+    "name": "TGFrais35",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "36": {
+    "device": "AK-CC550",
+    "name": "TraiteurLS36",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "37": {
+    "device": "AK-CC550",
+    "name": "TraiteurLS37",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "38": {
+    "device": "AK-CC550",
+    "name": "TraiteurLS38",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "39": {
+    "device": "EKC302D",
+    "name": "TGFrais39",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "40": {
+    "device": "EKC302D",
+    "name": "FromageLS40",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "41": {
+    "device": "AK-CC550",
+    "name": "FromageLS41",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "42": {
+    "device": "EKC302D",
+    "name": "FromageLS42",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "43": {
+    "device": "AK-CC550",
+    "name": "TGFrais43",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "44": {
+    "device": "AK-CC550",
+    "name": "CremerieLS44",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "45": {
+    "device": "AK-CC550",
+    "name": "CremerieLS45",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "46": {
+    "device": "AK-CC550",
+    "name": "CremerieLS46",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "47": {
+    "device": "AK-CC550",
+    "name": "TGFrais47",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "48": {
+    "device": "AK-CC550",
+    "name": "CremerieLS48",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "49": {
+    "device": "AK-CC550",
+    "name": "CremerieLS49",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "50": {
+    "device": "AK-CC550",
+    "name": "CremerieLS50",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "51": {
+    "device": "AK-CC550",
+    "name": "ULF51",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "52": {
+    "device": "AK-CC550",
+    "name": "ULF52",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "53": {
+    "device": "AK-CC550",
+    "name": "ULF53",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "54": {
+    "device": "EKC202D",
+    "name": "TGFromFE54",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "55": {
+    "device": "AK-CC550",
+    "name": "FromageFE55",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "56": {
+    "device": "AK-CC550",
+    "name": "TGFromFE56",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "57": {
+    "device": "AK-CC550",
+    "name": "TGSV57",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "58": {
+    "device": "AK-CC550",
+    "name": "SemiVert58",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "59": {
+    "device": "AK-CC550",
+    "name": "TGSV59",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "60": {
+    "device": "AK-CC550",
+    "name": "SemiVert60",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "61": {
+    "device": "AK-CC55",
+    "name": "4eGamme61",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "62": {
+    "device": "AK-CC550",
+    "name": "4eGamme62",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "63": {
+    "device": "AK-CC550",
+    "name": "4eGamme63",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "64": {
+    "device": "AK-CC550",
+    "name": "BouchTrad64",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "65": {
+    "device": "AK-CC550",
+    "name": "BouchTrad65",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "66": {
+    "device": "AK-CC550A",
+    "name": "BouchTrad66",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "67": {
+    "device": "AK-CC550A",
+    "name": "BouchTrad67",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "68": {
+    "device": "AK-CC550A",
+    "name": "Saurisserie68",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "69": {
+    "device": "AK-CC550A",
+    "name": "Saurisserie69",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "70": {
+    "device": "AK-CC55",
+    "name": "SASFrais70",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "1": {
+    "device": "AK-CC550",
+    "name": "CFCremerie01",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "2": {
+    "device": "AK-CC550",
+    "name": "CFFruitLeg02",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "3": {
+    "device": "AK-CC550",
+    "name": "CFCarcasses03",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "4": {
+    "device": "AK-CC550",
+    "name": "CFSuif04",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "5": {
+    "device": "AK-CC550",
+    "name": "LaboBoucherie05",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "6": {
+    "device": "AK-CC550A",
+    "name": "CFDrive06",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "20": {
+    "device": "AK-CC550",
+    "name": "TGSurgPorte20",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "21": {
+    "device": "AK-CC550",
+    "name": "SurgPorte21",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "22": {
+    "device": "AK-CC550",
+    "name": "SurgPorte22",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "23": {
+    "device": "AK-CC550",
+    "name": "SurgPorte23",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "24": {
+    "device": "AK-CC550",
+    "name": "SurgPorte24",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "25": {
+    "device": "AK-CC550",
+    "name": "SurgPorte25",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "26": {
+    "device": "AK-CC550",
+    "name": "SurgPorte26",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "27": {
+    "device": "AK-CC550",
+    "name": "SurgPorte27",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "28": {
+    "device": "AK-CC550",
+    "name": "SurgPorte28",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "80": {
+    "device": "AK-CC550",
+    "name": "CFNegBoul80",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF-",
+    "OF": ""
+  },
+  "81": {
+    "device": "AK-CC550",
+    "name": "CFNegReserve81",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF-",
+    "OF": ""
+  }
+}

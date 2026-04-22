@@ -1,0 +1,1 @@
+{"applications":[{"type":"iRideau","label":"Rideau","level":1,"virtuel":0,"data":[{"shape":"Thermoscreens","color":0,"column":1,"row":1,"location":"Gauche","master":"rdx-ecopower1","slave":[]},{"shape":"Thermoscreens","color":0,"column":1,"row":2,"location":"Gauche","master":"rdx-ecopower2","slave":[]}]}]}

@@ -1,0 +1,106 @@
+{
+    "inter": {
+        "choisy": {
+            "total": {
+                "keys": [
+                    "ActivePower"
+                ],
+                "devices": {
+                    "dl4-froid": "froid",
+                    "dl12-ext-1": "gene_ext1"
+                }
+            },
+            "cout_total": {
+                "keys": [
+                    "cout"
+                ],
+                "devices": {
+                    "dl4-froid": "c_froid",
+                    "dl12-ext-1": "c_gene_ext1"
+                }
+            },
+            "couts_total": {
+                "keys": [
+                    "Lun",
+                    "Mar",
+                    "Mer",
+                    "Jeu",
+                    "Ven",
+                    "Sam",
+                    "Dim"
+                ],
+                "devices": {
+                    "dl4-froid": "c_w_froid",
+                    "dl12-ext-1": "c_w_gene_ext1"
+                }
+            }
+        },
+        "coubron": {
+            "cout_eclairage": {
+                "keys": [
+                    "cout"
+                ],
+                "devices": {
+                    "dl12-maind1-1": "c_ecl1",
+                    "dl12-maind1-2": "c_ecl2",
+                    "dl12-maind1-3": "c_ecl3",
+                    "dl12-maind2-1": "c_ecl4",
+                    "dl12-maind2-3": "c_divers_ecl"
+                }
+            },
+            "couts_total": {
+                "keys": [
+                    "Lun",
+                    "Mar",
+                    "Mer",
+                    "Jeu",
+                    "Ven",
+                    "Sam",
+                    "Dim"
+                ],
+                "devices": {
+                    "dl12-maind1-1": "c_w_ecl1",
+                    "dl12-maind1-2": "c_w_ecl2",
+                    "dl12-maind1-3": "c_w_ecl3",
+                    "dl12-maind2-1": "c_w_ecl4",
+                    "dl12-maind2-3": "c_w_divers_ecl"
+                }
+            }
+        },
+        "egly": {
+            "total": {
+                "keys": [
+                    "ActivePower"
+                ],
+                "devices": {
+                    "pwx12-tgbtext1": ["retour_solaire","gene_tgbtext"],
+                    "pwx12-tgbtin2": "gene_tgbtin"
+                }
+            },
+            "cout_total": {
+                "keys": [
+                    "cout"
+                ],
+                "devices": {
+                    "pwx12-tgbtext1": "gene_tgbtext",
+                    "pwx12-tgbtin2": "gene_tgbtin"
+                }
+            },
+            "couts_total": {
+                "keys": [
+                    "Lun",
+                    "Mar",
+                    "Mer",
+                    "Jeu",
+                    "Ven",
+                    "Sam",
+                    "Dim"
+                ],
+                "devices": {
+                    "pwx12-tgbtext1": "gene_tgbtext",
+                    "pwx12-tgbtin2": "gene_tgbtint"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{ 
+    "dl12-developpement": {
+        "mode": ["tri","tri","tri"],
+        "root": ["test1","test2","test3"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-flasher": {
+        "mode": ["tri","tri","tri"],
+        "root": ["test1","test2","test3"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+
+    "dl4-developpement": {
+        "mode": "tri",
+        "root": ["test"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    }
+ }

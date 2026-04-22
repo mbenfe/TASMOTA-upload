@@ -1,0 +1,749 @@
+﻿{
+  "0": {
+    "device": "EKC302D-012x",
+    "name": "CfPositiveBoul_0",
+    "brand": "default",
+    "model": "default",
+    "volume": 14064,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "2": {
+    "device": "AK-CC55SCUI-015x",
+    "name": "CfSurgelaGroupe_2",
+    "brand": "default",
+    "model": "default",
+    "volume": 27457,
+    "genre": "CF-",
+    "OF": "ferme"
+  },
+  "10": {
+    "device": "AK-CC550-A-019x",
+    "name": "SurgelaPortes_10",
+    "brand": "EXKAL",
+    "model": "DLN4 5.02",
+    "volume": 4992,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "11": {
+    "device": "AK-CC550-A-019x",
+    "name": "SurgelaPortes_11",
+    "brand": "EXKAL",
+    "model": "DLN4 4.02",
+    "volume": 3968,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "12": {
+    "device": "AK-CC550-A-019x",
+    "name": "SurgelaPortes_12",
+    "brand": "EXKAL",
+    "model": "DLN4 5.02",
+    "volume": 4992,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "13": {
+    "device": "AK-CC550-A-019x",
+    "name": "SurgelaPortes_13",
+    "brand": "EXKAL",
+    "model": "DLN4 4.02",
+    "volume": 3968,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "14": {
+    "device": "AK-CC550-A-012x",
+    "name": "TgBacSurg_14",
+    "brand": "LINDE",
+    "model": "IRIOS SG3",
+    "volume": 1083,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "15": {
+    "device": "AK-CC550-A-012x",
+    "name": "TgBacSurg_15",
+    "brand": "LINDE",
+    "model": "IRIOS SG3",
+    "volume": 1083,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "16": {
+    "device": "AK-CC550-A-019x",
+    "name": "BacSurgela_16",
+    "brand": "LINDE",
+    "model": "IRIOS SG3 375 A8",
+    "volume": 4275,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "17": {
+    "device": "AK-CC550-A-019x",
+    "name": "BacSurgela_17",
+    "brand": "LINDE",
+    "model": "IRIOS SG3 375 A8",
+    "volume": 4275,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "18": {
+    "device": "AK-CC550-A-012x",
+    "name": "BacSurgela_18",
+    "brand": "LINDE",
+    "model": "IRIOS SG3 375 C8",
+    "volume": 4275,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "19": {
+    "device": "AK-CC550-A-015x",
+    "name": "BacSurgela_19",
+    "brand": "CARRIER",
+    "model": "IRIOS SG3 188 C8",
+    "volume": 2143,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "20": {
+    "device": "AK-CC550-A-012x",
+    "name": "TgBacSurg_20",
+    "brand": "LINDE",
+    "model": "IRIOS SG3",
+    "volume": 1083,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "21": {
+    "device": "AK-CC55SC-017x",
+    "name": "CharcuterieFe_21",
+    "brand": "BONNET NEVET",
+    "model": "HABILL.TOIT ZN375",
+    "volume": 2587,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "22": {
+    "device": "AK-CC55SC-017x",
+    "name": "CharcuterieFe_22",
+    "brand": "BONNET NEVET",
+    "model": "HABILL.TOIT ZN375",
+    "volume": 2587,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "23": {
+    "device": "AK-CC550-A-018x",
+    "name": "BoucherieTrad_23",
+    "brand": "EXKAL",
+    "model": "HFERI-6.01",
+    "volume": 1912,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "24": {
+    "device": "AK-CC550-A-019x",
+    "name": "BoucherieTrad_24",
+    "brand": "EXKAL",
+    "model": "HFERI-6.01",
+    "volume": 1912,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "26": {
+    "device": "AK-CC550-A-018x",
+    "name": "Champagne_26",
+    "brand": "EXKAL",
+    "model": "SVLNU1-2.00",
+    "volume": 1320,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "27": {
+    "device": "AK-CC550-A-019x",
+    "name": "CharcuterieLs_27",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "28": {
+    "device": "AK-CC550-A-019x",
+    "name": "CharcuterieLs_28",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "29": {
+    "device": "AK-CC550-A-019x",
+    "name": "CharcuterieLs_29",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "30": {
+    "device": "AK-CC550-A-019x",
+    "name": "CharcuterieLs_30",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "31": {
+    "device": "AK-CC550-A-019x",
+    "name": "TraiteurLs_31",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "32": {
+    "device": "AK-CC550-A-019x",
+    "name": "TraiteurLs_32",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "33": {
+    "device": "AK-CC550-A-019x",
+    "name": "TraiteurLs_33",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "34": {
+    "device": "AK-CC550-A-019x",
+    "name": "TraiteurLs_34",
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "35": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_35",
+    "brand": "EXKAL",
+    "model": "VLCU1-C01",
+    "volume": 1732,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "36": {
+    "device": "AK-CC550-A-019x",
+    "name": "VolailleLs_36",
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "37": {
+    "device": "AK-CC550-A-019x",
+    "name": "VolailleLs_37",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "38": {
+    "device": "AK-CC550-A-019x",
+    "name": "VolailleLs_38",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "39": {
+    "device": "AK-CC550-A-019x",
+    "name": "VolailleLs_39",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "40": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_40",
+    "brand": "EXKAL",
+    "model": "VLCU1-C01",
+    "volume": 1732,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "41": {
+    "device": "AK-CC550-A-019x",
+    "name": "FromageLs_41",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "42": {
+    "device": "AK-CC550-A-019x",
+    "name": "FromageLs_42",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "43": {
+    "device": "AK-CC550-A-019x",
+    "name": "FromageLs_43",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "44": {
+    "device": "AK-CC550-A-019x",
+    "name": "FromageLs_44",
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "45": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_45",
+    "brand": "EXKAL",
+    "model": "VLCU1-C01",
+    "volume": 1732,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "46": {
+    "device": "AK-CC550-A-019x",
+    "name": "UltraFrais_46",
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "47": {
+    "device": "AK-CC550-A-019x",
+    "name": "UltraFrais_47",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "48": {
+    "device": "AK-CC550-A-019x",
+    "name": "UltraFrais_48",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "49": {
+    "device": "AK-CC550-A-019x",
+    "name": "UltraFrais_49",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "50": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_50",
+    "brand": "EXKAL",
+    "model": "VLCU1-C01",
+    "volume": 1732,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "51": {
+    "device": "AK-CC550-A-019x",
+    "name": "Tg_51",
+    "brand": "EXKAL",
+    "model": "VLCU1-C01",
+    "volume": 1732,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "52": {
+    "device": "AK-CC550-A-019x",
+    "name": "YaourtLs_52",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "53": {
+    "device": "AK-CC550-A-019x",
+    "name": "YaourtLs_53",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "54": {
+    "device": "AK-CC550-A-019x",
+    "name": "YaourtLs_54",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "55": {
+    "device": "AK-CC550-A-019x",
+    "name": "YaourtLs_55",
+    "brand": "EXKAL",
+    "model": "SVLNU1-3.00",
+    "volume": 1953,
+    "genre": "vitirine+",
+    "OF": "ferme"
+  },
+  "56": {
+    "device": "AK-CC55SC-017x",
+    "name": "Tg_56",
+    "brand": "BONNET NEVET",
+    "model": "SKYNNDT3",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "57": {
+    "device": "AK-CC550-A-019x",
+    "name": "JusDeFruits_57",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "58": {
+    "device": "AK-CC550-A-018x",
+    "name": "4EmeGamme_58",
+    "brand": "EXKAL",
+    "model": "SVLNU1-6.00",
+    "volume": 3960,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "59": {
+    "device": "AK-CC55SCUI-017x",
+    "name": "CfSurgReserve_59",
+    "brand": "default",
+    "model": "default",
+    "volume": 27457,
+    "genre": "CF-",
+    "OF": "ferme"
+  },
+  "61": {
+    "device": "AK-CC550-A-012x",
+    "name": "CfTraiteur_61",
+    "brand": "default",
+    "model": "default",
+    "volume": 29238,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "62": {
+    "device": "AK-CC550-A-012x",
+    "name": "CfFruitLegumes_62",
+    "brand": "default",
+    "model": "default",
+    "volume": 75187,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "64": {
+    "device": "AK-CC550-A-012x",
+    "name": "CfSuif_64",
+    "brand": "default",
+    "model": "default",
+    "volume": 13950,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "65": {
+    "device": "AK-CC550-A-019x",
+    "name": "LaboBoucherie_65",
+    "brand": "default",
+    "model": "default",
+    "volume": 94668,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "66": {
+    "device": "AK-CC550-A-019x",
+    "name": "CfCarcasses_66",
+    "brand": "default",
+    "model": "default",
+    "volume": 88745,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "67": {
+    "device": "AK-CC550-A-015x",
+    "name": "CfCremerie_67",
+    "brand": "default",
+    "model": "default",
+    "volume": 57623,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "68": {
+    "device": "AK-CC550-A-012x",
+    "name": "CfPoisson_68",
+    "brand": "default",
+    "model": "default",
+    "volume": 23025,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "69": {
+    "device": "EKC202D1-015x",
+    "name": "CfSurgBoulang_69",
+    "brand": "default",
+    "model": "default",
+    "volume": 25137,
+    "genre": "CF-",
+    "OF": "ferme"
+  },
+  "71": {
+    "device": "EKC302D-012x",
+    "name": "ClimSdm_71",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "climatisation",
+    "OF": ""
+  },
+  "72": {
+    "device": "AK-CC55SC-017x",
+    "name": "Snacking_72",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "73": {
+    "device": "AK-CC55SC-017x",
+    "name": "Snacking_73",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "74": {
+    "device": "AK-CC55SC-017x",
+    "name": "Snacking_74",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "75": {
+    "device": "AK-CC55SC-017x",
+    "name": "Snacking_75",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS18",
+    "volume": 2246,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "76": {
+    "device": "AK-CC55SC-017x",
+    "name": "CharcutFe_76",
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "77": {
+    "device": "AK-CC55SC-017x",
+    "name": "CharcutFe_77",
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "78": {
+    "device": "AK-CC55SC-017x",
+    "name": "CharcutFe_78",
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "79": {
+    "device": "AK-CC55SC-017x",
+    "name": "CharcutFe_79",
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "80": {
+    "device": "AK-CC55SC-017x",
+    "name": "FromageFe_80",
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "81": {
+    "device": "AK-CC55SC-017x",
+    "name": "FromageFe_81",
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "82": {
+    "device": "AK-CC55SC-017x",
+    "name": "FromageFe_82",
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "83": {
+    "device": "AK-CC55SC-017x",
+    "name": "FromageFe_83",
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "84": {
+    "device": "AK-CC55SC-017x",
+    "name": "BoucherieFe_84",
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "85": {
+    "device": "AK-CC55SC-017x",
+    "name": "BoucherieFe_85",
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "86": {
+    "device": "AK-CC55SC-017x",
+    "name": "BoucherieFe_86",
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "87": {
+    "device": "AK-CC55SC-017x",
+    "name": "BoucherieFe_87",
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "88": {
+    "device": "AK-CC55SC-017x",
+    "name": "SaurisserieFe_88",
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "89": {
+    "device": "AK-CC55SC-017x",
+    "name": "SaurisserieFe_89",
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "90": {
+    "device": "AK-CC55SC-017x",
+    "name": "SaurisserieFe_90",
+    "brand": "EPTA",
+    "model": "KALNS37",
+    "volume": 2283,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "91": {
+    "device": "AK-CC55SC-017x",
+    "name": "SaurisserieFe_91",
+    "brand": "EPTA",
+    "model": "KALNST5",
+    "volume": 1169,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "100": {
+    "device": "AK-PC551-0170",
+    "name": "CentNegative_100",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "condenseur",
+    "OF": ""
+  },
+  "101": {
+    "device": "AK-PC551-0170",
+    "name": "CentPositive3cp_101",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "condenseur",
+    "OF": ""
+  },
+  "102": {
+    "device": "AK-PC551-0163",
+    "name": "CentPositive2cp_102",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "condenseur",
+    "OF": ""
+  }
+}

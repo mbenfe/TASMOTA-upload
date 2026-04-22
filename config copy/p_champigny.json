@@ -1,0 +1,50 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["pricipal","gene_forces_divers","froid"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["4000","1000","4000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["ctgendole","pchorspublic","eclgondoles"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["pcpublic","eclprive","ecldeco"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["pcprive","divers","chauffage"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-boulangerie": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_boulangerie","laverie_ext","fours"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-labo": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_labo","divers_4dij","ecl_gondoleLS"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    }
+}

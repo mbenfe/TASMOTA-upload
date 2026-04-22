@@ -1,0 +1,875 @@
+{
+    "applications": [
+        {
+            "type": "Home",
+            "label": "Home",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "OpenWeather",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "MAISON",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Total/Froid/Parking/divers 1/divers 2/divers 3/divers 4/divers 5/divers/boulangerie",
+                    "master": "c_main",
+                    "slave": [
+                        "c_froid",
+                        "c_tdparking",
+                        "c_divers1",
+                        "c_divers2",
+                        "c_divers3",
+                        "c_divers4",
+                        "c_divers5",
+                        "c_diversold",
+                        "c_boulangerie"
+                    ]
+                },
+                {
+                    "shape": "ParetoTemp",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Exterieur/Boulangerie/Ascenseur/CLS/Caisse 4/Legumes/TV Pub/En ce moment/Cuisine/Poissonerie/TG froid 35",
+                    "master": "th_exterieure",
+                    "slave": [
+                        "th_boulangerie",
+                        "th_ascenseur",
+                        "th_caisse_auto",
+                        "th_caisse_4",
+                        "th_legumes",
+                        "th_tv",
+                        "th_en_ce_moment",
+                        "th_cuisine",
+                        "th_poissonerie",
+                        "th_tg35"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "iRideau",
+            "label": "Rideau",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "Thermoscreen",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Droite",
+                    "master": "rdx-d",
+                    "slave": [
+                        "setup_rdx-d"
+                    ]
+                },
+                {
+                    "shape": "Thermoscreen",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Gauche",
+                    "master": "rdx-g",
+                    "slave": [
+                        "setup_rdx-g"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Negatif",
+            "level": 1,
+            "type": "iFroidNegatif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Chambres froides négatives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "",
+                    "master": "CFNegBoulang18",
+                    "slave": [
+                        "est_CFNegBoulang18"
+                    ]
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "",
+                    "master": "CFNegSSol20",
+                    "slave": [
+                        "est_CFNegSSol20"
+                    ]
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
+                    "master": "CFNegDrive23",
+                    "slave": [
+                        "est_CFNegDrive23"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Meubles surgelées",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
+                    "master": "SurgPorte70",
+                    "slave": [
+                        "est_SurgPorte70"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
+                    "master": "SurgPorte71",
+                    "slave": [
+                        "est_SurgPorte71"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 5,
+                    "location": "",
+                    "master": "SurgPorte72",
+                    "slave": [
+                        "est_SurgPorte72"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 5,
+                    "location": "",
+                    "master": "SurgPorte73",
+                    "slave": [
+                        "est_SurgPorte73"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
+                    "master": "SurgPorte74",
+                    "slave": [
+                        "est_SurgPorte74"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
+                    "master": "SurgPorte75",
+                    "slave": [
+                        "est_SurgPorte75"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 6,
+                    "location": "",
+                    "master": "SurgPorte76",
+                    "slave": [
+                        "est_SurgPorte76"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 6,
+                    "location": "",
+                    "master": "SurgPorte77",
+                    "slave": [
+                        "est_SurgPorte77"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
+                    "master": "SurgPorte78",
+                    "slave": [
+                        "est_SurgPorte78"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 8,
+                    "location": "Bacs surgelés",
+                    "master": "",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "label": "Positif",
+            "level": 1,
+            "type": "iFroidPositif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Chambres froides positives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "",
+                    "master": "CFSuif7",
+                    "slave": [
+                        "est_CFSuif7"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "",
+                    "master": "CFCarcasse8",
+                    "slave": [
+                        "est_CFCarcasse8"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
+                    "master": "LaboBoucherie9",
+                    "slave": [
+                        "est_LaboBoucherie9"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "",
+                    "master": "CFCremerie10",
+                    "slave": [
+                        "est_CFCremerie10"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
+                    "master": "CFCremerie19",
+                    "slave": [
+                        "est_CFCremerie19"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "",
+                    "master": "CFFetLegume22",
+                    "slave": [
+                        "est_CFFetLegume22"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
+                    "master": "CFDrive24",
+                    "slave": [
+                        "est_CFDrive24"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
+                    "master": "CFPoisson57",
+                    "slave": [
+                        "est_CFPoisson57"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
+                    "master": "LaboPoisson58",
+                    "slave": [
+                        "est_LaboPoisson58"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 7,
+                    "location": "Meubles froid positif",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "",
+                    "master": "LaitFrais25",
+                    "slave": [
+                        "est_LaitFrais25"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 8,
+                    "location": "",
+                    "master": "CharcutFE26",
+                    "slave": [
+                        "est_CharcutFE26"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 8,
+                    "location": "",
+                    "master": "CharcutFE27",
+                    "slave": [
+                        "est_CharcutFE27"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 8,
+                    "location": "",
+                    "master": "Salade28",
+                    "slave": [
+                        "est_Salade28"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "",
+                    "master": "TraiteurLS30",
+                    "slave": [
+                        "est_TraiteurLS30"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "",
+                    "master": "TraiteurLS31",
+                    "slave": [
+                        "est_TraiteurLS31"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 9,
+                    "location": "",
+                    "master": "TraiteurLS32",
+                    "slave": [
+                        "est_TraiteurLS32"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 9,
+                    "location": "",
+                    "master": "TraiteurLS33",
+                    "slave": [
+                        "est_TraiteurLS33"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 10,
+                    "location": "",
+                    "master": "TGCarcut34",
+                    "slave": [
+                        "est_TGCarcut34"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 10,
+                    "location": "",
+                    "master": "CharcutLS35",
+                    "slave": [
+                        "est_CharcutLS35"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 10,
+                    "location": "",
+                    "master": "CharcutLS36",
+                    "slave": [
+                        "est_CharcutLS36"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 10,
+                    "location": "",
+                    "master": "CharcutLS37",
+                    "slave": [
+                        "est_CharcutLS37"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 11,
+                    "location": "",
+                    "master": "TGBoucherie38",
+                    "slave": [
+                        "est_TGBoucherie38"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 11,
+                    "location": "",
+                    "master": "BoucherieLS39",
+                    "slave": [
+                        "est_BoucherieLS39"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 11,
+                    "location": "",
+                    "master": "BoucherieLS40",
+                    "slave": [
+                        "est_BoucherieLS40"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 11,
+                    "location": "",
+                    "master": "BoucherieLS41",
+                    "slave": [
+                        "est_BoucherieLS41"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 12,
+                    "location": "",
+                    "master": "TGVolaille42",
+                    "slave": [
+                        "est_TGVolaille42"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 12,
+                    "location": "",
+                    "master": "VolailleLS43",
+                    "slave": [
+                        "est_VolailleLS43"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 12,
+                    "location": "",
+                    "master": "VolailleLS44",
+                    "slave": [
+                        "est_VolailleLS44"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 12,
+                    "location": "",
+                    "master": "VolailleLS45",
+                    "slave": [
+                        "est_VolailleLS45"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 13,
+                    "location": "",
+                    "master": "TGVolaille46",
+                    "slave": [
+                        "est_TGVolaille46"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 13,
+                    "location": "",
+                    "master": "BouchTrad48",
+                    "slave": [
+                        "est_BouchTrad48"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 13,
+                    "location": "",
+                    "master": "CharcutTrad49",
+                    "slave": [
+                        "est_CharcutTrad49"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 13,
+                    "location": "",
+                    "master": "CharcutTrad50",
+                    "slave": [
+                        "est_CharcutTrad50"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 14,
+                    "location": "",
+                    "master": "CharcutTrad51",
+                    "slave": [
+                        "est_CharcutTrad51"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 14,
+                    "location": "",
+                    "master": "CaveJambon52",
+                    "slave": [
+                        "est_CaveJambon52"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 14,
+                    "location": "",
+                    "master": "CaveFromage53",
+                    "slave": [
+                        "est_CaveFromage53"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 14,
+                    "location": "",
+                    "master": "CharcutFE54",
+                    "slave": [
+                        "est_CharcutFE54"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 15,
+                    "location": "",
+                    "master": "TGFromage59",
+                    "slave": [
+                        "est_TGFromage59"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 15,
+                    "location": "",
+                    "master": "FromageLS60",
+                    "slave": [
+                        "est_FromageLS60"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 15,
+                    "location": "",
+                    "master": "FromageLS61",
+                    "slave": [
+                        "est_FromageLS61"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 15,
+                    "location": "",
+                    "master": "FromageLS62",
+                    "slave": [
+                        "est_FromageLS62"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 16,
+                    "location": "",
+                    "master": "TGFromage63",
+                    "slave": [
+                        "est_TGFromage63"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 16,
+                    "location": "",
+                    "master": "YahourtLS64",
+                    "slave": [
+                        "est_YahourtLS64"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 16,
+                    "location": "",
+                    "master": "YahourtLS65",
+                    "slave": [
+                        "est_YahourtLS65"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 16,
+                    "location": "",
+                    "master": "YahourtLS66",
+                    "slave": [
+                        "est_YahourtLS66"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 17,
+                    "location": "",
+                    "master": "YahourtLS67",
+                    "slave": [
+                        "est_YahourtLS67"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 17,
+                    "location": "",
+                    "master": "YahourtLS68",
+                    "slave": [
+                        "est_YahourtLS68"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 17,
+                    "location": "",
+                    "master": "YahourtLS69",
+                    "slave": [
+                        "est_YahourtLS69"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 17,
+                    "location": "",
+                    "master": "TourBoucherie79",
+                    "slave": [
+                        "est_TourBoucherie79"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 18,
+                    "location": "",
+                    "master": "TraiteurSV80",
+                    "slave": [
+                        "est_TraiteurSV80"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 18,
+                    "location": "",
+                    "master": "TGTraiteurSV81",
+                    "slave": [
+                        "est_TGTraiteurSV81"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 18,
+                    "location": "",
+                    "master": "PoissonSV82",
+                    "slave": [
+                        "est_PoissonSV82"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 18,
+                    "location": "",
+                    "master": "PoissonSV83",
+                    "slave": [
+                        "est_PoissonSV83"
+                    ]
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 20,
+                    "location": "Bacs froid positif",
+                    "master": "",
+                    "slave": []
+                }
+            ]
+        }
+    ]
+}

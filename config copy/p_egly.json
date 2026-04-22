@@ -1,0 +1,66 @@
+{
+    "pwx4-sdm1": {
+        "mode": "tri",
+        "root": ["gene_froid"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["4000"]
+    },
+   "pwx4-sdm2": {
+        "mode": "tri",
+        "root": ["m1+"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "pwx12-sdm1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["m2+","m3+","m4+"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "pwx12-tgbtext1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["laverie_kiosk","retour_solaire","general_tgbtext"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","4000","4000"]
+    },
+    "pwx12-tgbtint1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["eclairage2","eclairage1","*"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "pwx12-tgbtint2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["station_lavage","general_tgbtint","station_service"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","4000","2000"]
+    },
+    "pwx12-tgbtint3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["divers1","prise1","eclairage3"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "pwx12-tgbtint4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["divers2","prises2","divers3"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","2000"]
+    }
+}

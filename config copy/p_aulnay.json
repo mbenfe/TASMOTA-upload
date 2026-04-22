@@ -1,0 +1,114 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["fneg","fpos","main"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["2000","4000","3003"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_drive","fext","td_acceuil"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["station","eclext","pc_16A_magasin"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },   
+    "dl12-tgbt4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rampe1","rampe2","rampe3"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl4-tgbt1": {
+        "mode": "tri",
+        "root": ["bureau_direction"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-tgbt2": {
+        "mode": "tri",
+        "root": ["rampe7-12"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-tgbt3": {
+        "mode": "tri",
+        "root": ["parking"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl12-boulangerie": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_boulangerie","four36kw","boutique"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","2000"]
+    },
+    "dl4-rideau": {
+        "mode": "tri",
+        "root": ["rideau"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl4-tdmag": {
+        "mode": "tri",
+        "root": ["td_magasin"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["4000"]
+    },
+    "dl4-tdbacl": {
+        "mode": "tri",
+        "root": ["td_bacs_loges"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+        },
+    "dl12-subpos": {
+            "mode": ["tri","tri","tri"],
+            "root": ["pos_m1","pos_m2","pos_m3"],
+            "produit": "PWX12",
+            "PGA": ["1","1","1"],
+            "techno": ["ct","ct","ct"],
+            "ratio": ["1000","1000","1000"]
+        },
+    "dl12-subneg": {
+            "mode": ["tri","tri","tri"],
+            "root": ["neg_m1","neg_m2","neg_m3"],
+            "produit": "PWX12",
+            "PGA": ["1","1","1"],
+            "techno": ["ct","ct","ct"],
+            "ratio": ["1000","1000","1000"]
+        },
+    "dl4-tmono-boulangerie": {
+        "mode": "mono",
+        "root": ["*","machine_glacon","*","*"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["2000"]
+        }
+    }

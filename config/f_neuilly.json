@@ -1,1 +1,623 @@
-{"7": {"name": "CFSuif7","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "CF+","device": "device"},"8": {"name": "CFCarcasse8","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "CF+","device": "device"},"9": {"name": "LaboBoucherie9","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "CF+","device": "device"},"10": {"name": "CFCremerie10","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "CF+","device": "device"},"18": {"name": "CFNegBoulang18","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "CF-","device": "device"},"19": {"name": "CFCremerie19","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "CF+","device": "device"},"20": {"name": "CFNegSSol20","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "CF-","device": "device"},"22": {"name": "CFFetLegume22","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "CF+","device": "device"},"23": {"name": "CFNegDrive23","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "CF-","device": "device"},"24": {"name": "CFDrive24","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "CF+","device": "device"},"25": {"name": "LaitFrais25","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"26": {"name": "CharcutFE26","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"27": {"name": "CharcutFE27","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"28": {"name": "Salade28","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"30": {"name": "TraiteurLS30","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"31": {"name": "TraiteurLS31","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"32": {"name": "TraiteurLS32","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"33": {"name": "TraiteurLS33","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"34": {"name": "TGCarcut34","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"35": {"name": "CharcutLS35","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"36": {"name": "CharcutLS36","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"37": {"name": "CharcutLS37","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"38": {"name": "TGBoucherie38","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"39": {"name": "BoucherieLS39","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"40": {"name": "BoucherieLS40","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"41": {"name": "BoucherieLS41","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"42": {"name": "TGVolaille42","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"43": {"name": "VolailleLS43","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"44": {"name": "VolailleLS44","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"45": {"name": "VolailleLS45","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"46": {"name": "TGVolaille46","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"48": {"name": "BouchTrad48","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"49": {"name": "CharcutTrad49","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"50": {"name": "CharcutTrad50","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"51": {"name": "CharcutTrad51","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"52": {"name": "CaveJambon52","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"53": {"name": "CaveFromage53","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"54": {"name": "CharcutFE54","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"57": {"name": "CFPoisson57","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"58": {"name": "LaboPoisson58","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"59": {"name": "TGFromage59","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"60": {"name": "FromageLS60","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"61": {"name": "FromageLS61","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"62": {"name": "FromageLS62","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"63": {"name": "TGFromage63","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"64": {"name": "YahourtLS64","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"65": {"name": "YahourtLS65","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"66": {"name": "YahourtLS66","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"67": {"name": "YahourtLS67","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"68": {"name": "YahourtLS68","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"69": {"name": "YahourtLS69","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"70": {"name": "SurgPorte70","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "vitrine-","device": "device"},"71": {"name": "SurgPorte71","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "vitrine-","device": "device"},"72": {"name": "SurgPorte72","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "vitrine-","device": "device"},"73": {"name": "SurgPorte73","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "vitrine-","device": "device"},"74": {"name": "SurgPorte74","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "vitrine-","device": "device"},"75": {"name": "SurgPorte75","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "vitrine-","device": "device"},"76": {"name": "SurgPorte76","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "vitrine-","device": "device"},"77": {"name": "SurgPorte77","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "vitrine-","device": "device"},"78": {"name": "SurgPorte78","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devneg","genre": "vitrine-","device": "device"},"79": {"name": "TourBoucherie79","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"80": {"name": "TraiteurSV80","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"81": {"name": "TGTraiteurSV81","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"82": {"name": "PoissonSV82","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"83": {"name": "PoissonSV83","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "NA","categorie": "devpos","genre": "vitrine+","device": "device"},"100": {"name": "CentNegative","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "machinerie","categorie": "condneg","genre": "condenseur","device": "controler"},"101": {"name": "CentPositive","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "machinerie","categorie": "condpos","genre": "condenseur","device": "controler"},"102": {"name": "SalleDMachine","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "machinerie","categorie": "devpos","genre": "climatisation","device": "device"},"103": {"name": "ClimTGBT","status": {},"alias_sonde": "TherAir","alias_cutout": "CutoutTemp","alias_state": "CtrlState","poste": "machinerie","categorie": "devpos","genre": "climatisation","device": "device"}}
+{
+  "7": {
+    "device": "EKC202A-013x",
+    "name": "CfSuif_7",
+    "brand": "default",
+    "model": "default",
+    "volume": 2641,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "8": {
+    "device": "EKC202A-013x",
+    "name": "CfCarcasse_8",
+    "brand": "default",
+    "model": "default",
+    "volume": 40684,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "9": {
+    "device": "EKC202A-013x",
+    "name": "LaboBoucherie_9",
+    "brand": "default",
+    "model": "default",
+    "volume": 30958,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "10": {
+    "device": "EKC202A-013x",
+    "name": "CfCremerie_10",
+    "brand": "default",
+    "model": "default",
+    "volume": 17867,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "18": {
+    "device": "AK-CC55-017x",
+    "name": "CfNegBoulang_18",
+    "brand": "default",
+    "model": "default",
+    "volume": 17602,
+    "genre": "CF-",
+    "OF": "ferme"
+  },
+  "19": {
+    "device": "AK-CC550-015x",
+    "name": "CfCrermerie_19",
+    "brand": "default",
+    "model": "default",
+    "volume": 35586,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "20": {
+    "device": "AK-CC550A-020x",
+    "name": "CfNegSSol_20",
+    "brand": "default",
+    "model": "default",
+    "volume": 57200,
+    "genre": "CF-",
+    "OF": "ferme"
+  },
+  "22": {
+    "device": "AK-CC550-015x",
+    "name": "CfFEtLegume_22",
+    "brand": "default",
+    "model": "default",
+    "volume": 44601,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "23": {
+    "device": "EKC302D-012x",
+    "name": "CfNegDrive_23",
+    "brand": "default",
+    "model": "default",
+    "volume": 13923,
+    "genre": "CF-",
+    "OF": "ferme"
+  },
+  "24": {
+    "device": "EKC202A-013x",
+    "name": "CfDrive_24",
+    "brand": "default",
+    "model": "default",
+    "volume": 28338,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "25": {
+    "device": "AK-CC550-018x",
+    "name": "LaitFrais_25",
+    "brand": "CARRIER",
+    "model": "METHOS 63-GD 125",
+    "volume": 1487,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "26": {
+    "device": "AK-CC550-018x",
+    "name": "CharcutFe_26",
+    "brand": "CARRIER",
+    "model": "METHOS 63-GD 375",
+    "volume": 4462,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "27": {
+    "device": "AK-CC550A-020x",
+    "name": "CharcutFe_27",
+    "brand": "CARRIER",
+    "model": "METHOS 63-GD 250",
+    "volume": 2975,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "28": {
+    "device": "AK-CC550-018x",
+    "name": "Salade_28",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "30": {
+    "device": "AK-CC525A-014x",
+    "name": "TraiteurLs_30",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "31": {
+    "device": "AK-CC525A-014x",
+    "name": "TraiteurLs_31",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "32": {
+    "device": "AK-CC525A-014x",
+    "name": "TraiteurLs_32",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "33": {
+    "device": "AK-CC525A-014x",
+    "name": "TraiteurLs_33",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "34": {
+    "device": "AK-CC525A-014x",
+    "name": "TgCharcut_34",
+    "brand": "BONNET NEVET",
+    "model": "LEONDT3",
+    "volume": 2064,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "35": {
+    "device": "AK-CC525A-014x",
+    "name": "CharcutLs_35",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "36": {
+    "device": "AK-CC525A-014x",
+    "name": "CharcutLs_36",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "37": {
+    "device": "AK-CC525A-014x",
+    "name": "CharcutLs_37",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "38": {
+    "device": "AK-CC525A-014x",
+    "name": "TgBoucherie_38",
+    "brand": "BONNET NEVET",
+    "model": "LEONDT3",
+    "volume": 2064,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "39": {
+    "device": "AK-CC525A-014x",
+    "name": "BoucherieLs_39",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "40": {
+    "device": "AK-CC525A-014x",
+    "name": "BoucherieLs_40",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "41": {
+    "device": "AK-CC525A-014x",
+    "name": "BoucherieLs_41",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "42": {
+    "device": "AK-CC525A-014x",
+    "name": "TgVolaille_42",
+    "brand": "BONNET NEVET",
+    "model": "LEONDT3",
+    "volume": 2064,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "43": {
+    "device": "AK-CC550-015x",
+    "name": "VolailleLs_43",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "44": {
+    "device": "AK-CC525A-014x",
+    "name": "VolailleLs_44",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "45": {
+    "device": "AK-CC525A-014x",
+    "name": "VolailleLs_45",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "46": {
+    "device": "AK-CC525A-014x",
+    "name": "TgVolaille_46",
+    "brand": "BONNET NEVET",
+    "model": "LEONDT3",
+    "volume": 2064,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "48": {
+    "device": "AK-CC550-018x",
+    "name": "BouchTrad_48",
+    "brand": "EPTA",
+    "model": "MUSNS37",
+    "volume": 2253,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "49": {
+    "device": "AK-CC550-018x",
+    "name": "CharcutTrad_49",
+    "brand": "EPTA",
+    "model": "MUSNS37",
+    "volume": 2253,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "50": {
+    "device": "AK-CC550-018x",
+    "name": "CharcutTrad_50",
+    "brand": "EPTA",
+    "model": "MUSNS04",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "51": {
+    "device": "AK-CC550-018x",
+    "name": "CharcutTrad_51",
+    "brand": "EPTA",
+    "model": "MUSNS04",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "52": {
+    "device": "AK-CC550-012x",
+    "name": "CaveJambon_52",
+    "brand": "unknown",
+    "model": "CAVE 1",
+    "volume": 680,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "53": {
+    "device": "AK-CC550-012x",
+    "name": "CaveFromage_53",
+    "brand": "unknown",
+    "model": "CAVE 2",
+    "volume": 1458,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "54": {
+    "device": "AK-CC525A-014x",
+    "name": "CharcutFe_54",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "57": {
+    "device": "EKC202D1-015x",
+    "name": "CfPoisson_57",
+    "brand": "default",
+    "model": "default",
+    "volume": 21754,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "58": {
+    "device": "EKC202D1-015x",
+    "name": "LaboPoisson_58",
+    "brand": "default",
+    "model": "default",
+    "volume": 18177,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "59": {
+    "device": "AK-CC550-012x",
+    "name": "TgFromage_59",
+    "brand": "BONNET NEVET",
+    "model": "LEONDT3",
+    "volume": 2064,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "60": {
+    "device": "AK-CC550-015x",
+    "name": "FromageLs_60",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "61": {
+    "device": "AK-CC525A-014x",
+    "name": "FromageLs_61",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "62": {
+    "device": "AK-CC525A-014x",
+    "name": "FromageLs_62",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "63": {
+    "device": "AK-CC525A-014x",
+    "name": "TgFromage_63",
+    "brand": "BONNET NEVET",
+    "model": "LEONDT3",
+    "volume": 2064,
+    "genre": "vitrine+",
+    "OF": "ouvert"
+  },
+  "64": {
+    "device": "AK-CC525A-014x",
+    "name": "YahourtLs_64",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "65": {
+    "device": "AK-CC525A-014x",
+    "name": "YahourtLs_65",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "66": {
+    "device": "AK-CC525A-014x",
+    "name": "YahourtLs_66",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "67": {
+    "device": "AK-CC525A-014x",
+    "name": "YahourtLs_67",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "68": {
+    "device": "AK-CC525A-014x",
+    "name": "YahourtLs_68",
+    "brand": "BONNET NEVET",
+    "model": "SKYLS37",
+    "volume": 4493,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "69": {
+    "device": "AK-CC525A-014x",
+    "name": "YahourtLs_69",
+    "brand": "BONNET NEVET",
+    "model": "SKYNS25",
+    "volume": 2975,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "70": {
+    "device": "AK-CC550-018x",
+    "name": "SurgPorte_70",
+    "brand": "BONNET NEVET",
+    "model": "APHIS5D",
+    "volume": 5411,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "71": {
+    "device": "AK-CC550-018x",
+    "name": "SurgPorte_71",
+    "brand": "BONNET NEVET",
+    "model": "APHIS5D",
+    "volume": 5411,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "72": {
+    "device": "AK-CC550-018x",
+    "name": "SurgPorte_72",
+    "brand": "BONNET NEVET",
+    "model": "APHIS3D",
+    "volume": 4301,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "73": {
+    "device": "AK-CC550-018x",
+    "name": "SurgPorte_73",
+    "brand": "BONNET NEVET",
+    "model": "APHIS4D",
+    "volume": 22366,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "74": {
+    "device": "AK-CC550-015x",
+    "name": "SurgPorte_74",
+    "brand": "BONNET NEVET",
+    "model": "APHIS5D",
+    "volume": 5411,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "75": {
+    "device": "AK-CC550-018x",
+    "name": "SurgPorte_75",
+    "brand": "BONNET NEVET",
+    "model": "APHIS5D",
+    "volume": 5411,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "76": {
+    "device": "AK-CC550-018x",
+    "name": "TgBacSurg_76",
+    "brand": "EPTA",
+    "model": "TO1L-T4",
+    "volume": 2223,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "77": {
+    "device": "AK-CC550-018x",
+    "name": "BacSurg_77",
+    "brand": "EPTA",
+    "model": "TORL-37",
+    "volume": 4275,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "78": {
+    "device": "AK-CC550-018x",
+    "name": "TgBacSurg_78",
+    "brand": "EPTA",
+    "model": "TO1L-T4",
+    "volume": 2223,
+    "genre": "bac-",
+    "OF": "ferme"
+  },
+  "79": {
+    "device": "AK-CC55-015x",
+    "name": "TourBoucherie_79",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "80": {
+    "device": "AK-CC55-015x",
+    "name": "TraiteurSv_80",
+    "brand": "BONNET NEVET",
+    "model": "KALNS25",
+    "volume": 1522,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "81": {
+    "device": "AK-CC55-015x",
+    "name": "TgTraiteurSv_81",
+    "brand": "BONNET NEVET",
+    "model": "KALNST5",
+    "volume": 1169,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "82": {
+    "device": "AK-CC55-015x",
+    "name": "TraiteurSv_82",
+    "brand": "BONNET NEVET",
+    "model": "KALNS25",
+    "volume": 1522,
+    "genre": "bac+",
+    "OF": "ouvert"
+  },
+  "83": {
+    "device": "AK-CC550-018x",
+    "name": "PoissonSv_83",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "100": {
+    "device": "AK-PC781-044x",
+    "name": "AspiPositive_100",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "condenseur",
+    "OF": ""
+  },
+  "101": {
+    "device": "AK-PC781-044x",
+    "name": "AspiNegative_101",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "condenseur",
+    "OF": ""
+  },
+  "102": {
+    "device": "EKC302D-012x",
+    "name": "SalleDMachine_102",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "climatisation",
+    "OF": ""
+  },
+  "103": {
+    "device": "EKC302D-012x",
+    "name": "ClimTgbt_103",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "climatisation",
+    "OF": ""
+  }
+}

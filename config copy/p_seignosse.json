@@ -1,0 +1,18 @@
+{
+    "dl4-principal": {
+        "mode": "mono",
+        "root": ["main","autre1","autre2","autre3"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+        },
+   "dl4-annexe": {
+        "mode": "mono",
+        "root": ["td_annexe","jaccuzi","spa","*"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+        }
+}

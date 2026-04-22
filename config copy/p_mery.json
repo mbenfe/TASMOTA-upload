@@ -1,0 +1,66 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rooftop_51","rooftop1_36","gene_rooftops"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","4000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["main","froid","ecl_ext"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["rogowski","rogowski","ct"],
+        "ratio": ["3003","3003","1000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_station","td_poissonerie","*"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt4": {
+        "mode": ["tri","tri","tri"],
+        "root": ["CF-reserve","ecl_f&l","gene_divers"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt5": {
+        "mode": ["tri","tri","tri"],
+        "root": ["onduleur","bureaux","gene_tab1"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt6": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_tab2","travees","caisses"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },    
+    "dl12-boulangerie": {
+        "mode": ["tri","tri","tri"],
+        "root": ["fours","drive&co","gene_boulangerie"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","2000"]
+    },
+    "dl4-labo": {
+        "mode": "tri",
+        "root": ["gene_labo"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+        }
+}

@@ -1,0 +1,115 @@
+
+{
+    "dl12-maingh": {
+    "mode": ["tri","tri","tri"],
+    "root": ["enseigne1","gene_maing","onduleur"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
+},
+"dl12-maingb": {
+    "mode": ["tri","tri","tri"],
+    "root": ["ecl2","enseigne2","*"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
+},
+"dl4-maingh": {
+    "mode": "tri",
+    "root": ["ecl1"],
+    "produit": "PWX4",
+    "PGA": ["1"],
+    "techno": ["ct"],
+    "ratio": ["1000"]
+    },
+"dl12-maindh": {
+    "mode": ["tri","tri","tri"],
+    "root": ["libre","gene_int","*"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","4000","1000"]
+},
+"dl12-maindb": {
+    "mode": ["tri","tri","tri"],
+    "root": ["rideau_g","rideau_d","bureaux"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
+},
+"dl4-bornes": {
+    "mode": "tri",
+    "root": ["bornes"],
+    "produit": "PWX4",
+    "PGA": ["1"],
+    "techno": ["ct"],
+    "ratio": ["2000"]
+    },
+"dl12-boulangerie1": {
+    "mode": ["tri","tri","tri"],
+    "root": ["force","grandfour","gen_boulangerie"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
+},
+"dl12-boulangerie2": {
+    "mode": ["tri","tri","tri"],
+    "root": ["cfneg","cfpos","ballon"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
+},
+"dl12-labo1": {
+    "mode": ["tri","tri","tri"],
+    "root": ["eclgondoles","force","gene_labo"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
+},
+"dl12-labo2": {
+    "mode": ["tri","tri","tri"],
+    "root": ["gene_deviation","divers","*"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
+},
+"dl4-labo": {
+    "mode": "tri",
+    "root": ["bec"],
+    "produit": "PWX4",
+    "PGA": ["1"],
+    "techno": ["ct"],
+    "ratio": ["1000"]
+    },
+"dl12-tdclim": {
+    "mode": ["tri","tri","tri"],
+    "root": ["reserve","climatisations","td_clim"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["1000","1000","1000"]
+},
+"dl4-froid": {
+    "mode": "tri",
+    "root": ["froid"],
+    "produit": "PWX4",
+    "PGA": ["1"],
+    "techno": ["ct"],
+    "ratio": ["4000"]
+    },
+"dl12-ext": {
+    "mode": ["tri","tri","tri"],
+    "root": ["gene_ext1","gene_ext2","station"],
+    "produit": "PWX12",
+    "PGA": ["1","1","1"],
+    "techno": ["ct","ct","ct"],
+    "ratio": ["2000","1000","1000"]
+    }
+}

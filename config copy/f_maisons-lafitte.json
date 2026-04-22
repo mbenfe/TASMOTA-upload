@@ -1,0 +1,1082 @@
+{
+  "0": {
+    "device": "DGS-012x",
+    "name": "Dgs121LaboPresta_0",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "3": {
+    "device": "AK-CC55-017x",
+    "name": "ClimSdm_3",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "climatisation",
+    "OF": ""
+  },
+  "4": {
+    "device": "DGS-012x",
+    "name": "Dgs4Sdm_4",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "5": {
+    "device": "AK-CC55-017x",
+    "name": "LaboEmballage_5",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "6": {
+    "device": "DGS-012x",
+    "name": "Dgs6LaboEmballage_6",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "7": {
+    "device": "AK-CC55-017x",
+    "name": "CfBarquettes_7",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "8": {
+    "device": "DGS-012x",
+    "name": "Dgs8CfBarquettes_8",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "9": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_9",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "10": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_10",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "11": {
+    "device": "AK-PC782AB-041x",
+    "name": "SuctionLtAuto_11",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "condenseur",
+    "OF": ""
+  },
+  "12": {
+    "device": "AK-PC782AB-041x",
+    "name": "SuctionLtSec_12",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "condenseur",
+    "OF": ""
+  },
+  "13": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_13",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "14": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_14",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "15": {
+    "device": "AK-CC55-017x",
+    "name": "CfPosVitre_15",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "16": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_16",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "17": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_17",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "18": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_18",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "19": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_19",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "20": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleLibanais_20",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "21": {
+    "device": "AK-CC55-017x",
+    "name": "AngleCharc/from_21",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "22": {
+    "device": "AK-CC55-017x",
+    "name": "AngleCharc/from_22",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "23": {
+    "device": "AK-CC55-017x",
+    "name": "TradCharc/from_23",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "24": {
+    "device": "AK-CC55-017x",
+    "name": "TradCharc/from_24",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "25": {
+    "device": "AK-CC55-017x",
+    "name": "TradCharc/from_25",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "26": {
+    "device": "AK-CC55-017x",
+    "name": "TradCharc/from_26",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "27": {
+    "device": "AK-CC55-017x",
+    "name": "LaboSushi_27",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "28": {
+    "device": "DGS-012x",
+    "name": "Dgs28LaboSushi_28",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "29": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_29",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "30": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_30",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "31": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeubleSv_31",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "32": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_32",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "33": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_33",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "34": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_34",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "35": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_35",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "36": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_36",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "37": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_37",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "38": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeubleSv_38",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "39": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_39",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "40": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_40",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "41": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_41",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "42": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_42",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "43": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_43",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "44": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeubleSv_44",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "45": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleSv_45",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "46": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_46",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "47": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_47",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "48": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_48",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "49": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_49",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "50": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_50",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "51": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_51",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "52": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_52",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "53": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_53",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "54": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_54",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "55": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_55",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "56": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_56",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "57": {
+    "device": "AK-CC55-017x",
+    "name": "SasNegBoulang_57",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF-",
+    "OF": ""
+  },
+  "58": {
+    "device": "DGS-012x",
+    "name": "Dgs58SasNegBoul_58",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "59": {
+    "device": "AK-CC55-017x",
+    "name": "CfNegBoulang_59",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF-",
+    "OF": ""
+  },
+  "60": {
+    "device": "DGS-012x",
+    "name": "Dgs60CfNegBoul_60",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "61": {
+    "device": "EKC302D-011x",
+    "name": "CfNegBoulangSec_61",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF-",
+    "OF": ""
+  },
+  "62": {
+    "device": "AK-CC55-017x",
+    "name": "TgMeublePos_62",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "63": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_63",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "64": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_64",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "65": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_65",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "66": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_66",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "67": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_67",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "68": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_68",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "69": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_69",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "70": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_70",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "71": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleMarae_71",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "73": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleMarae_73",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "74": {
+    "device": "AK-CC55-017x",
+    "name": "TradBoucherie_74",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "75": {
+    "device": "AK-CC55-017x",
+    "name": "TradBoucherie_75",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "76": {
+    "device": "AK-CC55-017x",
+    "name": "TradBoucherie_76",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "77": {
+    "device": "AK-CC55-017x",
+    "name": "TradBoucherie_77",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "78": {
+    "device": "AK-CC55-017x",
+    "name": "CfProduitsFinis_78",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "79": {
+    "device": "DGS-012x",
+    "name": "Dgs79CfProdFinis_79",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "80": {
+    "device": "AK-CC55-017x",
+    "name": "LaboBoucherie_80",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "81": {
+    "device": "DGS-012x",
+    "name": "Dgs81LaboBouch_81",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "82": {
+    "device": "AK-CC55-017x",
+    "name": "CfMatiarePremia_82",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "84": {
+    "device": "AK-CC55-017x",
+    "name": "LocalSuifs_84",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "85": {
+    "device": "DGS-012x",
+    "name": "Dgs85LocalSuifs_85",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "86": {
+    "device": "AK-CC55-017x",
+    "name": "CfF&l_86",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "87": {
+    "device": "DGS-012x",
+    "name": "Dgs87CfF&l_87",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "88": {
+    "device": "AK-CC55-017x",
+    "name": "CfNagative_88",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF-",
+    "OF": ""
+  },
+  "89": {
+    "device": "DGS-012x",
+    "name": "Dgs89CfNagative_89",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "90": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_90",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "91": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_91",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "92": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_92",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "93": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_93",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "94": {
+    "device": "AK-CC55-017x",
+    "name": "TgBacNag_94",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "95": {
+    "device": "AK-CC55-017x",
+    "name": "BacNag_95",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "bac-",
+    "OF": ""
+  },
+  "96": {
+    "device": "AK-CC55-017x",
+    "name": "BacNag_96",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "bac-",
+    "OF": ""
+  },
+  "97": {
+    "device": "AK-CC55-017x",
+    "name": "TgBacNag_97",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "bac-",
+    "OF": ""
+  },
+  "98": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_98",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "99": {
+    "device": "AK-CC55-017x",
+    "name": "MeubleNag_99",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine-",
+    "OF": ""
+  },
+  "100": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_100",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "101": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_101",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "102": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_102",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "103": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_103",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "104": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_104",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "105": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_105",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "106": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_106",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "107": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_107",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "108": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_108",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "109": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_109",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "110": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_110",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "111": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_111",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "112": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_112",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "113": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_113",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "114": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_114",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "115": {
+    "device": "AK-CC55-017x",
+    "name": "MeublePos_115",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  },
+  "116": {
+    "device": "AK-CC55-017x",
+    "name": "CfPosDrive_116",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "117": {
+    "device": "DGS-012x",
+    "name": "Dgs117CfDrive_117",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "120": {
+    "device": "AK-CC55-017x",
+    "name": "LaboPrestataire_120",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "122": {
+    "device": "AK-CC55-017x",
+    "name": "CfPosR-_122",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "123": {
+    "device": "DGS-012x",
+    "name": "Dgs123CfPosR-_123",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "124": {
+    "device": "AK-CC55-017x",
+    "name": "LaboR-_124",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "CF+",
+    "OF": ""
+  },
+  "125": {
+    "device": "DGS-012x",
+    "name": "Dgs125LaboR-_125",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "detecteur",
+    "OF": ""
+  },
+  "126": {
+    "device": "AK-CC55-017x",
+    "name": "TourTradBouch_126",
+    "brand": "default",
+    "model": "default",
+    "volume": 0,
+    "genre": "vitrine+",
+    "OF": ""
+  }
+}

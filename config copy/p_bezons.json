@@ -1,0 +1,58 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["fneg","fpos","*"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","1000"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_caisses","td_boucherie","four"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["td_boulange","td_bureaux","td_charcuterie"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl4-tgbt": {
+        "mode": "tri",
+        "root": ["main"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["4000"]
+    },
+    "dl4-tgbt2": {
+        "mode": "tri",
+        "root": ["divers_droite"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+    },
+    "dl12-td_mag1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_magazin","eclmag1","eclmag2"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","1000","1000"]
+    },
+    "dl12-td_mag2": {
+        "mode": ["mono","mono","tri"],
+        "root": ["enrouleur1","enrouleur2","enrouleur3","enrouleur4","enrouleur5","enrouleur6","*"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    }
+}

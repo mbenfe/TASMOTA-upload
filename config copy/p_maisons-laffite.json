@@ -1,0 +1,50 @@
+{
+    "dl12-tgbt1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["froid1","froid2","main"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","rogowski"],
+        "ratio": ["2000","2000","3003"]
+    },
+    "dl12-tgbt2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_second_tgbt","gene_boulangerie","climatisation"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["2000","2000","2000"]
+    },
+    "dl12-tgbt3": {
+        "mode": ["tri","tri","tri"],
+        "root": ["rideau","gene_parking","gene_patisserie"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-boulangerie1": {
+        "mode": ["tri","tri","tri"],
+        "root": ["gene_pc","four1","gene_boulangerie"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-boulangerie2": {
+        "mode": ["tri","tri","tri"],
+        "root": ["four2","CF","provisoir_mf"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    },
+    "dl12-labo": {
+        "mode": ["tri","tri","tri"],
+        "root": ["P3_P5_F8","rotissoire","P2_F1_F3"],
+        "produit": "PWX12",
+        "PGA": ["1","1","1"],
+        "techno": ["ct","ct","ct"],
+        "ratio": ["1000","1000","1000"]
+    }
+}

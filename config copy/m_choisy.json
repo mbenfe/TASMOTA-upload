@@ -1,0 +1,807 @@
+﻿{
+    "applications": [
+        {
+            "type": "Home",
+            "label": "Home",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "OpenWeather",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "MAISON",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Magasin/Eclairage 1/Boulangerie/Labo/Bornes/Onduleur/Bureaux/Eclairage 2/Cimatisation/Libre",
+                    "master": "c_w_gene_ext1",
+                    "slave": [
+                        "c_ecl1",
+                        "c_gen_boulangerie",
+                        "c_gene_labo",
+                        "c_bornes",
+                        "c_onduleur",
+                        "c_bureaux",
+                        "c_ecl2",
+                        "c_td_clim",
+                        "c_libre"
+                    ]
+                },
+                {
+                    "shape": "iCoutsTable",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Magasin/Eclairage 1/Boulangerie/Labo/Bornes/Onduleur/Bureaux/Eclairage 2/Cimatisation/Libre",
+                    "master": "c_w_gene_ext1",
+                    "slave": [
+                        "c_w_ecl1",
+                        "c_w_gen_boulangerie",
+                        "c_w_gene_labo",
+                        "c_w_bornes",
+                        "c_w_onduleur",
+                        "c_w_bureaux",
+                        "c_w_ecl2",
+                        "c_w_td_clim",
+                        "c_w_libre"
+                    ]
+                },
+                {
+                    "shape": "ParetoTemp",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Exterieur/Clim 1/Clim 2/Clim 3/Clim 4/Animaux/Caisses/Pains/Fruits \u0026 Legumes/Entree galerie/Frais/Portiques/Savons/Piles/Cartes",
+                    "master": "th_exterieure",
+                    "slave": [
+                        "th_clim1",
+                        "th_clim2",
+                        "th_clim3",
+                        "th_clim4",
+                        "th_clim1_animaux",
+                        "th_clim4_caisses",
+                        "th_clim4_pains",
+                        "th_clim3_f\u0026l",
+                        "th_galerie_entree",
+                        "th_clim3_frais",
+                        "th_galerie_portique",
+                        "th_clim1\u00264_savon",
+                        "th_clim2_piles",
+                        "th_clim2_cartes"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Conso",
+            "level": 1,
+            "type": "iConso",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "PieConso",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "TOTAL",
+                    "master": "virtuel_total",
+                    "slave": [
+                        "froid",
+                        "gene_ext1"
+                    ]
+                },
+                {
+                    "shape": "consocard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Total",
+                    "master": "virtuel_total",
+                    "slave": []
+                },
+                {
+                    "shape": "PieConso",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Magasin",
+                    "master": "gene_ext1",
+                    "slave": [
+                        "gene_ext2",
+                        "station",
+                        "ecl1",
+                        "gene_maing",
+                        "enseigne1",
+                        "onduleur",
+                        "gene_int",
+                        "gen_boulangerie",
+                        "gene_deviation"
+                    ]
+                },
+                {
+                    "shape": "consocard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Magasin",
+                    "master": "gene_ext1",
+                    "slave": []
+                },
+                {
+                    "shape": "consocard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "Station",
+                    "master": "station",
+                    "slave": []
+                },
+                {
+                    "shape": "consocard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "Labo",
+                    "master": "gene_labo",
+                    "slave": []
+                },
+                {
+                    "shape": "consocard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "Boulangerie",
+                    "master": "gen_boulangerie",
+                    "slave": []
+                },
+                {
+                    "shape": "consocard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "Climatisation",
+                    "master": "climatisations",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "type": "iRideau",
+            "label": "Rideau",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "Thermoscreen",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Droite",
+                    "master": "rdx-d",
+                    "slave": [
+                        "setup_rdx-d"
+                    ]
+                },
+                {
+                    "shape": "Thermoscreen",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Gauche",
+                    "master": "rdx-g",
+                    "slave": [
+                        "setup_rdx-g"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Negatif",
+            "level": 1,
+            "type": "iFroidNegatif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Chambres froides négatives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "",
+                    "master": "SASSurgeles",
+                    "slave": []
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "",
+                    "master": "CFSurgeles",
+                    "slave": []
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
+                    "master": "CFNegBoul",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Meubles surgelées",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
+                    "master": "TGSurgeles1",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
+                    "master": "TGSurgeles2",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 5,
+                    "location": "",
+                    "master": "SurgPortes3G",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 5,
+                    "location": "",
+                    "master": "SurgPortes3M",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
+                    "master": "SurgPortes3D",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
+                    "master": "SurgPortes1G",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 6,
+                    "location": "",
+                    "master": "SurgPortes1M",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 6,
+                    "location": "",
+                    "master": "SurgPortes1D",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
+                    "master": "SurgPortes2G",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "",
+                    "master": "SurgPortes2M",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 7,
+                    "location": "",
+                    "master": "SurgPortes2D",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "label": "Positif",
+            "level": 1,
+            "type": "iFroidPositif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Condenseurs",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "",
+                    "master": "Aspi-",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "",
+                    "master": "Aspi+",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Chambres froides positives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
+                    "master": "CFCremerie",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "",
+                    "master": "SASFrais",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
+                    "master": "LocalBarquette",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
+                    "master": "CFPoisson",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
+                    "master": "CFPFBoucherie",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
+                    "master": "CFCarcasses",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
+                    "master": "CFSuif",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "",
+                    "master": "LaboBoucherie",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "",
+                    "master": "CFFromage",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 8,
+                    "location": "",
+                    "master": "LaboFromage",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "",
+                    "master": "CFFruit\u0026Leg",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "",
+                    "master": "CFPositifBoul",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 10,
+                    "location": "",
+                    "master": "LaboBoulangerie",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 10,
+                    "location": "",
+                    "master": "CFCarcasses",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 11,
+                    "location": "",
+                    "master": "CFBarquettes",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 11,
+                    "location": "",
+                    "master": "CFPFinis",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 12,
+                    "location": "",
+                    "master": "LocalDechet",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 13,
+                    "location": "Meubles froid positif",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 14,
+                    "location": "",
+                    "master": "BoucherieLS1",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 14,
+                    "location": "",
+                    "master": "BoucherieLS2",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 14,
+                    "location": "",
+                    "master": "TraiteurLS1",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 14,
+                    "location": "",
+                    "master": "TraiteurLS2",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 15,
+                    "location": "",
+                    "master": "Snacking1",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 15,
+                    "location": "",
+                    "master": "Snacking2",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 15,
+                    "location": "",
+                    "master": "CharcutLSG",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 15,
+                    "location": "",
+                    "master": "CharcutLSM",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 16,
+                    "location": "",
+                    "master": "CharcutLSD",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 16,
+                    "location": "",
+                    "master": "TGCharcutLS",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 16,
+                    "location": "",
+                    "master": "CorpsGrasLSG",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 16,
+                    "location": "",
+                    "master": "CorpsGrasLSM",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 17,
+                    "location": "",
+                    "master": "CorpsGrasLSD",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 17,
+                    "location": "",
+                    "master": "TGUltraFrais",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 17,
+                    "location": "",
+                    "master": "FromagesLSG",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 17,
+                    "location": "",
+                    "master": "FromagesLSM",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 18,
+                    "location": "",
+                    "master": "FromagesLSD",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 18,
+                    "location": "",
+                    "master": "UltraFrais1G",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 18,
+                    "location": "",
+                    "master": "UltraFrais1M",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 18,
+                    "location": "",
+                    "master": "UltraFrais1D",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 19,
+                    "location": "",
+                    "master": "UltraFrais2G",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 19,
+                    "location": "",
+                    "master": "UltraFrais2M",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 19,
+                    "location": "",
+                    "master": "UltraFrais2D",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 19,
+                    "location": "",
+                    "master": "Fleg-JusG",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 20,
+                    "location": "",
+                    "master": "Fleg-JusM",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 20,
+                    "location": "",
+                    "master": "Fleg-JusD",
+                    "slave": []
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 20,
+                    "location": "",
+                    "master": "PatisserieLS",
+                    "slave": []
+                }
+            ]
+        }
+    ]
+}

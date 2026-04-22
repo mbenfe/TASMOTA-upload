@@ -1,0 +1,10 @@
+{
+    "dl4-garage": {
+        "mode": "mono",
+        "root": ["principal","chauffage","chauffe-eau","salon"],
+        "produit": "PWX4",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+        }
+}

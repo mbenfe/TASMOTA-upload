@@ -1,0 +1,824 @@
+{
+    "applications": [
+        {
+            "type": "Home",
+            "label": "Home",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "OpenWeather",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "MAISON",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Total/Froid/Magasin",
+                    "master": "c_main",
+                    "slave": [
+                        "c_froidm",
+                        "c_froidc"
+                    ]
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Total Froid/Meubles",
+                    "master": "c_froidm",
+                    "slave": [
+                        "c_meubles_froid"
+                    ]
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Magasin/Vitrines/Ecl Zone 1/Ecl Zone 2/Ecl Zone 3/Divers/General/Laverie/Four 1/Four 2",
+                    "master": "c_gene_main",
+                    "slave": [
+                        "c_vitrines",
+                        "c_eclz1",
+                        "c_eclz2",
+                        "c_eclz3",
+                        "c_divers",
+                        "c_general",
+                        "c_laverie",
+                        "c_four1",
+                        "c_four2"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "iConso",
+            "label": "Conso",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "PieConso",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "TGBT",
+                    "master": "main",
+                    "slave": [
+                        "froidc",
+                        "froidm"
+                    ]
+                },
+                {
+                    "shape": "PieConso",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Froid",
+                    "master": "froidm",
+                    "slave": [
+                        "meubles_froid"
+                    ]
+                },
+                {
+                    "shape": "PieConso",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Magasin",
+                    "master": "gene_main",
+                    "slave": [
+                        "eclz&",
+                        "eclz2",
+                        "eclz3",
+                        "vitrines",
+                        "divers",
+                        "laverie"
+                    ]
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Tableau Principal",
+                    "master": "main",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "Froid C",
+                    "master": "froidc",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "Froid M",
+                    "master": "froidm",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "Eclairage 1",
+                    "master": "eclz1",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "Eclairage 2",
+                    "master": "eclz2",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "General",
+                    "master": "general",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 10,
+                    "location": "Eclairage Vitrines",
+                    "master": "vitrines",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 11,
+                    "location": "Divers",
+                    "master": "divers",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 12,
+                    "location": "Eclairage 3",
+                    "master": "eclz3",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 13,
+                    "location": "Four 2",
+                    "master": "four2",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 14,
+                    "location": "Four 1",
+                    "master": "four1",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 15,
+                    "location": "Laverie",
+                    "master": "laverie",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 16,
+                    "location": "Froid",
+                    "master": "froidm",
+                    "slave": []
+                },
+                {
+                    "shape": "ConsoCard",
+                    "color": 0,
+                    "column": 1,
+                    "row": 17,
+                    "location": "Meubles Froid",
+                    "master": "meubles_froid",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "label": "Negatif",
+            "level": 1,
+            "type": "iFroidNegatif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "",
+                    "master": "CF-Reserve38",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 1,
+                    "location": "",
+                    "master": "CF-39",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
+                    "master": "vitirne-50",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "",
+                    "master": "vitirne-51",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 3,
+                    "location": "",
+                    "master": "vitirne-52",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 3,
+                    "location": "",
+                    "master": "vitirne-53",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
+                    "master": "vitirne-54",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "",
+                    "master": "vitirne-55",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 4,
+                    "location": "",
+                    "master": "vitirne-56",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 4,
+                    "location": "",
+                    "master": "vitirne-57",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
+                    "master": "vitirne-58",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
+                    "master": "vitirne-59",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 5,
+                    "location": "",
+                    "master": "vitirne-60",
+                    "slave": [
+                        "froid"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Positif",
+            "level": 1,
+            "type": "iFroidPositif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "",
+                    "master": "CF+Reserve40",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 1,
+                    "location": "",
+                    "master": "CFDrive41",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "",
+                    "master": "CFFruitsetLegumes42",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "",
+                    "master": "Vitrine+43",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "",
+                    "master": "Vitrine+44",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 3,
+                    "location": "",
+                    "master": "Vitrine+45",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 3,
+                    "location": "",
+                    "master": "Vitrine+46",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
+                    "master": "Vitrine+47",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "",
+                    "master": "Vitrine+48",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 4,
+                    "location": "",
+                    "master": "Vitrine+49",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 4,
+                    "location": "",
+                    "master": "Vitrine+61",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "",
+                    "master": "Vitrine+62",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 5,
+                    "location": "",
+                    "master": "Vitrine+63",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 5,
+                    "location": "",
+                    "master": "Vitrine+64",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 5,
+                    "location": "",
+                    "master": "Vitrine+65",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "",
+                    "master": "Vitrine+66",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
+                    "master": "Vitrine+67",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 6,
+                    "location": "",
+                    "master": "Vitrine+68",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 6,
+                    "location": "",
+                    "master": "Vitrine+69",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
+                    "master": "Vitrine+70",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "",
+                    "master": "Vitrine+71",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 7,
+                    "location": "",
+                    "master": "Vitrine+72",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 7,
+                    "location": "",
+                    "master": "Vitrine+73",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "",
+                    "master": "Vitrine+74",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 8,
+                    "location": "",
+                    "master": "Vitrine+75",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 8,
+                    "location": "",
+                    "master": "Vitrine+76",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 8,
+                    "location": "",
+                    "master": "Vitrine+77",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "",
+                    "master": "Vitrine+78",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "",
+                    "master": "Vitrine+79",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 9,
+                    "location": "",
+                    "master": "Vitrine+80",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 9,
+                    "location": "",
+                    "master": "Vitrine+81",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 10,
+                    "location": "",
+                    "master": "Vitrine+82",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 10,
+                    "location": "",
+                    "master": "Vitrine+83",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 10,
+                    "location": "",
+                    "master": "Vitrine+84",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 10,
+                    "location": "",
+                    "master": "Vitrine+85",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 11,
+                    "location": "",
+                    "master": "Vitrine+86",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 11,
+                    "location": "",
+                    "master": "Vitrine+87",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 11,
+                    "location": "",
+                    "master": "Vitrine+88",
+                    "slave": [
+                        "froid"
+                    ]
+                },
+                {
+                    "shape": "VITRINE+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 11,
+                    "location": "",
+                    "master": "regulateur",
+                    "slave": [
+                        "froid"
+                    ]
+                }
+            ]
+        }
+    ]
+}

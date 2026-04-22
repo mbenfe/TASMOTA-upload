@@ -1,0 +1,448 @@
+{
+    "applications": [
+        {
+            "type": "Home",
+            "label": "Home",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "OpenWeather",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "MAISON",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "iCoutsPareto",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Total/Froid1/Froid2/Parking/Rideau/Second TGBT",
+                    "master": "c_w_main",
+                    "slave": [
+                        "c_froid1",
+                        "c_froid2",
+                        "c_gene_parking",
+                        "c_rideau",
+                        "c_gene_second_tgbt"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Negatif",
+            "level": 1,
+            "type": "iFroidNegatif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "RDC:Chambres froides négatives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Boulangerie",
+                    "master": "CfNegBoulang_59",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 3,
+                    "location": "R-1:Chambres froides négatives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "",
+                    "master": "CfNagative_88",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 5,
+                    "location": "R-1:Bacs surgelés",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "bac-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "TG",
+                    "master": "TgBacNag_94",
+                    "slave": []
+                },
+                {
+                    "shape": "bac-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "",
+                    "master": "BacNag_95",
+                    "slave": []
+                },
+                {
+                    "shape": "bac-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "",
+                    "master": "BacNag_96",
+                    "slave": []
+                },
+                {
+                    "shape": "bac-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "TG",
+                    "master": "TgBacNag_97",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 8,
+                    "location": "R-1:Vitrines surgelés",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "",
+                    "master": "MeubleNag_90",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "",
+                    "master": "MeubleNag_91",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 3,
+                    "row": 9,
+                    "location": "",
+                    "master": "MeubleNag_92",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 4,
+                    "row": 9,
+                    "location": "",
+                    "master": "MeubleNag_93",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 10,
+                    "location": "",
+                    "master": "MeubleNag_98",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine-",
+                    "color": 0,
+                    "column": 2,
+                    "row": 10,
+                    "location": "",
+                    "master": "MeubleNag_99",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "label": "Positif",
+            "level": 1,
+            "type": "iFroidPositif",
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 1,
+                    "location": "RDC:Chambres froides positives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Vitrée",
+                    "master": "CfPosVitre_15",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "Sushi",
+                    "master": "LaboSushi_27",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Fruits & Légumes",
+                    "master": "CfF&l_86",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 3,
+                    "location": "Matiere Première",
+                    "master": "CfMatiarePremia_82",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Suifs",
+                    "master": "LocalSuifs_84",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "Labo Boucherie",
+                    "master": "LaboBoucherie_80",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 5,
+                    "location": "Produits Finis",
+                    "master": "CfProduitsFinis_78",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 6,
+                    "location": "R-1:Chambres froides positives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "Prestataire",
+                    "master": "LaboPrestataire_120",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "",
+                    "master": "CfPosR-_122",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 8,
+                    "location": "",
+                    "master": "LaboR-_124",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 8,
+                    "location": "Barquettes",
+                    "master": "CfBarquettes_7",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 9,
+                    "location": "Emballage",
+                    "master": "LaboEmballage_5",
+                    "slave": []
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 9,
+                    "location": "Drive",
+                    "master": "CfPosDrive_116",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 10,
+                    "location": "RDC:Vitrines positives",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 11,
+                    "location": "Traiteur 1",
+                    "master": "MeubleSv_16",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 11,
+                    "location": "Traiteur 2",
+                    "master": "MeubleSv_17",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 11,
+                    "location": "Traiteur 3",
+                    "master": "MeubleSv_18",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 11,
+                    "location": "Traiteur 4",
+                    "master": "MeubleSv_19",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 12,
+                    "location": "Libanais",
+                    "master": "MeubleLibanais_20",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 12,
+                    "location": "",
+                    "master": "AngleCharc/from_21",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 12,
+                    "location": "",
+                    "master": "AngleCharc/from_22",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 12,
+                    "location": "",
+                    "master": "TradCharc/from_23",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 13,
+                    "location": "",
+                    "master": "TradCharc/from_24",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 2,
+                    "row": 13,
+                    "location": "",
+                    "master": "TradCharc/from_25",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 3,
+                    "row": 13,
+                    "location": "",
+                    "master": "TradCharc/from_26",
+                    "slave": []
+                },
+                {
+                    "shape": "vitrine+",
+                    "color": 0,
+                    "column": 4,
+                    "row": 13,
+                    "location": "Maree",
+                    "master": "MeubleMarae_71",
+                    "slave": []
+                }
+            ]
+        }
+    ]
+}

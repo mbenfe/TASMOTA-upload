@@ -1,0 +1,163 @@
+{
+    "applications": [
+        {
+            "type": "Home",
+            "label": "Home",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "OpenWeather",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "MAISON",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "light",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
+                    "location": "Cuisine",
+                    "master": "switch_cuisine",
+                    "slave": []
+                },
+                {
+                    "shape": "light",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "Salon",
+                    "master": "switch_salon",
+                    "slave": []
+                },
+                {
+                    "shape": "light",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Entree RDC",
+                    "master": "switch_entree",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "type": "Chauffage",
+            "label": "Chauffage",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "general",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Cuisine",
+                    "master": "chauffage_general",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 2,
+                    "location": " 1er étage",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "convecteur",
+                    "color": 0,
+                    "column": 1,
+                    "row": 3,
+                    "location": "Cuisine",
+                    "master": "chx-cuisine",
+                    "slave": []
+                },
+                {
+                    "shape": "convecteur",
+                    "color": 0,
+                    "column": 1,
+                    "row": 4,
+                    "location": "Salon",
+                    "master": "chx-salon-gauche",
+                    "slave": []
+                },
+                {
+                    "shape": "convecteur",
+                    "color": 0,
+                    "column": 2,
+                    "row": 4,
+                    "location": "Salon",
+                    "master": "chx-salon-droite",
+                    "slave": []
+                },
+                {
+                    "shape": "spacer",
+                    "color": 2,
+                    "column": 1,
+                    "row": 5,
+                    "location": "étage chambres",
+                    "master": "",
+                    "slave": []
+                },
+                {
+                    "shape": "convecteur",
+                    "color": 0,
+                    "column": 1,
+                    "row": 6,
+                    "location": "Parents",
+                    "master": "chx-parents",
+                    "slave": []
+                },
+                {
+                    "shape": "convecteur",
+                    "color": 0,
+                    "column": 2,
+                    "row": 6,
+                    "location": "Martin",
+                    "master": "chx-martin",
+                    "slave": []
+                },
+                {
+                    "shape": "convecteur",
+                    "color": 0,
+                    "column": 1,
+                    "row": 7,
+                    "location": "Bureau",
+                    "master": "chx-bureau",
+                    "slave": []
+                },
+                {
+                    "shape": "convecteur",
+                    "color": 0,
+                    "column": 2,
+                    "row": 7,
+                    "location": "Etienne",
+                    "master": "chx-etienne",
+                    "slave": []
+                }
+            ]
+        },
+        {
+            "type": "iRideau",
+            "label": "Rideau",
+            "level": 1,
+            "virtuel": 0,
+            "data": [
+                {
+                    "shape": "Thermoscreens",
+                    "color": 0,
+                    "column": 1,
+                    "row": 1,
+                    "location": "Droite",
+                    "master": "rdx-droite",
+                    "slave": []
+                }
+            ]
+        }
+    ]
+}
