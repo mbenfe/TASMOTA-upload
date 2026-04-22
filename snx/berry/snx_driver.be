@@ -126,7 +126,7 @@ class STM32
     end
 
     def fast_loop()
-        self.read_uart(2)
+        self.read_uart(4)
     end
 
     def save()
