@@ -149,6 +149,7 @@ class STM32
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
             var buffer = global.ser.read()
+            global.ser.flush()
             if buffer == nil || size(buffer) == 0
                 print("ESP32: empty uart buffer")
             elif(buffer[0]==123)         # { -> json tele metry
