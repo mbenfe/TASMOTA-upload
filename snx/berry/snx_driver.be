@@ -69,6 +69,10 @@ class STM32
         gpio.pin_mode(global.statistic_pin,gpio.OUTPUT)
         gpio.pin_mode(global.ready_pin,gpio.OUTPUT)
 
+        # pin used as debuf from H7
+        gpio.pin_mode(25,gpio.INPUT)
+        gpio.pin_mode(26,gpio.INPUT)
+
         gpio.digital_write(global.statistic_pin, 0)
         gpio.digital_write(global.ready_pin,1)
     end
@@ -126,6 +130,7 @@ class STM32
     end
 
     def fast_loop()
+        # every 2 to 5 ms
         self.read_uart(4)
     end
 
