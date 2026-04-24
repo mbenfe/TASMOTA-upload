@@ -159,6 +159,12 @@ class STM32
                 print("ESP32: empty uart buffer")
             elif(buffer[0]==123)         # { -> json tele metry
                 raw = buffer.asstring()
+                if size(raw) > 0 && raw[-1] == '\n'
+                    raw = raw[0..-2]
+                end
+                if size(raw) > 0 && raw[-1] == '\r'
+                    raw = raw[0..-2]
+                end
                 myjson = json.load(raw)
                 if myjson != nil
                     if myjson.contains('ID')
