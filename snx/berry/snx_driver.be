@@ -213,8 +213,6 @@ class STM32
                         end
                     end
                 else
-                    gpio.digital_write(global.statistic_pin, 1)
-                    gpio.digital_write(global.statistic_pin, 0)
                     topic=string.format("gw/%s/%s/%s/tele/DEBUG3",self.client,self.ville,self.device)
                     var payload = json.dump({"Error":"json_error","Raw":raw})
                     mqtt.publish(topic, payload, true)
