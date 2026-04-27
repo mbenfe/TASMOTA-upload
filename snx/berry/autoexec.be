@@ -42,6 +42,7 @@ def init()
     gpio.digital_write(bsl_in, 0)
 
     global.ser=serial(17,16,921600,serial.SERIAL_8N1)
+    global.ser.flush()
 
 end
 

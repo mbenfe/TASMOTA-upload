@@ -25,8 +25,6 @@ class STM32
     var device
     var topic 
     var publish_mode
-    var rx_partial
-    var mylist
 
     def mqttprint(texte)
         import mqtt
@@ -63,8 +61,6 @@ class STM32
         self.mapFunc = {}
         self.errors = {}
         self.publish_mode = "standard"
-        self.rx_partial = ""
-        self.mylist = []
 
         self.loadconfig()
 
@@ -138,10 +134,6 @@ class STM32
         self.read_uart(4)
     end
 
-    def every_50ms()
-        self.publish_one_pending_frame()
-    end
-
     def save()
         var file = open("error.json","wt")
         if file == nil
@@ -153,6 +145,10 @@ class STM32
     end
 
     def read_uart(timeout)
+        var mystring
+        var raw
+        var myjson
+        var topic
         gpio.digital_write(global.statistic_pin, 1)
         gpio.digital_write(global.statistic_pin, 0)
         if !global.ser.available()
@@ -162,107 +158,81 @@ class STM32
         # gpio.digital_write(global.statistic_pin, 1)
 
         gpio.digital_write(global.ready_pin,0)
+
         var buffer = global.ser.read()
+
+
         if buffer != nil && size(buffer) > 0
-            var chunk = buffer.asstring()
-            self.rx_partial = self.rx_partial + chunk
-            var splitlist = string.split(self.rx_partial, '\n')
-            var num = size(splitlist)
-            if num > 0
-                self.rx_partial = splitlist[num-1]
-            end
-            for i:0..num-2
-                if size(splitlist[i]) > 0 && splitlist[i][-1] == '\r'
-                    splitlist[i] = splitlist[i][0..-2]
+            if(buffer[0]==123)         # { -> json tele metry
+                raw = buffer.asstring()
+                if size(raw) > 0 && raw[-1] == '\n'
+                    raw = raw[0..-2]
                 end
-                if size(splitlist[i]) > 0
-                    self.mylist.push(splitlist[i])
+                if size(raw) > 0 && raw[-1] == '\r'
+                    raw = raw[0..-2]
                 end
-            end
-            # Keep bounded queue if publisher is temporarily delayed.
-            while size(self.mylist) > 400
-                self.mylist.remove(0)
+                myjson = json.load(raw)
+                if myjson != nil
+                    if myjson.contains('ID')
+                        var msg_id = int(myjson["ID"])
+                        if myjson.contains("TYPE") && string.tolower(str(myjson["TYPE"])) == "historique"
+                            topic=string.format("gw/%s/%s/%s-%s/tele/STATISTIC",self.client,self.ville,self.device,str(msg_id))
+                            self._publish_if_allowed("statistic", topic, raw)
+                        elif msg_id < 0
+                            var payload = json.dump(myjson)
+                            var kind = "debug"
+                            if msg_id == -1
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG1",self.client,self.ville,self.device)
+                            elif msg_id == -2
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
+                            elif msg_id <= -100
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG_MODBUS",self.client,self.ville,self.device)
+                            elif msg_id == -25
+                                kind = "config"
+                                topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
+                            elif msg_id == -26
+                                kind = "volume"
+                                topic=string.format("gw/%s/%s/%s/tele/VOLUME",self.client,self.ville,self.device)
+                            elif msg_id == -20
+                                kind = "consign"
+                                topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
+                            elif msg_id == -31
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG4",self.client,self.ville,self.device)
+                            else
+                                topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
+                            end
+                            self._publish_if_allowed(kind, topic, payload)
+                        elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
+                            topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(msg_id))
+                            self._publish_if_allowed("danfoss", topic, raw)
+                        else
+                            topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(msg_id))
+                            var log_allowed = true
+                            if msg_id >= 10 && msg_id <= 20
+                                log_allowed = false
+                            end
+                            if self.publish_mode == "log" || self.publish_mode == "danfosslog"
+                                if msg_id < 10 || msg_id > 20
+                                    log_allowed = false
+                                end
+                            end
+                            if log_allowed
+                                self._publish_if_allowed("danfosslog", topic, raw)
+                            end
+                        end
+                    end
+                else
+                    topic=string.format("gw/%s/%s/%s/tele/DEBUG3",self.client,self.ville,self.device)
+                    var payload = json.dump({"Error":"json_error","Raw":raw})
+                    mqtt.publish(topic, payload, true)
+                end
+            else
+                topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)
+                mystring = buffer.asstring()
+                self._publish_if_allowed("print", topic, mystring)
             end
         end
         gpio.digital_write(global.ready_pin,1)
-    end
-
-    def publish_one_pending_frame()
-        if size(self.mylist) == 0
-            return
-        end
-
-        var frame = self.mylist[0]
-        self.mylist.remove(0)
-
-        if size(frame) > 0
-            self.publish_one_frame(frame)
-        end
-    end
-
-    def publish_one_frame(raw)
-        var topic
-        var myjson
-        if raw[0] == '{'
-            myjson = json.load(raw)
-            if myjson != nil
-                if myjson.contains('ID')
-                    var msg_id = int(myjson["ID"])
-                    if myjson.contains("TYPE") && string.tolower(str(myjson["TYPE"])) == "historique"
-                        topic=string.format("gw/%s/%s/%s-%s/tele/STATISTIC",self.client,self.ville,self.device,str(msg_id))
-                        self._publish_if_allowed("statistic", topic, raw)
-                    elif msg_id < 0
-                        var payload = json.dump(myjson)
-                        var kind = "debug"
-                        if msg_id == -1
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG1",self.client,self.ville,self.device)
-                        elif msg_id == -2
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
-                        elif msg_id <= -100
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG_MODBUS",self.client,self.ville,self.device)
-                        elif msg_id == -25
-                            kind = "config"
-                            topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
-                        elif msg_id == -26
-                            kind = "volume"
-                            topic=string.format("gw/%s/%s/%s/tele/VOLUME",self.client,self.ville,self.device)
-                        elif msg_id == -20
-                            kind = "consign"
-                            topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
-                        elif msg_id == -31
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG4",self.client,self.ville,self.device)
-                        else
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
-                        end
-                        self._publish_if_allowed(kind, topic, payload)
-                    elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
-                        topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(msg_id))
-                        self._publish_if_allowed("danfoss", topic, raw)
-                    else
-                        topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(msg_id))
-                        var log_allowed = true
-                        if msg_id >= 10 && msg_id <= 20
-                            log_allowed = false
-                        end
-                        if self.publish_mode == "log" || self.publish_mode == "danfosslog"
-                            if msg_id < 10 || msg_id > 20
-                                log_allowed = false
-                            end
-                        end
-                        if log_allowed
-                            self._publish_if_allowed("danfosslog", topic, raw)
-                        end
-                    end
-                end
-            else
-                topic=string.format("gw/%s/%s/%s/tele/DEBUG3",self.client,self.ville,self.device)
-                var payload = json.dump({"Error":"json_error","Raw":raw})
-                mqtt.publish(topic, payload, true)
-            end
-        else
-            topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)
-            self._publish_if_allowed("print", topic, raw)
-        end
     end
 
     def get_statistic()
