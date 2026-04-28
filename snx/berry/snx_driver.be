@@ -11,8 +11,12 @@ def get_cron_second()
     for i : 0 .. size(combined) - 1
         sum += string.byte(combined[i])
     end
-    print("cron for " + combined + " is " + str(sum % 60))
-    return sum % 60
+    var sec = sum % 60
+    if sec == 0
+        sec = 1
+    end
+    print("cron for " + combined + " is " + str(sec))
+    return sec
 end
 
 
@@ -440,7 +444,6 @@ class STM32
     end
 
     def get_statistic()
-         self.prepare_cout_subscriptions_for_statistic()
          gpio.digital_write(global.statistic_pin, 1)
          tasmota.delay(1)
          gpio.digital_write(global.statistic_pin, 0)
@@ -479,9 +482,15 @@ global.stm32 = stm32
 tasmota.add_driver(stm32)
 tasmota.add_fast_loop(/-> stm32.fast_loop())
 var cron_second = get_cron_second()
+
 var cron_pattern = string.format("%d %d 0 * * *", cron_second, cron_second)
 tasmota.add_cron(cron_pattern, /-> stm32.get_statistic(), "every_day")
 print("cron statistic:" + cron_pattern)
+
+var cout_prepare_pattern = string.format("%d %d 0 * * *", cron_second, cron_second - 1)
+tasmota.add_cron(cout_prepare_pattern, /-> stm32.prepare_cout_subscriptions_for_statistic(), "every_day_cout_prepare")
+print("cron cout prepare:" + cout_prepare_pattern)
+
 cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
 tasmota.add_cron(cron_pattern, /-> stm32.heartbeat(), "every_hour")
 print("cron heartbeat:" + cron_pattern)
