@@ -28,9 +28,6 @@ class STM32
     var ville
     var device
     var topic 
-    var publish_mode
-    var rx_partial
-    var mylist
     var cout_values
     var cout_received
     var cout_required
@@ -73,9 +70,6 @@ class STM32
         self.mapID = {}
         self.mapFunc = {}
         self.errors = {}
-        self.publish_mode = "standard"
-        self.rx_partial = ""
-        self.mylist = []
         self.cout_values = {
             "cout_froid": 0.0,
             "cout_froid+": 0.0,
@@ -111,67 +105,6 @@ class STM32
         gpio.digital_write(global.ready_pin,1)
     end
 
-    def set_publish_mode(mode)
-        if mode == nil
-            return self.publish_mode
-        end
-
-        var m = string.tolower(str(mode))
-        if m == "standard" || m == "debug" || m == "error" || m == "log" || m == "danfosslog" || m == "danfoss" || m == "consign"
-            self.publish_mode = m
-            return self.publish_mode
-        end
-        return nil
-    end
-
-    def get_publish_mode()
-        return self.publish_mode
-    end
-
-    def _allow_publish(kind)
-        var mode = self.publish_mode
-        if mode == nil || mode == "standard"
-            return true
-        end
-
-        if mode == "debug" || mode == "error"
-            return kind == "debug" || kind == "print"
-        end
-
-        if mode == "log"
-            return kind == "danfosslog"
-        end
-
-        if mode == "danfosslog"
-            return kind == "danfosslog"
-        end
-
-        if mode == "danfoss"
-            return kind == "danfoss"
-        end
-
-        if mode == "consign"
-            return kind == "consign"
-        end
-
-        return true
-    end
-
-    def _publish_if_allowed(kind, topic, payload)
-        if self._allow_publish(kind)
-            mqtt.publish(topic, payload, true)
-        end
-    end
-
-    def fast_loop()
-        # every 2 to 5 ms
-        self.read_uart(4)
-    end
-
-    def every_50ms()
-        self.publish_one_pending_frame()
-    end
-
     def save()
         var file = open("error.json","wt")
         if file == nil
@@ -182,118 +115,6 @@ class STM32
         file.close()
     end
 
-    def read_uart(timeout)
-        if !global.ser.available()
-            return
-        end
-        gpio.digital_write(global.statistic_pin, 1)
-        gpio.digital_write(global.statistic_pin, 0)
-
-        # gpio.digital_write(global.statistic_pin, 1)
-
-        gpio.digital_write(global.ready_pin,0)
-        var buffer = global.ser.read()
-        if buffer != nil && size(buffer) > 0
-            var chunk = buffer.asstring()
-            self.rx_partial = self.rx_partial + chunk
-            var splitlist = string.split(self.rx_partial, '\n')
-            var num = size(splitlist)
-            if num > 0
-                self.rx_partial = splitlist[num-1]
-            end
-            for i:0..num-2
-                if size(splitlist[i]) > 0 && splitlist[i][-1] == '\r'
-                    splitlist[i] = splitlist[i][0..-2]
-                end
-                if size(splitlist[i]) > 0
-                    self.mylist.push(splitlist[i])
-                end
-            end
-            # Keep bounded queue if publisher is temporarily delayed.
-            while size(self.mylist) > 400
-                self.mylist.remove(0)
-            end
-        end
-        gpio.digital_write(global.ready_pin,1)
-    end
-
-    def publish_one_pending_frame()
-        if size(self.mylist) == 0
-            return
-        end
-
-        var frame = self.mylist[0]
-        self.mylist.remove(0)
-
-        if size(frame) > 0
-            self.publish_one_frame(frame)
-        end
-    end
-
-    def publish_one_frame(raw)
-        var topic
-        var myjson
-        if raw[0] == '{'
-            myjson = json.load(raw)
-            if myjson != nil
-                if myjson.contains('ID')
-                    var msg_id = int(myjson["ID"])
-                    if myjson.contains("TYPE") && string.tolower(str(myjson["TYPE"])) == "historique"
-                        topic=string.format("gw/%s/%s/%s-%s/tele/STATISTIC",self.client,self.ville,self.device,str(msg_id))
-                        self._publish_if_allowed("statistic", topic, raw)
-                    elif msg_id < 0
-                        var payload = json.dump(myjson)
-                        var kind = "debug"
-                        if msg_id == -1
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG1",self.client,self.ville,self.device)
-                        elif msg_id == -2
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
-                        elif msg_id <= -100
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG_MODBUS",self.client,self.ville,self.device)
-                        elif msg_id == -25
-                            kind = "config"
-                            topic=string.format("gw/%s/%s/%s/tele/CONFIG",self.client,self.ville,self.device)
-                        elif msg_id == -26
-                            kind = "volume"
-                            topic=string.format("gw/%s/%s/%s/tele/VOLUME",self.client,self.ville,self.device)
-                        elif msg_id == -20
-                            kind = "consign"
-                            topic=string.format("gw/%s/%s/%s/tele/ON_CONSIGNE",self.client,self.ville,self.device)
-                        elif msg_id == -31
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG4",self.client,self.ville,self.device)
-                        else
-                            topic=string.format("gw/%s/%s/%s/tele/DEBUG2",self.client,self.ville,self.device)
-                        end
-                        self._publish_if_allowed(kind, topic, payload)
-                    elif myjson.contains('CtrlState') || myjson.contains('TherAir') || myjson.contains('CutinTemp') || myjson.contains('CutoutTemp') 
-                        topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSS",self.client,self.ville,self.device,str(msg_id))
-                        self._publish_if_allowed("danfoss", topic, raw)
-                    else
-                        topic=string.format("gw/%s/%s/%s-%s/tele/DANFOSSLOG",self.client,self.ville,self.device,str(msg_id))
-                        var log_allowed = true
-                        if msg_id >= 10 && msg_id <= 20
-                            log_allowed = false
-                        end
-                        if self.publish_mode == "log" || self.publish_mode == "danfosslog"
-                            if msg_id < 10 || msg_id > 20
-                                log_allowed = false
-                            end
-                        end
-                        if log_allowed
-                            self._publish_if_allowed("danfosslog", topic, raw)
-                        end
-                    end
-                end
-            else
-                topic=string.format("gw/%s/%s/%s/tele/DEBUG3",self.client,self.ville,self.device)
-                var payload = json.dump({"Error":"json_error","Raw":raw})
-                mqtt.publish(topic, payload, true)
-            end
-        else
-            topic=string.format("gw/%s/%s/snx/tele/PRINT",self.client,self.ville)
-            self._publish_if_allowed("print", topic, raw)
-        end
-    end
 
     def reset_cout_state()
         self.cout_values["cout_froid"] = 0.0
@@ -480,7 +301,6 @@ end
 stm32 = STM32()
 global.stm32 = stm32
 tasmota.add_driver(stm32)
-tasmota.add_fast_loop(/-> stm32.fast_loop())
 var cron_second = get_cron_second()
 
 var cron_pattern = string.format("%d %d 0 * * *", cron_second, cron_second)
