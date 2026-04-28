@@ -410,7 +410,7 @@ class STM32
             end
 
             if expected_name != nil && incoming_name == expected_name
-                self.cout_values[key] = float(data["cout"])
+                self.cout_values[key] = real(data["cout"])
                 self.cout_received[key] = true
             end
         end
@@ -430,9 +430,9 @@ class STM32
     end
 
     def send_stm32_cout_values()
-        var x = float(self.cout_values["cout_froid"])
-        var y = float(self.cout_values["cout_froid+"])
-        var z = float(self.cout_values["cout_froid-"])
+        var x = real(self.cout_values["cout_froid"])
+        var y = real(self.cout_values["cout_froid+"])
+        var z = real(self.cout_values["cout_froid-"])
 
         var cmd = string.format("cout %.2f:%.2f:%.2f", x, y, z)
         if global.ser != nil
