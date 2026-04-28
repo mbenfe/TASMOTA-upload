@@ -189,6 +189,9 @@ def update()
     mqttprint("update: getfile snx/berry/snx_driver.be")
     tasmota.cmd("getfile snx/berry/snx_driver.be")
 
+    mqttprint("update: getfile snx/berry/config_cout.json")
+    tasmota.cmd("getfile snx/berry/config_cout.json")
+
     mqttprint("update: getfile flashers/stm32H743-SNX/flasher.be")
     tasmota.cmd("getfile flashers/stm32H743-SNX/flasher.be")
 

@@ -1,77 +1,152 @@
-{
+﻿{
     "argenteuil": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid"
+        "cout_froid": "froid",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "dl12-reserve-1"
+        }
     },
     "aulnay": {
         "cout_froid+": "fpos",
         "cout_froid-": "fneg",
-        "cout_froid": "none"
+        "cout_froid": "none",
+        "cout_owner": {
+            "cout_froid+": "dl12-tgbt1-2",
+            "cout_froid-": "dl12-tgbt1-1",
+            "cout_froid": "none"
+        }
     },
     "bezons": {
         "cout_froid+": "fpos",
         "cout_froid-": "fneg",
-        "cout_froid": "none"
+        "cout_froid": "none",
+        "cout_owner": {
+            "cout_froid+": "dl12-tgbt1-2",
+            "cout_froid-": "dl12-tgbt1-1",
+            "cout_froid": "none"
+        }
     },
     "champigny": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid"
+        "cout_froid": "froid",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "dl12-tgbt1-3"
+        }
     },
     "chilly-mazarin": {
         "cout_froid+": "fpos",
         "cout_froid-": "fneg",
-        "cout_froid": "none"
+        "cout_froid": "none",
+        "cout_owner": {
+            "cout_froid+": "dl12-sdm-3",
+            "cout_froid-": "dl12-sdm-2",
+            "cout_froid": "none"
+        }
     },
     "choisy": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid"
+        "cout_froid": "froid",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "dl4-froid"
+        }
     },
     "coubron": {
         "cout_froid+": "froid2",
         "cout_froid-": "froid1",
-        "cout_froid": "none"
+        "cout_froid": "none",
+        "cout_owner": {
+            "cout_froid+": "dl12-maing1-3",
+            "cout_froid-": "dl12-maing1-2",
+            "cout_froid": "none"
+        }
     },
     "croissy": {
         "cout_froid+": "fpos",
         "cout_froid-": "fneg",
-        "cout_froid": "none"
+        "cout_froid": "none",
+        "cout_owner": {
+            "cout_froid+": "dl4-fpos",
+            "cout_froid-": "dl4-fneg",
+            "cout_froid": "none"
+        }
     },
     "egly": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "gene_froid"
+        "cout_froid": "gene_froid",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "pwx4-sdm1"
+        }
     },
     "maisons-laffite": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "none"
+        "cout_froid": "none",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "none"
+        }
     },
     "mery": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid"
+        "cout_froid": "froid",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "dl12-tgbt2-2"
+        }
     },
     "neuilly": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid"
+        "cout_froid": "froid",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "dl12-oldh-1"
+        }
     },
     "noisy": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid"
+        "cout_froid": "froid",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "dl12-tgbt1-3"
+        }
     },
     "roissy": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid"
+        "cout_froid": "froid",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "dl12-tgbt1-1"
+        }
     },
     "saint-maur": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid"
+        "cout_froid": "froid",
+        "cout_owner": {
+            "cout_froid+": "none",
+            "cout_froid-": "none",
+            "cout_froid": "dl12-tgbt2-3"
+        }
     }
 }
