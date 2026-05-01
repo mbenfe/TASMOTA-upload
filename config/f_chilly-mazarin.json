@@ -509,7 +509,7 @@
     "brand": "default",
     "model": "default",
     "volume": 1254,
-    "genre": "compresseur",
+    "genre": "condenseur",
     "OF": "ferme"
   },
   "101": {
@@ -518,7 +518,7 @@
     "brand": "default",
     "model": "default",
     "volume": 1254,
-    "genre": "compresseur",
+    "genre": "condenseur",
     "OF": "ferme"
   }
 }
