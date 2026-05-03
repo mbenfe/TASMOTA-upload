@@ -590,7 +590,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "condenseur",
+    "genre": "condenseur+",
     "OF": ""
   },
   "101": {
@@ -599,7 +599,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "condenseur",
+    "genre": "condenseur-",
     "OF": ""
   },
   "102": {

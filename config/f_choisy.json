@@ -5,7 +5,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "condenseur",
+    "genre": "condenseur-",
     "OF": ""
   },
   "2": {
@@ -14,7 +14,7 @@
     "brand": "default",
     "model": "default",
     "volume": 0,
-    "genre": "condenseur",
+    "genre": "condenseur+",
     "OF": ""
   },
   "3": {
