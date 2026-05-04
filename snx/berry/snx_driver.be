@@ -137,9 +137,11 @@ class SNX
     def getcout()
         self.reset_cout_state()
         self.cout_pending_apply = true
+        print("getcout: start ville=" + self.ville + " device=" + self.device)
 
         var file = open("config_cout.json", "rt")
         if file == nil
+            print("getcout: missing config_cout.json, apply defaults")
             self.send_stm32_cout_values()
             return
         end
@@ -148,11 +150,13 @@ class SNX
         file.close()
         var cfg = json.load(raw)
         if cfg == nil || !cfg.contains(self.ville)
+            print("getcout: no config for ville=" + self.ville + ", apply defaults")
             self.send_stm32_cout_values()
             return
         end
 
         var city_cfg = cfg[self.ville]
+        print("getcout: loaded config for ville=" + self.ville)
         var owner_cfg = nil
         if city_cfg.contains("cout_owner")
             owner_cfg = city_cfg["cout_owner"]
@@ -170,10 +174,13 @@ class SNX
                 owner = str(owner_cfg[k])
             end
 
+            print("getcout: key=" + k + " label=" + label + " owner=" + owner)
+
             if label == "none" || owner == "none" || owner == "not_found" || size(label) == 0 || size(owner) == 0
                 # Keep default 0 and mark as already resolved.
                 self.cout_required[k] = false
                 self.cout_received[k] = true
+                print("getcout: key=" + k + " uses default 0")
                 continue
             end
 
@@ -189,20 +196,23 @@ class SNX
             self.cout_required[k] = true
             self.cout_received[k] = false
             self.cout_expected_name[k] = expected_name
+            print("getcout: key=" + k + " expects Name=" + expected_name)
 
             var topic = string.format("gw/%s/%s/%s/tele/COUT", self.client, self.ville, owner)
             if !self.cout_topic_to_key.contains(topic)
                 self.cout_topic_to_key[topic] = []
             end
             self.cout_topic_to_key[topic].push(k)
+            print("getcout: key=" + k + " mapped to topic=" + topic)
             if !self.cout_subscribed_topics.contains(topic)
                 mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.on_cout_message(topic, idx, payload_s, payload_b))
                 self.cout_subscribed_topics[topic] = true
-                self.mqttprint("subscribe cout <- " + topic)
+                print("subscribe cout <- " + topic)
             end
         end
 
         # If this city has no active COUT mapping, push default 0:0:0 immediately.
+        print("getcout: waiting for required costs before apply")
         self.try_apply_cout_values_to_stm32()
     end
 
