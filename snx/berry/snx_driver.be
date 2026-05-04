@@ -198,6 +198,7 @@ class SNX
             if !self.cout_subscribed_topics.contains(topic)
                 mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.on_cout_message(topic, idx, payload_s, payload_b))
                 self.cout_subscribed_topics[topic] = true
+                self.mqttprint("subscribe cout <- " + topic)
             end
         end
 
