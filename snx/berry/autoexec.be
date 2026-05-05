@@ -377,12 +377,8 @@ end
 tasmota.cmd("seriallog 0")
 mqttprint("serial log disabled")
 
-# mqttprint('AUTOEXEC: create commande Stm32Reset')
-# tasmota.add_cmd('Stm32reset',Stm32Reset)
 tasmota.add_cmd('hold',hold)
 tasmota.add_cmd('start',start)
-
-mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile',getfile)
 
 tasmota.add_cmd('dir',dir)
@@ -390,12 +386,6 @@ tasmota.add_cmd('dir',dir)
 tasmota.add_cmd('getversion',getversion)
 tasmota.add_cmd('update',update)
 tasmota.add_cmd('snxhelp',snxhelp)
-# Serial commands are provided by native C++ driver:
-# tasmota.add_cmd('statistic',statistic)
-# tasmota.add_cmd('mapstatistic',mapstatistic)
-# tasmota.add_cmd('stm32mode',stm32mode)
-# tasmota.add_cmd('set',setmode)
-# tasmota.add_cmd('sendsimu',sendsimu)
 
 
 init()
