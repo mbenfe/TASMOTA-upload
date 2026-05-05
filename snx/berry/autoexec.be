@@ -377,8 +377,8 @@ end
 tasmota.cmd("seriallog 0")
 mqttprint("serial log disabled")
 
-mqttprint('AUTOEXEC: create commande Stm32Reset')
-tasmota.add_cmd('Stm32reset',Stm32Reset)
+# mqttprint('AUTOEXEC: create commande Stm32Reset')
+# tasmota.add_cmd('Stm32reset',Stm32Reset)
 tasmota.add_cmd('hold',hold)
 tasmota.add_cmd('start',start)
 
