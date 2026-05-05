@@ -55,31 +55,31 @@ end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
-def Stm32Reset(cmd, idx, payload, payload_json)
-    var arg = nil
-    if payload != nil
-        arg = string.tolower(str(payload))
-    end
-    if arg == nil || arg == "" || arg == "out"
-        gpio.pin_mode(rst_out, gpio.OUTPUT)
-        gpio.digital_write(rst_out, 0)
-        tasmota.delay(5)
-        gpio.digital_write(rst_out, 1)
-        tasmota.delay(5)
-        tasmota.resp_cmnd("rst_out reset pulse")
-    elif arg == "in"
-        gpio.pin_mode(bsl_in, gpio.OUTPUT)
-        gpio.pin_mode(rst_in, gpio.OUTPUT)
-        gpio.digital_write(bsl_in, 0)
-        gpio.digital_write(rst_in, 0)
-        tasmota.delay(20)
-        gpio.digital_write(rst_in, 1)
-        tasmota.delay(120)
-        tasmota.resp_cmnd("rst_in reset pulse")
-    else
-        tasmota.resp_cmnd("Invalid argument: " + str(arg))
-    end
-end
+# def Stm32Reset(cmd, idx, payload, payload_json)
+#     var arg = nil
+#     if payload != nil
+#         arg = string.tolower(str(payload))
+#     end
+#     if arg == nil || arg == "" || arg == "out"
+#         gpio.pin_mode(rst_out, gpio.OUTPUT)
+#         gpio.digital_write(rst_out, 0)
+#         tasmota.delay(5)
+#         gpio.digital_write(rst_out, 1)
+#         tasmota.delay(5)
+#         tasmota.resp_cmnd("rst_out reset pulse")
+#     elif arg == "in"
+#         gpio.pin_mode(bsl_in, gpio.OUTPUT)
+#         gpio.pin_mode(rst_in, gpio.OUTPUT)
+#         gpio.digital_write(bsl_in, 0)
+#         gpio.digital_write(rst_in, 0)
+#         tasmota.delay(20)
+#         gpio.digital_write(rst_in, 1)
+#         tasmota.delay(120)
+#         tasmota.resp_cmnd("rst_in reset pulse")
+#     else
+#         tasmota.resp_cmnd("Invalid argument: " + str(arg))
+#     end
+# end
 
 def hold()
     gpio.pin_mode(global.ready_pin, gpio.OUTPUT)
