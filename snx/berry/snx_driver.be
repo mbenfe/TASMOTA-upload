@@ -1,4 +1,4 @@
-var version = "1.0.042026 debug reorganized"
+var version = "8.0.052026 versions"
 
 import mqtt
 import string

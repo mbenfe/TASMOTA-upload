@@ -1,4 +1,4 @@
-var version = "1.0.032026 flasher"
+var version = "8.0.052026 versions"
 
 import string
 import global
@@ -55,31 +55,6 @@ end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
-# def Stm32Reset(cmd, idx, payload, payload_json)
-#     var arg = nil
-#     if payload != nil
-#         arg = string.tolower(str(payload))
-#     end
-#     if arg == nil || arg == "" || arg == "out"
-#         gpio.pin_mode(rst_out, gpio.OUTPUT)
-#         gpio.digital_write(rst_out, 0)
-#         tasmota.delay(5)
-#         gpio.digital_write(rst_out, 1)
-#         tasmota.delay(5)
-#         tasmota.resp_cmnd("rst_out reset pulse")
-#     elif arg == "in"
-#         gpio.pin_mode(bsl_in, gpio.OUTPUT)
-#         gpio.pin_mode(rst_in, gpio.OUTPUT)
-#         gpio.digital_write(bsl_in, 0)
-#         gpio.digital_write(rst_in, 0)
-#         tasmota.delay(20)
-#         gpio.digital_write(rst_in, 1)
-#         tasmota.delay(120)
-#         tasmota.resp_cmnd("rst_in reset pulse")
-#     else
-#         tasmota.resp_cmnd("Invalid argument: " + str(arg))
-#     end
-# end
 
 def hold()
     gpio.pin_mode(global.ready_pin, gpio.OUTPUT)
@@ -160,26 +135,6 @@ def launch_driver()
     mqttprint('AUTOEXEC: ready pin enabled')
  end
 
- def getversion()
-    var fichier
-    var files = path.listdir("/")
-    for i:0..files.size()-1
-        if string.endswith(files[i],".be")
-            fichier = open(files[i], "r")
-            var content = fichier.readline()
-            var version_match = string.find(content, 'var version')
-            if version_match != -1
-                var liste = string.split(content,' ')
-                mqttprint(files[i] + " version: " + liste[3])
-            else
-                mqttprint(files[i] + " version: undefined version")
-            end
-            fichier.close()
-        end
-    end
-    tasmota.resp_cmnd_done()
-end
-
 def update()
     mqttprint("update: start")
     hold()
@@ -206,55 +161,6 @@ def update()
     mqttprint("update: done")
 end
 
-def statistic()
-    if global.ser == nil
-        tasmota.resp_cmnd("serial not ready")
-        return
-    end
-    var mybytes = bytes().fromstring("s")
-    global.ser.flush()
-    global.ser.write(mybytes)
-    tasmota.resp_cmnd("s sent")
-end
-
-def mapstatistic()
-    if global.ser == nil
-        tasmota.resp_cmnd("serial not ready")
-        return
-    end
-    var mybytes = bytes().fromstring("m")
-    global.ser.flush()
-    global.ser.write(mybytes)
-    tasmota.resp_cmnd("m sent")
-end
-
-def stm32mode(cmd, idx, payload, payload_json)
-    if global.ser == nil
-        tasmota.resp_cmnd("serial not ready")
-        return
-    end
-
-    var mode = ""
-    if payload != nil
-        mode = string.tolower(str(payload))
-    end
-
-    if mode == "log"
-        global.ser.flush()
-        global.ser.write(bytes().fromstring("ml"))
-        tasmota.resp_cmnd("stm32 mode=log (ml sent)")
-        return
-    end
-
-    if mode == "debug"
-        global.ser.flush()
-        global.ser.write(bytes().fromstring("md"))
-        tasmota.resp_cmnd("stm32 mode=debug (md sent)")
-        return
-    end
-
-    tasmota.resp_cmnd("invalid stm32mode: " + mode + " (log|debug)")
-end
 
 def setmode(cmd, idx, payload, payload_json)
     if global.stm32 == nil
@@ -353,7 +259,7 @@ def snxhelp(cmd, idx, payload, payload_json)
     mqttprint("start : set ready pin HIGH (resume STM32 side)")
     mqttprint("getfile <repo/path/file> : download file from GitHub upload repo")
     mqttprint("dir : list local filesystem files with timestamp and size")
-    mqttprint("getversion : show first-line version markers from .be files")
+    mqttprint("getversion : show versions of berry scripts and H7/C031 firmware")
     mqttprint("update : fetch autoexec/snx files and flasher assets")
 
     mqttprint("=== Embedded C++ SNX driver commands ===")
@@ -383,7 +289,6 @@ tasmota.add_cmd('getfile',getfile)
 
 tasmota.add_cmd('dir',dir)
 
-tasmota.add_cmd('getversion',getversion)
 tasmota.add_cmd('update',update)
 tasmota.add_cmd('snxhelp',snxhelp)
 
