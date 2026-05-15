@@ -250,7 +250,7 @@ def Init()
 
     gpio.pin_mode(global.rx, gpio.INPUT_PULLUP)
     gpio.pin_mode(global.tx, gpio.OUTPUT)
-    global.ser = serial(global.rx, global.tx, 460800, serial.SERIAL_8N1)
+    global.ser = serial(global.rx, global.tx, 921600, serial.SERIAL_8N1)
 
     gpio.pin_mode(global.rst, gpio.OUTPUT)
     gpio.pin_mode(global.bsl, gpio.OUTPUT)
