@@ -9,8 +9,6 @@ import path
 
 global.rx = 18
 global.tx = 19
-global.rst = 9   
-global.bsl = 6   
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
@@ -186,35 +184,6 @@ def GetCommand(cmd, idx, payload, payload_json)
     mqttprint("GET inconnu")
 end
 
-def Stm32Reset()
-    print("Resetting STM32...")
-    gpio.pin_mode(global.rst, gpio.OUTPUT)
-    gpio.pin_mode(global.bsl, gpio.OUTPUT)
-    gpio.digital_write(global.rst, 0)
-    tasmota.delay(100)  # wait 10ms
-    gpio.digital_write(global.rst, 1)
-    tasmota.delay(100)  # wait 10ms
-    tasmota.resp_cmnd("STM32 reset")
-end
-
-def hold()
-    # Hold STM32 in reset and keep boot pin low.
-    gpio.pin_mode(global.rst, gpio.OUTPUT)
-    gpio.pin_mode(global.bsl, gpio.OUTPUT)
-    gpio.digital_write(global.bsl, 0)
-    gpio.digital_write(global.rst, 0)
-    tasmota.resp_cmnd("done")
-end
-
-def start()
-    # Release reset and keep boot pin low for normal boot.
-    gpio.pin_mode(global.rst, gpio.OUTPUT)
-    gpio.pin_mode(global.bsl, gpio.OUTPUT)
-    gpio.digital_write(global.bsl, 0)
-    gpio.digital_write(global.rst, 1)
-    tasmota.resp_cmnd("done")
-end
-
 # ============================================================
 # ====================== ESP32 COMMANDS ======================
 # ============================================================
@@ -251,11 +220,6 @@ def Init()
     gpio.pin_mode(global.rx, gpio.INPUT_PULLUP)
     gpio.pin_mode(global.tx, gpio.OUTPUT)
     global.ser = serial(global.rx, global.tx, 921600, serial.SERIAL_8N1)
-
-    gpio.pin_mode(global.rst, gpio.OUTPUT)
-    gpio.pin_mode(global.bsl, gpio.OUTPUT)
-    gpio.digital_write(global.bsl, 0)
-    gpio.digital_write(global.rst, 1)
 
     mqttprint('serial initialised')
 end
@@ -505,13 +469,8 @@ def help()
     print("All tokens for set/get/cal are case-insensitive.")
 
     print("[REGISTERED COMMANDS]")
-    print("Stm32reset | hold | start | set | get | cal")
+    print("set | get | cal")
     print("Init | getfile | name | sendconfig | h | dir | getversion | update | couts")
-
-    print("[STM32 LINK CONTROL]")
-    print("Stm32reset")
-    print("hold")
-    print("start")
 
     print("[STM32 SET COMMANDS]")
     print("set MODE CAL <1|2|3>")
@@ -582,7 +541,6 @@ def update()
     global.ville = myjson["ville"]
     file.close()
     mqttprint("update: start")
-    hold()
     var name = string.format("c_%s.json", global.ville)
     var file_to_fetch = string.format("config/%s", name)
     mqttprint("update: getfile " + file_to_fetch)
@@ -601,7 +559,6 @@ def update()
     fetch_file("pwx12/berry-c3/pwx12_driver.be")
     mqttprint("update: getfile pwx12/berry-c3/autoexec.be")
     fetch_file("pwx12/berry-c3/autoexec.be")
-    start()
     mqttprint("update: done")
 end
 
@@ -619,12 +576,6 @@ print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
 
 # ====================== STM32 COMMANDS ======================
-tasmota.add_cmd("stm32reset", Stm32Reset)
-print("add_cmd:", "stm32reset")
-tasmota.add_cmd("hold", hold)
-print("add_cmd:", "hold")
-tasmota.add_cmd("start", start)
-print("add_cmd:", "start")
 tasmota.add_cmd("set", SetCommand)
 print("add_cmd:", "set")
 tasmota.add_cmd("get", GetCommand)
