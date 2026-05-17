@@ -18,6 +18,7 @@ import global
 class stm32h743_flasher
   static FLASH_START = 0x08000000
   static FLASH_END = 0x08200000
+  static FLASH_PAGE_SIZE = 0x00020000
   static CORE_VERSION = "2026-04-01-merged-v1"
 
   var file_hex
@@ -25,6 +26,10 @@ class stm32h743_flasher
   var saw_flash_data
   var check_records
   var check_bytes
+  var image_first_addr
+  var image_last_addr
+  var erase_first_page
+  var erase_last_page
 
   var rxbuf
   var pending_slot_addr
@@ -53,6 +58,10 @@ class stm32h743_flasher
     self.saw_flash_data = false
     self.check_records = 0
     self.check_bytes = 0
+    self.image_first_addr = -1
+    self.image_last_addr = -1
+    self.erase_first_page = -1
+    self.erase_last_page = -1
 
     self.rxbuf = bytes()
     self.pending_slot_addr = -1
@@ -80,9 +89,11 @@ class stm32h743_flasher
 
   def flash(filename)
     if type(filename) != 'string' raise "value_error", "invalid file name" end
-    if self.file_hex == nil || self.checked_filename != filename
+
+    if self.checked_filename != filename || self.image_first_addr < 0 || self.image_last_addr < 0
+      self.check(filename)
+    elif self.file_hex == nil
       self._load_hex(filename)
-      self.checked_filename = filename
     end
 
     if global.serflash == nil
@@ -97,7 +108,7 @@ class stm32h743_flasher
     var idb = self._cmd_get_id()
     print("FLH: chip id bytes=" + str(idb))
 
-    self._cmd_extended_erase_mass()
+    self._cmd_extended_erase_pages(self.erase_first_page, self.erase_last_page)
 
     self.file_hex.parse(/ -> self._flash_pre(),
                         / address, len, data, offset -> self._flash_cb(address, len, data, offset),
@@ -114,12 +125,25 @@ class stm32h743_flasher
     self.saw_flash_data = false
     self.check_records = 0
     self.check_bytes = 0
+    self.image_first_addr = -1
+    self.image_last_addr = -1
+    self.erase_first_page = -1
+    self.erase_last_page = -1
   end
 
   def _check_cb(addr, sz, data, offset)
     if addr < self.FLASH_START || addr + sz > self.FLASH_END
       raise "value_error", format("address out of flash range addr=0x%08X len=%i", addr, sz)
     end
+
+    var end_addr = addr + sz - 1
+    if self.image_first_addr < 0 || addr < self.image_first_addr
+      self.image_first_addr = addr
+    end
+    if self.image_last_addr < 0 || end_addr > self.image_last_addr
+      self.image_last_addr = end_addr
+    end
+
     self.saw_flash_data = true
     self.check_records += 1
     self.check_bytes += sz
@@ -128,6 +152,10 @@ class stm32h743_flasher
   def _check_post()
     if !self.saw_flash_data raise "value_error", "no flash payload found in HEX" end
     print(format("FLH: HEX check OK records=%i bytes=%i", self.check_records, self.check_bytes))
+    self.erase_first_page = (self.image_first_addr - self.FLASH_START) >> 17
+    self.erase_last_page = (self.image_last_addr - self.FLASH_START) >> 17
+    print(format("FLH: image span 0x%08X..0x%08X", self.image_first_addr, self.image_last_addr))
+    print(format("FLH: erase pages %i..%i (%i-byte pages)", self.erase_first_page, self.erase_last_page, self.FLASH_PAGE_SIZE))
   end
 
   def _start_link()
@@ -327,11 +355,28 @@ class stm32h743_flasher
     self._expect_ack(2000, format("cmd_write_memory addr=0x%08X len=%i", addr, len))
   end
 
-  def _cmd_extended_erase_mass()
+  def _cmd_extended_erase_pages(first_page, last_page)
+    if first_page < 0 || last_page < first_page
+      raise "value_error", format("invalid erase page range first=%i last=%i", first_page, last_page)
+    end
+
+    var page_count = last_page - first_page + 1
+    var n = page_count - 1
+
     self._send_cmd(0x44)
-    global.serflash.write(bytes("FFFF00"))
+    var p = bytes()
+    p.add((n >> 8) & 0xFF)
+    p.add(n & 0xFF)
+
+    for page:first_page..last_page
+      p.add((page >> 8) & 0xFF)
+      p.add(page & 0xFF)
+    end
+
+    p.add(self._xor_checksum(p))
+    global.serflash.write(p)
     tasmota.yield()
-    self._expect_ack(30000, "cmd_extended_erase_mass")
+    self._expect_ack(60000, format("cmd_extended_erase_pages first=%i last=%i", first_page, last_page))
   end
 
   def _cmd_go(addr)
@@ -399,7 +444,7 @@ class stm32h743_flasher
     self._flush_pending_slot()
     print(format("FLH: write summary records=%i bytes=%i aligned_writes=%i", self.flash_records, self.flash_bytes, self.flash_writes))
     print("FLH: step 6.5/7 - jump to user firmware")
-    self._cmd_go(self.FLASH_START)
+    self._cmd_go(self.image_first_addr)
     print("FLH: step 6.9/7 - finalize handled by flash()")
   end
 
