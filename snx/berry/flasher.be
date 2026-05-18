@@ -1,17 +1,4 @@
-#################################################################################
-#
-# STM32H743 flasher (single-file implementation).
-#
-# Depends only on:
-# - global runtime (initialized in this class init)
-# - intelhex parser
-#
-# User API:
-#   import flasher as f
-#   f.check("auto_mery.hex")
-#   f.flash("auto_mery.hex")
-#
-#################################################################################
+var version = "2026-05-18 partitioned flash flasher with extended erase support and improved error handling"
 
 import global
 
