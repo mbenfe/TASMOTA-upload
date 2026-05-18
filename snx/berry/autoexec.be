@@ -151,6 +151,9 @@ def update()
     mqttprint("update: getfile flashers/stm32H743-SNX/flasher.be")
     tasmota.cmd("getfile flashers/stm32H743-SNX/flasher.be")
 
+    mqttprint("update: getfile flashers/stm32H743-SNX/bootflasher.be")
+    tasmota.cmd("getfile flashers/stm32H743-SNX/bootflasher.be")
+
     mqttprint("update: getfile flashers/stm32F412-SNX_IN/flasherin.be")
     tasmota.cmd("getfile flashers/stm32F412-SNX_IN/flasherin.be")
 
