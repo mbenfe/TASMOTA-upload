@@ -139,6 +139,8 @@ def update()
     mqttprint("update: start")
     hold()
 
+    var app_file = string.format("snx/apps/auto_%s.bin", ville)
+
     mqttprint("update: getfile snx/berry/autoexec.be")
     tasmota.cmd("getfile snx/berry/autoexec.be")
 
@@ -157,12 +159,15 @@ def update()
     mqttprint("update: getfile snx/H7/H7-bootloader.hex")
     tasmota.cmd("getfile snx/H7/H7-bootloader.hex")
 
-    mqttprint("update: getfile snx/c031/modbus_chip_flashed.hex")
-    tasmota.cmd("getfile snx/c031/modbus_chip_flashed.hex")
-    mqttprint("update: getfile snx/c031/lonworks_chip_flashed.hex")
-    tasmota.cmd("getfile snx/c031/lonworks_chip_flashed.hex")
-    mqttprint("update: getfile snx/c031/mbjc_chip_flashed.hex")
-    tasmota.cmd("getfile snx/c031/mbjc_chip_flashed.hex")
+    mqttprint("update: getfile " + app_file)
+    tasmota.cmd("getfile " + app_file)
+
+    mqttprint("update: getfile snx/c031/modbus_chip_flashed.bin")
+    tasmota.cmd("getfile snx/c031/modbus_chip_flashed.bin")
+    mqttprint("update: getfile snx/c031/lonworks_chip_flashed.bin")
+    tasmota.cmd("getfile snx/c031/lonworks_chip_flashed.bin")
+    mqttprint("update: getfile snx/c031/mbjc_chip_flashed.bin")
+    tasmota.cmd("getfile snx/c031/mbjc_chip_flashed.bin")
     
     start()
     mqttprint("update: done")
