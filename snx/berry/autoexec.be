@@ -148,18 +148,22 @@ def update()
     mqttprint("update: getfile snx/berry/config_cout.json")
     tasmota.cmd("getfile snx/berry/config_cout.json")
 
-    mqttprint("update: getfile flashers/stm32H743-SNX/flasher.be")
-    tasmota.cmd("getfile flashers/stm32H743-SNX/flasher.be")
+    mqttprint("update: getfile snx/berry/flasher.be")
+    tasmota.cmd("getfile snx/berry/flasher.be")
 
-    mqttprint("update: getfile flashers/stm32H743-SNX/bootflasher.be")
-    tasmota.cmd("getfile flashers/stm32H743-SNX/bootflasher.be")
+    mqttprint("update: getfile snx/berry/bootflasher.be")
+    tasmota.cmd("getfile snx/berry/bootflasher.be")
 
-    mqttprint("update: getfile flashers/stm32F412-SNX_IN/flasherin.be")
-    tasmota.cmd("getfile flashers/stm32F412-SNX_IN/flasherin.be")
+    mqttprint("update: getfile snx/H7/H7-bootloader.hex")
+    tasmota.cmd("getfile snx/H7/H7-bootloader.hex")
 
-    mqttprint("update: getfile flashers/stm32H743-SNX/intelhex.be")
-    tasmota.cmd("getfile flashers/stm32H743-SNX/intelhex.be")
-
+    mqttprint("update: getfile snx/c031/modbus_chip_flashed.hex")
+    tasmota.cmd("getfile snx/c031/modbus_chip_flashed.hex")
+    mqttprint("update: getfile snx/c031/lonworks_chip_flashed.hex")
+    tasmota.cmd("getfile snx/c031/lonworks_chip_flashed.hex")
+    mqttprint("update: getfile snx/c031/mbjc_chip_flashed.hex")
+    tasmota.cmd("getfile snx/c031/mbjc_chip_flashed.hex")
+    
     start()
     mqttprint("update: done")
 end
