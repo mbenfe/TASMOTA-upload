@@ -153,6 +153,9 @@ def update()
     mqttprint("update: getfile snx/berry/flasher.be")
     tasmota.cmd("getfile snx/berry/flasher.be")
 
+    mqttprint("update: getfile snx/berry/intelhex.be")
+    tasmota.cmd("getfile snx/berry/intelhex.be")
+
     mqttprint("update: getfile snx/berry/bootflasher.be")
     tasmota.cmd("getfile snx/berry/bootflasher.be")
 
