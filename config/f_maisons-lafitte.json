@@ -31,9 +31,9 @@
     "name": "LaboEmballage_5",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 44274,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "6": {
     "device": "DGS-012x",
@@ -49,9 +49,9 @@
     "name": "CfBarquettes_7",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 14681,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "8": {
     "device": "DGS-012x",
@@ -65,20 +65,20 @@
   "9": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_9",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "10": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_10",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN 120",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "11": {
     "device": "AK-PC782AB-041x",
@@ -101,137 +101,137 @@
   "13": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_13",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "14": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_14",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "15": {
     "device": "AK-CC55-017x",
     "name": "CfPosVitre_15",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 10633,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "16": {
     "device": "AK-CC55-017x",
     "name": "MeubleSv_16",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "C-SCENE TMTRAD16",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "17": {
     "device": "AK-CC55-017x",
     "name": "MeubleSv_17",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "GEMINI TMTRAD05",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "18": {
     "device": "AK-CC55-017x",
     "name": "MeubleSv_18",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "C-SCENE TMTRAD16",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "19": {
     "device": "AK-CC55-017x",
     "name": "MeubleSv_19",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "GEMINI TMTRAD05",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "20": {
     "device": "AK-CC55-017x",
     "name": "MeubleLibanais_20",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "C-SCENE TMTRAD16",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "21": {
     "device": "AK-CC55-017x",
     "name": "AngleCharc/from_21",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "GEMINI TMTRAD05",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "22": {
     "device": "AK-CC55-017x",
     "name": "AngleCharc/from_22",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "GEMINI TMTRAD05",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "23": {
     "device": "AK-CC55-017x",
     "name": "TradCharc/from_23",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "C-SCENE TMTRAD16",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "24": {
     "device": "AK-CC55-017x",
     "name": "TradCharc/from_24",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "C-SCENE TMTRAD16",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "25": {
     "device": "AK-CC55-017x",
     "name": "TradCharc/from_25",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "C-SCENE TMTRAD16",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "26": {
     "device": "AK-CC55-017x",
     "name": "TradCharc/from_26",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EUROCRYOR",
+    "model": "C-SCENE TMTRAD16",
+    "volume": 3384,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "27": {
     "device": "AK-CC55-017x",
     "name": "LaboSushi_27",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 29296,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "28": {
     "device": "DGS-012x",
@@ -245,263 +245,263 @@
   "29": {
     "device": "AK-CC55-017x",
     "name": "MeubleSv_29",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "30": {
     "device": "AK-CC55-017x",
     "name": "MeubleSv_30",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN 120",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "31": {
     "device": "AK-CC55-017x",
     "name": "TgMeubleSv_31",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "32": {
     "device": "AK-CC55-017x",
     "name": "TgMeublePos_32",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCS25",
+    "volume": 1375,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "33": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_33",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "34": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_34",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "35": {
     "device": "AK-CC55-017x",
     "name": "TgMeublePos_35",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCS25",
+    "volume": 1375,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "36": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_36",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "37": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_37",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "38": {
     "device": "AK-CC55-017x",
     "name": "TgMeubleSv_38",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "39": {
     "device": "AK-CC55-017x",
     "name": "MeubleSv_39",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "40": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_40",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS18",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "41": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_41",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "42": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_42",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "43": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_43",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS18",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "44": {
     "device": "AK-CC55-017x",
     "name": "TgMeubleSv_44",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "45": {
     "device": "AK-CC55-017x",
     "name": "MeubleSv_45",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "TWIN",
+    "volume": 1096,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "46": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_46",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS18",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "47": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_47",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "48": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_48",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS18",
+    "volume": 990,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "49": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_49",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS25",
+    "volume": 1375,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "50": {
     "device": "AK-CC55-017x",
     "name": "TgMeublePos_50",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCS18",
+    "volume": 990,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "51": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_51",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS25",
+    "volume": 1375,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "52": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_52",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AAONS25",
+    "volume": 3036,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ouvert"
   },
   "53": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_53",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AAONS25",
+    "volume": 3036,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ouvert"
   },
   "54": {
     "device": "AK-CC55-017x",
     "name": "TgMeublePos_54",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCS18",
+    "volume": 990,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "55": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_55",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "56": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_56",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "57": {
     "device": "AK-CC55-017x",
     "name": "SasNegBoulang_57",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 19150,
     "genre": "CF-",
-    "OF": ""
+    "OF": "ferme"
   },
   "58": {
     "device": "DGS-012x",
@@ -517,9 +517,9 @@
     "name": "CfNegBoulang_59",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 32454,
     "genre": "CF-",
-    "OF": ""
+    "OF": "ferme"
   },
   "60": {
     "device": "DGS-012x",
@@ -535,153 +535,153 @@
     "name": "CfNegBoulangSec_61",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 37500,
     "genre": "CF-",
-    "OF": ""
+    "OF": "ferme"
   },
   "62": {
     "device": "AK-CC55-017x",
     "name": "TgMeublePos_62",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCS18",
+    "volume": 990,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "63": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_63",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "64": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_64",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "65": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_65",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "66": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_66",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "AACCNS37",
+    "volume": 2035,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "67": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_67",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 1254,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "68": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_68",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS18",
+    "volume": 2246,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "69": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_69",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS25",
+    "volume": 2975,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "70": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_70",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS18",
+    "volume": 2246,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "71": {
     "device": "AK-CC55-017x",
     "name": "MeubleMarae_71",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BAMACO",
+    "model": "bac glaces poisson",
+    "volume": 248,
+    "genre": "bac-",
+    "OF": "ouvert"
   },
   "73": {
     "device": "AK-CC55-017x",
     "name": "MeubleMarae_73",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "BAMACO",
+    "model": "bac glaces poisson",
+    "volume": 248,
+    "genre": "bac-",
+    "OF": "ouvert"
   },
   "74": {
     "device": "AK-CC55-017x",
     "name": "TradBoucherie_74",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EPTA",
+    "model": "VELNS25",
+    "volume": 1125,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "75": {
     "device": "AK-CC55-017x",
     "name": "TradBoucherie_75",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EPTA",
+    "model": "VELNS25",
+    "volume": 1125,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "76": {
     "device": "AK-CC55-017x",
     "name": "TradBoucherie_76",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EPTA",
+    "model": "VELNS09",
+    "volume": 540,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "77": {
     "device": "AK-CC55-017x",
     "name": "TradBoucherie_77",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EPTA",
+    "model": "VELNS09",
+    "volume": 540,
+    "genre": "bac+",
+    "OF": "ouvert"
   },
   "78": {
     "device": "AK-CC55-017x",
     "name": "CfProduitsFinis_78",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 17073,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "79": {
     "device": "DGS-012x",
@@ -697,9 +697,9 @@
     "name": "LaboBoucherie_80",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 44509,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "81": {
     "device": "DGS-012x",
@@ -715,18 +715,18 @@
     "name": "CfMatiarePremia_82",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 10527,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "84": {
     "device": "AK-CC55-017x",
     "name": "LocalSuifs_84",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 4292,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "85": {
     "device": "DGS-012x",
@@ -742,9 +742,9 @@
     "name": "CfF&l_86",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 43062,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "87": {
     "device": "DGS-012x",
@@ -760,9 +760,9 @@
     "name": "CfNagative_88",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 82784,
     "genre": "CF-",
-    "OF": ""
+    "OF": "ferme"
   },
   "89": {
     "device": "DGS-012x",
@@ -776,245 +776,245 @@
   "90": {
     "device": "AK-CC55-017x",
     "name": "MeubleNag_90",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "EPTA",
+    "model": "NC5CS4D",
+    "volume": 4043,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "91": {
     "device": "AK-CC55-017x",
     "name": "MeubleNag_91",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "EPTA",
+    "model": "NC5CS4D",
+    "volume": 4043,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "92": {
     "device": "AK-CC55-017x",
     "name": "MeubleNag_92",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "EPTA",
+    "model": "NC5CS4D",
+    "volume": 4043,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "93": {
     "device": "AK-CC55-017x",
     "name": "MeubleNag_93",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "EPTA",
+    "model": "NC5CS5D",
+    "volume": 3876,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "94": {
     "device": "AK-CC55-017x",
     "name": "TgBacNag_94",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine-",
-    "OF": ""
+    "brand": "BONNET NEVE",
+    "model": "11BI-T4",
+    "volume": 792,
+    "genre": "bac-",
+    "OF": "ferme"
   },
   "95": {
     "device": "AK-CC55-017x",
     "name": "BacNag_95",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "11BI-37",
+    "volume": 3256,
     "genre": "bac-",
-    "OF": ""
+    "OF": "ferme"
   },
   "96": {
     "device": "AK-CC55-017x",
     "name": "BacNag_96",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "11BI-25",
+    "volume": 2200,
     "genre": "bac-",
-    "OF": ""
+    "OF": "ferme"
   },
   "97": {
     "device": "AK-CC55-017x",
     "name": "TgBacNag_97",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "11BI-T4",
+    "volume": 792,
     "genre": "bac-",
-    "OF": ""
+    "OF": "ferme"
   },
   "98": {
     "device": "AK-CC55-017x",
     "name": "MeubleNag_98",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "EPTA",
+    "model": "NC5CS3D",
+    "volume": 2971,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "99": {
     "device": "AK-CC55-017x",
     "name": "MeubleNag_99",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "EPTA",
+    "model": "NC5CS5D",
+    "volume": 3876,
     "genre": "vitrine-",
-    "OF": ""
+    "OF": "ferme"
   },
   "100": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_100",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYCS18",
+    "volume": 2295,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "101": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_101",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS25",
+    "volume": 2975,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "102": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_102",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS37",
+    "volume": 4493,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "103": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_103",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS18",
+    "volume": 2246,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "104": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_104",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS12",
+    "volume": 1457,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "105": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_105",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "LEONS37",
+    "volume": 4509,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "106": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_106",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS25",
+    "volume": 2975,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "107": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_107",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS25",
+    "volume": 2975,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "108": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_108",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYCS12",
+    "volume": 1530,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "109": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_109",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS37",
+    "volume": 4493,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "110": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_110",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS18",
+    "volume": 2246,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "111": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_111",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS12",
+    "volume": 1457,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "112": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_112",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYCS18",
+    "volume": 2295,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "113": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_113",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS18",
+    "volume": 2246,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "114": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_114",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS25",
+    "volume": 2975,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "115": {
     "device": "AK-CC55-017x",
     "name": "MeublePos_115",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
+    "brand": "BONNET NEVE",
+    "model": "SKYNS25",
+    "volume": 2975,
     "genre": "vitrine+",
-    "OF": ""
+    "OF": "ferme"
   },
   "116": {
     "device": "AK-CC55-017x",
     "name": "CfPosDrive_116",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 38139,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "117": {
     "device": "DGS-012x",
@@ -1030,18 +1030,18 @@
     "name": "LaboPrestataire_120",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 68606,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "122": {
     "device": "AK-CC55-017x",
     "name": "CfPosR-_122",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 91175,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "123": {
     "device": "DGS-012x",
@@ -1057,9 +1057,9 @@
     "name": "LaboR-_124",
     "brand": "default",
     "model": "default",
-    "volume": 0,
+    "volume": 28057,
     "genre": "CF+",
-    "OF": ""
+    "OF": "ferme"
   },
   "125": {
     "device": "DGS-012x",
@@ -1073,10 +1073,10 @@
   "126": {
     "device": "AK-CC55-017x",
     "name": "TourTradBouch_126",
-    "brand": "default",
-    "model": "default",
-    "volume": 0,
-    "genre": "vitrine+",
-    "OF": ""
+    "brand": "EPTA",
+    "model": "VELNS09",
+    "volume": 540,
+    "genre": "bac+",
+    "OF": "ouvert"
   }
 }
