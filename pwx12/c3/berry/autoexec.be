@@ -267,7 +267,7 @@ def name(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-def fetch_file(payload)
+def getfile(cmd, idx, payload, payload_json)
     import string
     var message
     var nom_fichier = string.split(payload, '/').pop()
@@ -279,7 +279,8 @@ def fetch_file(payload)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
-        return -1
+        tasmota.resp_cmnd("Erreur de téléchargement.")
+        return
     end
 
     wc.set_follow_redirects(true)
@@ -289,19 +290,14 @@ def fetch_file(payload)
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
         wc.close()
-        return st
+        tasmota.resp_cmnd("Erreur de téléchargement.")
+        return
     end
 
     var bytes_written = wc.write_file(nom_fichier)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
-    return st
-end
-
-def getfile(cmd, idx, payload, payload_json)
-    var st = fetch_file(payload)
     if st == 200
-        var nom_fichier = string.split(payload, '/').pop()
         tasmota.resp_cmnd('uploaded:' + nom_fichier)
     else
         tasmota.resp_cmnd("Erreur de téléchargement.")
@@ -544,25 +540,25 @@ def update()
     var name = string.format("c_%s.json", global.ville)
     var file_to_fetch = string.format("config/%s", name)
     mqttprint("update: getfile " + file_to_fetch)
-    fetch_file(file_to_fetch)
+    tasmota.cmd("getfile " + file_to_fetch)
     name = string.format("p_%s.json", global.ville)
     file_to_fetch = string.format("config/%s", name)
     mqttprint("update: getfile " + file_to_fetch)
-    fetch_file(file_to_fetch)
+    tasmota.cmd("getfile " + file_to_fetch)
     mqttprint("update: getfile pwx12/c3/berry/conso.be")
-    fetch_file("pwx12/c3/berry/conso.be")
+    tasmota.cmd("getfile pwx12/c3/berry/conso.be")
     mqttprint("update: getfile pwx12/c3/berry/flasher.be")
-    fetch_file("pwx12/c3/berry/flasher.be")
+    tasmota.cmd("getfile pwx12/c3/berry/flasher.be")
     mqttprint("update: getfile flashers/stm32C071-PWX/intelhex.be")
-    fetch_file("flashers/stm32C071-PWX/intelhex.be")
+    tasmota.cmd("getfile flashers/stm32C071-PWX/intelhex.be")
     mqttprint("update: getfile pwx12/c3/berry/pwx12_driver.be")
-    fetch_file("pwx12/c3/berry/pwx12_driver.be")
+    tasmota.cmd("getfile pwx12/c3/berry/pwx12_driver.be")
     mqttprint("update: getfile pwx12/c3/berry/autoexec.be")
-    fetch_file("pwx12/c3/berry/autoexec.be")
+    tasmota.cmd("getfile pwx12/c3/berry/autoexec.be")
     mqttprint("update: getfile pwx12/c3/app/PWX12-flashed.bin")
-    fetch_file("pwx12/c3/app/PWX12-flashed.bin")
+    tasmota.cmd("getfile pwx12/c3/app/PWX12-flashed.bin")
     mqttprint("update: getfile pwx12/c3/boot/C071-bootloader.bin")
-    fetch_file("pwx12/c3/boot/C071-bootloader.bin")
+    tasmota.cmd("getfile pwx12/c3/boot/C071-bootloader.bin")
     mqttprint("update: done")
 end
 
