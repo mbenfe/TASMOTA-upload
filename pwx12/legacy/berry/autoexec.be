@@ -301,7 +301,7 @@ def name(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('done')
 end
 
-def getfile(cmd, idx, payload, payload_json)
+def fetch_file(payload)
     import string
     import path
     var message
@@ -316,10 +316,9 @@ def getfile(cmd, idx, payload, payload_json)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
-        tasmota.resp_cmnd("Erreur d'initialisation du client web.")
         tasmota.add_driver(global.pwx12)
         start()
-        return
+        return -1
     end
 
     wc.set_follow_redirects(true)
@@ -328,19 +327,28 @@ def getfile(cmd, idx, payload, payload_json)
     if (st != 200)
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
-        tasmota.resp_cmnd("Erreur de téléchargement.")
         wc.close()
         start()
-        return
+        return st
     end
 
     var bytes_written = wc.write_file(nom_fichier)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
-    message = 'uploaded:' + nom_fichier
-    tasmota.resp_cmnd(message)
     start()
     return st
+end
+
+def getfile(cmd, idx, payload, payload_json)
+    var st = fetch_file(payload)
+    if st == 200
+        var nom_fichier = string.split(payload, '/').pop()
+        tasmota.resp_cmnd('uploaded:' + nom_fichier)
+    elif st == -1
+        tasmota.resp_cmnd("Erreur d'initialisation du client web.")
+    else
+        tasmota.resp_cmnd("Erreur de téléchargement.")
+    end
 end
 
 def sendconfig(cmd, idx, payload, payload_json)
@@ -585,23 +593,26 @@ def update()
     global.ville = myjson["ville"]
     file.close()
     mqttprint("update: start")
-    # hold()
-    # var name = string.format("c_%s.json", global.ville)
-    # var command = string.format("getfile config/%s", name)
-    # mqttprint("update: " + command)
-    # tasmota.cmd(command)
-    # name = string.format("p_%s.json", global.ville)
-    # command = string.format("getfile config/%s", name)
-    # mqttprint("update: " + command)
-    # tasmota.cmd(command)
-    # mqttprint("update: getfile pwx12/legacy/berry/conso.be")
-    # tasmota.cmd("getfile pwx12/legacy/berry/conso.be")
-    # mqttprint("update: getfile pwx12/legacy/berry/pwx12_driver.be")
-    # tasmota.cmd("getfile pwx12/legacy/berry/pwx12_driver.be")
-    # mqttprint("update: getfile pwx12/legacy/berry/autoexec.be")
-    # tasmota.cmd("getfile pwx12/legacy/berry/autoexec.be")
-    # start()
+    var name = string.format("c_%s.json", global.ville)
+    var file_to_fetch = string.format("config/%s", name)
+    mqttprint("update: getfile " + file_to_fetch)
+    fetch_file(file_to_fetch)
+    name = string.format("p_%s.json", global.ville)
+    file_to_fetch = string.format("config/%s", name)
+    mqttprint("update: getfile " + file_to_fetch)
+    fetch_file(file_to_fetch)
+    mqttprint("update: getfile pwx12/legacy/berry/conso.be")
+    fetch_file("pwx12/legacy/berry/conso.be")
+    mqttprint("update: getfile pwx12/legacy/berry/pwx12_driver.be")
+    fetch_file("pwx12/legacy/berry/pwx12_driver.be")
+    mqttprint("update: getfile pwx12/legacy/berry/autoexec.be")
+    fetch_file("pwx12/legacy/berry/autoexec.be")
+    mqttprint("update: getfile pwx12/legacy/app/pwx12-flashed.bin")
+    fetch_file("pwx12/legacy/app/pwx12-flashed.bin")
+    mqttprint("update: getfile pwx12/legacy/boot/F412-bootloader.bin")
+    fetch_file("pwx12/legacy/boot/F412-bootloader.bin")
     mqttprint("update: done")
+    tasmota.resp_cmnd_done()
 end
 
 def couts()
