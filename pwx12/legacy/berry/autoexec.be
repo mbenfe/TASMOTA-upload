@@ -7,8 +7,6 @@ import json
 import gpio
 import path
 
-var rxSend = 16
-var txSend = 17
 var rxReceive = 3
 var txReceive = 1
 var rst = 2   
@@ -26,160 +24,6 @@ end
 # ============================================================
 # ====================== STM32 COMMANDS ======================
 # ============================================================
-
-# ------------------------------------------------------------
-# ----------------------- CAL COMMANDS -----------------------
-# ------------------------------------------------------------
-
-def Calibration(cmd, idx, payload, payload_json)
-    var argument = string.split(string.toupper(payload), " ")
-    if (size(argument) == 0 || argument[0] == "")
-        mqttprint("erreur arguments")
-        return
-    end
-
-    if (argument[0] == "OFFSET")
-        var token_offset = "CAL OFFSET\n"
-        global.serSend.flush()
-        global.serSend.write(bytes().fromstring(token_offset))
-        mqttprint(token_offset)
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    if (argument[0] != "VA" && argument[0] != "VB" && argument[0] != "VC" && argument[0] != "IA" && argument[0] != "IB" && argument[0] != "IC")
-        mqttprint("erreur arguments")
-        return
-    end
-
-    if (argument[0] == "VA" || argument[0] == "VB" || argument[0] == "VC")
-        if (size(argument) < 2 || argument[1] == "")
-            mqttprint("erreur arguments")
-            return
-        end
-    else
-        # For current calibration, enforce channel index 1..3 before reaching STM32.
-        if (size(argument) < 3 || argument[1] == "" || argument[2] == "" || (argument[1] != "1" && argument[1] != "2" && argument[1] != "3"))
-            mqttprint("erreur arguments")
-            return
-        end
-    end
-
-    var token
-    if (argument[0] == "VA" || argument[0] == "VB" || argument[0] == "VC")
-        token = string.format("CAL V %s %s\n", argument[0], argument[1])
-    else
-        token = string.format("CAL I %s %s %s\n", argument[0], argument[1], argument[2])
-    end
-    global.serSend.flush()
-    global.serSend.write(bytes().fromstring(token))
-    mqttprint(token)
-    tasmota.resp_cmnd_done()
-end
-
-# ------------------------------------------------------------
-# ----------------------- SET COMMANDS -----------------------
-# ------------------------------------------------------------
-
-def SetCommand(cmd, idx, payload, payload_json)
-    var argument = string.split(string.toupper(payload), " ")
-    var argument_raw = string.split(payload, " ")
-    if (size(argument) == 0 || argument[0] == "")
-        mqttprint("erreur arguments")
-        return
-    end
-
-    global.serSend.flush()
-
-    if (argument[0] == "RESET")
-        var token_reset = "SET RESET\n"
-        global.serSend.write(bytes().fromstring(token_reset))
-        mqttprint(token_reset)
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    if (argument[0] == "MODE")
-        if (size(argument) < 2 || (argument[1] != "CAL" && argument[1] != "LOG" && argument[1] != "REG"))
-            mqttprint("erreur arguments")
-            return
-        end
-
-        var token_mode
-        if (argument[1] == "CAL")
-            if (size(argument) < 3 || (argument[2] != "1" && argument[2] != "2" && argument[2] != "3"))
-                mqttprint("erreur arguments")
-                return
-            end
-            token_mode = string.format("SET MODE CAL %s\n", argument[2])
-        else
-            token_mode = string.format("SET MODE %s\n", argument[1])
-        end
-
-        global.serSend.write(bytes().fromstring(token_mode))
-        mqttprint(token_mode)
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    if (argument[0] == "TYPE")
-        if (size(argument) < 2 || (argument[1] != "MONO" && argument[1] != "TRI"))
-            mqttprint("erreur arguments")
-            return
-        end
-        var token_type = string.format("SET TYPE %s\n", argument[1])
-        global.serSend.write(bytes().fromstring(token_type))
-        mqttprint(token_type)
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    mqttprint("SET inconnu")
-end
-
-# ------------------------------------------------------------
-# ----------------------- GET COMMANDS -----------------------
-# ------------------------------------------------------------
-
-def GetCommand(cmd, idx, payload, payload_json)
-    var argument = string.split(string.toupper(payload), " ")
-    if (size(argument) == 0 || argument[0] == "")
-        mqttprint("erreur arguments")
-        return
-    end
-
-    global.serSend.flush()
-
-    if (argument[0] == "CONFIG")
-        global.serSend.write(bytes().fromstring("GET CONFIG\n"))
-        mqttprint('GET CONFIG')
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    if (argument[0] == "CAL")
-        global.serSend.write(bytes().fromstring("GET CAL\n"))
-        mqttprint('GET CAL')
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    if (argument[0] == "MODE")
-        global.serSend.write(bytes().fromstring("GET MODE\n"))
-        mqttprint('GET MODE')
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    if (argument[0] == "ENERGY")
-        global.serSend.write(bytes().fromstring("GET ENERGY\n"))
-        mqttprint('GET ENERGY')
-        tasmota.resp_cmnd_done()
-        return
-    end
-
-    mqttprint("GET inconnu")
-end
 
 def Stm32Reset()
     gpio.pin_mode(rst, gpio.OUTPUT)
@@ -242,8 +86,6 @@ def Init()
     print('ville:', global.ville)
     print('device:', global.device)
 
-    gpio.pin_mode(rxSend, gpio.INPUT)
-    gpio.pin_mode(txSend, gpio.OUTPUT)
     gpio.pin_mode(rxReceive, gpio.INPUT)
     gpio.pin_mode(txReceive, gpio.OUTPUT)
     gpio.pin_mode(rst, gpio.OUTPUT)
@@ -251,9 +93,8 @@ def Init()
     gpio.digital_write(bsl, 0)
     gpio.digital_write(rst, 1)
 
-    global.serSend = serial(rxSend, txSend, 921600, serial.SERIAL_8N1)
     global.serReceive = serial(rxReceive, txReceive, 921600, serial.SERIAL_8N1)
-    mqttprint('serial initialised')
+    mqttprint('serial receive initialised')
 end
 
 
@@ -351,141 +192,6 @@ def getfile(cmd, idx, payload, payload_json)
     end
 end
 
-def sendconfig(cmd, idx, payload, payload_json)
-    import string
-    import json
-    var file
-    var buffer
-    var myjson
-    var config_file
-    var total = ""
-    var trouve = false
-    
-    if (global.device == nil || global.ville == nil)
-        mqttprint("ERROR: device or ville not initialized (call Init first)")
-        tasmota.resp_cmnd("ERROR: device or ville not initialized")
-        return
-    end
-    
-    config_file = string.format("p_%s.json", global.ville)
-    mqttprint("send:" + config_file)
-
-    file = open(config_file, "rt")
-    if (file == nil)
-        mqttprint("fichier non existant:" + config_file)
-        return
-    end
-    buffer = file.read()
-    file.close()
-    myjson = json.load(buffer)
-    for key:myjson.keys()
-        if (key == global.device)
-            trouve = true
-            var p0 = "1"
-            var p1 = "1"
-            var p2 = "1"
-            var m0 = "tri"
-            var m1 = "tri"
-            var m2 = "tri"
-
-            if myjson[key].contains("PGA") && myjson[key]["PGA"] != nil
-                if size(myjson[key]["PGA"]) > 0 && myjson[key]["PGA"][0] != nil
-                    p0 = str(myjson[key]["PGA"][0])
-                end
-                if size(myjson[key]["PGA"]) > 1 && myjson[key]["PGA"][1] != nil
-                    p1 = str(myjson[key]["PGA"][1])
-                end
-                if size(myjson[key]["PGA"]) > 2 && myjson[key]["PGA"][2] != nil
-                    p2 = str(myjson[key]["PGA"][2])
-                end
-            end
-
-            if myjson[key].contains("mode") && myjson[key]["mode"] != nil
-                if type(myjson[key]["mode"]) == "list"
-                    if size(myjson[key]["mode"]) > 0 && myjson[key]["mode"][0] != nil
-                        m0 = str(myjson[key]["mode"][0])
-                    end
-                    if size(myjson[key]["mode"]) > 1 && myjson[key]["mode"][1] != nil
-                        m1 = str(myjson[key]["mode"][1])
-                    end
-                    if size(myjson[key]["mode"]) > 2 && myjson[key]["mode"][2] != nil
-                        m2 = str(myjson[key]["mode"][2])
-                    end
-                elif type(myjson[key]["mode"]) == "string"
-                    m0 = str(myjson[key]["mode"])
-                    m1 = m0
-                    m2 = m0
-                end
-            end
-
-            var r0 = "*"
-            var r1 = "*"
-            var r2 = "*"
-            if myjson[key].contains("root") && myjson[key]["root"] != nil
-                if size(myjson[key]["root"]) > 0 && myjson[key]["root"][0] != nil
-                    r0 = str(myjson[key]["root"][0])
-                end
-                if size(myjson[key]["root"]) > 1 && myjson[key]["root"][1] != nil
-                    r1 = str(myjson[key]["root"][1])
-                end
-                if size(myjson[key]["root"]) > 2 && myjson[key]["root"][2] != nil
-                    r2 = str(myjson[key]["root"][2])
-                end
-            end
-
-            var t0 = "ct"
-            var t1 = "ct"
-            var t2 = "ct"
-            if myjson[key].contains("techno") && myjson[key]["techno"] != nil
-                if size(myjson[key]["techno"]) > 0 && myjson[key]["techno"][0] != nil
-                    t0 = str(myjson[key]["techno"][0])
-                end
-                if size(myjson[key]["techno"]) > 1 && myjson[key]["techno"][1] != nil
-                    t1 = str(myjson[key]["techno"][1])
-                end
-                if size(myjson[key]["techno"]) > 2 && myjson[key]["techno"][2] != nil
-                    t2 = str(myjson[key]["techno"][2])
-                end
-            end
-
-            var q0 = "1000"
-            var q1 = "1000"
-            var q2 = "1000"
-            if myjson[key].contains("ratio") && myjson[key]["ratio"] != nil
-                if size(myjson[key]["ratio"]) > 0 && myjson[key]["ratio"][0] != nil
-                    q0 = str(myjson[key]["ratio"][0])
-                end
-                if size(myjson[key]["ratio"]) > 1 && myjson[key]["ratio"][1] != nil
-                    q1 = str(myjson[key]["ratio"][1])
-                end
-                if size(myjson[key]["ratio"]) > 2 && myjson[key]["ratio"][2] != nil
-                    q2 = str(myjson[key]["ratio"][2])
-                end
-            end
-
-            total = "CONFIG " + key + ":"
-                + r0 + ":" + r1 + ":" + r2 + ":"
-                + myjson[key]["produit"] + ":"
-                + t0 + ":" + t1 + ":" + t2 + ":"
-                + q0 + ":" + q1 + ":" + q2 + ":"
-                + p0 + ":" + p1 + ":" + p2 + ":"
-                + m0 + ":" + m1 + ":" + m2
-        end
-    end
-
-    if (trouve == true)
-        global.serSend.flush()
-        total = "SET " + total + "\n"
-        var mybytes = bytes().fromstring(total)
-        global.serSend.write(mybytes)
-        mqttprint(str(total))
-        tasmota.resp_cmnd("config sent")
-    else
-        mqttprint("device " + str(global.device) + " non trouve")
-        tasmota.resp_cmnd("config not sent")
-    end
-end
-
 def dir(cmd, idx, payload, payload_json)
     import path
     var liste
@@ -507,32 +213,28 @@ end
 
 def help()
     print("==================== EXHAUSTIVE HELP ====================")
-    print("All tokens for set/get/cal are case-insensitive.")
+    print("Driver 130 owns STM32 set/get/cal commands on UART 16/17.")
 
     print("[REGISTERED COMMANDS]")
-    print("Stm32reset | hold | start | set | get | cal")
-    print("Init | getfile | name | h | dir | getversion | update | couts")
+    print("Stm32reset | hold | start")
+    print("Init | getfile | name | help | h | dir | getversion | update | couts")
 
     print("[STM32 LINK CONTROL]")
     print("Stm32reset")
     print("hold")
     print("start")
 
-    print("[STM32 SET COMMANDS]")
+    print("[STM32 DRIVER COMMANDS]")
     print("set MODE CAL <1|2|3>")
     print("set MODE LOG")
     print("set MODE REG")
     print("set TYPE MONO")
     print("set TYPE TRI")
     print("set CONFIG")
-
-    print("[STM32 GET COMMANDS]")
     print("get CAL")
     print("get CONFIG   (query STM32 applied config as JSON)")
     print("get MODE")
     print("get ENERGY")
-
-    print("[STM32 CAL COMMANDS]")
     print("cal OFFSET")
     print("cal VA <voltage_ref>")
     print("cal VB <voltage_ref>")
@@ -559,7 +261,7 @@ def help()
     print("h")
 
     print("[NOTES]")
-    print("- UART send link: commands to STM32")
+    print("- UART send link: driver 130 on pins 16/17")
     print("- UART receive link: telemetry from STM32")
     print("- update downloads: c_<ville>.json, p_<ville>.json, conso.be, pwx12_driver.be")
     print("- autoexec.be must be refreshed separately")
@@ -631,15 +333,13 @@ print("main: register stm32 commands")
 tasmota.add_cmd("Stm32reset", Stm32Reset)
 tasmota.add_cmd("hold", hold)
 tasmota.add_cmd("start", start)
-tasmota.add_cmd("set", SetCommand)
-tasmota.add_cmd("get", GetCommand)
-tasmota.add_cmd("cal", Calibration)
 
 # ====================== ESP32 COMMANDS ======================
 print("main: register esp32 commands")
 tasmota.add_cmd("Init", Init)
 tasmota.add_cmd("getfile", getfile)
 tasmota.add_cmd("name", name)
+tasmota.add_cmd("help", help)
 tasmota.add_cmd("h", help)
 tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('getversion', getversion)
