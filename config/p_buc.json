@@ -8,7 +8,7 @@
         "techno": ["ct"],
         "ratio": ["1000"]
    },
-    "pwx12-test": {
+    "otaurl": {
         "mode": ["tri","tri","tri"],
         "root": ["tbd1","tbd2","tbd3"],
         "produit": "PWX12",
