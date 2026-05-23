@@ -3,6 +3,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["gene","depart","parking"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["rogowski","ct","ct"],
         "ratio": ["3003","1000","1000"]
@@ -11,6 +12,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["eclpub1","eclpub2","froid"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -19,6 +21,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["pcpublic","eclprive","ecldeco"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -27,6 +30,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["pcprive","divers","chauffage"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -35,6 +39,7 @@
         "mode": "tri",
         "root": ["reserve"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]
@@ -43,6 +48,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["td_labo","ecllabo","pclabo"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -51,6 +57,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["td_boulangerie","fours","divers_bl"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -59,6 +66,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["td_caisses","pc","caisses"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -67,6 +75,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["aero1","aero2","aero3"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -75,6 +84,7 @@
         "mode": "tri",
         "root": ["aero4"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]

@@ -1,0 +1,2739 @@
+*** Begin Patch
+*** Update File: D:\Programming\upload\config\p_argenteuil.json
+-{
+-    "dl12-main1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["eclz1","eclz2","general"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","2000"]
+-    },
+-    "dl12-main2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["vitrines","divers","eclz3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-main3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["four2","four1","laverie","ballon12"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-main4": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_main","*","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","1000","1000"]
+-    },
+-    "dl12-reserve": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["froid","depart_magasin","main"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","2000"]
+-    },
+-    "dl4-meubles-froid": {
+-        "mode": "tri",
+-        "root": ["meubles_froid"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    }
+- }
++{
++    "dl12-main1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["eclz1","eclz2","general"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","2000"]
++    },
++    "dl12-main2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["vitrines","divers","eclz3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-main3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["four2","four1","laverie","ballon12"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-main4": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_main","*","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","1000","1000"]
++    },
++    "dl12-reserve": {
++        "mode": ["tri","tri","tri"],
++        "root": ["froid","depart_magasin","main"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","2000"]
++    },
++    "dl4-meubles-froid": {
++        "mode": "tri",
++        "root": ["meubles_froid"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    }
++ }
+*** Update File: D:\Programming\upload\config\p_aulnay.json
+-{
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["fneg","fpos","main"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","rogowski"],
+-        "ratio": ["2000","4000","3003"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["td_drive","fext","td_acceuil"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["station","eclext","pc_16A_magasin"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },   
+-    "dl12-tgbt4": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["rampe1","rampe2","rampe3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl4-tgbt1": {
+-        "mode": "tri",
+-        "root": ["bureau_direction"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },
+-    "dl4-tgbt2": {
+-        "mode": "tri",
+-        "root": ["rampe7-12"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },
+-    "dl4-tgbt3": {
+-        "mode": "tri",
+-        "root": ["parking"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },
+-    "dl12-boulangerie": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_boulangerie","four36kw","boutique"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","2000"]
+-    },
+-    "dl4-rideau": {
+-        "mode": "tri",
+-        "root": ["rideau"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },
+-    "dl4-tdmag": {
+-        "mode": "tri",
+-        "root": ["td_magasin"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["4000"]
+-    },
+-    "dl4-tdbacl": {
+-        "mode": "tri",
+-        "root": ["td_bacs_loges"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-        },
+-    "dl12-subpos": {
+-            "mode": ["tri","tri","tri"],
+-            "root": ["pos_m1","pos_m2","pos_m3"],
+-            "produit": "PWX12",
+-            "PGA": ["1","1","1"],
+-            "techno": ["ct","ct","ct"],
+-            "ratio": ["1000","1000","1000"]
+-        },
+-    "dl12-subneg": {
+-            "mode": ["tri","tri","tri"],
+-            "root": ["neg_m1","neg_m2","neg_m3"],
+-            "produit": "PWX12",
+-            "PGA": ["1","1","1"],
+-            "techno": ["ct","ct","ct"],
+-            "ratio": ["1000","1000","1000"]
+-        },
+-    "dl4-tmono-boulangerie": {
+-        "mode": "mono",
+-        "root": ["*","machine_glacon","*","*"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["2000"]
+-        }
+-    }
++{
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["fneg","fpos","main"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","rogowski"],
++        "ratio": ["2000","4000","3003"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["td_drive","fext","td_acceuil"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["station","eclext","pc_16A_magasin"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },   
++    "dl12-tgbt4": {
++        "mode": ["tri","tri","tri"],
++        "root": ["rampe1","rampe2","rampe3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl4-tgbt1": {
++        "mode": "tri",
++        "root": ["bureau_direction"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },
++    "dl4-tgbt2": {
++        "mode": "tri",
++        "root": ["rampe7-12"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },
++    "dl4-tgbt3": {
++        "mode": "tri",
++        "root": ["parking"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },
++    "dl12-boulangerie": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_boulangerie","four36kw","boutique"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","2000"]
++    },
++    "dl4-rideau": {
++        "mode": "tri",
++        "root": ["rideau"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },
++    "dl4-tdmag": {
++        "mode": "tri",
++        "root": ["td_magasin"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["4000"]
++    },
++    "dl4-tdbacl": {
++        "mode": "tri",
++        "root": ["td_bacs_loges"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++        },
++    "dl12-subpos": {
++            "mode": ["tri","tri","tri"],
++            "root": ["pos_m1","pos_m2","pos_m3"],
++            "produit": "PWX12",
++            "hw": "legacy_V2",
++            "PGA": ["1","1","1"],
++            "techno": ["ct","ct","ct"],
++            "ratio": ["1000","1000","1000"]
++        },
++    "dl12-subneg": {
++            "mode": ["tri","tri","tri"],
++            "root": ["neg_m1","neg_m2","neg_m3"],
++            "produit": "PWX12",
++            "hw": "legacy_V2",
++            "PGA": ["1","1","1"],
++            "techno": ["ct","ct","ct"],
++            "ratio": ["1000","1000","1000"]
++        },
++    "dl4-tmono-boulangerie": {
++        "mode": "mono",
++        "root": ["*","machine_glacon","*","*"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["2000"]
++        }
++    }
+*** Update File: D:\Programming\upload\config\p_bezons.json
+-{
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["fneg","fpos","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","1000"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["td_caisses","td_boucherie","four"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["td_boulange","td_bureaux","td_charcuterie"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl4-tgbt": {
+-        "mode": "tri",
+-        "root": ["main"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["4000"]
+-    },
+-    "dl4-tgbt2": {
+-        "mode": "tri",
+-        "root": ["divers_droite"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },
+-    "dl12-td_mag1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_magazin","eclmag1","eclmag2"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","1000","1000"]
+-    },
+-    "dl12-td_mag2": {
+-        "mode": ["mono","mono","tri"],
+-        "root": ["enrouleur1","enrouleur2","enrouleur3","enrouleur4","enrouleur5","enrouleur6","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    }
+-}
++{
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["fneg","fpos","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","1000"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["td_caisses","td_boucherie","four"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["td_boulange","td_bureaux","td_charcuterie"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl4-tgbt": {
++        "mode": "tri",
++        "root": ["main"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["4000"]
++    },
++    "dl4-tgbt2": {
++        "mode": "tri",
++        "root": ["divers_droite"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },
++    "dl12-td_mag1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_magazin","eclmag1","eclmag2"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","1000","1000"]
++    },
++    "dl12-td_mag2": {
++        "mode": ["mono","mono","tri"],
++        "root": ["enrouleur1","enrouleur2","enrouleur3","enrouleur4","enrouleur5","enrouleur6","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    }
++}
+*** Update File: D:\Programming\upload\config\p_buc.json
+-{
+-    "dl4-mono": {
+-        "mode": "mono",
+-        "root": ["td_garage","buanderie","chaufferie","*"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-   },
+-    "pwx12-test": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["tbd1","tbd2","tbd3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-   },
+-    "legacy-test": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["tbd1","tbd2","tbd3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-   },
+-   "pwx4-test-lse": {
+-        "mode": "tri",
+-        "root": ["pwx4-test-lse"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-        },
+-   "pwx4-test": {
+-        "mode": "tri",
+-        "root": ["tbd"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-        },
+-    "dl12-mono": {
+-        "mode": "mono",
+-        "root": ["principal","1","2","3","*","4","5","6","*","7","8","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    }
+-}
+-
++{
++    "dl4-mono": {
++        "mode": "mono",
++        "root": ["td_garage","buanderie","chaufferie","*"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++   },
++    "pwx12-test": {
++        "mode": ["tri","tri","tri"],
++        "root": ["tbd1","tbd2","tbd3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++   },
++    "legacy-test": {
++        "mode": ["tri","tri","tri"],
++        "root": ["tbd1","tbd2","tbd3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++   },
++   "pwx4-test-lse": {
++        "mode": "tri",
++        "root": ["pwx4-test-lse"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++        },
++   "pwx4-test": {
++        "mode": "tri",
++        "root": ["tbd"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++        },
++    "dl12-mono": {
++        "mode": "mono",
++        "root": ["principal","1","2","3","*","4","5","6","*","7","8","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    }
++}
++
+*** Update File: D:\Programming\upload\config\p_champigny.json
+-{
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["pricipal","gene_forces_divers","froid"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["4000","1000","4000"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["ctgendole","pchorspublic","eclgondoles"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["pcpublic","eclprive","ecldeco"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt4": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["pcprive","divers","chauffage"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-boulangerie": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_boulangerie","laverie_ext","fours"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-labo": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_labo","divers_4dij","ecl_gondoleLS"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    }
+-}
++{
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["pricipal","gene_forces_divers","froid"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["4000","1000","4000"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["ctgendole","pchorspublic","eclgondoles"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["pcpublic","eclprive","ecldeco"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt4": {
++        "mode": ["tri","tri","tri"],
++        "root": ["pcprive","divers","chauffage"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-boulangerie": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_boulangerie","laverie_ext","fours"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-labo": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_labo","divers_4dij","ecl_gondoleLS"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    }
++}
+*** Update File: D:\Programming\upload\config\p_chilly-mazarin.json
+-{
+-    "dl12-sdm": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["td_clim","fneg","fpos"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","1000"]
+-    },
+-    "dl4-sdm": {
+-        "mode": "tri",
+-        "root": ["gene_froid"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["2000"]
+-    },
+-    "dl12-td_ss": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["*","*","gene_td_ss"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","2000"]
+-    },
+-    "dl12-td_boulange": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["four16A","four32A","gene_td_boulange"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","2000"]
+-    },
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["station","onduleur","bistrot"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["rail_boulangerie","coffret2","td_bureaux"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["*","*","gene_tgbt"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl4-tgbt": {
+-        "mode": "tri",
+-        "root": ["eclairages"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["2000"]
+-    },
+-    "dl4-labo": {
+-        "mode": "tri",
+-        "root": ["gene_labo"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },
+-    "dl12-labo": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["pc_tri","ecl_labo","force"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    }
+-}
++{
++    "dl12-sdm": {
++        "mode": ["tri","tri","tri"],
++        "root": ["td_clim","fneg","fpos"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","1000"]
++    },
++    "dl4-sdm": {
++        "mode": "tri",
++        "root": ["gene_froid"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["2000"]
++    },
++    "dl12-td_ss": {
++        "mode": ["tri","tri","tri"],
++        "root": ["*","*","gene_td_ss"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","2000"]
++    },
++    "dl12-td_boulange": {
++        "mode": ["tri","tri","tri"],
++        "root": ["four16A","four32A","gene_td_boulange"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","2000"]
++    },
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["station","onduleur","bistrot"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["rail_boulangerie","coffret2","td_bureaux"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["*","*","gene_tgbt"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl4-tgbt": {
++        "mode": "tri",
++        "root": ["eclairages"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["2000"]
++    },
++    "dl4-labo": {
++        "mode": "tri",
++        "root": ["gene_labo"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },
++    "dl12-labo": {
++        "mode": ["tri","tri","tri"],
++        "root": ["pc_tri","ecl_labo","force"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    }
++}
+*** Update File: D:\Programming\upload\config\p_choisy.json
+-
+-{
+-    "dl12-maingh": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["enseigne1","gene_maing","onduleur"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["1000","1000","1000"]
+-},
+-"dl12-maingb": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["ecl2","enseigne2","*"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["1000","1000","1000"]
+-},
+-"dl4-maingh": {
+-    "mode": "tri",
+-    "root": ["ecl1"],
+-    "produit": "PWX4",
+-    "PGA": ["1"],
+-    "techno": ["ct"],
+-    "ratio": ["1000"]
+-    },
+-"dl12-maindh": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["libre","gene_int","*"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["1000","4000","1000"]
+-},
+-"dl12-maindb": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["rideau_g","rideau_d","bureaux"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["1000","1000","1000"]
+-},
+-"dl4-bornes": {
+-    "mode": "tri",
+-    "root": ["bornes"],
+-    "produit": "PWX4",
+-    "PGA": ["1"],
+-    "techno": ["ct"],
+-    "ratio": ["2000"]
+-    },
+-"dl12-boulangerie1": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["force","grandfour","gen_boulangerie"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["1000","1000","1000"]
+-},
+-"dl12-boulangerie2": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["cfneg","cfpos","ballon"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["1000","1000","1000"]
+-},
+-"dl12-labo1": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["eclgondoles","force","gene_labo"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["1000","1000","1000"]
+-},
+-"dl12-labo2": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["gene_deviation","divers","*"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["1000","1000","1000"]
+-},
+-"dl4-labo": {
+-    "mode": "tri",
+-    "root": ["bec"],
+-    "produit": "PWX4",
+-    "PGA": ["1"],
+-    "techno": ["ct"],
+-    "ratio": ["1000"]
+-    },
+-"dl12-tdclim": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["reserve","climatisations","td_clim"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["1000","1000","1000"]
+-},
+-"dl4-froid": {
+-    "mode": "tri",
+-    "root": ["froid"],
+-    "produit": "PWX4",
+-    "PGA": ["1"],
+-    "techno": ["ct"],
+-    "ratio": ["4000"]
+-    },
+-"dl12-ext": {
+-    "mode": ["tri","tri","tri"],
+-    "root": ["gene_ext1","gene_ext2","station"],
+-    "produit": "PWX12",
+-    "PGA": ["1","1","1"],
+-    "techno": ["ct","ct","ct"],
+-    "ratio": ["2000","1000","1000"]
+-    }
+-}
+-
++
++{
++    "dl12-maingh": {
++    "mode": ["tri","tri","tri"],
++    "root": ["enseigne1","gene_maing","onduleur"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["1000","1000","1000"]
++},
++"dl12-maingb": {
++    "mode": ["tri","tri","tri"],
++    "root": ["ecl2","enseigne2","*"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["1000","1000","1000"]
++},
++"dl4-maingh": {
++    "mode": "tri",
++    "root": ["ecl1"],
++    "produit": "PWX4",
++    "hw": "legacy_V2",
++    "PGA": ["1"],
++    "techno": ["ct"],
++    "ratio": ["1000"]
++    },
++"dl12-maindh": {
++    "mode": ["tri","tri","tri"],
++    "root": ["libre","gene_int","*"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["1000","4000","1000"]
++},
++"dl12-maindb": {
++    "mode": ["tri","tri","tri"],
++    "root": ["rideau_g","rideau_d","bureaux"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["1000","1000","1000"]
++},
++"dl4-bornes": {
++    "mode": "tri",
++    "root": ["bornes"],
++    "produit": "PWX4",
++    "hw": "legacy_V2",
++    "PGA": ["1"],
++    "techno": ["ct"],
++    "ratio": ["2000"]
++    },
++"dl12-boulangerie1": {
++    "mode": ["tri","tri","tri"],
++    "root": ["force","grandfour","gen_boulangerie"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["1000","1000","1000"]
++},
++"dl12-boulangerie2": {
++    "mode": ["tri","tri","tri"],
++    "root": ["cfneg","cfpos","ballon"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["1000","1000","1000"]
++},
++"dl12-labo1": {
++    "mode": ["tri","tri","tri"],
++    "root": ["eclgondoles","force","gene_labo"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["1000","1000","1000"]
++},
++"dl12-labo2": {
++    "mode": ["tri","tri","tri"],
++    "root": ["gene_deviation","divers","*"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["1000","1000","1000"]
++},
++"dl4-labo": {
++    "mode": "tri",
++    "root": ["bec"],
++    "produit": "PWX4",
++    "hw": "legacy_V2",
++    "PGA": ["1"],
++    "techno": ["ct"],
++    "ratio": ["1000"]
++    },
++"dl12-tdclim": {
++    "mode": ["tri","tri","tri"],
++    "root": ["reserve","climatisations","td_clim"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["1000","1000","1000"]
++},
++"dl4-froid": {
++    "mode": "tri",
++    "root": ["froid"],
++    "produit": "PWX4",
++    "hw": "legacy_V2",
++    "PGA": ["1"],
++    "techno": ["ct"],
++    "ratio": ["4000"]
++    },
++"dl12-ext": {
++    "mode": ["tri","tri","tri"],
++    "root": ["gene_ext1","gene_ext2","station"],
++    "produit": "PWX12",
++    "hw": "legacy_V2",
++    "PGA": ["1","1","1"],
++    "techno": ["ct","ct","ct"],
++    "ratio": ["2000","1000","1000"]
++    }
++}
++
+*** Update File: D:\Programming\upload\config\p_coubron.json
+-{ 
+-    "dl12-maind1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["ecl1","ecl2","ecl3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-maind2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["divers_ecl","eclext","ecl4"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-maing1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["main","froid1","froid2"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["rogowski","ct","ct"],
+-        "ratio": ["3003","2000","2000"]
+-    },
+-    "dl12-maing2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["lavage","tg","station"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-bureaux": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["chauffage","eclairage","gene_bu"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-boulange1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gen_pc","f_sventile","f_rotatif"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","2000"]
+-    },
+-    "dl12-boulange2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["CF","pctetra","gen_bo"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","2000"]
+-    },
+-    "dl12-labo1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["pc_labo","gen_labo","rotissoire"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-labo2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["pc_bl","mono1","mono2"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-galerie": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["ga_ecl2","ga_gen_ecl1","ga_eclext"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl4-galerie": {
+-        "mode": "tri",
+-        "root": ["gen_ga"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },
+-    "dl12-caisses": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_pc_caisses","gene_divers","gene_tdcaisses"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    }
+- }
++{ 
++    "dl12-maind1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["ecl1","ecl2","ecl3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-maind2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["divers_ecl","eclext","ecl4"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-maing1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["main","froid1","froid2"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["rogowski","ct","ct"],
++        "ratio": ["3003","2000","2000"]
++    },
++    "dl12-maing2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["lavage","tg","station"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-bureaux": {
++        "mode": ["tri","tri","tri"],
++        "root": ["chauffage","eclairage","gene_bu"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-boulange1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gen_pc","f_sventile","f_rotatif"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","2000"]
++    },
++    "dl12-boulange2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["CF","pctetra","gen_bo"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","2000"]
++    },
++    "dl12-labo1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["pc_labo","gen_labo","rotissoire"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-labo2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["pc_bl","mono1","mono2"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-galerie": {
++        "mode": ["tri","tri","tri"],
++        "root": ["ga_ecl2","ga_gen_ecl1","ga_eclext"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl4-galerie": {
++        "mode": "tri",
++        "root": ["gen_ga"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },
++    "dl12-caisses": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_pc_caisses","gene_divers","gene_tdcaisses"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    }
++ }
+*** Update File: D:\Programming\upload\config\p_croissy.json
+-{
+-    "dl4-fpos": {
+-        "mode": "tri",
+-        "root": ["fpos"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["2000"]
+-    },
+-    "dl4-fneg": {
+-        "mode": "tri",
+-        "root": ["fneg"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["2000"]
+-    },
+-    "pwx4-froid-new": {
+-        "mode": "tri",
+-        "root": ["fpos2"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["2000"]
+-    },
+-    "dl4-main": {
+-        "mode": "tri",
+-        "root": ["main"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["4000"]
+-    }, 
+-    "dl4-station": {
+-        "mode": "tri",
+-        "root": ["station"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    }, 
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["rampe5-1-divecl","rampe8-10-14-12-div","ColonneA"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","2000"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["rampe3-6-1-2-div","rampe2-9-div","ColonneB"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","4000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["unknown","unknown","unknown"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","4000"]
+-    },
+-    "dl4-tgbt": {
+-        "mode": "tri",
+-        "root": ["CoffretEntree"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["4000"]
+-    }, 
+-    "dl12-bureaux": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_bureaux","td_boulangerie","onduleur"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","1000"]
+-    },
+-    "dl12-bac-mono": {
+-        "mode": ["mono","mono","mono"],
+-        "root": ["n1","bac1","bac2","bac3","n2","bac4","bac5","bac6","n3","bac7","bac8","bac9"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    }
+-}
++{
++    "dl4-fpos": {
++        "mode": "tri",
++        "root": ["fpos"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["2000"]
++    },
++    "dl4-fneg": {
++        "mode": "tri",
++        "root": ["fneg"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["2000"]
++    },
++    "pwx4-froid-new": {
++        "mode": "tri",
++        "root": ["fpos2"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["2000"]
++    },
++    "dl4-main": {
++        "mode": "tri",
++        "root": ["main"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["4000"]
++    }, 
++    "dl4-station": {
++        "mode": "tri",
++        "root": ["station"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    }, 
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["rampe5-1-divecl","rampe8-10-14-12-div","ColonneA"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","2000"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["rampe3-6-1-2-div","rampe2-9-div","ColonneB"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","4000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["unknown","unknown","unknown"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","4000"]
++    },
++    "dl4-tgbt": {
++        "mode": "tri",
++        "root": ["CoffretEntree"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["4000"]
++    }, 
++    "dl12-bureaux": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_bureaux","td_boulangerie","onduleur"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","1000"]
++    },
++    "dl12-bac-mono": {
++        "mode": ["mono","mono","mono"],
++        "root": ["n1","bac1","bac2","bac3","n2","bac4","bac5","bac6","n3","bac7","bac8","bac9"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    }
++}
+*** Update File: D:\Programming\upload\config\p_developpement.json
+-{ 
+-    "dl12-developpement": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["test1","test2","test3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-flasher": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["test1","test2","test3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-
+-    "dl4-developpement": {
+-        "mode": "tri",
+-        "root": ["test"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    }
+- }
++{ 
++    "dl12-developpement": {
++        "mode": ["tri","tri","tri"],
++        "root": ["test1","test2","test3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-flasher": {
++        "mode": ["tri","tri","tri"],
++        "root": ["test1","test2","test3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++
++    "dl4-developpement": {
++        "mode": "tri",
++        "root": ["test"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    }
++ }
+*** Update File: D:\Programming\upload\config\p_egly.json
+-{
+-    "pwx4-sdm1": {
+-        "mode": "tri",
+-        "root": ["gene_froid"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["4000"]
+-    },
+-   "pwx4-sdm2": {
+-        "mode": "tri",
+-        "root": ["m1+"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },
+-    "pwx12-sdm1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["m2+","m3+","m4+"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "pwx12-tgbtext1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["laverie_kiosk","retour_solaire","general_tgbtext"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","4000","4000"]
+-    },
+-    "pwx12-tgbtint1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["eclairage2","eclairage1","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "pwx12-tgbtint2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["station_lavage","general_tgbtint","station_service"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","4000","2000"]
+-    },
+-    "pwx12-tgbtint3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["divers1","prise1","eclairage3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "pwx12-tgbtint4": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["divers2","prises2","divers3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","2000"]
+-    }
+-}
++{
++    "pwx4-sdm1": {
++        "mode": "tri",
++        "root": ["gene_froid"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["4000"]
++    },
++   "pwx4-sdm2": {
++        "mode": "tri",
++        "root": ["m1+"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },
++    "pwx12-sdm1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["m2+","m3+","m4+"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "pwx12-tgbtext1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["laverie_kiosk","retour_solaire","general_tgbtext"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","4000","4000"]
++    },
++    "pwx12-tgbtint1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["eclairage2","eclairage1","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "pwx12-tgbtint2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["station_lavage","general_tgbtint","station_service"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","4000","2000"]
++    },
++    "pwx12-tgbtint3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["divers1","prise1","eclairage3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "pwx12-tgbtint4": {
++        "mode": ["tri","tri","tri"],
++        "root": ["divers2","prises2","divers3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","2000"]
++    }
++}
+*** Update File: D:\Programming\upload\config\p_fontenay.json
+-
+-{
+-    "dl4-dev": {
+-        "mode": "tri",
+-        "root": ["ecl1"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-        },
+-    "dl12-dev": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["cfneg","cfpos","ballon"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    }
+-}
+-
++
++{
++    "dl4-dev": {
++        "mode": "tri",
++        "root": ["ecl1"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++        },
++    "dl12-dev": {
++        "mode": ["tri","tri","tri"],
++        "root": ["cfneg","cfpos","ballon"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    }
++}
++
+*** Update File: D:\Programming\upload\config\p_maisons-laffite.json
+-{
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["froid1","froid2","main"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","rogowski"],
+-        "ratio": ["2000","2000","3003"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_second_tgbt","gene_boulangerie","climatisation"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","2000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["rideau","gene_parking","gene_patisserie"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-boulangerie1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_pc","four1","gene_boulangerie"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-boulangerie2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["four2","CF","provisoir_mf"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-labo": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["P3_P5_F8","rotissoire","P2_F1_F3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    }
+-}
++{
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["froid1","froid2","main"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","rogowski"],
++        "ratio": ["2000","2000","3003"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_second_tgbt","gene_boulangerie","climatisation"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","2000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["rideau","gene_parking","gene_patisserie"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-boulangerie1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_pc","four1","gene_boulangerie"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-boulangerie2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["four2","CF","provisoir_mf"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-labo": {
++        "mode": ["tri","tri","tri"],
++        "root": ["P3_P5_F8","rotissoire","P2_F1_F3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    }
++}
+*** Update File: D:\Programming\upload\config\p_marcq.json
+-{
+-    "dl4-garage": {
+-        "mode": "mono",
+-        "root": ["principal","chauffage","chauffe-eau","salon"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-        }
+-}
+-
++{
++    "dl4-garage": {
++        "mode": "mono",
++        "root": ["principal","chauffage","chauffe-eau","salon"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++        }
++}
++
+*** Update File: D:\Programming\upload\config\p_mery.json
+-{
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["rooftop_51","rooftop1_36","gene_rooftops"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","4000"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["main","froid","ecl_ext"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["rogowski","rogowski","ct"],
+-        "ratio": ["3003","3003","1000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["td_station","td_poissonerie","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt4": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["CF-reserve","ecl_f&l","gene_divers"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt5": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["onduleur","bureaux","gene_tab1"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt6": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_tab2","travees","caisses"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },    
+-    "dl12-boulangerie": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["fours","drive&co","gene_boulangerie"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","2000"]
+-    },
+-    "dl4-labo": {
+-        "mode": "tri",
+-        "root": ["gene_labo"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-        }
+-}
++{
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["rooftop_51","rooftop1_36","gene_rooftops"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","4000"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["main","froid","ecl_ext"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["rogowski","rogowski","ct"],
++        "ratio": ["3003","3003","1000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["td_station","td_poissonerie","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt4": {
++        "mode": ["tri","tri","tri"],
++        "root": ["CF-reserve","ecl_f&l","gene_divers"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt5": {
++        "mode": ["tri","tri","tri"],
++        "root": ["onduleur","bureaux","gene_tab1"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt6": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_tab2","travees","caisses"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },    
++    "dl12-boulangerie": {
++        "mode": ["tri","tri","tri"],
++        "root": ["fours","drive&co","gene_boulangerie"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","2000"]
++    },
++    "dl4-labo": {
++        "mode": "tri",
++        "root": ["gene_labo"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++        }
++}
+*** Update File: D:\Programming\upload\config\p_neuilly.json
+-{
+-    "dl4-eclpk1": {
+-        "mode": "tri",
+-        "root": ["eclpk1"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["2000"]
+-    },   
+-    "dl12-new1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["pctriphase","repartiteur","divers"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","2000"]
+-    },
+-    "dl12-new2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["clim","protection","general"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","2000"]
+-    },
+-    "dl12-oldh": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["froid","main","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","rogowski","ct"],
+-        "ratio": ["2000","3003","1000"]
+-    },
+-    "dl12-old1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["divers1","divers2","divers3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-old2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["diversold","boulangerie","tdparking"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","2000"]
+-    },
+-    "dl12-old3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["divers4","divers5","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    }
+-}    
+-
++{
++    "dl4-eclpk1": {
++        "mode": "tri",
++        "root": ["eclpk1"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["2000"]
++    },   
++    "dl12-new1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["pctriphase","repartiteur","divers"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","2000"]
++    },
++    "dl12-new2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["clim","protection","general"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","2000"]
++    },
++    "dl12-oldh": {
++        "mode": ["tri","tri","tri"],
++        "root": ["froid","main","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","rogowski","ct"],
++        "ratio": ["2000","3003","1000"]
++    },
++    "dl12-old1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["divers1","divers2","divers3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-old2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["diversold","boulangerie","tdparking"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","2000"]
++    },
++    "dl12-old3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["divers4","divers5","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    }
++}    
++
+*** Update File: D:\Programming\upload\config\p_noisy.json
+-{
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_station","gene_boulangerie","froid"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","2000"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_caisse","gene_boucherie","gene_onduleur"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["2000","2000","2000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["clim1","clim2","clim3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt4": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["rampe_fond","gene_deco1","gene_deco2"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt5": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["rampe_neuve","four","td_entrepot"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tdclim": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["groupe1","groupe2","td_clim"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl4-tgbt": {
+-        "mode": "tri",
+-        "root": ["main"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["rogowski"],
+-        "ratio": ["3003"]
+-    },
+-    "dl4-bureau": {
+-        "mode": "tri",
+-        "root": ["bureaux"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    }
+-}
++{
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_station","gene_boulangerie","froid"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","2000"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_caisse","gene_boucherie","gene_onduleur"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["2000","2000","2000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["clim1","clim2","clim3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt4": {
++        "mode": ["tri","tri","tri"],
++        "root": ["rampe_fond","gene_deco1","gene_deco2"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt5": {
++        "mode": ["tri","tri","tri"],
++        "root": ["rampe_neuve","four","td_entrepot"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tdclim": {
++        "mode": ["tri","tri","tri"],
++        "root": ["groupe1","groupe2","td_clim"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl4-tgbt": {
++        "mode": "tri",
++        "root": ["main"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["rogowski"],
++        "ratio": ["3003"]
++    },
++    "dl4-bureau": {
++        "mode": "tri",
++        "root": ["bureaux"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    }
++}
+*** Update File: D:\Programming\upload\config\p_roissy.json
+-{
+-    "dl4-tgbt": {
+-        "mode": "tri",
+-        "root": ["main"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["rogowski"],
+-        "ratio": ["3003"]
+-    },
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["froid","tdcaisses","tdlabo"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["4000","1000","4000"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["rooftop2","tdbureaux","rooftop1"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["*","pcnp","rooftop3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt4": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["eclpub1","onduleurs","eclext"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt5": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["divers-caisses","eclnonpub","tgbt_eclpub2"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl4-eclpk1": {
+-        "mode": "tri",
+-        "root": ["eclpk1"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["2000"]
+-    },   
+-    "dl12-eclpk234": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["eclpk2","eclpk3","eclpk4"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl4-eclpub1": {
+-        "mode": "tri",
+-        "root": ["eclpub1"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },   
+-    "dl4-genepk": {
+-        "mode": "tri",
+-        "root": ["gene_parking"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["2000"]
+-    },   
+-    "dl12-divers": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["divers_1","chauffage","eclpub2"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","2000","1000"]
+-    },
+-    "dl12-labo1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_pc_non_pub","gene_divers2","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-labo2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene_station","gene_four_rot","*"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    }
+-}
++{
++    "dl4-tgbt": {
++        "mode": "tri",
++        "root": ["main"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["rogowski"],
++        "ratio": ["3003"]
++    },
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["froid","tdcaisses","tdlabo"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["4000","1000","4000"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["rooftop2","tdbureaux","rooftop1"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["*","pcnp","rooftop3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt4": {
++        "mode": ["tri","tri","tri"],
++        "root": ["eclpub1","onduleurs","eclext"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt5": {
++        "mode": ["tri","tri","tri"],
++        "root": ["divers-caisses","eclnonpub","tgbt_eclpub2"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl4-eclpk1": {
++        "mode": "tri",
++        "root": ["eclpk1"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["2000"]
++    },   
++    "dl12-eclpk234": {
++        "mode": ["tri","tri","tri"],
++        "root": ["eclpk2","eclpk3","eclpk4"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl4-eclpub1": {
++        "mode": "tri",
++        "root": ["eclpub1"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },   
++    "dl4-genepk": {
++        "mode": "tri",
++        "root": ["gene_parking"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["2000"]
++    },   
++    "dl12-divers": {
++        "mode": ["tri","tri","tri"],
++        "root": ["divers_1","chauffage","eclpub2"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","2000","1000"]
++    },
++    "dl12-labo1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_pc_non_pub","gene_divers2","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-labo2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene_station","gene_four_rot","*"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    }
++}
+*** Update File: D:\Programming\upload\config\p_saint-maur.json
+-{
+-    "dl12-tgbt1": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["gene","depart","parking"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["rogowski","ct","ct"],
+-        "ratio": ["3003","1000","1000"]
+-    },
+-    "dl12-tgbt2": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["eclpub1","eclpub2","froid"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt3": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["pcpublic","eclprive","ecldeco"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-tgbt4": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["pcprive","divers","chauffage"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl4-reserve": {
+-        "mode": "tri",
+-        "root": ["reserve"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    },
+-    "dl12-labo": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["td_labo","ecllabo","pclabo"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-boulangerie": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["td_boulangerie","fours","divers_bl"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-caisses": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["td_caisses","pc","caisses"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl12-aero": {
+-        "mode": ["tri","tri","tri"],
+-        "root": ["aero1","aero2","aero3"],
+-        "produit": "PWX12",
+-        "PGA": ["1","1","1"],
+-        "techno": ["ct","ct","ct"],
+-        "ratio": ["1000","1000","1000"]
+-    },
+-    "dl4-aero": {
+-        "mode": "tri",
+-        "root": ["aero4"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-    }
+-}
++{
++    "dl12-tgbt1": {
++        "mode": ["tri","tri","tri"],
++        "root": ["gene","depart","parking"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["rogowski","ct","ct"],
++        "ratio": ["3003","1000","1000"]
++    },
++    "dl12-tgbt2": {
++        "mode": ["tri","tri","tri"],
++        "root": ["eclpub1","eclpub2","froid"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt3": {
++        "mode": ["tri","tri","tri"],
++        "root": ["pcpublic","eclprive","ecldeco"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-tgbt4": {
++        "mode": ["tri","tri","tri"],
++        "root": ["pcprive","divers","chauffage"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl4-reserve": {
++        "mode": "tri",
++        "root": ["reserve"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    },
++    "dl12-labo": {
++        "mode": ["tri","tri","tri"],
++        "root": ["td_labo","ecllabo","pclabo"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-boulangerie": {
++        "mode": ["tri","tri","tri"],
++        "root": ["td_boulangerie","fours","divers_bl"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-caisses": {
++        "mode": ["tri","tri","tri"],
++        "root": ["td_caisses","pc","caisses"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl12-aero": {
++        "mode": ["tri","tri","tri"],
++        "root": ["aero1","aero2","aero3"],
++        "produit": "PWX12",
++        "hw": "legacy_V2",
++        "PGA": ["1","1","1"],
++        "techno": ["ct","ct","ct"],
++        "ratio": ["1000","1000","1000"]
++    },
++    "dl4-aero": {
++        "mode": "tri",
++        "root": ["aero4"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++    }
++}
+*** Update File: D:\Programming\upload\config\p_seignosse.json
+-{
+-    "dl4-principal": {
+-        "mode": "mono",
+-        "root": ["main","autre1","autre2","autre3"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-        },
+-   "dl4-annexe": {
+-        "mode": "mono",
+-        "root": ["td_annexe","jaccuzi","spa","*"],
+-        "produit": "PWX4",
+-        "PGA": ["1"],
+-        "techno": ["ct"],
+-        "ratio": ["1000"]
+-        }
+-}
+-
++{
++    "dl4-principal": {
++        "mode": "mono",
++        "root": ["main","autre1","autre2","autre3"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++        },
++   "dl4-annexe": {
++        "mode": "mono",
++        "root": ["td_annexe","jaccuzi","spa","*"],
++        "produit": "PWX4",
++        "hw": "legacy_V2",
++        "PGA": ["1"],
++        "techno": ["ct"],
++        "ratio": ["1000"]
++        }
++}
++
+*** End Patch
+

@@ -150,9 +150,6 @@ class PWX12
         if hour != 23
             self.conso.mqtt_publish('hours')
         end
-
-        global.ser.flush()
-        global.ser.write(bytes().fromstring("GET ENERGY\n"))
     end
 
     def every_4hours()

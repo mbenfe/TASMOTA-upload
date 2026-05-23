@@ -3,6 +3,7 @@
         "mode": "tri",
         "root": ["main"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["rogowski"],
         "ratio": ["3003"]
@@ -11,6 +12,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["froid","tdcaisses","tdlabo"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["4000","1000","4000"]
@@ -19,6 +21,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["rooftop2","tdbureaux","rooftop1"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -27,6 +30,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["*","pcnp","rooftop3"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -35,6 +39,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["eclpub1","onduleurs","eclext"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -43,6 +48,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["divers-caisses","eclnonpub","tgbt_eclpub2"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -51,6 +57,7 @@
         "mode": "tri",
         "root": ["eclpk1"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["2000"]
@@ -59,6 +66,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["eclpk2","eclpk3","eclpk4"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -67,6 +75,7 @@
         "mode": "tri",
         "root": ["eclpub1"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]
@@ -75,6 +84,7 @@
         "mode": "tri",
         "root": ["gene_parking"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["2000"]
@@ -83,6 +93,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["divers_1","chauffage","eclpub2"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","2000","1000"]
@@ -91,6 +102,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["gene_pc_non_pub","gene_divers2","*"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -99,6 +111,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["gene_station","gene_four_rot","*"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]

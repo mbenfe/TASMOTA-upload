@@ -3,6 +3,7 @@
         "mode": "mono",
         "root": ["td_garage","buanderie","chaufferie","*"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]
@@ -11,6 +12,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["tbd1","tbd2","tbd3"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -19,6 +21,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["tbd1","tbd2","tbd3"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -27,6 +30,7 @@
         "mode": "tri",
         "root": ["pwx4-test-lse"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]
@@ -35,6 +39,7 @@
         "mode": "tri",
         "root": ["tbd"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]
@@ -43,6 +48,7 @@
         "mode": "mono",
         "root": ["principal","1","2","3","*","4","5","6","*","7","8","*"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct"],
         "ratio": ["1000"]

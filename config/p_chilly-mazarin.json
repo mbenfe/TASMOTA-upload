@@ -3,6 +3,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["td_clim","fneg","fpos"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["2000","2000","1000"]
@@ -11,6 +12,7 @@
         "mode": "tri",
         "root": ["gene_froid"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["2000"]
@@ -19,6 +21,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["*","*","gene_td_ss"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","2000"]
@@ -27,6 +30,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["four16A","four32A","gene_td_boulange"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","2000"]
@@ -35,6 +39,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["station","onduleur","bistrot"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -43,6 +48,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["rail_boulangerie","coffret2","td_bureaux"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -51,6 +57,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["*","*","gene_tgbt"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -59,6 +66,7 @@
         "mode": "tri",
         "root": ["eclairages"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["2000"]
@@ -67,6 +75,7 @@
         "mode": "tri",
         "root": ["gene_labo"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]
@@ -75,6 +84,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["pc_tri","ecl_labo","force"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]

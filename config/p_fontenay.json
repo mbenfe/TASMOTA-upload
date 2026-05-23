@@ -4,6 +4,7 @@
         "mode": "tri",
         "root": ["ecl1"],
         "produit": "PWX4",
+        "hw": "legacy_V2",
         "PGA": ["1"],
         "techno": ["ct"],
         "ratio": ["1000"]
@@ -12,6 +13,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["cfneg","cfpos","ballon"],
         "produit": "PWX12",
+        "hw": "legacy_V2",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
