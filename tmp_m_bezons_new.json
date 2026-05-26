@@ -20,9 +20,10 @@
                     "color": 0,
                     "column": 1,
                     "row": 2,
-                    "location": "Total/Froid -/Froid +/Divers/Boulangerie/Bureaux/Charcuterie/Boucherie/Caisses/Four",
+                    "location": "Total/Magazin/Froid -/Froid +/Divers/Boulangerie/Bureaux/Charcuterie/Boucherie/Caisses/Four",
                     "master": "c_main",
                     "slave": [
+                        "c_gene_magazin",
                         "c_fneg",
                         "c_fpos",
                         "c_divers_droite",
@@ -78,6 +79,17 @@
                     ]
                 },
                 {
+                    "shape": "iAerotherme",
+                    "color": 0,
+                    "column": 2,
+                    "row": 2,
+                    "location": "Fruits & Legumes",
+                    "master": "aex-2",
+                    "slave": [
+                        "setup_aex-2"
+                    ]
+                },
+                {
                     "shape": "spacer",
                     "color": 3,
                     "column": 1,
@@ -114,10 +126,21 @@
             "virtuel": 0,
             "data": [
                 {
-                    "shape": "CF-",
+                    "shape": "iFroidSummary",
                     "color": 0,
                     "column": 1,
                     "row": 1,
+                    "location": "",
+                    "master": "group_scores",
+                    "slave": [
+                        "snx_config"
+                    ]
+                },
+                {
+                    "shape": "CF-",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
                     "location": "",
                     "master": "CFSurgBoul9",
                     "slave": [
@@ -128,7 +151,7 @@
                     "shape": "CF-",
                     "color": 0,
                     "column": 2,
-                    "row": 1,
+                    "row": 2,
                     "location": "",
                     "master": "CFSurgeles8",
                     "slave": [
@@ -139,7 +162,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 1,
-                    "row": 3,
+                    "row": 4,
                     "location": "",
                     "master": "SurgMixtes1G",
                     "slave": [
@@ -150,7 +173,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 2,
-                    "row": 3,
+                    "row": 4,
                     "location": "",
                     "master": "SurgMixtes1M",
                     "slave": [
@@ -161,7 +184,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 3,
-                    "row": 3,
+                    "row": 4,
                     "location": "",
                     "master": "SurgMixtes1D",
                     "slave": [
@@ -172,7 +195,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 4,
-                    "row": 3,
+                    "row": 4,
                     "location": "",
                     "master": "TGBacSurg",
                     "slave": [
@@ -183,7 +206,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 1,
-                    "row": 4,
+                    "row": 5,
                     "location": "",
                     "master": "SurgMixtes2G",
                     "slave": [
@@ -194,7 +217,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 2,
-                    "row": 4,
+                    "row": 5,
                     "location": "",
                     "master": "SurgMixtes2M",
                     "slave": [
@@ -205,7 +228,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 3,
-                    "row": 4,
+                    "row": 5,
                     "location": "",
                     "master": "SurgMixtes2D",
                     "slave": [
@@ -216,7 +239,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 4,
-                    "row": 4,
+                    "row": 5,
                     "location": "",
                     "master": "SurgPorte51",
                     "slave": [
@@ -227,7 +250,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 1,
-                    "row": 5,
+                    "row": 6,
                     "location": "",
                     "master": "SurgPorte52",
                     "slave": [
@@ -238,7 +261,7 @@
                     "shape": "VITRINE-",
                     "color": 0,
                     "column": 2,
-                    "row": 5,
+                    "row": 6,
                     "location": "",
                     "master": "SurgPorte53",
                     "slave": [
@@ -254,10 +277,21 @@
             "virtuel": 0,
             "data": [
                 {
-                    "shape": "CF+",
+                    "shape": "iFroidSummary",
                     "color": 0,
                     "column": 1,
                     "row": 1,
+                    "location": "",
+                    "master": "group_scores",
+                    "slave": [
+                        "snx_config"
+                    ]
+                },
+                {
+                    "shape": "CF+",
+                    "color": 0,
+                    "column": 1,
+                    "row": 2,
                     "location": "",
                     "master": "SASFrais40",
                     "slave": [
@@ -268,7 +302,7 @@
                     "shape": "CF+",
                     "color": 0,
                     "column": 2,
-                    "row": 1,
+                    "row": 2,
                     "location": "",
                     "master": "CFDrive42",
                     "slave": [
@@ -279,7 +313,7 @@
                     "shape": "CF+",
                     "color": 0,
                     "column": 1,
-                    "row": 2,
+                    "row": 3,
                     "location": "",
                     "master": "CFPoisson45",
                     "slave": [
@@ -290,7 +324,7 @@
                     "shape": "CF+",
                     "color": 0,
                     "column": 2,
-                    "row": 2,
+                    "row": 3,
                     "location": "",
                     "master": "CFCremerie47",
                     "slave": [
@@ -301,7 +335,7 @@
                     "shape": "CF+",
                     "color": 0,
                     "column": 1,
-                    "row": 3,
+                    "row": 4,
                     "location": "",
                     "master": "CFFruits&Leg48",
                     "slave": [
@@ -312,7 +346,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
-                    "row": 4,
+                    "row": 5,
                     "location": "",
                     "master": "UltraFraisGG10",
                     "slave": [
@@ -323,7 +357,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 2,
-                    "row": 4,
+                    "row": 5,
                     "location": "",
                     "master": "UltraFraisMG11",
                     "slave": [
@@ -334,7 +368,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
-                    "row": 4,
+                    "row": 5,
                     "location": "",
                     "master": "UltraFraisM12",
                     "slave": [
@@ -345,7 +379,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
-                    "row": 4,
+                    "row": 5,
                     "location": "",
                     "master": "UltraFraisMD13",
                     "slave": [
@@ -356,7 +390,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
-                    "row": 5,
+                    "row": 6,
                     "location": "",
                     "master": "UltraFraisDD14",
                     "slave": [
@@ -367,7 +401,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 2,
-                    "row": 5,
+                    "row": 6,
                     "location": "",
                     "master": "TGFraisLS15",
                     "slave": [
@@ -378,7 +412,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
-                    "row": 5,
+                    "row": 6,
                     "location": "",
                     "master": "FromageLSG16",
                     "slave": [
@@ -389,7 +423,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
-                    "row": 5,
+                    "row": 6,
                     "location": "",
                     "master": "FromageLSD17",
                     "slave": [
@@ -400,7 +434,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
-                    "row": 6,
+                    "row": 7,
                     "location": "",
                     "master": "CorpsGras18",
                     "slave": [
@@ -411,7 +445,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 2,
-                    "row": 6,
+                    "row": 7,
                     "location": "",
                     "master": "Hallal19",
                     "slave": [
@@ -422,7 +456,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
-                    "row": 6,
+                    "row": 7,
                     "location": "",
                     "master": "BoucherieFE20",
                     "slave": [
@@ -433,7 +467,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
-                    "row": 6,
+                    "row": 7,
                     "location": "",
                     "master": "BouchVolLSG21",
                     "slave": [
@@ -444,7 +478,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
-                    "row": 7,
+                    "row": 8,
                     "location": "",
                     "master": "BouchVolLSD22",
                     "slave": [
@@ -455,7 +489,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 2,
-                    "row": 7,
+                    "row": 8,
                     "location": "",
                     "master": "SaurisserieLS23",
                     "slave": [
@@ -466,7 +500,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
-                    "row": 7,
+                    "row": 8,
                     "location": "",
                     "master": "CharcuterieFE24",
                     "slave": [
@@ -477,7 +511,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
-                    "row": 7,
+                    "row": 8,
                     "location": "",
                     "master": "FromageFEG25",
                     "slave": [
@@ -488,7 +522,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
-                    "row": 8,
+                    "row": 9,
                     "location": "",
                     "master": "Snacking27",
                     "slave": [
@@ -499,7 +533,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 2,
-                    "row": 8,
+                    "row": 9,
                     "location": "",
                     "master": "Salade28",
                     "slave": [
@@ -510,7 +544,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
-                    "row": 8,
+                    "row": 9,
                     "location": "",
                     "master": "4eGamme29",
                     "slave": [
@@ -521,7 +555,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
-                    "row": 8,
+                    "row": 9,
                     "location": "",
                     "master": "Jus30",
                     "slave": [
@@ -532,7 +566,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
-                    "row": 9,
+                    "row": 10,
                     "location": "",
                     "master": "TraiteurLS32",
                     "slave": [
@@ -543,7 +577,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 2,
-                    "row": 9,
+                    "row": 10,
                     "location": "",
                     "master": "TGTraiteur31",
                     "slave": [
@@ -554,7 +588,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
-                    "row": 9,
+                    "row": 10,
                     "location": "",
                     "master": "TraiteurLS33",
                     "slave": [
@@ -565,7 +599,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
-                    "row": 9,
+                    "row": 10,
                     "location": "",
                     "master": "TGPromo34",
                     "slave": [
@@ -576,7 +610,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
-                    "row": 10,
+                    "row": 11,
                     "location": "",
                     "master": "CharcuterieG35",
                     "slave": [
@@ -587,7 +621,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 2,
-                    "row": 10,
+                    "row": 11,
                     "location": "",
                     "master": "CharcuterieMG36",
                     "slave": [
@@ -598,7 +632,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 3,
-                    "row": 10,
+                    "row": 11,
                     "location": "",
                     "master": "CharcuterieMD37",
                     "slave": [
@@ -609,7 +643,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 4,
-                    "row": 10,
+                    "row": 11,
                     "location": "",
                     "master": "CharcuterieD38",
                     "slave": [
@@ -620,7 +654,7 @@
                     "shape": "VITRINE+",
                     "color": 0,
                     "column": 1,
-                    "row": 11,
+                    "row": 12,
                     "location": "",
                     "master": "Hallal50",
                     "slave": [

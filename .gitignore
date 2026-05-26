@@ -6,3 +6,5 @@
 *.pdf
 utils/push.be
 *.ps1
+*.txt
+*.patch
