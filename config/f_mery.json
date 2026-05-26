@@ -656,7 +656,7 @@
         "alias_state": "CtrlState",
         "poste": "NA",
         "categorie": "condneg",
-        "genre": "condenseur",
+        "genre": "condenseur-",
         "device": "AK-CC552"
     },
     "81": {
@@ -667,7 +667,7 @@
         "alias_state": "CtrlState",
         "poste": "NA",
         "categorie": "condpos",
-        "genre": "condenseur",
+        "genre": "condenseur+",
         "device": "AK-CC553"
     },
     "8014": {
