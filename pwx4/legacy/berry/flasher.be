@@ -7,6 +7,10 @@ class stm32f412_flasher
   static FLASH_END = 0x08100000
   static CORE_VERSION = "2026-05-22-f412-partitioned-v1"
 
+  var rx
+  var tx
+  var bsl
+  var rst
   var file_hex
   var checked_filename
   var saw_flash_data
@@ -28,18 +32,18 @@ class stm32f412_flasher
   var bl_cmds
 
   def init()
-    global.rx = 16
-    global.tx = 17
-    gpio.pin_mode(global.rx, gpio.INPUT_PULLUP)
-    gpio.pin_mode(global.tx, gpio.OUTPUT)
+    self.rx = 16
+    self.tx = 17
+    self.bsl = 13
+    self.rst = 2
+    gpio.pin_mode(self.rx, gpio.INPUT_PULLUP)
+    gpio.pin_mode(self.tx, gpio.OUTPUT)
 
-    global.serflash = serial(global.rx, global.tx, 115200, serial.SERIAL_8E1)
-    global.bsl = 13
-    global.rst = 2
-    gpio.pin_mode(global.bsl, gpio.OUTPUT)
-    gpio.pin_mode(global.rst, gpio.OUTPUT)
-    gpio.digital_write(global.bsl, 0)
-    gpio.digital_write(global.rst, 1)
+    global.serflash = serial(self.rx, self.tx, 115200, serial.SERIAL_8E1)
+    gpio.pin_mode(self.bsl, gpio.OUTPUT)
+    gpio.pin_mode(self.rst, gpio.OUTPUT)
+    gpio.digital_write(self.bsl, 0)
+    gpio.digital_write(self.rst, 1)
     print("flasher hardware setup completed")
     self.file_hex = nil
     self.checked_filename = nil
@@ -89,8 +93,8 @@ class stm32f412_flasher
     if global.serflash == nil
       raise "value_error", "global.serflash not initialized"
     end
-    if type(global.bsl) != 'int' || type(global.rst) != 'int'
-      raise "value_error", "global.bsl/global.rst not initialized"
+    if type(self.rx) != 'int' || type(self.tx) != 'int' || type(self.bsl) != 'int' || type(self.rst) != 'int'
+      raise "value_error", "local rx/tx/bsl/rst not initialized"
     end
 
     print("FLH: flashing started")
@@ -174,20 +178,20 @@ class stm32f412_flasher
 
   def _enter_system_bootloader()
     global.serflash.flush()
-    gpio.digital_write(global.bsl, 1)
-    gpio.digital_write(global.rst, 0)
+    gpio.digital_write(self.bsl, 1)
+    gpio.digital_write(self.rst, 0)
     tasmota.delay(20)
-    gpio.digital_write(global.rst, 1)
-    global.serflash = serial(global.rx, global.tx, 115200, serial.SERIAL_8E1)
+    gpio.digital_write(self.rst, 1)
+    global.serflash = serial(self.rx, self.tx, 115200, serial.SERIAL_8E1)
     global.serflash.flush()
     tasmota.delay(120)
   end
 
   def _leave_system_bootloader()
-    gpio.digital_write(global.bsl, 0)
-    gpio.digital_write(global.rst, 0)
+    gpio.digital_write(self.bsl, 0)
+    gpio.digital_write(self.rst, 0)
     tasmota.delay(20)
-    gpio.digital_write(global.rst, 1)
+    gpio.digital_write(self.rst, 1)
     tasmota.delay(120)
   end
 
