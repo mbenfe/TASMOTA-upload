@@ -267,10 +267,8 @@ def help()
 
     print("[NOTES]")
     print("- UART send link: driver 130 on pins 16/17")
-    print("- UART receive link: telemetry from STM32")
-    print("- config wire format sent by driver: CONFIG <device>:...")
-    print("- update downloads: c_<ville>.json, p_<ville>.json, conso.be, pwx12_driver.be, flasher.be, intelhex.be")
-    print("- autoexec.be is refreshed by update")
+    print("- UART receive link: telemetry from STM32 on pins 3/1")
+    print("- update downloads: c_<ville>.json, p_<ville>.json, autoexec.be, conso.be, pwx4_driver.be")
     tasmota.resp_cmnd_done()
 end
 

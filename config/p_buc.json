@@ -35,6 +35,15 @@
         "techno": ["ct"],
         "ratio": ["1000"]
         },
+   "pwx4-legacy": {
+        "mode": "tri",
+        "root": ["tbd"],
+        "produit": "PWX4",
+        "hw": "legacy_V2",
+        "PGA": ["1"],
+        "techno": ["ct"],
+        "ratio": ["1000"]
+        },
    "pwx4-test": {
         "mode": "tri",
         "root": ["tbd"],
