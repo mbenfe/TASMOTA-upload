@@ -44,7 +44,7 @@
                     "color": 0,
                     "column": 1,
                     "row": 4,
-                    "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/Légumes",
+                    "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/LÃ©gumes",
                     "master": "th_exterieur",
                     "slave": [
                         "th_cls",
@@ -70,7 +70,7 @@
                     "color": 0,
                     "column": 1,
                     "row": 6,
-                    "location": "Exterieur/Escalator/Surgelés/Biscottes/Animaux/Coca Cola",
+                    "location": "Exterieur/Escalator/SurgelÃ©s/Biscottes/Animaux/Coca Cola",
                     "master": "th_exterieur",
                     "slave": [
                         "th_ss_escalator",
@@ -124,7 +124,7 @@
                     "location": "",
                     "master": "cout_groupes",
                     "slave": [],
-                    "text": "Chambres negatives %\u20AC / %\u20AC",
+                    "text": "Chambres negatives %€ / %€",
                     "values": [
                         "cout_cf-",
                         "cout_neg"
@@ -147,7 +147,7 @@
                     "location": "",
                     "master": "cout_groupes",
                     "slave": [],
-                    "text": "Chambres negatives %\u20AC / %\u20AC",
+                    "text": "Chambres negatives %€ / %€",
                     "values": [
                         "cout_cf-",
                         "cout_neg"
@@ -170,7 +170,7 @@
                     "location": "",
                     "master": "cout_groupes",
                     "slave": [],
-                    "text": "Bacs negatifs %\u20AC / %\u20AC",
+                    "text": "Bacs negatifs %€ / %€",
                     "values": [
                         "cout_bac-",
                         "cout_neg"
@@ -220,7 +220,7 @@
                     "location": "",
                     "master": "cout_groupes",
                     "slave": [],
-                    "text": "Meubles negatifs %\u20AC / %\u20AC",
+                    "text": "Meubles negatifs %€ / %€",
                     "values": [
                         "cout_vitrine-",
                         "cout_neg"
@@ -307,7 +307,7 @@
                     "location": "",
                     "master": "cout_groupes",
                     "slave": [],
-                    "text": "Chambres positives %\u20AC / %\u20AC",
+                    "text": "Chambres positives %€ / %€",
                     "values": [
                         "cout_cf+",
                         "cout_pos"
@@ -318,7 +318,7 @@
                     "color": 0,
                     "column": 1,
                     "row": 3,
-                    "location": "Vitrée",
+                    "location": "VitrÃ©e",
                     "master": "CfPosVitre_15",
                     "slave": []
                 },
@@ -336,7 +336,7 @@
                     "color": 0,
                     "column": 1,
                     "row": 4,
-                    "location": "Fruits & Légumes",
+                    "location": "Fruits & LÃ©gumes",
                     "master": "CfF&l_86",
                     "slave": []
                 },
@@ -345,7 +345,7 @@
                     "color": 0,
                     "column": 2,
                     "row": 4,
-                    "location": "Matiere Première",
+                    "location": "Matiere PremiÃ¨re",
                     "master": "CfMatiarePremia_82",
                     "slave": []
                 },
@@ -384,7 +384,7 @@
                     "location": "",
                     "master": "cout_groupes",
                     "slave": [],
-                    "text": "Chambres positives %\u20AC / %\u20AC",
+                    "text": "Chambres positives %€ / %€",
                     "values": [
                         "cout_cf+",
                         "cout_pos"
@@ -452,7 +452,7 @@
                     "location": "",
                     "master": "cout_groupes",
                     "slave": [],
-                    "text": "Meubles positif %\u20AC / %\u20AC",
+                    "text": "Meubles positif %€ / %€",
                     "values": [
                         "cout_vitrine+",
                         "cout_pos"
@@ -562,7 +562,7 @@
                     "color": 0,
                     "column": 4,
                     "row": 14,
-                    "location": "Marée",
+                    "location": "MarÃ©e",
                     "master": "MeubleMarae_71",
                     "slave": []
                 },
@@ -571,7 +571,7 @@
                     "color": 0,
                     "column": 1,
                     "row": 15,
-                    "location": "Marée",
+                    "location": "MarÃ©e",
                     "master": "MeubleMarae_73",
                     "slave": []
                 },
@@ -943,7 +943,7 @@
                     "location": "",
                     "master": "cout_groupes",
                     "slave": [],
-                    "text": "Meubles positif %\u20AC / %\u20AC",
+                    "text": "Meubles positif %€ / %€",
                     "values": [
                         "cout_vitrine+",
                         "cout_pos"
