@@ -141,7 +141,7 @@
                                               "slave":  [
 
                                                         ],
-                                              "text":  "Chambres negatives %� / %�",
+                                              "text":  "Chambres negatives %€ / %€",
                                               "values":  [
                                                              "cout_cf-",
                                                              "cout_neg"
@@ -187,7 +187,7 @@
                                               "slave":  [
 
                                                         ],
-                                              "text":  "Meubles negatifs %� / %�",
+                                              "text":  "Meubles negatifs %€ / %€",
                                               "values":  [
                                                              "cout_vitrine-",
                                                              "cout_neg"
@@ -233,7 +233,7 @@
                                               "slave":  [
 
                                                         ],
-                                              "text":  "Bacs negatifs %� / %�",
+                                              "text":  "Bacs negatifs %€ / %€",
                                               "values":  [
                                                              "cout_bac-",
                                                              "cout_neg"
@@ -368,7 +368,7 @@
                                               "slave":  [
 
                                                         ],
-                                              "text":  "Chambres positives %� / %�",
+                                              "text":  "Chambres positives %€ / %€",
                                               "values":  [
                                                              "cout_cf+",
                                                              "cout_pos"
@@ -544,7 +544,7 @@
                                               "slave":  [
 
                                                         ],
-                                              "text":  "Meubles positif %� / %�",
+                                              "text":  "Meubles positif %€ / %€",
                                               "values":  [
                                                              "cout_vitrine+",
                                                              "cout_pos"
@@ -970,7 +970,7 @@
                                               "slave":  [
 
                                                         ],
-                                              "text":  "Bacs positifs %� / %�",
+                                              "text":  "Bacs positifs %€ / %€",
                                               "values":  [
                                                              "cout_bac+",
                                                              "cout_pos"

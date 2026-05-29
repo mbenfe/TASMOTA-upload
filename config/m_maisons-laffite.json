@@ -44,7 +44,7 @@
                     "color": 0,
                     "column": 1,
                     "row": 4,
-                    "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/LÃ©gumes",
+                    "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/Légumes",
                     "master": "th_exterieur",
                     "slave": [
                         "th_cls",
@@ -70,7 +70,7 @@
                     "color": 0,
                     "column": 1,
                     "row": 6,
-                    "location": "Exterieur/Escalator/SurgelÃ©s/Biscottes/Animaux/Coca Cola",
+                    "location": "Exterieur/Escalator/Surgelés/Biscottes/Animaux/Coca Cola",
                     "master": "th_exterieur",
                     "slave": [
                         "th_ss_escalator",
