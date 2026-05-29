@@ -135,8 +135,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 3,
-                    "location": "Boulangerie",
+                    "location": "Neg",
                     "master": "CfNegBoulang_59",
+                    "details": "details_CfNegBoulang_59",
                     "slave": []
                 },
                 {
@@ -158,8 +159,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 5,
-                    "location": "",
+                    "location": "Nagative",
                     "master": "CfNagative_88",
+                    "details": "details_CfNagative_88",
                     "slave": []
                 },
                 {
@@ -181,8 +183,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 7,
-                    "location": "TG",
+                    "location": "Tg",
                     "master": "TgBacNag_94",
+                    "details": "details_TgBacNag_94",
                     "slave": []
                 },
                 {
@@ -190,8 +193,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 7,
-                    "location": "",
+                    "location": "Bac",
                     "master": "BacNag_95",
+                    "details": "details_BacNag_95",
                     "slave": []
                 },
                 {
@@ -199,8 +203,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 8,
-                    "location": "",
+                    "location": "Bac",
                     "master": "BacNag_96",
+                    "details": "details_BacNag_96",
                     "slave": []
                 },
                 {
@@ -208,8 +213,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 8,
-                    "location": "TG",
+                    "location": "Tg",
                     "master": "TgBacNag_97",
+                    "details": "details_TgBacNag_97",
                     "slave": []
                 },
                 {
@@ -231,8 +237,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 10,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleNag_90",
+                    "details": "details_MeubleNag_90",
                     "slave": []
                 },
                 {
@@ -240,8 +247,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 10,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleNag_91",
+                    "details": "details_MeubleNag_91",
                     "slave": []
                 },
                 {
@@ -249,8 +257,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 10,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleNag_92",
+                    "details": "details_MeubleNag_92",
                     "slave": []
                 },
                 {
@@ -258,8 +267,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 10,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleNag_93",
+                    "details": "details_MeubleNag_93",
                     "slave": []
                 },
                 {
@@ -267,8 +277,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 11,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleNag_98",
+                    "details": "details_MeubleNag_98",
                     "slave": []
                 },
                 {
@@ -276,8 +287,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 11,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleNag_99",
+                    "details": "details_MeubleNag_99",
                     "slave": []
                 }
             ]
@@ -318,8 +330,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 3,
-                    "location": "VitrÃ©e",
+                    "location": "Cf",
                     "master": "CfPosVitre_15",
+                    "details": "details_CfPosVitre_15",
                     "slave": []
                 },
                 {
@@ -327,8 +340,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 3,
-                    "location": "Sushi",
+                    "location": "Labo",
                     "master": "LaboSushi_27",
+                    "details": "details_LaboSushi_27",
                     "slave": []
                 },
                 {
@@ -336,8 +350,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 4,
-                    "location": "Fruits & LÃ©gumes",
+                    "location": "Cf",
                     "master": "CfF&l_86",
+                    "details": "details_CfF&l_86",
                     "slave": []
                 },
                 {
@@ -345,8 +360,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 4,
-                    "location": "Matiere PremiÃ¨re",
+                    "location": "Matiare",
                     "master": "CfMatiarePremia_82",
+                    "details": "details_CfMatiarePremia_82",
                     "slave": []
                 },
                 {
@@ -354,8 +370,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 5,
-                    "location": "Suifs",
+                    "location": "Local",
                     "master": "LocalSuifs_84",
+                    "details": "details_LocalSuifs_84",
                     "slave": []
                 },
                 {
@@ -363,8 +380,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 5,
-                    "location": "Labo Boucherie",
+                    "location": "Labo",
                     "master": "LaboBoucherie_80",
+                    "details": "details_LaboBoucherie_80",
                     "slave": []
                 },
                 {
@@ -372,8 +390,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 6,
-                    "location": "Produits Finis",
+                    "location": "Cf",
                     "master": "CfProduitsFinis_78",
+                    "details": "details_CfProduitsFinis_78",
                     "slave": []
                 },
                 {
@@ -395,8 +414,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 8,
-                    "location": "Prestataire",
+                    "location": "Labo",
                     "master": "LaboPrestataire_120",
+                    "details": "details_LaboPrestataire_120",
                     "slave": []
                 },
                 {
@@ -404,8 +424,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 8,
-                    "location": "",
+                    "location": "Cf",
                     "master": "CfPosR-_122",
+                    "details": "details_CfPosR-_122",
                     "slave": []
                 },
                 {
@@ -413,8 +434,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 9,
-                    "location": "",
+                    "location": "Labo",
                     "master": "LaboR-_124",
+                    "details": "details_LaboR-_124",
                     "slave": []
                 },
                 {
@@ -422,8 +444,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 9,
-                    "location": "Barquettes",
+                    "location": "Cf",
                     "master": "CfBarquettes_7",
+                    "details": "details_CfBarquettes_7",
                     "slave": []
                 },
                 {
@@ -431,8 +454,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 10,
-                    "location": "Emballage",
+                    "location": "Labo",
                     "master": "LaboEmballage_5",
+                    "details": "details_LaboEmballage_5",
                     "slave": []
                 },
                 {
@@ -440,8 +464,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 10,
-                    "location": "Drive",
+                    "location": "Cf",
                     "master": "CfPosDrive_116",
+                    "details": "details_CfPosDrive_116",
                     "slave": []
                 },
                 {
@@ -463,8 +488,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 12,
-                    "location": "Traiteur 1",
+                    "location": "Meuble",
                     "master": "MeubleSv_16",
+                    "details": "details_MeubleSv_16",
                     "slave": []
                 },
                 {
@@ -472,8 +498,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 12,
-                    "location": "Traiteur 2",
+                    "location": "Meuble",
                     "master": "MeubleSv_17",
+                    "details": "details_MeubleSv_17",
                     "slave": []
                 },
                 {
@@ -481,8 +508,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 12,
-                    "location": "Traiteur 3",
+                    "location": "Meuble",
                     "master": "MeubleSv_18",
+                    "details": "details_MeubleSv_18",
                     "slave": []
                 },
                 {
@@ -490,8 +518,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 12,
-                    "location": "Traiteur 4",
+                    "location": "Meuble",
                     "master": "MeubleSv_19",
+                    "details": "details_MeubleSv_19",
                     "slave": []
                 },
                 {
@@ -499,8 +528,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 13,
-                    "location": "Libanais",
+                    "location": "Meuble",
                     "master": "MeubleLibanais_20",
+                    "details": "details_MeubleLibanais_20",
                     "slave": []
                 },
                 {
@@ -508,8 +538,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 13,
-                    "location": "",
+                    "location": "Angle",
                     "master": "AngleCharc/from_21",
+                    "details": "details_AngleCharc/from_21",
                     "slave": []
                 },
                 {
@@ -517,8 +548,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 13,
-                    "location": "",
+                    "location": "Angle",
                     "master": "AngleCharc/from_22",
+                    "details": "details_AngleCharc/from_22",
                     "slave": []
                 },
                 {
@@ -526,8 +558,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 13,
-                    "location": "",
+                    "location": "Trad",
                     "master": "TradCharc/from_23",
+                    "details": "details_TradCharc/from_23",
                     "slave": []
                 },
                 {
@@ -535,8 +568,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 14,
-                    "location": "",
+                    "location": "Trad",
                     "master": "TradCharc/from_24",
+                    "details": "details_TradCharc/from_24",
                     "slave": []
                 },
                 {
@@ -544,8 +578,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 14,
-                    "location": "",
+                    "location": "Trad",
                     "master": "TradCharc/from_25",
+                    "details": "details_TradCharc/from_25",
                     "slave": []
                 },
                 {
@@ -553,8 +588,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 14,
-                    "location": "",
+                    "location": "Trad",
                     "master": "TradCharc/from_26",
+                    "details": "details_TradCharc/from_26",
                     "slave": []
                 },
                 {
@@ -562,8 +598,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 14,
-                    "location": "MarÃ©e",
+                    "location": "Meuble",
                     "master": "MeubleMarae_71",
+                    "details": "details_MeubleMarae_71",
                     "slave": []
                 },
                 {
@@ -571,8 +608,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 15,
-                    "location": "MarÃ©e",
+                    "location": "Meuble",
                     "master": "MeubleMarae_73",
+                    "details": "details_MeubleMarae_73",
                     "slave": []
                 },
                 {
@@ -580,8 +618,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 15,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_9",
+                    "details": "details_MeublePos_9",
                     "slave": []
                 },
                 {
@@ -589,8 +628,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 15,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_10",
+                    "details": "details_MeublePos_10",
                     "slave": []
                 },
                 {
@@ -598,8 +638,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 15,
-                    "location": "",
+                    "location": "Tg",
                     "master": "TgMeubleSv_31",
+                    "details": "details_TgMeubleSv_31",
                     "slave": []
                 },
                 {
@@ -607,8 +648,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 16,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleSv_29",
+                    "details": "details_MeubleSv_29",
                     "slave": []
                 },
                 {
@@ -616,8 +658,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 16,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleSv_30",
+                    "details": "details_MeubleSv_30",
                     "slave": []
                 },
                 {
@@ -627,6 +670,7 @@
                     "row": 16,
                     "location": "TG",
                     "master": "TGMeublePos_32",
+                    "details": "details_TGMeublePos_32",
                     "slave": []
                 },
                 {
@@ -634,8 +678,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 16,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_33",
+                    "details": "details_MeublePos_33",
                     "slave": []
                 },
                 {
@@ -643,8 +688,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 17,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_34",
+                    "details": "details_MeublePos_34",
                     "slave": []
                 },
                 {
@@ -652,8 +698,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 17,
-                    "location": "",
+                    "location": "Tg",
                     "master": "TgMeublePos_35",
+                    "details": "details_TgMeublePos_35",
                     "slave": []
                 },
                 {
@@ -661,8 +708,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 17,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_36",
+                    "details": "details_MeublePos_36",
                     "slave": []
                 },
                 {
@@ -670,8 +718,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 17,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_37",
+                    "details": "details_MeublePos_37",
                     "slave": []
                 },
                 {
@@ -679,8 +728,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 18,
-                    "location": "TG",
+                    "location": "Tg",
                     "master": "TgMeubleSv_38",
+                    "details": "details_TgMeubleSv_38",
                     "slave": []
                 },
                 {
@@ -688,8 +738,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 18,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_13",
+                    "details": "details_MeublePos_13",
                     "slave": []
                 },
                 {
@@ -697,8 +748,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 18,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_40",
+                    "details": "details_MeublePos_40",
                     "slave": []
                 },
                 {
@@ -706,8 +758,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 18,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_41",
+                    "details": "details_MeublePos_41",
                     "slave": []
                 },
                 {
@@ -715,8 +768,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 19,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_42",
+                    "details": "details_MeublePos_42",
                     "slave": []
                 },
                 {
@@ -724,8 +778,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 19,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_43",
+                    "details": "details_MeublePos_43",
                     "slave": []
                 },
                 {
@@ -733,8 +788,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 19,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleSv_39",
+                    "details": "details_MeubleSv_39",
                     "slave": []
                 },
                 {
@@ -742,8 +798,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 19,
-                    "location": "Boucherie",
+                    "location": "Trad",
                     "master": "TradBoucherie_74",
+                    "details": "details_TradBoucherie_74",
                     "slave": []
                 },
                 {
@@ -751,8 +808,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 20,
-                    "location": "TG",
+                    "location": "Tg",
                     "master": "TgMeubleSv_44",
+                    "details": "details_TgMeubleSv_44",
                     "slave": []
                 },
                 {
@@ -760,8 +818,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 20,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_14",
+                    "details": "details_MeublePos_14",
                     "slave": []
                 },
                 {
@@ -769,8 +828,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 20,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_46",
+                    "details": "details_MeublePos_46",
                     "slave": []
                 },
                 {
@@ -778,8 +838,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 20,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_47",
+                    "details": "details_MeublePos_47",
                     "slave": []
                 },
                 {
@@ -787,8 +848,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 21,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_48",
+                    "details": "details_MeublePos_48",
                     "slave": []
                 },
                 {
@@ -796,8 +858,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 21,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_49",
+                    "details": "details_MeublePos_49",
                     "slave": []
                 },
                 {
@@ -805,8 +868,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 21,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeubleSv_45",
+                    "details": "details_MeubleSv_45",
                     "slave": []
                 },
                 {
@@ -814,8 +878,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 21,
-                    "location": "Boucherie",
+                    "location": "Trad",
                     "master": "TradBoucherie_75",
+                    "details": "details_TradBoucherie_75",
                     "slave": []
                 },
                 {
@@ -823,8 +888,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 22,
-                    "location": "Boucherie",
+                    "location": "Trad",
                     "master": "TradBoucherie_76",
+                    "details": "details_TradBoucherie_76",
                     "slave": []
                 },
                 {
@@ -832,8 +898,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 22,
-                    "location": "Boucherie",
+                    "location": "Trad",
                     "master": "TradBoucherie_77",
+                    "details": "details_TradBoucherie_77",
                     "slave": []
                 },
                 {
@@ -841,8 +908,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 22,
-                    "location": "TG",
+                    "location": "Tg",
                     "master": "TgMeublePos_50",
+                    "details": "details_TgMeublePos_50",
                     "slave": []
                 },
                 {
@@ -850,8 +918,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 22,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_51",
+                    "details": "details_MeublePos_51",
                     "slave": []
                 },
                 {
@@ -859,8 +928,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 23,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_52",
+                    "details": "details_MeublePos_52",
                     "slave": []
                 },
                 {
@@ -868,8 +938,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 23,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_53",
+                    "details": "details_MeublePos_53",
                     "slave": []
                 },
                 {
@@ -877,8 +948,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 23,
-                    "location": "TG",
+                    "location": "Tg",
                     "master": "TgMeublePos_54",
+                    "details": "details_TgMeublePos_54",
                     "slave": []
                 },
                 {
@@ -886,8 +958,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 23,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_55",
+                    "details": "details_MeublePos_55",
                     "slave": []
                 },
                 {
@@ -895,8 +968,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 24,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_56",
+                    "details": "details_MeublePos_56",
                     "slave": []
                 },
                 {
@@ -904,8 +978,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 24,
-                    "location": "TG",
+                    "location": "Tg",
                     "master": "TgMeublePos_62",
+                    "details": "details_TgMeublePos_62",
                     "slave": []
                 },
                 {
@@ -913,8 +988,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 24,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_63",
+                    "details": "details_MeublePos_63",
                     "slave": []
                 },
                 {
@@ -922,8 +998,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 24,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_64",
+                    "details": "details_MeublePos_64",
                     "slave": []
                 },
                 {
@@ -931,8 +1008,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 25,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_65",
+                    "details": "details_MeublePos_65",
                     "slave": []
                 },
                 {
@@ -954,8 +1032,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 27,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_100",
+                    "details": "details_MeublePos_100",
                     "slave": []
                 },
                 {
@@ -963,8 +1042,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 27,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_101",
+                    "details": "details_MeublePos_101",
                     "slave": []
                 },
                 {
@@ -972,8 +1052,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 27,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_102",
+                    "details": "details_MeublePos_102",
                     "slave": []
                 },
                 {
@@ -981,8 +1062,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 27,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_103",
+                    "details": "details_MeublePos_103",
                     "slave": []
                 },
                 {
@@ -990,8 +1072,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 28,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_104",
+                    "details": "details_MeublePos_104",
                     "slave": []
                 },
                 {
@@ -999,8 +1082,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 28,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_105",
+                    "details": "details_MeublePos_105",
                     "slave": []
                 },
                 {
@@ -1008,8 +1092,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 28,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_106",
+                    "details": "details_MeublePos_106",
                     "slave": []
                 },
                 {
@@ -1017,8 +1102,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 28,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_107",
+                    "details": "details_MeublePos_107",
                     "slave": []
                 },
                 {
@@ -1026,8 +1112,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 29,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_108",
+                    "details": "details_MeublePos_108",
                     "slave": []
                 },
                 {
@@ -1035,8 +1122,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 29,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_109",
+                    "details": "details_MeublePos_109",
                     "slave": []
                 },
                 {
@@ -1044,8 +1132,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 29,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_110",
+                    "details": "details_MeublePos_110",
                     "slave": []
                 },
                 {
@@ -1053,8 +1142,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 29,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_111",
+                    "details": "details_MeublePos_111",
                     "slave": []
                 },
                 {
@@ -1062,8 +1152,9 @@
                     "color": 0,
                     "column": 1,
                     "row": 30,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_112",
+                    "details": "details_MeublePos_112",
                     "slave": []
                 },
                 {
@@ -1071,8 +1162,9 @@
                     "color": 0,
                     "column": 2,
                     "row": 30,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_113",
+                    "details": "details_MeublePos_113",
                     "slave": []
                 },
                 {
@@ -1080,8 +1172,9 @@
                     "color": 0,
                     "column": 3,
                     "row": 30,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_114",
+                    "details": "details_MeublePos_114",
                     "slave": []
                 },
                 {
@@ -1089,8 +1182,9 @@
                     "color": 0,
                     "column": 4,
                     "row": 30,
-                    "location": "",
+                    "location": "Meuble",
                     "master": "MeublePos_115",
+                    "details": "details_MeublePos_115",
                     "slave": []
                 }
             ]

@@ -137,11 +137,10 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  3,
-                                              "location":  "",
+                                              "location":  "CF",
                                               "master":  "CFSurgelesM_60",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CFSurgelesM_60",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -164,33 +163,30 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  5,
-                                              "location":  "",
+                                              "location":  "Surg",
                                               "master":  "SurgPortesM_10",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_SurgPortesM_10",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE-",
                                               "color":  0,
                                               "column":  2,
                                               "row":  5,
-                                              "location":  "",
+                                              "location":  "Surg",
                                               "master":  "SurgPortesME1_11",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_SurgPortesME1_11",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE-",
                                               "color":  0,
                                               "column":  3,
                                               "row":  5,
-                                              "location":  "",
+                                              "location":  "Surg",
                                               "master":  "SurgPortesE2_12",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_SurgPortesE2_12",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -248,77 +244,70 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  3,
-                                              "location":  "",
+                                              "location":  "CF",
                                               "master":  "CFFruitsLegM_61",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CFFruitsLegM_61",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
                                               "color":  0,
                                               "column":  2,
                                               "row":  3,
-                                              "location":  "",
+                                              "location":  "C",
                                               "master":  "CF2_62",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CF2_62",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  4,
-                                              "location":  "",
+                                              "location":  "Labo",
                                               "master":  "LaboBoucherie_63",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_LaboBoucherie_63",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
                                               "color":  0,
                                               "column":  2,
                                               "row":  4,
-                                              "location":  "",
+                                              "location":  "C",
                                               "master":  "CF4_64",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CF4_64",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  5,
-                                              "location":  "",
+                                              "location":  "C",
                                               "master":  "CF5_65",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CF5_65",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
                                               "color":  0,
                                               "column":  2,
                                               "row":  5,
-                                              "location":  "",
+                                              "location":  "C",
                                               "master":  "CF6_66",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CF6_66",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  6,
-                                              "location":  "",
+                                              "location":  "CF",
                                               "master":  "CFFruitsLeg_67",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CFFruitsLeg_67",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -341,275 +330,250 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  8,
-                                              "location":  "",
+                                              "location":  "Ultra",
                                               "master":  "UltraFraisM_20",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_UltraFraisM_20",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  2,
                                               "row":  8,
-                                              "location":  "",
+                                              "location":  "Ultra",
                                               "master":  "UltraFraisE1_21",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_UltraFraisE1_21",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  3,
                                               "row":  8,
-                                              "location":  "",
+                                              "location":  "Ultra",
                                               "master":  "UltraFraisE2_22",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_UltraFraisE2_22",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  4,
                                               "row":  8,
-                                              "location":  "",
+                                              "location":  "Ultra",
                                               "master":  "UltraFraisM_23",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_UltraFraisM_23",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  9,
-                                              "location":  "",
+                                              "location":  "Ultra",
                                               "master":  "UltraFraisE1_24",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_UltraFraisE1_24",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  2,
                                               "row":  9,
-                                              "location":  "",
+                                              "location":  "Ultra",
                                               "master":  "UltraFraisE2_25",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_UltraFraisE2_25",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  3,
                                               "row":  9,
-                                              "location":  "",
+                                              "location":  "Ultar",
                                               "master":  "UltarFraisE3_26",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_UltarFraisE3_26",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  4,
                                               "row":  9,
-                                              "location":  "",
+                                              "location":  "From",
                                               "master":  "FromTraitLSM_28",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_FromTraitLSM_28",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  10,
-                                              "location":  "",
+                                              "location":  "From",
                                               "master":  "FromTraitLSE1_29",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_FromTraitLSE1_29",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  2,
                                               "row":  10,
-                                              "location":  "",
+                                              "location":  "Maree",
                                               "master":  "MareeM_31",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_MareeM_31",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  3,
                                               "row":  10,
-                                              "location":  "",
+                                              "location":  "Volailles",
                                               "master":  "VolaillesLSM_32",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_VolaillesLSM_32",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  4,
                                               "row":  10,
-                                              "location":  "",
+                                              "location":  "Volailles",
                                               "master":  "VolaillesLSE1_33",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_VolaillesLSE1_33",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  11,
-                                              "location":  "",
+                                              "location":  "Volailles",
                                               "master":  "VolaillesLSE2_35",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_VolaillesLSE2_35",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  2,
                                               "row":  11,
-                                              "location":  "",
+                                              "location":  "Boucherie",
                                               "master":  "BoucherieLSM_38",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_BoucherieLSM_38",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  3,
                                               "row":  11,
-                                              "location":  "",
+                                              "location":  "Boucherie",
                                               "master":  "BoucherieLSM_39",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_BoucherieLSM_39",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  4,
                                               "row":  11,
-                                              "location":  "",
+                                              "location":  "Boucherie",
                                               "master":  "BoucherieLSE1_40",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_BoucherieLSE1_40",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  12,
-                                              "location":  "",
+                                              "location":  "Boucherie",
                                               "master":  "BoucherieLSM_41",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_BoucherieLSM_41",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  2,
                                               "row":  12,
-                                              "location":  "",
+                                              "location":  "Boucherie",
                                               "master":  "BoucherieLSM_42",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_BoucherieLSM_42",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  3,
                                               "row":  12,
-                                              "location":  "",
+                                              "location":  "Boucherie",
                                               "master":  "BoucherieLSE1_43",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_BoucherieLSE1_43",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  4,
                                               "row":  12,
-                                              "location":  "",
+                                              "location":  "Charcuterie",
                                               "master":  "CharcuterieLSM_46",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CharcuterieLSM_46",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  13,
-                                              "location":  "",
+                                              "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE1_47",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CharcuterieLSE1_47",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  2,
                                               "row":  13,
-                                              "location":  "",
+                                              "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE2_48",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CharcuterieLSE2_48",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  3,
                                               "row":  13,
-                                              "location":  "",
+                                              "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE3_49",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CharcuterieLSE3_49",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  4,
                                               "row":  13,
-                                              "location":  "",
+                                              "location":  "Charcuterie",
                                               "master":  "CharcuterieLSM_50",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CharcuterieLSM_50",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  14,
-                                              "location":  "",
+                                              "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE1_51",
-                                              "slave":  [
-                                                            "froid"
-                                                        ]
+                                              "details": "details_CharcuterieLSE1_51",
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
