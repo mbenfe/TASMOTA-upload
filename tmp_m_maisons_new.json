@@ -157,7 +157,7 @@
                                               "color":  0,
                                               "column":  2,
                                               "row":  3,
-                                              "location":  "Négatif Boulangerie",
+                                              "location":  "N�gatif Boulangerie",
                                               "master":  "CfNegBoulang_59",
                                               "details":  "details_CfNegBoulang_59",
                                               "slave":  [
@@ -233,7 +233,7 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  8,
-                                              "location":  "Bac négatif Tg",
+                                              "location":  "Bac n�gatif Tg",
                                               "master":  "TgBacNag_94",
                                               "details":  "details_TgBacNag_94",
                                               "slave":  [
@@ -245,7 +245,7 @@
                                               "color":  0,
                                               "column":  2,
                                               "row":  8,
-                                              "location":  "Bac négatif",
+                                              "location":  "Bac n�gatif",
                                               "master":  "BacNag_95",
                                               "details":  "details_BacNag_95",
                                               "slave":  [
@@ -257,7 +257,7 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  9,
-                                              "location":  "Bac négatif",
+                                              "location":  "Bac n�gatif",
                                               "master":  "BacNag_96",
                                               "details":  "details_BacNag_96",
                                               "slave":  [
@@ -269,7 +269,7 @@
                                               "color":  0,
                                               "column":  2,
                                               "row":  9,
-                                              "location":  "Bac négatif Tg",
+                                              "location":  "Bac n�gatif Tg",
                                               "master":  "TgBacNag_97",
                                               "details":  "details_TgBacNag_97",
                                               "slave":  [
@@ -500,7 +500,7 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  7,
-                                              "location":  "Fruit\u0026Légumes",
+                                              "location":  "Fruit\u0026L�gumes",
                                               "master":  "CfF\u0026l_86",
                                               "details":  "details_CfF\u0026l_86",
                                               "slave":  [
@@ -1133,7 +1133,7 @@
                                               "slave":  [
 
                                                         ],
-                                              "text":  "Bacs positif %€ / %€",
+                                              "text":  "Bacs positif %â‚¬ / %â‚¬",
                                               "values":  [
                                                              "cout_bac+",
                                                              "cout_pos"
