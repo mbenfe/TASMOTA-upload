@@ -55,26 +55,13 @@ end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
-
-def hold()
-    gpio.pin_mode(global.ready_pin, gpio.OUTPUT)
-    gpio.digital_write(global.ready_pin, 0)
-    tasmota.resp_cmnd("done")
-end
-
-def start()
-    gpio.pin_mode(global.ready_pin, gpio.OUTPUT)
-    gpio.digital_write(global.ready_pin, 1)
-    tasmota.resp_cmnd("done")
-end
-
 def getfile(cmd, idx, payload, payload_json)
     import string
     import path
     var message
     var nom_fichier = string.split(payload, '/').pop()
 
-    hold()
+    tasmota.cmd("hold")
 
     mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
@@ -83,7 +70,7 @@ def getfile(cmd, idx, payload, payload_json)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
-        start()
+        tasmota.cmd("start")
         tasmota.resp_cmnd("Erreur d'initialisation du client web.")
         return
     end
@@ -96,7 +83,7 @@ def getfile(cmd, idx, payload, payload_json)
         mqttprint(message)
         tasmota.resp_cmnd("Erreur de telechargement.")
         wc.close()
-        start()
+        tasmota.cmd("start")
         return
     end
 
@@ -104,7 +91,7 @@ def getfile(cmd, idx, payload, payload_json)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
     message = 'uploaded:' + nom_fichier
-    start()
+    tasmota.cmd("start")
     tasmota.resp_cmnd(message)
     return st
 end
@@ -131,13 +118,13 @@ end
 def launch_driver()
     mqttprint('mqtt connected -> launch driver')
     tasmota.load('snx_driver.be')
-    gpio.digital_write(global.ready_pin, 1)
-    mqttprint('AUTOEXEC: ready pin enabled')
+    tasmota.cmd("start")
+    mqttprint('AUTOEXEC: start sent to STM32')
  end
 
 def update()
     mqttprint("update: start")
-    hold()
+    tasmota.cmd("hold")
 
     var app_file = string.format("snx/apps/auto_%s.bin", ville)
 
@@ -172,7 +159,7 @@ def update()
     mqttprint("update: getfile snx/c031/mbjc_chip_flashed.bin")
     tasmota.cmd("getfile snx/c031/mbjc_chip_flashed.bin")
     
-    start()
+    tasmota.cmd("start")
     mqttprint("update: done")
 end
 
@@ -270,14 +257,14 @@ end
 def snxhelp(cmd, idx, payload, payload_json)
     mqttprint("=== Generic autoexec commands (Berry) ===")
     mqttprint("Stm32Reset [out|in] : pulse reset pins for STM32 out/in")
-    mqttprint("hold : set ready pin LOW (pause STM32 side)")
-    mqttprint("start : set ready pin HIGH (resume STM32 side)")
     mqttprint("getfile <repo/path/file> : download file from GitHub upload repo")
     mqttprint("dir : list local filesystem files with timestamp and size")
     mqttprint("getversion : show versions of berry scripts and H7/C031 firmware")
     mqttprint("update : fetch autoexec/snx files and flasher assets")
 
     mqttprint("=== Embedded C++ SNX driver commands ===")
+    mqttprint("hold : send 'hold' over UART to pause the external STM32")
+    mqttprint("start : send 'start' over UART to resume the external STM32")
     mqttprint("statistic : send 's' over UART (request statistics)")
     mqttprint("mapstatistic : send 'm' over UART (request map statistics)")
     mqttprint("stm32mode <log|debug> : send 'ml' or 'md' over UART")
@@ -298,8 +285,6 @@ end
 tasmota.cmd("seriallog 0")
 mqttprint("serial log disabled")
 
-tasmota.add_cmd('hold',hold)
-tasmota.add_cmd('start',start)
 tasmota.add_cmd('getfile',getfile)
 
 tasmota.add_cmd('dir',dir)
