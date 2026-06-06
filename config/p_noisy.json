@@ -3,7 +3,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["gene_station","gene_boulangerie","froid"],
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "legacy_V1",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","2000"]
@@ -12,7 +12,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["gene_caisse","gene_boucherie","gene_onduleur"],
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "legacy_V1",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["2000","2000","2000"]
@@ -21,7 +21,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["clim1","clim2","clim3"],
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "legacy_V1",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
@@ -30,7 +30,7 @@
         "mode": ["tri","tri","tri"],
         "root": ["rampe_fond","gene_deco1","gene_deco2"],
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "legacy_V1",
         "PGA": ["1","1","1"],
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
