@@ -28,13 +28,6 @@ class SNX
     var ville
     var device
     var topic 
-    var cout_values
-    var cout_received
-    var cout_required
-    var cout_expected_name
-    var cout_topic_to_key
-    var cout_subscribed_topics
-    var cout_pending_apply
 
     def mqttprint(texte)
         import mqtt
@@ -70,26 +63,6 @@ class SNX
         self.mapID = {}
         self.mapFunc = {}
         self.errors = {}
-        self.cout_values = {
-            "cout_froid": 0.0,
-            "cout_froid+": 0.0,
-            "cout_froid-": 0.0
-        }
-        self.cout_received = {
-            "cout_froid": true,
-            "cout_froid+": true,
-            "cout_froid-": true
-        }
-        self.cout_required = {
-            "cout_froid": false,
-            "cout_froid+": false,
-            "cout_froid-": false
-        }
-        self.cout_expected_name = {}
-        self.cout_topic_to_key = {}
-        self.cout_subscribed_topics = {}
-        self.cout_pending_apply = false
-
         self.loadconfig()
 
         print('DRIVER: serial init done')
@@ -111,164 +84,9 @@ class SNX
         file.close()
     end
 
-
-    def reset_cout_state()
-        self.cout_values["cout_froid"] = 0.0
-        self.cout_values["cout_froid+"] = 0.0
-        self.cout_values["cout_froid-"] = 0.0
-
-        # If a key is not required for this city, it is considered received with default 0.
-        self.cout_received["cout_froid"] = true
-        self.cout_received["cout_froid+"] = true
-        self.cout_received["cout_froid-"] = true
-
-        self.cout_required["cout_froid"] = false
-        self.cout_required["cout_froid+"] = false
-        self.cout_required["cout_froid-"] = false
-
-        self.cout_expected_name = {}
-        self.cout_topic_to_key = {}
-    end
-
     def getcout()
-        self.reset_cout_state()
-        self.cout_pending_apply = true
-        print("getcout: start ville=" + self.ville + " device=" + self.device)
-
-        var file = open("config_cout.json", "rt")
-        if file == nil
-            print("getcout: missing config_cout.json, apply defaults")
-            self.send_stm32_cout_values()
-            return
-        end
-
-        var raw = file.read()
-        file.close()
-        var cfg = json.load(raw)
-        if cfg == nil || !cfg.contains(self.ville)
-            print("getcout: no config for ville=" + self.ville + ", apply defaults")
-            self.send_stm32_cout_values()
-            return
-        end
-
-        var city_cfg = cfg[self.ville]
-        print("getcout: loaded config for ville=" + self.ville)
-        var owner_cfg = nil
-        if city_cfg.contains("cout_owner")
-            owner_cfg = city_cfg["cout_owner"]
-        end
-
-        var keys = ["cout_froid", "cout_froid+", "cout_froid-"]
-        for k : keys
-            var label = "none"
-            if city_cfg.contains(k) && city_cfg[k] != nil
-                label = str(city_cfg[k])
-            end
-
-            var owner = "none"
-            if owner_cfg != nil && owner_cfg.contains(k) && owner_cfg[k] != nil
-                owner = str(owner_cfg[k])
-            end
-
-            print("getcout: key=" + k + " label=" + label + " owner=" + owner)
-
-            if label == "none" || owner == "none" || owner == "not_found" || size(label) == 0 || size(owner) == 0
-                # Keep default 0 and mark as already resolved.
-                self.cout_required[k] = false
-                self.cout_received[k] = true
-                print("getcout: key=" + k + " uses default 0")
-                continue
-            end
-
-            var expected_name = label
-            if size(expected_name) >= 2
-                if expected_name[0..1] != "c_"
-                    expected_name = "c_" + expected_name
-                end
-            else
-                expected_name = "c_" + expected_name
-            end
-
-            self.cout_required[k] = true
-            self.cout_received[k] = false
-            self.cout_expected_name[k] = expected_name
-            print("getcout: key=" + k + " expects Name=" + expected_name)
-
-            var topic = string.format("gw/%s/%s/%s/tele/COUT", self.client, self.ville, owner)
-            if !self.cout_topic_to_key.contains(topic)
-                self.cout_topic_to_key[topic] = []
-            end
-            self.cout_topic_to_key[topic].push(k)
-            print("getcout: key=" + k + " mapped to topic=" + topic)
-            if !self.cout_subscribed_topics.contains(topic)
-                mqtt.subscribe(topic, / topic, idx, payload_s, payload_b -> self.on_cout_message(topic, idx, payload_s, payload_b))
-                self.cout_subscribed_topics[topic] = true
-                print("subscribe cout <- " + topic)
-            end
-        end
-
-        # If this city has no active COUT mapping, push default 0:0:0 immediately.
-        print("getcout: waiting for required costs before apply")
-        self.try_apply_cout_values_to_stm32()
-    end
-
-    def on_cout_message(topic, idx, payload_s, payload_b)
-        if !self.cout_pending_apply
-            return
-        end
-
-        if !self.cout_topic_to_key.contains(topic)
-            return
-        end
-
-        var data = json.load(payload_s)
-        if data == nil || !data.contains("cout")
-            return
-        end
-
-        if !data.contains("Name") || data["Name"] == nil
-            return
-        end
-        var incoming_name = str(data["Name"])
-        var keys = self.cout_topic_to_key[topic]
-        for key : keys
-            var expected_name = nil
-            if self.cout_expected_name.contains(key)
-                expected_name = self.cout_expected_name[key]
-            end
-
-            if expected_name != nil && incoming_name == expected_name
-                self.cout_values[key] = real(data["cout"])
-                self.cout_received[key] = true
-            end
-        end
-        self.try_apply_cout_values_to_stm32()
-    end
-
-    def try_apply_cout_values_to_stm32()
-        if !self.cout_pending_apply
-            return
-        end
-
-        if !self.cout_received["cout_froid"] || !self.cout_received["cout_froid+"] || !self.cout_received["cout_froid-"]
-            return
-        end
-
-        self.send_stm32_cout_values()
-    end
-
-    def send_stm32_cout_values()
-        var x = real(self.cout_values["cout_froid"])
-        var y = real(self.cout_values["cout_froid+"])
-        var z = real(self.cout_values["cout_froid-"])
-
-        var cmd = string.format("cout %.2f:%.2f:%.2f", x, y, z)
-        if global.ser != nil
-            global.ser.flush()
-            global.ser.write(bytes().fromstring(cmd))
-        end
-        self.cout_pending_apply = false
-        self.mqttprint("apply cout -> " + cmd)
+        print("getcout: trigger native SNXCOUT ville=" + self.ville + " device=" + self.device)
+        tasmota.cmd("snxcout")
     end
 
     def get_statistic()
