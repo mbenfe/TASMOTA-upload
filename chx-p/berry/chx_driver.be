@@ -34,6 +34,58 @@ class CHX
     var tick
     var conso
 
+    def check_gpio()
+        # Check if GPIOs are configured correctly
+        var gpio_result = tasmota.cmd("Gpio")
+
+        if gpio_result != nil
+            # Check IO9 (I2C SCL - 608)
+            if gpio_result['GPIO9'] != nil
+                if !gpio_result['GPIO9'].contains('I2C SCL')
+                    mqttprint("WARNING: IO9 not I2C SCL! Reconfiguring...")
+                    tasmota.cmd("Gpio9 608")
+                end
+            end
+
+            # Check IO21 (I2C SDA - 640)
+            if gpio_result['GPIO21'] != nil
+                if !gpio_result['GPIO21'].contains('I2C SDA')
+                    mqttprint("WARNING: IO21 not I2C SDA! Reconfiguring...")
+                    tasmota.cmd("Gpio21 640")
+                end
+            end
+
+            # Check IO7 (BL0937 CF - 5664)
+            if gpio_result['GPIO7'] != nil
+                if !gpio_result['GPIO7'].contains('BL0937 CF')
+                    mqttprint("WARNING: IO7 not BL0937 CF! Reconfiguring...")
+                    tasmota.cmd("Gpio7 5664")
+                end
+            end
+
+            # Check IO8 (HLWBL CF1 - 5696)
+            if gpio_result['GPIO8'] != nil
+                if !gpio_result['GPIO8'].contains('HLWBL CF1')
+                    mqttprint("WARNING: IO8 not HLWBL CF1! Reconfiguring...")
+                    tasmota.cmd("Gpio8 5696")
+                end
+            end
+
+            # Check IO18 (HLWBL SEL_i - 5728)
+            if gpio_result['GPIO18'] != nil
+                if !gpio_result['GPIO18'].contains('HLWBL SEL')
+                    mqttprint("WARNING: IO18 not HLWBL SEL_i! Reconfiguring...")
+                    tasmota.cmd("Gpio18 5728")
+                end
+            end
+        else
+            mqttprint("ERROR: Cannot read GPIO configuration")
+            return false
+        end
+
+        return true
+    end
+
 
     def ack_setup_device(topic, idx, payload_s, payload_b)
         var myjson = json.load(payload_s)
@@ -112,6 +164,7 @@ class CHX
         var myjson
         print('-----------------------------------------')
         print('- CHX Driver init                       -')
+        self.check_gpio()
         # read setup_device.json
         file = open("setup_device.json", "rt")
         myjson = file.read()
@@ -217,6 +270,7 @@ class CHX
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var jour = self.day_list[day_of_week]
+        self.check_gpio()
         var data = tasmota.read_sensors()
         if(data == nil)
             return
