@@ -195,6 +195,33 @@ def getversion()
     tasmota.resp_cmnd_done()
 end
 
+def update(cmd, idx, payload, payload_json)
+    mqttprint("update: start")
+    tasmota.cmd("hold")
+
+    mqttprint("update: getfile chx-p/berry/autoexec.be")
+    tasmota.cmd("getfile chx-p/berry/autoexec.be")
+
+    mqttprint("update: getfile chx-p/berry/chx_driver.be")
+    tasmota.cmd("getfile chx-p/berry/chx_driver.be")
+
+    mqttprint("update: getfile chx-p/berry/command.be")
+    tasmota.cmd("getfile chx-p/berry/command.be")
+
+    mqttprint("update: getfile chx-p/berry/conso.be")
+    tasmota.cmd("getfile chx-p/berry/conso.be")
+
+    mqttprint("update: getfile chx-p/config/setup_device.json")
+    tasmota.cmd("getfile chx-p/config/setup_device.json")
+
+    mqttprint("update: getfile chx-p/config/setup_general.json")
+    tasmota.cmd("getfile chx-p/config/setup_general.json")
+
+    tasmota.cmd("start")
+    mqttprint("update: done")
+    tasmota.resp_cmnd_done()
+end
+
 def launch_driver()
     mqttprint('mqtt connected -> launch driver')
     tasmota.add_cmd('getfile', getfile)
@@ -205,6 +232,7 @@ def launch_driver()
     tasmota.add_cmd('getversion', getversion)
     tasmota.add_cmd('get', get)
     tasmota.add_cmd('set', set)
+    tasmota.add_cmd('update', update)
 
 
     # Initialize configuration
