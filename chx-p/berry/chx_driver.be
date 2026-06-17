@@ -35,6 +35,8 @@ class CHX
     var conso
 
     def check_gpio()
+
+        return
         # Check if GPIOs are configured correctly
         var gpio_result = tasmota.cmd("Gpio")
 
