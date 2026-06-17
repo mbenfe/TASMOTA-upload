@@ -55,27 +55,27 @@ class CHX
                 end
             end
 
-            # Check IO7 (BL0937 CF - 5664)
+            # Check IO7 (BL0937 CF - 3072)
             if gpio_result['GPIO7'] != nil
                 if !gpio_result['GPIO7'].contains('BL0937 CF')
                     mqttprint("WARNING: IO7 not BL0937 CF! Reconfiguring...")
-                    tasmota.cmd("Gpio7 5664")
+                    tasmota.cmd("Gpio7 3072")
                 end
             end
 
-            # Check IO8 (HLWBL CF1 - 5696)
+            # Check IO8 (BL0937 CF1 - 3104)
             if gpio_result['GPIO8'] != nil
-                if !gpio_result['GPIO8'].contains('HLWBL CF1')
-                    mqttprint("WARNING: IO8 not HLWBL CF1! Reconfiguring...")
-                    tasmota.cmd("Gpio8 5696")
+                if !(gpio_result['GPIO8'].contains('BL0937 CF1') || gpio_result['GPIO8'].contains('HLWBL CF1'))
+                    mqttprint("WARNING: IO8 not BL0937/HLWBL CF1! Reconfiguring...")
+                    tasmota.cmd("Gpio8 3104")
                 end
             end
 
-            # Check IO18 (HLWBL SEL_i - 5728)
+            # Check IO18 (BL0937 SEL_i - 3136)
             if gpio_result['GPIO18'] != nil
-                if !gpio_result['GPIO18'].contains('HLWBL SEL')
-                    mqttprint("WARNING: IO18 not HLWBL SEL_i! Reconfiguring...")
-                    tasmota.cmd("Gpio18 5728")
+                if !(gpio_result['GPIO18'].contains('BL0937 SEL') || gpio_result['GPIO18'].contains('HLWBL SEL'))
+                    mqttprint("WARNING: IO18 not BL0937/HLWBL SEL_i! Reconfiguring...")
+                    tasmota.cmd("Gpio18 3136")
                 end
             end
         else
