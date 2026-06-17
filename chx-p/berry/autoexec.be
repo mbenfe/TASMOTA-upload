@@ -251,7 +251,8 @@ end
 #-------------------------------- BASH -----------------------------------------#
 tasmota.cmd("timezone 99")
 tasmota.cmd("seriallog 0")
-# tasmota.cmd("i2cdriver12 0")
+tasmota.cmd("i2cdriver12 0")
+
 if(!mqtt.connected())
     print("MQTT not connected...")
 else

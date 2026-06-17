@@ -36,7 +36,6 @@ class CHX
 
     def check_gpio()
 
-        return
         # Check if GPIOs are configured correctly
         var gpio_result = tasmota.cmd("Gpio")
 
@@ -61,7 +60,7 @@ class CHX
             if gpio_result['GPIO7'] != nil
                 if !gpio_result['GPIO7'].contains('BL0937 CF')
                     mqttprint("WARNING: IO7 not BL0937 CF! Reconfiguring...")
-                    tasmota.cmd("Gpio7 3072")
+                    tasmota.cmd("Gpio7 2720")
                 end
             end
 
@@ -69,7 +68,7 @@ class CHX
             if gpio_result['GPIO8'] != nil
                 if !(gpio_result['GPIO8'].contains('BL0937 CF1') || gpio_result['GPIO8'].contains('HLWBL CF1'))
                     mqttprint("WARNING: IO8 not BL0937/HLWBL CF1! Reconfiguring...")
-                    tasmota.cmd("Gpio8 3104")
+                    tasmota.cmd("Gpio8 2656")
                 end
             end
 
@@ -77,7 +76,7 @@ class CHX
             if gpio_result['GPIO18'] != nil
                 if !(gpio_result['GPIO18'].contains('BL0937 SEL') || gpio_result['GPIO18'].contains('HLWBL SEL'))
                     mqttprint("WARNING: IO18 not BL0937/HLWBL SEL_i! Reconfiguring...")
-                    tasmota.cmd("Gpio18 3136")
+                    tasmota.cmd("Gpio18 2624")
                 end
             end
         else
