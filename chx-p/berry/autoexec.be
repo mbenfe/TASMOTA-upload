@@ -196,8 +196,6 @@ def getversion()
 end
 
 def update(cmd, idx, payload, payload_json)
-    mqttprint("update: start")
-    tasmota.cmd("hold")
 
     mqttprint("update: getfile chx-p/berry/autoexec.be")
     tasmota.cmd("getfile chx-p/berry/autoexec.be")
@@ -217,7 +215,6 @@ def update(cmd, idx, payload, payload_json)
     mqttprint("update: getfile chx-p/config/setup_general.json")
     tasmota.cmd("getfile chx-p/config/setup_general.json")
 
-    tasmota.cmd("start")
     mqttprint("update: done")
     tasmota.resp_cmnd_done()
 end
