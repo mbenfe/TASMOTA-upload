@@ -274,6 +274,7 @@ class CHX
         self.check_gpio()
         var data = tasmota.read_sensors()
         if(data == nil)
+            print("Error: Failed to read sensors data")
             return
         end
         if(hour >= 6 && hour <9)
