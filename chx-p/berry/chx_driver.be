@@ -42,11 +42,12 @@ class CHX
         if gpio_result != nil
             # Check IO9 (I2C SCL - 608)
             if gpio_result['GPIO9'] != nil
-                if !gpio_result['GPIO9'].contains('I2C SCL')
+                if !gpio_result['GPIO9'].contains('I2C SCL1')
                     mqttprint("WARNING: IO9 not I2C SCL! Reconfiguring...")
                     tasmota.cmd("Gpio9 608")
                 end
             end
+            return
 
             # Check IO21 (I2C SDA - 640)
             if gpio_result['GPIO21'] != nil
