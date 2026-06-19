@@ -39,6 +39,7 @@ class CHX
         # Check if GPIOs are configured correctly
         var gpio_result = tasmota.cmd("Gpio")
 
+        return
         if gpio_result != nil
             # Check IO9 (I2C SCL - 608)
             if gpio_result['GPIO9'] != nil
@@ -47,7 +48,6 @@ class CHX
                     tasmota.cmd("Gpio9 608")
                 end
             end
-            return
 
             # Check IO21 (I2C SDA - 640)
             if gpio_result['GPIO21'] != nil
