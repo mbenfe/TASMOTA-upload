@@ -8,7 +8,7 @@
         "techno": ["ct"],
         "ratio": ["1000"]
    },
-    "otaurl": {
+    "pwx12-legacy": {
         "mode": ["tri","tri","tri"],
         "root": ["tbd1","tbd2","tbd3"],
         "produit": "PWX12",
@@ -17,34 +17,7 @@
         "techno": ["ct","ct","ct"],
         "ratio": ["1000","1000","1000"]
    },
-    "legacy-test": {
-        "mode": ["tri","tri","tri"],
-        "root": ["tbd1","tbd2","tbd3"],
-        "produit": "PWX12",
-        "hw": "legacy_V2",
-        "PGA": ["1","1","1"],
-        "techno": ["ct","ct","ct"],
-        "ratio": ["1000","1000","1000"]
-   },
-   "pwx4-test-lse": {
-        "mode": "tri",
-        "root": ["pwx4-test-lse"],
-        "produit": "PWX4",
-        "hw": "legacy_V2",
-        "PGA": ["1"],
-        "techno": ["ct"],
-        "ratio": ["1000"]
-        },
    "pwx4-legacy": {
-        "mode": "tri",
-        "root": ["tbd"],
-        "produit": "PWX4",
-        "hw": "legacy_V2",
-        "PGA": ["1"],
-        "techno": ["ct"],
-        "ratio": ["1000"]
-        },
-   "pwx4-test": {
         "mode": "tri",
         "root": ["tbd"],
         "produit": "PWX4",
