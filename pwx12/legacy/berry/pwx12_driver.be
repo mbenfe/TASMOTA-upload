@@ -131,6 +131,7 @@ class PWX12
 
     def midnight()
         self.conso.mqtt_publish('all')
+        self.conso.mqtt_night_vs_day()
     end
 
     def hour()
