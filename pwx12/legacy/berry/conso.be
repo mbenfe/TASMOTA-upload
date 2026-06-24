@@ -3,7 +3,6 @@ import json
 import string
 import mqtt
 import global
-import math
 
 class conso
     var consojson
@@ -370,6 +369,7 @@ class conso
                 ligne = string.format('{"Device":"%s","Name":"%s_ND","avg_night":%.3f,"stdev_nigth":%.3f,"avg_day":%.3f,"stddev_day":%.3f}',
                     global.device, channel_name, avg_night, stdev_night, avg_day, stdev_day)
                 mqtt.publish(topic, ligne, true)
+
                 self.consojson["hours"][i]["DATA"][str(0)] = 0
 
                 # Publish days
