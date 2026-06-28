@@ -379,7 +379,7 @@ class conso
         end
 
         if avg_night != 0
-            night_to_day_pct = ((avg_day - avg_night) * 100.0) / avg_night
+            night_to_day_pct = ((avg_night - avg_day) * 100.0) / avg_night
         end
 
         topic = string.format("gw/%s/%s/%s/tele/NIGHTDAY", global.client, global.ville, global.device)
