@@ -289,6 +289,7 @@ class conso
             var var_day = 0.0
             var stdev_night = 0.0
             var stdev_day = 0.0
+            var night_to_day_pct = 0.0
 
             for h:0..23
                 var key = str(h)
@@ -334,9 +335,13 @@ class conso
                 stdev_day = math.sqrt(var_day / cnt_day)
             end
 
+            if avg_night != 0
+                night_to_day_pct = ((avg_day - avg_night) * 100.0) / avg_night
+            end
+
             topic = string.format("gw/%s/%s/%s/tele/NIGHTDAY", global.client, global.ville, stringdevice)
-            ligne = string.format('{"Device":"%s","Name":"%s_ND","avg_night":%.3f,"stdev_nigth":%.3f,"avg_day":%.3f,"stddev_day":%.3f}',
-                global.device, channel_name, avg_night, stdev_night, avg_day, stdev_day)
+            ligne = string.format('{"Device":"%s","Name":"%s_ND","avg_night":%.3f,"stdev_nigth":%.3f,"avg_day":%.3f,"stddev_day":%.3f,"saving":%.2f}',
+                global.device, channel_name, avg_night, stdev_night, avg_day, stdev_day, night_to_day_pct)
             mqtt.publish(topic, ligne, true)
         end
     end
