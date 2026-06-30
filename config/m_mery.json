@@ -1,1 +1,1075 @@
-{"applications":[{"type":"Home","label":"Home","level":1,"virtuel":0,"data":[{"shape":"OpenWeather","color":0,"column":1,"row":1,"location":"MAISON","master":"","slave":[]},{"shape":"iCoutsPareto","color":0,"column":1,"row":2,"location":"Total/Rooftops/Froid/Station/Poissonerie/Bureaux/Tab1/Tab2/Labo/Drive/Boulangerie/F\u0026L/Divers/Onduleur","master":"c_main","slave":["c_gene_rooftops","c_froid","c_td_station","c_td_poissonerie","c_bureaux","c_gene_tab1","c_gene_tab2","c_gene_labo","c_drive_co","c_gene_boulangerie","c_ecl_f\u0026l","c_gene_divers","c_onduleur"]}]},{"type":"iClim","label":"Clim","level":1,"virtuel":0,"data":[{"shape":"consocard","color":0,"column":1,"row":1,"location":"Climatisations","master":"gene_rooftops","slave":[]},{"shape":"ParetoTemp","color":0,"column":1,"row":2,"location":"Exterieur/Bacs LogÃ©s entrÃ©e/Boucherie/Caisses/Lacets/SAS entrÃ©e/Animaux","master":"th_exterieur","slave":["th_bl_entree","th_boucherie","th_caisses","th_lacets","th_sas","th_tg_animaux"]}]},{"type":"iRideau","label":"rideau","level":1,"virtuel":0,"data":[{"shape":"frico","color":0,"column":1,"row":1,"location":"gauche","master":"rdx-frico-g","slave":["setup_rdx-frico-g"]},{"shape":"frico","color":0,"column":1,"row":2,"location":"droite","master":"rdx-frico-d","slave":["setup_rdx-frico-d"]}]},{"label":"Conso","level":1,"type":"iConso","virtuel":0,"data":[{"shape":"PieConso","color":0,"column":1,"row":1,"location":"TGBT","master":"main","slave":["froid","ecl_ext","gene_rooftops","td_station","td_poissonerie","CF-reserve","ecl_f\u0026l","gene_divers","gene_tab1","gene_tab2"],"label":["Froid","Eclairage ExtÃ©rieur","Rooftops","Station","Poissonerie","CF Reserve","Eclairage F\u0026L","Divers","Tab1","Tab2"]},{"shape":"consocard","color":0,"column":1,"row":2,"location":"TGBT","master":"main","slave":[]}]},{"type":"iFrigoriste","label":"Scores","level":1,"virtuel":0,"data":[{"shape":"scores","color":2,"column":1,"row":1,"location":"","master":"ranking","slave":[]}]},{"label":"Negatif","level":1,"type":"iFroidNegatif","virtuel":0,"data":[{"shape":"iFroidSummary","color":0,"column":1,"row":1,"location":"","master":"group_scores","slave":["snx_config"]},{"shape":"condenseur-","color":0,"column":1,"row":2,"location":"","master":"Negatif_82","slave":[]},{"shape":"banner","color":2,"column":1,"row":3,"location":"","master":"cout_groupes","slave":[],"text":"Chambres negatives %â‚¬ / %â‚¬","values":["cout_cf-","cout_neg"]},{"shape":"CF-","color":0,"column":1,"row":4,"location":"NÃ©gatif Boulangerie","master":"CfBoulNegative_2","details":"details_CfBoulNegative_2","slave":[]},{"shape":"banner","color":2,"column":1,"row":5,"location":"","master":"cout_groupes","slave":[],"text":"Meubles negatifs %â‚¬ / %â‚¬","values":["cout_vitrine-","cout_neg"]},{"shape":"VITRINE-","color":0,"column":1,"row":6,"location":"Boucherie","master":"BoucherieLs_59","details":"details_BoucherieLs_59","slave":[]},{"shape":"VITRINE-","color":0,"column":2,"row":6,"location":"SurgelÃ©s","master":"SurgelesPorte_48","details":"details_SurgelesPorte_48","slave":[]},{"shape":"VITRINE-","color":0,"column":3,"row":6,"location":"SurgelÃ©s","master":"SurgelesPorte_49","details":"details_SurgelesPorte_49","slave":[]},{"shape":"VITRINE-","color":0,"column":4,"row":6,"location":"SurgelÃ©s","master":"SurgelesPorte_53","details":"details_SurgelesPorte_53","slave":[]},{"shape":"VITRINE-","color":0,"column":1,"row":7,"location":"SurgelÃ©s","master":"SurgelesPorte_54","details":"details_SurgelesPorte_54","slave":[]},{"shape":"VITRINE-","color":0,"column":2,"row":7,"location":"SurgelÃ©s","master":"SurgelesPorte_55","details":"details_SurgelesPorte_55","slave":[]},{"shape":"VITRINE-","color":0,"column":3,"row":7,"location":"SurgelÃ©s","master":"SurgelesPorte_56","details":"details_SurgelesPorte_56","slave":[]},{"shape":"VITRINE-","color":0,"column":4,"row":7,"location":"SurgelÃ©s","master":"SurgelesPorte_57","details":"details_SurgelesPorte_57","slave":[]},{"shape":"banner","color":2,"column":1,"row":8,"location":"","master":"cout_groupes","slave":[],"text":"Bacs negatifs %â‚¬ / %â‚¬","values":["cout_bac-","cout_neg"]},{"shape":"BAC-","color":0,"column":1,"row":9,"location":"Bac surgelÃ©s","master":"BacSurgeles_50","details":"details_BacSurgeles_50","slave":[]},{"shape":"BAC-","color":0,"column":2,"row":9,"location":"Bac surgelÃ©s Tg","master":"TgBacSurgeles_51","details":"details_TgBacSurgeles_51","slave":[]}]},{"label":"Positif","level":1,"type":"iFroidPositif","virtuel":0,"data":[{"shape":"iFroidSummary","color":0,"column":1,"row":1,"location":"","master":"group_scores","slave":["snx_config"]},{"shape":"condenseur+","color":0,"column":1,"row":2,"location":"","master":"Positif_81","slave":[]},{"shape":"banner","color":2,"column":1,"row":3,"location":"","master":"cout_groupes","slave":[],"text":"Chambres positives %â‚¬ / %â‚¬","values":["cout_cf+","cout_pos"]},{"shape":"CF+","color":0,"column":1,"row":4,"location":"Positif Boulangerie","master":"CfBoulPositive_1","details":"details_CfBoulPositive_1","slave":[]},{"shape":"CF+","color":0,"column":2,"row":4,"location":"Reserve","master":"CfReserve_58","details":"details_CfReserve_58","slave":[]},{"shape":"banner","color":2,"column":1,"row":5,"location":"","master":"cout_groupes","slave":[],"text":"Meubles positif %â‚¬ / %â‚¬","values":["cout_vitrine+","cout_pos"]},{"shape":"VITRINE+","color":0,"column":1,"row":6,"location":"Jus","master":"JusDeFruits_3","details":"details_JusDeFruits_3","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":6,"location":"Boucherie","master":"BoucherieLs_4","details":"details_BoucherieLs_4","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":6,"location":"Boucherie","master":"BoucherieLs_5","details":"details_BoucherieLs_5","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":6,"location":"Boucherie","master":"TradBoucherie_6","details":"details_TradBoucherie_6","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":7,"location":"Boucherie","master":"TradBoucherie_7","details":"details_TradBoucherie_7","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":7,"location":"Boucherie","master":"TradBoucherie_8","details":"details_TradBoucherie_8","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":7,"location":"Boucherie","master":"TradBoucherie_9","details":"details_TradBoucherie_9","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":7,"location":"Boucherie","master":"TradBoucherie_10","details":"details_TradBoucherie_10","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":8,"location":"Boucherie","master":"TradBoucherie_11","details":"details_TradBoucherie_11","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":8,"location":"Traiteur","master":"TraiteurLs_12","details":"details_TraiteurLs_12","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":8,"location":"Tg Promo","master":"TgPromo_13","details":"details_TgPromo_13","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":8,"location":"Vitrine","master":"VitrineAntiGaspi_14","details":"details_VitrineAntiGaspi_14","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":9,"location":"Fromage","master":"FromageFe_15","details":"details_FromageFe_15","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":9,"location":"Fromage","master":"FromageFe_16","details":"details_FromageFe_16","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":9,"location":"Fromage","master":"FromageFe_17","details":"details_FromageFe_17","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":9,"location":"Charcuterie","master":"CharcuterieTrad_18","details":"details_CharcuterieTrad_18","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":10,"location":"Charcuterie","master":"CharcuterieTrad_19","details":"details_CharcuterieTrad_19","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":10,"location":"Charcuterie","master":"CharcuterieTrad_20","details":"details_CharcuterieTrad_20","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":10,"location":"Maree","master":"MareeFe_21","details":"details_MareeFe_21","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":10,"location":"Saurisserie","master":"Saurisserie_22","details":"details_Saurisserie_22","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":11,"location":"4eme","master":"4emeGamme_23","details":"details_4emeGamme_23","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":11,"location":"Maraichage","master":"MaraichageLs_24","details":"details_MaraichageLs_24","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":11,"location":"Snacking","master":"SnackingLs_25","details":"details_SnackingLs_25","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":11,"location":"Tg Charcuterie","master":"TgCharcuterieLs_26","details":"details_TgCharcuterieLs_26","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":12,"location":"Volailles","master":"VolaillesLs_27","details":"details_VolaillesLs_27","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":12,"location":"Volailles","master":"VolaillesLs_28","details":"details_VolaillesLs_28","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":12,"location":"Traiteur","master":"TraiteurLs_29","details":"details_TraiteurLs_29","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":12,"location":"Tg Promo","master":"TgPromo_30","details":"details_TgPromo_30","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":13,"location":"Traiteur","master":"TraiteurLs_31","details":"details_TraiteurLs_31","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":13,"location":"Charcuterie","master":"CharcuterieLs_32","details":"details_CharcuterieLs_32","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":13,"location":"Charcuterie","master":"CharcuterieLs_33","details":"details_CharcuterieLs_33","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":13,"location":"Charcuterie","master":"CharcuterieLs_34","details":"details_CharcuterieLs_34","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":14,"location":"Corps","master":"CorpsGras_35","details":"details_CorpsGras_35","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":14,"location":"Gruyeres","master":"GruyeresRapes_36","details":"details_GruyeresRapes_36","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":14,"location":"Tg Fromage","master":"TgFromageLs_37","details":"details_TgFromageLs_37","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":14,"location":"Fromage","master":"FromageLs_38","details":"details_FromageLs_38","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":15,"location":"Fromage","master":"FromageLs_39","details":"details_FromageLs_39","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":15,"location":"Fromage","master":"FromageLs_40","details":"details_FromageLs_40","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":15,"location":"Ultra Frais","master":"UltraFrais_41","details":"details_UltraFrais_41","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":15,"location":"Ultra Frais","master":"UltraFrais_42","details":"details_UltraFrais_42","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":16,"location":"Ultra Frais","master":"UltraFrais_43","details":"details_UltraFrais_43","slave":[]},{"shape":"VITRINE+","color":0,"column":2,"row":16,"location":"Tg U lt ra F ra is","master":"TgUltraFrais_44","details":"details_TgUltraFrais_44","slave":[]},{"shape":"VITRINE+","color":0,"column":3,"row":16,"location":"Ultra Frais","master":"UltraFrais_45","details":"details_UltraFrais_45","slave":[]},{"shape":"VITRINE+","color":0,"column":4,"row":16,"location":"Ultra Frais","master":"UltraFrais_46","details":"details_UltraFrais_46","slave":[]},{"shape":"VITRINE+","color":0,"column":1,"row":17,"location":"Ultra Frais","master":"UltraFrais_47","details":"details_UltraFrais_47","slave":[]},{"shape":"banner","color":2,"column":1,"row":18,"location":"","master":"cout_groupes","slave":[],"text":"Bacs positifs %â‚¬ / %â‚¬","values":["cout_bac+","cout_pos"]}]}]}
+{
+    "applications":  [
+                         {
+                             "type":  "Home",
+                             "label":  "Home",
+                             "level":  1,
+                             "virtuel":  0,
+                             "data":  [
+                                          {
+                                              "shape":  "OpenWeather",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  1,
+                                              "location":  "MAISON",
+                                              "master":  "",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "iCoutsPareto",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  2,
+                                              "location":  "Total/Rooftops/Froid/Station/Poissonerie/Bureaux/Tab1/Tab2/Labo/Drive/Boulangerie/F\u0026L/Divers/Onduleur",
+                                              "master":  "c_main",
+                                              "slave":  [
+                                                            "c_gene_rooftops",
+                                                            "c_froid",
+                                                            "c_td_station",
+                                                            "c_td_poissonerie",
+                                                            "c_bureaux",
+                                                            "c_gene_tab1",
+                                                            "c_gene_tab2",
+                                                            "c_gene_labo",
+                                                            "c_drive_co",
+                                                            "c_gene_boulangerie",
+                                                            "c_ecl_f\u0026l",
+                                                            "c_gene_divers",
+                                                            "c_onduleur"
+                                                        ]
+                                          }
+                                      ]
+                         },
+                         {
+                             "type":  "iClim",
+                             "label":  "Clim",
+                             "level":  1,
+                             "virtuel":  0,
+                             "data":  [
+                                          {
+                                              "shape":  "consocard",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  1,
+                                              "location":  "Climatisations",
+                                              "master":  "gene_rooftops",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "ParetoTemp",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  2,
+                                              "location":  "Exterieur/Bacs LogÃƒÂ©s entrÃƒÂ©e/Boucherie/Caisses/Lacets/SAS entrÃƒÂ©e/Animaux",
+                                              "master":  "th_exterieur",
+                                              "slave":  [
+                                                            "th_bl_entree",
+                                                            "th_boucherie",
+                                                            "th_caisses",
+                                                            "th_lacets",
+                                                            "th_sas",
+                                                            "th_tg_animaux"
+                                                        ]
+                                          }
+                                      ]
+                         },
+                         {
+                             "type":  "iRideau",
+                             "label":  "rideau",
+                             "level":  1,
+                             "virtuel":  0,
+                             "data":  [
+                                          {
+                                              "shape":  "frico",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  1,
+                                              "location":  "gauche",
+                                              "master":  "rdx-frico-g",
+                                              "slave":  [
+                                                            "setup_rdx-frico-g"
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "frico",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  2,
+                                              "location":  "droite",
+                                              "master":  "rdx-frico-d",
+                                              "slave":  [
+                                                            "setup_rdx-frico-d"
+                                                        ]
+                                          }
+                                      ]
+                         },
+                         {
+                             "label":  "Conso",
+                             "level":  1,
+                             "type":  "iConso",
+                             "virtuel":  0,
+                             "data":  [
+                                          {
+                                              "shape":  "PieConso",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  1,
+                                              "location":  "TGBT",
+                                              "master":  "main",
+                                              "slave":  [
+                                                            "froid",
+                                                            "ecl_ext",
+                                                            "gene_rooftops",
+                                                            "td_station",
+                                                            "td_poissonerie",
+                                                            "CF-reserve",
+                                                            "ecl_f\u0026l",
+                                                            "gene_divers",
+                                                            "gene_tab1",
+                                                            "gene_tab2"
+                                                        ],
+                                              "label":  [
+                                                            "Froid",
+                                                            "Eclairage ExtÃƒÂ©rieur",
+                                                            "Rooftops",
+                                                            "Station",
+                                                            "Poissonerie",
+                                                            "CF Reserve",
+                                                            "Eclairage F\u0026L",
+                                                            "Divers",
+                                                            "Tab1",
+                                                            "Tab2"
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "consocard",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  2,
+                                              "location":  "TGBT",
+                                              "master":  "main",
+                                              "slave":  [
+
+                                                        ]
+                                          }
+                                      ]
+                         },
+                         {
+                             "type":  "iFrigoriste",
+                             "label":  "Scores",
+                             "level":  1,
+                             "virtuel":  0,
+                             "data":  [
+                                          {
+                                              "shape":  "scores",
+                                              "color":  2,
+                                              "column":  1,
+                                              "row":  1,
+                                              "location":  "",
+                                              "master":  "ranking",
+                                              "slave":  [
+
+                                                        ]
+                                          }
+                                      ]
+                         },
+                         {
+                             "label":  "Negatif",
+                             "level":  1,
+                             "type":  "iFroidNegatif",
+                             "virtuel":  0,
+                             "data":  [
+                                          {
+                                              "shape":  "iFroidSummary",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  1,
+                                              "location":  "",
+                                              "master":  "group_scores",
+                                              "slave":  [
+                                                            "snx_config"
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "condenseur-",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  2,
+                                              "location":  "",
+                                              "master":  "Negatif_82",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "banner",
+                                              "color":  2,
+                                              "column":  1,
+                                              "row":  3,
+                                              "location":  "",
+                                              "master":  "cout_groupes",
+                                              "slave":  [
+
+                                                        ],
+                                              "text":  "Chambres negatives %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "values":  [
+                                                             "cout_cf-",
+                                                             "cout_neg"
+                                                         ]
+                                          },
+                                          {
+                                              "shape":  "CF-",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  4,
+                                              "location":  "NÃƒÂ©gatif Boulangerie",
+                                              "master":  "CfBoulNegative_2",
+                                              "details":  "details_CfBoulNegative_2",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "banner",
+                                              "color":  2,
+                                              "column":  1,
+                                              "row":  5,
+                                              "location":  "",
+                                              "master":  "cout_groupes",
+                                              "slave":  [
+
+                                                        ],
+                                              "text":  "Meubles negatifs %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "values":  [
+                                                             "cout_vitrine-",
+                                                             "cout_neg"
+                                                         ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE-",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  6,
+                                              "location":  "Boucherie",
+                                              "master":  "BoucherieLs_59",
+                                              "details":  "details_BoucherieLs_59",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE-",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  6,
+                                              "location":  "SurgelÃƒÂ©s",
+                                              "master":  "SurgelesPorte_48",
+                                              "details":  "details_SurgelesPorte_48",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE-",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  6,
+                                              "location":  "SurgelÃƒÂ©s",
+                                              "master":  "SurgelesPorte_49",
+                                              "details":  "details_SurgelesPorte_49",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE-",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  6,
+                                              "location":  "SurgelÃƒÂ©s",
+                                              "master":  "SurgelesPorte_53",
+                                              "details":  "details_SurgelesPorte_53",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE-",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  7,
+                                              "location":  "SurgelÃƒÂ©s",
+                                              "master":  "SurgelesPorte_54",
+                                              "details":  "details_SurgelesPorte_54",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE-",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  7,
+                                              "location":  "SurgelÃƒÂ©s",
+                                              "master":  "SurgelesPorte_55",
+                                              "details":  "details_SurgelesPorte_55",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE-",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  7,
+                                              "location":  "SurgelÃƒÂ©s",
+                                              "master":  "SurgelesPorte_56",
+                                              "details":  "details_SurgelesPorte_56",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE-",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  7,
+                                              "location":  "SurgelÃƒÂ©s",
+                                              "master":  "SurgelesPorte_57",
+                                              "details":  "details_SurgelesPorte_57",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "banner",
+                                              "color":  2,
+                                              "column":  1,
+                                              "row":  8,
+                                              "location":  "",
+                                              "master":  "cout_groupes",
+                                              "slave":  [
+
+                                                        ],
+                                              "text":  "Bacs negatifs %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "values":  [
+                                                             "cout_bac-",
+                                                             "cout_neg"
+                                                         ]
+                                          },
+                                          {
+                                              "shape":  "BAC-",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  9,
+                                              "location":  "Bac surgelÃƒÂ©s",
+                                              "master":  "BacSurgeles_50",
+                                              "details":  "details_BacSurgeles_50",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "BAC-",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  9,
+                                              "location":  "Bac surgelÃƒÂ©s Tg",
+                                              "master":  "TgBacSurgeles_51",
+                                              "details":  "details_TgBacSurgeles_51",
+                                              "slave":  [
+
+                                                        ]
+                                          }
+                                      ]
+                         },
+                         {
+                             "label":  "Positif",
+                             "level":  1,
+                             "type":  "iFroidPositif",
+                             "virtuel":  0,
+                             "data":  [
+                                          {
+                                              "shape":  "iFroidSummary",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  1,
+                                              "location":  "",
+                                              "master":  "group_scores",
+                                              "slave":  [
+                                                            "snx_config"
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "condenseur+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  2,
+                                              "location":  "",
+                                              "master":  "Positif_81",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "banner",
+                                              "color":  2,
+                                              "column":  1,
+                                              "row":  3,
+                                              "location":  "",
+                                              "master":  "cout_groupes",
+                                              "slave":  [
+
+                                                        ],
+                                              "text":  "Chambres positives %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "values":  [
+                                                             "cout_cf+",
+                                                             "cout_pos"
+                                                         ]
+                                          },
+                                          {
+                                              "shape":  "CF+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  4,
+                                              "location":  "Positif Boulangerie",
+                                              "master":  "CfBoulPositive_1",
+                                              "details":  "details_CfBoulPositive_1",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "CF+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  4,
+                                              "location":  "Reserve",
+                                              "master":  "CfReserve_58",
+                                              "details":  "details_CfReserve_58",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "banner",
+                                              "color":  2,
+                                              "column":  1,
+                                              "row":  5,
+                                              "location":  "",
+                                              "master":  "cout_groupes",
+                                              "slave":  [
+
+                                                        ],
+                                              "text":  "Meubles positif %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "values":  [
+                                                             "cout_vitrine+",
+                                                             "cout_pos"
+                                                         ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  6,
+                                              "location":  "Jus",
+                                              "master":  "JusDeFruits_3",
+                                              "details":  "details_JusDeFruits_3",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  6,
+                                              "location":  "Boucherie",
+                                              "master":  "BoucherieLs_4",
+                                              "details":  "details_BoucherieLs_4",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  6,
+                                              "location":  "Boucherie",
+                                              "master":  "BoucherieLs_5",
+                                              "details":  "details_BoucherieLs_5",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  6,
+                                              "location":  "Boucherie",
+                                              "master":  "TradBoucherie_6",
+                                              "details":  "details_TradBoucherie_6",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  7,
+                                              "location":  "Boucherie",
+                                              "master":  "TradBoucherie_7",
+                                              "details":  "details_TradBoucherie_7",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  7,
+                                              "location":  "Boucherie",
+                                              "master":  "TradBoucherie_8",
+                                              "details":  "details_TradBoucherie_8",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  7,
+                                              "location":  "Boucherie",
+                                              "master":  "TradBoucherie_9",
+                                              "details":  "details_TradBoucherie_9",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  7,
+                                              "location":  "Boucherie",
+                                              "master":  "TradBoucherie_10",
+                                              "details":  "details_TradBoucherie_10",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  8,
+                                              "location":  "Boucherie",
+                                              "master":  "TradBoucherie_11",
+                                              "details":  "details_TradBoucherie_11",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  8,
+                                              "location":  "Traiteur",
+                                              "master":  "TraiteurLs_12",
+                                              "details":  "details_TraiteurLs_12",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  8,
+                                              "location":  "Tg Promo",
+                                              "master":  "TgPromo_13",
+                                              "details":  "details_TgPromo_13",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  8,
+                                              "location":  "Vitrine",
+                                              "master":  "VitrineAntiGaspi_14",
+                                              "details":  "details_VitrineAntiGaspi_14",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  9,
+                                              "location":  "Fromage",
+                                              "master":  "FromageFe_15",
+                                              "details":  "details_FromageFe_15",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  9,
+                                              "location":  "Fromage",
+                                              "master":  "FromageFe_16",
+                                              "details":  "details_FromageFe_16",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  9,
+                                              "location":  "Fromage",
+                                              "master":  "FromageFe_17",
+                                              "details":  "details_FromageFe_17",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  9,
+                                              "location":  "Charcuterie",
+                                              "master":  "CharcuterieTrad_18",
+                                              "details":  "details_CharcuterieTrad_18",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  10,
+                                              "location":  "Charcuterie",
+                                              "master":  "CharcuterieTrad_19",
+                                              "details":  "details_CharcuterieTrad_19",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  10,
+                                              "location":  "Charcuterie",
+                                              "master":  "CharcuterieTrad_20",
+                                              "details":  "details_CharcuterieTrad_20",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  10,
+                                              "location":  "Maree",
+                                              "master":  "MareeFe_21",
+                                              "details":  "details_MareeFe_21",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  10,
+                                              "location":  "Saurisserie",
+                                              "master":  "Saurisserie_22",
+                                              "details":  "details_Saurisserie_22",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  11,
+                                              "location":  "4eme",
+                                              "master":  "4emeGamme_23",
+                                              "details":  "details_4emeGamme_23",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  11,
+                                              "location":  "Maraichage",
+                                              "master":  "MaraichageLs_24",
+                                              "details":  "details_MaraichageLs_24",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  11,
+                                              "location":  "Snacking",
+                                              "master":  "SnackingLs_25",
+                                              "details":  "details_SnackingLs_25",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  11,
+                                              "location":  "Tg Charcuterie",
+                                              "master":  "TgCharcuterieLs_26",
+                                              "details":  "details_TgCharcuterieLs_26",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  12,
+                                              "location":  "Volailles",
+                                              "master":  "VolaillesLs_27",
+                                              "details":  "details_VolaillesLs_27",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  12,
+                                              "location":  "Volailles",
+                                              "master":  "VolaillesLs_28",
+                                              "details":  "details_VolaillesLs_28",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  12,
+                                              "location":  "Traiteur",
+                                              "master":  "TraiteurLs_29",
+                                              "details":  "details_TraiteurLs_29",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  12,
+                                              "location":  "Tg Promo",
+                                              "master":  "TgPromo_30",
+                                              "details":  "details_TgPromo_30",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  13,
+                                              "location":  "Traiteur",
+                                              "master":  "TraiteurLs_31",
+                                              "details":  "details_TraiteurLs_31",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  13,
+                                              "location":  "Charcuterie",
+                                              "master":  "CharcuterieLs_32",
+                                              "details":  "details_CharcuterieLs_32",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  13,
+                                              "location":  "Charcuterie",
+                                              "master":  "CharcuterieLs_33",
+                                              "details":  "details_CharcuterieLs_33",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  13,
+                                              "location":  "Charcuterie",
+                                              "master":  "CharcuterieLs_34",
+                                              "details":  "details_CharcuterieLs_34",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  14,
+                                              "location":  "Corps",
+                                              "master":  "CorpsGras_35",
+                                              "details":  "details_CorpsGras_35",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  14,
+                                              "location":  "Gruyeres",
+                                              "master":  "GruyeresRapes_36",
+                                              "details":  "details_GruyeresRapes_36",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  14,
+                                              "location":  "Tg Fromage",
+                                              "master":  "TgFromageLs_37",
+                                              "details":  "details_TgFromageLs_37",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  14,
+                                              "location":  "Fromage",
+                                              "master":  "FromageLs_38",
+                                              "details":  "details_FromageLs_38",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  15,
+                                              "location":  "Fromage",
+                                              "master":  "FromageLs_39",
+                                              "details":  "details_FromageLs_39",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  15,
+                                              "location":  "Fromage",
+                                              "master":  "FromageLs_40",
+                                              "details":  "details_FromageLs_40",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  15,
+                                              "location":  "Ultra Frais",
+                                              "master":  "UltraFrais_41",
+                                              "details":  "details_UltraFrais_41",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  15,
+                                              "location":  "Ultra Frais",
+                                              "master":  "UltraFrais_42",
+                                              "details":  "details_UltraFrais_42",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  16,
+                                              "location":  "Ultra Frais",
+                                              "master":  "UltraFrais_43",
+                                              "details":  "details_UltraFrais_43",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  2,
+                                              "row":  16,
+                                              "location":  "Tg U lt ra F ra is",
+                                              "master":  "TgUltraFrais_44",
+                                              "details":  "details_TgUltraFrais_44",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  3,
+                                              "row":  16,
+                                              "location":  "Ultra Frais",
+                                              "master":  "UltraFrais_45",
+                                              "details":  "details_UltraFrais_45",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  4,
+                                              "row":  16,
+                                              "location":  "Ultra Frais",
+                                              "master":  "UltraFrais_46",
+                                              "details":  "details_UltraFrais_46",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "VITRINE+",
+                                              "color":  0,
+                                              "column":  1,
+                                              "row":  17,
+                                              "location":  "Ultra Frais",
+                                              "master":  "UltraFrais_47",
+                                              "details":  "details_UltraFrais_47",
+                                              "slave":  [
+
+                                                        ]
+                                          },
+                                          {
+                                              "shape":  "banner",
+                                              "color":  2,
+                                              "column":  1,
+                                              "row":  18,
+                                              "location":  "",
+                                              "master":  "cout_groupes",
+                                              "slave":  [
+
+                                                        ],
+                                              "text":  "Bacs positifs %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "values":  [
+                                                             "cout_bac+",
+                                                             "cout_pos"
+                                                         ]
+                                          }
+                                      ]
+                         }
+                     ],
+    "night":  {
+                  "type":  "Home",
+                  "label":  "Home",
+                  "level":  1,
+                  "virtuel":  0,
+                  "data":  [
+                               {
+                                   "shape":  "OpenWeather",
+                                   "color":  0,
+                                   "column":  1,
+                                   "row":  1,
+                                   "location":  "MAISON",
+                                   "master":  "",
+                                   "slave":  [
+
+                                             ]
+                               },
+                               {
+                                   "shape":  "iCoutsPareto",
+                                   "color":  0,
+                                   "column":  1,
+                                   "row":  2,
+                                   "location":  "Total/Rooftops/Froid/Station/Poissonerie/Bureaux/Tab1/Tab2/Labo/Drive/Boulangerie/F\u0026L/Divers/Onduleur",
+                                   "master":  "c_main",
+                                   "slave":  [
+                                                 "c_gene_rooftops",
+                                                 "c_froid",
+                                                 "c_td_station",
+                                                 "c_td_poissonerie",
+                                                 "c_bureaux",
+                                                 "c_gene_tab1",
+                                                 "c_gene_tab2",
+                                                 "c_gene_labo",
+                                                 "c_drive_co",
+                                                 "c_gene_boulangerie",
+                                                 "c_ecl_f\u0026l",
+                                                 "c_gene_divers",
+                                                 "c_onduleur"
+                                             ]
+                               }
+                           ]
+              }
+}
