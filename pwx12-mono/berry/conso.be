@@ -13,6 +13,68 @@ class conso
     var num_day_month
     var cout
 
+    def normalize_config_device(all_cfg, device_name)
+        if all_cfg == nil || !all_cfg.contains(device_name)
+            return
+        end
+
+        var dev = all_cfg[device_name]
+        if !dev.contains("channels") || type(dev["channels"]) != "list"
+            print("CONFIG ERROR: missing channels for " + device_name)
+            return
+        end
+
+        var roots = []
+        var modes = []
+        var technos = []
+        var ratios = []
+        var pgas = []
+
+        for i:0..size(dev["channels"]) - 1
+            var ch = dev["channels"][i]
+            if ch == nil || type(ch) != "map"
+                continue
+            end
+
+            var root_name = "*"
+            var mode_name = "mono"
+            var techno_name = "ct"
+            var ratio_value = "1000"
+            var pga_value = "1"
+
+            if ch.contains("name") && ch["name"] != nil
+                root_name = str(ch["name"])
+            end
+            if ch.contains("mode") && ch["mode"] != nil
+                mode_name = str(ch["mode"])
+            end
+            if ch.contains("techno") && ch["techno"] != nil
+                techno_name = str(ch["techno"])
+            end
+            if ch.contains("ratio") && ch["ratio"] != nil
+                ratio_value = str(ch["ratio"])
+            end
+            if ch.contains("PGA") && ch["PGA"] != nil
+                pga_value = str(ch["PGA"])
+            elif ch.contains("pga") && ch["pga"] != nil
+                pga_value = str(ch["pga"])
+            end
+
+            roots.insert(size(roots), root_name)
+            modes.insert(size(modes), mode_name)
+            technos.insert(size(technos), techno_name)
+            ratios.insert(size(ratios), ratio_value)
+            pgas.insert(size(pgas), pga_value)
+        end
+
+        dev["root"] = roots
+        dev["mode"] = modes
+        dev["techno"] = technos
+        dev["ratio"] = ratios
+        dev["PGA"] = pgas
+        all_cfg[device_name] = dev
+    end
+
     def get_hours()
         var ligne
         ligne = string.format('{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0}')
@@ -193,6 +255,8 @@ class conso
                 ligne = file.read()
                 global.configjson = json.load(ligne)
                 file.close()
+                self.normalize_config_device(global.configjson, global.device)
+                self.normalize_config_device(global.configjson, global.device)
             else
                 ligne = self.init_conso()
                 file = open("conso.json", "wt")

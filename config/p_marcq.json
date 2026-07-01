@@ -1,11 +1,9 @@
-{
+﻿{
     "dl4-garage": {
-        "mode": "mono",
-        "root": ["principal","chauffage","chauffe-eau","salon"],
+        "parent": ["", "principal", "principal", "principal"],
         "produit": "PWX4",
         "hw": "legacy_V2",
-        "PGA": ["1"],
-        "techno": ["ct"],
-        "ratio": ["1000"]
-        }
+        "channels": [{"name": "principal", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "chauffage", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "chauffe-eau", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "salon", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}]
+    }
 }
+

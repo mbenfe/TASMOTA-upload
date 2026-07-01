@@ -1,4 +1,4 @@
-{
+﻿{
     "applications":  [
                          {
                              "type":  "Home",
@@ -13,9 +13,7 @@
                                               "row":  1,
                                               "location":  "MAISON",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "light",
@@ -24,9 +22,7 @@
                                               "row":  2,
                                               "location":  "Cuisine",
                                               "master":  "switch_cuisine",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "light",
@@ -35,9 +31,7 @@
                                               "row":  2,
                                               "location":  "Salon",
                                               "master":  "switch_salon",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "light",
@@ -46,9 +40,7 @@
                                               "row":  3,
                                               "location":  "Entree RDC",
                                               "master":  "switch_entree",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           }
                                       ]
                          },
@@ -65,20 +57,16 @@
                                               "row":  1,
                                               "location":  "Cuisine",
                                               "master":  "chauffage_general",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "spacer",
                                               "color":  2,
                                               "column":  1,
                                               "row":  2,
-                                              "location":  " 1er ÃƒÂ©tage",
+                                              "location":  " 1er étage",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -87,9 +75,7 @@
                                               "row":  3,
                                               "location":  "Cuisine",
                                               "master":  "chx-cuisine",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -98,9 +84,7 @@
                                               "row":  4,
                                               "location":  "Salon",
                                               "master":  "chx-salon-gauche",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -109,20 +93,16 @@
                                               "row":  4,
                                               "location":  "Salon",
                                               "master":  "chx-salon-droite",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "spacer",
                                               "color":  2,
                                               "column":  1,
                                               "row":  5,
-                                              "location":  "ÃƒÂ©tage chambres",
+                                              "location":  "étage chambres",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -131,9 +111,7 @@
                                               "row":  6,
                                               "location":  "Parents",
                                               "master":  "chx-parents",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -142,9 +120,7 @@
                                               "row":  6,
                                               "location":  "Martin",
                                               "master":  "chx-martin",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -153,9 +129,7 @@
                                               "row":  7,
                                               "location":  "Bureau",
                                               "master":  "chx-bureau",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -164,9 +138,7 @@
                                               "row":  7,
                                               "location":  "Etienne",
                                               "master":  "chx-etienne",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           }
                                       ]
                          },
@@ -175,71 +147,117 @@
                              "label":  "Rideau",
                              "level":  1,
                              "virtuel":  0,
-                             "data":  [
-                                          {
-                                              "shape":  "Thermoscreens",
-                                              "color":  0,
-                                              "column":  1,
-                                              "row":  1,
-                                              "location":  "Droite",
-                                              "master":  "rdx-droite",
-                                              "slave":  [
-
-                                                        ]
-                                          }
-                                      ]
+                             "data":  {
+                                          "shape":  "Thermoscreens",
+                                          "color":  0,
+                                          "column":  1,
+                                          "row":  1,
+                                          "location":  "Droite",
+                                          "master":  "rdx-droite",
+                                          "slave":  null
+                                      }
                          }
                      ],
-    "night":  {
-                  "type":  "Home",
-                  "label":  "Home",
-                  "level":  1,
-                  "virtuel":  0,
-                  "data":  [
-                               {
-                                   "shape":  "OpenWeather",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  1,
-                                   "location":  "MAISON",
-                                   "master":  "",
-                                   "slave":  [
-
-                                             ]
-                               },
-                               {
-                                   "shape":  "light",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  2,
-                                   "location":  "Cuisine",
-                                   "master":  "switch_cuisine",
-                                   "slave":  [
-
-                                             ]
-                               },
-                               {
-                                   "shape":  "light",
-                                   "color":  0,
-                                   "column":  2,
-                                   "row":  2,
-                                   "location":  "Salon",
-                                   "master":  "switch_salon",
-                                   "slave":  [
-
-                                             ]
-                               },
-                               {
-                                   "shape":  "light",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  3,
-                                   "location":  "Entree RDC",
-                                   "master":  "switch_entree",
-                                   "slave":  [
-
-                                             ]
-                               }
-                           ]
-              }
+    "night":  [
+                  {
+                      "type":  "Home",
+                      "label":  "Home",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "OpenWeather",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "MAISON",
+                                       "master":  "",
+                                       "slave":  null
+                                   },
+                                   {
+                                       "shape":  "light",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "Cuisine",
+                                       "master":  "switch_cuisine",
+                                       "slave":  null
+                                   },
+                                   {
+                                       "shape":  "light",
+                                       "color":  0,
+                                       "column":  2,
+                                       "row":  2,
+                                       "location":  "Salon",
+                                       "master":  "switch_salon",
+                                       "slave":  null
+                                   },
+                                   {
+                                       "shape":  "light",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "Entree RDC",
+                                       "master":  "switch_entree",
+                                       "slave":  null
+                                   }
+                               ]
+                  },
+                  {
+                      "type":  "iSavingSetup",
+                      "label":  "réglages",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  1,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "",
+                                       "master":  "dl4-garage",
+                                       "slave":  [
+                                                     "principal"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "",
+                                       "master":  "dl4-garage",
+                                       "slave":  [
+                                                     "chauffage"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "",
+                                       "master":  "dl4-garage",
+                                       "slave":  [
+                                                     "chauffe-eau"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  4,
+                                       "location":  "",
+                                       "master":  "dl4-garage",
+                                       "slave":  [
+                                                     "salon"
+                                                 ],
+                                       "target":  0
+                                   }
+                               ]
+                  }
+              ]
 }

@@ -1,1 +1,129 @@
-{"applications":[{"type":"iRideau","label":"Rideau","level":1,"virtuel":0,"data":[{"shape":"Thermoscreens","color":0,"column":1,"row":1,"location":"Gauche","master":"rdx-ecopower1","slave":[]},{"shape":"Thermoscreens","color":0,"column":1,"row":2,"location":"Gauche","master":"rdx-ecopower2","slave":[]}]}]}
+﻿{
+    "applications":  {
+                         "type":  "iRideau",
+                         "label":  "Rideau",
+                         "level":  1,
+                         "virtuel":  0,
+                         "data":  [
+                                      {
+                                          "shape":  "Thermoscreens",
+                                          "color":  0,
+                                          "column":  1,
+                                          "row":  1,
+                                          "location":  "Gauche",
+                                          "master":  "rdx-ecopower1",
+                                          "slave":  null
+                                      },
+                                      {
+                                          "shape":  "Thermoscreens",
+                                          "color":  0,
+                                          "column":  1,
+                                          "row":  2,
+                                          "location":  "Gauche",
+                                          "master":  "rdx-ecopower2",
+                                          "slave":  null
+                                      }
+                                  ]
+                     },
+    "night":  [
+                  {
+                      "type":  "Home",
+                      "label":  "Home",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  null
+                  },
+                  {
+                      "type":  "iSavingSetup",
+                      "label":  "réglages",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "",
+                                       "master":  "dl12-developpement",
+                                       "slave":  [
+                                                     "test1"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "",
+                                       "master":  "dl12-developpement",
+                                       "slave":  [
+                                                     "test2"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "",
+                                       "master":  "dl12-developpement",
+                                       "slave":  [
+                                                     "test3"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  4,
+                                       "location":  "",
+                                       "master":  "dl12-flasher",
+                                       "slave":  [
+                                                     "flasher1"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  5,
+                                       "location":  "",
+                                       "master":  "dl12-flasher",
+                                       "slave":  [
+                                                     "flasher2"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  6,
+                                       "location":  "",
+                                       "master":  "dl12-flasher",
+                                       "slave":  [
+                                                     "flasher3"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  1,
+                                       "column":  1,
+                                       "row":  7,
+                                       "location":  "",
+                                       "master":  "dl4-developpement",
+                                       "slave":  [
+                                                     "principal"
+                                                 ],
+                                       "target":  0
+                                   }
+                               ]
+                  }
+              ]
+}

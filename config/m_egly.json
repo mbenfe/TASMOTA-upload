@@ -1,4 +1,4 @@
-{
+﻿{
     "applications":  [
                          {
                              "type":  "Home",
@@ -13,9 +13,7 @@
                                               "row":  1,
                                               "location":  "MAISON",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "iCoutsTable",
@@ -178,9 +176,7 @@
                                               "row":  1,
                                               "location":  "AEROTHERMES",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -189,9 +185,7 @@
                                               "row":  2,
                                               "location":  "Accueil",
                                               "master":  "aex-1",
-                                              "slave":  [
-                                                            "setup_aex-1"
-                                                        ]
+                                              "slave":  "setup_aex-1"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -200,9 +194,7 @@
                                               "row":  2,
                                               "location":  "En ce moment",
                                               "master":  "aex-2",
-                                              "slave":  [
-                                                            "setup_aex-2"
-                                                        ]
+                                              "slave":  "setup_aex-2"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -211,9 +203,7 @@
                                               "row":  3,
                                               "location":  "Yahourts",
                                               "master":  "aex-3",
-                                              "slave":  [
-                                                            "setup_aex-3"
-                                                        ]
+                                              "slave":  "setup_aex-3"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -222,20 +212,16 @@
                                               "row":  3,
                                               "location":  "Vins",
                                               "master":  "aex-4",
-                                              "slave":  [
-                                                            "setup_aex-4"
-                                                        ]
+                                              "slave":  "setup_aex-4"
                                           },
                                           {
                                               "shape":  "iAerotherme",
                                               "color":  0,
                                               "column":  1,
                                               "row":  4,
-                                              "location":  "EntrÃ©e personnel",
+                                              "location":  "Entrée personnel",
                                               "master":  "aex-5",
-                                              "slave":  [
-                                                            "setup_aex-5"
-                                                        ]
+                                              "slave":  "setup_aex-5"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -244,9 +230,7 @@
                                               "row":  4,
                                               "location":  "Cirages",
                                               "master":  "aex-6",
-                                              "slave":  [
-                                                            "setup_aex-6"
-                                                        ]
+                                              "slave":  "setup_aex-6"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -255,9 +239,7 @@
                                               "row":  5,
                                               "location":  "Chips",
                                               "master":  "aex-7",
-                                              "slave":  [
-                                                            "setup_aex-7"
-                                                        ]
+                                              "slave":  "setup_aex-7"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -266,9 +248,7 @@
                                               "row":  5,
                                               "location":  "Pains",
                                               "master":  "aex-8",
-                                              "slave":  [
-                                                            "setup_aex-8"
-                                                        ]
+                                              "slave":  "setup_aex-8"
                                           }
                                       ]
                          },
@@ -277,19 +257,15 @@
                              "label":  "Scores",
                              "level":  1,
                              "virtuel":  0,
-                             "data":  [
-                                          {
-                                              "shape":  "scores",
-                                              "color":  2,
-                                              "column":  1,
-                                              "row":  1,
-                                              "location":  "",
-                                              "master":  "ranking",
-                                              "slave":  [
-
-                                                        ]
-                                          }
-                                      ]
+                             "data":  {
+                                          "shape":  "scores",
+                                          "color":  2,
+                                          "column":  1,
+                                          "row":  1,
+                                          "location":  "",
+                                          "master":  "ranking",
+                                          "slave":  null
+                                      }
                          },
                          {
                              "label":  "Negatif",
@@ -304,9 +280,7 @@
                                               "row":  1,
                                               "location":  "DANFOSS FROID NEGATIF",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "spacer",
@@ -315,9 +289,7 @@
                                               "row":  2,
                                               "location":  "Vitrines",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -327,9 +299,7 @@
                                               "location":  "1tg1",
                                               "master":  "1tg1SurgPorte_1",
                                               "details":  "details_1tg1SurgPorte_1",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -339,9 +309,7 @@
                                               "location":  "2",
                                               "master":  "2SurgPorte_2",
                                               "details":  "details_2SurgPorte_2",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -351,9 +319,7 @@
                                               "location":  "3",
                                               "master":  "3SurgPorte_3",
                                               "details":  "details_3SurgPorte_3",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -363,9 +329,7 @@
                                               "location":  "4",
                                               "master":  "4SurgPorte_4",
                                               "details":  "details_4SurgPorte_4",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -375,9 +339,7 @@
                                               "location":  "5",
                                               "master":  "5SurgPorte_5",
                                               "details":  "details_5SurgPorte_5",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -387,9 +349,7 @@
                                               "location":  "6",
                                               "master":  "6Tg2SurgPorte_6",
                                               "details":  "details_6Tg2SurgPorte_6",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -399,9 +359,7 @@
                                               "location":  "Tg2",
                                               "master":  "Tg2SurgPorte_7",
                                               "details":  "details_Tg2SurgPorte_7",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -411,9 +369,7 @@
                                               "location":  "8",
                                               "master":  "8SurgPorte_8",
                                               "details":  "details_8SurgPorte_8",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -423,9 +379,7 @@
                                               "location":  "9",
                                               "master":  "9SurgPorte_9",
                                               "details":  "details_9SurgPorte_9",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -435,9 +389,7 @@
                                               "location":  "10",
                                               "master":  "10SurgPorte_10",
                                               "details":  "details_10SurgPorte_10",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -447,9 +399,7 @@
                                               "location":  "11",
                                               "master":  "11SurgPorte_11",
                                               "details":  "details_11SurgPorte_11",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine-",
@@ -459,9 +409,7 @@
                                               "location":  "12",
                                               "master":  "12Tg1SurgPorte_12",
                                               "details":  "details_12Tg1SurgPorte_12",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "spacer",
@@ -470,9 +418,7 @@
                                               "row":  6,
                                               "location":  "Chambres Froides",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF-",
@@ -482,9 +428,7 @@
                                               "location":  "13",
                                               "master":  "13CfCongel_13",
                                               "details":  "details_13CfCongel_13",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF-",
@@ -494,9 +438,7 @@
                                               "location":  "14",
                                               "master":  "14CfCongel_14",
                                               "details":  "details_14CfCongel_14",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           }
                                       ]
                          },
@@ -513,9 +455,7 @@
                                               "row":  1,
                                               "location":  "DANFOSS FROID POSITIF",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine+",
@@ -525,9 +465,7 @@
                                               "location":  "16",
                                               "master":  "16FromageCoupe_16",
                                               "details":  "details_16FromageCoupe_16",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "vitrine+",
@@ -537,9 +475,7 @@
                                               "location":  "17",
                                               "master":  "17FromageCoupe_17",
                                               "details":  "details_17FromageCoupe_17",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF+",
@@ -549,82 +485,328 @@
                                               "location":  "15",
                                               "master":  "15CfCremerie_15",
                                               "details":  "details_15CfCremerie_15",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           }
                                       ]
                          }
                      ],
-    "night":  {
-                  "type":  "Home",
-                  "label":  "Home",
-                  "level":  1,
-                  "virtuel":  0,
-                  "data":  [
-                               {
-                                   "shape":  "OpenWeather",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  1,
-                                   "location":  "MAISON",
-                                   "master":  "",
-                                   "slave":  [
-
-                                             ]
-                               },
-                               {
-                                   "shape":  "iCoutsTable",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  2,
-                                   "location":  "TGBT ext/Froid/Laverie \u0026 Kiosk",
-                                   "master":  "c_w_general_tgbtext",
-                                   "slave":  [
-                                                 "c_w_gene_froid",
-                                                 "c_w_laverie_kiosk"
-                                             ]
-                               },
-                               {
-                                   "shape":  "iCoutsPareto",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  3,
-                                   "location":  "TGBT int/Eclairage 1/Eclairage 2/Eclairage 3/Station Lavage/Station Service/Divers1/Divers2/Divers3/Prise1/Prises2",
-                                   "master":  "c_w_general_tgbtint",
-                                   "slave":  [
-                                                 "c_eclairage1",
-                                                 "c_eclairage2",
-                                                 "c_eclairage3",
-                                                 "c_station_lavage",
-                                                 "c_station_service",
-                                                 "c_divers1",
-                                                 "c_divers2",
-                                                 "c_divers3",
-                                                 "c_prise1",
-                                                 "c_prises2"
-                                             ]
-                               },
-                               {
-                                   "shape":  "iCoutsTable",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  4,
-                                   "location":  "TGBT int/Eclairage 1/Eclairage 2/Eclairage 3/Station Lavage/Station Service/Divers1/Divers2/Divers3/Prise1/Prises2",
-                                   "master":  "c_w_general_tgbtint",
-                                   "slave":  [
-                                                 "c_w_eclairage1",
-                                                 "c_w_eclairage2",
-                                                 "c_w_eclairage3",
-                                                 "c_w_station_lavage",
-                                                 "c_w_station_service",
-                                                 "c_w_divers1",
-                                                 "c_w_divers2",
-                                                 "c_w_divers3",
-                                                 "c_w_prise1",
-                                                 "c_w_prises2"
-                                             ]
-                               }
-                           ]
-              }
+    "night":  [
+                  {
+                      "type":  "Home",
+                      "label":  "Home",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "OpenWeather",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "MAISON",
+                                       "master":  "",
+                                       "slave":  null
+                                   },
+                                   {
+                                       "shape":  "iCoutsTable",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "TGBT ext/Froid/Laverie \u0026 Kiosk",
+                                       "master":  "c_w_general_tgbtext",
+                                       "slave":  [
+                                                     "c_w_gene_froid",
+                                                     "c_w_laverie_kiosk"
+                                                 ]
+                                   },
+                                   {
+                                       "shape":  "iCoutsPareto",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "TGBT int/Eclairage 1/Eclairage 2/Eclairage 3/Station Lavage/Station Service/Divers1/Divers2/Divers3/Prise1/Prises2",
+                                       "master":  "c_w_general_tgbtint",
+                                       "slave":  [
+                                                     "c_eclairage1",
+                                                     "c_eclairage2",
+                                                     "c_eclairage3",
+                                                     "c_station_lavage",
+                                                     "c_station_service",
+                                                     "c_divers1",
+                                                     "c_divers2",
+                                                     "c_divers3",
+                                                     "c_prise1",
+                                                     "c_prises2"
+                                                 ]
+                                   },
+                                   {
+                                       "shape":  "iCoutsTable",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  4,
+                                       "location":  "TGBT int/Eclairage 1/Eclairage 2/Eclairage 3/Station Lavage/Station Service/Divers1/Divers2/Divers3/Prise1/Prises2",
+                                       "master":  "c_w_general_tgbtint",
+                                       "slave":  [
+                                                     "c_w_eclairage1",
+                                                     "c_w_eclairage2",
+                                                     "c_w_eclairage3",
+                                                     "c_w_station_lavage",
+                                                     "c_w_station_service",
+                                                     "c_w_divers1",
+                                                     "c_w_divers2",
+                                                     "c_w_divers3",
+                                                     "c_w_prise1",
+                                                     "c_w_prises2"
+                                                 ]
+                                   }
+                               ]
+                  },
+                  {
+                      "type":  "iSavingSetup",
+                      "label":  "réglages",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  1,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "",
+                                       "master":  "virtual",
+                                       "slave":  [
+                                                     "virtual_total"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "",
+                                       "master":  "pwx4-sdm1",
+                                       "slave":  [
+                                                     "gene_froid"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "",
+                                       "master":  "pwx4-sdm2",
+                                       "slave":  [
+                                                     "m1+"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  4,
+                                       "location":  "",
+                                       "master":  "pwx12-sdm1",
+                                       "slave":  [
+                                                     "m2+"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  5,
+                                       "location":  "",
+                                       "master":  "pwx12-sdm1",
+                                       "slave":  [
+                                                     "m3+"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  6,
+                                       "location":  "",
+                                       "master":  "pwx12-sdm1",
+                                       "slave":  [
+                                                     "m4+"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  7,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtext",
+                                       "slave":  [
+                                                     "laverie_kiosk"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  8,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtext",
+                                       "slave":  [
+                                                     "retour_solaire"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  9,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtext",
+                                       "slave":  [
+                                                     "general_tgbtext"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  10,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint1",
+                                       "slave":  [
+                                                     "eclairage2"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  11,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint1",
+                                       "slave":  [
+                                                     "eclairage1"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  12,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint2",
+                                       "slave":  [
+                                                     "station_lavage"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  13,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint2",
+                                       "slave":  [
+                                                     "general_tgbtint"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  14,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint2",
+                                       "slave":  [
+                                                     "station_service"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  15,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint3",
+                                       "slave":  [
+                                                     "divers1"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  16,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint3",
+                                       "slave":  [
+                                                     "prise1"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  17,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint3",
+                                       "slave":  [
+                                                     "eclairage3"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  18,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint4",
+                                       "slave":  [
+                                                     "divers2"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  19,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint4",
+                                       "slave":  [
+                                                     "prises2"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  20,
+                                       "location":  "",
+                                       "master":  "pwx12-tgbtint4",
+                                       "slave":  [
+                                                     "divers3"
+                                                 ],
+                                       "target":  0
+                                   }
+                               ]
+                  }
+              ]
 }

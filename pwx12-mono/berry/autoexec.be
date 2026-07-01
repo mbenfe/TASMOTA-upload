@@ -258,11 +258,22 @@ def sendconfig(cmd, idx, payload, payload_json)
     for key:myjson.keys()
         if (key == device)
             trouve = true
+            var dev = myjson[key]
+            if !dev.contains("channels") || type(dev["channels"]) != "list" || size(dev["channels"]) < 4
+                mqttprint("channels missing or incomplete for " + key)
+                continue
+            end
+
+            var c0 = dev["channels"][0]
+            var c1 = dev["channels"][1]
+            var c2 = dev["channels"][2]
+            var c3 = dev["channels"][3]
+
             total = "CONFIG " + key + "_"
-                    + myjson[key]["root"][0] + "_" + myjson[key]["root"][1] + "_" + myjson[key]["root"][2] + "_" + myjson[key]["root"][3] + "_"
-                    + myjson[key]["produit"] + "_"
-                    + myjson[key]["techno"][0] + "_" + myjson[key]["techno"][1] + "_" + myjson[key]["techno"][2] + "_" + myjson[key]["techno"][3] + "_"
-                    + myjson[key]["ratio"][0] + "_" + myjson[key]["ratio"][1] + "_" + myjson[key]["ratio"][2] + "_" + myjson[key]["ratio"][3]
+                    + str(c0["name"]) + "_" + str(c1["name"]) + "_" + str(c2["name"]) + "_" + str(c3["name"]) + "_"
+                    + dev["produit"] + "_"
+                    + str(c0["techno"]) + "_" + str(c1["techno"]) + "_" + str(c2["techno"]) + "_" + str(c3["techno"]) + "_"
+                    + str(c0["ratio"]) + "_" + str(c1["ratio"]) + "_" + str(c2["ratio"]) + "_" + str(c3["ratio"])
         end
     end
     if (trouve == true)

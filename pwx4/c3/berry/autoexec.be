@@ -239,23 +239,24 @@ def pretty_print_config()
         var pga = "1"
         var mode = "tri"
 
-        if dev.contains("root") && dev["root"] != nil && size(dev["root"]) > i && dev["root"][i] != nil
-            name = str(dev["root"][i])
-        end
-        if dev.contains("techno") && dev["techno"] != nil && size(dev["techno"]) > i && dev["techno"][i] != nil
-            techno = str(dev["techno"][i])
-        end
-        if dev.contains("ratio") && dev["ratio"] != nil && size(dev["ratio"]) > i && dev["ratio"][i] != nil
-            ratio = str(dev["ratio"][i])
-        end
-        if dev.contains("PGA") && dev["PGA"] != nil && size(dev["PGA"]) > i && dev["PGA"][i] != nil
-            pga = str(dev["PGA"][i])
-        end
-        if dev.contains("mode") && dev["mode"] != nil
-            if type(dev["mode"]) == "list" && size(dev["mode"]) > i && dev["mode"][i] != nil
-                mode = str(dev["mode"][i])
-            elif type(dev["mode"]) == "string"
-                mode = str(dev["mode"])
+        if dev.contains("channels") && type(dev["channels"]) == "list" && size(dev["channels"]) > i && dev["channels"][i] != nil
+            var ch = dev["channels"][i]
+            if ch.contains("name") && ch["name"] != nil
+                name = str(ch["name"])
+            end
+            if ch.contains("techno") && ch["techno"] != nil
+                techno = str(ch["techno"])
+            end
+            if ch.contains("ratio") && ch["ratio"] != nil
+                ratio = str(ch["ratio"])
+            end
+            if ch.contains("PGA") && ch["PGA"] != nil
+                pga = str(ch["PGA"])
+            elif ch.contains("pga") && ch["pga"] != nil
+                pga = str(ch["pga"])
+            end
+            if ch.contains("mode") && ch["mode"] != nil
+                mode = str(ch["mode"])
             end
         end
 
@@ -485,26 +486,47 @@ def sendconfig(cmd, idx, payload, payload_json)
     for key:myjson.keys()
         if (key == device)
             trouve = true
-                var p0 = "1"
-                var m0 = "tri"
-                if myjson[key].contains("PGA") && myjson[key]["PGA"] != nil && size(myjson[key]["PGA"]) > 0
-                    p0 = str(myjson[key]["PGA"][0])
-                end
-                if myjson[key].contains("mode") && myjson[key]["mode"] != nil
-                    if type(myjson[key]["mode"]) == "list" && size(myjson[key]["mode"]) > 0
-                        m0 = str(myjson[key]["mode"][0])
-                    elif type(myjson[key]["mode"]) == "string"
-                        m0 = str(myjson[key]["mode"])
-                    end
-                end
+            var dev = myjson[key]
+            if !dev.contains("channels") || type(dev["channels"]) != "list" || size(dev["channels"]) == 0
+                mqttprint("channels missing for " + key)
+                continue
+            end
+            var ch0 = dev["channels"][0]
+            if ch0 == nil
+                mqttprint("channels[0] missing for " + key)
+                continue
+            end
 
-                total = "CONFIG " + key + ":"
-                    + myjson[key]["root"][0] + ":"
-                    + myjson[key]["produit"] + ":"
-                    + myjson[key]["techno"][0] + ":"
-                    + myjson[key]["ratio"][0] + ":"
-                    + p0 + ":"
-                    + m0
+            var n0 = "*"
+            var t0 = "ct"
+            var r0 = "1000"
+            var p0 = "1"
+            var m0 = "tri"
+            if ch0.contains("name") && ch0["name"] != nil
+                n0 = str(ch0["name"])
+            end
+            if ch0.contains("techno") && ch0["techno"] != nil
+                t0 = str(ch0["techno"])
+            end
+            if ch0.contains("ratio") && ch0["ratio"] != nil
+                r0 = str(ch0["ratio"])
+            end
+            if ch0.contains("PGA") && ch0["PGA"] != nil
+                p0 = str(ch0["PGA"])
+            elif ch0.contains("pga") && ch0["pga"] != nil
+                p0 = str(ch0["pga"])
+            end
+            if ch0.contains("mode") && ch0["mode"] != nil
+                m0 = str(ch0["mode"])
+            end
+
+            total = "CONFIG " + key + ":"
+                + n0 + ":"
+                + dev["produit"] + ":"
+                + t0 + ":"
+                + r0 + ":"
+                + p0 + ":"
+                + m0
         end
     end
     if (trouve == true)

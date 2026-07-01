@@ -1,20 +1,15 @@
-{
+﻿{
     "dl4-principal": {
-        "mode": "mono",
-        "root": ["main","autre1","autre2","autre3"],
+        "parent": ["", "main", "main", "main"],
         "produit": "PWX4",
         "hw": "legacy_V2",
-        "PGA": ["1"],
-        "techno": ["ct"],
-        "ratio": ["1000"]
-        },
-   "dl4-annexe": {
-        "mode": "mono",
-        "root": ["td_annexe","jaccuzi","spa","*"],
+        "channels": [{"name": "main", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "autre1", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "autre2", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "autre3", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}]
+    },
+    "dl4-annexe": {
+        "parent": ["main", "td_annexe", "td_annexe", "td_annexe"],
         "produit": "PWX4",
         "hw": "legacy_V2",
-        "PGA": ["1"],
-        "techno": ["ct"],
-        "ratio": ["1000"]
-        }
+        "channels": [{"name": "td_annexe", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "jaccuzi", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "spa", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}]
+    }
 }
+

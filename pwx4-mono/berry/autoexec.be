@@ -256,7 +256,13 @@ def sendconfig(cmd, idx,payload, payload_json)
     for key:myjson.keys()
         if key == device
             trouve = true
-             total+='CONFIG'+' '+key+'_'+myjson[key]["root"][0]+'_'+myjson[key]["produit"]+'_'+myjson[key]["techno"][0]+'_'+str(myjson[key]["ratio"][0])
+            var dev = myjson[key]
+            if !dev.contains("channels") || type(dev["channels"]) != "list" || size(dev["channels"]) == 0
+                mqttprint("channels missing for " + key)
+                continue
+            end
+            var c0 = dev["channels"][0]
+            total+='CONFIG'+' '+key+'_'+str(c0["name"])+'_'+dev["produit"]+'_'+str(c0["techno"])+'_'+str(c0["ratio"])
              mqttprint(str(total))
         end
     end

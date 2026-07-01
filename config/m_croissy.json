@@ -1,4 +1,4 @@
-{
+﻿{
     "applications":  [
                          {
                              "type":  "Home",
@@ -13,9 +13,7 @@
                                               "row":  1,
                                               "location":  "MAISON",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "iCoutsPareto",
@@ -36,7 +34,7 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  3,
-                                              "location":  "Exterieur/CLS/Photocopieuse/Maneges/Rayon bÃƒÂ©bÃƒÂ©/SAS EntrÃƒÂ©e/Rayoun chats/Confisseries/Laits \u0026 oeufs/Boucherie/Boulangerie",
+                                              "location":  "Exterieur/CLS/Photocopieuse/Maneges/Rayon bébé/SAS Entrée/Rayoun chats/Confisseries/Laits \u0026 oeufs/Boucherie/Boulangerie",
                                               "master":  "th_exterieure",
                                               "slave":  [
                                                             "th_caisse_auto",
@@ -58,24 +56,22 @@
                              "level":  1,
                              "type":  "iConso",
                              "virtuel":  0,
-                             "data":  [
-                                          {
-                                              "shape":  "PieConso",
-                                              "color":  0,
-                                              "column":  1,
-                                              "row":  1,
-                                              "location":  "TOTAL",
-                                              "master":  "main",
-                                              "slave":  [
-                                                            "fneg",
-                                                            "fpos"
-                                                        ],
-                                              "label":  [
-                                                            "Froid Negatif",
-                                                            "Froid Positif"
-                                                        ]
-                                          }
-                                      ]
+                             "data":  {
+                                          "shape":  "PieConso",
+                                          "color":  0,
+                                          "column":  1,
+                                          "row":  1,
+                                          "location":  "TOTAL",
+                                          "master":  "main",
+                                          "slave":  [
+                                                        "fneg",
+                                                        "fpos"
+                                                    ],
+                                          "label":  [
+                                                        "Froid Negatif",
+                                                        "Froid Positif"
+                                                    ]
+                                      }
                          },
                          {
                              "type":  "iAerotherme",
@@ -90,9 +86,7 @@
                                               "row":  1,
                                               "location":  "AEROTHERMES GALERIES",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -101,9 +95,7 @@
                                               "row":  2,
                                               "location":  "maneges",
                                               "master":  "aex-1",
-                                              "slave":  [
-                                                            "setup_aex-1"
-                                                        ]
+                                              "slave":  "setup_aex-1"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -112,9 +104,7 @@
                                               "row":  2,
                                               "location":  "entree galerie",
                                               "master":  "aex-2",
-                                              "slave":  [
-                                                            "setup_aex-2"
-                                                        ]
+                                              "slave":  "setup_aex-2"
                                           },
                                           {
                                               "shape":  "spacer",
@@ -123,9 +113,7 @@
                                               "row":  3,
                                               "location":  "AEROTHERMES MAGASIN",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -134,9 +122,7 @@
                                               "row":  4,
                                               "location":  "cables-informatique",
                                               "master":  "aex-3",
-                                              "slave":  [
-                                                            "setup_aex-3"
-                                                        ]
+                                              "slave":  "setup_aex-3"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -145,9 +131,7 @@
                                               "row":  4,
                                               "location":  "Eaux",
                                               "master":  "aex-4",
-                                              "slave":  [
-                                                            "setup_aex-4"
-                                                        ]
+                                              "slave":  "setup_aex-4"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -156,9 +140,7 @@
                                               "row":  5,
                                               "location":  "Jardin",
                                               "master":  "aex-5",
-                                              "slave":  [
-                                                            "setup_aex-5"
-                                                        ]
+                                              "slave":  "setup_aex-5"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -167,9 +149,7 @@
                                               "row":  6,
                                               "location":  "Pains",
                                               "master":  "aex-6",
-                                              "slave":  [
-                                                            "setup_aex-6"
-                                                        ]
+                                              "slave":  "setup_aex-6"
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -178,9 +158,7 @@
                                               "row":  6,
                                               "location":  "Vins",
                                               "master":  "aex-7",
-                                              "slave":  [
-                                                            "setup_aex-7"
-                                                        ]
+                                              "slave":  "setup_aex-7"
                                           },
                                           {
                                               "shape":  "spacer",
@@ -189,20 +167,16 @@
                                               "row":  7,
                                               "location":  "RIDEAUX",
                                               "master":  "",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "frico-min",
                                               "color":  2,
                                               "column":  1,
                                               "row":  8,
-                                              "location":  "EntrÃƒÂ©e",
+                                              "location":  "Entrée",
                                               "master":  "rdx-frico",
-                                              "slave":  [
-                                                            "setup_rdx-frico"
-                                                        ]
+                                              "slave":  "setup_rdx-frico"
                                           }
                                       ]
                          },
@@ -211,19 +185,15 @@
                              "label":  "Scores",
                              "level":  1,
                              "virtuel":  0,
-                             "data":  [
-                                          {
-                                              "shape":  "scores",
-                                              "color":  2,
-                                              "column":  1,
-                                              "row":  1,
-                                              "location":  "",
-                                              "master":  "ranking",
-                                              "slave":  [
-
-                                                        ]
-                                          }
-                                      ]
+                             "data":  {
+                                          "shape":  "scores",
+                                          "color":  2,
+                                          "column":  1,
+                                          "row":  1,
+                                          "location":  "",
+                                          "master":  "ranking",
+                                          "slave":  null
+                                      }
                          },
                          {
                              "label":  "Negatif",
@@ -238,9 +208,7 @@
                                               "row":  1,
                                               "location":  "",
                                               "master":  "group_scores",
-                                              "slave":  [
-                                                            "snx_config"
-                                                        ]
+                                              "slave":  "snx_config"
                                           },
                                           {
                                               "shape":  "condenseur-",
@@ -249,9 +217,7 @@
                                               "row":  2,
                                               "location":  "",
                                               "master":  "CentNegative_100",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "banner",
@@ -260,10 +226,8 @@
                                               "row":  3,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [
-
-                                                        ],
-                                              "text":  "Chambres negatives %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "slave":  null,
+                                              "text":  "Chambres negatives %€ / %€",
                                               "values":  [
                                                              "cout_cf-",
                                                              "cout_neg"
@@ -274,36 +238,30 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  4,
-                                              "location":  "SurgelÃƒÂ©s",
+                                              "location":  "Surgelés",
                                               "master":  "CfSurgelaGroupe_2",
                                               "details":  "details_CfSurgelaGroupe_2",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF-",
                                               "color":  0,
                                               "column":  2,
                                               "row":  4,
-                                              "location":  "SurgelÃƒÂ©s RÃƒÂ©serve",
+                                              "location":  "Surgelés Réserve",
                                               "master":  "CfSurgReserve_59",
                                               "details":  "details_CfSurgReserve_59",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF-",
                                               "color":  0,
                                               "column":  1,
                                               "row":  5,
-                                              "location":  "SurgelÃƒÂ©s Boulangerie",
+                                              "location":  "Surgelés Boulangerie",
                                               "master":  "CfSurgBoulang_69",
                                               "details":  "details_CfSurgBoulang_69",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "banner",
@@ -312,10 +270,8 @@
                                               "row":  6,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [
-
-                                                        ],
-                                              "text":  "Meubles negatifs %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "slave":  null,
+                                              "text":  "Meubles negatifs %€ / %€",
                                               "values":  [
                                                              "cout_vitrine-",
                                                              "cout_neg"
@@ -326,48 +282,40 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  7,
-                                              "location":  "SurgelÃƒÂ©s",
+                                              "location":  "Surgelés",
                                               "master":  "SurgelaPortes_10",
                                               "details":  "details_SurgelaPortes_10",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE-",
                                               "color":  0,
                                               "column":  2,
                                               "row":  7,
-                                              "location":  "SurgelÃƒÂ©s",
+                                              "location":  "Surgelés",
                                               "master":  "SurgelaPortes_11",
                                               "details":  "details_SurgelaPortes_11",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE-",
                                               "color":  0,
                                               "column":  3,
                                               "row":  7,
-                                              "location":  "SurgelÃƒÂ©s",
+                                              "location":  "Surgelés",
                                               "master":  "SurgelaPortes_12",
                                               "details":  "details_SurgelaPortes_12",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE-",
                                               "color":  0,
                                               "column":  4,
                                               "row":  7,
-                                              "location":  "SurgelÃƒÂ©s",
+                                              "location":  "Surgelés",
                                               "master":  "SurgelaPortes_13",
                                               "details":  "details_SurgelaPortes_13",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "banner",
@@ -376,10 +324,8 @@
                                               "row":  8,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [
-
-                                                        ],
-                                              "text":  "Bacs negatifs %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "slave":  null,
+                                              "text":  "Bacs negatifs %€ / %€",
                                               "values":  [
                                                              "cout_bac-",
                                                              "cout_neg"
@@ -390,84 +336,70 @@
                                               "color":  0,
                                               "column":  1,
                                               "row":  9,
-                                              "location":  "Bac surgelÃƒÂ©s Tg",
+                                              "location":  "Bac surgelés Tg",
                                               "master":  "TgBacSurg_14",
                                               "details":  "details_TgBacSurg_14",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC-",
                                               "color":  0,
                                               "column":  2,
                                               "row":  9,
-                                              "location":  "Bac surgelÃƒÂ©s Tg",
+                                              "location":  "Bac surgelés Tg",
                                               "master":  "TgBacSurg_15",
                                               "details":  "details_TgBacSurg_15",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC-",
                                               "color":  0,
                                               "column":  1,
                                               "row":  10,
-                                              "location":  "Bac surgelÃƒÂ©s",
+                                              "location":  "Bac surgelés",
                                               "master":  "BacSurgela_16",
                                               "details":  "details_BacSurgela_16",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC-",
                                               "color":  0,
                                               "column":  2,
                                               "row":  10,
-                                              "location":  "Bac surgelÃƒÂ©s",
+                                              "location":  "Bac surgelés",
                                               "master":  "BacSurgela_17",
                                               "details":  "details_BacSurgela_17",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC-",
                                               "color":  0,
                                               "column":  1,
                                               "row":  11,
-                                              "location":  "Bac surgelÃƒÂ©s",
+                                              "location":  "Bac surgelés",
                                               "master":  "BacSurgela_18",
                                               "details":  "details_BacSurgela_18",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC-",
                                               "color":  0,
                                               "column":  2,
                                               "row":  11,
-                                              "location":  "Bac surgelÃƒÂ©s",
+                                              "location":  "Bac surgelés",
                                               "master":  "BacSurgela_19",
                                               "details":  "details_BacSurgela_19",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC-",
                                               "color":  0,
                                               "column":  1,
                                               "row":  12,
-                                              "location":  "Bac surgelÃƒÂ©sTg",
+                                              "location":  "Bac surgelésTg",
                                               "master":  "TgBacSurg_20",
                                               "details":  "details_TgBacSurg_20",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           }
                                       ]
                          },
@@ -484,9 +416,7 @@
                                               "row":  1,
                                               "location":  "",
                                               "master":  "group_scores",
-                                              "slave":  [
-                                                            "snx_config"
-                                                        ]
+                                              "slave":  "snx_config"
                                           },
                                           {
                                               "shape":  "condenseur+",
@@ -495,9 +425,7 @@
                                               "row":  2,
                                               "location":  "",
                                               "master":  "CentPositive3cp_101",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "condenseur+",
@@ -506,9 +434,7 @@
                                               "row":  3,
                                               "location":  "",
                                               "master":  "CentPositive2cp_102",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "banner",
@@ -517,10 +443,8 @@
                                               "row":  4,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [
-
-                                                        ],
-                                              "text":  "Chambres positives %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "slave":  null,
+                                              "text":  "Chambres positives %€ / %€",
                                               "values":  [
                                                              "cout_cf+",
                                                              "cout_pos"
@@ -534,9 +458,7 @@
                                               "location":  "Positif Boulangerie",
                                               "master":  "CfPositiveBoul_0",
                                               "details":  "details_CfPositiveBoul_0",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF+",
@@ -546,21 +468,17 @@
                                               "location":  "Traiteur",
                                               "master":  "CfTraiteur_61",
                                               "details":  "details_CfTraiteur_61",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF+",
                                               "color":  0,
                                               "column":  1,
                                               "row":  6,
-                                              "location":  "Fruit\u0026LÃƒÂ©gumes",
+                                              "location":  "Fruit\u0026Légumes",
                                               "master":  "CfFruitLegumes_62",
                                               "details":  "details_CfFruitLegumes_62",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF+",
@@ -570,9 +488,7 @@
                                               "location":  "Suif",
                                               "master":  "CfSuif_64",
                                               "details":  "details_CfSuif_64",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF+",
@@ -582,9 +498,7 @@
                                               "location":  "Labo Boucherie",
                                               "master":  "LaboBoucherie_65",
                                               "details":  "details_LaboBoucherie_65",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF+",
@@ -594,9 +508,7 @@
                                               "location":  "Carcasses",
                                               "master":  "CfCarcasses_66",
                                               "details":  "details_CfCarcasses_66",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF+",
@@ -606,9 +518,7 @@
                                               "location":  "Cremerie",
                                               "master":  "CfCremerie_67",
                                               "details":  "details_CfCremerie_67",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "CF+",
@@ -618,9 +528,7 @@
                                               "location":  "Poisson",
                                               "master":  "CfPoisson_68",
                                               "details":  "details_CfPoisson_68",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "banner",
@@ -629,10 +537,8 @@
                                               "row":  9,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [
-
-                                                        ],
-                                              "text":  "Meubles positif %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "slave":  null,
+                                              "text":  "Meubles positif %€ / %€",
                                               "values":  [
                                                              "cout_vitrine+",
                                                              "cout_pos"
@@ -646,9 +552,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieFe_21",
                                               "details":  "details_CharcuterieFe_21",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -658,9 +562,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieFe_22",
                                               "details":  "details_CharcuterieFe_22",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -670,9 +572,7 @@
                                               "location":  "Champagne",
                                               "master":  "Champagne_26",
                                               "details":  "details_Champagne_26",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -682,9 +582,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLs_27",
                                               "details":  "details_CharcuterieLs_27",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -694,9 +592,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLs_28",
                                               "details":  "details_CharcuterieLs_28",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -706,9 +602,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLs_29",
                                               "details":  "details_CharcuterieLs_29",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -718,9 +612,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLs_30",
                                               "details":  "details_CharcuterieLs_30",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -730,9 +622,7 @@
                                               "location":  "Traiteur",
                                               "master":  "TraiteurLs_31",
                                               "details":  "details_TraiteurLs_31",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -742,9 +632,7 @@
                                               "location":  "Traiteur",
                                               "master":  "TraiteurLs_32",
                                               "details":  "details_TraiteurLs_32",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -754,9 +642,7 @@
                                               "location":  "Traiteur",
                                               "master":  "TraiteurLs_33",
                                               "details":  "details_TraiteurLs_33",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -766,9 +652,7 @@
                                               "location":  "Traiteur",
                                               "master":  "TraiteurLs_34",
                                               "details":  "details_TraiteurLs_34",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -778,9 +662,7 @@
                                               "location":  "Tg",
                                               "master":  "Tg_35",
                                               "details":  "details_Tg_35",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -790,9 +672,7 @@
                                               "location":  "Volaille",
                                               "master":  "VolailleLs_36",
                                               "details":  "details_VolailleLs_36",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -802,9 +682,7 @@
                                               "location":  "Volaille",
                                               "master":  "VolailleLs_37",
                                               "details":  "details_VolailleLs_37",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -814,9 +692,7 @@
                                               "location":  "Volaille",
                                               "master":  "VolailleLs_38",
                                               "details":  "details_VolailleLs_38",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -826,9 +702,7 @@
                                               "location":  "Volaille",
                                               "master":  "VolailleLs_39",
                                               "details":  "details_VolailleLs_39",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -838,9 +712,7 @@
                                               "location":  "Tg",
                                               "master":  "Tg_40",
                                               "details":  "details_Tg_40",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -850,9 +722,7 @@
                                               "location":  "Fromage",
                                               "master":  "FromageLs_41",
                                               "details":  "details_FromageLs_41",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -862,9 +732,7 @@
                                               "location":  "Fromage",
                                               "master":  "FromageLs_42",
                                               "details":  "details_FromageLs_42",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -874,9 +742,7 @@
                                               "location":  "Fromage",
                                               "master":  "FromageLs_43",
                                               "details":  "details_FromageLs_43",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -886,9 +752,7 @@
                                               "location":  "Fromage",
                                               "master":  "FromageLs_44",
                                               "details":  "details_FromageLs_44",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -898,9 +762,7 @@
                                               "location":  "Tg",
                                               "master":  "Tg_45",
                                               "details":  "details_Tg_45",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -910,9 +772,7 @@
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFrais_46",
                                               "details":  "details_UltraFrais_46",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -922,9 +782,7 @@
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFrais_47",
                                               "details":  "details_UltraFrais_47",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -934,9 +792,7 @@
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFrais_48",
                                               "details":  "details_UltraFrais_48",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -946,9 +802,7 @@
                                               "location":  "Ultra Frai",
                                               "master":  "UltraFrais_49",
                                               "details":  "details_UltraFrais_49",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -958,9 +812,7 @@
                                               "location":  "Tg",
                                               "master":  "Tg_50",
                                               "details":  "details_Tg_50",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -970,9 +822,7 @@
                                               "location":  "Tg",
                                               "master":  "Tg_51",
                                               "details":  "details_Tg_51",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -982,9 +832,7 @@
                                               "location":  "Yaourt",
                                               "master":  "YaourtLs_52",
                                               "details":  "details_YaourtLs_52",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -994,9 +842,7 @@
                                               "location":  "Yaourt",
                                               "master":  "YaourtLs_53",
                                               "details":  "details_YaourtLs_53",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -1006,9 +852,7 @@
                                               "location":  "Yaourt",
                                               "master":  "YaourtLs_54",
                                               "details":  "details_YaourtLs_54",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -1018,9 +862,7 @@
                                               "location":  "Yaourt",
                                               "master":  "YaourtLs_55",
                                               "details":  "details_YaourtLs_55",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -1030,9 +872,7 @@
                                               "location":  "Tg",
                                               "master":  "Tg_56",
                                               "details":  "details_Tg_56",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -1042,9 +882,7 @@
                                               "location":  "Jus",
                                               "master":  "JusDeFruits_57",
                                               "details":  "details_JusDeFruits_57",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -1054,9 +892,7 @@
                                               "location":  "4eme gamme",
                                               "master":  "4EmeGamme_58",
                                               "details":  "details_4EmeGamme_58",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -1066,9 +902,7 @@
                                               "location":  "Snacking",
                                               "master":  "Snacking_72",
                                               "details":  "details_Snacking_72",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -1078,9 +912,7 @@
                                               "location":  "Snacking",
                                               "master":  "Snacking_73",
                                               "details":  "details_Snacking_73",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -1090,9 +922,7 @@
                                               "location":  "Snacking",
                                               "master":  "Snacking_74",
                                               "details":  "details_Snacking_74",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -1102,9 +932,7 @@
                                               "location":  "Snacking",
                                               "master":  "Snacking_75",
                                               "details":  "details_Snacking_75",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "banner",
@@ -1113,10 +941,8 @@
                                               "row":  20,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [
-
-                                                        ],
-                                              "text":  "Bacs positifs %Ã¢â€šÂ¬ / %Ã¢â€šÂ¬",
+                                              "slave":  null,
+                                              "text":  "Bacs positifs %€ / %€",
                                               "values":  [
                                                              "cout_bac+",
                                                              "cout_pos"
@@ -1130,9 +956,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieTrad_23",
                                               "details":  "details_BoucherieTrad_23",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1142,9 +966,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieTrad_24",
                                               "details":  "details_BoucherieTrad_24",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1154,9 +976,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcutFe_76",
                                               "details":  "details_CharcutFe_76",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1166,9 +986,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcutFe_77",
                                               "details":  "details_CharcutFe_77",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1178,9 +996,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcutFe_78",
                                               "details":  "details_CharcutFe_78",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1190,9 +1006,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcutFe_79",
                                               "details":  "details_CharcutFe_79",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1202,9 +1016,7 @@
                                               "location":  "Fromage",
                                               "master":  "FromageFe_80",
                                               "details":  "details_FromageFe_80",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1214,9 +1026,7 @@
                                               "location":  "Fromage",
                                               "master":  "FromageFe_81",
                                               "details":  "details_FromageFe_81",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1226,9 +1036,7 @@
                                               "location":  "Fromage",
                                               "master":  "FromageFe_82",
                                               "details":  "details_FromageFe_82",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1238,9 +1046,7 @@
                                               "location":  "Fromage",
                                               "master":  "FromageFe_83",
                                               "details":  "details_FromageFe_83",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1250,9 +1056,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieFe_84",
                                               "details":  "details_BoucherieFe_84",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1262,9 +1066,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieFe_85",
                                               "details":  "details_BoucherieFe_85",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1274,9 +1076,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieFe_86",
                                               "details":  "details_BoucherieFe_86",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1286,9 +1086,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieFe_87",
                                               "details":  "details_BoucherieFe_87",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1298,9 +1096,7 @@
                                               "location":  "Saurisserie",
                                               "master":  "SaurisserieFe_88",
                                               "details":  "details_SaurisserieFe_88",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1310,9 +1106,7 @@
                                               "location":  "Saurisserie",
                                               "master":  "SaurisserieFe_89",
                                               "details":  "details_SaurisserieFe_89",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1322,9 +1116,7 @@
                                               "location":  "Saurisserie",
                                               "master":  "SaurisserieFe_90",
                                               "details":  "details_SaurisserieFe_90",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -1334,64 +1126,250 @@
                                               "location":  "Saurisserie",
                                               "master":  "SaurisserieFe_91",
                                               "details":  "details_SaurisserieFe_91",
-                                              "slave":  [
-
-                                                        ]
+                                              "slave":  null
                                           }
                                       ]
                          }
                      ],
-    "night":  {
-                  "type":  "Home",
-                  "label":  "Home",
-                  "level":  1,
-                  "virtuel":  0,
-                  "data":  [
-                               {
-                                   "shape":  "OpenWeather",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  1,
-                                   "location":  "MAISON",
-                                   "master":  "",
-                                   "slave":  [
-
-                                             ]
-                               },
-                               {
-                                   "shape":  "iCoutsPareto",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  2,
-                                   "location":  "Principal/Froid +/Froid-/Colonne A/Colonne B",
-                                   "master":  "c_w_main",
-                                   "slave":  [
-                                                 "c_fpos",
-                                                 "c_fneg",
-                                                 "c_ColonneA",
-                                                 "c_ColonneB"
-                                             ]
-                               },
-                               {
-                                   "shape":  "ParetoTemp",
-                                   "color":  0,
-                                   "column":  1,
-                                   "row":  3,
-                                   "location":  "Exterieur/CLS/Photocopieuse/Maneges/Rayon bÃƒÂ©bÃƒÂ©/SAS EntrÃƒÂ©e/Rayoun chats/Confisseries/Laits \u0026 oeufs/Boucherie/Boulangerie",
-                                   "master":  "th_exterieure",
-                                   "slave":  [
-                                                 "th_caisse_auto",
-                                                 "th_photocopieuse",
-                                                 "th_maneges",
-                                                 "th_bebe",
-                                                 "th_sas",
-                                                 "th_chats",
-                                                 "th_confisserie",
-                                                 "th_lait",
-                                                 "th_boucherie",
-                                                 "th_boulangerie"
-                                             ]
-                               }
-                           ]
-              }
+    "night":  [
+                  {
+                      "type":  "Home",
+                      "label":  "Home",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "OpenWeather",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "MAISON",
+                                       "master":  "",
+                                       "slave":  null
+                                   },
+                                   {
+                                       "shape":  "iCoutsPareto",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "Principal/Froid +/Froid-/Colonne A/Colonne B",
+                                       "master":  "c_w_main",
+                                       "slave":  [
+                                                     "c_fpos",
+                                                     "c_fneg",
+                                                     "c_ColonneA",
+                                                     "c_ColonneB"
+                                                 ]
+                                   },
+                                   {
+                                       "shape":  "ParetoTemp",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "Exterieur/CLS/Photocopieuse/Maneges/Rayon bébé/SAS Entrée/Rayoun chats/Confisseries/Laits \u0026 oeufs/Boucherie/Boulangerie",
+                                       "master":  "th_exterieure",
+                                       "slave":  [
+                                                     "th_caisse_auto",
+                                                     "th_photocopieuse",
+                                                     "th_maneges",
+                                                     "th_bebe",
+                                                     "th_sas",
+                                                     "th_chats",
+                                                     "th_confisserie",
+                                                     "th_lait",
+                                                     "th_boucherie",
+                                                     "th_boulangerie"
+                                                 ]
+                                   }
+                               ]
+                  },
+                  {
+                      "type":  "iSavingSetup",
+                      "label":  "réglages",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "",
+                                       "master":  "dl4-fpos",
+                                       "slave":  [
+                                                     "fpos"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "",
+                                       "master":  "dl4-fneg",
+                                       "slave":  [
+                                                     "fneg"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "",
+                                       "master":  "pwx4-froid-new",
+                                       "slave":  [
+                                                     "fpos2"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  1,
+                                       "column":  1,
+                                       "row":  4,
+                                       "location":  "",
+                                       "master":  "dl4-main",
+                                       "slave":  [
+                                                     "main"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  5,
+                                       "location":  "",
+                                       "master":  "dl4-station",
+                                       "slave":  [
+                                                     "station"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  6,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  [
+                                                     "rampe5-1-divecl"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  7,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  [
+                                                     "rampe8-10-14-12-div"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  8,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  [
+                                                     "ColonneA"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  9,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  [
+                                                     "rampe3-6-1-2-div"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  10,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  [
+                                                     "rampe2-9-div"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  11,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  [
+                                                     "ColonneB"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  12,
+                                       "location":  "",
+                                       "master":  "dl4-tgbt",
+                                       "slave":  [
+                                                     "CoffretEntree"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  13,
+                                       "location":  "",
+                                       "master":  "dl12-bureaux",
+                                       "slave":  [
+                                                     "gene_bureaux"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  14,
+                                       "location":  "",
+                                       "master":  "dl12-bureaux",
+                                       "slave":  [
+                                                     "td_boulangerie"
+                                                 ],
+                                       "target":  0
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  15,
+                                       "location":  "",
+                                       "master":  "dl12-bureaux",
+                                       "slave":  [
+                                                     "onduleur"
+                                                 ],
+                                       "target":  0
+                                   }
+                               ]
+                  }
+              ]
 }

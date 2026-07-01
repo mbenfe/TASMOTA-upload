@@ -25,6 +25,72 @@ class PWX4
     var topic 
     var conso
 
+    def normalize_device_cfg(dev)
+        if dev == nil
+            return dev
+        end
+
+        if !dev.contains("channels") || type(dev["channels"]) != "list"
+            print("CONFIG ERROR: missing channels for " + global.device)
+            return dev
+        end
+
+        var roots = []
+        var modes = []
+        var technos = []
+        var ratios = []
+        var pgas = []
+
+        for i:0..size(dev["channels"]) - 1
+            var ch = dev["channels"][i]
+            if ch == nil || type(ch) != "map"
+                continue
+            end
+
+            var root_name = "*"
+            var mode_name = "tri"
+            var techno_name = "ct"
+            var ratio_value = "1000"
+            var pga_value = "1"
+
+            if ch.contains("name") && ch["name"] != nil
+                root_name = str(ch["name"])
+            end
+            if ch.contains("mode") && ch["mode"] != nil
+                mode_name = str(ch["mode"])
+            end
+            if ch.contains("techno") && ch["techno"] != nil
+                techno_name = str(ch["techno"])
+            end
+            if ch.contains("ratio") && ch["ratio"] != nil
+                ratio_value = str(ch["ratio"])
+            end
+            if ch.contains("PGA") && ch["PGA"] != nil
+                pga_value = str(ch["PGA"])
+            elif ch.contains("pga") && ch["pga"] != nil
+                pga_value = str(ch["pga"])
+            end
+
+            roots.insert(size(roots), root_name)
+            modes.insert(size(modes), mode_name)
+            technos.insert(size(technos), techno_name)
+            ratios.insert(size(ratios), ratio_value)
+            pgas.insert(size(pgas), pga_value)
+        end
+
+        dev["root"] = roots
+        if size(modes) > 0
+            dev["mode"] = modes[0]
+        else
+            dev["mode"] = "tri"
+        end
+        dev["techno"] = technos
+        dev["ratio"] = ratios
+        dev["PGA"] = pgas
+
+        return dev
+    end
+
     def init()
         import conso
         self.conso = conso
@@ -69,6 +135,7 @@ class PWX4
         end
 
         var dev = all_cfg[global.device]
+        dev = self.normalize_device_cfg(dev)
         var produit = str(dev["produit"])
 
         var root_name = self._arr_get(dev["root"], 0, "*")

@@ -1,38 +1,21 @@
-{
+﻿{
+     "virtual": {
+        "parent": [""],
+        "produit": "PWX4",
+        "hw": "legacy_V2",
+        "channels": [{"name": "virtual_total", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1"}]
+    },   
     "dl4-mono": {
-        "mode": "mono",
-        "root": ["td_garage","buanderie","chaufferie","*"],
+        "parent": ["virtual_total", "td_garage", "td_garage", "td_garage"],
         "produit": "PWX4",
         "hw": "legacy_V2",
-        "PGA": ["1"],
-        "techno": ["ct"],
-        "ratio": ["1000"]
-   },
-    "pwx12-legacy": {
-        "mode": ["tri","tri","tri"],
-        "root": ["tbd1","tbd2","tbd3"],
-        "produit": "PWX12",
-        "hw": "legacy_V2",
-        "PGA": ["1","1","1"],
-        "techno": ["ct","ct","ct"],
-        "ratio": ["1000","1000","1000"]
-   },
-   "pwx4-legacy": {
-        "mode": "tri",
-        "root": ["tbd"],
-        "produit": "PWX4",
-        "hw": "legacy_V2",
-        "PGA": ["1"],
-        "techno": ["ct"],
-        "ratio": ["1000"]
-        },
+        "channels": [{"name": "td_garage", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "buanderie", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "chaufferie", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}]
+    },
     "dl12-mono": {
-        "mode": "mono",
-        "root": ["principal","1","2","3","*","4","5","6","*","7","8","*"],
+        "parent": ["virtual_total", "principal", "principal", "principal", "principal", "principal", "principal", "principal", "principal", "principal","principal"],
         "produit": "PWX12",
         "hw": "legacy_V2",
-        "PGA": ["1","1","1"],
-        "techno": ["ct"],
-        "ratio": ["1000"]
+        "channels": [{"name": "principal", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "1", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "2", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "3", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "4", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "5", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "6", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "7", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "8", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}]
     }
 }
+
