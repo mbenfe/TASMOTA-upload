@@ -13,7 +13,7 @@
                                               "row":  1,
                                               "location":  "MAISON",
                                               "master":  "",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "iCoutsPareto",
@@ -55,7 +55,7 @@
                                           "row":  1,
                                           "location":  "",
                                           "master":  "ranking",
-                                          "slave":  null
+                                          "slave":  []
                                       }
                          },
                          {
@@ -80,7 +80,7 @@
                                               "row":  2,
                                               "location":  "",
                                               "master":  "Aspi-_101",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -89,7 +89,7 @@
                                               "row":  3,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Chambres negatives %€ / %€",
                                               "values":  [
                                                              "cout_cf-",
@@ -104,7 +104,7 @@
                                               "location":  "Surgelés Drive",
                                               "master":  "CfSurgDrive_10",
                                               "details":  "details_CfSurgDrive_10",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF-",
@@ -114,7 +114,7 @@
                                               "location":  "Surgelés Réception",
                                               "master":  "CfSurgReception_18",
                                               "details":  "details_CfSurgReception_18",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF-",
@@ -124,7 +124,7 @@
                                               "location":  "Surgelés Réserve",
                                               "master":  "CfSurgReserve_69",
                                               "details":  "details_CfSurgReserve_69",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF-",
@@ -134,7 +134,7 @@
                                               "location":  "Surgelés Boulangerie",
                                               "master":  "CfSurgBoulang_70",
                                               "details":  "details_CfSurgBoulang_70",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -143,7 +143,7 @@
                                               "row":  6,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Meubles negatifs %€ / %€",
                                               "values":  [
                                                              "cout_vitrine-",
@@ -158,7 +158,7 @@
                                               "location":  "Surgelés",
                                               "master":  "SurgPortes_20",
                                               "details":  "details_SurgPortes_20",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE-",
@@ -168,7 +168,7 @@
                                               "location":  "Surgelés",
                                               "master":  "SurgPortes_21",
                                               "details":  "details_SurgPortes_21",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE-",
@@ -178,7 +178,7 @@
                                               "location":  "Surgelés",
                                               "master":  "SurgPortes_22",
                                               "details":  "details_SurgPortes_22",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE-",
@@ -188,7 +188,7 @@
                                               "location":  "Surgelés",
                                               "master":  "SurgPortes_23",
                                               "details":  "details_SurgPortes_23",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE-",
@@ -198,7 +198,7 @@
                                               "location":  "Surgelés",
                                               "master":  "SurgPortes_24",
                                               "details":  "details_SurgPortes_24",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE-",
@@ -208,7 +208,7 @@
                                               "location":  "Surgelés",
                                               "master":  "SurgPortes_25",
                                               "details":  "details_SurgPortes_25",
-                                              "slave":  null
+                                              "slave":  []
                                           }
                                       ]
                          },
@@ -234,7 +234,7 @@
                                               "row":  2,
                                               "location":  "",
                                               "master":  "Aspi+_100",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -243,7 +243,7 @@
                                               "row":  3,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Chambres positives %€ / %€",
                                               "values":  [
                                                              "cout_cf+",
@@ -258,7 +258,7 @@
                                               "location":  "Fromage",
                                               "master":  "CfFromage_5",
                                               "details":  "details_CfFromage_5",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -268,7 +268,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CfCharcuterie_6",
                                               "details":  "details_CfCharcuterie_6",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -278,7 +278,7 @@
                                               "location":  "Cremerie",
                                               "master":  "CfCremerie_8",
                                               "details":  "details_CfCremerie_8",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -288,7 +288,7 @@
                                               "location":  "Drive",
                                               "master":  "CfDrive_11",
                                               "details":  "details_CfDrive_11",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -298,7 +298,7 @@
                                               "location":  "Poisson",
                                               "master":  "CfPoisson_12",
                                               "details":  "details_CfPoisson_12",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -308,7 +308,7 @@
                                               "location":  "Fruits\u0026",
                                               "master":  "CfFruits\u0026Leg_13",
                                               "details":  "details_CfFruits\u0026Leg_13",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -318,7 +318,7 @@
                                               "location":  "Boulang+",
                                               "master":  "CfBoulang+_14",
                                               "details":  "details_CfBoulang+_14",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -328,7 +328,7 @@
                                               "location":  "Labo Boucherie",
                                               "master":  "LaboBoucherie_15",
                                               "details":  "details_LaboBoucherie_15",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -338,7 +338,7 @@
                                               "location":  "Carcasses",
                                               "master":  "CfCarcasses_16",
                                               "details":  "details_CfCarcasses_16",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -348,7 +348,7 @@
                                               "location":  "Suif",
                                               "master":  "CfSuif_17",
                                               "details":  "details_CfSuif_17",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -358,7 +358,7 @@
                                               "location":  "Sas",
                                               "master":  "SasFrais_19",
                                               "details":  "details_SasFrais_19",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -367,7 +367,7 @@
                                               "row":  10,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Meubles positif %€ / %€",
                                               "values":  [
                                                              "cout_vitrine+",
@@ -382,7 +382,7 @@
                                               "location":  "Frais",
                                               "master":  "FraisEmballa_0",
                                               "details":  "details_FraisEmballa_0",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -392,7 +392,7 @@
                                               "location":  "Tg F es ti f",
                                               "master":  "TgFestif_26",
                                               "details":  "details_TgFestif_26",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -402,7 +402,7 @@
                                               "location":  "Tg Frais",
                                               "master":  "TgFrais_28",
                                               "details":  "details_TgFrais_28",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -412,7 +412,7 @@
                                               "location":  "Cremerie",
                                               "master":  "CremerieLs_29",
                                               "details":  "details_CremerieLs_29",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -422,7 +422,7 @@
                                               "location":  "Cremerie",
                                               "master":  "CremerieLs_30",
                                               "details":  "details_CremerieLs_30",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -432,7 +432,7 @@
                                               "location":  "Cremerie",
                                               "master":  "CremerieLs_31",
                                               "details":  "details_CremerieLs_31",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -442,7 +442,7 @@
                                               "location":  "Cremerie",
                                               "master":  "CremerieLs_32",
                                               "details":  "details_CremerieLs_32",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -452,7 +452,7 @@
                                               "location":  "Tg Frais",
                                               "master":  "TgFrais_33",
                                               "details":  "details_TgFrais_33",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -462,7 +462,7 @@
                                               "location":  "Jus",
                                               "master":  "JusDeFruits_34",
                                               "details":  "details_JusDeFruits_34",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -472,7 +472,7 @@
                                               "location":  "4eme",
                                               "master":  "4emeGamme_35",
                                               "details":  "details_4emeGamme_35",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -482,7 +482,7 @@
                                               "location":  "4eme",
                                               "master":  "4emeGamme_36",
                                               "details":  "details_4emeGamme_36",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -492,7 +492,7 @@
                                               "location":  "Cremerie",
                                               "master":  "CremerieLs_37",
                                               "details":  "details_CremerieLs_37",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -502,7 +502,7 @@
                                               "location":  "Cremerie",
                                               "master":  "CremerieLs_38",
                                               "details":  "details_CremerieLs_38",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -512,7 +512,7 @@
                                               "location":  "Cremerie",
                                               "master":  "CremerieLs_39",
                                               "details":  "details_CremerieLs_39",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -522,7 +522,7 @@
                                               "location":  "Tg Frais",
                                               "master":  "TgFrais_40",
                                               "details":  "details_TgFrais_40",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -532,7 +532,7 @@
                                               "location":  "Frais",
                                               "master":  "FraisLs_41",
                                               "details":  "details_FraisLs_41",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -542,7 +542,7 @@
                                               "location":  "Frais",
                                               "master":  "FraisLs_42",
                                               "details":  "details_FraisLs_42",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -552,7 +552,7 @@
                                               "location":  "Frais",
                                               "master":  "FraisLs_43",
                                               "details":  "details_FraisLs_43",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -562,7 +562,7 @@
                                               "location":  "Frais",
                                               "master":  "FraisLs_44",
                                               "details":  "details_FraisLs_44",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -572,7 +572,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLs_45",
                                               "details":  "details_CharcuterieLs_45",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -582,7 +582,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLs_46",
                                               "details":  "details_CharcuterieLs_46",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -592,7 +592,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLs_47",
                                               "details":  "details_CharcuterieLs_47",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -602,7 +602,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLs_48",
                                               "details":  "details_CharcuterieLs_48",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -612,7 +612,7 @@
                                               "location":  "Tg Frais",
                                               "master":  "TgFrais_49",
                                               "details":  "details_TgFrais_49",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -622,7 +622,7 @@
                                               "location":  "Tg Charcuterie",
                                               "master":  "TgCharcut_50",
                                               "details":  "details_TgCharcut_50",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -632,7 +632,7 @@
                                               "location":  "Volaille",
                                               "master":  "VolailleLs_51",
                                               "details":  "details_VolailleLs_51",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -642,7 +642,7 @@
                                               "location":  "Volaille",
                                               "master":  "VolailleLs_52",
                                               "details":  "details_VolailleLs_52",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -652,7 +652,7 @@
                                               "location":  "Tg",
                                               "master":  "Tg_53",
                                               "details":  "details_Tg_53",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -662,7 +662,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLs_54",
                                               "details":  "details_BoucherieLs_54",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -672,7 +672,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLs_55",
                                               "details":  "details_BoucherieLs_55",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -682,7 +682,7 @@
                                               "location":  "Tg",
                                               "master":  "Tg_56",
                                               "details":  "details_Tg_56",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -692,7 +692,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLs_57",
                                               "details":  "details_BoucherieLs_57",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -702,7 +702,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLs_58",
                                               "details":  "details_BoucherieLs_58",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -712,7 +712,7 @@
                                               "location":  "Frais",
                                               "master":  "FraisEmballa_64",
                                               "details":  "details_FraisEmballa_64",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -722,7 +722,7 @@
                                               "location":  "Frais",
                                               "master":  "FraisEmballa_65",
                                               "details":  "details_FraisEmballa_65",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -732,7 +732,7 @@
                                               "location":  "Saurisserie",
                                               "master":  "SaurisserieLs_66",
                                               "details":  "details_SaurisserieLs_66",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -742,7 +742,7 @@
                                               "location":  "Promo",
                                               "master":  "Promo_71",
                                               "details":  "details_Promo_71",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -751,7 +751,7 @@
                                               "row":  21,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Bacs positifs %€ / %€",
                                               "values":  [
                                                              "cout_bac+",
@@ -766,7 +766,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieTrad_1",
                                               "details":  "details_BoucherieTrad_1",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -776,7 +776,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieTrad_2",
                                               "details":  "details_BoucherieTrad_2",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -786,7 +786,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieTrad_3",
                                               "details":  "details_BoucherieTrad_3",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -796,7 +796,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieTrad_4",
                                               "details":  "details_BoucherieTrad_4",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -806,7 +806,7 @@
                                               "location":  "Trad",
                                               "master":  "Trad_59",
                                               "details":  "details_Trad_59",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -816,7 +816,7 @@
                                               "location":  "Trad",
                                               "master":  "TradAo_60",
                                               "details":  "details_TradAo_60",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -826,7 +826,7 @@
                                               "location":  "Trad",
                                               "master":  "Trad_61",
                                               "details":  "details_Trad_61",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "BAC+",
@@ -836,7 +836,7 @@
                                               "location":  "Trad",
                                               "master":  "Trad_62",
                                               "details":  "details_Trad_62",
-                                              "slave":  null
+                                              "slave":  []
                                           }
                                       ]
                          }
@@ -855,7 +855,7 @@
                                        "row":  1,
                                        "location":  "MAISON",
                                        "master":  "",
-                                       "slave":  null
+                                       "slave":  []
                                    },
                                    {
                                        "shape":  "iCoutsPareto",
@@ -898,9 +898,7 @@
                                        "row":  1,
                                        "location":  "",
                                        "master":  "dl12-tgbt1",
-                                       "slave":  [
-                                                     "pricipal"
-                                                 ],
+                                       "slave":  "pricipal",
                                        "target":  0
                                    },
                                    {
@@ -910,9 +908,7 @@
                                        "row":  2,
                                        "location":  "",
                                        "master":  "dl12-tgbt1",
-                                       "slave":  [
-                                                     "gene_forces_divers"
-                                                 ],
+                                       "slave":  "gene_forces_divers",
                                        "target":  0
                                    },
                                    {
@@ -922,9 +918,7 @@
                                        "row":  3,
                                        "location":  "",
                                        "master":  "dl12-tgbt1",
-                                       "slave":  [
-                                                     "froid"
-                                                 ],
+                                       "slave":  "froid",
                                        "target":  0
                                    },
                                    {
@@ -934,9 +928,7 @@
                                        "row":  4,
                                        "location":  "",
                                        "master":  "dl12-tgbt2",
-                                       "slave":  [
-                                                     "ctgendole"
-                                                 ],
+                                       "slave":  "ctgendole",
                                        "target":  0
                                    },
                                    {
@@ -946,9 +938,7 @@
                                        "row":  5,
                                        "location":  "",
                                        "master":  "dl12-tgbt2",
-                                       "slave":  [
-                                                     "pchorspublic"
-                                                 ],
+                                       "slave":  "pchorspublic",
                                        "target":  0
                                    },
                                    {
@@ -958,9 +948,7 @@
                                        "row":  6,
                                        "location":  "",
                                        "master":  "dl12-tgbt2",
-                                       "slave":  [
-                                                     "eclgondoles"
-                                                 ],
+                                       "slave":  "eclgondoles",
                                        "target":  0
                                    },
                                    {
@@ -970,9 +958,7 @@
                                        "row":  7,
                                        "location":  "",
                                        "master":  "dl12-tgbt3",
-                                       "slave":  [
-                                                     "pcpublic"
-                                                 ],
+                                       "slave":  "pcpublic",
                                        "target":  0
                                    },
                                    {
@@ -982,9 +968,7 @@
                                        "row":  8,
                                        "location":  "",
                                        "master":  "dl12-tgbt3",
-                                       "slave":  [
-                                                     "eclprive"
-                                                 ],
+                                       "slave":  "eclprive",
                                        "target":  0
                                    },
                                    {
@@ -994,9 +978,7 @@
                                        "row":  9,
                                        "location":  "",
                                        "master":  "dl12-tgbt3",
-                                       "slave":  [
-                                                     "ecldeco"
-                                                 ],
+                                       "slave":  "ecldeco",
                                        "target":  0
                                    },
                                    {
@@ -1006,9 +988,7 @@
                                        "row":  10,
                                        "location":  "",
                                        "master":  "dl12-tgbt4",
-                                       "slave":  [
-                                                     "pcprive"
-                                                 ],
+                                       "slave":  "pcprive",
                                        "target":  0
                                    },
                                    {
@@ -1018,9 +998,7 @@
                                        "row":  11,
                                        "location":  "",
                                        "master":  "dl12-tgbt4",
-                                       "slave":  [
-                                                     "divers"
-                                                 ],
+                                       "slave":  "divers",
                                        "target":  0
                                    },
                                    {
@@ -1030,9 +1008,7 @@
                                        "row":  12,
                                        "location":  "",
                                        "master":  "dl12-tgbt4",
-                                       "slave":  [
-                                                     "chauffage"
-                                                 ],
+                                       "slave":  "chauffage",
                                        "target":  0
                                    },
                                    {
@@ -1042,9 +1018,7 @@
                                        "row":  13,
                                        "location":  "",
                                        "master":  "dl12-boulangerie",
-                                       "slave":  [
-                                                     "gene_boulangerie"
-                                                 ],
+                                       "slave":  "gene_boulangerie",
                                        "target":  0
                                    },
                                    {
@@ -1054,9 +1028,7 @@
                                        "row":  14,
                                        "location":  "",
                                        "master":  "dl12-boulangerie",
-                                       "slave":  [
-                                                     "laverie_ext"
-                                                 ],
+                                       "slave":  "laverie_ext",
                                        "target":  0
                                    },
                                    {
@@ -1066,9 +1038,7 @@
                                        "row":  15,
                                        "location":  "",
                                        "master":  "dl12-boulangerie",
-                                       "slave":  [
-                                                     "fours"
-                                                 ],
+                                       "slave":  "fours",
                                        "target":  0
                                    },
                                    {
@@ -1078,9 +1048,7 @@
                                        "row":  16,
                                        "location":  "",
                                        "master":  "dl12-labo",
-                                       "slave":  [
-                                                     "gene_labo"
-                                                 ],
+                                       "slave":  "gene_labo",
                                        "target":  0
                                    },
                                    {
@@ -1090,9 +1058,7 @@
                                        "row":  17,
                                        "location":  "",
                                        "master":  "dl12-labo",
-                                       "slave":  [
-                                                     "divers_4dij"
-                                                 ],
+                                       "slave":  "divers_4dij",
                                        "target":  0
                                    },
                                    {
@@ -1102,12 +1068,181 @@
                                        "row":  18,
                                        "location":  "",
                                        "master":  "dl12-labo",
-                                       "slave":  [
-                                                     "ecl_gondoleLS"
-                                                 ],
+                                       "slave":  "ecl_gondoleLS",
                                        "target":  0
+                                   }
+                               ]
+                  },
+                  {
+                      "type":  "iSavingSetup",
+                      "label":  "réglages",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  1,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  "pricipal"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  "gene_forces_divers"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  "froid"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  4,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  "ctgendole"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  5,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  "pchorspublic"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  6,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  "eclgondoles"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  7,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt3",
+                                       "slave":  "pcpublic"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  8,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt3",
+                                       "slave":  "eclprive"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  9,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt3",
+                                       "slave":  "ecldeco"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  10,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt4",
+                                       "slave":  "pcprive"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  11,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt4",
+                                       "slave":  "divers"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  12,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt4",
+                                       "slave":  "chauffage"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  13,
+                                       "location":  "",
+                                       "master":  "dl12-boulangerie",
+                                       "slave":  "gene_boulangerie"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  14,
+                                       "location":  "",
+                                       "master":  "dl12-boulangerie",
+                                       "slave":  "laverie_ext"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  15,
+                                       "location":  "",
+                                       "master":  "dl12-boulangerie",
+                                       "slave":  "fours"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  16,
+                                       "location":  "",
+                                       "master":  "dl12-labo",
+                                       "slave":  "gene_labo"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  17,
+                                       "location":  "",
+                                       "master":  "dl12-labo",
+                                       "slave":  "divers_4dij"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  18,
+                                       "location":  "",
+                                       "master":  "dl12-labo",
+                                       "slave":  "ecl_gondoleLS"
                                    }
                                ]
                   }
               ]
 }
+

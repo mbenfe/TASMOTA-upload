@@ -13,7 +13,7 @@
                                               "row":  1,
                                               "location":  "MAISON",
                                               "master":  "",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "iCoutsPareto",
@@ -50,7 +50,7 @@
                                               "row":  1,
                                               "location":  "AEROTHERMES",
                                               "master":  "",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "iAerotherme",
@@ -68,7 +68,7 @@
                                               "row":  6,
                                               "location":  "RIDEAU",
                                               "master":  "",
-                                              "slave":  null
+                                              "slave":  []
                                           }
                                       ]
                          },
@@ -84,7 +84,7 @@
                                           "row":  1,
                                           "location":  "",
                                           "master":  "ranking",
-                                          "slave":  null
+                                          "slave":  []
                                       }
                          },
                          {
@@ -109,7 +109,7 @@
                                               "row":  2,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Chambres negatives %€ / %€",
                                               "values":  [
                                                              "cout_cf-",
@@ -124,7 +124,7 @@
                                               "location":  "Surgelés",
                                               "master":  "CFSurgelesM_60",
                                               "details":  "details_CFSurgelesM_60",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -133,7 +133,7 @@
                                               "row":  4,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Meubles negatifs %€ / %€",
                                               "values":  [
                                                              "cout_vitrine-",
@@ -148,7 +148,7 @@
                                               "location":  "Surgelés",
                                               "master":  "SurgPortesM_10",
                                               "details":  "details_SurgPortesM_10",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE-",
@@ -158,7 +158,7 @@
                                               "location":  "Surgelés",
                                               "master":  "SurgPortesME1_11",
                                               "details":  "details_SurgPortesME1_11",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE-",
@@ -168,7 +168,7 @@
                                               "location":  "Surgelés",
                                               "master":  "SurgPortesE2_12",
                                               "details":  "details_SurgPortesE2_12",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -177,7 +177,7 @@
                                               "row":  6,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Bacs negatifs %€ / %€",
                                               "values":  [
                                                              "cout_bac-",
@@ -208,7 +208,7 @@
                                               "row":  2,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Chambres positives %€ / %€",
                                               "values":  [
                                                              "cout_cf+",
@@ -223,7 +223,7 @@
                                               "location":  "Fruit\u0026Légumes",
                                               "master":  "CFFruitsLegM_61",
                                               "details":  "details_CFFruitsLegM_61",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -233,7 +233,7 @@
                                               "location":  "C",
                                               "master":  "CF2_62",
                                               "details":  "details_CF2_62",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -243,7 +243,7 @@
                                               "location":  "Labo Boucherie",
                                               "master":  "LaboBoucherie_63",
                                               "details":  "details_LaboBoucherie_63",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -253,7 +253,7 @@
                                               "location":  "C",
                                               "master":  "CF4_64",
                                               "details":  "details_CF4_64",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -263,7 +263,7 @@
                                               "location":  "C",
                                               "master":  "CF5_65",
                                               "details":  "details_CF5_65",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -273,7 +273,7 @@
                                               "location":  "C",
                                               "master":  "CF6_66",
                                               "details":  "details_CF6_66",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "CF+",
@@ -283,7 +283,7 @@
                                               "location":  "Fruit\u0026Légumes",
                                               "master":  "CFFruitsLeg_67",
                                               "details":  "details_CFFruitsLeg_67",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -292,7 +292,7 @@
                                               "row":  7,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Meubles positif %€ / %€",
                                               "values":  [
                                                              "cout_vitrine+",
@@ -307,7 +307,7 @@
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisM_20",
                                               "details":  "details_UltraFraisM_20",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -317,7 +317,7 @@
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisE1_21",
                                               "details":  "details_UltraFraisE1_21",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -327,7 +327,7 @@
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisE2_22",
                                               "details":  "details_UltraFraisE2_22",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -337,7 +337,7 @@
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisM_23",
                                               "details":  "details_UltraFraisM_23",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -347,7 +347,7 @@
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisE1_24",
                                               "details":  "details_UltraFraisE1_24",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -357,7 +357,7 @@
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisE2_25",
                                               "details":  "details_UltraFraisE2_25",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -367,7 +367,7 @@
                                               "location":  "Ultar",
                                               "master":  "UltarFraisE3_26",
                                               "details":  "details_UltarFraisE3_26",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -377,7 +377,7 @@
                                               "location":  "From",
                                               "master":  "FromTraitLSM_28",
                                               "details":  "details_FromTraitLSM_28",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -387,7 +387,7 @@
                                               "location":  "From",
                                               "master":  "FromTraitLSE1_29",
                                               "details":  "details_FromTraitLSE1_29",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -397,7 +397,7 @@
                                               "location":  "Maree",
                                               "master":  "MareeM_31",
                                               "details":  "details_MareeM_31",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -407,7 +407,7 @@
                                               "location":  "Volailles",
                                               "master":  "VolaillesLSM_32",
                                               "details":  "details_VolaillesLSM_32",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -417,7 +417,7 @@
                                               "location":  "Volailles",
                                               "master":  "VolaillesLSE1_33",
                                               "details":  "details_VolaillesLSE1_33",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -427,7 +427,7 @@
                                               "location":  "Volailles",
                                               "master":  "VolaillesLSE2_35",
                                               "details":  "details_VolaillesLSE2_35",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -437,7 +437,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSM_38",
                                               "details":  "details_BoucherieLSM_38",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -447,7 +447,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSM_39",
                                               "details":  "details_BoucherieLSM_39",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -457,7 +457,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSE1_40",
                                               "details":  "details_BoucherieLSE1_40",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -467,7 +467,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSM_41",
                                               "details":  "details_BoucherieLSM_41",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -477,7 +477,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSM_42",
                                               "details":  "details_BoucherieLSM_42",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -487,7 +487,7 @@
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSE1_43",
                                               "details":  "details_BoucherieLSE1_43",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -497,7 +497,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSM_46",
                                               "details":  "details_CharcuterieLSM_46",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -507,7 +507,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE1_47",
                                               "details":  "details_CharcuterieLSE1_47",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -517,7 +517,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE2_48",
                                               "details":  "details_CharcuterieLSE2_48",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -527,7 +527,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE3_49",
                                               "details":  "details_CharcuterieLSE3_49",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -537,7 +537,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSM_50",
                                               "details":  "details_CharcuterieLSM_50",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "VITRINE+",
@@ -547,7 +547,7 @@
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE1_51",
                                               "details":  "details_CharcuterieLSE1_51",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "banner",
@@ -556,7 +556,7 @@
                                               "row":  15,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  null,
+                                              "slave":  [],
                                               "text":  "Bacs positifs %€ / %€",
                                               "values":  [
                                                              "cout_bac+",
@@ -580,7 +580,7 @@
                                        "row":  1,
                                        "location":  "MAISON",
                                        "master":  "",
-                                       "slave":  null
+                                       "slave":  []
                                    },
                                    {
                                        "shape":  "iCoutsPareto",
@@ -617,9 +617,7 @@
                                        "row":  1,
                                        "location":  "",
                                        "master":  "dl12-tgbt1",
-                                       "slave":  [
-                                                     "gene"
-                                                 ],
+                                       "slave":  "gene",
                                        "target":  0
                                    },
                                    {
@@ -629,9 +627,7 @@
                                        "row":  2,
                                        "location":  "",
                                        "master":  "dl12-tgbt1",
-                                       "slave":  [
-                                                     "depart"
-                                                 ],
+                                       "slave":  "depart",
                                        "target":  0
                                    },
                                    {
@@ -641,9 +637,7 @@
                                        "row":  3,
                                        "location":  "",
                                        "master":  "dl12-tgbt1",
-                                       "slave":  [
-                                                     "parking"
-                                                 ],
+                                       "slave":  "parking",
                                        "target":  0
                                    },
                                    {
@@ -653,9 +647,7 @@
                                        "row":  4,
                                        "location":  "",
                                        "master":  "dl12-tgbt2",
-                                       "slave":  [
-                                                     "eclpub1"
-                                                 ],
+                                       "slave":  "eclpub1",
                                        "target":  0
                                    },
                                    {
@@ -665,9 +657,7 @@
                                        "row":  5,
                                        "location":  "",
                                        "master":  "dl12-tgbt2",
-                                       "slave":  [
-                                                     "eclpub2"
-                                                 ],
+                                       "slave":  "eclpub2",
                                        "target":  0
                                    },
                                    {
@@ -677,9 +667,7 @@
                                        "row":  6,
                                        "location":  "",
                                        "master":  "dl12-tgbt2",
-                                       "slave":  [
-                                                     "froid"
-                                                 ],
+                                       "slave":  "froid",
                                        "target":  0
                                    },
                                    {
@@ -689,9 +677,7 @@
                                        "row":  7,
                                        "location":  "",
                                        "master":  "dl12-tgbt3",
-                                       "slave":  [
-                                                     "pcpublic"
-                                                 ],
+                                       "slave":  "pcpublic",
                                        "target":  0
                                    },
                                    {
@@ -701,9 +687,7 @@
                                        "row":  8,
                                        "location":  "",
                                        "master":  "dl12-tgbt3",
-                                       "slave":  [
-                                                     "eclprive"
-                                                 ],
+                                       "slave":  "eclprive",
                                        "target":  0
                                    },
                                    {
@@ -713,9 +697,7 @@
                                        "row":  9,
                                        "location":  "",
                                        "master":  "dl12-tgbt3",
-                                       "slave":  [
-                                                     "ecldeco"
-                                                 ],
+                                       "slave":  "ecldeco",
                                        "target":  0
                                    },
                                    {
@@ -725,9 +707,7 @@
                                        "row":  10,
                                        "location":  "",
                                        "master":  "dl12-tgbt4",
-                                       "slave":  [
-                                                     "pcprive"
-                                                 ],
+                                       "slave":  "pcprive",
                                        "target":  0
                                    },
                                    {
@@ -737,9 +717,7 @@
                                        "row":  11,
                                        "location":  "",
                                        "master":  "dl12-tgbt4",
-                                       "slave":  [
-                                                     "divers"
-                                                 ],
+                                       "slave":  "divers",
                                        "target":  0
                                    },
                                    {
@@ -749,9 +727,7 @@
                                        "row":  12,
                                        "location":  "",
                                        "master":  "dl12-tgbt4",
-                                       "slave":  [
-                                                     "chauffage"
-                                                 ],
+                                       "slave":  "chauffage",
                                        "target":  0
                                    },
                                    {
@@ -761,9 +737,7 @@
                                        "row":  13,
                                        "location":  "",
                                        "master":  "dl4-reserve",
-                                       "slave":  [
-                                                     "reserve"
-                                                 ],
+                                       "slave":  "reserve",
                                        "target":  0
                                    },
                                    {
@@ -773,9 +747,7 @@
                                        "row":  14,
                                        "location":  "",
                                        "master":  "dl12-labo",
-                                       "slave":  [
-                                                     "td_labo"
-                                                 ],
+                                       "slave":  "td_labo",
                                        "target":  0
                                    },
                                    {
@@ -785,9 +757,7 @@
                                        "row":  15,
                                        "location":  "",
                                        "master":  "dl12-labo",
-                                       "slave":  [
-                                                     "ecllabo"
-                                                 ],
+                                       "slave":  "ecllabo",
                                        "target":  0
                                    },
                                    {
@@ -797,9 +767,7 @@
                                        "row":  16,
                                        "location":  "",
                                        "master":  "dl12-labo",
-                                       "slave":  [
-                                                     "pclabo"
-                                                 ],
+                                       "slave":  "pclabo",
                                        "target":  0
                                    },
                                    {
@@ -809,9 +777,7 @@
                                        "row":  17,
                                        "location":  "",
                                        "master":  "dl12-boulangerie",
-                                       "slave":  [
-                                                     "td_boulangerie"
-                                                 ],
+                                       "slave":  "td_boulangerie",
                                        "target":  0
                                    },
                                    {
@@ -821,9 +787,7 @@
                                        "row":  18,
                                        "location":  "",
                                        "master":  "dl12-boulangerie",
-                                       "slave":  [
-                                                     "fours"
-                                                 ],
+                                       "slave":  "fours",
                                        "target":  0
                                    },
                                    {
@@ -833,9 +797,7 @@
                                        "row":  19,
                                        "location":  "",
                                        "master":  "dl12-boulangerie",
-                                       "slave":  [
-                                                     "divers_bl"
-                                                 ],
+                                       "slave":  "divers_bl",
                                        "target":  0
                                    },
                                    {
@@ -845,9 +807,7 @@
                                        "row":  20,
                                        "location":  "",
                                        "master":  "dl12-caisses",
-                                       "slave":  [
-                                                     "td_caisses"
-                                                 ],
+                                       "slave":  "td_caisses",
                                        "target":  0
                                    },
                                    {
@@ -857,9 +817,7 @@
                                        "row":  21,
                                        "location":  "",
                                        "master":  "dl12-caisses",
-                                       "slave":  [
-                                                     "pc"
-                                                 ],
+                                       "slave":  "pc",
                                        "target":  0
                                    },
                                    {
@@ -869,9 +827,7 @@
                                        "row":  22,
                                        "location":  "",
                                        "master":  "dl12-caisses",
-                                       "slave":  [
-                                                     "caisses"
-                                                 ],
+                                       "slave":  "caisses",
                                        "target":  0
                                    },
                                    {
@@ -881,9 +837,7 @@
                                        "row":  23,
                                        "location":  "",
                                        "master":  "dl12-aero",
-                                       "slave":  [
-                                                     "aero1"
-                                                 ],
+                                       "slave":  "aero1",
                                        "target":  0
                                    },
                                    {
@@ -893,9 +847,7 @@
                                        "row":  24,
                                        "location":  "",
                                        "master":  "dl12-aero",
-                                       "slave":  [
-                                                     "aero2"
-                                                 ],
+                                       "slave":  "aero2",
                                        "target":  0
                                    },
                                    {
@@ -905,9 +857,7 @@
                                        "row":  25,
                                        "location":  "",
                                        "master":  "dl12-aero",
-                                       "slave":  [
-                                                     "aero3"
-                                                 ],
+                                       "slave":  "aero3",
                                        "target":  0
                                    },
                                    {
@@ -917,12 +867,253 @@
                                        "row":  26,
                                        "location":  "",
                                        "master":  "dl4-aero",
-                                       "slave":  [
-                                                     "aero4"
-                                                 ],
+                                       "slave":  "aero4",
                                        "target":  0
+                                   }
+                               ]
+                  },
+                  {
+                      "type":  "iSavingSetup",
+                      "label":  "réglages",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  1,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  "gene"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  "depart"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  "parking"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  4,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  "eclpub1"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  5,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  "eclpub2"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  6,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  "froid"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  7,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt3",
+                                       "slave":  "pcpublic"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  8,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt3",
+                                       "slave":  "eclprive"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  9,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt3",
+                                       "slave":  "ecldeco"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  10,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt4",
+                                       "slave":  "pcprive"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  11,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt4",
+                                       "slave":  "divers"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  12,
+                                       "location":  "",
+                                       "master":  "dl12-tgbt4",
+                                       "slave":  "chauffage"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  13,
+                                       "location":  "",
+                                       "master":  "dl4-reserve",
+                                       "slave":  "reserve"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  14,
+                                       "location":  "",
+                                       "master":  "dl12-labo",
+                                       "slave":  "td_labo"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  15,
+                                       "location":  "",
+                                       "master":  "dl12-labo",
+                                       "slave":  "ecllabo"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  16,
+                                       "location":  "",
+                                       "master":  "dl12-labo",
+                                       "slave":  "pclabo"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  17,
+                                       "location":  "",
+                                       "master":  "dl12-boulangerie",
+                                       "slave":  "td_boulangerie"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  18,
+                                       "location":  "",
+                                       "master":  "dl12-boulangerie",
+                                       "slave":  "fours"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  19,
+                                       "location":  "",
+                                       "master":  "dl12-boulangerie",
+                                       "slave":  "divers_bl"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  2,
+                                       "column":  1,
+                                       "row":  20,
+                                       "location":  "",
+                                       "master":  "dl12-caisses",
+                                       "slave":  "td_caisses"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  21,
+                                       "location":  "",
+                                       "master":  "dl12-caisses",
+                                       "slave":  "pc"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  22,
+                                       "location":  "",
+                                       "master":  "dl12-caisses",
+                                       "slave":  "caisses"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  23,
+                                       "location":  "",
+                                       "master":  "dl12-aero",
+                                       "slave":  "aero1"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  24,
+                                       "location":  "",
+                                       "master":  "dl12-aero",
+                                       "slave":  "aero2"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  25,
+                                       "location":  "",
+                                       "master":  "dl12-aero",
+                                       "slave":  "aero3"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  26,
+                                       "location":  "",
+                                       "master":  "dl4-aero",
+                                       "slave":  "aero4"
                                    }
                                ]
                   }
               ]
 }
+

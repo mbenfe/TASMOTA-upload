@@ -13,7 +13,7 @@
                                               "row":  1,
                                               "location":  "MAISON",
                                               "master":  "",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "light",
@@ -22,7 +22,7 @@
                                               "row":  2,
                                               "location":  "Cuisine",
                                               "master":  "switch_cuisine",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "light",
@@ -31,7 +31,7 @@
                                               "row":  2,
                                               "location":  "Salon",
                                               "master":  "switch_salon",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "light",
@@ -40,7 +40,7 @@
                                               "row":  3,
                                               "location":  "Entree RDC",
                                               "master":  "switch_entree",
-                                              "slave":  null
+                                              "slave":  []
                                           }
                                       ]
                          },
@@ -57,7 +57,7 @@
                                               "row":  1,
                                               "location":  "Cuisine",
                                               "master":  "chauffage_general",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "spacer",
@@ -66,7 +66,7 @@
                                               "row":  2,
                                               "location":  " 1er étage",
                                               "master":  "",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -75,7 +75,7 @@
                                               "row":  3,
                                               "location":  "Cuisine",
                                               "master":  "chx-cuisine",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -84,7 +84,7 @@
                                               "row":  4,
                                               "location":  "Salon",
                                               "master":  "chx-salon-gauche",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -93,7 +93,7 @@
                                               "row":  4,
                                               "location":  "Salon",
                                               "master":  "chx-salon-droite",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "spacer",
@@ -102,7 +102,7 @@
                                               "row":  5,
                                               "location":  "étage chambres",
                                               "master":  "",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -111,7 +111,7 @@
                                               "row":  6,
                                               "location":  "Parents",
                                               "master":  "chx-parents",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -120,7 +120,7 @@
                                               "row":  6,
                                               "location":  "Martin",
                                               "master":  "chx-martin",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -129,7 +129,7 @@
                                               "row":  7,
                                               "location":  "Bureau",
                                               "master":  "chx-bureau",
-                                              "slave":  null
+                                              "slave":  []
                                           },
                                           {
                                               "shape":  "convecteur",
@@ -138,7 +138,7 @@
                                               "row":  7,
                                               "location":  "Etienne",
                                               "master":  "chx-etienne",
-                                              "slave":  null
+                                              "slave":  []
                                           }
                                       ]
                          },
@@ -154,7 +154,7 @@
                                           "row":  1,
                                           "location":  "Droite",
                                           "master":  "rdx-droite",
-                                          "slave":  null
+                                          "slave":  []
                                       }
                          }
                      ],
@@ -172,7 +172,7 @@
                                        "row":  1,
                                        "location":  "MAISON",
                                        "master":  "",
-                                       "slave":  null
+                                       "slave":  []
                                    },
                                    {
                                        "shape":  "light",
@@ -181,7 +181,7 @@
                                        "row":  2,
                                        "location":  "Cuisine",
                                        "master":  "switch_cuisine",
-                                       "slave":  null
+                                       "slave":  []
                                    },
                                    {
                                        "shape":  "light",
@@ -190,7 +190,7 @@
                                        "row":  2,
                                        "location":  "Salon",
                                        "master":  "switch_salon",
-                                       "slave":  null
+                                       "slave":  []
                                    },
                                    {
                                        "shape":  "light",
@@ -199,7 +199,7 @@
                                        "row":  3,
                                        "location":  "Entree RDC",
                                        "master":  "switch_entree",
-                                       "slave":  null
+                                       "slave":  []
                                    }
                                ]
                   },
@@ -216,9 +216,7 @@
                                        "row":  1,
                                        "location":  "",
                                        "master":  "dl4-garage",
-                                       "slave":  [
-                                                     "principal"
-                                                 ],
+                                       "slave":  "principal",
                                        "target":  0
                                    },
                                    {
@@ -228,9 +226,7 @@
                                        "row":  2,
                                        "location":  "",
                                        "master":  "dl4-garage",
-                                       "slave":  [
-                                                     "chauffage"
-                                                 ],
+                                       "slave":  "chauffage",
                                        "target":  0
                                    },
                                    {
@@ -240,9 +236,7 @@
                                        "row":  3,
                                        "location":  "",
                                        "master":  "dl4-garage",
-                                       "slave":  [
-                                                     "chauffe-eau"
-                                                 ],
+                                       "slave":  "chauffe-eau",
                                        "target":  0
                                    },
                                    {
@@ -252,12 +246,55 @@
                                        "row":  4,
                                        "location":  "",
                                        "master":  "dl4-garage",
-                                       "slave":  [
-                                                     "salon"
-                                                 ],
+                                       "slave":  "salon",
                                        "target":  0
+                                   }
+                               ]
+                  },
+                  {
+                      "type":  "iSavingSetup",
+                      "label":  "réglages",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  1,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "",
+                                       "master":  "dl4-garage",
+                                       "slave":  "principal"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "",
+                                       "master":  "dl4-garage",
+                                       "slave":  "chauffage"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "",
+                                       "master":  "dl4-garage",
+                                       "slave":  "chauffe-eau"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  4,
+                                       "location":  "",
+                                       "master":  "dl4-garage",
+                                       "slave":  "salon"
                                    }
                                ]
                   }
               ]
 }
+

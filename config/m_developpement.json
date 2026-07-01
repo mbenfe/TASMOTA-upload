@@ -12,7 +12,7 @@
                                           "row":  1,
                                           "location":  "Gauche",
                                           "master":  "rdx-ecopower1",
-                                          "slave":  null
+                                          "slave":  []
                                       },
                                       {
                                           "shape":  "Thermoscreens",
@@ -21,7 +21,7 @@
                                           "row":  2,
                                           "location":  "Gauche",
                                           "master":  "rdx-ecopower2",
-                                          "slave":  null
+                                          "slave":  []
                                       }
                                   ]
                      },
@@ -46,9 +46,7 @@
                                        "row":  1,
                                        "location":  "",
                                        "master":  "dl12-developpement",
-                                       "slave":  [
-                                                     "test1"
-                                                 ],
+                                       "slave":  "test1",
                                        "target":  0
                                    },
                                    {
@@ -58,9 +56,7 @@
                                        "row":  2,
                                        "location":  "",
                                        "master":  "dl12-developpement",
-                                       "slave":  [
-                                                     "test2"
-                                                 ],
+                                       "slave":  "test2",
                                        "target":  0
                                    },
                                    {
@@ -70,9 +66,7 @@
                                        "row":  3,
                                        "location":  "",
                                        "master":  "dl12-developpement",
-                                       "slave":  [
-                                                     "test3"
-                                                 ],
+                                       "slave":  "test3",
                                        "target":  0
                                    },
                                    {
@@ -82,9 +76,7 @@
                                        "row":  4,
                                        "location":  "",
                                        "master":  "dl12-flasher",
-                                       "slave":  [
-                                                     "flasher1"
-                                                 ],
+                                       "slave":  "flasher1",
                                        "target":  0
                                    },
                                    {
@@ -94,9 +86,7 @@
                                        "row":  5,
                                        "location":  "",
                                        "master":  "dl12-flasher",
-                                       "slave":  [
-                                                     "flasher2"
-                                                 ],
+                                       "slave":  "flasher2",
                                        "target":  0
                                    },
                                    {
@@ -106,9 +96,7 @@
                                        "row":  6,
                                        "location":  "",
                                        "master":  "dl12-flasher",
-                                       "slave":  [
-                                                     "flasher3"
-                                                 ],
+                                       "slave":  "flasher3",
                                        "target":  0
                                    },
                                    {
@@ -118,12 +106,82 @@
                                        "row":  7,
                                        "location":  "",
                                        "master":  "dl4-developpement",
-                                       "slave":  [
-                                                     "principal"
-                                                 ],
+                                       "slave":  "principal",
                                        "target":  0
+                                   }
+                               ]
+                  },
+                  {
+                      "type":  "iSavingSetup",
+                      "label":  "réglages",
+                      "level":  1,
+                      "virtuel":  0,
+                      "data":  [
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  1,
+                                       "location":  "",
+                                       "master":  "dl12-developpement",
+                                       "slave":  "test1"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  2,
+                                       "location":  "",
+                                       "master":  "dl12-developpement",
+                                       "slave":  "test2"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  3,
+                                       "location":  "",
+                                       "master":  "dl12-developpement",
+                                       "slave":  "test3"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  4,
+                                       "location":  "",
+                                       "master":  "dl12-flasher",
+                                       "slave":  "flasher1"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  5,
+                                       "location":  "",
+                                       "master":  "dl12-flasher",
+                                       "slave":  "flasher2"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  0,
+                                       "column":  1,
+                                       "row":  6,
+                                       "location":  "",
+                                       "master":  "dl12-flasher",
+                                       "slave":  "flasher3"
+                                   },
+                                   {
+                                       "shape":  "savingSetupCard",
+                                       "color":  1,
+                                       "column":  1,
+                                       "row":  7,
+                                       "location":  "",
+                                       "master":  "dl4-developpement",
+                                       "slave":  "principal"
                                    }
                                ]
                   }
               ]
 }
+
