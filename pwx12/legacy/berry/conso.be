@@ -188,6 +188,8 @@ class conso
                 print('CONSO LOAD: config read')
                 global.configjson = json.load(ligne)
                 print('CONSO LOAD: config parsed')
+                print(global.configjson)
+                print(global.device)
                 print('CONSO LOAD: raw channels = ' + json.dump(global.configjson[global.device]["channels"]))
                 file.close()
             else
