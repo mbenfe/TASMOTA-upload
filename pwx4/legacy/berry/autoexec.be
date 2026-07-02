@@ -57,8 +57,7 @@ end
 # ====================== ESP32 COMMANDS ======================
 # ============================================================
 
-def init()
-    print("----------- debut initialisation")
+def Init()
     import json
     var file = open("esp32.cfg", "rt")
     if file == nil || file.size() == 0
@@ -87,45 +86,15 @@ def init()
     print('ville:', global.ville)
     print('device:', global.device)
 
+    gpio.pin_mode(rxReceive, gpio.INPUT)
+    gpio.pin_mode(txReceive, gpio.OUTPUT)
     gpio.pin_mode(rst, gpio.OUTPUT)
     gpio.pin_mode(bsl, gpio.OUTPUT)
     gpio.digital_write(bsl, 0)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 1)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 0)
-    tasmota.delay(100)  # wait 10ms
-    gpio.digital_write(bsl, 1)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 0)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 1)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 0)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 1)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 0)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 1)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 0)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 1)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 0)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 1)
-    tasmota.delay(10)  # wait 10ms
-    gpio.digital_write(bsl, 0)
-
     gpio.digital_write(rst, 1)
 
-    gpio.pin_mode(rxReceive, gpio.INPUT)
-    gpio.pin_mode(txReceive, gpio.OUTPUT)
     global.serReceive = serial(rxReceive, txReceive, 921600, serial.SERIAL_8N1)
     mqttprint('serial receive initialised')
-    print("----------- fin initialisation")
 end
 
 
@@ -144,20 +113,17 @@ def name(cmd, idx, payload, payload_json)
     var myjson = json.load(config)
     var trouve = 0
     mqttprint('recherche')
-    for i:0..0
-        mqttprint(str(i))
-        if (size(myjson['hours']) > i && myjson['hours'][i]['Name'] == argument[0])
-            myjson['hours'][i]['Name'] = argument[1]
-            trouve += 1
-        end
-        if (size(myjson['days']) > i && myjson['days'][i]['Name'] == argument[0])
-            myjson['days'][i]['Name'] = argument[1]
-            trouve += 1
-        end
-        if (size(myjson['months']) > i && myjson['months'][i]['Name'] == argument[0])
-            myjson['months'][i]['Name'] = argument[1]
-            trouve += 1
-        end
+    if (myjson['hours'] != nil && myjson['hours']['Name'] == argument[0])
+        myjson['hours']['Name'] = argument[1]
+        trouve += 1
+    end
+    if (myjson['days'] != nil && myjson['days']['Name'] == argument[0])
+        myjson['days']['Name'] = argument[1]
+        trouve += 1
+    end
+    if (myjson['months'] != nil && myjson['months']['Name'] == argument[0])
+        myjson['months']['Name'] = argument[1]
+        trouve += 1
     end
     if (trouve == 0)
         mqttprint('nom non existant')
@@ -188,7 +154,6 @@ def fetch_file(payload)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
-        tasmota.add_driver(global.pwx12)
         start()
         return -1
     end
@@ -353,12 +318,6 @@ def couts()
     tasmota.resp_cmnd_done()
 end
 
-def launch_driver()
-    mqttprint('launch driver after 15s')
-    print("main: load pwx4_driver.be")
-    tasmota.load("pwx4_driver.be")
-end
-
 print("main: disable seriallog")
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
@@ -373,6 +332,7 @@ tasmota.add_cmd("start", start)
 
 # ====================== ESP32 COMMANDS ======================
 print("main: register esp32 commands")
+tasmota.add_cmd("Init", Init)
 tasmota.add_cmd("getfile", getfile)
 tasmota.add_cmd("name", name)
 tasmota.add_cmd("help", help)
@@ -383,8 +343,8 @@ tasmota.add_cmd('update', update)
 tasmota.add_cmd('couts', couts)
 
 ############################################################
-# print("main: call init")
-init()
-print("main: schedule pwx4_driver.be load in 15s")
-tasmota.set_timer(15000, launch_driver)
+print("main: call Init")
+Init()
+print("main: load pwx4_driver.be")
+tasmota.load("pwx4_driver.be")
 print("main: autoexec done")

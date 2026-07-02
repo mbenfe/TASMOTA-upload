@@ -3,7 +3,6 @@ import json
 import string
 import mqtt
 import global
-import math
 
 class conso
     var consojson
@@ -381,81 +380,6 @@ class conso
         file = open("couts.json", "wt")
         file.write(ligne)
         file.close()
-    end
-
-    def mqtt_night_vs_day()
-        var channel_name = global.configjson[global.device]["root"][0]
-        if channel_name == "*"
-            return
-        end
-
-        var payload_hours = self.consojson["hours"]["DATA"]
-        var sum_night = 0.0
-        var sum_day = 0.0
-        var cnt_night = 0
-        var cnt_day = 0
-        var avg_night = 0.0
-        var avg_day = 0.0
-        var var_night = 0.0
-        var var_day = 0.0
-        var stdev_night = 0.0
-        var stdev_day = 0.0
-        var night_to_day_pct = 0.0
-        var topic
-        var ligne
-
-        for h:0..23
-            var key = str(h)
-            var value = 0.0
-            if payload_hours.contains(key)
-                value = real(payload_hours[key])
-            end
-
-            if h >= 20 || h <= 4
-                sum_night += value
-                cnt_night += 1
-            else
-                sum_day += value
-                cnt_day += 1
-            end
-        end
-
-        if cnt_night > 0
-            avg_night = sum_night / cnt_night
-        end
-        if cnt_day > 0
-            avg_day = sum_day / cnt_day
-        end
-
-        for h:0..23
-            var key = str(h)
-            var value = 0.0
-            if payload_hours.contains(key)
-                value = real(payload_hours[key])
-            end
-
-            if h >= 20 || h <= 4
-                var_night += (value - avg_night) * (value - avg_night)
-            else
-                var_day += (value - avg_day) * (value - avg_day)
-            end
-        end
-
-        if cnt_night > 0
-            stdev_night = math.sqrt(var_night / cnt_night)
-        end
-        if cnt_day > 0
-            stdev_day = math.sqrt(var_day / cnt_day)
-        end
-
-        if avg_night != 0
-            night_to_day_pct = ((avg_night - avg_day) * 100.0) / avg_night
-        end
-
-        topic = string.format("gw/%s/%s/%s/tele/NIGHTDAY", global.client, global.ville, global.device)
-        ligne = string.format('{"Device":"%s","Name":"%s_ND","avg_night":%.3f,"stdev_nigth":%.3f,"avg_day":%.3f,"stddev_day":%.3f,"saving":%.2f}',
-            global.device, channel_name, avg_night, stdev_night, avg_day, stdev_day, night_to_day_pct)
-        mqtt.publish(topic, ligne, true)
     end
 
     def mqtt_publish(scope)

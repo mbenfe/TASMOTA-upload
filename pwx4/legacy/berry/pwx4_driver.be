@@ -148,7 +148,7 @@ class PWX4
 
     def midnight()
         self.conso.mqtt_publish('all')
-        self.conso.mqtt_night_vs_day()
+        tasmota.cmd('nightday')
     end
 
     def hour()
