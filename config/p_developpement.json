@@ -3,18 +3,70 @@
     "parent": [ "principal", "principal", "principal" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [ { "name": "test1", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "test2", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "test3", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
+    "channels": [
+      {
+        "name": "test1",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "test2",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "test3",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
   },
   "dl12-flasher": {
     "parent": [ "principal", "principal", "principal" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [ { "name": "flasher1", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "flasher2", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "flasher3", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
+    "channels": [
+      {
+        "name": "flasher1",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "flasher2",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "flasher3",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
   },
   "dl4-developpement": {
     "parent": [ "" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
-    "channels": [ { "name": "principal", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
+    "channels": [
+      {
+        "name": "principal",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
   }
 }
