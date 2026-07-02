@@ -21,12 +21,29 @@ class PWX12
     var topic 
     var conso
 
+    def debug_ctx(tag)
+        var has_cfg = (global.configjson != nil)
+        var has_dev = false
+        if has_cfg
+            has_dev = global.configjson.contains(global.device)
+        end
+        print(string.format("PWX12 DBG [%s] ville=%s device=%s client=%s cfg=%s cfg_has_device=%s",
+            tag,
+            str(global.ville),
+            str(global.device),
+            str(global.client),
+            str(has_cfg),
+            str(has_dev)
+        ))
+    end
+
     def init()
         import conso
         self.conso = conso
 
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
+        self.debug_ctx('init')
     end
 
     def fast_loop()
@@ -64,6 +81,8 @@ class PWX12
         if line[0] == 'C'
             split = string.split(line, ':')
             if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
+                print(string.format("PWX12 DBG [C] raw=%s", line))
+                self.debug_ctx('before conso.update')
                 self.conso.update(line)
                 topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                 mqtt.publish(topic, line, true)
@@ -81,6 +100,8 @@ class PWX12
         elif line[0] == 'W'
             split = string.split(line, ':')
             if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
+                print(string.format("PWX12 DBG [W] raw=%s", line))
+                self.debug_ctx('before W publish loop')
                 for j: 0..2
                     if global.configjson[global.device]["root"][j] != "*"
                         topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
@@ -130,7 +151,9 @@ class PWX12
     end
 
     def midnight()
+        self.debug_ctx('midnight start')
         self.conso.mqtt_publish('all')
+        print('PWX12 DBG [midnight] calling command: nightday')
         tasmota.cmd('nightday')
     end
 
