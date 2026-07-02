@@ -160,9 +160,10 @@ class conso
         end
         file = open(name, "rt")
         ligne = file.read()
+        print('ligne:', ligne)
         file.close()
         var all_cfg = json.load(ligne)
-        print(all_cfg)
+        print('all_cfg:', all_cfg)
         if all_cfg == nil || !all_cfg.contains(global.device)
             raise 'device not found in config:', str(global.device)
         end
