@@ -21,6 +21,10 @@ class PWX12
     var topic 
     var conso
 
+    def channel_name(index)
+        return global.configjson[global.device]["channels"][index]["name"]
+    end
+
     def debug_ctx(tag)
         var has_cfg = (global.configjson != nil)
         var has_dev = false
@@ -106,9 +110,9 @@ class PWX12
                 print(string.format("PWX12 DBG [W] raw=%s", line))
                 self.debug_ctx('before W publish loop')
                 for j: 0..2
-                    if global.configjson[global.device]["root"][j] != "*"
+                    if self.channel_name(j) != "*"
                         topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
-                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
+                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, self.channel_name(j), real(split[j + 1]))
                         mqtt.publish(topic, ligne, true)
                     end
                 end
