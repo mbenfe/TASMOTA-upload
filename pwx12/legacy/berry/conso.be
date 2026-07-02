@@ -128,18 +128,22 @@ class conso
         var ligne
         var name = string.format("p_%s.json", global.ville)
         import path
-        print('CONSO LOAD: checking config file ' + name)
+        print('INIT CONSO LOAD: checking config file ' + name)
         if (path.exists(name))
-            print('CONSO LOAD: config file exists')
+            print('INIT CONSO LOAD: config file exists')
             file = open(name, "rt")
             ligne = file.read()
             print('CONSO LOAD: config file read')
             file.close()
             global.configjson = json.load(ligne)
-            print('CONSO LOAD: config file parsed')
-            print('CONSO LOAD: raw channels = ' + json.dump(global.configjson[global.device]["channels"]))
+            print('INIT CONSO LOAD: config file parsed')
+            print(global.configjson)
+            print(global.device)
+            print( 'INIT CONSO LOAD: device entry = ' + json.dump(global.configjson[global.device]["channels"]))
+
+            print('INIT CONSO LOAD: raw channels = ' + json.dump(global.configjson[global.device]["channels"]))
             if global.configjson[global.device]["produit"] == "PWX12"
-                print('CONSO LOAD: building conso json for PWX12')
+                print('INIT CONSO LOAD: building conso json for PWX12')
                 ligne = string.format('{"hours":[]}')
                 var mainjson = json.load(ligne)
                 mainjson.insert("days", [])
@@ -156,7 +160,7 @@ class conso
                     end
                 end
                 ligne = json.dump(mainjson)
-                print('CONSO LOAD: init_conso ready')
+                print('INIT CONSO LOAD: init_conso ready')
                 return ligne
             end
         else
