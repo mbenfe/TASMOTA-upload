@@ -8,16 +8,18 @@
                              "data":  [
                                           {
                                               "shape":  "OpenWeather",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  1,
                                               "location":  "MAISON",
                                               "master":  "",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "iCoutsPareto",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  2,
                                               "location":  "Total/Boulangerie/Reserve/Depart/Parking/Bureaux/Froid/Caisses/Eclairage 1/Eclairage 2",
@@ -32,7 +34,8 @@
                                                             "c_froid",
                                                             "c_td_caisses",
                                                             "c_eclpub1",
-                                                            "c_eclpub2"
+                                                            "c_eclpub2",
+                                                            "c_td_boulangerie_ND"
                                                         ]
                                           }
                                       ]
@@ -45,30 +48,37 @@
                              "data":  [
                                           {
                                               "shape":  "spacer",
-                                              "color":  2,
+                                              "color":  "GREEN",
                                               "column":  1,
                                               "row":  1,
                                               "location":  "AEROTHERMES",
                                               "master":  "",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "iAerotherme",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  2,
                                               "location":  "Meubles froids",
                                               "master":  "aex-2",
-                                              "slave":  "setup_aex-2"
+                                              "slave":  [
+                                                            "setup_aex-2",
+                                                            "setup_aex-2_ND"
+                                                        ]
                                           },
                                           {
                                               "shape":  "spacer",
-                                              "color":  2,
+                                              "color":  "GREEN",
                                               "column":  1,
                                               "row":  6,
                                               "location":  "RIDEAU",
                                               "master":  "",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           }
                                       ]
                          },
@@ -79,12 +89,14 @@
                              "virtuel":  0,
                              "data":  {
                                           "shape":  "scores",
-                                          "color":  2,
+                                          "color":  "GREEN",
                                           "column":  1,
                                           "row":  1,
                                           "location":  "",
                                           "master":  "ranking",
-                                          "slave":  []
+                                          "slave":  [
+
+                                                    ]
                                       }
                          },
                          {
@@ -95,21 +107,26 @@
                              "data":  [
                                           {
                                               "shape":  "iFroidSummary",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  1,
                                               "location":  "",
                                               "master":  "group_scores",
-                                              "slave":  "snx_config"
+                                              "slave":  [
+                                                            "snx_config",
+                                                            "snx_config_ND"
+                                                        ]
                                           },
                                           {
                                               "shape":  "banner",
-                                              "color":  2,
+                                              "color":  "GREEN",
                                               "column":  1,
                                               "row":  2,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [],
+                                              "slave":  [
+
+                                                        ],
                                               "text":  "Chambres negatives %€ / %€",
                                               "values":  [
                                                              "cout_cf-",
@@ -118,22 +135,26 @@
                                           },
                                           {
                                               "shape":  "CF-",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  3,
                                               "location":  "Surgelés",
                                               "master":  "CFSurgelesM_60",
                                               "details":  "details_CFSurgelesM_60",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "banner",
-                                              "color":  2,
+                                              "color":  "GREEN",
                                               "column":  1,
                                               "row":  4,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [],
+                                              "slave":  [
+
+                                                        ],
                                               "text":  "Meubles negatifs %€ / %€",
                                               "values":  [
                                                              "cout_vitrine-",
@@ -142,42 +163,50 @@
                                           },
                                           {
                                               "shape":  "VITRINE-",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  5,
                                               "location":  "Surgelés",
                                               "master":  "SurgPortesM_10",
                                               "details":  "details_SurgPortesM_10",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE-",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  5,
                                               "location":  "Surgelés",
                                               "master":  "SurgPortesME1_11",
                                               "details":  "details_SurgPortesME1_11",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE-",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  3,
                                               "row":  5,
                                               "location":  "Surgelés",
                                               "master":  "SurgPortesE2_12",
                                               "details":  "details_SurgPortesE2_12",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "banner",
-                                              "color":  2,
+                                              "color":  "GREEN",
                                               "column":  1,
                                               "row":  6,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [],
+                                              "slave":  [
+
+                                                        ],
                                               "text":  "Bacs negatifs %€ / %€",
                                               "values":  [
                                                              "cout_bac-",
@@ -194,21 +223,26 @@
                              "data":  [
                                           {
                                               "shape":  "iFroidSummary",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  1,
                                               "location":  "",
                                               "master":  "group_scores",
-                                              "slave":  "snx_config"
+                                              "slave":  [
+                                                            "snx_config",
+                                                            "snx_config_ND"
+                                                        ]
                                           },
                                           {
                                               "shape":  "banner",
-                                              "color":  2,
+                                              "color":  "GREEN",
                                               "column":  1,
                                               "row":  2,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [],
+                                              "slave":  [
+
+                                                        ],
                                               "text":  "Chambres positives %€ / %€",
                                               "values":  [
                                                              "cout_cf+",
@@ -217,82 +251,98 @@
                                           },
                                           {
                                               "shape":  "CF+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  3,
                                               "location":  "Fruit\u0026Légumes",
                                               "master":  "CFFruitsLegM_61",
                                               "details":  "details_CFFruitsLegM_61",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "CF+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  3,
                                               "location":  "C",
                                               "master":  "CF2_62",
                                               "details":  "details_CF2_62",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "CF+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  4,
                                               "location":  "Labo Boucherie",
                                               "master":  "LaboBoucherie_63",
                                               "details":  "details_LaboBoucherie_63",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "CF+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  4,
                                               "location":  "C",
                                               "master":  "CF4_64",
                                               "details":  "details_CF4_64",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "CF+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  5,
                                               "location":  "C",
                                               "master":  "CF5_65",
                                               "details":  "details_CF5_65",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "CF+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  5,
                                               "location":  "C",
                                               "master":  "CF6_66",
                                               "details":  "details_CF6_66",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "CF+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  6,
                                               "location":  "Fruit\u0026Légumes",
                                               "master":  "CFFruitsLeg_67",
                                               "details":  "details_CFFruitsLeg_67",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "banner",
-                                              "color":  2,
+                                              "color":  "GREEN",
                                               "column":  1,
                                               "row":  7,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [],
+                                              "slave":  [
+
+                                                        ],
                                               "text":  "Meubles positif %€ / %€",
                                               "values":  [
                                                              "cout_vitrine+",
@@ -301,262 +351,314 @@
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  8,
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisM_20",
                                               "details":  "details_UltraFraisM_20",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  8,
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisE1_21",
                                               "details":  "details_UltraFraisE1_21",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  3,
                                               "row":  8,
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisE2_22",
                                               "details":  "details_UltraFraisE2_22",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  4,
                                               "row":  8,
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisM_23",
                                               "details":  "details_UltraFraisM_23",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  9,
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisE1_24",
                                               "details":  "details_UltraFraisE1_24",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  9,
                                               "location":  "Ultra Frais",
                                               "master":  "UltraFraisE2_25",
                                               "details":  "details_UltraFraisE2_25",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  3,
                                               "row":  9,
                                               "location":  "Ultar",
                                               "master":  "UltarFraisE3_26",
                                               "details":  "details_UltarFraisE3_26",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  4,
                                               "row":  9,
                                               "location":  "From",
                                               "master":  "FromTraitLSM_28",
                                               "details":  "details_FromTraitLSM_28",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  10,
                                               "location":  "From",
                                               "master":  "FromTraitLSE1_29",
                                               "details":  "details_FromTraitLSE1_29",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  10,
                                               "location":  "Maree",
                                               "master":  "MareeM_31",
                                               "details":  "details_MareeM_31",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  3,
                                               "row":  10,
                                               "location":  "Volailles",
                                               "master":  "VolaillesLSM_32",
                                               "details":  "details_VolaillesLSM_32",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  4,
                                               "row":  10,
                                               "location":  "Volailles",
                                               "master":  "VolaillesLSE1_33",
                                               "details":  "details_VolaillesLSE1_33",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  11,
                                               "location":  "Volailles",
                                               "master":  "VolaillesLSE2_35",
                                               "details":  "details_VolaillesLSE2_35",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  11,
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSM_38",
                                               "details":  "details_BoucherieLSM_38",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  3,
                                               "row":  11,
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSM_39",
                                               "details":  "details_BoucherieLSM_39",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  4,
                                               "row":  11,
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSE1_40",
                                               "details":  "details_BoucherieLSE1_40",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  12,
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSM_41",
                                               "details":  "details_BoucherieLSM_41",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  12,
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSM_42",
                                               "details":  "details_BoucherieLSM_42",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  3,
                                               "row":  12,
                                               "location":  "Boucherie",
                                               "master":  "BoucherieLSE1_43",
                                               "details":  "details_BoucherieLSE1_43",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  4,
                                               "row":  12,
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSM_46",
                                               "details":  "details_CharcuterieLSM_46",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  13,
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE1_47",
                                               "details":  "details_CharcuterieLSE1_47",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  2,
                                               "row":  13,
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE2_48",
                                               "details":  "details_CharcuterieLSE2_48",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  3,
                                               "row":  13,
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE3_49",
                                               "details":  "details_CharcuterieLSE3_49",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  4,
                                               "row":  13,
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSM_50",
                                               "details":  "details_CharcuterieLSM_50",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "VITRINE+",
-                                              "color":  0,
+                                              "color":  "TRANSPARENT",
                                               "column":  1,
                                               "row":  14,
                                               "location":  "Charcuterie",
                                               "master":  "CharcuterieLSE1_51",
                                               "details":  "details_CharcuterieLSE1_51",
-                                              "slave":  []
+                                              "slave":  [
+
+                                                        ]
                                           },
                                           {
                                               "shape":  "banner",
-                                              "color":  2,
+                                              "color":  "GREEN",
                                               "column":  1,
                                               "row":  15,
                                               "location":  "",
                                               "master":  "cout_groupes",
-                                              "slave":  [],
+                                              "slave":  [
+
+                                                        ],
                                               "text":  "Bacs positifs %€ / %€",
                                               "values":  [
                                                              "cout_bac+",
@@ -575,16 +677,18 @@
                       "data":  [
                                    {
                                        "shape":  "OpenWeather",
-                                       "color":  0,
+                                       "color":  "TRANSPARENT",
                                        "column":  1,
                                        "row":  1,
                                        "location":  "MAISON",
                                        "master":  "",
-                                       "slave":  []
+                                       "slave":  [
+
+                                                 ]
                                    },
                                    {
                                        "shape":  "iCoutsPareto",
-                                       "color":  0,
+                                       "color":  "TRANSPARENT",
                                        "column":  1,
                                        "row":  2,
                                        "location":  "Total/Boulangerie/Reserve/Depart/Parking/Bureaux/Froid/Caisses/Eclairage 1/Eclairage 2",
@@ -599,7 +703,8 @@
                                                      "c_froid",
                                                      "c_td_caisses",
                                                      "c_eclpub1",
-                                                     "c_eclpub2"
+                                                     "c_eclpub2",
+                                                     "c_td_boulangerie_ND"
                                                  ]
                                    }
                                ]
@@ -612,508 +717,343 @@
                       "data":  [
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  1,
+                                       "color":  "BLUE",
                                        "column":  1,
                                        "row":  1,
                                        "location":  "",
                                        "master":  "dl12-tgbt1",
-                                       "slave":  "gene",
+                                       "slave":  [
+                                                     "gene",
+                                                     "gene_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  2,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  2,
                                        "location":  "",
-                                       "master":  "dl12-tgbt1",
-                                       "slave":  "depart",
+                                       "master":  "dl12-tgbt4",
+                                       "slave":  [
+                                                     "chauffage",
+                                                     "chauffage_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "GREEN",
                                        "column":  1,
                                        "row":  3,
                                        "location":  "",
                                        "master":  "dl12-tgbt1",
-                                       "slave":  "parking",
+                                       "slave":  [
+                                                     "depart",
+                                                     "depart_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "GREEN_LIGHT",
                                        "column":  1,
                                        "row":  4,
                                        "location":  "",
-                                       "master":  "dl12-tgbt2",
-                                       "slave":  "eclpub1",
+                                       "master":  "dl12-aero",
+                                       "slave":  [
+                                                     "aero1",
+                                                     "aero1_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "GREEN_LIGHT",
                                        "column":  1,
                                        "row":  5,
                                        "location":  "",
-                                       "master":  "dl12-tgbt2",
-                                       "slave":  "eclpub2",
+                                       "master":  "dl12-aero",
+                                       "slave":  [
+                                                     "aero2",
+                                                     "aero2_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "GREEN_LIGHT",
                                        "column":  1,
                                        "row":  6,
                                        "location":  "",
-                                       "master":  "dl12-tgbt2",
-                                       "slave":  "froid",
+                                       "master":  "dl12-aero",
+                                       "slave":  [
+                                                     "aero3",
+                                                     "aero3_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "GREEN_LIGHT",
                                        "column":  1,
                                        "row":  7,
                                        "location":  "",
-                                       "master":  "dl12-tgbt3",
-                                       "slave":  "pcpublic",
+                                       "master":  "dl4-aero",
+                                       "slave":  [
+                                                     "aero4",
+                                                     "aero4_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  8,
                                        "location":  "",
-                                       "master":  "dl12-tgbt3",
-                                       "slave":  "eclprive",
+                                       "master":  "dl12-tgbt4",
+                                       "slave":  [
+                                                     "divers",
+                                                     "divers_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  9,
                                        "location":  "",
                                        "master":  "dl12-tgbt3",
-                                       "slave":  "ecldeco",
+                                       "slave":  [
+                                                     "ecldeco",
+                                                     "ecldeco_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  10,
                                        "location":  "",
-                                       "master":  "dl12-tgbt4",
-                                       "slave":  "pcprive",
+                                       "master":  "dl12-tgbt3",
+                                       "slave":  [
+                                                     "eclprive",
+                                                     "eclprive_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  11,
                                        "location":  "",
-                                       "master":  "dl12-tgbt4",
-                                       "slave":  "divers",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  [
+                                                     "eclpub1",
+                                                     "eclpub1_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  12,
                                        "location":  "",
-                                       "master":  "dl12-tgbt4",
-                                       "slave":  "chauffage",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  [
+                                                     "eclpub2",
+                                                     "eclpub2_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  13,
                                        "location":  "",
-                                       "master":  "dl4-reserve",
-                                       "slave":  "reserve",
+                                       "master":  "dl12-tgbt2",
+                                       "slave":  [
+                                                     "froid",
+                                                     "froid_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  2,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  14,
                                        "location":  "",
-                                       "master":  "dl12-labo",
-                                       "slave":  "td_labo",
+                                       "master":  "dl12-tgbt1",
+                                       "slave":  [
+                                                     "parking",
+                                                     "parking_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  15,
                                        "location":  "",
-                                       "master":  "dl12-labo",
-                                       "slave":  "ecllabo",
+                                       "master":  "dl12-tgbt4",
+                                       "slave":  [
+                                                     "pcprive",
+                                                     "pcprive_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  16,
                                        "location":  "",
-                                       "master":  "dl12-labo",
-                                       "slave":  "pclabo",
+                                       "master":  "dl12-tgbt3",
+                                       "slave":  [
+                                                     "pcpublic",
+                                                     "pcpublic_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  2,
+                                       "color":  "BLUE_LIGHT",
                                        "column":  1,
                                        "row":  17,
                                        "location":  "",
-                                       "master":  "dl12-boulangerie",
-                                       "slave":  "td_boulangerie",
+                                       "master":  "dl4-reserve",
+                                       "slave":  [
+                                                     "reserve",
+                                                     "reserve_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "ORANGE",
                                        "column":  1,
                                        "row":  18,
                                        "location":  "",
                                        "master":  "dl12-boulangerie",
-                                       "slave":  "fours",
+                                       "slave":  [
+                                                     "td_boulangerie",
+                                                     "td_boulangerie_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "ORANGE_LIGHT",
                                        "column":  1,
                                        "row":  19,
                                        "location":  "",
                                        "master":  "dl12-boulangerie",
-                                       "slave":  "divers_bl",
+                                       "slave":  [
+                                                     "divers_bl",
+                                                     "divers_bl_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  2,
+                                       "color":  "ORANGE_LIGHT",
                                        "column":  1,
                                        "row":  20,
                                        "location":  "",
-                                       "master":  "dl12-caisses",
-                                       "slave":  "td_caisses",
+                                       "master":  "dl12-boulangerie",
+                                       "slave":  [
+                                                     "fours",
+                                                     "fours_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "YELLOW",
                                        "column":  1,
                                        "row":  21,
                                        "location":  "",
                                        "master":  "dl12-caisses",
-                                       "slave":  "pc",
+                                       "slave":  [
+                                                     "td_caisses",
+                                                     "td_caisses_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "YELLOW_LIGHT",
                                        "column":  1,
                                        "row":  22,
                                        "location":  "",
                                        "master":  "dl12-caisses",
-                                       "slave":  "caisses",
+                                       "slave":  [
+                                                     "caisses",
+                                                     "caisses_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "YELLOW_LIGHT",
                                        "column":  1,
                                        "row":  23,
                                        "location":  "",
-                                       "master":  "dl12-aero",
-                                       "slave":  "aero1",
+                                       "master":  "dl12-caisses",
+                                       "slave":  [
+                                                     "pc",
+                                                     "pc_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "RED",
                                        "column":  1,
                                        "row":  24,
                                        "location":  "",
-                                       "master":  "dl12-aero",
-                                       "slave":  "aero2",
+                                       "master":  "dl12-labo",
+                                       "slave":  [
+                                                     "td_labo",
+                                                     "td_labo_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "RED_LIGHT",
                                        "column":  1,
                                        "row":  25,
                                        "location":  "",
-                                       "master":  "dl12-aero",
-                                       "slave":  "aero3",
+                                       "master":  "dl12-labo",
+                                       "slave":  [
+                                                     "ecllabo",
+                                                     "ecllabo_ND"
+                                                 ],
                                        "target":  0
                                    },
                                    {
                                        "shape":  "savingSetupCard",
-                                       "color":  0,
+                                       "color":  "RED_LIGHT",
                                        "column":  1,
                                        "row":  26,
                                        "location":  "",
-                                       "master":  "dl4-aero",
-                                       "slave":  "aero4",
+                                       "master":  "dl12-labo",
+                                       "slave":  [
+                                                     "pclabo",
+                                                     "pclabo_ND"
+                                                 ],
                                        "target":  0
-                                   }
-                               ]
-                  },
-                  {
-                      "type":  "iSavingSetup",
-                      "label":  "réglages",
-                      "level":  1,
-                      "virtuel":  0,
-                      "data":  [
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  1,
-                                       "column":  1,
-                                       "row":  1,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt1",
-                                       "slave":  "gene"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  2,
-                                       "column":  1,
-                                       "row":  2,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt1",
-                                       "slave":  "depart"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  3,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt1",
-                                       "slave":  "parking"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  4,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt2",
-                                       "slave":  "eclpub1"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  5,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt2",
-                                       "slave":  "eclpub2"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  6,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt2",
-                                       "slave":  "froid"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  7,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt3",
-                                       "slave":  "pcpublic"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  8,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt3",
-                                       "slave":  "eclprive"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  9,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt3",
-                                       "slave":  "ecldeco"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  10,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt4",
-                                       "slave":  "pcprive"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  11,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt4",
-                                       "slave":  "divers"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  12,
-                                       "location":  "",
-                                       "master":  "dl12-tgbt4",
-                                       "slave":  "chauffage"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  13,
-                                       "location":  "",
-                                       "master":  "dl4-reserve",
-                                       "slave":  "reserve"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  2,
-                                       "column":  1,
-                                       "row":  14,
-                                       "location":  "",
-                                       "master":  "dl12-labo",
-                                       "slave":  "td_labo"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  15,
-                                       "location":  "",
-                                       "master":  "dl12-labo",
-                                       "slave":  "ecllabo"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  16,
-                                       "location":  "",
-                                       "master":  "dl12-labo",
-                                       "slave":  "pclabo"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  2,
-                                       "column":  1,
-                                       "row":  17,
-                                       "location":  "",
-                                       "master":  "dl12-boulangerie",
-                                       "slave":  "td_boulangerie"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  18,
-                                       "location":  "",
-                                       "master":  "dl12-boulangerie",
-                                       "slave":  "fours"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  19,
-                                       "location":  "",
-                                       "master":  "dl12-boulangerie",
-                                       "slave":  "divers_bl"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  2,
-                                       "column":  1,
-                                       "row":  20,
-                                       "location":  "",
-                                       "master":  "dl12-caisses",
-                                       "slave":  "td_caisses"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  21,
-                                       "location":  "",
-                                       "master":  "dl12-caisses",
-                                       "slave":  "pc"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  22,
-                                       "location":  "",
-                                       "master":  "dl12-caisses",
-                                       "slave":  "caisses"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  23,
-                                       "location":  "",
-                                       "master":  "dl12-aero",
-                                       "slave":  "aero1"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  24,
-                                       "location":  "",
-                                       "master":  "dl12-aero",
-                                       "slave":  "aero2"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  25,
-                                       "location":  "",
-                                       "master":  "dl12-aero",
-                                       "slave":  "aero3"
-                                   },
-                                   {
-                                       "shape":  "savingSetupCard",
-                                       "color":  0,
-                                       "column":  1,
-                                       "row":  26,
-                                       "location":  "",
-                                       "master":  "dl4-aero",
-                                       "slave":  "aero4"
                                    }
                                ]
                   }
               ]
 }
-
