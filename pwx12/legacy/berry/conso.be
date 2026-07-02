@@ -178,6 +178,8 @@ class conso
                 ligne = file.read()
                 self.consojson = json.load(ligne)
                 print(self.consojson)
+                global.device = self.consojson["hours"][0]["Device"]
+                print('CONSO LOAD: device from conso.json = ' + str(global.device))
                 file.close()
                 var name = string.format("p_%s.json", global.ville)
                 print('CONSO LOAD: opening config ' + name)
