@@ -1,1 +1,763 @@
-{"1":{"device":"daemon","Name":"CfCremerie_1","TYPE":"historique","DATA":{"0":74008,"14":12391,"total":86399,"cout":9.63},"score":0.0},"2":{"device":"daemon","Name":"CfFruitLeg_2","TYPE":"historique","DATA":{"11":51190,"0":22462,"14":12746,"total":86398,"cout":7.11},"score":0.5925},"3":{"device":"daemon","Name":"CfCracasses_3","TYPE":"historique","DATA":{"0":73898,"14":12501,"total":86399,"cout":14.39},"score":0.0},"4":{"device":"daemon","Name":"CfSuif_4","TYPE":"historique","DATA":{"0":50395,"14":12376,"11":23627,"total":86398,"cout":2.39},"score":0.2735},"5":{"device":"daemon","Name":"LaboBoucherie_5","TYPE":"historique","DATA":{"11":59956,"0":13656,"14":12786,"total":86398,"cout":7.67},"score":0.694},"6":{"device":"daemon","Name":"CfDrive_6","TYPE":"historique","DATA":{"11":51755,"0":21877,"14":12766,"total":86398,"cout":2.84},"score":0.599},"20":{"device":"daemon","Name":"TgSurgPorte_20","TYPE":"historique","DATA":{"23":84699,"14":850,"4":615,"15":235,"total":86399,"cout":3.05},"score":0.0},"21":{"device":"daemon","Name":"SurgPorte_21","TYPE":"historique","DATA":{"23":47890,"11":36459,"14":1340,"4":535,"15":175,"total":86399,"cout":5.44},"score":0.422},"22":{"device":"daemon","Name":"SurgPorte_22","TYPE":"historique","DATA":{"23":53841,"11":30508,"14":1340,"4":535,"15":175,"total":86399,"cout":6.09},"score":0.3531},"23":{"device":"daemon","Name":"SurgPorte_23","TYPE":"historique","DATA":{"23":43980,"11":40369,"14":1125,"1":215,"4":535,"15":175,"total":86399,"cout":5.02},"score":0.4672},"24":{"device":"daemon","Name":"SurgPorte_24","TYPE":"historique","DATA":{"23":61007,"11":23532,"14":1015,"1":70,"4":600,"15":175,"total":86399,"cout":6.85},"score":0.2724},"25":{"device":"daemon","Name":"SurgPorte_25","TYPE":"historique","DATA":{"23":63912,"11":20577,"14":1085,"4":600,"15":225,"total":86399,"cout":7.17},"score":0.2382},"26":{"device":"daemon","Name":"SurgPorte_26","TYPE":"historique","DATA":{"11":33429,"23":51110,"14":1015,"1":70,"4":600,"15":175,"total":86399,"cout":5.77},"score":0.3869},"27":{"device":"daemon","Name":"SurgPorte_27","TYPE":"historique","DATA":{"23":66462,"11":16771,"14":2345,"4":545,"15":275,"total":86398,"cout":7.91},"score":0.1941},"28":{"device":"daemon","Name":"SurgPorte_28","TYPE":"historique","DATA":{"23":66037,"11":17432,"14":1195,"1":1035,"4":585,"15":115,"total":86399,"cout":7.84},"score":0.2018},"30":{"device":"daemon","Name":"VolCharcut_30","TYPE":"historique","DATA":{"11":63012,"23":12551,"14":10836,"total":86399,"cout":0.76},"score":0.7293},"31":{"device":"daemon","Name":"VolCharcut_31","TYPE":"historique","DATA":{"11":65367,"23":10131,"14":10901,"total":86399,"cout":0.68},"score":0.7566},"32":{"device":"daemon","Name":"VolCharcut_32","TYPE":"historique","DATA":{"11":62922,"23":12496,"14":10901,"24":80,"total":86399,"cout":0.76},"score":0.7283},"33":{"device":"daemon","Name":"BoucherieLs_33","TYPE":"historique","DATA":{"11":64967,"23":10501,"14":10851,"24":80,"total":86399,"cout":0.46},"score":0.7519},"34":{"device":"daemon","Name":"BoucherieLs_34","TYPE":"historique","DATA":{"11":62222,"23":13326,"14":10851,"total":86399,"cout":0.52},"score":0.7202},"35":{"device":"daemon","Name":"TgFrais_35","TYPE":"historique","DATA":{"11":33194,"23":31053,"14":21757,"24":395,"total":86399,"cout":0.84},"score":0.3842},"36":{"device":"daemon","Name":"TraiteurLs_36","TYPE":"historique","DATA":{"11":55331,"23":9426,"14":21642,"total":86399,"cout":0.66},"score":0.6404},"37":{"device":"daemon","Name":"TraiteurLs_37","TYPE":"historique","DATA":{"11":52111,"23":12446,"14":21782,"24":60,"total":86399,"cout":1.11},"score":0.6031},"38":{"device":"daemon","Name":"TraiteurLs_38","TYPE":"historique","DATA":{"11":55106,"23":9536,"14":21687,"1":70,"total":86399,"cout":1.01},"score":0.6378},"39":{"device":"daemon","Name":"TgFrais_39","TYPE":"historique","DATA":{"11":37039,"23":27243,"14":21912,"24":205,"total":86399,"cout":0.78},"score":0.4287},"40":{"device":"daemon","Name":"FromageLs_40","TYPE":"historique","DATA":{"23":10496,"11":54191,"14":21632,"24":80,"total":86399,"cout":1.04},"score":0.6272},"41":{"device":"daemon","Name":"FromageLs_41","TYPE":"historique","DATA":{"11":49190,"23":15271,"14":21937,"total":86398,"cout":1.2},"score":0.5693},"42":{"device":"daemon","Name":"FromageLs_42","TYPE":"historique","DATA":{"23":13311,"11":51265,"14":21822,"total":86398,"cout":0.75},"score":0.5934},"43":{"device":"daemon","Name":"TgFrais_43","TYPE":"historique","DATA":{"14":21812,"23":25007,"11":39459,"24":120,"total":86398,"cout":0.74},"score":0.4567},"44":{"device":"daemon","Name":"CremerieLs_44","TYPE":"historique","DATA":{"14":21797,"23":14806,"11":49745,"24":50,"total":86398,"cout":0.78},"score":0.5758},"45":{"device":"daemon","Name":"CremerieLs_45","TYPE":"historique","DATA":{"14":21627,"23":8916,"11":55856,"total":86399,"cout":0.99},"score":0.6465},"46":{"device":"daemon","Name":"CremerieLs_46","TYPE":"historique","DATA":{"14":21797,"23":13116,"11":51331,"24":155,"total":86399,"cout":1.13},"score":0.5941},"47":{"device":"daemon","Name":"TgFrais_47","TYPE":"historique","DATA":{"11":37004,"23":27323,"14":21862,"24":210,"total":86399,"cout":0.78},"score":0.4283},"48":{"device":"daemon","Name":"CremerieLs_48","TYPE":"historique","DATA":{"11":53571,"14":21812,"23":11016,"total":86399,"cout":1.06},"score":0.62},"49":{"device":"daemon","Name":"CremerieLs_49","TYPE":"historique","DATA":{"23":11826,"11":52850,"14":21722,"total":86398,"cout":1.08},"score":0.6117},"50":{"device":"daemon","Name":"CremerieLs_50","TYPE":"historique","DATA":{"23":11576,"11":52745,"14":21837,"24":240,"total":86398,"cout":0.72},"score":0.6105},"51":{"device":"daemon","Name":"Ulf_51","TYPE":"historique","DATA":{"11":51250,"23":24257,"14":10891,"total":86398,"cout":1.14},"score":0.5932},"52":{"device":"daemon","Name":"Ulf_52","TYPE":"historique","DATA":{"11":62062,"23":13366,"14":10971,"total":86399,"cout":0.79},"score":0.7183},"53":{"device":"daemon","Name":"Ulf_53","TYPE":"historique","DATA":{"11":62217,"23":13251,"14":10931,"total":86399,"cout":0.78},"score":0.7201},"57":{"device":"daemon","Name":"TgSv_57","TYPE":"historique","DATA":{"11":23227,"23":48325,"18":1790,"14":12776,"24":280,"total":86398,"cout":0.46},"score":0.2688},"58":{"device":"daemon","Name":"SemiVert_58","TYPE":"historique","DATA":{"23":58326,"11":13131,"18":2165,"14":12776,"total":86398,"cout":0.95},"score":0.152},"59":{"device":"daemon","Name":"TgSv_59","TYPE":"historique","DATA":{"23":51795,"11":20132,"18":1770,"14":12701,"total":86398,"cout":0.48},"score":0.233},"60":{"device":"daemon","Name":"SemiVert_60","TYPE":"historique","DATA":{"23":52671,"18":3440,"11":17352,"14":12811,"24":125,"total":86399,"cout":0.89},"score":0.2008},"61":{"device":"daemon","Name":"4eGamme_61","TYPE":"historique","DATA":{"14":27263,"23":16151,"11":42825,"24":160,"total":86399,"cout":0.93},"score":0.4957},"62":{"device":"daemon","Name":"4eGamme_62","TYPE":"historique","DATA":{"14":27378,"23":25682,"11":33173,"24":165,"total":86398,"cout":1.14},"score":0.384},"63":{"device":"daemon","Name":"4eGamme_63","TYPE":"historique","DATA":{"14":27243,"23":39904,"11":18992,"24":195,"1":65,"total":86399,"cout":1.47},"score":0.2198},"64":{"device":"daemon","Name":"BouchTrad_64","TYPE":"historique","DATA":{"11":39694,"23":33648,"14":12716,"24":340,"total":86398,"cout":0.18},"score":0.4594},"65":{"device":"daemon","Name":"BouchTrad_65","TYPE":"historique","DATA":{"11":34979,"23":38544,"14":12636,"24":240,"total":86399,"cout":0.2},"score":0.4049},"66":{"device":"daemon","Name":"BouchTrad_66","TYPE":"historique","DATA":{"11":50946,"23":22147,"14":12716,"24":590,"total":86399,"cout":0.29},"score":0.5897},"67":{"device":"daemon","Name":"BouchTrad_67","TYPE":"historique","DATA":{"11":51566,"23":21392,"14":12641,"24":800,"total":86399,"cout":0.28},"score":0.5968},"68":{"device":"daemon","Name":"Saurisserie_68","TYPE":"historique","DATA":{"11":22122,"23":51795,"14":12481,"total":86398,"cout":1.4},"score":0.256},"69":{"device":"daemon","Name":"Saurisserie_69","TYPE":"historique","DATA":{"11":57156,"23":18261,"14":10906,"24":75,"total":86398,"cout":0.94},"score":0.6615},"80":{"device":"daemon","Name":"CfNegBoul_80","TYPE":"historique","DATA":{"23":80264,"14":6135,"total":86399,"cout":29.56},"score":0.0},"81":{"device":"daemon","Name":"CfNegReserve_81","TYPE":"historique","DATA":{"0":21422,"11":58391,"14":3785,"4":2580,"15":220,"total":86398,"cout":9.21},"score":0.6758},"70":{"device":"daemon","Name":"SasFrais_70","TYPE":"historique","DATA":{"0":47919,"14":38480,"total":86399,"cout":21.0},"score":0.0}}
+{
+  "1": {
+    "device": "daemon",
+    "Name": "CfCremerie_1",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 74008,
+      "14": 12391,
+      "total": 86399,
+      "cout": 9.63
+    },
+    "score": 0.0
+  },
+  "2": {
+    "device": "daemon",
+    "Name": "CfFruitLeg_2",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 51190,
+      "0": 22462,
+      "14": 12746,
+      "total": 86398,
+      "cout": 7.11
+    },
+    "score": 0.5925
+  },
+  "3": {
+    "device": "daemon",
+    "Name": "CfCracasses_3",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 73898,
+      "14": 12501,
+      "total": 86399,
+      "cout": 14.39
+    },
+    "score": 0.0
+  },
+  "4": {
+    "device": "daemon",
+    "Name": "CfSuif_4",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 50395,
+      "14": 12376,
+      "11": 23627,
+      "total": 86398,
+      "cout": 2.39
+    },
+    "score": 0.2735
+  },
+  "5": {
+    "device": "daemon",
+    "Name": "LaboBoucherie_5",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 59956,
+      "0": 13656,
+      "14": 12786,
+      "total": 86398,
+      "cout": 7.67
+    },
+    "score": 0.694
+  },
+  "6": {
+    "device": "daemon",
+    "Name": "CfDrive_6",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 51755,
+      "0": 21877,
+      "14": 12766,
+      "total": 86398,
+      "cout": 2.84
+    },
+    "score": 0.599
+  },
+  "20": {
+    "device": "daemon",
+    "Name": "TgSurgPorte_20",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 84699,
+      "14": 850,
+      "4": 615,
+      "15": 235,
+      "total": 86399,
+      "cout": 3.05
+    },
+    "score": 0.0
+  },
+  "21": {
+    "device": "daemon",
+    "Name": "SurgPorte_21",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 47890,
+      "11": 36459,
+      "14": 1340,
+      "4": 535,
+      "15": 175,
+      "total": 86399,
+      "cout": 5.44
+    },
+    "score": 0.422
+  },
+  "22": {
+    "device": "daemon",
+    "Name": "SurgPorte_22",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 53841,
+      "11": 30508,
+      "14": 1340,
+      "4": 535,
+      "15": 175,
+      "total": 86399,
+      "cout": 6.09
+    },
+    "score": 0.3531
+  },
+  "23": {
+    "device": "daemon",
+    "Name": "SurgPorte_23",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 43980,
+      "11": 40369,
+      "14": 1125,
+      "1": 215,
+      "4": 535,
+      "15": 175,
+      "total": 86399,
+      "cout": 5.02
+    },
+    "score": 0.4672
+  },
+  "24": {
+    "device": "daemon",
+    "Name": "SurgPorte_24",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 61007,
+      "11": 23532,
+      "14": 1015,
+      "1": 70,
+      "4": 600,
+      "15": 175,
+      "total": 86399,
+      "cout": 6.85
+    },
+    "score": 0.2724
+  },
+  "25": {
+    "device": "daemon",
+    "Name": "SurgPorte_25",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 63912,
+      "11": 20577,
+      "14": 1085,
+      "4": 600,
+      "15": 225,
+      "total": 86399,
+      "cout": 7.17
+    },
+    "score": 0.2382
+  },
+  "26": {
+    "device": "daemon",
+    "Name": "SurgPorte_26",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 33429,
+      "23": 51110,
+      "14": 1015,
+      "1": 70,
+      "4": 600,
+      "15": 175,
+      "total": 86399,
+      "cout": 5.77
+    },
+    "score": 0.3869
+  },
+  "27": {
+    "device": "daemon",
+    "Name": "SurgPorte_27",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 66462,
+      "11": 16771,
+      "14": 2345,
+      "4": 545,
+      "15": 275,
+      "total": 86398,
+      "cout": 7.91
+    },
+    "score": 0.1941
+  },
+  "28": {
+    "device": "daemon",
+    "Name": "SurgPorte_28",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 66037,
+      "11": 17432,
+      "14": 1195,
+      "1": 1035,
+      "4": 585,
+      "15": 115,
+      "total": 86399,
+      "cout": 7.84
+    },
+    "score": 0.2018
+  },
+  "30": {
+    "device": "daemon",
+    "Name": "VolCharcut_30",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 63012,
+      "23": 12551,
+      "14": 10836,
+      "total": 86399,
+      "cout": 0.76
+    },
+    "score": 0.7293
+  },
+  "31": {
+    "device": "daemon",
+    "Name": "VolCharcut_31",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 65367,
+      "23": 10131,
+      "14": 10901,
+      "total": 86399,
+      "cout": 0.68
+    },
+    "score": 0.7566
+  },
+  "32": {
+    "device": "daemon",
+    "Name": "VolCharcut_32",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 62922,
+      "23": 12496,
+      "14": 10901,
+      "24": 80,
+      "total": 86399,
+      "cout": 0.76
+    },
+    "score": 0.7283
+  },
+  "33": {
+    "device": "daemon",
+    "Name": "BoucherieLs_33",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 64967,
+      "23": 10501,
+      "14": 10851,
+      "24": 80,
+      "total": 86399,
+      "cout": 0.46
+    },
+    "score": 0.7519
+  },
+  "34": {
+    "device": "daemon",
+    "Name": "BoucherieLs_34",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 62222,
+      "23": 13326,
+      "14": 10851,
+      "total": 86399,
+      "cout": 0.52
+    },
+    "score": 0.7202
+  },
+  "35": {
+    "device": "daemon",
+    "Name": "TgFrais_35",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 33194,
+      "23": 31053,
+      "14": 21757,
+      "24": 395,
+      "total": 86399,
+      "cout": 0.84
+    },
+    "score": 0.3842
+  },
+  "36": {
+    "device": "daemon",
+    "Name": "TraiteurLs_36",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 55331,
+      "23": 9426,
+      "14": 21642,
+      "total": 86399,
+      "cout": 0.66
+    },
+    "score": 0.6404
+  },
+  "37": {
+    "device": "daemon",
+    "Name": "TraiteurLs_37",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 52111,
+      "23": 12446,
+      "14": 21782,
+      "24": 60,
+      "total": 86399,
+      "cout": 1.11
+    },
+    "score": 0.6031
+  },
+  "38": {
+    "device": "daemon",
+    "Name": "TraiteurLs_38",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 55106,
+      "23": 9536,
+      "14": 21687,
+      "1": 70,
+      "total": 86399,
+      "cout": 1.01
+    },
+    "score": 0.6378
+  },
+  "39": {
+    "device": "daemon",
+    "Name": "TgFrais_39",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 37039,
+      "23": 27243,
+      "14": 21912,
+      "24": 205,
+      "total": 86399,
+      "cout": 0.78
+    },
+    "score": 0.4287
+  },
+  "40": {
+    "device": "daemon",
+    "Name": "FromageLs_40",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 10496,
+      "11": 54191,
+      "14": 21632,
+      "24": 80,
+      "total": 86399,
+      "cout": 1.04
+    },
+    "score": 0.6272
+  },
+  "41": {
+    "device": "daemon",
+    "Name": "FromageLs_41",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 49190,
+      "23": 15271,
+      "14": 21937,
+      "total": 86398,
+      "cout": 1.2
+    },
+    "score": 0.5693
+  },
+  "42": {
+    "device": "daemon",
+    "Name": "FromageLs_42",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 13311,
+      "11": 51265,
+      "14": 21822,
+      "total": 86398,
+      "cout": 0.75
+    },
+    "score": 0.5934
+  },
+  "43": {
+    "device": "daemon",
+    "Name": "TgFrais_43",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 21812,
+      "23": 25007,
+      "11": 39459,
+      "24": 120,
+      "total": 86398,
+      "cout": 0.74
+    },
+    "score": 0.4567
+  },
+  "44": {
+    "device": "daemon",
+    "Name": "CremerieLs_44",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 21797,
+      "23": 14806,
+      "11": 49745,
+      "24": 50,
+      "total": 86398,
+      "cout": 0.78
+    },
+    "score": 0.5758
+  },
+  "45": {
+    "device": "daemon",
+    "Name": "CremerieLs_45",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 21627,
+      "23": 8916,
+      "11": 55856,
+      "total": 86399,
+      "cout": 0.99
+    },
+    "score": 0.6465
+  },
+  "46": {
+    "device": "daemon",
+    "Name": "CremerieLs_46",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 21797,
+      "23": 13116,
+      "11": 51331,
+      "24": 155,
+      "total": 86399,
+      "cout": 1.13
+    },
+    "score": 0.5941
+  },
+  "47": {
+    "device": "daemon",
+    "Name": "TgFrais_47",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 37004,
+      "23": 27323,
+      "14": 21862,
+      "24": 210,
+      "total": 86399,
+      "cout": 0.78
+    },
+    "score": 0.4283
+  },
+  "48": {
+    "device": "daemon",
+    "Name": "CremerieLs_48",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 53571,
+      "14": 21812,
+      "23": 11016,
+      "total": 86399,
+      "cout": 1.06
+    },
+    "score": 0.62
+  },
+  "49": {
+    "device": "daemon",
+    "Name": "CremerieLs_49",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 11826,
+      "11": 52850,
+      "14": 21722,
+      "total": 86398,
+      "cout": 1.08
+    },
+    "score": 0.6117
+  },
+  "50": {
+    "device": "daemon",
+    "Name": "CremerieLs_50",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 11576,
+      "11": 52745,
+      "14": 21837,
+      "24": 240,
+      "total": 86398,
+      "cout": 0.72
+    },
+    "score": 0.6105
+  },
+  "51": {
+    "device": "daemon",
+    "Name": "Ulf_51",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 51250,
+      "23": 24257,
+      "14": 10891,
+      "total": 86398,
+      "cout": 1.14
+    },
+    "score": 0.5932
+  },
+  "52": {
+    "device": "daemon",
+    "Name": "Ulf_52",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 62062,
+      "23": 13366,
+      "14": 10971,
+      "total": 86399,
+      "cout": 0.79
+    },
+    "score": 0.7183
+  },
+  "53": {
+    "device": "daemon",
+    "Name": "Ulf_53",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 62217,
+      "23": 13251,
+      "14": 10931,
+      "total": 86399,
+      "cout": 0.78
+    },
+    "score": 0.7201
+  },
+  "57": {
+    "device": "daemon",
+    "Name": "TgSv_57",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 23227,
+      "23": 48325,
+      "18": 1790,
+      "14": 12776,
+      "24": 280,
+      "total": 86398,
+      "cout": 0.46
+    },
+    "score": 0.2688
+  },
+  "58": {
+    "device": "daemon",
+    "Name": "SemiVert_58",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 58326,
+      "11": 13131,
+      "18": 2165,
+      "14": 12776,
+      "total": 86398,
+      "cout": 0.95
+    },
+    "score": 0.152
+  },
+  "59": {
+    "device": "daemon",
+    "Name": "TgSv_59",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 51795,
+      "11": 20132,
+      "18": 1770,
+      "14": 12701,
+      "total": 86398,
+      "cout": 0.48
+    },
+    "score": 0.233
+  },
+  "60": {
+    "device": "daemon",
+    "Name": "SemiVert_60",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 52671,
+      "18": 3440,
+      "11": 17352,
+      "14": 12811,
+      "24": 125,
+      "total": 86399,
+      "cout": 0.89
+    },
+    "score": 0.2008
+  },
+  "61": {
+    "device": "daemon",
+    "Name": "4eGamme_61",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 27263,
+      "23": 16151,
+      "11": 42825,
+      "24": 160,
+      "total": 86399,
+      "cout": 0.93
+    },
+    "score": 0.4957
+  },
+  "62": {
+    "device": "daemon",
+    "Name": "4eGamme_62",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 27378,
+      "23": 25682,
+      "11": 33173,
+      "24": 165,
+      "total": 86398,
+      "cout": 1.14
+    },
+    "score": 0.384
+  },
+  "63": {
+    "device": "daemon",
+    "Name": "4eGamme_63",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 27243,
+      "23": 39904,
+      "11": 18992,
+      "24": 195,
+      "1": 65,
+      "total": 86399,
+      "cout": 1.47
+    },
+    "score": 0.2198
+  },
+  "64": {
+    "device": "daemon",
+    "Name": "BouchTrad_64",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 39694,
+      "23": 33648,
+      "14": 12716,
+      "24": 340,
+      "total": 86398,
+      "cout": 0.18
+    },
+    "score": 0.4594
+  },
+  "65": {
+    "device": "daemon",
+    "Name": "BouchTrad_65",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 34979,
+      "23": 38544,
+      "14": 12636,
+      "24": 240,
+      "total": 86399,
+      "cout": 0.2
+    },
+    "score": 0.4049
+  },
+  "66": {
+    "device": "daemon",
+    "Name": "BouchTrad_66",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 50946,
+      "23": 22147,
+      "14": 12716,
+      "24": 590,
+      "total": 86399,
+      "cout": 0.29
+    },
+    "score": 0.5897
+  },
+  "67": {
+    "device": "daemon",
+    "Name": "BouchTrad_67",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 51566,
+      "23": 21392,
+      "14": 12641,
+      "24": 800,
+      "total": 86399,
+      "cout": 0.28
+    },
+    "score": 0.5968
+  },
+  "68": {
+    "device": "daemon",
+    "Name": "Saurisserie_68",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 22122,
+      "23": 51795,
+      "14": 12481,
+      "total": 86398,
+      "cout": 1.4
+    },
+    "score": 0.256
+  },
+  "69": {
+    "device": "daemon",
+    "Name": "Saurisserie_69",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 57156,
+      "23": 18261,
+      "14": 10906,
+      "24": 75,
+      "total": 86398,
+      "cout": 0.94
+    },
+    "score": 0.6615
+  },
+  "80": {
+    "device": "daemon",
+    "Name": "CfNegBoul_80",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 80264,
+      "14": 6135,
+      "total": 86399,
+      "cout": 29.56
+    },
+    "score": 0.0
+  },
+  "81": {
+    "device": "daemon",
+    "Name": "CfNegReserve_81",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 21422,
+      "11": 58391,
+      "14": 3785,
+      "4": 2580,
+      "15": 220,
+      "total": 86398,
+      "cout": 9.21
+    },
+    "score": 0.6758
+  },
+  "70": {
+    "device": "daemon",
+    "Name": "SasFrais_70",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 47919,
+      "14": 38480,
+      "total": 86399,
+      "cout": 21.0
+    },
+    "score": 0.0
+  }
+}

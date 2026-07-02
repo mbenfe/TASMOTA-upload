@@ -1,1 +1,42 @@
-{"egly":{"aex-1":{"remote":"nok","ds":"ok"},"aex-2":{"remote":"nok","ds":"ok"},"aex-3":{"remote":"nok","ds":"ok"},"aex-4":{"remote":"nok","ds":"ok"},"aex-5":{"remote":"nok","ds":"ok"},"aex-6":{"remote":"nok","ds":"ok"},"aex-7":{"remote":"nok","ds":"ok"},"aex-8":{"remote":"nok","ds":"ok"}},"croissy":{"aex-8":{"remote":"nok","ds":"ok"}}}
+{
+  "egly": {
+    "aex-1": {
+      "remote": "nok",
+      "ds": "ok"
+    },
+    "aex-2": {
+      "remote": "nok",
+      "ds": "ok"
+    },
+    "aex-3": {
+      "remote": "nok",
+      "ds": "ok"
+    },
+    "aex-4": {
+      "remote": "nok",
+      "ds": "ok"
+    },
+    "aex-5": {
+      "remote": "nok",
+      "ds": "ok"
+    },
+    "aex-6": {
+      "remote": "nok",
+      "ds": "ok"
+    },
+    "aex-7": {
+      "remote": "nok",
+      "ds": "ok"
+    },
+    "aex-8": {
+      "remote": "nok",
+      "ds": "ok"
+    }
+  },
+  "croissy": {
+    "aex-8": {
+      "remote": "nok",
+      "ds": "ok"
+    }
+  }
+}

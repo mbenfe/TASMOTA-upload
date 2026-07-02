@@ -1,1 +1,903 @@
-{"0":{"device":"daemon","Name":"FraisEmballa_0","TYPE":"historique","DATA":{"0":8410,"11":77989,"total":86399,"cout":0.1},"score":0.9027},"1":{"device":"daemon","Name":"BoucherieTrad_1","TYPE":"historique","DATA":{"19":62752,"14":16146,"23":3870,"18":3630,"total":86398,"cout":1.28},"score":0.0},"2":{"device":"daemon","Name":"BoucherieTrad_2","TYPE":"historique","DATA":{"19":68867,"14":16196,"23":1335,"total":86398,"cout":1.28},"score":0.0},"3":{"device":"daemon","Name":"BoucherieTrad_3","TYPE":"historique","DATA":{"19":69232,"14":16251,"23":915,"total":86398,"cout":1.28},"score":0.0},"4":{"device":"daemon","Name":"BoucherieTrad_4","TYPE":"historique","DATA":{"19":62502,"14":16206,"23":3885,"18":3805,"total":86398,"cout":1.28},"score":0.0},"5":{"device":"daemon","Name":"CfFromage_5","TYPE":"historique","DATA":{"11":86400,"total":86400,"cout":0.0},"score":1.0},"6":{"device":"daemon","Name":"CfCharcuterie_6","TYPE":"historique","DATA":{"11":86400,"total":86400,"cout":0.0},"score":1.0},"8":{"device":"daemon","Name":"CfCremerie_8","TYPE":"historique","DATA":{"11":41170,"0":45229,"total":86399,"cout":6.13},"score":0.4765},"10":{"device":"daemon","Name":"CfSurgDrive_10","TYPE":"historique","DATA":{"0":79969,"14":4845,"4":1585,"total":86399,"cout":3.72},"score":0.0},"11":{"device":"daemon","Name":"CfDrive_11","TYPE":"historique","DATA":{"0":66137,"11":12266,"14":7995,"total":86398,"cout":23.36},"score":0.142},"12":{"device":"daemon","Name":"CfPoisson_12","TYPE":"historique","DATA":{"0":86400,"total":86400,"cout":5.57},"score":0.0},"13":{"device":"daemon","Name":"CfFruits&Leg_13","TYPE":"historique","DATA":{"0":86400,"total":86400,"cout":27.64},"score":0.0},"14":{"device":"daemon","Name":"CfBoulang+_14","TYPE":"historique","DATA":{"0":86400,"total":86400,"cout":1.4},"score":0.0},"15":{"device":"daemon","Name":"LaboBoucherie_15","TYPE":"historique","DATA":{"14":7910,"11":74578,"0":3910,"total":86398,"cout":5.03},"score":0.8632},"16":{"device":"daemon","Name":"CfCarcasses_16","TYPE":"historique","DATA":{"14":86400,"total":86400,"cout":20.53},"score":0.0},"17":{"device":"daemon","Name":"CfSuif_17","TYPE":"historique","DATA":{"11":62112,"0":13501,"14":10786,"total":86399,"cout":2.37},"score":0.7189},"18":{"device":"daemon","Name":"CfSurgReception_18","TYPE":"historique","DATA":{"11":79549,"4":6850,"total":86399,"cout":0.78},"score":0.9207},"19":{"device":"daemon","Name":"SasFrais_19","TYPE":"historique","DATA":{"0":81004,"14":5395,"total":86399,"cout":70.03},"score":0.0},"20":{"device":"daemon","Name":"SurgPortes_20","TYPE":"historique","DATA":{"23":59671,"14":1370,"4":680,"11":24677,"total":86398,"cout":1.73},"score":0.2856},"21":{"device":"daemon","Name":"SurgPortes_21","TYPE":"historique","DATA":{"23":85004,"14":1395,"total":86399,"cout":2.42},"score":0.0},"22":{"device":"daemon","Name":"SurgPortes_22","TYPE":"historique","DATA":{"23":78229,"14":1500,"4":610,"11":6060,"total":86399,"cout":2.25},"score":0.0701},"23":{"device":"daemon","Name":"SurgPortes_23","TYPE":"historique","DATA":{"23":56861,"11":27463,"14":1205,"1":295,"4":575,"total":86399,"cout":2.74},"score":0.3179},"24":{"device":"daemon","Name":"SurgPortes_24","TYPE":"historique","DATA":{"23":73398,"11":10891,"14":1500,"4":610,"total":86399,"cout":3.51},"score":0.1261},"25":{"device":"daemon","Name":"SurgPortes_25","TYPE":"historique","DATA":{"23":79739,"11":4680,"14":1035,"1":370,"4":575,"total":86399,"cout":3.8},"score":0.0542},"26":{"device":"daemon","Name":"TgFestif_26","TYPE":"historique","DATA":{"11":77628,"22":815,"14":7955,"total":86398,"cout":0.12},"score":0.8985},"28":{"device":"daemon","Name":"TgFrais_28","TYPE":"historique","DATA":{"23":55796,"18":1540,"11":18517,"14":10546,"total":86399,"cout":1.82},"score":0.2143},"29":{"device":"daemon","Name":"CremerieLs_29","TYPE":"historique","DATA":{"11":52865,"23":27828,"24":150,"14":5480,"6":75,"total":86398,"cout":1.79},"score":0.6119},"30":{"device":"daemon","Name":"CremerieLs_30","TYPE":"historique","DATA":{"23":23887,"11":56781,"14":5600,"6":130,"total":86398,"cout":1.58},"score":0.6572},"31":{"device":"daemon","Name":"CremerieLs_31","TYPE":"historique","DATA":{"11":48385,"23":32108,"24":285,"14":5620,"total":86398,"cout":2.03},"score":0.56},"32":{"device":"daemon","Name":"CremerieLs_32","TYPE":"historique","DATA":{"23":21317,"11":59517,"14":5520,"24":45,"total":86399,"cout":1.43},"score":0.6889},"33":{"device":"daemon","Name":"TgFrais_33","TYPE":"historique","DATA":{"23":26597,"11":51186,"14":8556,"24":60,"total":86399,"cout":0.94},"score":0.5924},"34":{"device":"daemon","Name":"JusDeFruits_34","TYPE":"historique","DATA":{"23":74308,"14":8115,"18":3895,"6":80,"total":86398,"cout":4.6},"score":0.0},"35":{"device":"daemon","Name":"4emeGamme_35","TYPE":"historique","DATA":{"23":74888,"14":8135,"18":3375,"total":86398,"cout":3.11},"score":0.0},"36":{"device":"daemon","Name":"4emeGamme_36","TYPE":"historique","DATA":{"23":65907,"14":10986,"18":4415,"19":5090,"total":86398,"cout":3.11},"score":0.0},"37":{"device":"daemon","Name":"CremerieLs_37","TYPE":"historique","DATA":{"23":14646,"11":63522,"14":8230,"total":86398,"cout":1.22},"score":0.7352},"38":{"device":"daemon","Name":"CremerieLs_38","TYPE":"historique","DATA":{"23":13136,"11":64612,"14":8035,"24":555,"1":60,"total":86398,"cout":0.78},"score":0.7478},"39":{"device":"daemon","Name":"CremerieLs_39","TYPE":"historique","DATA":{"11":68922,"23":9241,"14":8175,"1":60,"total":86398,"cout":0.63},"score":0.7977},"40":{"device":"daemon","Name":"TgFrais_40","TYPE":"historique","DATA":{"11":43199,"23":26588,"14":16471,"24":140,"total":86398,"cout":1.16},"score":0.5},"41":{"device":"daemon","Name":"FraisLs_41","TYPE":"historique","DATA":{"11":60476,"23":20357,"14":5375,"6":190,"total":86398,"cout":1.38},"score":0.7},"42":{"device":"daemon","Name":"FraisLs_42","TYPE":"historique","DATA":{"11":57946,"23":22892,"14":5500,"24":60,"total":86398,"cout":1.52},"score":0.6707},"43":{"device":"daemon","Name":"FraisLs_43","TYPE":"historique","DATA":{"11":69522,"23":11246,"14":5495,"24":135,"total":86398,"cout":0.9},"score":0.8047},"44":{"device":"daemon","Name":"FraisLs_44","TYPE":"historique","DATA":{"23":14561,"11":66457,"24":75,"14":5305,"total":86398,"cout":1.06},"score":0.7692},"45":{"device":"daemon","Name":"CharcuterieLs_45","TYPE":"historique","DATA":{"19":74743,"23":2150,"14":9506,"total":86399,"cout":4.6},"score":0.0},"46":{"device":"daemon","Name":"CharcuterieLs_46","TYPE":"historique","DATA":{"19":76053,"14":9571,"23":635,"6":140,"total":86399,"cout":1.05},"score":0.0},"47":{"device":"daemon","Name":"CharcuterieLs_47","TYPE":"historique","DATA":{"19":76208,"14":9636,"23":555,"total":86399,"cout":1.05},"score":0.0},"48":{"device":"daemon","Name":"CharcuterieLs_48","TYPE":"historique","DATA":{"19":76258,"14":9576,"23":565,"total":86399,"cout":1.05},"score":0.0},"49":{"device":"daemon","Name":"TgFrais_49","TYPE":"historique","DATA":{"23":45205,"11":30408,"14":10546,"24":75,"6":165,"total":86399,"cout":1.5},"score":0.3519},"50":{"device":"daemon","Name":"TgCharcut_50","TYPE":"historique","DATA":{"23":43469,"11":34809,"14":7950,"24":115,"6":55,"total":86398,"cout":1.38},"score":0.4029},"51":{"device":"daemon","Name":"VolailleLs_51","TYPE":"historique","DATA":{"19":62232,"18":5365,"23":10381,"14":8421,"total":86399,"cout":1.05},"score":0.0},"52":{"device":"daemon","Name":"VolailleLs_52","TYPE":"historique","DATA":{"23":5295,"19":67763,"18":5045,"6":170,"14":8125,"total":86398,"cout":1.05},"score":0.0},"53":{"device":"daemon","Name":"Tg_53","TYPE":"historique","DATA":{"18":5350,"23":3645,"19":69288,"14":8115,"total":86398,"cout":2.04},"score":0.0},"54":{"device":"daemon","Name":"BoucherieLs_54","TYPE":"historique","DATA":{"14":8875,"23":3510,"19":68258,"18":5695,"6":60,"total":86398,"cout":3.79},"score":0.0},"55":{"device":"daemon","Name":"BoucherieLs_55","TYPE":"historique","DATA":{"19":60691,"18":5745,"23":9066,"14":10896,"total":86398,"cout":3.79},"score":0.0},"56":{"device":"daemon","Name":"Tg_56","TYPE":"historique","DATA":{"19":68627,"18":4930,"23":3715,"14":9046,"6":80,"total":86398,"cout":2.04},"score":0.0},"57":{"device":"daemon","Name":"BoucherieLs_57","TYPE":"historique","DATA":{"19":68247,"18":5420,"23":4860,"14":7870,"total":86397,"cout":3.79},"score":0.0},"58":{"device":"daemon","Name":"BoucherieLs_58","TYPE":"historique","DATA":{"19":67472,"18":5805,"23":4875,"14":8245,"total":86397,"cout":3.79},"score":0.0},"59":{"device":"daemon","Name":"Trad_59","TYPE":"historique","DATA":{"11":59631,"23":18192,"14":8325,"24":135,"1":115,"total":86398,"cout":0.14},"score":0.6902},"60":{"device":"daemon","Name":"TradAo_60","TYPE":"historique","DATA":{"23":22512,"11":55421,"14":8155,"24":195,"1":115,"total":86398,"cout":0.16},"score":0.6415},"61":{"device":"daemon","Name":"Trad_61","TYPE":"historique","DATA":{"11":67572,"23":10111,"24":120,"14":8411,"4":185,"total":86399,"cout":0.21},"score":0.7821},"62":{"device":"daemon","Name":"Trad_62","TYPE":"historique","DATA":{"11":64952,"23":13041,"24":265,"14":8140,"total":86398,"cout":0.23},"score":0.7518},"64":{"device":"daemon","Name":"FraisEmballa_64","TYPE":"historique","DATA":{"11":58421,"23":16947,"24":290,"14":10741,"total":86399,"cout":0.34},"score":0.6762},"65":{"device":"daemon","Name":"FraisEmballa_65","TYPE":"historique","DATA":{"22":25707,"11":45435,"18":885,"14":13741,"24":630,"total":86398,"cout":0.5},"score":0.5259},"66":{"device":"daemon","Name":"SaurisserieLs_66","TYPE":"historique","DATA":{"11":56426,"23":18777,"14":10886,"24":310,"total":86399,"cout":0.45},"score":0.6531},"69":{"device":"daemon","Name":"CfSurgReserve_69","TYPE":"historique","DATA":{"23":82259,"14":1990,"4":1790,"15":95,"22":185,"1":80,"total":86399,"cout":10.99},"score":0.0},"70":{"device":"daemon","Name":"CfSurgBoulang_70","TYPE":"historique","DATA":{"23":75403,"14":7180,"4":2415,"15":535,"22":865,"total":86398,"cout":7.34},"score":0.0},"71":{"device":"daemon","Name":"Promo_71","TYPE":"historique","DATA":{"11":63447,"23":19792,"6":160,"24":250,"14":2750,"total":86399,"cout":0.34},"score":0.7343}}
+{
+  "0": {
+    "device": "daemon",
+    "Name": "FraisEmballa_0",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 8410,
+      "11": 77989,
+      "total": 86399,
+      "cout": 0.1
+    },
+    "score": 0.9027
+  },
+  "1": {
+    "device": "daemon",
+    "Name": "BoucherieTrad_1",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 62752,
+      "14": 16146,
+      "23": 3870,
+      "18": 3630,
+      "total": 86398,
+      "cout": 1.28
+    },
+    "score": 0.0
+  },
+  "2": {
+    "device": "daemon",
+    "Name": "BoucherieTrad_2",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 68867,
+      "14": 16196,
+      "23": 1335,
+      "total": 86398,
+      "cout": 1.28
+    },
+    "score": 0.0
+  },
+  "3": {
+    "device": "daemon",
+    "Name": "BoucherieTrad_3",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 69232,
+      "14": 16251,
+      "23": 915,
+      "total": 86398,
+      "cout": 1.28
+    },
+    "score": 0.0
+  },
+  "4": {
+    "device": "daemon",
+    "Name": "BoucherieTrad_4",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 62502,
+      "14": 16206,
+      "23": 3885,
+      "18": 3805,
+      "total": 86398,
+      "cout": 1.28
+    },
+    "score": 0.0
+  },
+  "5": {
+    "device": "daemon",
+    "Name": "CfFromage_5",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 86400,
+      "total": 86400,
+      "cout": 0.0
+    },
+    "score": 1.0
+  },
+  "6": {
+    "device": "daemon",
+    "Name": "CfCharcuterie_6",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 86400,
+      "total": 86400,
+      "cout": 0.0
+    },
+    "score": 1.0
+  },
+  "8": {
+    "device": "daemon",
+    "Name": "CfCremerie_8",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 41170,
+      "0": 45229,
+      "total": 86399,
+      "cout": 6.13
+    },
+    "score": 0.4765
+  },
+  "10": {
+    "device": "daemon",
+    "Name": "CfSurgDrive_10",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 79969,
+      "14": 4845,
+      "4": 1585,
+      "total": 86399,
+      "cout": 3.72
+    },
+    "score": 0.0
+  },
+  "11": {
+    "device": "daemon",
+    "Name": "CfDrive_11",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 66137,
+      "11": 12266,
+      "14": 7995,
+      "total": 86398,
+      "cout": 23.36
+    },
+    "score": 0.142
+  },
+  "12": {
+    "device": "daemon",
+    "Name": "CfPoisson_12",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 86400,
+      "total": 86400,
+      "cout": 5.57
+    },
+    "score": 0.0
+  },
+  "13": {
+    "device": "daemon",
+    "Name": "CfFruits\u0026Leg_13",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 86400,
+      "total": 86400,
+      "cout": 27.64
+    },
+    "score": 0.0
+  },
+  "14": {
+    "device": "daemon",
+    "Name": "CfBoulang+_14",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 86400,
+      "total": 86400,
+      "cout": 1.4
+    },
+    "score": 0.0
+  },
+  "15": {
+    "device": "daemon",
+    "Name": "LaboBoucherie_15",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 7910,
+      "11": 74578,
+      "0": 3910,
+      "total": 86398,
+      "cout": 5.03
+    },
+    "score": 0.8632
+  },
+  "16": {
+    "device": "daemon",
+    "Name": "CfCarcasses_16",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 86400,
+      "total": 86400,
+      "cout": 20.53
+    },
+    "score": 0.0
+  },
+  "17": {
+    "device": "daemon",
+    "Name": "CfSuif_17",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 62112,
+      "0": 13501,
+      "14": 10786,
+      "total": 86399,
+      "cout": 2.37
+    },
+    "score": 0.7189
+  },
+  "18": {
+    "device": "daemon",
+    "Name": "CfSurgReception_18",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 79549,
+      "4": 6850,
+      "total": 86399,
+      "cout": 0.78
+    },
+    "score": 0.9207
+  },
+  "19": {
+    "device": "daemon",
+    "Name": "SasFrais_19",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 81004,
+      "14": 5395,
+      "total": 86399,
+      "cout": 70.03
+    },
+    "score": 0.0
+  },
+  "20": {
+    "device": "daemon",
+    "Name": "SurgPortes_20",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 59671,
+      "14": 1370,
+      "4": 680,
+      "11": 24677,
+      "total": 86398,
+      "cout": 1.73
+    },
+    "score": 0.2856
+  },
+  "21": {
+    "device": "daemon",
+    "Name": "SurgPortes_21",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 85004,
+      "14": 1395,
+      "total": 86399,
+      "cout": 2.42
+    },
+    "score": 0.0
+  },
+  "22": {
+    "device": "daemon",
+    "Name": "SurgPortes_22",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 78229,
+      "14": 1500,
+      "4": 610,
+      "11": 6060,
+      "total": 86399,
+      "cout": 2.25
+    },
+    "score": 0.0701
+  },
+  "23": {
+    "device": "daemon",
+    "Name": "SurgPortes_23",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 56861,
+      "11": 27463,
+      "14": 1205,
+      "1": 295,
+      "4": 575,
+      "total": 86399,
+      "cout": 2.74
+    },
+    "score": 0.3179
+  },
+  "24": {
+    "device": "daemon",
+    "Name": "SurgPortes_24",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 73398,
+      "11": 10891,
+      "14": 1500,
+      "4": 610,
+      "total": 86399,
+      "cout": 3.51
+    },
+    "score": 0.1261
+  },
+  "25": {
+    "device": "daemon",
+    "Name": "SurgPortes_25",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 79739,
+      "11": 4680,
+      "14": 1035,
+      "1": 370,
+      "4": 575,
+      "total": 86399,
+      "cout": 3.8
+    },
+    "score": 0.0542
+  },
+  "26": {
+    "device": "daemon",
+    "Name": "TgFestif_26",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 77628,
+      "22": 815,
+      "14": 7955,
+      "total": 86398,
+      "cout": 0.12
+    },
+    "score": 0.8985
+  },
+  "28": {
+    "device": "daemon",
+    "Name": "TgFrais_28",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 55796,
+      "18": 1540,
+      "11": 18517,
+      "14": 10546,
+      "total": 86399,
+      "cout": 1.82
+    },
+    "score": 0.2143
+  },
+  "29": {
+    "device": "daemon",
+    "Name": "CremerieLs_29",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 52865,
+      "23": 27828,
+      "24": 150,
+      "14": 5480,
+      "6": 75,
+      "total": 86398,
+      "cout": 1.79
+    },
+    "score": 0.6119
+  },
+  "30": {
+    "device": "daemon",
+    "Name": "CremerieLs_30",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 23887,
+      "11": 56781,
+      "14": 5600,
+      "6": 130,
+      "total": 86398,
+      "cout": 1.58
+    },
+    "score": 0.6572
+  },
+  "31": {
+    "device": "daemon",
+    "Name": "CremerieLs_31",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 48385,
+      "23": 32108,
+      "24": 285,
+      "14": 5620,
+      "total": 86398,
+      "cout": 2.03
+    },
+    "score": 0.56
+  },
+  "32": {
+    "device": "daemon",
+    "Name": "CremerieLs_32",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 21317,
+      "11": 59517,
+      "14": 5520,
+      "24": 45,
+      "total": 86399,
+      "cout": 1.43
+    },
+    "score": 0.6889
+  },
+  "33": {
+    "device": "daemon",
+    "Name": "TgFrais_33",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 26597,
+      "11": 51186,
+      "14": 8556,
+      "24": 60,
+      "total": 86399,
+      "cout": 0.94
+    },
+    "score": 0.5924
+  },
+  "34": {
+    "device": "daemon",
+    "Name": "JusDeFruits_34",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 74308,
+      "14": 8115,
+      "18": 3895,
+      "6": 80,
+      "total": 86398,
+      "cout": 4.6
+    },
+    "score": 0.0
+  },
+  "35": {
+    "device": "daemon",
+    "Name": "4emeGamme_35",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 74888,
+      "14": 8135,
+      "18": 3375,
+      "total": 86398,
+      "cout": 3.11
+    },
+    "score": 0.0
+  },
+  "36": {
+    "device": "daemon",
+    "Name": "4emeGamme_36",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 65907,
+      "14": 10986,
+      "18": 4415,
+      "19": 5090,
+      "total": 86398,
+      "cout": 3.11
+    },
+    "score": 0.0
+  },
+  "37": {
+    "device": "daemon",
+    "Name": "CremerieLs_37",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 14646,
+      "11": 63522,
+      "14": 8230,
+      "total": 86398,
+      "cout": 1.22
+    },
+    "score": 0.7352
+  },
+  "38": {
+    "device": "daemon",
+    "Name": "CremerieLs_38",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 13136,
+      "11": 64612,
+      "14": 8035,
+      "24": 555,
+      "1": 60,
+      "total": 86398,
+      "cout": 0.78
+    },
+    "score": 0.7478
+  },
+  "39": {
+    "device": "daemon",
+    "Name": "CremerieLs_39",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 68922,
+      "23": 9241,
+      "14": 8175,
+      "1": 60,
+      "total": 86398,
+      "cout": 0.63
+    },
+    "score": 0.7977
+  },
+  "40": {
+    "device": "daemon",
+    "Name": "TgFrais_40",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 43199,
+      "23": 26588,
+      "14": 16471,
+      "24": 140,
+      "total": 86398,
+      "cout": 1.16
+    },
+    "score": 0.5
+  },
+  "41": {
+    "device": "daemon",
+    "Name": "FraisLs_41",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 60476,
+      "23": 20357,
+      "14": 5375,
+      "6": 190,
+      "total": 86398,
+      "cout": 1.38
+    },
+    "score": 0.7
+  },
+  "42": {
+    "device": "daemon",
+    "Name": "FraisLs_42",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 57946,
+      "23": 22892,
+      "14": 5500,
+      "24": 60,
+      "total": 86398,
+      "cout": 1.52
+    },
+    "score": 0.6707
+  },
+  "43": {
+    "device": "daemon",
+    "Name": "FraisLs_43",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 69522,
+      "23": 11246,
+      "14": 5495,
+      "24": 135,
+      "total": 86398,
+      "cout": 0.9
+    },
+    "score": 0.8047
+  },
+  "44": {
+    "device": "daemon",
+    "Name": "FraisLs_44",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 14561,
+      "11": 66457,
+      "24": 75,
+      "14": 5305,
+      "total": 86398,
+      "cout": 1.06
+    },
+    "score": 0.7692
+  },
+  "45": {
+    "device": "daemon",
+    "Name": "CharcuterieLs_45",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 74743,
+      "23": 2150,
+      "14": 9506,
+      "total": 86399,
+      "cout": 4.6
+    },
+    "score": 0.0
+  },
+  "46": {
+    "device": "daemon",
+    "Name": "CharcuterieLs_46",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 76053,
+      "14": 9571,
+      "23": 635,
+      "6": 140,
+      "total": 86399,
+      "cout": 1.05
+    },
+    "score": 0.0
+  },
+  "47": {
+    "device": "daemon",
+    "Name": "CharcuterieLs_47",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 76208,
+      "14": 9636,
+      "23": 555,
+      "total": 86399,
+      "cout": 1.05
+    },
+    "score": 0.0
+  },
+  "48": {
+    "device": "daemon",
+    "Name": "CharcuterieLs_48",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 76258,
+      "14": 9576,
+      "23": 565,
+      "total": 86399,
+      "cout": 1.05
+    },
+    "score": 0.0
+  },
+  "49": {
+    "device": "daemon",
+    "Name": "TgFrais_49",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 45205,
+      "11": 30408,
+      "14": 10546,
+      "24": 75,
+      "6": 165,
+      "total": 86399,
+      "cout": 1.5
+    },
+    "score": 0.3519
+  },
+  "50": {
+    "device": "daemon",
+    "Name": "TgCharcut_50",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 43469,
+      "11": 34809,
+      "14": 7950,
+      "24": 115,
+      "6": 55,
+      "total": 86398,
+      "cout": 1.38
+    },
+    "score": 0.4029
+  },
+  "51": {
+    "device": "daemon",
+    "Name": "VolailleLs_51",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 62232,
+      "18": 5365,
+      "23": 10381,
+      "14": 8421,
+      "total": 86399,
+      "cout": 1.05
+    },
+    "score": 0.0
+  },
+  "52": {
+    "device": "daemon",
+    "Name": "VolailleLs_52",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 5295,
+      "19": 67763,
+      "18": 5045,
+      "6": 170,
+      "14": 8125,
+      "total": 86398,
+      "cout": 1.05
+    },
+    "score": 0.0
+  },
+  "53": {
+    "device": "daemon",
+    "Name": "Tg_53",
+    "TYPE": "historique",
+    "DATA": {
+      "18": 5350,
+      "23": 3645,
+      "19": 69288,
+      "14": 8115,
+      "total": 86398,
+      "cout": 2.04
+    },
+    "score": 0.0
+  },
+  "54": {
+    "device": "daemon",
+    "Name": "BoucherieLs_54",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 8875,
+      "23": 3510,
+      "19": 68258,
+      "18": 5695,
+      "6": 60,
+      "total": 86398,
+      "cout": 3.79
+    },
+    "score": 0.0
+  },
+  "55": {
+    "device": "daemon",
+    "Name": "BoucherieLs_55",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 60691,
+      "18": 5745,
+      "23": 9066,
+      "14": 10896,
+      "total": 86398,
+      "cout": 3.79
+    },
+    "score": 0.0
+  },
+  "56": {
+    "device": "daemon",
+    "Name": "Tg_56",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 68627,
+      "18": 4930,
+      "23": 3715,
+      "14": 9046,
+      "6": 80,
+      "total": 86398,
+      "cout": 2.04
+    },
+    "score": 0.0
+  },
+  "57": {
+    "device": "daemon",
+    "Name": "BoucherieLs_57",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 68247,
+      "18": 5420,
+      "23": 4860,
+      "14": 7870,
+      "total": 86397,
+      "cout": 3.79
+    },
+    "score": 0.0
+  },
+  "58": {
+    "device": "daemon",
+    "Name": "BoucherieLs_58",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 67472,
+      "18": 5805,
+      "23": 4875,
+      "14": 8245,
+      "total": 86397,
+      "cout": 3.79
+    },
+    "score": 0.0
+  },
+  "59": {
+    "device": "daemon",
+    "Name": "Trad_59",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 59631,
+      "23": 18192,
+      "14": 8325,
+      "24": 135,
+      "1": 115,
+      "total": 86398,
+      "cout": 0.14
+    },
+    "score": 0.6902
+  },
+  "60": {
+    "device": "daemon",
+    "Name": "TradAo_60",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 22512,
+      "11": 55421,
+      "14": 8155,
+      "24": 195,
+      "1": 115,
+      "total": 86398,
+      "cout": 0.16
+    },
+    "score": 0.6415
+  },
+  "61": {
+    "device": "daemon",
+    "Name": "Trad_61",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 67572,
+      "23": 10111,
+      "24": 120,
+      "14": 8411,
+      "4": 185,
+      "total": 86399,
+      "cout": 0.21
+    },
+    "score": 0.7821
+  },
+  "62": {
+    "device": "daemon",
+    "Name": "Trad_62",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 64952,
+      "23": 13041,
+      "24": 265,
+      "14": 8140,
+      "total": 86398,
+      "cout": 0.23
+    },
+    "score": 0.7518
+  },
+  "64": {
+    "device": "daemon",
+    "Name": "FraisEmballa_64",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 58421,
+      "23": 16947,
+      "24": 290,
+      "14": 10741,
+      "total": 86399,
+      "cout": 0.34
+    },
+    "score": 0.6762
+  },
+  "65": {
+    "device": "daemon",
+    "Name": "FraisEmballa_65",
+    "TYPE": "historique",
+    "DATA": {
+      "22": 25707,
+      "11": 45435,
+      "18": 885,
+      "14": 13741,
+      "24": 630,
+      "total": 86398,
+      "cout": 0.5
+    },
+    "score": 0.5259
+  },
+  "66": {
+    "device": "daemon",
+    "Name": "SaurisserieLs_66",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 56426,
+      "23": 18777,
+      "14": 10886,
+      "24": 310,
+      "total": 86399,
+      "cout": 0.45
+    },
+    "score": 0.6531
+  },
+  "69": {
+    "device": "daemon",
+    "Name": "CfSurgReserve_69",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 82259,
+      "14": 1990,
+      "4": 1790,
+      "15": 95,
+      "22": 185,
+      "1": 80,
+      "total": 86399,
+      "cout": 10.99
+    },
+    "score": 0.0
+  },
+  "70": {
+    "device": "daemon",
+    "Name": "CfSurgBoulang_70",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 75403,
+      "14": 7180,
+      "4": 2415,
+      "15": 535,
+      "22": 865,
+      "total": 86398,
+      "cout": 7.34
+    },
+    "score": 0.0
+  },
+  "71": {
+    "device": "daemon",
+    "Name": "Promo_71",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 63447,
+      "23": 19792,
+      "6": 160,
+      "24": 250,
+      "14": 2750,
+      "total": 86399,
+      "cout": 0.34
+    },
+    "score": 0.7343
+  }
+}

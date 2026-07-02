@@ -1,1 +1,821 @@
-{"1":{"device":"JOE","name":"JC_Salles_des_machines_1","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"2":{"device":"JOE","name":"JC_Boucherie_LS_2","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"3":{"device":"JOE","name":"JC_Boucherie_LS_3","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"4":{"device":"JOE","name":"JC_Boucherie_LS_4","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"5":{"device":"JOE","name":"JC_Boucherie_LS_5","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"6":{"device":"JOE","name":"JC_Boucherie_LS_6","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"7":{"device":"JOE","name":"JC_CF_Barquettes_7","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"8":{"device":"JOE","name":"JC_CF_Barquettes_8","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"10":{"device":"JOE","name":"JC_CF_10","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"11":{"device":"JOE","name":"JC_Labo_Boucherie_11","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"12":{"device":"JOE","name":"JC_Labo_Boucherie_12","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"13":{"device":"JOE","name":"JC_CF_13","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"14":{"device":"JOE","name":"JC_CF_14","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"15":{"device":"JOE","name":"JC_Labo_15","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"16":{"device":"JOE","name":"JC_Labo_16","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"17":{"device":"JOE","name":"JC_Boucherie_Trad_17","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"18":{"device":"JOE","name":"JC_Boucherie_Trad_18","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"19":{"device":"JOE","name":"JC_Boucherie_Trad_19","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"20":{"device":"JOE","name":"JC_Patisserie_LS_20","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"21":{"device":"JOE","name":"JC_Traiteur_LS_21","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"22":{"device":"JOE","name":"JC_Traiteur_LS_22","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"23":{"device":"JOE","name":"JC_Traiteur_LS_23","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"24":{"device":"JOE","name":"JC_Traiteur_LS_24","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"25":{"device":"JOE","name":"JC_Traiteur_LS_25","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"26":{"device":"JOE","name":"JC_Traiteur_LS_26","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"27":{"device":"JOE","name":"JC_Traiteur_LS_27","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"28":{"device":"JOE","name":"JC_Traiteur_LS_28","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"29":{"device":"JOE","name":"JC_Traiteur_LS_29","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"30":{"device":"JOE","name":"JC_Traiteur_LS_30","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"31":{"device":"JOE","name":"JC_Traiteur_LS_31","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"32":{"device":"JOE","name":"JC_Traiteur_LS_32","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"40":{"device":"JOE","name":"JC_Surgeles_Portes_40","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"41":{"device":"JOE","name":"JC_Surgeles_Mixtes_41","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"42":{"device":"JOE","name":"JC_Surgeles_Mixtes_42","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"43":{"device":"JOE","name":"JC_Surgeles_Mixtes_43","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"44":{"device":"JOE","name":"JC_Surgeles_Mixtes_44","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"45":{"device":"JOE","name":"JC_4_gammes_45","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"46":{"device":"JOE","name":"JC_Surgeles_Mixtes_46","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"47":{"device":"JOE","name":"JC_Surgeles_Portes_47","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"48":{"device":"JOE","name":"JC_Surgeles_Mixtes_48","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"49":{"device":"JOE","name":"JC_Surgeles_Mixtes_49","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"50":{"device":"JOE","name":"JC_Surgeles_Mixtes_50","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"51":{"device":"JOE","name":"JC_Surgeles_Mixtes_51","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"52":{"device":"JOE","name":"JC_4_gammes_52","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"53":{"device":"JOE","name":"JC_Surgeles_Portes_53","brand":"default","model":"default","volume":1254,"genre":"vitrine-","OF":"ferme"},"54":{"device":"JOE","name":"JC_Ultra_Frais_54","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"55":{"device":"JOE","name":"JC_Ultra_Frais_55","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"56":{"device":"JOE","name":"JC_Ultra_Frais_56","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"57":{"device":"JOE","name":"JC_Ultra_Frais_57","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"58":{"device":"JOE","name":"JC_Ultra_Frais_58","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"59":{"device":"JOE","name":"JC_Ultra_Frais_59","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"60":{"device":"JOE","name":"JC_Ultra_Frais_60","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"61":{"device":"JOE","name":"JC_Ultra_Frais_61","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"62":{"device":"JOE","name":"JC_Ultra_Frais_62","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"63":{"device":"JOE","name":"JC_Ultra_Frais_63","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"64":{"device":"JOE","name":"JC_Ultra_Frais_64","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"65":{"device":"JOE","name":"JC_Ultra_Frais_65","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"66":{"device":"JOE","name":"JC_Ultra_Frais_66","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"67":{"device":"JOE","name":"JC_Ultra_Frais_67","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"70":{"device":"JOE","name":"JC_Volaille_LS_70","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"71":{"device":"JOE","name":"JC_Volaille_LS_71","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"72":{"device":"JOE","name":"JC_Volaille_LS_72","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"73":{"device":"JOE","name":"JC_Volaille_LS_73","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"74":{"device":"JOE","name":"JC_Charcuterie_LS_74","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"75":{"device":"JOE","name":"JC_Charcuterie_LS_75","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"76":{"device":"JOE","name":"JC_Charcuterie_LS_76","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"77":{"device":"JOE","name":"JC_Charcuterie_LS_77","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"78":{"device":"JOE","name":"JC_Charcuterie_LS_78","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"81":{"device":"JOE","name":"JC_Charcuterie_LS_81","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"82":{"device":"JOE","name":"JC_CF_Surgeles_82","brand":"default","model":"default","volume":37500,"genre":"CF-","OF":"ferme"},"83":{"device":"JOE","name":"JC_CF_83","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"84":{"device":"JOE","name":"JC_CF_84","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"85":{"device":"JOE","name":"JC_CF_Boulangerie_85","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"86":{"device":"JOE","name":"JC_CF_86","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"87":{"device":"JOE","name":"JC_CF_87","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"88":{"device":"JOE","name":"JC_CF_88","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"89":{"device":"JOE","name":"JC_CF_89","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"90":{"device":"JOE","name":"JC_Fromages_Trad_90","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"91":{"device":"JOE","name":"JC_Fromages_Trad_91","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"92":{"device":"JOE","name":"JC_Fromages_Trad_92","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"93":{"device":"JOE","name":"JC_Fromages_Trad_93","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"94":{"device":"JOE","name":"JC_Fromages_Trad_94","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"95":{"device":"JOE","name":"JC_CF_Fruits_\u0026_Legumes_95","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"96":{"device":"JOE","name":"JC_Saurisserie_96","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"97":{"device":"JOE","name":"JC_Saurisserie_97","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"98":{"device":"JOE","name":"JC_CF_98","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"99":{"device":"JOE","name":"JC_CF_99","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"105":{"device":"JOE","name":"JC_Vitrine_105","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"106":{"device":"JOE","name":"JC_Vitrine_106","brand":"default","model":"default","volume":1254,"genre":"vitrine+","OF":"ferme"},"107":{"device":"JOE","name":"JC_Labo_Poisson_107","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"},"108":{"device":"JOE","name":"JC_CF_Dechets_108","brand":"default","model":"default","volume":37500,"genre":"CF+","OF":"ferme"}}
+{
+  "1": {
+    "device": "JOE",
+    "name": "JC_Salles_des_machines_1",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "2": {
+    "device": "JOE",
+    "name": "JC_Boucherie_LS_2",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "3": {
+    "device": "JOE",
+    "name": "JC_Boucherie_LS_3",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "4": {
+    "device": "JOE",
+    "name": "JC_Boucherie_LS_4",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "5": {
+    "device": "JOE",
+    "name": "JC_Boucherie_LS_5",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "6": {
+    "device": "JOE",
+    "name": "JC_Boucherie_LS_6",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "7": {
+    "device": "JOE",
+    "name": "JC_CF_Barquettes_7",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "8": {
+    "device": "JOE",
+    "name": "JC_CF_Barquettes_8",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "10": {
+    "device": "JOE",
+    "name": "JC_CF_10",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "11": {
+    "device": "JOE",
+    "name": "JC_Labo_Boucherie_11",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "12": {
+    "device": "JOE",
+    "name": "JC_Labo_Boucherie_12",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "13": {
+    "device": "JOE",
+    "name": "JC_CF_13",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "14": {
+    "device": "JOE",
+    "name": "JC_CF_14",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "15": {
+    "device": "JOE",
+    "name": "JC_Labo_15",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "16": {
+    "device": "JOE",
+    "name": "JC_Labo_16",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "17": {
+    "device": "JOE",
+    "name": "JC_Boucherie_Trad_17",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "18": {
+    "device": "JOE",
+    "name": "JC_Boucherie_Trad_18",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "19": {
+    "device": "JOE",
+    "name": "JC_Boucherie_Trad_19",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "20": {
+    "device": "JOE",
+    "name": "JC_Patisserie_LS_20",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "21": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_21",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "22": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_22",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "23": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_23",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "24": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_24",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "25": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_25",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "26": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_26",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "27": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_27",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "28": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_28",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "29": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_29",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "30": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_30",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "31": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_31",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "32": {
+    "device": "JOE",
+    "name": "JC_Traiteur_LS_32",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "40": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Portes_40",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "41": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Mixtes_41",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "42": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Mixtes_42",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "43": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Mixtes_43",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "44": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Mixtes_44",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "45": {
+    "device": "JOE",
+    "name": "JC_4_gammes_45",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "46": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Mixtes_46",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "47": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Portes_47",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "48": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Mixtes_48",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "49": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Mixtes_49",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "50": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Mixtes_50",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "51": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Mixtes_51",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "52": {
+    "device": "JOE",
+    "name": "JC_4_gammes_52",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "53": {
+    "device": "JOE",
+    "name": "JC_Surgeles_Portes_53",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine-",
+    "OF": "ferme"
+  },
+  "54": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_54",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "55": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_55",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "56": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_56",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "57": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_57",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "58": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_58",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "59": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_59",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "60": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_60",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "61": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_61",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "62": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_62",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "63": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_63",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "64": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_64",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "65": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_65",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "66": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_66",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "67": {
+    "device": "JOE",
+    "name": "JC_Ultra_Frais_67",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "70": {
+    "device": "JOE",
+    "name": "JC_Volaille_LS_70",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "71": {
+    "device": "JOE",
+    "name": "JC_Volaille_LS_71",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "72": {
+    "device": "JOE",
+    "name": "JC_Volaille_LS_72",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "73": {
+    "device": "JOE",
+    "name": "JC_Volaille_LS_73",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "74": {
+    "device": "JOE",
+    "name": "JC_Charcuterie_LS_74",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "75": {
+    "device": "JOE",
+    "name": "JC_Charcuterie_LS_75",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "76": {
+    "device": "JOE",
+    "name": "JC_Charcuterie_LS_76",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "77": {
+    "device": "JOE",
+    "name": "JC_Charcuterie_LS_77",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "78": {
+    "device": "JOE",
+    "name": "JC_Charcuterie_LS_78",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "81": {
+    "device": "JOE",
+    "name": "JC_Charcuterie_LS_81",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "82": {
+    "device": "JOE",
+    "name": "JC_CF_Surgeles_82",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF-",
+    "OF": "ferme"
+  },
+  "83": {
+    "device": "JOE",
+    "name": "JC_CF_83",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "84": {
+    "device": "JOE",
+    "name": "JC_CF_84",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "85": {
+    "device": "JOE",
+    "name": "JC_CF_Boulangerie_85",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "86": {
+    "device": "JOE",
+    "name": "JC_CF_86",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "87": {
+    "device": "JOE",
+    "name": "JC_CF_87",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "88": {
+    "device": "JOE",
+    "name": "JC_CF_88",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "89": {
+    "device": "JOE",
+    "name": "JC_CF_89",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "90": {
+    "device": "JOE",
+    "name": "JC_Fromages_Trad_90",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "91": {
+    "device": "JOE",
+    "name": "JC_Fromages_Trad_91",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "92": {
+    "device": "JOE",
+    "name": "JC_Fromages_Trad_92",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "93": {
+    "device": "JOE",
+    "name": "JC_Fromages_Trad_93",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "94": {
+    "device": "JOE",
+    "name": "JC_Fromages_Trad_94",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "95": {
+    "device": "JOE",
+    "name": "JC_CF_Fruits_\u0026_Legumes_95",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "96": {
+    "device": "JOE",
+    "name": "JC_Saurisserie_96",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "97": {
+    "device": "JOE",
+    "name": "JC_Saurisserie_97",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "98": {
+    "device": "JOE",
+    "name": "JC_CF_98",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "99": {
+    "device": "JOE",
+    "name": "JC_CF_99",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "105": {
+    "device": "JOE",
+    "name": "JC_Vitrine_105",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "106": {
+    "device": "JOE",
+    "name": "JC_Vitrine_106",
+    "brand": "default",
+    "model": "default",
+    "volume": 1254,
+    "genre": "vitrine+",
+    "OF": "ferme"
+  },
+  "107": {
+    "device": "JOE",
+    "name": "JC_Labo_Poisson_107",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  },
+  "108": {
+    "device": "JOE",
+    "name": "JC_CF_Dechets_108",
+    "brand": "default",
+    "model": "default",
+    "volume": 37500,
+    "genre": "CF+",
+    "OF": "ferme"
+  }
+}

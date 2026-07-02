@@ -1,9 +1,8 @@
 {
-    "dl4-garage": {
-        "parent": ["", "principal", "principal", "principal"],
-        "produit": "PWX4",
-        "hw": "legacy_V2",
-        "channels": [{"name": "principal", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "chauffage", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "chauffe-eau", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}, {"name": "salon", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1"}]
-    }
+  "dl4-garage": {
+    "parent": [ "", "principal", "principal", "principal" ],
+    "produit": "PWX4",
+    "hw": "legacy_V2",
+    "channels": [ { "name": "principal", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "chauffage", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "chauffe-eau", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "salon", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
+  }
 }
-

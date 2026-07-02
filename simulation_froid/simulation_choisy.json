@@ -1,1 +1,796 @@
-{"3":{"device":"daemon","Name":"SasSurgela_3","TYPE":"historique","DATA":{"23":81979,"14":2775,"4":690,"15":115,"22":840,"total":86399,"cout":10.21},"score":0.0},"4":{"device":"daemon","Name":"CfSurgela_4","TYPE":"historique","DATA":{"23":81654,"14":3570,"4":1175,"total":86399,"cout":8.19},"score":0.0},"5":{"device":"daemon","Name":"CfCremerie_5","TYPE":"historique","DATA":{"0":77038,"14":9361,"total":86399,"cout":9.23},"score":0.0},"6":{"device":"daemon","Name":"SasFrais_6","TYPE":"historique","DATA":{"0":35488,"11":41479,"14":9431,"total":86398,"cout":9.87},"score":0.4801},"7":{"device":"daemon","Name":"LocalBarquette_7","TYPE":"historique","DATA":{"11":75963,"0":1820,"14":8616,"total":86399,"cout":1.62},"score":0.8792},"8":{"device":"daemon","Name":"CfPoisson_8","TYPE":"historique","DATA":{"11":60801,"0":15581,"14":10016,"total":86398,"cout":2.4},"score":0.7037},"9":{"device":"daemon","Name":"CfPfBouch_9","TYPE":"historique","DATA":{"11":77028,"14":9261,"19":110,"total":86399,"cout":0.35},"score":0.8915},"10":{"device":"daemon","Name":"CfCarcasses_10","TYPE":"historique","DATA":{"11":78954,"0":1250,"14":6195,"total":86399,"cout":1.56},"score":0.9138},"11":{"device":"daemon","Name":"CfSuif_11","TYPE":"historique","DATA":{"0":12401,"11":61597,"14":12401,"total":86399,"cout":0.69},"score":0.7129},"12":{"device":"daemon","Name":"LaboBoucherie_12","TYPE":"historique","DATA":{"11":57271,"0":19047,"14":10081,"total":86399,"cout":11.62},"score":0.6629},"13":{"device":"daemon","Name":"CfFromage_13","TYPE":"historique","DATA":{"11":52390,"0":21277,"14":12731,"total":86398,"cout":1.09},"score":0.6064},"14":{"device":"daemon","Name":"LaboFromage_14","TYPE":"historique","DATA":{"0":77423,"14":8976,"total":86399,"cout":4.12},"score":0.0},"15":{"device":"daemon","Name":"CfF&l_15","TYPE":"historique","DATA":{"11":62582,"0":17467,"14":6350,"total":86399,"cout":2.79},"score":0.7243},"16":{"device":"daemon","Name":"CfBoulangerie_16","TYPE":"historique","DATA":{"11":54306,"0":19277,"14":12816,"total":86399,"cout":2.26},"score":0.6285},"17":{"device":"daemon","Name":"CfNegBoul_17","TYPE":"historique","DATA":{"14":1399,"4":1200,"0":20307,"11":63492,"total":86398,"cout":2.5},"score":0.7349},"18":{"device":"daemon","Name":"LaboBoulangerie_18","TYPE":"historique","DATA":{"0":80014,"14":6385,"total":86399,"cout":13.4},"score":0.0},"20":{"device":"daemon","Name":"BoucherieLs_20","TYPE":"historique","DATA":{"19":71958,"18":5280,"23":1335,"14":7825,"total":86398,"cout":3.0},"score":0.0},"21":{"device":"daemon","Name":"BoucherieLs_21","TYPE":"historique","DATA":{"19":71908,"18":5060,"23":1300,"14":8130,"total":86398,"cout":3.0},"score":0.0},"22":{"device":"daemon","Name":"TraiteurLs_22","TYPE":"historique","DATA":{"19":72448,"18":4840,"23":1040,"14":8070,"total":86398,"cout":3.0},"score":0.0},"23":{"device":"daemon","Name":"TraiteurLs_23","TYPE":"historique","DATA":{"19":71803,"18":5135,"24":150,"14":8085,"23":1225,"total":86398,"cout":3.0},"score":0.0},"24":{"device":"daemon","Name":"Snacking_24","TYPE":"historique","DATA":{"18":5100,"19":72138,"23":925,"14":8140,"24":95,"total":86398,"cout":3.0},"score":0.0},"25":{"device":"daemon","Name":"Snacking_25","TYPE":"historique","DATA":{"19":72413,"18":4595,"23":1355,"14":8035,"total":86398,"cout":1.0},"score":0.0},"26":{"device":"daemon","Name":"TgCharcutLs_26","TYPE":"historique","DATA":{"19":53951,"18":3685,"23":12036,"14":16726,"total":86398,"cout":1.46},"score":0.0},"27":{"device":"daemon","Name":"CharcutLsG_27","TYPE":"historique","DATA":{"19":69052,"18":5125,"23":1345,"14":10786,"6":90,"total":86398,"cout":3.0},"score":0.0},"28":{"device":"daemon","Name":"CharcutLsM_28","TYPE":"historique","DATA":{"19":69602,"18":4305,"23":1805,"14":10686,"total":86398,"cout":3.0},"score":0.0},"29":{"device":"daemon","Name":"CharcutLsD_29","TYPE":"historique","DATA":{"19":69137,"18":4620,"23":1770,"14":10871,"total":86398,"cout":2.0},"score":0.0},"30":{"device":"daemon","Name":"CorpsGrasLsG_30","TYPE":"historique","DATA":{"19":68437,"14":10711,"1":70,"23":2205,"18":4865,"24":110,"total":86398,"cout":2.0},"score":0.0},"31":{"device":"daemon","Name":"CorpsGrasLsM_31","TYPE":"historique","DATA":{"19":69938,"14":10561,"23":1635,"18":4265,"total":86399,"cout":3.0},"score":0.0},"32":{"device":"daemon","Name":"CorpsGrasLsD_32","TYPE":"historique","DATA":{"19":69292,"14":10631,"23":1860,"18":4550,"24":65,"total":86398,"cout":3.0},"score":0.0},"33":{"device":"daemon","Name":"TgUf_33","TYPE":"historique","DATA":{"18":5020,"23":2420,"19":72608,"24":90,"14":6260,"total":86398,"cout":1.46},"score":0.0},"34":{"device":"daemon","Name":"FromageLsG_34","TYPE":"historique","DATA":{"19":71128,"18":5835,"14":8065,"23":1370,"total":86398,"cout":3.0},"score":0.0},"35":{"device":"daemon","Name":"FromageLsM_35","TYPE":"historique","DATA":{"19":71603,"18":5925,"14":7990,"23":880,"total":86398,"cout":3.0},"score":0.0},"36":{"device":"daemon","Name":"FromageLsD_36","TYPE":"historique","DATA":{"19":71163,"18":5945,"23":1080,"14":8000,"6":210,"total":86398,"cout":2.0},"score":0.0},"37":{"device":"daemon","Name":"Uf1G_37","TYPE":"historique","DATA":{"19":69387,"18":5450,"14":10771,"23":750,"24":40,"total":86398,"cout":3.86},"score":0.0},"38":{"device":"daemon","Name":"Uf1M_38","TYPE":"historique","DATA":{"19":68522,"18":5100,"23":2365,"14":10411,"total":86398,"cout":3.86},"score":0.0},"39":{"device":"daemon","Name":"Uf1D_39","TYPE":"historique","DATA":{"19":70538,"14":10801,"23":845,"18":3970,"24":245,"total":86399,"cout":3.86},"score":0.0},"40":{"device":"daemon","Name":"TgSurgela_40","TYPE":"historique","DATA":{"23":80299,"14":4895,"4":545,"15":325,"11":335,"total":86399,"cout":1.67},"score":0.0039},"41":{"device":"daemon","Name":"Uf2G_41","TYPE":"historique","DATA":{"19":70763,"18":5820,"23":1755,"14":8060,"total":86398,"cout":3.86},"score":0.0},"42":{"device":"daemon","Name":"Uf2M_42","TYPE":"historique","DATA":{"19":70393,"18":5165,"23":2700,"14":8055,"24":85,"total":86398,"cout":3.86},"score":0.0},"43":{"device":"daemon","Name":"Uf2D_43","TYPE":"historique","DATA":{"19":72353,"18":5160,"23":825,"14":8060,"total":86398,"cout":3.86},"score":0.0},"44":{"device":"daemon","Name":"TgSurgela_44","TYPE":"historique","DATA":{"23":80334,"14":5115,"4":595,"15":355,"total":86399,"cout":1.12},"score":0.0},"45":{"device":"daemon","Name":"SurgPort3g_45","TYPE":"historique","DATA":{"23":80959,"14":2875,"1":1350,"4":665,"15":100,"11":450,"total":86399,"cout":2.72},"score":0.0052},"46":{"device":"daemon","Name":"SurgPort3m_46","TYPE":"historique","DATA":{"23":57741,"11":23762,"14":4225,"4":670,"total":86398,"cout":1.98},"score":0.275},"47":{"device":"daemon","Name":"SurgPort3d_47","TYPE":"historique","DATA":{"23":77343,"11":4160,"14":1995,"1":2900,"total":86398,"cout":2.1},"score":0.0481},"48":{"device":"daemon","Name":"F&l-jusG_48","TYPE":"historique","DATA":{"14":9950,"23":2720,"19":69413,"18":4200,"24":40,"1":75,"total":86398,"cout":3.86},"score":0.0},"49":{"device":"daemon","Name":"F&l-jusM_49","TYPE":"historique","DATA":{"14":9875,"23":2600,"19":69768,"18":4155,"total":86398,"cout":3.86},"score":0.0},"50":{"device":"daemon","Name":"F&l-jusD_50","TYPE":"historique","DATA":{"14":9930,"23":3555,"19":67343,"18":5570,"total":86398,"cout":3.86},"score":0.0},"51":{"device":"daemon","Name":"SurgPort1g_51","TYPE":"historique","DATA":{"23":71853,"11":10711,"14":2335,"1":645,"4":530,"15":325,"total":86399,"cout":2.39},"score":0.124},"52":{"device":"daemon","Name":"SurgPort1m_52","TYPE":"historique","DATA":{"23":68477,"11":14251,"14":2635,"4":660,"15":215,"1":160,"total":86398,"cout":2.28},"score":0.1649},"53":{"device":"daemon","Name":"SurgPort1d_53","TYPE":"historique","DATA":{"23":81874,"14":2765,"1":85,"4":760,"15":230,"11":685,"total":86399,"cout":2.19},"score":0.0079},"54":{"device":"daemon","Name":"SurgPort2g_54","TYPE":"historique","DATA":{"23":78749,"14":1970,"1":720,"4":490,"11":4385,"15":85,"total":86399,"cout":2.09},"score":0.0508},"55":{"device":"daemon","Name":"SurgPort2m_55","TYPE":"historique","DATA":{"23":64147,"11":18867,"14":2520,"1":170,"4":575,"15":120,"total":86399,"cout":2.13},"score":0.2184},"56":{"device":"daemon","Name":"SurgPort2d_56","TYPE":"historique","DATA":{"23":77553,"14":2605,"4":490,"15":295,"11":5260,"24":110,"1":85,"total":86398,"cout":2.57},"score":0.0609},"57":{"device":"daemon","Name":"PatisserieLs_57","TYPE":"historique","DATA":{"11":29093,"22":6685,"14":10606,"23":37614,"24":395,"18":1950,"1":55,"total":86398,"cout":0.57},"score":0.3367},"69":{"device":"daemon","Name":"CFCarcasses","TYPE":"historique","DATA":{"11":86400},"total":86400},"19":{"device":"daemon","Name":"ZeroGachis_19","TYPE":"historique","DATA":{"23":74508,"18":2845,"14":9046,"total":86399,"cout":2.0},"score":0.0}}
+{
+  "3": {
+    "device": "daemon",
+    "Name": "SasSurgela_3",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 81979,
+      "14": 2775,
+      "4": 690,
+      "15": 115,
+      "22": 840,
+      "total": 86399,
+      "cout": 10.21
+    },
+    "score": 0.0
+  },
+  "4": {
+    "device": "daemon",
+    "Name": "CfSurgela_4",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 81654,
+      "14": 3570,
+      "4": 1175,
+      "total": 86399,
+      "cout": 8.19
+    },
+    "score": 0.0
+  },
+  "5": {
+    "device": "daemon",
+    "Name": "CfCremerie_5",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 77038,
+      "14": 9361,
+      "total": 86399,
+      "cout": 9.23
+    },
+    "score": 0.0
+  },
+  "6": {
+    "device": "daemon",
+    "Name": "SasFrais_6",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 35488,
+      "11": 41479,
+      "14": 9431,
+      "total": 86398,
+      "cout": 9.87
+    },
+    "score": 0.4801
+  },
+  "7": {
+    "device": "daemon",
+    "Name": "LocalBarquette_7",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 75963,
+      "0": 1820,
+      "14": 8616,
+      "total": 86399,
+      "cout": 1.62
+    },
+    "score": 0.8792
+  },
+  "8": {
+    "device": "daemon",
+    "Name": "CfPoisson_8",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 60801,
+      "0": 15581,
+      "14": 10016,
+      "total": 86398,
+      "cout": 2.4
+    },
+    "score": 0.7037
+  },
+  "9": {
+    "device": "daemon",
+    "Name": "CfPfBouch_9",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 77028,
+      "14": 9261,
+      "19": 110,
+      "total": 86399,
+      "cout": 0.35
+    },
+    "score": 0.8915
+  },
+  "10": {
+    "device": "daemon",
+    "Name": "CfCarcasses_10",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 78954,
+      "0": 1250,
+      "14": 6195,
+      "total": 86399,
+      "cout": 1.56
+    },
+    "score": 0.9138
+  },
+  "11": {
+    "device": "daemon",
+    "Name": "CfSuif_11",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 12401,
+      "11": 61597,
+      "14": 12401,
+      "total": 86399,
+      "cout": 0.69
+    },
+    "score": 0.7129
+  },
+  "12": {
+    "device": "daemon",
+    "Name": "LaboBoucherie_12",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 57271,
+      "0": 19047,
+      "14": 10081,
+      "total": 86399,
+      "cout": 11.62
+    },
+    "score": 0.6629
+  },
+  "13": {
+    "device": "daemon",
+    "Name": "CfFromage_13",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 52390,
+      "0": 21277,
+      "14": 12731,
+      "total": 86398,
+      "cout": 1.09
+    },
+    "score": 0.6064
+  },
+  "14": {
+    "device": "daemon",
+    "Name": "LaboFromage_14",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 77423,
+      "14": 8976,
+      "total": 86399,
+      "cout": 4.12
+    },
+    "score": 0.0
+  },
+  "15": {
+    "device": "daemon",
+    "Name": "CfF\u0026l_15",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 62582,
+      "0": 17467,
+      "14": 6350,
+      "total": 86399,
+      "cout": 2.79
+    },
+    "score": 0.7243
+  },
+  "16": {
+    "device": "daemon",
+    "Name": "CfBoulangerie_16",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 54306,
+      "0": 19277,
+      "14": 12816,
+      "total": 86399,
+      "cout": 2.26
+    },
+    "score": 0.6285
+  },
+  "17": {
+    "device": "daemon",
+    "Name": "CfNegBoul_17",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 1399,
+      "4": 1200,
+      "0": 20307,
+      "11": 63492,
+      "total": 86398,
+      "cout": 2.5
+    },
+    "score": 0.7349
+  },
+  "18": {
+    "device": "daemon",
+    "Name": "LaboBoulangerie_18",
+    "TYPE": "historique",
+    "DATA": {
+      "0": 80014,
+      "14": 6385,
+      "total": 86399,
+      "cout": 13.4
+    },
+    "score": 0.0
+  },
+  "20": {
+    "device": "daemon",
+    "Name": "BoucherieLs_20",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 71958,
+      "18": 5280,
+      "23": 1335,
+      "14": 7825,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "21": {
+    "device": "daemon",
+    "Name": "BoucherieLs_21",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 71908,
+      "18": 5060,
+      "23": 1300,
+      "14": 8130,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "22": {
+    "device": "daemon",
+    "Name": "TraiteurLs_22",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 72448,
+      "18": 4840,
+      "23": 1040,
+      "14": 8070,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "23": {
+    "device": "daemon",
+    "Name": "TraiteurLs_23",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 71803,
+      "18": 5135,
+      "24": 150,
+      "14": 8085,
+      "23": 1225,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "24": {
+    "device": "daemon",
+    "Name": "Snacking_24",
+    "TYPE": "historique",
+    "DATA": {
+      "18": 5100,
+      "19": 72138,
+      "23": 925,
+      "14": 8140,
+      "24": 95,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "25": {
+    "device": "daemon",
+    "Name": "Snacking_25",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 72413,
+      "18": 4595,
+      "23": 1355,
+      "14": 8035,
+      "total": 86398,
+      "cout": 1.0
+    },
+    "score": 0.0
+  },
+  "26": {
+    "device": "daemon",
+    "Name": "TgCharcutLs_26",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 53951,
+      "18": 3685,
+      "23": 12036,
+      "14": 16726,
+      "total": 86398,
+      "cout": 1.46
+    },
+    "score": 0.0
+  },
+  "27": {
+    "device": "daemon",
+    "Name": "CharcutLsG_27",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 69052,
+      "18": 5125,
+      "23": 1345,
+      "14": 10786,
+      "6": 90,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "28": {
+    "device": "daemon",
+    "Name": "CharcutLsM_28",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 69602,
+      "18": 4305,
+      "23": 1805,
+      "14": 10686,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "29": {
+    "device": "daemon",
+    "Name": "CharcutLsD_29",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 69137,
+      "18": 4620,
+      "23": 1770,
+      "14": 10871,
+      "total": 86398,
+      "cout": 2.0
+    },
+    "score": 0.0
+  },
+  "30": {
+    "device": "daemon",
+    "Name": "CorpsGrasLsG_30",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 68437,
+      "14": 10711,
+      "1": 70,
+      "23": 2205,
+      "18": 4865,
+      "24": 110,
+      "total": 86398,
+      "cout": 2.0
+    },
+    "score": 0.0
+  },
+  "31": {
+    "device": "daemon",
+    "Name": "CorpsGrasLsM_31",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 69938,
+      "14": 10561,
+      "23": 1635,
+      "18": 4265,
+      "total": 86399,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "32": {
+    "device": "daemon",
+    "Name": "CorpsGrasLsD_32",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 69292,
+      "14": 10631,
+      "23": 1860,
+      "18": 4550,
+      "24": 65,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "33": {
+    "device": "daemon",
+    "Name": "TgUf_33",
+    "TYPE": "historique",
+    "DATA": {
+      "18": 5020,
+      "23": 2420,
+      "19": 72608,
+      "24": 90,
+      "14": 6260,
+      "total": 86398,
+      "cout": 1.46
+    },
+    "score": 0.0
+  },
+  "34": {
+    "device": "daemon",
+    "Name": "FromageLsG_34",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 71128,
+      "18": 5835,
+      "14": 8065,
+      "23": 1370,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "35": {
+    "device": "daemon",
+    "Name": "FromageLsM_35",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 71603,
+      "18": 5925,
+      "14": 7990,
+      "23": 880,
+      "total": 86398,
+      "cout": 3.0
+    },
+    "score": 0.0
+  },
+  "36": {
+    "device": "daemon",
+    "Name": "FromageLsD_36",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 71163,
+      "18": 5945,
+      "23": 1080,
+      "14": 8000,
+      "6": 210,
+      "total": 86398,
+      "cout": 2.0
+    },
+    "score": 0.0
+  },
+  "37": {
+    "device": "daemon",
+    "Name": "Uf1G_37",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 69387,
+      "18": 5450,
+      "14": 10771,
+      "23": 750,
+      "24": 40,
+      "total": 86398,
+      "cout": 3.86
+    },
+    "score": 0.0
+  },
+  "38": {
+    "device": "daemon",
+    "Name": "Uf1M_38",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 68522,
+      "18": 5100,
+      "23": 2365,
+      "14": 10411,
+      "total": 86398,
+      "cout": 3.86
+    },
+    "score": 0.0
+  },
+  "39": {
+    "device": "daemon",
+    "Name": "Uf1D_39",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 70538,
+      "14": 10801,
+      "23": 845,
+      "18": 3970,
+      "24": 245,
+      "total": 86399,
+      "cout": 3.86
+    },
+    "score": 0.0
+  },
+  "40": {
+    "device": "daemon",
+    "Name": "TgSurgela_40",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 80299,
+      "14": 4895,
+      "4": 545,
+      "15": 325,
+      "11": 335,
+      "total": 86399,
+      "cout": 1.67
+    },
+    "score": 0.0039
+  },
+  "41": {
+    "device": "daemon",
+    "Name": "Uf2G_41",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 70763,
+      "18": 5820,
+      "23": 1755,
+      "14": 8060,
+      "total": 86398,
+      "cout": 3.86
+    },
+    "score": 0.0
+  },
+  "42": {
+    "device": "daemon",
+    "Name": "Uf2M_42",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 70393,
+      "18": 5165,
+      "23": 2700,
+      "14": 8055,
+      "24": 85,
+      "total": 86398,
+      "cout": 3.86
+    },
+    "score": 0.0
+  },
+  "43": {
+    "device": "daemon",
+    "Name": "Uf2D_43",
+    "TYPE": "historique",
+    "DATA": {
+      "19": 72353,
+      "18": 5160,
+      "23": 825,
+      "14": 8060,
+      "total": 86398,
+      "cout": 3.86
+    },
+    "score": 0.0
+  },
+  "44": {
+    "device": "daemon",
+    "Name": "TgSurgela_44",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 80334,
+      "14": 5115,
+      "4": 595,
+      "15": 355,
+      "total": 86399,
+      "cout": 1.12
+    },
+    "score": 0.0
+  },
+  "45": {
+    "device": "daemon",
+    "Name": "SurgPort3g_45",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 80959,
+      "14": 2875,
+      "1": 1350,
+      "4": 665,
+      "15": 100,
+      "11": 450,
+      "total": 86399,
+      "cout": 2.72
+    },
+    "score": 0.0052
+  },
+  "46": {
+    "device": "daemon",
+    "Name": "SurgPort3m_46",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 57741,
+      "11": 23762,
+      "14": 4225,
+      "4": 670,
+      "total": 86398,
+      "cout": 1.98
+    },
+    "score": 0.275
+  },
+  "47": {
+    "device": "daemon",
+    "Name": "SurgPort3d_47",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 77343,
+      "11": 4160,
+      "14": 1995,
+      "1": 2900,
+      "total": 86398,
+      "cout": 2.1
+    },
+    "score": 0.0481
+  },
+  "48": {
+    "device": "daemon",
+    "Name": "F\u0026l-jusG_48",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 9950,
+      "23": 2720,
+      "19": 69413,
+      "18": 4200,
+      "24": 40,
+      "1": 75,
+      "total": 86398,
+      "cout": 3.86
+    },
+    "score": 0.0
+  },
+  "49": {
+    "device": "daemon",
+    "Name": "F\u0026l-jusM_49",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 9875,
+      "23": 2600,
+      "19": 69768,
+      "18": 4155,
+      "total": 86398,
+      "cout": 3.86
+    },
+    "score": 0.0
+  },
+  "50": {
+    "device": "daemon",
+    "Name": "F\u0026l-jusD_50",
+    "TYPE": "historique",
+    "DATA": {
+      "14": 9930,
+      "23": 3555,
+      "19": 67343,
+      "18": 5570,
+      "total": 86398,
+      "cout": 3.86
+    },
+    "score": 0.0
+  },
+  "51": {
+    "device": "daemon",
+    "Name": "SurgPort1g_51",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 71853,
+      "11": 10711,
+      "14": 2335,
+      "1": 645,
+      "4": 530,
+      "15": 325,
+      "total": 86399,
+      "cout": 2.39
+    },
+    "score": 0.124
+  },
+  "52": {
+    "device": "daemon",
+    "Name": "SurgPort1m_52",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 68477,
+      "11": 14251,
+      "14": 2635,
+      "4": 660,
+      "15": 215,
+      "1": 160,
+      "total": 86398,
+      "cout": 2.28
+    },
+    "score": 0.1649
+  },
+  "53": {
+    "device": "daemon",
+    "Name": "SurgPort1d_53",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 81874,
+      "14": 2765,
+      "1": 85,
+      "4": 760,
+      "15": 230,
+      "11": 685,
+      "total": 86399,
+      "cout": 2.19
+    },
+    "score": 0.0079
+  },
+  "54": {
+    "device": "daemon",
+    "Name": "SurgPort2g_54",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 78749,
+      "14": 1970,
+      "1": 720,
+      "4": 490,
+      "11": 4385,
+      "15": 85,
+      "total": 86399,
+      "cout": 2.09
+    },
+    "score": 0.0508
+  },
+  "55": {
+    "device": "daemon",
+    "Name": "SurgPort2m_55",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 64147,
+      "11": 18867,
+      "14": 2520,
+      "1": 170,
+      "4": 575,
+      "15": 120,
+      "total": 86399,
+      "cout": 2.13
+    },
+    "score": 0.2184
+  },
+  "56": {
+    "device": "daemon",
+    "Name": "SurgPort2d_56",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 77553,
+      "14": 2605,
+      "4": 490,
+      "15": 295,
+      "11": 5260,
+      "24": 110,
+      "1": 85,
+      "total": 86398,
+      "cout": 2.57
+    },
+    "score": 0.0609
+  },
+  "57": {
+    "device": "daemon",
+    "Name": "PatisserieLs_57",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 29093,
+      "22": 6685,
+      "14": 10606,
+      "23": 37614,
+      "24": 395,
+      "18": 1950,
+      "1": 55,
+      "total": 86398,
+      "cout": 0.57
+    },
+    "score": 0.3367
+  },
+  "69": {
+    "device": "daemon",
+    "Name": "CFCarcasses",
+    "TYPE": "historique",
+    "DATA": {
+      "11": 86400
+    },
+    "total": 86400
+  },
+  "19": {
+    "device": "daemon",
+    "Name": "ZeroGachis_19",
+    "TYPE": "historique",
+    "DATA": {
+      "23": 74508,
+      "18": 2845,
+      "14": 9046,
+      "total": 86399,
+      "cout": 2.0
+    },
+    "score": 0.0
+  }
+}
