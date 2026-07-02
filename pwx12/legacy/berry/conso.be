@@ -181,18 +181,25 @@ class conso
     end
 
     def init_conso()
+        print('CONSO LOAD: entering init_conso')
         var file
         var ligne
         var name = string.format("p_%s.json", global.ville)
         import path
+        print('CONSO LOAD: checking config file ' + name)
         if (path.exists(name))
+            print('CONSO LOAD: config file exists')
             file = open(name, "rt")
             ligne = file.read()
+            print('CONSO LOAD: config file read')
             file.close()
             global.configjson = json.load(ligne)
+            print('CONSO LOAD: config file parsed')
             self.normalize_config_device(global.configjson, global.device)
+            print('CONSO LOAD: config normalized for ' + str(global.device))
             print(global.configjson[global.device])
             if global.configjson[global.device]["produit"] == "PWX12"
+                print('CONSO LOAD: building conso json for PWX12')
                 ligne = string.format('{"hours":[]}')
                 var mainjson = json.load(ligne)
                 mainjson.insert("days", [])
@@ -209,6 +216,7 @@ class conso
                     end
                 end
                 ligne = json.dump(mainjson)
+                print('CONSO LOAD: init_conso ready')
                 return ligne
             end
         else
@@ -218,23 +226,31 @@ class conso
 
     def init()
         import path
+        print('CONSO LOAD: entering init')
 
         var ligne
         var file
         if (path.exists("conso.json"))
+            print('CONSO LOAD: conso.json exists')
             file = open("conso.json", "rt")
             if file.size() != 0
+                print('CONSO LOAD: conso.json non-empty')
                 ligne = file.read()
                 self.consojson = json.load(ligne)
                 print(self.consojson)
                 file.close()
                 var name = string.format("p_%s.json", global.ville)
+                print('CONSO LOAD: opening config ' + name)
                 file = open(name, 'rt')
                 ligne = file.read()
+                print('CONSO LOAD: config read')
                 global.configjson = json.load(ligne)
+                print('CONSO LOAD: config parsed')
                 self.normalize_config_device(global.configjson, global.device)
+                print('CONSO LOAD: config normalized for ' + str(global.device))
                 file.close()
             else
+                print('CONSO LOAD: conso.json empty, regenerating')
                 ligne = self.init_conso()
                 file = open("conso.json", "wt")
                 file.write(ligne)
@@ -243,6 +259,7 @@ class conso
                 print(ligne)
             end
         else
+            print('CONSO LOAD: conso.json missing, regenerating')
             ligne = self.init_conso()
             file = open("conso.json", "wt")
             file.write(ligne)
@@ -251,12 +268,16 @@ class conso
             print(ligne)
         end
 
+        print('CONSO LOAD: setting date arrays')
         self.day_list = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
         self.month_list = ["", "Jan", "Fev", "Mars", "Avr", "Mai", "Juin", "Juil", "Aout", "Sept", "Oct", "Nov", "Dec"]
         self.num_day_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
+        print('CONSO LOAD: before init_cout')
         self.init_cout()
+        print('CONSO LOAD: after init_cout')
         if (path.exists("couts.json"))
+            print('CONSO LOAD: couts.json exists')
             file = open("couts.json", "rt")
                 ligne = file.read()
                 self.week_couts_json = json.load(ligne)
@@ -272,6 +293,7 @@ class conso
                 end
                 file.close()
         else
+            print('CONSO LOAD: couts.json missing, creating')
             self.week_couts_json = map()
             for i:0..2
                 self.week_couts_json.insert(global.configjson[global.device]["root"][i], json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
@@ -428,4 +450,5 @@ class conso
     end
 end
 
+print('CONSO LOAD: returning instance')
 return conso()
