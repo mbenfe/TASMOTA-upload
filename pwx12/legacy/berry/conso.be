@@ -13,10 +13,6 @@ class conso
     var num_day_month
     var cout
 
-    def channel_name(index)
-        return global.configjson["channels"][index]["name"]
-    end
-
     def get_hours()
         var ligne
         ligne = string.format('{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0}')
@@ -45,7 +41,8 @@ class conso
         global.coutjson = json.load(ligne)
         self.cout = map()
         for i:0..2
-            name = string.format("c_%s", self.channel_name(i))
+            var channel_name = global.configjson["channels"][i]["name"]
+            name = string.format("c_%s", channel_name)
             self.cout.insert(name, 0)
         end   
     end
@@ -133,11 +130,12 @@ class conso
             mainjson.insert("months", [])
             for i:0..2
                 if global.configjson["channels"][i]["mode"] == "tri"
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, self.channel_name(i), self.get_hours())
+                    var channel_name = global.configjson["channels"][i]["name"]
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, self.get_hours())
                     mainjson["hours"].insert(i, json.load(ligne))
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, self.channel_name(i), self.get_days())
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, self.get_days())
                     mainjson["days"].insert(i, json.load(ligne))
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, self.channel_name(i), self.get_months())
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, self.get_months())
                     mainjson["months"].insert(i, json.load(ligne))
                 else
                 end
@@ -164,6 +162,7 @@ class conso
         ligne = file.read()
         file.close()
         var all_cfg = json.load(ligne)
+        print(all_cfg)
         if all_cfg == nil || !all_cfg.contains(global.device)
             raise 'device not found in config:', str(global.device)
         end
@@ -208,7 +207,8 @@ class conso
                 self.week_couts_json = json.load(ligne)
                 if self.week_couts_json.size() > 3
                     for i:0..2
-                        self.week_couts_json.insert(self.channel_name(i), json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                        var channel_name = global.configjson["channels"][i]["name"]
+                        self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                     end
                     file = open("couts.json", "wt")
                     ligne = json.dump(self.week_couts_json)
@@ -221,7 +221,8 @@ class conso
             print('CONSO LOAD: couts.json missing, creating')
             self.week_couts_json = map()
             for i:0..2
-                self.week_couts_json.insert(self.channel_name(i), json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                var channel_name = global.configjson["channels"][i]["name"]
+                self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
             end
             file = open("couts.json", "wt")
             ligne = json.dump(self.week_couts_json)
@@ -303,7 +304,7 @@ class conso
 
         for i:0..2
             stringdevice = string.format("%s-%d", global.device, i + 1)
-            var channel_name = self.channel_name(i)
+            var channel_name = global.configjson["channels"][i]["name"]
             if (scope == "hours" && channel_name != "*")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
@@ -351,7 +352,7 @@ class conso
         
         # Publish costs
         for i:0..2
-            var channel_name = self.channel_name(i)
+            var channel_name = global.configjson["channels"][i]["name"]
             if (scope != "hours" && channel_name != "*")
                 var cost_key = string.format("c_%s", channel_name)
                 if !self.week_couts_json.contains(channel_name)
