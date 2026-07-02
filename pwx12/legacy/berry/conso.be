@@ -162,6 +162,13 @@ class conso
         ligne = file.read()
         print('ligne:', ligne)
         file.close()
+        var compact = ""
+        for i:0..size(ligne)-1
+            if ligne[i] != " " && ligne[i] != "\t" && ligne[i] != "\r" && ligne[i] != "\n"
+                compact += ligne[i]
+            end
+        end
+        ligne = compact
         var all_cfg = json.load(ligne)
         print('all_cfg:', all_cfg)
         if all_cfg == nil || !all_cfg.contains(global.device)
