@@ -1274,8 +1274,7 @@
           "row": 1,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "main", "main_ND" ],
-          "target": 0
+          "slave": [ "main", "main_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1284,8 +1283,7 @@
           "row": 2,
           "location": "",
           "master": "dl12-boulangerie2",
-          "slave": [ "CF", "CF_ND" ],
-          "target": 0
+          "slave": [ "CF", "CF_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1294,8 +1292,7 @@
           "row": 3,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "climatisation", "climatisation_ND" ],
-          "target": 0
+          "slave": [ "climatisation", "climatisation_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1304,8 +1301,7 @@
           "row": 4,
           "location": "",
           "master": "dl12-boulangerie1",
-          "slave": [ "four1", "four1_ND" ],
-          "target": 0
+          "slave": [ "four1", "four1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1314,8 +1310,7 @@
           "row": 5,
           "location": "",
           "master": "dl12-boulangerie2",
-          "slave": [ "four2", "four2_ND" ],
-          "target": 0
+          "slave": [ "four2", "four2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1324,8 +1319,7 @@
           "row": 6,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "froid1", "froid1_ND" ],
-          "target": 0
+          "slave": [ "froid1", "froid1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1334,8 +1328,7 @@
           "row": 7,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "froid2", "froid2_ND" ],
-          "target": 0
+          "slave": [ "froid2", "froid2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1344,8 +1337,7 @@
           "row": 8,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "gene_boulangerie", "gene_boulangerie_ND" ],
-          "target": 0
+          "slave": [ "gene_boulangerie", "gene_boulangerie_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1354,8 +1346,7 @@
           "row": 9,
           "location": "",
           "master": "dl12-boulangerie1",
-          "slave": [ "gene_boulangerie", "gene_boulangerie_ND" ],
-          "target": 0
+          "slave": [ "gene_boulangerie", "gene_boulangerie_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1364,8 +1355,7 @@
           "row": 10,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "gene_parking", "gene_parking_ND" ],
-          "target": 0
+          "slave": [ "gene_parking", "gene_parking_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1374,8 +1364,7 @@
           "row": 11,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "gene_patisserie", "gene_patisserie_ND" ],
-          "target": 0
+          "slave": [ "gene_patisserie", "gene_patisserie_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1384,8 +1373,7 @@
           "row": 12,
           "location": "",
           "master": "dl12-boulangerie1",
-          "slave": [ "gene_pc", "gene_pc_ND" ],
-          "target": 0
+          "slave": [ "gene_pc", "gene_pc_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1394,8 +1382,7 @@
           "row": 13,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "gene_second_tgbt", "gene_second_tgbt_ND" ],
-          "target": 0
+          "slave": [ "gene_second_tgbt", "gene_second_tgbt_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1404,8 +1391,7 @@
           "row": 14,
           "location": "",
           "master": "dl12-labo",
-          "slave": [ "P2_F1_F3", "P2_F1_F3_ND" ],
-          "target": 0
+          "slave": [ "P2_F1_F3", "P2_F1_F3_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1414,8 +1400,7 @@
           "row": 15,
           "location": "",
           "master": "dl12-labo",
-          "slave": [ "P3_P5_F8", "P3_P5_F8_ND" ],
-          "target": 0
+          "slave": [ "P3_P5_F8", "P3_P5_F8_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1424,8 +1409,7 @@
           "row": 16,
           "location": "",
           "master": "dl12-boulangerie2",
-          "slave": [ "provisoir_mf", "provisoir_mf_ND" ],
-          "target": 0
+          "slave": [ "provisoir_mf", "provisoir_mf_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1434,8 +1418,7 @@
           "row": 17,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "rideau", "rideau_ND" ],
-          "target": 0
+          "slave": [ "rideau", "rideau_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1444,8 +1427,7 @@
           "row": 18,
           "location": "",
           "master": "dl12-labo",
-          "slave": [ "rotissoire", "rotissoire_ND" ],
-          "target": 0
+          "slave": [ "rotissoire", "rotissoire_ND" ]
         }
       ]
     }

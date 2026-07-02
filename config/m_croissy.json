@@ -1140,8 +1140,7 @@
           "row": 1,
           "location": "",
           "master": "dl4-main",
-          "slave": [ "main", "main_ND" ],
-          "target": 0
+          "slave": [ "main", "main_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1150,8 +1149,7 @@
           "row": 2,
           "location": "",
           "master": "dl4-tgbt",
-          "slave": [ "CoffretEntree", "CoffretEntree_ND" ],
-          "target": 0
+          "slave": [ "CoffretEntree", "CoffretEntree_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1160,8 +1158,7 @@
           "row": 3,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "ColonneA", "ColonneA_ND" ],
-          "target": 0
+          "slave": [ "ColonneA", "ColonneA_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1170,8 +1167,7 @@
           "row": 4,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "ColonneB", "ColonneB_ND" ],
-          "target": 0
+          "slave": [ "ColonneB", "ColonneB_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1180,8 +1176,7 @@
           "row": 5,
           "location": "",
           "master": "dl4-fneg",
-          "slave": [ "fneg", "fneg_ND" ],
-          "target": 0
+          "slave": [ "fneg", "fneg_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1190,8 +1185,7 @@
           "row": 6,
           "location": "",
           "master": "dl4-fpos",
-          "slave": [ "fpos", "fpos_ND" ],
-          "target": 0
+          "slave": [ "fpos", "fpos_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1200,8 +1194,7 @@
           "row": 7,
           "location": "",
           "master": "pwx4-froid-new",
-          "slave": [ "fpos2", "fpos2_ND" ],
-          "target": 0
+          "slave": [ "fpos2", "fpos2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1210,8 +1203,7 @@
           "row": 8,
           "location": "",
           "master": "dl12-bureaux",
-          "slave": [ "gene_bureaux", "gene_bureaux_ND" ],
-          "target": 0
+          "slave": [ "gene_bureaux", "gene_bureaux_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1220,8 +1212,7 @@
           "row": 9,
           "location": "",
           "master": "dl12-bureaux",
-          "slave": [ "onduleur", "onduleur_ND" ],
-          "target": 0
+          "slave": [ "onduleur", "onduleur_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1230,8 +1221,7 @@
           "row": 10,
           "location": "",
           "master": "dl12-bureaux",
-          "slave": [ "td_boulangerie", "td_boulangerie_ND" ],
-          "target": 0
+          "slave": [ "td_boulangerie", "td_boulangerie_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1240,8 +1230,7 @@
           "row": 11,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "rampe2-9-div", "rampe2-9-div_ND" ],
-          "target": 0
+          "slave": [ "rampe2-9-div", "rampe2-9-div_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1250,8 +1239,7 @@
           "row": 12,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "rampe3-6-1-2-div", "rampe3-6-1-2-div_ND" ],
-          "target": 0
+          "slave": [ "rampe3-6-1-2-div", "rampe3-6-1-2-div_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1260,8 +1248,7 @@
           "row": 13,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "rampe5-1-divecl", "rampe5-1-divecl_ND" ],
-          "target": 0
+          "slave": [ "rampe5-1-divecl", "rampe5-1-divecl_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1270,8 +1257,7 @@
           "row": 14,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "rampe8-10-14-12-div", "rampe8-10-14-12-div_ND" ],
-          "target": 0
+          "slave": [ "rampe8-10-14-12-div", "rampe8-10-14-12-div_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1280,8 +1266,7 @@
           "row": 15,
           "location": "",
           "master": "dl4-station",
-          "slave": [ "station", "station_ND" ],
-          "target": 0
+          "slave": [ "station", "station_ND" ]
         }
       ]
     }

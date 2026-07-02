@@ -859,8 +859,7 @@
           "row": 1,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "main", "main_ND" ],
-          "target": 0
+          "slave": [ "main", "main_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -869,8 +868,7 @@
           "row": 2,
           "location": "",
           "master": "dl12-tgbt5",
-          "slave": [ "bureaux", "bureaux_ND" ],
-          "target": 0
+          "slave": [ "bureaux", "bureaux_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -879,8 +877,7 @@
           "row": 3,
           "location": "",
           "master": "dl12-tgbt4",
-          "slave": [ "CF-reserve", "CF-reserve_ND" ],
-          "target": 0
+          "slave": [ "CF-reserve", "CF-reserve_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -889,8 +886,7 @@
           "row": 4,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "ecl_ext", "ecl_ext_ND" ],
-          "target": 0
+          "slave": [ "ecl_ext", "ecl_ext_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -899,8 +895,7 @@
           "row": 5,
           "location": "",
           "master": "dl12-tgbt4",
-          "slave": [ "ecl_f\u0026l", "ecl_f\u0026l_ND" ],
-          "target": 0
+          "slave": [ "ecl_f\u0026l", "ecl_f\u0026l_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -909,8 +904,7 @@
           "row": 6,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "froid", "froid_ND" ],
-          "target": 0
+          "slave": [ "froid", "froid_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -919,8 +913,7 @@
           "row": 7,
           "location": "",
           "master": "dl12-boulangerie",
-          "slave": [ "gene_boulangerie", "gene_boulangerie_ND" ],
-          "target": 0
+          "slave": [ "gene_boulangerie", "gene_boulangerie_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -929,8 +922,7 @@
           "row": 8,
           "location": "",
           "master": "dl12-boulangerie",
-          "slave": [ "drive\u0026co", "drive\u0026co_ND" ],
-          "target": 0
+          "slave": [ "drive\u0026co", "drive\u0026co_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -939,8 +931,7 @@
           "row": 9,
           "location": "",
           "master": "dl12-boulangerie",
-          "slave": [ "fours", "fours_ND" ],
-          "target": 0
+          "slave": [ "fours", "fours_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -949,8 +940,7 @@
           "row": 10,
           "location": "",
           "master": "dl12-tgbt4",
-          "slave": [ "gene_divers", "gene_divers_ND" ],
-          "target": 0
+          "slave": [ "gene_divers", "gene_divers_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -959,8 +949,7 @@
           "row": 11,
           "location": "",
           "master": "dl4-labo",
-          "slave": [ "gene_labo", "gene_labo_ND" ],
-          "target": 0
+          "slave": [ "gene_labo", "gene_labo_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -969,8 +958,7 @@
           "row": 12,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "gene_rooftops", "gene_rooftops_ND" ],
-          "target": 0
+          "slave": [ "gene_rooftops", "gene_rooftops_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -979,8 +967,7 @@
           "row": 13,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "rooftop_51", "rooftop_51_ND" ],
-          "target": 0
+          "slave": [ "rooftop_51", "rooftop_51_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -989,8 +976,7 @@
           "row": 14,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "rooftop1_36", "rooftop1_36_ND" ],
-          "target": 0
+          "slave": [ "rooftop1_36", "rooftop1_36_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -999,8 +985,7 @@
           "row": 15,
           "location": "",
           "master": "dl12-tgbt5",
-          "slave": [ "gene_tab1", "gene_tab1_ND" ],
-          "target": 0
+          "slave": [ "gene_tab1", "gene_tab1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1009,8 +994,7 @@
           "row": 16,
           "location": "",
           "master": "dl12-tgbt6",
-          "slave": [ "gene_tab2", "gene_tab2_ND" ],
-          "target": 0
+          "slave": [ "gene_tab2", "gene_tab2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1019,8 +1003,7 @@
           "row": 17,
           "location": "",
           "master": "dl12-tgbt6",
-          "slave": [ "caisses", "caisses_ND" ],
-          "target": 0
+          "slave": [ "caisses", "caisses_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1029,8 +1012,7 @@
           "row": 18,
           "location": "",
           "master": "dl12-tgbt6",
-          "slave": [ "travees", "travees_ND" ],
-          "target": 0
+          "slave": [ "travees", "travees_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1039,8 +1021,7 @@
           "row": 19,
           "location": "",
           "master": "dl12-tgbt5",
-          "slave": [ "onduleur", "onduleur_ND" ],
-          "target": 0
+          "slave": [ "onduleur", "onduleur_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1049,8 +1030,7 @@
           "row": 20,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "td_poissonerie", "td_poissonerie_ND" ],
-          "target": 0
+          "slave": [ "td_poissonerie", "td_poissonerie_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1059,8 +1039,7 @@
           "row": 21,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "td_station", "td_station_ND" ],
-          "target": 0
+          "slave": [ "td_station", "td_station_ND" ]
         }
       ]
     }

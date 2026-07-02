@@ -838,8 +838,7 @@
           "row": 1,
           "location": "",
           "master": "virtual",
-          "slave": [ "virtual_total", "virtual_total_ND" ],
-          "target": 0
+          "slave": [ "virtual_total", "virtual_total_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -848,8 +847,7 @@
           "row": 2,
           "location": "",
           "master": "dl4-sdm",
-          "slave": [ "gene_froid", "gene_froid_ND" ],
-          "target": 0
+          "slave": [ "gene_froid", "gene_froid_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -858,8 +856,7 @@
           "row": 3,
           "location": "",
           "master": "dl12-sdm",
-          "slave": [ "fneg", "fneg_ND" ],
-          "target": 0
+          "slave": [ "fneg", "fneg_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -868,8 +865,7 @@
           "row": 4,
           "location": "",
           "master": "dl12-sdm",
-          "slave": [ "fpos", "fpos_ND" ],
-          "target": 0
+          "slave": [ "fpos", "fpos_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -878,8 +874,7 @@
           "row": 5,
           "location": "",
           "master": "dl12-sdm",
-          "slave": [ "td_clim", "td_clim_ND" ],
-          "target": 0
+          "slave": [ "td_clim", "td_clim_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -888,8 +883,7 @@
           "row": 6,
           "location": "",
           "master": "dl12-td_boulange",
-          "slave": [ "gene_td_boulange", "gene_td_boulange_ND" ],
-          "target": 0
+          "slave": [ "gene_td_boulange", "gene_td_boulange_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -898,8 +892,7 @@
           "row": 7,
           "location": "",
           "master": "dl12-td_boulange",
-          "slave": [ "four16A", "four16A_ND" ],
-          "target": 0
+          "slave": [ "four16A", "four16A_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -908,8 +901,7 @@
           "row": 8,
           "location": "",
           "master": "dl12-td_boulange",
-          "slave": [ "four32A", "four32A_ND" ],
-          "target": 0
+          "slave": [ "four32A", "four32A_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -918,8 +910,7 @@
           "row": 9,
           "location": "",
           "master": "dl12-td_ss",
-          "slave": [ "gene_td_ss", "gene_td_ss_ND" ],
-          "target": 0
+          "slave": [ "gene_td_ss", "gene_td_ss_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -928,8 +919,7 @@
           "row": 10,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "gene_tgbt", "gene_tgbt_ND" ],
-          "target": 0
+          "slave": [ "gene_tgbt", "gene_tgbt_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -938,8 +928,7 @@
           "row": 11,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "bistrot", "bistrot_ND" ],
-          "target": 0
+          "slave": [ "bistrot", "bistrot_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -948,8 +937,7 @@
           "row": 12,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "coffret2", "coffret2_ND" ],
-          "target": 0
+          "slave": [ "coffret2", "coffret2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -958,8 +946,7 @@
           "row": 13,
           "location": "",
           "master": "dl12-labo",
-          "slave": [ "ecl_labo", "ecl_labo_ND" ],
-          "target": 0
+          "slave": [ "ecl_labo", "ecl_labo_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -968,8 +955,7 @@
           "row": 14,
           "location": "",
           "master": "dl4-tgbt",
-          "slave": [ "eclairages", "eclairages_ND" ],
-          "target": 0
+          "slave": [ "eclairages", "eclairages_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -978,8 +964,7 @@
           "row": 15,
           "location": "",
           "master": "dl12-labo",
-          "slave": [ "force", "force_ND" ],
-          "target": 0
+          "slave": [ "force", "force_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -988,8 +973,7 @@
           "row": 16,
           "location": "",
           "master": "dl4-labo",
-          "slave": [ "gene_labo", "gene_labo_ND" ],
-          "target": 0
+          "slave": [ "gene_labo", "gene_labo_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -998,8 +982,7 @@
           "row": 17,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "onduleur", "onduleur_ND" ],
-          "target": 0
+          "slave": [ "onduleur", "onduleur_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1008,8 +991,7 @@
           "row": 18,
           "location": "",
           "master": "dl12-labo",
-          "slave": [ "pc_tri", "pc_tri_ND" ],
-          "target": 0
+          "slave": [ "pc_tri", "pc_tri_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1018,8 +1000,7 @@
           "row": 19,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "rail_boulangerie", "rail_boulangerie_ND" ],
-          "target": 0
+          "slave": [ "rail_boulangerie", "rail_boulangerie_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1028,8 +1009,7 @@
           "row": 20,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "station", "station_ND" ],
-          "target": 0
+          "slave": [ "station", "station_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1038,8 +1018,7 @@
           "row": 21,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "td_bureaux", "td_bureaux_ND" ],
-          "target": 0
+          "slave": [ "td_bureaux", "td_bureaux_ND" ]
         }
       ]
     }

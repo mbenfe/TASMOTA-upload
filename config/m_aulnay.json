@@ -1258,8 +1258,7 @@
           "row": 1,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "main", "main_ND" ],
-          "target": 0
+          "slave": [ "main", "main_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1268,8 +1267,7 @@
           "row": 2,
           "location": "",
           "master": "dl4-tgbt1",
-          "slave": [ "bureau_direction", "bureau_direction_ND" ],
-          "target": 0
+          "slave": [ "bureau_direction", "bureau_direction_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1278,8 +1276,7 @@
           "row": 3,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "eclext", "eclext_ND" ],
-          "target": 0
+          "slave": [ "eclext", "eclext_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1288,8 +1285,7 @@
           "row": 4,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "fext", "fext_ND" ],
-          "target": 0
+          "slave": [ "fext", "fext_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1298,8 +1294,7 @@
           "row": 5,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "fneg", "fneg_ND" ],
-          "target": 0
+          "slave": [ "fneg", "fneg_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1308,8 +1303,7 @@
           "row": 6,
           "location": "",
           "master": "dl12-subneg",
-          "slave": [ "neg_m1", "neg_m1_ND" ],
-          "target": 0
+          "slave": [ "neg_m1", "neg_m1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1318,8 +1312,7 @@
           "row": 7,
           "location": "",
           "master": "dl12-subneg",
-          "slave": [ "neg_m2", "neg_m2_ND" ],
-          "target": 0
+          "slave": [ "neg_m2", "neg_m2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1328,8 +1321,7 @@
           "row": 8,
           "location": "",
           "master": "dl12-subneg",
-          "slave": [ "neg_m3", "neg_m3_ND" ],
-          "target": 0
+          "slave": [ "neg_m3", "neg_m3_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1338,8 +1330,7 @@
           "row": 9,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "fpos", "fpos_ND" ],
-          "target": 0
+          "slave": [ "fpos", "fpos_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1348,8 +1339,7 @@
           "row": 10,
           "location": "",
           "master": "dl12-subpos",
-          "slave": [ "pos_m1", "pos_m1_ND" ],
-          "target": 0
+          "slave": [ "pos_m1", "pos_m1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1358,8 +1348,7 @@
           "row": 11,
           "location": "",
           "master": "dl12-subpos",
-          "slave": [ "pos_m2", "pos_m2_ND" ],
-          "target": 0
+          "slave": [ "pos_m2", "pos_m2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1368,8 +1357,7 @@
           "row": 12,
           "location": "",
           "master": "dl12-subpos",
-          "slave": [ "pos_m3", "pos_m3_ND" ],
-          "target": 0
+          "slave": [ "pos_m3", "pos_m3_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1378,8 +1366,7 @@
           "row": 13,
           "location": "",
           "master": "dl12-boulangerie",
-          "slave": [ "gene_boulangerie", "gene_boulangerie_ND" ],
-          "target": 0
+          "slave": [ "gene_boulangerie", "gene_boulangerie_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1388,8 +1375,7 @@
           "row": 14,
           "location": "",
           "master": "dl12-boulangerie",
-          "slave": [ "boutique", "boutique_ND" ],
-          "target": 0
+          "slave": [ "boutique", "boutique_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1398,8 +1384,7 @@
           "row": 15,
           "location": "",
           "master": "dl12-boulangerie",
-          "slave": [ "four36kw", "four36kw_ND" ],
-          "target": 0
+          "slave": [ "four36kw", "four36kw_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1408,8 +1393,7 @@
           "row": 16,
           "location": "",
           "master": "dl4-tmono-boulangerie",
-          "slave": [ "machine_glacon", "machine_glacon_ND" ],
-          "target": 0
+          "slave": [ "machine_glacon", "machine_glacon_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1418,8 +1402,7 @@
           "row": 17,
           "location": "",
           "master": "dl4-tgbt3",
-          "slave": [ "parking", "parking_ND" ],
-          "target": 0
+          "slave": [ "parking", "parking_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1428,8 +1411,7 @@
           "row": 18,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "pc_16A_magasin", "pc_16A_magasin_ND" ],
-          "target": 0
+          "slave": [ "pc_16A_magasin", "pc_16A_magasin_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1438,8 +1420,7 @@
           "row": 19,
           "location": "",
           "master": "dl12-tgbt4",
-          "slave": [ "rampe1", "rampe1_ND" ],
-          "target": 0
+          "slave": [ "rampe1", "rampe1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1448,8 +1429,7 @@
           "row": 20,
           "location": "",
           "master": "dl12-tgbt4",
-          "slave": [ "rampe2", "rampe2_ND" ],
-          "target": 0
+          "slave": [ "rampe2", "rampe2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1458,8 +1438,7 @@
           "row": 21,
           "location": "",
           "master": "dl12-tgbt4",
-          "slave": [ "rampe3", "rampe3_ND" ],
-          "target": 0
+          "slave": [ "rampe3", "rampe3_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1468,8 +1447,7 @@
           "row": 22,
           "location": "",
           "master": "dl4-tgbt2",
-          "slave": [ "rampe7-12", "rampe7-12_ND" ],
-          "target": 0
+          "slave": [ "rampe7-12", "rampe7-12_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1478,8 +1456,7 @@
           "row": 23,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "station", "station_ND" ],
-          "target": 0
+          "slave": [ "station", "station_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1488,8 +1465,7 @@
           "row": 24,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "td_acceuil", "td_acceuil_ND" ],
-          "target": 0
+          "slave": [ "td_acceuil", "td_acceuil_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1498,8 +1474,7 @@
           "row": 25,
           "location": "",
           "master": "dl4-rideau",
-          "slave": [ "rideau", "rideau_ND" ],
-          "target": 0
+          "slave": [ "rideau", "rideau_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1508,8 +1483,7 @@
           "row": 26,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "td_drive", "td_drive_ND" ],
-          "target": 0
+          "slave": [ "td_drive", "td_drive_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1518,8 +1492,7 @@
           "row": 27,
           "location": "",
           "master": "dl4-tdmag",
-          "slave": [ "td_mag", "td_mag_ND" ],
-          "target": 0
+          "slave": [ "td_mag", "td_mag_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1528,8 +1501,7 @@
           "row": 28,
           "location": "",
           "master": "dl4-tdbacl",
-          "slave": [ "td_bacs_loges", "td_bacs_loges_ND" ],
-          "target": 0
+          "slave": [ "td_bacs_loges", "td_bacs_loges_ND" ]
         }
       ]
     }

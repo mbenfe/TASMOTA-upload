@@ -577,8 +577,7 @@
           "row": 1,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "gene", "gene_ND" ],
-          "target": 0
+          "slave": [ "gene", "gene_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -587,8 +586,7 @@
           "row": 2,
           "location": "",
           "master": "dl12-tgbt4",
-          "slave": [ "chauffage", "chauffage_ND" ],
-          "target": 0
+          "slave": [ "chauffage", "chauffage_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -597,8 +595,7 @@
           "row": 3,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "depart", "depart_ND" ],
-          "target": 0
+          "slave": [ "depart", "depart_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -607,8 +604,7 @@
           "row": 4,
           "location": "",
           "master": "dl12-aero",
-          "slave": [ "aero1", "aero1_ND" ],
-          "target": 0
+          "slave": [ "aero1", "aero1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -617,8 +613,7 @@
           "row": 5,
           "location": "",
           "master": "dl12-aero",
-          "slave": [ "aero2", "aero2_ND" ],
-          "target": 0
+          "slave": [ "aero2", "aero2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -627,8 +622,7 @@
           "row": 6,
           "location": "",
           "master": "dl12-aero",
-          "slave": [ "aero3", "aero3_ND" ],
-          "target": 0
+          "slave": [ "aero3", "aero3_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -637,8 +631,7 @@
           "row": 7,
           "location": "",
           "master": "dl4-aero",
-          "slave": [ "aero4", "aero4_ND" ],
-          "target": 0
+          "slave": [ "aero4", "aero4_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -647,8 +640,7 @@
           "row": 8,
           "location": "",
           "master": "dl12-tgbt4",
-          "slave": [ "divers", "divers_ND" ],
-          "target": 0
+          "slave": [ "divers", "divers_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -657,8 +649,7 @@
           "row": 9,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "ecldeco", "ecldeco_ND" ],
-          "target": 0
+          "slave": [ "ecldeco", "ecldeco_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -667,8 +658,7 @@
           "row": 10,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "eclprive", "eclprive_ND" ],
-          "target": 0
+          "slave": [ "eclprive", "eclprive_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -677,8 +667,7 @@
           "row": 11,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "eclpub1", "eclpub1_ND" ],
-          "target": 0
+          "slave": [ "eclpub1", "eclpub1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -687,8 +676,7 @@
           "row": 12,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "eclpub2", "eclpub2_ND" ],
-          "target": 0
+          "slave": [ "eclpub2", "eclpub2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -697,8 +685,7 @@
           "row": 13,
           "location": "",
           "master": "dl12-tgbt2",
-          "slave": [ "froid", "froid_ND" ],
-          "target": 0
+          "slave": [ "froid", "froid_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -707,8 +694,7 @@
           "row": 14,
           "location": "",
           "master": "dl12-tgbt1",
-          "slave": [ "parking", "parking_ND" ],
-          "target": 0
+          "slave": [ "parking", "parking_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -717,8 +703,7 @@
           "row": 15,
           "location": "",
           "master": "dl12-tgbt4",
-          "slave": [ "pcprive", "pcprive_ND" ],
-          "target": 0
+          "slave": [ "pcprive", "pcprive_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -727,8 +712,7 @@
           "row": 16,
           "location": "",
           "master": "dl12-tgbt3",
-          "slave": [ "pcpublic", "pcpublic_ND" ],
-          "target": 0
+          "slave": [ "pcpublic", "pcpublic_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -737,8 +721,7 @@
           "row": 17,
           "location": "",
           "master": "dl4-reserve",
-          "slave": [ "reserve", "reserve_ND" ],
-          "target": 0
+          "slave": [ "reserve", "reserve_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -747,8 +730,7 @@
           "row": 18,
           "location": "",
           "master": "dl12-boulangerie",
-          "slave": [ "td_boulangerie", "td_boulangerie_ND" ],
-          "target": 0
+          "slave": [ "td_boulangerie", "td_boulangerie_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -757,8 +739,7 @@
           "row": 19,
           "location": "",
           "master": "dl12-boulangerie",
-          "slave": [ "divers_bl", "divers_bl_ND" ],
-          "target": 0
+          "slave": [ "divers_bl", "divers_bl_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -767,8 +748,7 @@
           "row": 20,
           "location": "",
           "master": "dl12-boulangerie",
-          "slave": [ "fours", "fours_ND" ],
-          "target": 0
+          "slave": [ "fours", "fours_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -777,8 +757,7 @@
           "row": 21,
           "location": "",
           "master": "dl12-caisses",
-          "slave": [ "td_caisses", "td_caisses_ND" ],
-          "target": 0
+          "slave": [ "td_caisses", "td_caisses_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -787,8 +766,7 @@
           "row": 22,
           "location": "",
           "master": "dl12-caisses",
-          "slave": [ "caisses", "caisses_ND" ],
-          "target": 0
+          "slave": [ "caisses", "caisses_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -797,8 +775,7 @@
           "row": 23,
           "location": "",
           "master": "dl12-caisses",
-          "slave": [ "pc", "pc_ND" ],
-          "target": 0
+          "slave": [ "pc", "pc_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -807,8 +784,7 @@
           "row": 24,
           "location": "",
           "master": "dl12-labo",
-          "slave": [ "td_labo", "td_labo_ND" ],
-          "target": 0
+          "slave": [ "td_labo", "td_labo_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -817,8 +793,7 @@
           "row": 25,
           "location": "",
           "master": "dl12-labo",
-          "slave": [ "ecllabo", "ecllabo_ND" ],
-          "target": 0
+          "slave": [ "ecllabo", "ecllabo_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -827,8 +802,7 @@
           "row": 26,
           "location": "",
           "master": "dl12-labo",
-          "slave": [ "pclabo", "pclabo_ND" ],
-          "target": 0
+          "slave": [ "pclabo", "pclabo_ND" ]
         }
       ]
     }

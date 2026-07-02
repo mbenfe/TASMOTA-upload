@@ -477,8 +477,7 @@
           "row": 1,
           "location": "",
           "master": "virtual",
-          "slave": [ "virtual_total", "virtual_total_ND" ],
-          "target": 0
+          "slave": [ "virtual_total", "virtual_total_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -487,8 +486,7 @@
           "row": 2,
           "location": "",
           "master": "pwx12-tgbtext",
-          "slave": [ "general_tgbtext", "general_tgbtext_ND" ],
-          "target": 0
+          "slave": [ "general_tgbtext", "general_tgbtext_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -497,8 +495,7 @@
           "row": 3,
           "location": "",
           "master": "pwx4-sdm1",
-          "slave": [ "gene_froid", "gene_froid_ND" ],
-          "target": 0
+          "slave": [ "gene_froid", "gene_froid_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -507,8 +504,7 @@
           "row": 4,
           "location": "",
           "master": "pwx4-sdm2",
-          "slave": [ "m1+", "m1+_ND" ],
-          "target": 0
+          "slave": [ "m1+", "m1+_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -517,8 +513,7 @@
           "row": 5,
           "location": "",
           "master": "pwx12-sdm1",
-          "slave": [ "m2+", "m2+_ND" ],
-          "target": 0
+          "slave": [ "m2+", "m2+_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -527,8 +522,7 @@
           "row": 6,
           "location": "",
           "master": "pwx12-sdm1",
-          "slave": [ "m3+", "m3+_ND" ],
-          "target": 0
+          "slave": [ "m3+", "m3+_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -537,8 +531,7 @@
           "row": 7,
           "location": "",
           "master": "pwx12-sdm1",
-          "slave": [ "m4+", "m4+_ND" ],
-          "target": 0
+          "slave": [ "m4+", "m4+_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -547,8 +540,7 @@
           "row": 8,
           "location": "",
           "master": "pwx12-tgbtext",
-          "slave": [ "laverie_kiosk", "laverie_kiosk_ND" ],
-          "target": 0
+          "slave": [ "laverie_kiosk", "laverie_kiosk_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -557,8 +549,7 @@
           "row": 9,
           "location": "",
           "master": "pwx12-tgbtext",
-          "slave": [ "retour_solaire", "retour_solaire_ND" ],
-          "target": 0
+          "slave": [ "retour_solaire", "retour_solaire_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -567,8 +558,7 @@
           "row": 10,
           "location": "",
           "master": "pwx12-tgbtint2",
-          "slave": [ "station_service", "station_service_ND" ],
-          "target": 0
+          "slave": [ "station_service", "station_service_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -577,8 +567,7 @@
           "row": 11,
           "location": "",
           "master": "pwx12-tgbtint2",
-          "slave": [ "general_tgbtint", "general_tgbtint_ND" ],
-          "target": 0
+          "slave": [ "general_tgbtint", "general_tgbtint_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -587,8 +576,7 @@
           "row": 12,
           "location": "",
           "master": "pwx12-tgbtint3",
-          "slave": [ "divers1", "divers1_ND" ],
-          "target": 0
+          "slave": [ "divers1", "divers1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -597,8 +585,7 @@
           "row": 13,
           "location": "",
           "master": "pwx12-tgbtint4",
-          "slave": [ "divers2", "divers2_ND" ],
-          "target": 0
+          "slave": [ "divers2", "divers2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -607,8 +594,7 @@
           "row": 14,
           "location": "",
           "master": "pwx12-tgbtint4",
-          "slave": [ "divers3", "divers3_ND" ],
-          "target": 0
+          "slave": [ "divers3", "divers3_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -617,8 +603,7 @@
           "row": 15,
           "location": "",
           "master": "pwx12-tgbtint1",
-          "slave": [ "eclairage1", "eclairage1_ND" ],
-          "target": 0
+          "slave": [ "eclairage1", "eclairage1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -627,8 +612,7 @@
           "row": 16,
           "location": "",
           "master": "pwx12-tgbtint1",
-          "slave": [ "eclairage2", "eclairage2_ND" ],
-          "target": 0
+          "slave": [ "eclairage2", "eclairage2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -637,8 +621,7 @@
           "row": 17,
           "location": "",
           "master": "pwx12-tgbtint3",
-          "slave": [ "eclairage3", "eclairage3_ND" ],
-          "target": 0
+          "slave": [ "eclairage3", "eclairage3_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -647,8 +630,7 @@
           "row": 18,
           "location": "",
           "master": "pwx12-tgbtint3",
-          "slave": [ "prise1", "prise1_ND" ],
-          "target": 0
+          "slave": [ "prise1", "prise1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -657,8 +639,7 @@
           "row": 19,
           "location": "",
           "master": "pwx12-tgbtint4",
-          "slave": [ "prises2", "prises2_ND" ],
-          "target": 0
+          "slave": [ "prises2", "prises2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -667,8 +648,7 @@
           "row": 20,
           "location": "",
           "master": "pwx12-tgbtint2",
-          "slave": [ "station_lavage", "station_lavage_ND" ],
-          "target": 0
+          "slave": [ "station_lavage", "station_lavage_ND" ]
         }
       ]
     }

@@ -46,8 +46,7 @@
           "row": 1,
           "location": "",
           "master": "dl4-developpement",
-          "slave": [ "principal", "principal_ND" ],
-          "target": 0
+          "slave": [ "principal", "principal_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -56,8 +55,7 @@
           "row": 2,
           "location": "",
           "master": "dl12-flasher",
-          "slave": [ "flasher1", "flasher1_ND" ],
-          "target": 0
+          "slave": [ "flasher1", "flasher1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -66,8 +64,7 @@
           "row": 3,
           "location": "",
           "master": "dl12-flasher",
-          "slave": [ "flasher2", "flasher2_ND" ],
-          "target": 0
+          "slave": [ "flasher2", "flasher2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -76,8 +73,7 @@
           "row": 4,
           "location": "",
           "master": "dl12-flasher",
-          "slave": [ "flasher3", "flasher3_ND" ],
-          "target": 0
+          "slave": [ "flasher3", "flasher3_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -86,8 +82,7 @@
           "row": 5,
           "location": "",
           "master": "dl12-developpement",
-          "slave": [ "test1", "test1_ND" ],
-          "target": 0
+          "slave": [ "test1", "test1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -96,8 +91,7 @@
           "row": 6,
           "location": "",
           "master": "dl12-developpement",
-          "slave": [ "test2", "test2_ND" ],
-          "target": 0
+          "slave": [ "test2", "test2_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -106,8 +100,7 @@
           "row": 7,
           "location": "",
           "master": "dl12-developpement",
-          "slave": [ "test3", "test3_ND" ],
-          "target": 0
+          "slave": [ "test3", "test3_ND" ]
         }
       ]
     }
