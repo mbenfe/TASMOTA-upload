@@ -1,4 +1,4 @@
-﻿diff --git a/pwx12/berry/conso.be b/pwx12-mono/berry/conso.be
+diff --git a/pwx12/berry/conso.be b/pwx12-mono/berry/conso.be
 index 10e52ea..fc4f2cc 100644
 --- a/pwx12/berry/conso.be
 +++ b/pwx12-mono/berry/conso.be

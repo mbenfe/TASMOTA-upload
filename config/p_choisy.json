@@ -1,4 +1,4 @@
-﻿{
+{
     "dl12-maingh": {
         "parent": ["gene_int", "gene_int", "gene_int"],
         "produit": "PWX12",

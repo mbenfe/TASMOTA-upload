@@ -5,5 +5,7 @@
         "ConvertTo-Json": true,
         "Set-Content": true,
         "Out-Null": true
-    }
+    },
+    "files.encoding": "utf8",
+    "files.autoGuessEncoding": false
 }
