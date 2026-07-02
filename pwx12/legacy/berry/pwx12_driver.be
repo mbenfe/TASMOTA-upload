@@ -38,7 +38,10 @@ class PWX12
     end
 
     def init()
+        print('PWX12 LOAD: entering PWX12.init')
+        print('PWX12 LOAD: before import conso')
         import conso
+        print('PWX12 LOAD: after import conso')
         self.conso = conso
 
         print('DRIVER: serial init done')
@@ -194,11 +197,17 @@ end
 
 
 
+print('PWX12 LOAD: creating PWX12 instance')
 global.pwx12 = PWX12()
+print('PWX12 LOAD: PWX12 instance created')
+print('PWX12 LOAD: before add_driver')
 tasmota.add_driver(global.pwx12)
+print('PWX12 LOAD: after add_driver')
 var now = tasmota.rtc()
 
+print('PWX12 LOAD: before add_fast_loop')
 tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
+print('PWX12 LOAD: after add_fast_loop')
 
 var cron_second = get_cron_second()
 # set midnight cron
