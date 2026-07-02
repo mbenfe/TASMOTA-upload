@@ -189,6 +189,7 @@ class conso
                 print('CONSO LOAD: opening config ' + name)
                 file = open(name, 'rt')
                 ligne = file.read()
+                print(ligne)
                 print('CONSO LOAD: config read')
                 global.configjson = json.load(ligne)
                 print('CONSO LOAD: config parsed')
