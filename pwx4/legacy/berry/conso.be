@@ -1,4 +1,4 @@
-var version = "1.1.0 avec couts par semaine"
+var version = "02072026"
 import json
 import string
 import mqtt
@@ -20,63 +20,45 @@ class conso
 
         var dev = all_cfg[device_name]
 
-        if !dev.contains("channels") || type(dev["channels"]) != "list"
+        if !dev.contains("channels") || dev["channels"] == nil || type(dev["channels"]) != "list" || size(dev["channels"]) == 0
             print("CONFIG ERROR: missing channels for " + device_name)
             return
         end
 
-        var roots = []
-        var modes = []
-        var technos = []
-        var ratios = []
-        var pgas = []
+        var ch = dev["channels"][0]
 
-        for i:0..size(dev["channels"]) - 1
-            var ch = dev["channels"][i]
-            if ch == nil || type(ch) != "map"
-                continue
-            end
-
-            var root_name = "*"
-            var mode_name = "tri"
-            var techno_name = "ct"
-            var ratio_value = "1000"
-            var pga_value = "1"
-
-            if ch.contains("name") && ch["name"] != nil
-                root_name = str(ch["name"])
-            end
-            if ch.contains("mode") && ch["mode"] != nil
-                mode_name = str(ch["mode"])
-            end
-            if ch.contains("techno") && ch["techno"] != nil
-                techno_name = str(ch["techno"])
-            end
-            if ch.contains("ratio") && ch["ratio"] != nil
-                ratio_value = str(ch["ratio"])
-            end
-            if ch.contains("PGA") && ch["PGA"] != nil
-                pga_value = str(ch["PGA"])
-            elif ch.contains("pga") && ch["pga"] != nil
-                pga_value = str(ch["pga"])
-            end
-
-            roots.insert(size(roots), root_name)
-            modes.insert(size(modes), mode_name)
-            technos.insert(size(technos), techno_name)
-            ratios.insert(size(ratios), ratio_value)
-            pgas.insert(size(pgas), pga_value)
+        if ch == nil || type(ch) != "map"
+            print("CONFIG ERROR: invalid first channel for " + device_name)
+            return
         end
 
-        dev["root"] = roots
-        if size(modes) > 0
-            dev["mode"] = modes[0]
-        else
-            dev["mode"] = "tri"
+        var root_name = "*"
+        var mode_name = "tri"
+        var techno_name = "ct"
+        var ratio_value = "1000"
+        var pga_value = "1"
+
+        if ch.contains("name") && ch["name"] != nil
+            root_name = str(ch["name"])
         end
-        dev["techno"] = technos
-        dev["ratio"] = ratios
-        dev["PGA"] = pgas
+        if ch.contains("mode") && ch["mode"] != nil
+            mode_name = str(ch["mode"])
+        end
+        if ch.contains("techno") && ch["techno"] != nil
+            techno_name = str(ch["techno"])
+        end
+        if ch.contains("ratio") && ch["ratio"] != nil
+            ratio_value = str(ch["ratio"])
+        end
+        if ch.contains("PGA") && ch["PGA"] != nil
+            pga_value = str(ch["PGA"])
+        end
+
+        dev["root"] = [root_name]
+        dev["mode"] = mode_name
+        dev["techno"] = [techno_name]
+        dev["ratio"] = [ratio_value]
+        dev["PGA"] = [pga_value]
 
         all_cfg[device_name] = dev
     end
