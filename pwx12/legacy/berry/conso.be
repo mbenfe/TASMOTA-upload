@@ -14,7 +14,7 @@ class conso
     var cout
 
     def channel_name(index)
-        return global.configjson[global.device]["channels"][index]["name"]
+        return global.configjson["channels"][index]["name"]
     end
 
     def get_hours()
@@ -37,7 +37,7 @@ class conso
 
     def init_cout()
         print('CONSO LOAD: entering init_cout')
-        print('CONSO LOAD: device entry before init_cout = ' + json.dump(global.configjson[global.device]["channels"]))
+        print('CONSO LOAD: device entry before init_cout = ' + json.dump(global.configjson["channels"]))
         var name = string.format("c_%s.json", global.ville)
         var file = open(name, "rt")
         var ligne = file.read()
@@ -124,47 +124,27 @@ class conso
 
     def init_conso()
         print('CONSO LOAD: entering init_conso')
-        var file
         var ligne
-        var name = string.format("p_%s.json", global.ville)
-        import path
-        print('INIT CONSO LOAD: checking config file ' + name)
-        if (path.exists(name))
-            print('INIT CONSO LOAD: config file exists')
-            file = open(name, "rt")
-            ligne = file.read()
-            print('CONSO LOAD: config file read')
-            file.close()
-            global.configjson = json.load(ligne)
-            print('INIT CONSO LOAD: config file parsed')
-            print(global.configjson)
-            print(global.device)
-            print( 'INIT CONSO LOAD: device entry = ' + json.dump(global.configjson[global.device]["channels"]))
-
-            print('INIT CONSO LOAD: raw channels = ' + json.dump(global.configjson[global.device]["channels"]))
-            if global.configjson[global.device]["produit"] == "PWX12"
-                print('INIT CONSO LOAD: building conso json for PWX12')
-                ligne = string.format('{"hours":[]}')
-                var mainjson = json.load(ligne)
-                mainjson.insert("days", [])
-                mainjson.insert("months", [])
-                for i:0..2
-                    if global.configjson[global.device]["channels"][i]["mode"] == "tri"
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, self.channel_name(i), self.get_hours())
-                        mainjson["hours"].insert(i, json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, self.channel_name(i), self.get_days())
-                        mainjson["days"].insert(i, json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, self.channel_name(i), self.get_months())
-                        mainjson["months"].insert(i, json.load(ligne))
-                    else
-                    end
+        if global.configjson["produit"] == "PWX12"
+            print('INIT CONSO LOAD: building conso json for PWX12')
+            ligne = string.format('{"hours":[]}')
+            var mainjson = json.load(ligne)
+            mainjson.insert("days", [])
+            mainjson.insert("months", [])
+            for i:0..2
+                if global.configjson["channels"][i]["mode"] == "tri"
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, self.channel_name(i), self.get_hours())
+                    mainjson["hours"].insert(i, json.load(ligne))
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, self.channel_name(i), self.get_days())
+                    mainjson["days"].insert(i, json.load(ligne))
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, self.channel_name(i), self.get_months())
+                    mainjson["months"].insert(i, json.load(ligne))
+                else
                 end
-                ligne = json.dump(mainjson)
-                print('INIT CONSO LOAD: init_conso ready')
-                return ligne
             end
-        else
-            raise 'fichier configuration non existant:', str(name)
+            ligne = json.dump(mainjson)
+            print('INIT CONSO LOAD: init_conso ready')
+            return ligne
         end
     end
 
@@ -174,47 +154,44 @@ class conso
 
         var ligne
         var file
-        if (path.exists("conso.json"))
-            print('CONSO LOAD: conso.json exists')
-            file = open("conso.json", "rt")
-            if file.size() != 0
-                print('CONSO LOAD: conso.json non-empty')
-                ligne = file.read()
-                self.consojson = json.load(ligne)
-                print(self.consojson)
-                global.device = self.consojson["hours"][0]["Device"]
-                print('CONSO LOAD: device from conso.json = ' + str(global.device))
-                file.close()
-                var name = string.format("p_%s.json", global.ville)
-                print('CONSO LOAD: opening config ' + name)
-                file = open(name, 'rt')
-                ligne = file.read()
-                print(ligne)
-                print('CONSO LOAD: config read')
-                global.configjson = json.load(ligne)
-                print('CONSO LOAD: config parsed')
-                print(global.configjson)
-                print(global.device)
-                print('CONSO LOAD: raw channels = ' + json.dump(global.configjson[global.device]["channels"]))
-                file.close()
-            else
-                print('CONSO LOAD: conso.json empty, regenerating')
-                ligne = self.init_conso()
-                file = open("conso.json", "wt")
-                file.write(ligne)
-                file.close()
-                print("fichier sauvegarde de consommation cree !")
-                print(ligne)
-            end
-        else
-            print('CONSO LOAD: conso.json missing, regenerating')
+
+        # 1) Load device config first; stop if config file is missing.
+        var name = string.format("p_%s.json", global.ville)
+        if !path.exists(name)
+            raise 'fichier configuration non existant:', str(name)
+        end
+        file = open(name, "rt")
+        ligne = file.read()
+        file.close()
+        var all_cfg = json.load(ligne)
+        if all_cfg == nil || !all_cfg.contains(global.device)
+            raise 'device not found in config:', str(global.device)
+        end
+        global.configjson = all_cfg[global.device]
+
+        # 2) Ensure conso.json exists; create it immediately if missing.
+        if !path.exists("conso.json")
             ligne = self.init_conso()
             file = open("conso.json", "wt")
             file.write(ligne)
             file.close()
             print("fichier sauvegarde de consommation cree !")
-            print(ligne)
         end
+
+        # 3) Load conso.json (and regenerate once if file is empty).
+        file = open("conso.json", "rt")
+        if file.size() == 0
+            file.close()
+            ligne = self.init_conso()
+            file = open("conso.json", "wt")
+            file.write(ligne)
+            file.close()
+            print("fichier sauvegarde de consommation cree !")
+            file = open("conso.json", "rt")
+        end
+        ligne = file.read()
+        file.close()
+        self.consojson = json.load(ligne)
 
         print('CONSO LOAD: setting date arrays')
         self.day_list = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]

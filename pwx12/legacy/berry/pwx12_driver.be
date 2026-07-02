@@ -22,22 +22,22 @@ class PWX12
     var conso
 
     def channel_name(index)
-        return global.configjson[global.device]["channels"][index]["name"]
+        return global.configjson["channels"][index]["name"]
     end
 
     def debug_ctx(tag)
         var has_cfg = (global.configjson != nil)
-        var has_dev = false
+        var has_channels = false
         if has_cfg
-            has_dev = global.configjson.contains(global.device)
+            has_channels = global.configjson.contains("channels")
         end
-        print(string.format("PWX12 DBG [%s] ville=%s device=%s client=%s cfg=%s cfg_has_device=%s",
+        print(string.format("PWX12 DBG [%s] ville=%s device=%s client=%s cfg=%s cfg_has_channels=%s",
             tag,
             str(global.ville),
             str(global.device),
             str(global.client),
             str(has_cfg),
-            str(has_dev)
+            str(has_channels)
         ))
     end
 
