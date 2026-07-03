@@ -13,56 +13,6 @@ class conso
     var num_day_month
     var cout
 
-    def normalize_config_device(all_cfg, device_name)
-        if all_cfg == nil || !all_cfg.contains(device_name)
-            return
-        end
-
-        var dev = all_cfg[device_name]
-
-        if !dev.contains("channels") || dev["channels"] == nil || type(dev["channels"]) != "list" || size(dev["channels"]) == 0
-            print("CONFIG ERROR: missing channels for " + device_name)
-            return
-        end
-
-        var ch = dev["channels"][0]
-
-        if ch == nil || type(ch) != "map"
-            print("CONFIG ERROR: invalid first channel for " + device_name)
-            return
-        end
-
-        var root_name = "*"
-        var mode_name = "tri"
-        var techno_name = "ct"
-        var ratio_value = "1000"
-        var pga_value = "1"
-
-        if ch.contains("name") && ch["name"] != nil
-            root_name = str(ch["name"])
-        end
-        if ch.contains("mode") && ch["mode"] != nil
-            mode_name = str(ch["mode"])
-        end
-        if ch.contains("techno") && ch["techno"] != nil
-            techno_name = str(ch["techno"])
-        end
-        if ch.contains("ratio") && ch["ratio"] != nil
-            ratio_value = str(ch["ratio"])
-        end
-        if ch.contains("PGA") && ch["PGA"] != nil
-            pga_value = str(ch["PGA"])
-        end
-
-        dev["root"] = [root_name]
-        dev["mode"] = mode_name
-        dev["techno"] = [techno_name]
-        dev["ratio"] = [ratio_value]
-        dev["PGA"] = [pga_value]
-
-        all_cfg[device_name] = dev
-    end
-
     def get_hours()
         var ligne
         ligne = string.format('{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0}')
@@ -88,7 +38,8 @@ class conso
         file.close()
         global.coutjson = json.load(ligne)
         self.cout = map()
-        name = string.format("c_%s", global.configjson[global.device]["root"][0])
+        var channel_name = global.configjson[global.device]["channels"][0]["name"]
+        name = string.format("c_%s", channel_name)
         self.cout.insert(name, 0)
     end
 
@@ -172,17 +123,17 @@ class conso
             ligne = file.read()
             file.close()
             global.configjson = json.load(ligne)
-            self.normalize_config_device(global.configjson, global.device)
             print(global.configjson[global.device])
             if global.configjson[global.device]["produit"] == "PWX4"
                 ligne = string.format('{}')
                 var mainjson = json.load(ligne)
-                if global.configjson[global.device]["mode"] == "tri"
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][0], self.get_hours())
+                if global.configjson[global.device]["channels"][0]["mode"] == "tri"
+                    var channel_name = global.configjson[global.device]["channels"][0]["name"]
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, self.get_hours())
                     mainjson.insert("hours", json.load(ligne))
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, global.configjson[global.device]["root"][0], self.get_days())
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, self.get_days())
                     mainjson.insert("days", json.load(ligne))
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, global.configjson[global.device]["root"][0], self.get_months())
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, self.get_months())
                     mainjson.insert("months", json.load(ligne))
                 end
                 ligne = json.dump(mainjson)
@@ -230,7 +181,6 @@ class conso
         file = open(name, "rt")
         ligne = file.read()
         global.configjson = json.load(ligne)
-        self.normalize_config_device(global.configjson, global.device)
         file.close()
 
         if path.exists("conso.json")
@@ -383,7 +333,7 @@ class conso
 
         var stringdevice
         stringdevice = string.format("%s", global.device)
-        var channel_name = global.configjson[global.device]["root"][0]
+        var channel_name = global.configjson[global.device]["channels"][0]["name"]
         if scope == "hours" && channel_name != "*"
             topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
             payload_hours = self.consojson["hours"]["DATA"]
@@ -425,7 +375,7 @@ class conso
         end
 
         # Publish costs
-        channel_name = global.configjson[global.device]["root"][0]
+        channel_name = global.configjson[global.device]["channels"][0]["name"]
         if scope != "hours" && channel_name != "*"
             var cost_key = string.format("c_%s", channel_name)
 

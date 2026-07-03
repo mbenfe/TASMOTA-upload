@@ -100,9 +100,10 @@ class PWX4
         elif line[0] == 'W'
             split = string.split(line, ':')
             if size(split) >= 2
-                if global.configjson[global.device]["root"][0] != "*"
+                var channel_name = global.configjson[global.device]["channels"][0]["name"]
+                if channel_name != "*"
                     topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
-                    ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][0], real(split[1]))
+                    ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[1]))
                     mqtt.publish(topic, ligne, true)
                 end
             else
