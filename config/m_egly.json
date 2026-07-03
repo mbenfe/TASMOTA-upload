@@ -494,7 +494,7 @@
           "column": 1,
           "row": 3,
           "location": "",
-          "master": "pwx4-sdm1",
+          "master": "dl4-sdm1",
           "slave": [ "gene_froid", "gene_froid_ND" ]
         },
         {
@@ -503,7 +503,7 @@
           "column": 1,
           "row": 4,
           "location": "",
-          "master": "pwx4-sdm2",
+          "master": "dl4-sdm2",
           "slave": [ "m1+", "m1+_ND" ]
         },
         {
