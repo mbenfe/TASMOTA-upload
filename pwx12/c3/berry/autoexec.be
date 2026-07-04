@@ -147,7 +147,7 @@ def dir(cmd, idx, payload, payload_json)
     import path
     var selector = ""
     if payload != nil
-        selector = payload.lower()
+        selector = string.tolower(payload)
     end
 
     var want_all = (selector == "" || selector == "*.*" || selector == "all")
@@ -171,7 +171,7 @@ def dir(cmd, idx, payload, payload_json)
     liste = path.listdir("/")
     mqttprint("dir: filter='" + selector + "'")
     for i:0..(liste.size()-1)
-        var name_lc = liste[i].lower()
+        var name_lc = string.tolower(liste[i])
         var match = want_all
         if !match
             if want_be && string.endswith(name_lc, ".be")
