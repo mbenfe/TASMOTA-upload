@@ -1,4 +1,4 @@
-var version = "21.05.2026 transition"
+var version = "04072026 dir update *"
 
 import string
 import global
@@ -194,20 +194,58 @@ end
 
 def dir(cmd, idx, payload, payload_json)
     import path
+    var selector = ""
+    if payload != nil
+        selector = string.lower(payload)
+    end
+
+    var want_all = (selector == "" || selector == "*.*" || selector == "all")
+    var want_be = (want_all || selector == "*.be" || selector == ".be" || selector == "be")
+    var want_hex = (want_all || selector == "*.hex" || selector == ".hex" || selector == "hex")
+    var want_bin = (want_all || selector == "*.bin" || selector == ".bin" || selector == "bin")
+    var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
+
+    if !want_be && !want_hex && !want_bin && !want_json
+        mqttprint("dir: unknown filter '" + selector + "' (use *.be|*.hex|*.bin|*.json)")
+        tasmota.resp_cmnd("invalid dir filter")
+        return
+    end
+
     var liste
     var file
     var taille
     var date
     var timestamp
+    var matched = 0
     liste = path.listdir("/")
-    mqttprint(str(liste.size()) + " fichiers")
+    mqttprint("dir: filter='" + selector + "'")
     for i:0..(liste.size()-1)
-        file = open(liste[i], "r")
-        taille = file.size()
-        file.close()
-        timestamp = path.last_modified(liste[i])
-        mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
+        var name_lc = string.lower(liste[i])
+        var match = want_all
+        if !match
+            if want_be && string.endswith(name_lc, ".be")
+                match = true
+            elif want_hex && string.endswith(name_lc, ".hex")
+                match = true
+            elif want_bin && string.endswith(name_lc, ".bin")
+                match = true
+            elif want_json && string.endswith(name_lc, ".json")
+                match = true
+            end
+        end
+
+        if match
+            file = open(liste[i], "r")
+            if file != nil
+                taille = file.size()
+                file.close()
+                timestamp = path.last_modified(liste[i])
+                mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
+                matched += 1
+            end
+        end
     end
+    mqttprint(str(matched) + " fichiers")
     tasmota.resp_cmnd_done()
 end
 
@@ -260,6 +298,7 @@ def help()
     print("getfile <repo_path/filename>")
     print("name <old_name> <new_name>")
     print("dir")
+    print("dir *.be | dir *.hex | dir *.bin | dir *.json")
     print("getversion")
     print("update")
     print("couts")
@@ -268,7 +307,11 @@ def help()
     print("[NOTES]")
     print("- UART send link: driver 130 on pins 16/17")
     print("- UART receive link: telemetry from STM32 on pins 3/1")
-    print("- update downloads: c_<ville>.json, p_<ville>.json, autoexec.be, conso.be, pwx4_driver.be")
+    print("- update                   : download all update files")
+    print("- update *.be             : download all Berry files")
+    print("- update *.hex            : download all HEX files")
+    print("- update *.bin            : download all BIN files")
+    print("- update *.json           : download c_<ville>.json and p_<ville>.json")
     tasmota.resp_cmnd_done()
 end
 
@@ -292,37 +335,62 @@ def getversion()
     tasmota.resp_cmnd_done()
 end
 
-def update()
+def update(cmd, idx, payload, payload_json)
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     var myjson = json.load(buffer)
     global.ville = myjson["ville"]
     file.close()
+
+    var selector = ""
+    if payload != nil
+        selector = string.lower(payload)
+    end
+
+    var want_all = (selector == "" || selector == "*.*" || selector == "all")
+    var want_be = (want_all || selector == "*.be" || selector == ".be" || selector == "be")
+    var want_hex = (want_all || selector == "*.hex" || selector == ".hex" || selector == "hex")
+    var want_bin = (want_all || selector == "*.bin" || selector == ".bin" || selector == "bin")
+    var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
+
+    if !want_be && !want_hex && !want_bin && !want_json
+        mqttprint("update: unknown filter '" + selector + "' (use *.be|*.hex|*.bin|*.json)")
+        tasmota.resp_cmnd("invalid update filter")
+        return
+    end
+
+    var to_fetch = []
+    if want_json
+        var name = string.format("c_%s.json", global.ville)
+        to_fetch.push(string.format("config/%s", name))
+        name = string.format("p_%s.json", global.ville)
+        to_fetch.push(string.format("config/%s", name))
+    end
+
+    if want_be
+        to_fetch.push("pwx12/legacy/berry/conso.be")
+        to_fetch.push("pwx12/legacy/berry/pwx12_driver.be")
+        to_fetch.push("pwx12/legacy/berry/flasher.be")
+        to_fetch.push("pwx12/legacy/berry/intelhex.be")
+        to_fetch.push("pwx12/legacy/berry/autoexec.be")
+    end
+
+    if want_bin
+        to_fetch.push("pwx12/legacy/app/pwx12legacy-flashed.bin")
+    end
+
+    if want_hex
+        to_fetch.push("hex/pwx12legacy-flashed.hex")
+        to_fetch.push("hex/F412-bootloader.hex")
+    end
+
     mqttprint("update: start")
-    var name = string.format("c_%s.json", global.ville)
-    var file_to_fetch = string.format("config/%s", name)
-    mqttprint("update: getfile " + file_to_fetch)
-    fetch_file(file_to_fetch)
-    name = string.format("p_%s.json", global.ville)
-    file_to_fetch = string.format("config/%s", name)
-    mqttprint("update: getfile " + file_to_fetch)
-    fetch_file(file_to_fetch)
-    mqttprint("update: getfile pwx12/legacy/berry/conso.be")
-    fetch_file("pwx12/legacy/berry/conso.be")
-    mqttprint("update: getfile pwx12/legacy/berry/pwx12_driver.be")
-    fetch_file("pwx12/legacy/berry/pwx12_driver.be")
-    mqttprint("update: getfile pwx12/legacy/berry/flasher.be")
-    fetch_file("pwx12/legacy/berry/flasher.be")
-    mqttprint("update: getfile pwx12/legacy/berry/intelhex.be")
-    fetch_file("pwx12/legacy/berry/intelhex.be")
-    mqttprint("update: getfile pwx12/legacy/berry/autoexec.be")
-    fetch_file("pwx12/legacy/berry/autoexec.be")
-    mqttprint("update: getfile pwx12/legacy/app/pwx12legacy-flashed.bin")
-    fetch_file("pwx12/legacy/app/pwx12legacy-flashed.bin")
-    mqttprint("update: getfile hex/pwx12legacy-flashed.hex")
-    fetch_file("hex/pwx12legacy-flashed.hex")
-    mqttprint("update: getfile hex/F412-bootloader.hex")
-    fetch_file("hex/F412-bootloader.hex")
+    mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
+    for i:0..to_fetch.size()-1
+        var file_to_fetch = to_fetch[i]
+        mqttprint("update: getfile " + file_to_fetch)
+        fetch_file(file_to_fetch)
+    end
     mqttprint("update: done")
     tasmota.resp_cmnd_done()
 end

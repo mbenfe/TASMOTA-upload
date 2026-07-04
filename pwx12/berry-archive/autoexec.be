@@ -1,4 +1,4 @@
-var version = "2.0.032025 with update"
+var version = "04072026 dir update *"
 
 import string
 import global
@@ -356,20 +356,58 @@ end
 
 def dir(cmd, idx, payload, payload_json)
     import path
+    var selector = ""
+    if payload != nil
+        selector = string.lower(payload)
+    end
+
+    var want_all = (selector == "" || selector == "*.*" || selector == "all")
+    var want_be = (want_all || selector == "*.be" || selector == ".be" || selector == "be")
+    var want_hex = (want_all || selector == "*.hex" || selector == ".hex" || selector == "hex")
+    var want_bin = (want_all || selector == "*.bin" || selector == ".bin" || selector == "bin")
+    var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
+
+    if !want_be && !want_hex && !want_bin && !want_json
+        mqttprint("dir: unknown filter '" + selector + "' (use *.be|*.hex|*.bin|*.json)")
+        tasmota.resp_cmnd("invalid dir filter")
+        return
+    end
+
     var liste
     var file
     var taille
     var date
     var timestamp
+    var matched = 0
     liste = path.listdir("/")
-    mqttprint(str(liste.size()) + " fichiers")
+    mqttprint("dir: filter='" + selector + "'")
     for i:0..(liste.size()-1)
-        file = open(liste[i], "r")
-        taille = file.size()
-        file.close()
-        timestamp = path.last_modified(liste[i])
-        mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
+        var name_lc = string.lower(liste[i])
+        var match = want_all
+        if !match
+            if want_be && string.endswith(name_lc, ".be")
+                match = true
+            elif want_hex && string.endswith(name_lc, ".hex")
+                match = true
+            elif want_bin && string.endswith(name_lc, ".bin")
+                match = true
+            elif want_json && string.endswith(name_lc, ".json")
+                match = true
+            end
+        end
+
+        if match
+            file = open(liste[i], "r")
+            if file != nil
+                taille = file.size()
+                file.close()
+                timestamp = path.last_modified(liste[i])
+                mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
+                matched += 1
+            end
+        end
     end
+    mqttprint(str(matched) + " fichiers")
     tasmota.resp_cmnd_done()
 end
 
