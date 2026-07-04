@@ -1,142 +1,23 @@
 {
   "virtual": {
+    "genre": [ "root" ],
     "parent": [ "" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "virtual_total",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "virtual_total", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   },
   "dl4-mono": {
+    "genre": [ "bode", "leaf", "leaf", "leaf" ],
     "parent": [ "virtual_total", "td_garage", "td_garage", "td_garage" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "td_garage",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "buanderie",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "chaufferie",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "*",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "td_garage", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "buanderie", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "chaufferie", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   },
   "dl12-mono": {
+    "genre": [ "bode", "leaf", "leaf", "leaf", "leaf", "leaf", "leaf", "leaf", "leaf", "leaf", "leaf", "leaf" ],
     "parent": [ "virtual_total", "principal", "principal", "principal", "principal", "principal", "principal", "principal", "principal", "principal", "principal" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "principal",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "1",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "2",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "3",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "*",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "4",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "5",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "6",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "*",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "7",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "8",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "*",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "principal", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "1", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "2", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "3", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "4", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "5", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "6", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "7", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "8", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   }
 }

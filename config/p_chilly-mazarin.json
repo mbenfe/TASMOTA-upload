@@ -1,254 +1,79 @@
 {
   "virtual": {
+    "genre": [ "root" ],
     "parent": [ "" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "virtual_total",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "virtual_total", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   },
   "dl12-sdm": {
+    "genre": [ "leaf", "leaf", "leaf" ],
     "parent": [ "gene_froid", "gene_froid", "gene_froid" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "td_clim",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
-        "PGA": "1"
-      },
-      {
-        "name": "fneg",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
-        "PGA": "1"
-      },
-      {
-        "name": "fpos",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "td_clim", "mode": "tri", "techno": "ct", "ratio": "2000", "PGA": "1" }, { "name": "fneg", "mode": "tri", "techno": "ct", "ratio": "2000", "PGA": "1" }, { "name": "fpos", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   },
   "dl4-sdm": {
+    "genre": [ "bode" ],
     "parent": [ "virtual_total" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "gene_froid",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "gene_froid", "mode": "tri", "techno": "ct", "ratio": "2000", "PGA": "1" } ]
   },
   "dl12-td_ss": {
+    "genre": [ "leaf", "leaf", "leaf" ],
     "parent": [ "", "", "virtual_total" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "*",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "*",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "gene_td_ss",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "*", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "*", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "gene_td_ss", "mode": "tri", "techno": "ct", "ratio": "2000", "PGA": "1" } ]
   },
   "dl12-td_boulange": {
+    "genre": [ "leaf", "leaf", "bode" ],
     "parent": [ "gene_td_boulange", "gene_td_boulange", "virtual_total" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "four16A",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "four32A",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "gene_td_boulange",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "four16A", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "four32A", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "gene_td_boulange", "mode": "tri", "techno": "ct", "ratio": "2000", "PGA": "1" } ]
   },
   "dl12-tgbt1": {
+    "genre": [ "leaf", "leaf", "leaf" ],
     "parent": [ "gene_tgbt", "gene_tgbt", "gene_tgbt" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "station",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "onduleur",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "bistrot",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "station", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "onduleur", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "bistrot", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   },
   "dl12-tgbt2": {
+    "genre": [ "leaf", "leaf", "leaf" ],
     "parent": [ "gene_tgbt", "gene_tgbt", "gene_tgbt" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "rail_boulangerie",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "coffret2",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "td_bureaux",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "rail_boulangerie", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "coffret2", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "td_bureaux", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   },
   "dl12-tgbt3": {
+    "genre": [ "leaf", "leaf", "bode" ],
     "parent": [ "gene_tgbt", "gene_tgbt", "virtual_total" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "*",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "*",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "gene_tgbt",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "*", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "*", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "gene_tgbt", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   },
   "dl4-tgbt": {
+    "genre": [ "leaf" ],
     "parent": [ "gene_tgbt" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "eclairages",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "eclairages", "mode": "tri", "techno": "ct", "ratio": "2000", "PGA": "1" } ]
   },
   "dl4-labo": {
+    "genre": [ "leaf" ],
     "parent": [ "gene_tgbt" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "gene_labo",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "gene_labo", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   },
   "dl12-labo": {
+    "genre": [ "leaf", "leaf", "leaf" ],
     "parent": [ "gene_tgbt", "gene_tgbt", "gene_tgbt" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "pc_tri",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "ecl_labo",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "force",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "pc_tri", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "ecl_labo", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "force", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   }
 }

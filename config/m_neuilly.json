@@ -1,37 +1,37 @@
 {
   "applications": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "virtual_total_ND",
+          "slave": [ "general_ND", "main_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Froid/Parking/divers 1/divers 2/divers 3/divers 4/divers 5/divers/boulangerie",
-          "master": "c_main",
-          "slave": [ "c_froid", "c_tdparking", "c_divers1", "c_divers2", "c_divers3", "c_divers4", "c_divers5", "c_diversold", "c_boulangerie", "c_froid_ND" ]
+          "location": "",
+          "master": "general_ND",
+          "slave": [ "clim_ND", "divers_ND", "eclpk1_ND", "pctriphase_ND", "protection_ND", "repartiteur_ND" ]
         },
         {
-          "shape": "ParetoTemp",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "Exterieur/Boulangerie/Ascenseur/CLS/Caisse 4/Legumes/TV Pub/En ce moment/Cuisine/Poissonerie/TG froid 35",
-          "master": "th_exterieure",
-          "slave": [ "th_boulangerie", "th_ascenseur", "th_caisse_auto", "th_caisse_4", "th_legumes", "th_tv", "th_en_ce_moment", "th_cuisine", "th_poissonerie", "th_tg35", "th_boulangerie_ND" ]
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "boulangerie_ND", "divers1_ND", "divers2_ND", "divers3_ND", "divers4_ND", "divers5_ND", "diversold_ND", "froid_ND", "tdparking_ND" ]
         }
       ]
     },
@@ -108,7 +108,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %â‚¬ / %â‚¬",
+          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -116,7 +116,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "NÃ©gatif Boulangerie",
+          "location": "N├â┬⌐gatif Boulangerie",
           "master": "CfNegBoulang_18",
           "details": "details_CfNegBoulang_18",
           "slave": []
@@ -126,7 +126,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 4,
-          "location": "NÃ©gatif Sous-sol",
+          "location": "N├â┬⌐gatif Sous-sol",
           "master": "CfNegSSol_20",
           "details": "details_CfNegSSol_20",
           "slave": []
@@ -136,7 +136,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 5,
-          "location": "NÃ©gatif Drive",
+          "location": "N├â┬⌐gatif Drive",
           "master": "CfNegDrive_23",
           "details": "details_CfNegDrive_23",
           "slave": []
@@ -149,7 +149,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles negatifs %â‚¬ / %â‚¬",
+          "text": "Meubles negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -157,7 +157,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_70",
           "details": "details_SurgPorte_70",
           "slave": []
@@ -167,7 +167,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_71",
           "details": "details_SurgPorte_71",
           "slave": []
@@ -177,7 +177,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_72",
           "details": "details_SurgPorte_72",
           "slave": []
@@ -187,7 +187,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_73",
           "details": "details_SurgPorte_73",
           "slave": []
@@ -197,7 +197,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 8,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_74",
           "details": "details_SurgPorte_74",
           "slave": []
@@ -207,7 +207,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 8,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_75",
           "details": "details_SurgPorte_75",
           "slave": []
@@ -217,7 +217,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 10,
-          "location": "Bac surgelÃ©s Tg",
+          "location": "Bac surgel├â┬⌐s Tg",
           "master": "TgBacSurg_76",
           "details": "details_TgBacSurg_76",
           "slave": []
@@ -227,7 +227,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 10,
-          "location": "Bac surgelÃ©s",
+          "location": "Bac surgel├â┬⌐s",
           "master": "BacSurg_77",
           "details": "details_BacSurg_77",
           "slave": []
@@ -237,7 +237,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 11,
-          "location": "Bac surgelÃ©s Tg",
+          "location": "Bac surgel├â┬⌐s Tg",
           "master": "TgBacSurg_78",
           "details": "details_TgBacSurg_78",
           "slave": []
@@ -250,7 +250,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs negatifs %â‚¬ / %â‚¬",
+          "text": "Bacs negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac-", "cout_neg" ]
         }
       ]
@@ -287,7 +287,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %â‚¬ / %â‚¬",
+          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -345,7 +345,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 6,
-          "location": "Fruit\u0026LÃ©gumes",
+          "location": "Fruit\u0026L├â┬⌐gumes",
           "master": "CfFEtLegume_22",
           "details": "details_CfFEtLegume_22",
           "slave": []
@@ -388,7 +388,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles positif %â‚¬ / %â‚¬",
+          "text": "Meubles positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {
@@ -769,7 +769,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs positifs %â‚¬ / %â‚¬",
+          "text": "Bacs positifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac+", "cout_pos" ]
         },
         {
@@ -847,43 +847,43 @@
   ],
   "night": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "virtual_total_ND",
+          "slave": [ "general_ND", "main_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Froid/Parking/divers 1/divers 2/divers 3/divers 4/divers 5/divers/boulangerie",
-          "master": "c_main",
-          "slave": [ "c_froid", "c_tdparking", "c_divers1", "c_divers2", "c_divers3", "c_divers4", "c_divers5", "c_diversold", "c_boulangerie", "c_froid_ND" ]
+          "location": "",
+          "master": "general_ND",
+          "slave": [ "clim_ND", "divers_ND", "eclpk1_ND", "pctriphase_ND", "protection_ND", "repartiteur_ND" ]
         },
         {
-          "shape": "ParetoTemp",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "Exterieur/Boulangerie/Ascenseur/CLS/Caisse 4/Legumes/TV Pub/En ce moment/Cuisine/Poissonerie/TG froid 35",
-          "master": "th_exterieure",
-          "slave": [ "th_boulangerie", "th_ascenseur", "th_caisse_auto", "th_caisse_4", "th_legumes", "th_tv", "th_en_ce_moment", "th_cuisine", "th_poissonerie", "th_tg35", "th_boulangerie_ND" ]
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "boulangerie_ND", "divers1_ND", "divers2_ND", "divers3_ND", "divers4_ND", "divers5_ND", "diversold_ND", "froid_ND", "tdparking_ND" ]
         }
       ]
     },
     {
       "type": "iSavingSetup",
-      "label": "rÃ©glages",
+      "label": "réglages",
       "level": 1,
       "virtuel": 0,
       "data": [

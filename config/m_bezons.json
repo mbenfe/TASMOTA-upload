@@ -1,37 +1,28 @@
 {
   "applications": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "divers_droite_ND", "fneg_ND", "four_ND", "fpos_ND", "gene_magazin_ND", "td_boucherie_ND", "td_boulange_ND", "td_bureaux_ND", "td_caisses_ND", "td_charcuterie_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Magazin/Froid -/Froid +/Divers/Boulangerie/Bureaux/Charcuterie/Boucherie/Caisses/Four",
-          "master": "c_main",
-          "slave": [ "c_gene_magazin", "c_fneg", "c_fpos", "c_divers_droite", "c_td_boulange", "c_td_bureaux", "c_td_charcuterie", "c_td_boucherie", "c_td_caisses", "c_four", "c_gene_magazin_ND" ]
-        },
-        {
-          "shape": "iCoutsPareto",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 3,
-          "location": "Magasin/Eclairage 1/Eclairage 2/Enrouleur 4/Enrouleur 1-2-3/Enrouleur 5",
-          "master": "c_gene_magazin",
-          "slave": [ "c_eclmag1", "c_eclmag2", "c_enrouleur4", "c_enrouleur123", "c_enrouleur5", "c_eclmag1_ND" ]
+          "location": "",
+          "master": "gene_magazin_ND",
+          "slave": [ "eclmag1_ND", "eclmag2_ND", "enrouleur1_ND", "enrouleur2_ND", "enrouleur3_ND", "enrouleur4_ND", "enrouleur5_ND", "enrouleur6_ND" ]
         }
       ]
     },
@@ -82,7 +73,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "Exterieur/Caisse 6/Vins/Caisse 1/Caisse 9/Fruits/Coca Cola/Hallal/SurgelÃ©s/Eaux",
+          "location": "Exterieur/Caisse 6/Vins/Caisse 1/Caisse 9/Fruits/Coca Cola/Hallal/Surgel├â┬⌐s/Eaux",
           "master": "th_exterieur",
           "slave": [ "aex-1", "th_vins", "th_caisse_1", "th_caisse_9", "th_fruits", "th_cocacola", "th_hallal", "th_surgeles", "th_eaux", "aex-1_ND" ]
         }
@@ -123,7 +114,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "SurgelÃ©s Boulangerie",
+          "location": "Surgel├â┬⌐s Boulangerie",
           "master": "CFSurgBoul9",
           "details": "details_CFSurgBoul9",
           "slave": []
@@ -133,7 +124,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 2,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "CFSurgeles8",
           "details": "details_CFSurgeles8",
           "slave": []
@@ -143,7 +134,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgMixtes1G",
           "details": "details_SurgMixtes1G",
           "slave": []
@@ -153,7 +144,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 4,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgMixtes1M",
           "details": "details_SurgMixtes1M",
           "slave": []
@@ -163,7 +154,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 4,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgMixtes1D",
           "details": "details_SurgMixtes1D",
           "slave": []
@@ -173,7 +164,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 4,
-          "location": "Bac surgelÃ©s Tg",
+          "location": "Bac surgel├â┬⌐s Tg",
           "master": "TGBacSurg",
           "details": "details_TGBacSurg",
           "slave": []
@@ -183,7 +174,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 5,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgMixtes2G",
           "details": "details_SurgMixtes2G",
           "slave": []
@@ -193,7 +184,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 5,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgMixtes2M",
           "details": "details_SurgMixtes2M",
           "slave": []
@@ -203,7 +194,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 5,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgMixtes2D",
           "details": "details_SurgMixtes2D",
           "slave": []
@@ -213,7 +204,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 5,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte51",
           "details": "details_SurgPorte51",
           "slave": []
@@ -223,7 +214,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 6,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte52",
           "details": "details_SurgPorte52",
           "slave": []
@@ -233,7 +224,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 6,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte53",
           "details": "details_SurgPorte53",
           "slave": []
@@ -600,43 +591,34 @@
   ],
   "night": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "divers_droite_ND", "fneg_ND", "four_ND", "fpos_ND", "gene_magazin_ND", "td_boucherie_ND", "td_boulange_ND", "td_bureaux_ND", "td_caisses_ND", "td_charcuterie_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Magazin/Froid -/Froid +/Divers/Boulangerie/Bureaux/Charcuterie/Boucherie/Caisses/Four",
-          "master": "c_main",
-          "slave": [ "c_gene_magazin", "c_fneg", "c_fpos", "c_divers_droite", "c_td_boulange", "c_td_bureaux", "c_td_charcuterie", "c_td_boucherie", "c_td_caisses", "c_four", "c_gene_magazin_ND" ]
-        },
-        {
-          "shape": "iCoutsPareto",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 3,
-          "location": "Magasin/Eclairage 1/Eclairage 2/Enrouleur 4/Enrouleur 1-2-3/Enrouleur 5",
-          "master": "c_gene_magazin",
-          "slave": [ "c_eclmag1", "c_eclmag2", "c_enrouleur4", "c_enrouleur123", "c_enrouleur5", "c_eclmag1_ND" ]
+          "location": "",
+          "master": "gene_magazin_ND",
+          "slave": [ "eclmag1_ND", "eclmag2_ND", "enrouleur1_ND", "enrouleur2_ND", "enrouleur3_ND", "enrouleur4_ND", "enrouleur5_ND", "enrouleur6_ND" ]
         }
       ]
     },
     {
       "type": "iSavingSetup",
-      "label": "rÃ©glages",
+      "label": "réglages",
       "level": 1,
       "virtuel": 0,
       "data": [

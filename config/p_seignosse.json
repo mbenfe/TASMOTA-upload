@@ -1,72 +1,16 @@
 {
   "dl4-principal": {
+    "genre": [ "root", "leaf", "leaf", "leaf" ],
     "parent": [ "", "main", "main", "main" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "autre1",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "autre2",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "autre3",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "main", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "autre1", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "autre2", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "autre3", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   },
   "dl4-annexe": {
+    "genre": [ "bode", "leaf", "leaf", "leaf" ],
     "parent": [ "main", "td_annexe", "td_annexe", "td_annexe" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "td_annexe",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "jaccuzi",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "spa",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "*",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
+    "channels": [ { "name": "td_annexe", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "jaccuzi", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "spa", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "*", "mode": "mono", "techno": "ct", "ratio": "1000", "PGA": "1" } ]
   }
 }

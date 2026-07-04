@@ -1,28 +1,46 @@
 {
   "applications": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "bureaux_ND", "CF-reserve_ND", "ecl_ext_ND", "ecl_f\u0026l_ND", "froid_ND", "gene_boulangerie_ND", "gene_divers_ND", "gene_labo_ND", "gene_rooftops_ND", "gene_tab1_ND", "gene_tab2_ND", "onduleur_ND", "td_poissonerie_ND", "td_station_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Rooftops/Froid/Station/Poissonerie/Bureaux/Tab1/Tab2/Labo/Drive/Boulangerie/F\u0026L/Divers/Onduleur",
-          "master": "c_main",
-          "slave": [ "c_gene_rooftops", "c_froid", "c_td_station", "c_td_poissonerie", "c_bureaux", "c_gene_tab1", "c_gene_tab2", "c_gene_labo", "c_drive_co", "c_gene_boulangerie", "c_ecl_f\u0026l", "c_gene_divers", "c_onduleur", "c_gene_rooftops_ND" ]
+          "location": "",
+          "master": "gene_boulangerie_ND",
+          "slave": [ "drive\u0026co_ND", "fours_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 3,
+          "location": "",
+          "master": "gene_rooftops_ND",
+          "slave": [ "rooftop_51_ND", "rooftop1_36_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 4,
+          "location": "",
+          "master": "gene_tab2_ND",
+          "slave": [ "caisses_ND", "travees_ND" ]
         }
       ]
     },
@@ -46,7 +64,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Exterieur/Bacs LogÃ©s entrÃ©e/Boucherie/Caisses/Lacets/SAS entrÃ©e/Animaux",
+          "location": "Exterieur/Bacs Log├â┬⌐s entr├â┬⌐e/Boucherie/Caisses/Lacets/SAS entr├â┬⌐e/Animaux",
           "master": "th_exterieur",
           "slave": [ "th_bl_entree", "th_boucherie", "th_caisses", "th_lacets", "th_sas", "th_tg_animaux", "th_bl_entree_ND" ]
         }
@@ -92,7 +110,7 @@
           "location": "TGBT",
           "master": "main",
           "slave": [ "froid", "ecl_ext", "gene_rooftops", "td_station", "td_poissonerie", "CF-reserve", "ecl_f\u0026l", "gene_divers", "gene_tab1", "gene_tab2", "froid_ND" ],
-          "label": [ "Froid", "Eclairage ExtÃ©rieur", "Rooftops", "Station", "Poissonerie", "CF Reserve", "Eclairage F\u0026L", "Divers", "Tab1", "Tab2" ]
+          "label": [ "Froid", "Eclairage Ext├â┬⌐rieur", "Rooftops", "Station", "Poissonerie", "CF Reserve", "Eclairage F\u0026L", "Divers", "Tab1", "Tab2" ]
         },
         {
           "shape": "consocard",
@@ -152,7 +170,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %â‚¬ / %â‚¬",
+          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -160,7 +178,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "NÃ©gatif Boulangerie",
+          "location": "N├â┬⌐gatif Boulangerie",
           "master": "CfBoulNegative_2",
           "details": "details_CfBoulNegative_2",
           "slave": []
@@ -173,7 +191,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles negatifs %â‚¬ / %â‚¬",
+          "text": "Meubles negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -191,7 +209,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 6,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgelesPorte_48",
           "details": "details_SurgelesPorte_48",
           "slave": []
@@ -201,7 +219,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 6,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgelesPorte_49",
           "details": "details_SurgelesPorte_49",
           "slave": []
@@ -211,7 +229,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 6,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgelesPorte_53",
           "details": "details_SurgelesPorte_53",
           "slave": []
@@ -221,7 +239,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgelesPorte_54",
           "details": "details_SurgelesPorte_54",
           "slave": []
@@ -231,7 +249,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgelesPorte_55",
           "details": "details_SurgelesPorte_55",
           "slave": []
@@ -241,7 +259,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgelesPorte_56",
           "details": "details_SurgelesPorte_56",
           "slave": []
@@ -251,7 +269,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgelesPorte_57",
           "details": "details_SurgelesPorte_57",
           "slave": []
@@ -264,7 +282,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs negatifs %â‚¬ / %â‚¬",
+          "text": "Bacs negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac-", "cout_neg" ]
         },
         {
@@ -272,7 +290,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 9,
-          "location": "Bac surgelÃ©s",
+          "location": "Bac surgel├â┬⌐s",
           "master": "BacSurgeles_50",
           "details": "details_BacSurgeles_50",
           "slave": []
@@ -282,7 +300,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 9,
-          "location": "Bac surgelÃ©s Tg",
+          "location": "Bac surgel├â┬⌐s Tg",
           "master": "TgBacSurgeles_51",
           "details": "details_TgBacSurgeles_51",
           "slave": []
@@ -321,7 +339,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %â‚¬ / %â‚¬",
+          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -352,7 +370,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles positif %â‚¬ / %â‚¬",
+          "text": "Meubles positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {
@@ -813,7 +831,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs positifs %â‚¬ / %â‚¬",
+          "text": "Bacs positifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac+", "cout_pos" ]
         }
       ]
@@ -821,34 +839,52 @@
   ],
   "night": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "bureaux_ND", "CF-reserve_ND", "ecl_ext_ND", "ecl_f\u0026l_ND", "froid_ND", "gene_boulangerie_ND", "gene_divers_ND", "gene_labo_ND", "gene_rooftops_ND", "gene_tab1_ND", "gene_tab2_ND", "onduleur_ND", "td_poissonerie_ND", "td_station_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Rooftops/Froid/Station/Poissonerie/Bureaux/Tab1/Tab2/Labo/Drive/Boulangerie/F\u0026L/Divers/Onduleur",
-          "master": "c_main",
-          "slave": [ "c_gene_rooftops", "c_froid", "c_td_station", "c_td_poissonerie", "c_bureaux", "c_gene_tab1", "c_gene_tab2", "c_gene_labo", "c_drive_co", "c_gene_boulangerie", "c_ecl_f\u0026l", "c_gene_divers", "c_onduleur", "c_gene_rooftops_ND" ]
+          "location": "",
+          "master": "gene_boulangerie_ND",
+          "slave": [ "drive\u0026co_ND", "fours_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 3,
+          "location": "",
+          "master": "gene_rooftops_ND",
+          "slave": [ "rooftop_51_ND", "rooftop1_36_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 4,
+          "location": "",
+          "master": "gene_tab2_ND",
+          "slave": [ "caisses_ND", "travees_ND" ]
         }
       ]
     },
     {
       "type": "iSavingSetup",
-      "label": "rÃ©glages",
+      "label": "réglages",
       "level": 1,
       "virtuel": 0,
       "data": [

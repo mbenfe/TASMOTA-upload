@@ -1,0 +1,9 @@
+* text=auto
+
+# Keep config and script files as UTF-8 text in repo and working tree.
+*.json text working-tree-encoding=UTF-8
+*.md text working-tree-encoding=UTF-8
+*.txt text working-tree-encoding=UTF-8
+*.be text working-tree-encoding=UTF-8
+*.cfg text working-tree-encoding=UTF-8
+*.ps1 text working-tree-encoding=UTF-8

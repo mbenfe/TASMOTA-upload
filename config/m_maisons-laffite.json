@@ -1,64 +1,19 @@
 {
   "applications": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
-        },
-        {
-          "shape": "iCoutsPareto",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 2,
-          "location": "Total/Froid1/Froid2/Parking/Rideau/Second TGBT",
-          "master": "c_w_main",
-          "slave": [ "c_froid1", "c_froid2", "c_gene_parking", "c_rideau", "c_gene_second_tgbt", "c_froid1_ND" ]
-        },
-        {
-          "shape": "spacer",
-          "color": "GREEN",
-          "column": 1,
-          "row": 3,
-          "location": "Temperatures RDC",
-          "master": "",
-          "slave": []
-        },
-        {
-          "shape": "ParetoTemp",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 4,
-          "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/LÃ©gumes",
-          "master": "th_exterieur",
-          "slave": [ "th_cls", "th_caisse_2", "th_rdc_pains", "th_escalator", "th_traiteur", "th_sushi", "th_legumes", "th_cls_ND" ]
-        },
-        {
-          "shape": "spacer",
-          "color": "GREEN",
-          "column": 1,
-          "row": 5,
-          "location": "Temperatures RDC-1",
-          "master": "",
-          "slave": []
-        },
-        {
-          "shape": "ParetoTemp",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 6,
-          "location": "Exterieur/Escalator/SurgelÃ©s/Biscottes/Animaux/Coca Cola",
-          "master": "th_exterieur",
-          "slave": [ "th_ss_escalator", "th_surgeles", "th_biscottes", "th_animaux", "th_coca", "th_ss_escalator_ND" ]
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "CF_ND", "climatisation_ND", "four1_ND", "four2_ND", "froid1_ND", "froid2_ND", "gene_boulangerie_ND", "gene_parking_ND", "gene_patisserie_ND", "gene_pc_ND", "gene_second_tgbt_ND", "P2_F1_F3_ND", "P3_P5_F8_ND", "provisoir_mf_ND", "rideau_ND", "rotissoire_ND" ]
         }
       ]
     },
@@ -100,7 +55,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %â‚¬ / %â‚¬",
+          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -118,7 +73,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 3,
-          "location": "NÃ©gatif Boulangerie",
+          "location": "N├â┬⌐gatif Boulangerie",
           "master": "CfNegBoulang_59",
           "details": "details_CfNegBoulang_59",
           "slave": []
@@ -151,7 +106,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs negatifs %â‚¬ / %â‚¬",
+          "text": "Bacs negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac-", "cout_neg" ]
         },
         {
@@ -179,7 +134,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 8,
-          "location": "Bac nÃ©gatif Tg",
+          "location": "Bac n├â┬⌐gatif Tg",
           "master": "TgBacNag_94",
           "details": "details_TgBacNag_94",
           "slave": []
@@ -189,7 +144,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 8,
-          "location": "Bac nÃ©gatif",
+          "location": "Bac n├â┬⌐gatif",
           "master": "BacNag_95",
           "details": "details_BacNag_95",
           "slave": []
@@ -199,7 +154,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 9,
-          "location": "Bac nÃ©gatif",
+          "location": "Bac n├â┬⌐gatif",
           "master": "BacNag_96",
           "details": "details_BacNag_96",
           "slave": []
@@ -209,7 +164,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 9,
-          "location": "Bac nÃ©gatif Tg",
+          "location": "Bac n├â┬⌐gatif Tg",
           "master": "TgBacNag_97",
           "details": "details_TgBacNag_97",
           "slave": []
@@ -222,7 +177,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %â‚¬ / %â‚¬",
+          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -310,7 +265,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %â‚¬ / %â‚¬",
+          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -398,7 +353,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 7,
-          "location": "Fruit\u0026LÃ©gumes",
+          "location": "Fruit\u0026L├â┬⌐gumes",
           "master": "CfF\u0026l_86",
           "details": "details_CfF\u0026l_86",
           "slave": []
@@ -451,7 +406,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %â‚¬ / %â‚¬",
+          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {
@@ -922,7 +877,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs positif %â‚¬ / %â‚¬",
+          "text": "Bacs positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac+", "cout_pos" ]
         },
         {
@@ -1200,70 +1155,25 @@
   ],
   "night": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
-        },
-        {
-          "shape": "iCoutsPareto",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 2,
-          "location": "Total/Froid1/Froid2/Parking/Rideau/Second TGBT",
-          "master": "c_w_main",
-          "slave": [ "c_froid1", "c_froid2", "c_gene_parking", "c_rideau", "c_gene_second_tgbt", "c_froid1_ND" ]
-        },
-        {
-          "shape": "spacer",
-          "color": "GREEN",
-          "column": 1,
-          "row": 3,
-          "location": "Temperatures RDC",
-          "master": "",
-          "slave": []
-        },
-        {
-          "shape": "ParetoTemp",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 4,
-          "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/LÃ©gumes",
-          "master": "th_exterieur",
-          "slave": [ "th_cls", "th_caisse_2", "th_rdc_pains", "th_escalator", "th_traiteur", "th_sushi", "th_legumes", "th_cls_ND" ]
-        },
-        {
-          "shape": "spacer",
-          "color": "GREEN",
-          "column": 1,
-          "row": 5,
-          "location": "Temperatures RDC-1",
-          "master": "",
-          "slave": []
-        },
-        {
-          "shape": "ParetoTemp",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 6,
-          "location": "Exterieur/Escalator/SurgelÃ©s/Biscottes/Animaux/Coca Cola",
-          "master": "th_exterieur",
-          "slave": [ "th_ss_escalator", "th_surgeles", "th_biscottes", "th_animaux", "th_coca", "th_ss_escalator_ND" ]
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "CF_ND", "climatisation_ND", "four1_ND", "four2_ND", "froid1_ND", "froid2_ND", "gene_boulangerie_ND", "gene_parking_ND", "gene_patisserie_ND", "gene_pc_ND", "gene_second_tgbt_ND", "P2_F1_F3_ND", "P3_P5_F8_ND", "provisoir_mf_ND", "rideau_ND", "rotissoire_ND" ]
         }
       ]
     },
     {
       "type": "iSavingSetup",
-      "label": "rÃ©glages",
+      "label": "réglages",
       "level": 1,
       "virtuel": 0,
       "data": [

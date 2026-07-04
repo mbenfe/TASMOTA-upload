@@ -1,28 +1,55 @@
 {
   "applications": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "gene_ND",
+          "slave": [ "chauffage_ND", "depart_ND", "divers_ND", "ecldeco_ND", "eclprive_ND", "eclpub1_ND", "eclpub2_ND", "froid_ND", "parking_ND", "pcprive_ND", "pcpublic_ND", "reserve_ND", "td_boulangerie_ND", "td_caisses_ND", "td_labo_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Boulangerie/Reserve/Depart/Parking/Bureaux/Froid/Caisses/Eclairage 1/Eclairage 2",
-          "master": "c_gene",
-          "slave": [ "c_td_boulangerie", "c_reserve", "c_td_labo", "c_depart", "c_parking", "c_pcprive", "c_froid", "c_td_caisses", "c_eclpub1", "c_eclpub2", "c_td_boulangerie_ND" ]
+          "location": "",
+          "master": "depart_ND",
+          "slave": [ "aero1_ND", "aero2_ND", "aero3_ND", "aero4_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 3,
+          "location": "",
+          "master": "td_boulangerie_ND",
+          "slave": [ "divers_bl_ND", "fours_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 4,
+          "location": "",
+          "master": "td_caisses_ND",
+          "slave": [ "caisses_ND", "pc_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 5,
+          "location": "",
+          "master": "td_labo_ND",
+          "slave": [ "ecllabo_ND", "pclabo_ND" ]
         }
       ]
     },
@@ -99,7 +126,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %â‚¬ / %â‚¬",
+          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -107,7 +134,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "CFSurgelesM_60",
           "details": "details_CFSurgelesM_60",
           "slave": []
@@ -120,7 +147,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles negatifs %â‚¬ / %â‚¬",
+          "text": "Meubles negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -128,7 +155,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 5,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPortesM_10",
           "details": "details_SurgPortesM_10",
           "slave": []
@@ -138,7 +165,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 5,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPortesME1_11",
           "details": "details_SurgPortesME1_11",
           "slave": []
@@ -148,7 +175,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 5,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPortesE2_12",
           "details": "details_SurgPortesE2_12",
           "slave": []
@@ -161,7 +188,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs negatifs %â‚¬ / %â‚¬",
+          "text": "Bacs negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac-", "cout_neg" ]
         }
       ]
@@ -189,7 +216,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %â‚¬ / %â‚¬",
+          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -197,7 +224,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "Fruit\u0026LÃ©gumes",
+          "location": "Fruit\u0026L├â┬⌐gumes",
           "master": "CFFruitsLegM_61",
           "details": "details_CFFruitsLegM_61",
           "slave": []
@@ -257,7 +284,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 6,
-          "location": "Fruit\u0026LÃ©gumes",
+          "location": "Fruit\u0026L├â┬⌐gumes",
           "master": "CFFruitsLeg_67",
           "details": "details_CFFruitsLeg_67",
           "slave": []
@@ -270,7 +297,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles positif %â‚¬ / %â‚¬",
+          "text": "Meubles positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {
@@ -531,7 +558,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs positifs %â‚¬ / %â‚¬",
+          "text": "Bacs positifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac+", "cout_pos" ]
         }
       ]
@@ -539,34 +566,61 @@
   ],
   "night": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "gene_ND",
+          "slave": [ "chauffage_ND", "depart_ND", "divers_ND", "ecldeco_ND", "eclprive_ND", "eclpub1_ND", "eclpub2_ND", "froid_ND", "parking_ND", "pcprive_ND", "pcpublic_ND", "reserve_ND", "td_boulangerie_ND", "td_caisses_ND", "td_labo_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Boulangerie/Reserve/Depart/Parking/Bureaux/Froid/Caisses/Eclairage 1/Eclairage 2",
-          "master": "c_gene",
-          "slave": [ "c_td_boulangerie", "c_reserve", "c_td_labo", "c_depart", "c_parking", "c_pcprive", "c_froid", "c_td_caisses", "c_eclpub1", "c_eclpub2", "c_td_boulangerie_ND" ]
+          "location": "",
+          "master": "depart_ND",
+          "slave": [ "aero1_ND", "aero2_ND", "aero3_ND", "aero4_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 3,
+          "location": "",
+          "master": "td_boulangerie_ND",
+          "slave": [ "divers_bl_ND", "fours_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 4,
+          "location": "",
+          "master": "td_caisses_ND",
+          "slave": [ "caisses_ND", "pc_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 5,
+          "location": "",
+          "master": "td_labo_ND",
+          "slave": [ "ecllabo_ND", "pclabo_ND" ]
         }
       ]
     },
     {
       "type": "iSavingSetup",
-      "label": "rÃ©glages",
+      "label": "réglages",
       "level": 1,
       "virtuel": 0,
       "data": [

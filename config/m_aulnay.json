@@ -1,37 +1,64 @@
 {
   "applications": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "bureau_direction_ND", "eclext_ND", "fext_ND", "fneg_ND", "fpos_ND", "gene_boulangerie_ND", "parking_ND", "pc_16A_magasin_ND", "rampe1_ND", "rampe2_ND", "rampe3_ND", "rampe7-12_ND", "station_ND", "td_acceuil_ND", "td_drive_ND", "td_mag_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Froid-/Froid+/Magasin/Acceuil/Drive/Froid Exterieur/Ecl exterieur/Station/Rampe1/Ecl Ext 2/Boulangerie/Prises magasin",
-          "master": "c_main",
-          "slave": [ "c_fneg", "c_fpos", "c_td_magasin", "c_td_acceuil", "c_td_drive", "c_fext", "c_eclext", "c_station", "c_rampe1", "c_eclext2", "c_gene_boulangerie", "c_pc_16A_magasin", "c_fneg_ND" ]
+          "location": "",
+          "master": "fneg_ND",
+          "slave": [ "neg_m1_ND", "neg_m2_ND", "neg_m3_ND" ]
         },
         {
-          "shape": "ParetoTemp",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "Exterieur/Aero Entree/Aero Bio/Aero Primeur/Entree/Acceuil/Caisses/Aperitif/Charcutier/Pains/surgeles",
-          "master": "th_exterieur",
-          "slave": [ "th_aero_entree", "th_aero_bio", "th_aero_primeur", "th_entree", "th_acceuil", "th_caisses", "th_aperitif", "th_charcutier", "th_pains", "th_surgeles", "th_aero_entree_ND" ]
+          "location": "",
+          "master": "fpos_ND",
+          "slave": [ "pos_m1_ND", "pos_m2_ND", "pos_m3_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 4,
+          "location": "",
+          "master": "gene_boulangerie_ND",
+          "slave": [ "boutique_ND", "four36kw_ND", "machine_glacon_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 5,
+          "location": "",
+          "master": "td_acceuil_ND",
+          "slave": [ "rideau_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 6,
+          "location": "",
+          "master": "td_mag_ND",
+          "slave": [ "td_bacs_loges_ND" ]
         }
       ]
     },
@@ -136,7 +163,7 @@
           "color": "GREEN",
           "column": 1,
           "row": 7,
-          "location": "EntrÃ©e",
+          "location": "Entr├â┬⌐e",
           "master": "rdx-frico",
           "slave": [ "setup_rdx-frico", "setup_rdx-frico_ND" ]
         }
@@ -332,7 +359,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %â‚¬ / %â‚¬",
+          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -350,7 +377,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 4,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "CfSurgeles_4",
           "details": "details_CfSurgeles_4",
           "slave": []
@@ -360,7 +387,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 5,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "CfSurgeles_5",
           "details": "details_CfSurgeles_5",
           "slave": []
@@ -370,7 +397,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 5,
-          "location": "SurgelÃ©s Boulangerie",
+          "location": "Surgel├â┬⌐s Boulangerie",
           "master": "CfSurgBoulang_37",
           "details": "details_CfSurgBoulang_37",
           "slave": []
@@ -383,7 +410,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles negatifs %â‚¬ / %â‚¬",
+          "text": "Meubles negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -391,7 +418,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 8,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_15",
           "details": "details_SurgPorte_15",
           "slave": []
@@ -401,7 +428,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 8,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_16",
           "details": "details_SurgPorte_16",
           "slave": []
@@ -411,7 +438,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 8,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_17",
           "details": "details_SurgPorte_17",
           "slave": []
@@ -421,7 +448,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 8,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_18",
           "details": "details_SurgPorte_18",
           "slave": []
@@ -431,7 +458,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 9,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_19",
           "details": "details_SurgPorte_19",
           "slave": []
@@ -441,7 +468,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 9,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_20",
           "details": "details_SurgPorte_20",
           "slave": []
@@ -451,7 +478,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 9,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_21",
           "details": "details_SurgPorte_21",
           "slave": []
@@ -461,7 +488,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 9,
-          "location": "Tg surgelÃ©s",
+          "location": "Tg surgel├â┬⌐s",
           "master": "TgSurgP_22",
           "details": "details_TgSurgP_22",
           "slave": []
@@ -474,7 +501,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs negatifs %â‚¬ / %â‚¬",
+          "text": "Bacs negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac-", "cout_neg" ]
         },
         {
@@ -482,7 +509,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 12,
-          "location": "Bac surgelÃ©s Tg",
+          "location": "Bac surgel├â┬⌐s Tg",
           "master": "TgBacSurg_25",
           "details": "details_TgBacSurg_25",
           "slave": []
@@ -492,7 +519,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 12,
-          "location": "Bac surgelÃ©s",
+          "location": "Bac surgel├â┬⌐s",
           "master": "BacSurg_26",
           "details": "details_BacSurg_26",
           "slave": []
@@ -502,7 +529,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 13,
-          "location": "Bac surgelÃ©s",
+          "location": "Bac surgel├â┬⌐s",
           "master": "BacSurg_27",
           "details": "details_BacSurg_27",
           "slave": []
@@ -541,7 +568,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %â‚¬ / %â‚¬",
+          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -569,7 +596,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 5,
-          "location": "Fruit\u0026LÃ©gumes",
+          "location": "Fruit\u0026L├â┬⌐gumes",
           "master": "CfFruitLeg_6",
           "details": "details_CfFruitLeg_6",
           "slave": []
@@ -712,7 +739,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles positif %â‚¬ / %â‚¬",
+          "text": "Meubles positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {
@@ -1073,7 +1100,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs positifs %â‚¬ / %â‚¬",
+          "text": "Bacs positifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac+", "cout_pos" ]
         },
         {
@@ -1211,43 +1238,70 @@
   ],
   "night": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "main_ND",
+          "slave": [ "bureau_direction_ND", "eclext_ND", "fext_ND", "fneg_ND", "fpos_ND", "gene_boulangerie_ND", "parking_ND", "pc_16A_magasin_ND", "rampe1_ND", "rampe2_ND", "rampe3_ND", "rampe7-12_ND", "station_ND", "td_acceuil_ND", "td_drive_ND", "td_mag_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Total/Froid-/Froid+/Magasin/Acceuil/Drive/Froid Exterieur/Ecl exterieur/Station/Rampe1/Ecl Ext 2/Boulangerie/Prises magasin",
-          "master": "c_main",
-          "slave": [ "c_fneg", "c_fpos", "c_td_magasin", "c_td_acceuil", "c_td_drive", "c_fext", "c_eclext", "c_station", "c_rampe1", "c_eclext2", "c_gene_boulangerie", "c_pc_16A_magasin", "c_fneg_ND" ]
+          "location": "",
+          "master": "fneg_ND",
+          "slave": [ "neg_m1_ND", "neg_m2_ND", "neg_m3_ND" ]
         },
         {
-          "shape": "ParetoTemp",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "Exterieur/Aero Entree/Aero Bio/Aero Primeur/Entree/Acceuil/Caisses/Aperitif/Charcutier/Pains/surgeles",
-          "master": "th_exterieur",
-          "slave": [ "th_aero_entree", "th_aero_bio", "th_aero_primeur", "th_entree", "th_acceuil", "th_caisses", "th_aperitif", "th_charcutier", "th_pains", "th_surgeles", "th_aero_entree_ND" ]
+          "location": "",
+          "master": "fpos_ND",
+          "slave": [ "pos_m1_ND", "pos_m2_ND", "pos_m3_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 4,
+          "location": "",
+          "master": "gene_boulangerie_ND",
+          "slave": [ "boutique_ND", "four36kw_ND", "machine_glacon_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 5,
+          "location": "",
+          "master": "td_acceuil_ND",
+          "slave": [ "rideau_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 6,
+          "location": "",
+          "master": "td_mag_ND",
+          "slave": [ "td_bacs_loges_ND" ]
         }
       ]
     },
     {
       "type": "iSavingSetup",
-      "label": "rÃ©glages",
+      "label": "réglages",
       "level": 1,
       "virtuel": 0,
       "data": [

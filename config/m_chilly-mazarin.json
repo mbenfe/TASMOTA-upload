@@ -1,37 +1,46 @@
 {
   "applications": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "virtual_total_ND",
+          "slave": [ "gene_froid_ND", "gene_td_boulange_ND", "gene_td_ss_ND", "gene_tgbt_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Machines/Froid/Boulangerie/Labo",
-          "master": "c_gene_froid",
-          "slave": [ "c_fpos", "c_fneg", "c_td_clim", "c_fpos_ND" ]
+          "location": "",
+          "master": "gene_froid_ND",
+          "slave": [ "fneg_ND", "fpos_ND", "td_clim_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "Magasin/Eclairages/Boulangerie/Bureaux/Labo",
-          "master": "c_gene_tgbt",
-          "slave": [ "c_eclairages", "c_c_gene_td_boulange", "c_td_bureau", "c_gene_labo", "c_eclairages_ND" ]
+          "location": "",
+          "master": "gene_td_boulange_ND",
+          "slave": [ "four16A_ND", "four32A_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 4,
+          "location": "",
+          "master": "gene_tgbt_ND",
+          "slave": [ "bistrot_ND", "coffret2_ND", "ecl_labo_ND", "eclairages_ND", "force_ND", "gene_labo_ND", "onduleur_ND", "pc_tri_ND", "rail_boulangerie_ND", "station_ND", "td_bureaux_ND" ]
         }
       ]
     },
@@ -153,7 +162,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %â‚¬ / %â‚¬",
+          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -161,7 +170,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "NÃ©gatif Boulangerie",
+          "location": "N├â┬⌐gatif Boulangerie",
           "master": "CfNegBoul_80",
           "details": "details_CfNegBoul_80",
           "slave": []
@@ -171,7 +180,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 4,
-          "location": "NÃ©gatif RÃ©serve",
+          "location": "N├â┬⌐gatif R├â┬⌐serve",
           "master": "CfNegReserve_81",
           "details": "details_CfNegReserve_81",
           "slave": []
@@ -184,7 +193,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles surgeles %â‚¬ / %â‚¬",
+          "text": "Meubles surgeles %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -192,7 +201,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 6,
-          "location": "Tg surgelÃ©s",
+          "location": "Tg surgel├â┬⌐s",
           "master": "TgSurgPorte_20",
           "details": "details_TgSurgPorte_20",
           "slave": []
@@ -202,7 +211,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 6,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_21",
           "details": "details_SurgPorte_21",
           "slave": []
@@ -212,7 +221,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 6,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_22",
           "details": "details_SurgPorte_22",
           "slave": []
@@ -222,7 +231,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 6,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_23",
           "details": "details_SurgPorte_23",
           "slave": []
@@ -232,7 +241,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_24",
           "details": "details_SurgPorte_24",
           "slave": []
@@ -242,7 +251,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_25",
           "details": "details_SurgPorte_25",
           "slave": []
@@ -252,7 +261,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_26",
           "details": "details_SurgPorte_26",
           "slave": []
@@ -262,7 +271,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 7,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_27",
           "details": "details_SurgPorte_27",
           "slave": []
@@ -272,7 +281,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 8,
-          "location": "SurgelÃ©s",
+          "location": "Surgel├â┬⌐s",
           "master": "SurgPorte_28",
           "details": "details_SurgPorte_28",
           "slave": []
@@ -311,7 +320,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %â‚¬ / %â‚¬",
+          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -329,7 +338,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 4,
-          "location": "Fruit\u0026LÃ©gumes",
+          "location": "Fruit\u0026L├â┬⌐gumes",
           "master": "CfFruitLeg_2",
           "details": "details_CfFruitLeg_2",
           "slave": []
@@ -392,7 +401,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles positif %â‚¬ / %â‚¬",
+          "text": "Meubles positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {
@@ -703,7 +712,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs positif %â‚¬ / %â‚¬",
+          "text": "Bacs positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
           "values": [ "cout_bac+", "cout_pos" ]
         },
         {
@@ -791,43 +800,52 @@
   ],
   "night": [
     {
-      "type": "Home",
-      "label": "Home",
+      "type": "iNightDay",
+      "label": "résumé",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "OpenWeather",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "MAISON",
-          "master": "",
-          "slave": []
+          "location": "",
+          "master": "virtual_total_ND",
+          "slave": [ "gene_froid_ND", "gene_td_boulange_ND", "gene_td_ss_ND", "gene_tgbt_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Machines/Froid/Boulangerie/Labo",
-          "master": "c_gene_froid",
-          "slave": [ "c_fpos", "c_fneg", "c_td_clim", "c_fpos_ND" ]
+          "location": "",
+          "master": "gene_froid_ND",
+          "slave": [ "fneg_ND", "fpos_ND", "td_clim_ND" ]
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "NighDayNodes",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "Magasin/Eclairages/Boulangerie/Bureaux/Labo",
-          "master": "c_gene_tgbt",
-          "slave": [ "c_eclairages", "c_c_gene_td_boulange", "c_td_bureau", "c_gene_labo", "c_eclairages_ND" ]
+          "location": "",
+          "master": "gene_td_boulange_ND",
+          "slave": [ "four16A_ND", "four32A_ND" ]
+        },
+        {
+          "shape": "NighDayNodes",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 4,
+          "location": "",
+          "master": "gene_tgbt_ND",
+          "slave": [ "bistrot_ND", "coffret2_ND", "ecl_labo_ND", "eclairages_ND", "force_ND", "gene_labo_ND", "onduleur_ND", "pc_tri_ND", "rail_boulangerie_ND", "station_ND", "td_bureaux_ND" ]
         }
       ]
     },
     {
       "type": "iSavingSetup",
-      "label": "rÃ©glages",
+      "label": "réglages",
       "level": 1,
       "virtuel": 0,
       "data": [
