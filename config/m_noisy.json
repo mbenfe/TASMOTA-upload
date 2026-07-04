@@ -1040,7 +1040,7 @@
           "row": 2,
           "location": "",
           "master": "td_clim_ND",
-          "slave": [ "groupe1_ND", "groupe2_ND" ]
+          "slave": [ "clim_groupe1_ND", "clim_groupe2_ND" ]
         }
       ]
     },
@@ -1210,7 +1210,7 @@
           "row": 18,
           "location": "",
           "master": "dl12-tdclim",
-          "slave": [ "groupe1", "groupe1_ND" ]
+          "slave": [ "clim_groupe1", "clim_groupe1_ND" ]
         },
         {
           "shape": "savingSetupCard",
@@ -1219,7 +1219,7 @@
           "row": 19,
           "location": "",
           "master": "dl12-tdclim",
-          "slave": [ "groupe2", "groupe2_ND" ]
+          "slave": [ "clim_groupe2", "clim_groupe2_ND" ]
         },
         {
           "shape": "savingSetupCard",

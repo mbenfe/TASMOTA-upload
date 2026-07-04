@@ -39,7 +39,7 @@
     "parent": [ "td_clim", "td_clim", "main" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
-    "channels": [ { "name": "groupe1", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "groupe2", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "td_clim", "mode": "tri", "techno": "ct", "ratio": "2000", "PGA": "1" } ]
+    "channels": [ { "name": "clim_groupe1", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "clim_groupe2", "mode": "tri", "techno": "ct", "ratio": "1000", "PGA": "1" }, { "name": "td_clim", "mode": "tri", "techno": "ct", "ratio": "2000", "PGA": "1" } ]
   },
   "dl4-tgbt": {
     "genre": [ "root" ],
