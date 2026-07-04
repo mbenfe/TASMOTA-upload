@@ -1,10 +1,9 @@
-var version = "2.0.0 avec cron specifique"
+﻿var version = "2.0.0 avec cron specifique"
 
 import mqtt
 import string
 import json
 import math
-import global
 
 def get_cron_second()
     var combined = string.format("%s|%s", global.ville, global.device)
@@ -18,18 +17,36 @@ end
 
 
 class PWX12
-    var rx_partial
-
     var root
     var topic 
     var conso
 
+    def debug_ctx(tag)
+        var has_cfg = (global.configjson != nil)
+        var has_channels = false
+        if has_cfg
+            has_channels = global.configjson.contains("channels")
+        end
+        print(string.format("PWX12 DBG [%s] ville=%s device=%s client=%s cfg=%s cfg_has_channels=%s",
+            tag,
+            str(global.ville),
+            str(global.device),
+            str(global.client),
+            str(has_cfg),
+            str(has_channels)
+        ))
+    end
+
     def init()
+        print('PWX12 LOAD: entering PWX12.init')
+        print('PWX12 LOAD: before import conso')
         import conso
+        print('PWX12 LOAD: after import conso')
         self.conso = conso
 
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
+        self.debug_ctx('init')
     end
 
     def fast_loop()
@@ -67,6 +84,8 @@ class PWX12
         if line[0] == 'C'
             split = string.split(line, ':')
             if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
+                print(string.format("PWX12 DBG [C] raw=%s", line))
+                self.debug_ctx('before conso.update')
                 self.conso.update(line)
                 topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                 mqtt.publish(topic, line, true)
@@ -84,10 +103,13 @@ class PWX12
         elif line[0] == 'W'
             split = string.split(line, ':')
             if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
+                print(string.format("PWX12 DBG [W] raw=%s", line))
+                self.debug_ctx('before W publish loop')
                 for j: 0..2
-                    if global.configjson[global.device]["root"][j] != "*"
+                    var channel_name = global.configjson["channels"][j]["name"]
+                    if channel_name != "*"
                         topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
-                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][j], real(split[j + 1]))
+                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[j + 1]))
                         mqtt.publish(topic, ligne, true)
                     end
                 end
@@ -106,14 +128,8 @@ class PWX12
             else
                 topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                 mqtt.publish(topic, line, true)
-                print('PWX12->', line)
             end
         else
-            topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-            mqtt.publish(topic, line, true)
-            if string.find(line, "config done") != -1
-                print("CFG: STM32 acknowledged")
-            end
             print('PWX12->', line)
         end
     end
@@ -139,7 +155,10 @@ class PWX12
     end
 
     def midnight()
+        self.debug_ctx('midnight start')
         self.conso.mqtt_publish('all')
+        print('PWX12 DBG [midnight] calling command: nightday')
+        tasmota.cmd('nightday')
     end
 
     def hour()
@@ -179,11 +198,17 @@ end
 
 
 
+print('PWX12 LOAD: creating PWX12 instance')
 global.pwx12 = PWX12()
+print('PWX12 LOAD: PWX12 instance created')
+print('PWX12 LOAD: before add_driver')
 tasmota.add_driver(global.pwx12)
+print('PWX12 LOAD: after add_driver')
 var now = tasmota.rtc()
 
+print('PWX12 LOAD: before add_fast_loop')
 tasmota.add_fast_loop(/-> global.pwx12.fast_loop())
+print('PWX12 LOAD: after add_fast_loop')
 
 var cron_second = get_cron_second()
 # set midnight cron

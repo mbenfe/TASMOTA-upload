@@ -13,70 +13,6 @@ class conso
     var num_day_month
     var cout
 
-    def normalize_config_device(all_cfg, device_name)
-        if all_cfg == nil || !all_cfg.contains(device_name)
-            return
-        end
-
-        var dev = all_cfg[device_name]
-
-        if !dev.contains("channels") || type(dev["channels"]) != "list"
-            print("CONFIG ERROR: missing channels for " + device_name)
-            return
-        end
-
-        var roots = []
-        var modes = []
-        var technos = []
-        var ratios = []
-        var pgas = []
-
-        for i:0..size(dev["channels"]) - 1
-            var ch = dev["channels"][i]
-            if ch == nil || type(ch) != "map"
-                continue
-            end
-
-            var root_name = "*"
-            var mode_name = "tri"
-            var techno_name = "ct"
-            var ratio_value = "1000"
-            var pga_value = "1"
-
-            if ch.contains("name") && ch["name"] != nil
-                root_name = str(ch["name"])
-            end
-            if ch.contains("mode") && ch["mode"] != nil
-                mode_name = str(ch["mode"])
-            end
-            if ch.contains("techno") && ch["techno"] != nil
-                techno_name = str(ch["techno"])
-            end
-            if ch.contains("ratio") && ch["ratio"] != nil
-                ratio_value = str(ch["ratio"])
-            end
-            if ch.contains("PGA") && ch["PGA"] != nil
-                pga_value = str(ch["PGA"])
-            elif ch.contains("pga") && ch["pga"] != nil
-                pga_value = str(ch["pga"])
-            end
-
-            roots.insert(size(roots), root_name)
-            modes.insert(size(modes), mode_name)
-            technos.insert(size(technos), techno_name)
-            ratios.insert(size(ratios), ratio_value)
-            pgas.insert(size(pgas), pga_value)
-        end
-
-        dev["root"] = roots
-        dev["mode"] = modes
-        dev["techno"] = technos
-        dev["ratio"] = ratios
-        dev["PGA"] = pgas
-
-        all_cfg[device_name] = dev
-    end
-
     def get_hours()
         var ligne
         ligne = string.format('{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0}')
@@ -96,6 +32,8 @@ class conso
     end
 
     def init_cout()
+        print('CONSO LOAD: entering init_cout')
+        print('CONSO LOAD: device entry before init_cout = ' + json.dump(global.configjson["channels"]))
         var name = string.format("c_%s.json", global.ville)
         var file = open(name, "rt")
         var ligne = file.read()
@@ -103,7 +41,8 @@ class conso
         global.coutjson = json.load(ligne)
         self.cout = map()
         for i:0..2
-            name = string.format("c_%s", global.configjson[global.device]["root"][i])
+            var channel_name = global.configjson["channels"][i]["name"]
+            name = string.format("c_%s", channel_name)
             self.cout.insert(name, 0)
         end   
     end
@@ -181,88 +120,96 @@ class conso
     end
 
     def init_conso()
-        var file
+        print('CONSO LOAD: entering init_conso')
         var ligne
-        var name = string.format("p_%s.json", global.ville)
-        import path
-        if (path.exists(name))
-            file = open(name, "rt")
-            ligne = file.read()
-            file.close()
-            global.configjson = json.load(ligne)
-            self.normalize_config_device(global.configjson, global.device)
-            print(global.configjson[global.device])
-            if global.configjson[global.device]["produit"] == "PWX12"
-                ligne = string.format('{"hours":[]}')
-                var mainjson = json.load(ligne)
-                mainjson.insert("days", [])
-                mainjson.insert("months", [])
-                for i:0..2
-                    if global.configjson[global.device]["mode"][i] == "tri"
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], self.get_hours())
-                        mainjson["hours"].insert(i, json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], self.get_days())
-                        mainjson["days"].insert(i, json.load(ligne))
-                        ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], self.get_months())
-                        mainjson["months"].insert(i, json.load(ligne))
-                    else
-                    end
+        if global.configjson["produit"] == "PWX12"
+            print('INIT CONSO LOAD: building conso json for PWX12')
+            ligne = string.format('{"hours":[]}')
+            var mainjson = json.load(ligne)
+            mainjson.insert("days", [])
+            mainjson.insert("months", [])
+            for i:0..2
+                if global.configjson["channels"][i]["mode"] == "tri"
+                    var channel_name = global.configjson["channels"][i]["name"]
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, self.get_hours())
+                    mainjson["hours"].insert(i, json.load(ligne))
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, self.get_days())
+                    mainjson["days"].insert(i, json.load(ligne))
+                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, self.get_months())
+                    mainjson["months"].insert(i, json.load(ligne))
+                else
                 end
-                ligne = json.dump(mainjson)
-                return ligne
             end
-        else
-            raise 'fichier configuration non existant:', str(name)
+            ligne = json.dump(mainjson)
+            print('INIT CONSO LOAD: init_conso ready')
+            return ligne
         end
     end
 
     def init()
         import path
+        print('CONSO LOAD: entering init')
 
         var ligne
         var file
-        if (path.exists("conso.json"))
-            file = open("conso.json", "rt")
-            if file.size() != 0
-                ligne = file.read()
-                self.consojson = json.load(ligne)
-                print(self.consojson)
-                file.close()
-                var name = string.format("p_%s.json", global.ville)
-                file = open(name, 'rt')
-                ligne = file.read()
-                global.configjson = json.load(ligne)
-                self.normalize_config_device(global.configjson, global.device)
-                file.close()
-            else
-                ligne = self.init_conso()
-                file = open("conso.json", "wt")
-                file.write(ligne)
-                file.close()
-                print("fichier sauvegarde de consommation cree !")
-                print(ligne)
-            end
-        else
+
+        # 1) Load device config first; stop if config file is missing.
+        var name = string.format("p_%s.json", global.ville)
+        if !path.exists(name)
+            raise 'fichier configuration non existant:', str(name)
+        end
+        file = open(name, "rt")
+        ligne = file.read()
+        file.close()
+        print('ligne:', ligne)
+        var all_cfg = json.load(ligne)
+        print('all_cfg:', all_cfg)
+        if all_cfg == nil || !all_cfg.contains(global.device)
+            raise 'device not found in config:', str(global.device)
+        end
+        global.configjson = all_cfg[global.device]
+
+        # 2) Ensure conso.json exists; create it immediately if missing.
+        if !path.exists("conso.json")
             ligne = self.init_conso()
             file = open("conso.json", "wt")
             file.write(ligne)
             file.close()
             print("fichier sauvegarde de consommation cree !")
-            print(ligne)
         end
 
+        # 3) Load conso.json (and regenerate once if file is empty).
+        file = open("conso.json", "rt")
+        if file.size() == 0
+            file.close()
+            ligne = self.init_conso()
+            file = open("conso.json", "wt")
+            file.write(ligne)
+            file.close()
+            print("fichier sauvegarde de consommation cree !")
+            file = open("conso.json", "rt")
+        end
+        ligne = file.read()
+        file.close()
+        self.consojson = json.load(ligne)
+
+        print('CONSO LOAD: setting date arrays')
         self.day_list = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
         self.month_list = ["", "Jan", "Fev", "Mars", "Avr", "Mai", "Juin", "Juil", "Aout", "Sept", "Oct", "Nov", "Dec"]
         self.num_day_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
+        print('CONSO LOAD: before init_cout')
         self.init_cout()
+        print('CONSO LOAD: after init_cout')
         if (path.exists("couts.json"))
+            print('CONSO LOAD: couts.json exists')
             file = open("couts.json", "rt")
                 ligne = file.read()
                 self.week_couts_json = json.load(ligne)
                 if self.week_couts_json.size() > 3
                     for i:0..2
-                        self.week_couts_json.insert(global.configjson[global.device]["root"][i], json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                        var channel_name = global.configjson["channels"][i]["name"]
+                        self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                     end
                     file = open("couts.json", "wt")
                     ligne = json.dump(self.week_couts_json)
@@ -272,9 +219,11 @@ class conso
                 end
                 file.close()
         else
+            print('CONSO LOAD: couts.json missing, creating')
             self.week_couts_json = map()
             for i:0..2
-                self.week_couts_json.insert(global.configjson[global.device]["root"][i], json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
+                var channel_name = global.configjson["channels"][i]["name"]
+                self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
             end
             file = open("couts.json", "wt")
             ligne = json.dump(self.week_couts_json)
@@ -356,14 +305,14 @@ class conso
 
         for i:0..2
             stringdevice = string.format("%s-%d", global.device, i + 1)
-            var channel_name = global.configjson[global.device]["root"][i]
-            if (scope == "hours" && global.configjson[global.device]["root"][i] != "*")
+            var channel_name = global.configjson["channels"][i]["name"]
+            if (scope == "hours" && channel_name != "*")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_hours))
+                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, json.dump(payload_hours))
                 mqtt.publish(topic, ligne, true)
                 self.consojson["hours"][i]["DATA"][str((hour + 1) % 24)] = 0
-            elif (global.configjson[global.device]["root"][i] != "*")
+            elif (channel_name != "*")
                 # Calculate current day's cost first (before resetting hour 0)
                 if !self.week_couts_json.contains(channel_name)
                     self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
@@ -373,21 +322,22 @@ class conso
                 # THEN publish hours
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_hours))
+                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, json.dump(payload_hours))
                 mqtt.publish(topic, ligne, true)
+
                 self.consojson["hours"][i]["DATA"][str(0)] = 0
 
                 # Publish days
                 topic = string.format("gw/%s/%s/%s/tele/PWDAYS", global.client, global.ville, stringdevice)
                 payload_days = self.consojson["days"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_days))
+                ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, json.dump(payload_days))
                 mqtt.publish(topic, ligne, true)
                 self.consojson["days"][i]["DATA"][self.day_list[(day_of_week + 1) % 7]] = 0
                 
                 # Publish months
                 topic = string.format("gw/%s/%s/%s/tele/PWMONTHS", global.client, global.ville, stringdevice)
                 payload_months = self.consojson["months"][i]["DATA"]
-                ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}', global.device, global.configjson[global.device]["root"][i], json.dump(payload_months))
+                ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, json.dump(payload_months))
                 mqtt.publish(topic, ligne, true)
                 
                 # RAZ next month if end of the month
@@ -403,7 +353,7 @@ class conso
         
         # Publish costs
         for i:0..2
-            var channel_name = global.configjson[global.device]["root"][i]
+            var channel_name = global.configjson["channels"][i]["name"]
             if (scope != "hours" && channel_name != "*")
                 var cost_key = string.format("c_%s", channel_name)
                 if !self.week_couts_json.contains(channel_name)
@@ -427,4 +377,5 @@ class conso
     end
 end
 
+print('CONSO LOAD: returning instance')
 return conso()
