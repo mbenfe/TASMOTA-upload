@@ -386,5 +386,5 @@ tasmota.add_cmd('couts', couts)
 tasmota.cmd("Init")
 tasmota.delay(500)
 tasmota.load("pwx4_driver.be")
-tasmota.load("commande.be")
+tasmota.load("command.be")
 
