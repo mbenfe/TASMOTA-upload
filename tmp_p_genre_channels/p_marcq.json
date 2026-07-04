@@ -1,12 +1,12 @@
 {
   "dl4-garage": {
+    "parent": [ "", "principal", "principal", "principal" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
     "channels": [
       {
         "name": "principal",
         "genre": "root",
-        "parent": "",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -15,7 +15,6 @@
       {
         "name": "chauffage",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -24,7 +23,6 @@
       {
         "name": "chauffe-eau",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -33,7 +31,6 @@
       {
         "name": "salon",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",

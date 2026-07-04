@@ -1,12 +1,12 @@
 {
   "dl4-principal": {
+    "parent": [ "", "main", "main", "main" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
     "channels": [
       {
         "name": "main",
         "genre": "root",
-        "parent": "",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -15,7 +15,6 @@
       {
         "name": "autre1",
         "genre": "leaf",
-        "parent": "main",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -24,7 +23,6 @@
       {
         "name": "autre2",
         "genre": "leaf",
-        "parent": "main",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -33,7 +31,6 @@
       {
         "name": "autre3",
         "genre": "leaf",
-        "parent": "main",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -42,13 +39,13 @@
     ]
   },
   "dl4-annexe": {
+    "parent": [ "main", "td_annexe", "td_annexe", "td_annexe" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
     "channels": [
       {
         "name": "td_annexe",
-        "genre": "node",
-        "parent": "main",
+        "genre": "bode",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -57,7 +54,6 @@
       {
         "name": "jaccuzi",
         "genre": "leaf",
-        "parent": "td_annexe",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -66,7 +62,6 @@
       {
         "name": "spa",
         "genre": "leaf",
-        "parent": "td_annexe",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -75,7 +70,6 @@
       {
         "name": "*",
         "genre": "leaf",
-        "parent": "td_annexe",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",

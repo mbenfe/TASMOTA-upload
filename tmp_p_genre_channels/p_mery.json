@@ -1,96 +1,90 @@
 {
   "dl12-tgbt1": {
+    "parent": [ "gene_rooftops", "gene_rooftops", "main" ],
     "produit": "PWX12",
-    "hw": "legacy_V1",
+    "hw": "legacy_V2",
     "channels": [
       {
-        "name": "gene_station",
+        "name": "rooftop_51",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "gene_boulangerie",
+        "name": "rooftop1_36",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "froid",
-        "genre": "leaf",
-        "parent": "main",
+        "name": "gene_rooftops",
+        "genre": "bode",
         "mode": "tri",
         "techno": "ct",
-        "ratio": "2000",
+        "ratio": "4000",
         "PGA": "1"
       }
     ]
   },
   "dl12-tgbt2": {
+    "parent": [ "", "main", "main" ],
     "produit": "PWX12",
-    "hw": "legacy_V1",
+    "hw": "legacy_V2",
     "channels": [
       {
-        "name": "gene_caisse",
-        "genre": "leaf",
-        "parent": "main",
+        "name": "main",
+        "genre": "root",
         "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
+        "techno": "rogowski",
+        "ratio": "3003",
         "PGA": "1"
       },
       {
-        "name": "gene_boucherie",
+        "name": "froid",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
+        "techno": "rogowski",
+        "ratio": "3003",
         "PGA": "1"
       },
       {
-        "name": "gene_onduleur",
+        "name": "ecl_ext",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
-        "ratio": "2000",
+        "ratio": "1000",
         "PGA": "1"
       }
     ]
   },
   "dl12-tgbt3": {
+    "parent": [ "main", "main", "main" ],
     "produit": "PWX12",
-    "hw": "legacy_V1",
+    "hw": "legacy_V2",
     "channels": [
       {
-        "name": "clim1",
+        "name": "td_station",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "clim2",
+        "name": "td_poissonerie",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "clim3",
+        "name": "*",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -99,31 +93,29 @@
     ]
   },
   "dl12-tgbt4": {
+    "parent": [ "main", "main", "main" ],
     "produit": "PWX12",
-    "hw": "legacy_V1",
+    "hw": "legacy_V2",
     "channels": [
       {
-        "name": "rampe_fond",
+        "name": "CF-reserve",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "gene_deco1",
+        "name": "ecl_f\u0026l",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "gene_deco2",
+        "name": "gene_divers",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -132,31 +124,29 @@
     ]
   },
   "dl12-tgbt5": {
+    "parent": [ "main", "main", "main" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
     "channels": [
       {
-        "name": "rampe_neuve",
+        "name": "onduleur",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "four",
+        "name": "bureaux",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "td_entrepot",
+        "name": "gene_tab1",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -164,32 +154,61 @@
       }
     ]
   },
-  "dl12-tdclim": {
+  "dl12-tgbt6": {
+    "parent": [ "main", "gene_tab2", "gene_tab2" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
     "channels": [
       {
-        "name": "clim_groupe1",
-        "genre": "leaf",
-        "parent": "td_clim",
+        "name": "gene_tab2",
+        "genre": "bode",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "clim_groupe2",
+        "name": "travees",
         "genre": "leaf",
-        "parent": "td_clim",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "td_clim",
-        "genre": "node",
-        "parent": "main",
+        "name": "caisses",
+        "genre": "leaf",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
+  },
+  "dl12-boulangerie": {
+    "parent": [ "gene_boulangerie", "gene_boulangerie", "main" ],
+    "produit": "PWX12",
+    "hw": "legacy_V2",
+    "channels": [
+      {
+        "name": "fours",
+        "genre": "leaf",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "drive\u0026co",
+        "genre": "leaf",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "gene_boulangerie",
+        "genre": "bode",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",
@@ -197,29 +216,14 @@
       }
     ]
   },
-  "dl4-tgbt": {
+  "dl4-labo": {
+    "parent": [ "main" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
     "channels": [
       {
-        "name": "main",
-        "genre": "root",
-        "parent": "",
-        "mode": "tri",
-        "techno": "rogowski",
-        "ratio": "3003",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl4-bureau": {
-    "produit": "PWX4",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "bureaux",
+        "name": "gene_labo",
         "genre": "leaf",
-        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",

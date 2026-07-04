@@ -1,12 +1,12 @@
 {
   "virtual": {
+    "parent": [ "" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
     "channels": [
       {
         "name": "virtual_total",
         "genre": "root",
-        "parent": "",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -15,13 +15,13 @@
     ]
   },
   "dl4-mono": {
+    "parent": [ "virtual_total", "td_garage", "td_garage", "td_garage" ],
     "produit": "PWX4",
     "hw": "legacy_V2",
     "channels": [
       {
         "name": "td_garage",
-        "genre": "node",
-        "parent": "virtual_total",
+        "genre": "bode",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -30,7 +30,6 @@
       {
         "name": "buanderie",
         "genre": "leaf",
-        "parent": "td_garage",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -39,7 +38,6 @@
       {
         "name": "chaufferie",
         "genre": "leaf",
-        "parent": "td_garage",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -48,7 +46,6 @@
       {
         "name": "*",
         "genre": "leaf",
-        "parent": "td_garage",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -57,13 +54,13 @@
     ]
   },
   "dl12-mono": {
+    "parent": [ "virtual_total", "principal", "principal", "principal", "principal", "principal", "principal", "principal", "principal", "principal", "principal" ],
     "produit": "PWX12",
     "hw": "legacy_V2",
     "channels": [
       {
         "name": "principal",
-        "genre": "node",
-        "parent": "virtual_total",
+        "genre": "bode",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -72,7 +69,6 @@
       {
         "name": "1",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -81,7 +77,6 @@
       {
         "name": "2",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -90,7 +85,6 @@
       {
         "name": "3",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -99,7 +93,6 @@
       {
         "name": "*",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -108,7 +101,6 @@
       {
         "name": "4",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -117,7 +109,6 @@
       {
         "name": "5",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -126,7 +117,6 @@
       {
         "name": "6",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -135,7 +125,6 @@
       {
         "name": "*",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -144,7 +133,6 @@
       {
         "name": "7",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -153,7 +141,6 @@
       {
         "name": "8",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -162,7 +149,6 @@
       {
         "name": "*",
         "genre": "leaf",
-        "parent": "principal",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
