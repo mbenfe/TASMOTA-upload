@@ -1,19 +1,64 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "main_ND",
-          "slave": [ "CF_ND", "climatisation_ND", "four1_ND", "four2_ND", "froid1_ND", "froid2_ND", "gene_boulangerie_ND", "gene_parking_ND", "gene_patisserie_ND", "gene_pc_ND", "gene_second_tgbt_ND", "P2_F1_F3_ND", "P3_P5_F8_ND", "provisoir_mf_ND", "rideau_ND", "rotissoire_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
+        },
+        {
+          "shape": "iCoutsPareto",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 2,
+          "location": "Total/Froid1/Froid2/Parking/Rideau/Second TGBT",
+          "master": "c_w_main",
+          "slave": [ "c_froid1", "c_froid2", "c_gene_parking", "c_rideau", "c_gene_second_tgbt", "c_froid1_ND" ]
+        },
+        {
+          "shape": "spacer",
+          "color": "GREEN",
+          "column": 1,
+          "row": 3,
+          "location": "Temperatures RDC",
+          "master": "",
+          "slave": []
+        },
+        {
+          "shape": "ParetoTemp",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 4,
+          "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/L├â┬⌐gumes",
+          "master": "th_exterieur",
+          "slave": [ "th_cls", "th_caisse_2", "th_rdc_pains", "th_escalator", "th_traiteur", "th_sushi", "th_legumes", "th_cls_ND" ]
+        },
+        {
+          "shape": "spacer",
+          "color": "GREEN",
+          "column": 1,
+          "row": 5,
+          "location": "Temperatures RDC-1",
+          "master": "",
+          "slave": []
+        },
+        {
+          "shape": "ParetoTemp",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 6,
+          "location": "Exterieur/Escalator/Surgel├â┬⌐s/Biscottes/Animaux/Coca Cola",
+          "master": "th_exterieur",
+          "slave": [ "th_ss_escalator", "th_surgeles", "th_biscottes", "th_animaux", "th_coca", "th_ss_escalator_ND" ]
         }
       ]
     },

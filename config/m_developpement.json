@@ -1,23 +1,30 @@
 {
-  "applications": [
-    {
-      "type": "iNightDay",
-      "label": "résumé",
-      "level": 1,
-      "virtuel": 0,
-      "data": [
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 1,
-          "location": "",
-          "master": "principal_ND",
-          "slave": [ "flasher1_ND", "flasher2_ND", "flasher3_ND", "test1_ND", "test2_ND", "test3_ND" ]
-        }
-      ]
-    }
-  ],
+  "applications": {
+    "type": "iRideau",
+    "label": "Rideau",
+    "level": 1,
+    "virtuel": 0,
+    "data": [
+      {
+        "shape": "Thermoscreens",
+        "color": "TRANSPARENT",
+        "column": 1,
+        "row": 1,
+        "location": "Gauche",
+        "master": "rdx-ecopower1",
+        "slave": []
+      },
+      {
+        "shape": "Thermoscreens",
+        "color": "TRANSPARENT",
+        "column": 1,
+        "row": 2,
+        "location": "Gauche",
+        "master": "rdx-ecopower2",
+        "slave": []
+      }
+    ]
+  },
   "night": [
     {
       "type": "iNightDay",

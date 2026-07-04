@@ -1,64 +1,37 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "main_ND",
-          "slave": [ "bureau_direction_ND", "eclext_ND", "fext_ND", "fneg_ND", "fpos_ND", "gene_boulangerie_ND", "parking_ND", "pc_16A_magasin_ND", "rampe1_ND", "rampe2_ND", "rampe3_ND", "rampe7-12_ND", "station_ND", "td_acceuil_ND", "td_drive_ND", "td_mag_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsPareto",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "",
-          "master": "fneg_ND",
-          "slave": [ "neg_m1_ND", "neg_m2_ND", "neg_m3_ND" ]
+          "location": "Total/Froid-/Froid+/Magasin/Acceuil/Drive/Froid Exterieur/Ecl exterieur/Station/Rampe1/Ecl Ext 2/Boulangerie/Prises magasin",
+          "master": "c_main",
+          "slave": [ "c_fneg", "c_fpos", "c_td_magasin", "c_td_acceuil", "c_td_drive", "c_fext", "c_eclext", "c_station", "c_rampe1", "c_eclext2", "c_gene_boulangerie", "c_pc_16A_magasin", "c_fneg_ND" ]
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "ParetoTemp",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "",
-          "master": "fpos_ND",
-          "slave": [ "pos_m1_ND", "pos_m2_ND", "pos_m3_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 4,
-          "location": "",
-          "master": "gene_boulangerie_ND",
-          "slave": [ "boutique_ND", "four36kw_ND", "machine_glacon_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 5,
-          "location": "",
-          "master": "td_acceuil_ND",
-          "slave": [ "rideau_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 6,
-          "location": "",
-          "master": "td_mag_ND",
-          "slave": [ "td_bacs_loges_ND" ]
+          "location": "Exterieur/Aero Entree/Aero Bio/Aero Primeur/Entree/Acceuil/Caisses/Aperitif/Charcutier/Pains/surgeles",
+          "master": "th_exterieur",
+          "slave": [ "th_aero_entree", "th_aero_bio", "th_aero_primeur", "th_entree", "th_acceuil", "th_caisses", "th_aperitif", "th_charcutier", "th_pains", "th_surgeles", "th_aero_entree_ND" ]
         }
       ]
     },
@@ -1379,7 +1352,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE",
+          "color": "GREEN",
           "column": 1,
           "row": 9,
           "location": "",
@@ -1388,7 +1361,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 10,
           "location": "",
@@ -1397,7 +1370,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 11,
           "location": "",
@@ -1406,7 +1379,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 12,
           "location": "",
@@ -1415,7 +1388,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW",
+          "color": "GREEN",
           "column": 1,
           "row": 13,
           "location": "",
@@ -1424,7 +1397,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 14,
           "location": "",
@@ -1433,7 +1406,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 15,
           "location": "",
@@ -1442,7 +1415,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 16,
           "location": "",
@@ -1514,7 +1487,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "RED",
+          "color": "GREEN",
           "column": 1,
           "row": 24,
           "location": "",
@@ -1523,7 +1496,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "RED_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 25,
           "location": "",
@@ -1541,7 +1514,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "PINK",
+          "color": "GREEN",
           "column": 1,
           "row": 27,
           "location": "",
@@ -1550,7 +1523,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "PINK_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 28,
           "location": "",

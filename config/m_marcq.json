@@ -1,19 +1,46 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "principal_ND",
-          "slave": [ "chauffage_ND", "chauffe-eau_ND", "salon_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
+        },
+        {
+          "shape": "light",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 2,
+          "location": "Cuisine",
+          "master": "switch_cuisine",
+          "slave": []
+        },
+        {
+          "shape": "light",
+          "color": "TRANSPARENT",
+          "column": 2,
+          "row": 2,
+          "location": "Salon",
+          "master": "switch_salon",
+          "slave": []
+        },
+        {
+          "shape": "light",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 3,
+          "location": "Entree RDC",
+          "master": "switch_entree",
+          "slave": []
         }
       ]
     },

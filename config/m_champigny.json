@@ -1,37 +1,37 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "pricipal_ND",
-          "slave": [ "chauffage_ND", "ctgendole_ND", "divers_ND", "ecldeco_ND", "eclgondoles_ND", "eclprive_ND", "froid_ND", "gene_boulangerie_ND", "gene_forces_divers_ND", "gene_labo_ND", "pchorspublic_ND", "pcprive_ND", "pcpublic_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsPareto",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "",
-          "master": "gene_boulangerie_ND",
-          "slave": [ "fours_ND", "laverie_ext_ND" ]
+          "location": "Total/Froid/Boulangerie/Labo",
+          "master": "c_w_pricipal",
+          "slave": [ "c_froid", "c_gene_boulangerie", "c_gene_labo", "c_froid_ND" ]
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsTable",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "",
-          "master": "gene_labo_ND",
-          "slave": [ "divers_4dij_ND", "ecl_gondoleLS_ND" ]
+          "location": "Total/Froid/Boulangerie/Labo",
+          "master": "c_w_pricipal",
+          "slave": [ "c_w_froid", "c_w_gene_boulangerie", "c_w_gene_labo", "c_w_froid_ND" ]
         }
       ]
     },
@@ -970,7 +970,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE",
+          "color": "GREEN",
           "column": 1,
           "row": 13,
           "location": "",
@@ -979,7 +979,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 14,
           "location": "",
@@ -988,7 +988,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 15,
           "location": "",

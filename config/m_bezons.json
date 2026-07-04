@@ -1,28 +1,37 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "main_ND",
-          "slave": [ "divers_droite_ND", "fneg_ND", "four_ND", "fpos_ND", "gene_magazin_ND", "td_boucherie_ND", "td_boulange_ND", "td_bureaux_ND", "td_caisses_ND", "td_charcuterie_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsPareto",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "",
-          "master": "gene_magazin_ND",
-          "slave": [ "eclmag1_ND", "eclmag2_ND", "enrouleur1_ND", "enrouleur2_ND", "enrouleur3_ND", "enrouleur4_ND", "enrouleur5_ND", "enrouleur6_ND" ]
+          "location": "Total/Magazin/Froid -/Froid +/Divers/Boulangerie/Bureaux/Charcuterie/Boucherie/Caisses/Four",
+          "master": "c_main",
+          "slave": [ "c_gene_magazin", "c_fneg", "c_fpos", "c_divers_droite", "c_td_boulange", "c_td_bureaux", "c_td_charcuterie", "c_td_boucherie", "c_td_caisses", "c_four", "c_gene_magazin_ND" ]
+        },
+        {
+          "shape": "iCoutsPareto",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 3,
+          "location": "Magasin/Eclairage 1/Eclairage 2/Enrouleur 4/Enrouleur 1-2-3/Enrouleur 5",
+          "master": "c_gene_magazin",
+          "slave": [ "c_eclmag1", "c_eclmag2", "c_enrouleur4", "c_enrouleur123", "c_enrouleur5", "c_eclmag1_ND" ]
         }
       ]
     },

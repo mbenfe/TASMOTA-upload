@@ -1,28 +1,37 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "main_ND",
-          "slave": [ "CoffretEntree_ND", "ColonneA_ND", "ColonneB_ND", "fneg_ND", "fpos_ND", "fpos2_ND", "gene_bureaux_ND", "rampe2-9-div_ND", "rampe3-6-1-2-div_ND", "rampe5-1-divecl_ND", "rampe8-10-14-12-div_ND", "station_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsPareto",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "",
-          "master": "gene_bureaux_ND",
-          "slave": [ "onduleur_ND", "td_boulangerie_ND" ]
+          "location": "Principal/Froid +/Froid-/Colonne A/Colonne B",
+          "master": "c_w_main",
+          "slave": [ "c_fpos", "c_fneg", "c_ColonneA", "c_ColonneB", "c_fpos_ND" ]
+        },
+        {
+          "shape": "ParetoTemp",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 3,
+          "location": "Exterieur/CLS/Photocopieuse/Maneges/Rayon b├â┬⌐b├â┬⌐/SAS Entr├â┬⌐e/Rayoun chats/Confisseries/Laits \u0026 oeufs/Boucherie/Boulangerie",
+          "master": "th_exterieure",
+          "slave": [ "th_caisse_auto", "th_photocopieuse", "th_maneges", "th_bebe", "th_sas", "th_chats", "th_confisserie", "th_lait", "th_boucherie", "th_boulangerie", "th_caisse_auto_ND" ]
         }
       ]
     },

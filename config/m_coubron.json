@@ -1,64 +1,37 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "main_ND",
-          "slave": [ "divers_ecl_ND", "ecl1_ND", "ecl2_ND", "ecl3_ND", "ecl4_ND", "eclext_ND", "froid1_ND", "froid2_ND", "gen_bo_ND", "gen_ga_ND", "gen_labo_ND", "gene_bu_ND", "gene_tdcaisses_ND", "lavage_ND", "station_ND", "tg_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsPareto",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "",
-          "master": "gen_bo_ND",
-          "slave": [ "CF_ND", "f_rotatif_ND", "f_sventile_ND", "gen_pc_ND", "pctetra_ND" ]
+          "location": "Total/Froid-/Froid+/Eclairage int/Eclairage ext/Lavage/Station/TG/Bureaux/Galerie/Labo/Boulangerie/Accueil",
+          "master": "c_w_main",
+          "slave": [ "c_froid1", "c_froid2", "virtuel_cout_eclairage", "c_eclext", "c_lavage", "c_station", "c_tg", "c_gene_bu", "c_gen_ga", "c_gen_labo", "c_gen_bo", "c_gene_tdcaisses", "c_froid1_ND" ]
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "ParetoTemp",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "",
-          "master": "gen_ga_ND",
-          "slave": [ "ga_ecl2_ND", "ga_eclext_ND", "ga_gen_ecl1_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 4,
-          "location": "",
-          "master": "gen_labo_ND",
-          "slave": [ "mono1_ND", "mono2_ND", "pc_bl_ND", "pc_labo_ND", "rotissoire_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 5,
-          "location": "",
-          "master": "gene_bu_ND",
-          "slave": [ "chauffage_ND", "eclairage_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 6,
-          "location": "",
-          "master": "gene_tdcaisses_ND",
-          "slave": [ "gene_divers_ND", "gene_pc_caisses_ND" ]
+          "location": "Exterieur/Caisse 9/Gal. Pharma/Photomaton/Bio/Vin/CLS/Drive/Surgeles/Moment/Legumes",
+          "master": "th_exterieur",
+          "slave": [ "th_caisse_9", "th_boulangerie", "th_photomaton", "th_bio", "th_vin", "th_caisse_auto", "th_drive", "th_surgeles", "th_moment", "th_legumes", "th_caisse_9_ND" ]
         }
       ]
     },
@@ -1262,7 +1235,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE",
+          "color": "GREEN",
           "column": 1,
           "row": 16,
           "location": "",
@@ -1271,7 +1244,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 17,
           "location": "",
@@ -1280,7 +1253,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 18,
           "location": "",
@@ -1289,7 +1262,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 19,
           "location": "",
@@ -1298,7 +1271,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW",
+          "color": "GREEN",
           "column": 1,
           "row": 20,
           "location": "",
@@ -1307,7 +1280,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 21,
           "location": "",
@@ -1316,7 +1289,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 22,
           "location": "",
@@ -1325,7 +1298,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 23,
           "location": "",
@@ -1334,7 +1307,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 24,
           "location": "",
@@ -1343,7 +1316,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 25,
           "location": "",
@@ -1352,7 +1325,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "RED",
+          "color": "GREEN",
           "column": 1,
           "row": 26,
           "location": "",
@@ -1361,7 +1334,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "RED_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 27,
           "location": "",
@@ -1370,7 +1343,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "RED_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 28,
           "location": "",
@@ -1379,7 +1352,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "PINK",
+          "color": "GREEN",
           "column": 1,
           "row": 29,
           "location": "",
@@ -1388,7 +1361,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "PINK_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 30,
           "location": "",
@@ -1397,7 +1370,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "PINK_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 31,
           "location": "",

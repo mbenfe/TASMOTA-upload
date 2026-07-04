@@ -1,55 +1,28 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "gene_ND",
-          "slave": [ "chauffage_ND", "depart_ND", "divers_ND", "ecldeco_ND", "eclprive_ND", "eclpub1_ND", "eclpub2_ND", "froid_ND", "parking_ND", "pcprive_ND", "pcpublic_ND", "reserve_ND", "td_boulangerie_ND", "td_caisses_ND", "td_labo_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsPareto",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "",
-          "master": "depart_ND",
-          "slave": [ "aero1_ND", "aero2_ND", "aero3_ND", "aero4_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 3,
-          "location": "",
-          "master": "td_boulangerie_ND",
-          "slave": [ "divers_bl_ND", "fours_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 4,
-          "location": "",
-          "master": "td_caisses_ND",
-          "slave": [ "caisses_ND", "pc_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 5,
-          "location": "",
-          "master": "td_labo_ND",
-          "slave": [ "ecllabo_ND", "pclabo_ND" ]
+          "location": "Total/Boulangerie/Reserve/Depart/Parking/Bureaux/Froid/Caisses/Eclairage 1/Eclairage 2",
+          "master": "c_gene",
+          "slave": [ "c_td_boulangerie", "c_reserve", "c_td_labo", "c_depart", "c_parking", "c_pcprive", "c_froid", "c_td_caisses", "c_eclpub1", "c_eclpub2", "c_td_boulangerie_ND" ]
         }
       ]
     },
@@ -779,7 +752,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE",
+          "color": "GREEN",
           "column": 1,
           "row": 18,
           "location": "",
@@ -788,7 +761,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 19,
           "location": "",
@@ -797,7 +770,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 20,
           "location": "",
@@ -806,7 +779,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW",
+          "color": "GREEN",
           "column": 1,
           "row": 21,
           "location": "",
@@ -815,7 +788,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 22,
           "location": "",
@@ -824,7 +797,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 23,
           "location": "",
@@ -833,7 +806,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "RED",
+          "color": "GREEN",
           "column": 1,
           "row": 24,
           "location": "",
@@ -842,7 +815,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "RED_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 25,
           "location": "",
@@ -851,7 +824,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "RED_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 26,
           "location": "",

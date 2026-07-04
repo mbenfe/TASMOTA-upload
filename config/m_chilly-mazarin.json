@@ -1,46 +1,37 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "virtual_total_ND",
-          "slave": [ "gene_froid_ND", "gene_td_boulange_ND", "gene_td_ss_ND", "gene_tgbt_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsPareto",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "",
-          "master": "gene_froid_ND",
-          "slave": [ "fneg_ND", "fpos_ND", "td_clim_ND" ]
+          "location": "Machines/Froid/Boulangerie/Labo",
+          "master": "c_gene_froid",
+          "slave": [ "c_fpos", "c_fneg", "c_td_clim", "c_fpos_ND" ]
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsPareto",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "",
-          "master": "gene_td_boulange_ND",
-          "slave": [ "four16A_ND", "four32A_ND" ]
-        },
-        {
-          "shape": "NighDayNodes",
-          "color": "TRANSPARENT",
-          "column": 1,
-          "row": 4,
-          "location": "",
-          "master": "gene_tgbt_ND",
-          "slave": [ "bistrot_ND", "coffret2_ND", "ecl_labo_ND", "eclairages_ND", "force_ND", "gene_labo_ND", "onduleur_ND", "pc_tri_ND", "rail_boulangerie_ND", "station_ND", "td_bureaux_ND" ]
+          "location": "Magasin/Eclairages/Boulangerie/Bureaux/Labo",
+          "master": "c_gene_tgbt",
+          "slave": [ "c_eclairages", "c_c_gene_td_boulange", "c_td_bureau", "c_gene_labo", "c_eclairages_ND" ]
         }
       ]
     },
@@ -896,7 +887,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE",
+          "color": "GREEN",
           "column": 1,
           "row": 6,
           "location": "",
@@ -905,7 +896,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 7,
           "location": "",
@@ -914,7 +905,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 8,
           "location": "",
@@ -932,7 +923,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW",
+          "color": "GREEN",
           "column": 1,
           "row": 10,
           "location": "",
@@ -941,7 +932,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 11,
           "location": "",
@@ -950,7 +941,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 12,
           "location": "",
@@ -959,7 +950,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 13,
           "location": "",
@@ -968,7 +959,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 14,
           "location": "",
@@ -977,7 +968,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 15,
           "location": "",
@@ -986,7 +977,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 16,
           "location": "",
@@ -995,7 +986,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 17,
           "location": "",
@@ -1004,7 +995,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 18,
           "location": "",
@@ -1013,7 +1004,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 19,
           "location": "",
@@ -1022,7 +1013,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 20,
           "location": "",
@@ -1031,7 +1022,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 21,
           "location": "",

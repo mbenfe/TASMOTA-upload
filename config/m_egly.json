@@ -1,46 +1,46 @@
 {
   "applications": [
     {
-      "type": "iNightDay",
-      "label": "résumé",
+      "type": "Home",
+      "label": "Home",
       "level": 1,
       "virtuel": 0,
       "data": [
         {
-          "shape": "NighDayNodes",
+          "shape": "OpenWeather",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 1,
-          "location": "",
-          "master": "virtual_total_ND",
-          "slave": [ "general_tgbtext_ND", "retour_solaire_ND", "station_service_ND" ]
+          "location": "MAISON",
+          "master": "",
+          "slave": []
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsTable",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "",
-          "master": "gene_froid_ND",
-          "slave": [ "m1+_ND", "m2+_ND", "m3+_ND", "m4+_ND" ]
+          "location": "TGBT ext/Froid/Laverie \u0026 Kiosk",
+          "master": "c_w_general_tgbtext",
+          "slave": [ "c_w_gene_froid", "c_w_laverie_kiosk", "c_w_gene_froid_ND" ]
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsPareto",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "",
-          "master": "general_tgbtext_ND",
-          "slave": [ "laverie_kiosk_ND" ]
+          "location": "TGBT int/Eclairage 1/Eclairage 2/Eclairage 3/Station Lavage/Station Service/Divers1/Divers2/Divers3/Prise1/Prises2",
+          "master": "c_w_general_tgbtint",
+          "slave": [ "c_eclairage1", "c_eclairage2", "c_eclairage3", "c_station_lavage", "c_station_service", "c_divers1", "c_divers2", "c_divers3", "c_prise1", "c_prises2", "c_eclairage1_ND" ]
         },
         {
-          "shape": "NighDayNodes",
+          "shape": "iCoutsTable",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "",
-          "master": "general_tgbtint_ND",
-          "slave": [ "divers1_ND", "divers2_ND", "divers3_ND", "eclairage1_ND", "eclairage2_ND", "eclairage3_ND", "prise1_ND", "prises2_ND", "station_lavage_ND" ]
+          "location": "TGBT int/Eclairage 1/Eclairage 2/Eclairage 3/Station Lavage/Station Service/Divers1/Divers2/Divers3/Prise1/Prises2",
+          "master": "c_w_general_tgbtint",
+          "slave": [ "c_w_eclairage1", "c_w_eclairage2", "c_w_eclairage3", "c_w_station_lavage", "c_w_station_service", "c_w_divers1", "c_w_divers2", "c_w_divers3", "c_w_prise1", "c_w_prises2", "c_w_eclairage1_ND" ]
         }
       ]
     },
@@ -490,7 +490,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE",
+          "color": "GREEN",
           "column": 1,
           "row": 3,
           "location": "",
@@ -499,7 +499,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 4,
           "location": "",
@@ -508,7 +508,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 5,
           "location": "",
@@ -517,7 +517,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 6,
           "location": "",
@@ -526,7 +526,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "ORANGE_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 7,
           "location": "",
@@ -562,7 +562,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW",
+          "color": "GREEN",
           "column": 1,
           "row": 11,
           "location": "",
@@ -571,7 +571,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 12,
           "location": "",
@@ -580,7 +580,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 13,
           "location": "",
@@ -589,7 +589,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 14,
           "location": "",
@@ -598,7 +598,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 15,
           "location": "",
@@ -607,7 +607,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 16,
           "location": "",
@@ -616,7 +616,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 17,
           "location": "",
@@ -625,7 +625,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 18,
           "location": "",
@@ -634,7 +634,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 19,
           "location": "",
@@ -643,7 +643,7 @@
         },
         {
           "shape": "savingSetupCard",
-          "color": "YELLOW_LIGHT",
+          "color": "GREEN_LIGHT",
           "column": 1,
           "row": 20,
           "location": "",
