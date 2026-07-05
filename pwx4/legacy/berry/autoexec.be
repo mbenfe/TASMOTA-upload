@@ -353,8 +353,6 @@ def update(cmd, idx, payload, payload_json)
     if want_be
         to_fetch.push("pwx4/legacy/berry/conso.be")
         to_fetch.push("pwx4/legacy/berry/pwx4_driver.be")
-        to_fetch.push("pwx4/legacy/berry/flasher.be")
-        to_fetch.push("pwx4/legacy/berry/intelhex.be")
         to_fetch.push("pwx4/legacy/berry/autoexec.be")
     end
 

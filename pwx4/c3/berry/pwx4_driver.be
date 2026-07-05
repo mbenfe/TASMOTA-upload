@@ -1,4 +1,4 @@
-var version = "1.0.0 avec couts"
+var version = "2.0.0 avec cron specifique"
 
 import mqtt
 import string
@@ -10,103 +10,29 @@ def get_cron_second()
     for i : 0 .. size(combined) - 1
         sum += string.byte(combined[i])
     end
-    print("cron for " + combined + " is " + str(sum%60))
+    print("cron for " + combined + " is " + str(sum % 60))
     return sum % 60
 end
 
+
 class PWX4
-    var ser
-    var pending_cfg_cmd
-    var cfg_next_send_ms
-    var cfg_attempts
-    var cfg_ack
+    var serReceive
 
     var root
     var topic 
     var conso
 
-    def normalize_device_cfg(dev)
-        if dev == nil
-            return dev
-        end
-
-        if !dev.contains("channels") || type(dev["channels"]) != "list"
-            print("CONFIG ERROR: missing channels for " + global.device)
-            return dev
-        end
-
-        var roots = []
-        var modes = []
-        var technos = []
-        var ratios = []
-        var pgas = []
-
-        for i:0..size(dev["channels"]) - 1
-            var ch = dev["channels"][i]
-            if ch == nil || type(ch) != "map"
-                continue
-            end
-
-            var root_name = "*"
-            var mode_name = "tri"
-            var techno_name = "ct"
-            var ratio_value = "1000"
-            var pga_value = "1"
-
-            if ch.contains("name") && ch["name"] != nil
-                root_name = str(ch["name"])
-            end
-            if ch.contains("mode") && ch["mode"] != nil
-                mode_name = str(ch["mode"])
-            end
-            if ch.contains("techno") && ch["techno"] != nil
-                techno_name = str(ch["techno"])
-            end
-            if ch.contains("ratio") && ch["ratio"] != nil
-                ratio_value = str(ch["ratio"])
-            end
-            if ch.contains("PGA") && ch["PGA"] != nil
-                pga_value = str(ch["PGA"])
-            elif ch.contains("pga") && ch["pga"] != nil
-                pga_value = str(ch["pga"])
-            end
-
-            roots.insert(size(roots), root_name)
-            modes.insert(size(modes), mode_name)
-            technos.insert(size(technos), techno_name)
-            ratios.insert(size(ratios), ratio_value)
-            pgas.insert(size(pgas), pga_value)
-        end
-
-        dev["root"] = roots
-        if size(modes) > 0
-            dev["mode"] = modes[0]
-        else
-            dev["mode"] = "tri"
-        end
-        dev["techno"] = technos
-        dev["ratio"] = ratios
-        dev["PGA"] = pgas
-
-        return dev
-    end
-
     def init()
         import conso
         self.conso = conso
-        self.pending_cfg_cmd = nil
-        self.cfg_next_send_ms = 0
-        self.cfg_attempts = 0
-        self.cfg_ack = false
 
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
-        self.ser = global.ser
-        if self.ser == nil
-            print('DRIVER ERROR: global.ser is nil, Init() must run in autoexec before loading driver')
+        self.serReceive = global.serReceive
+        if self.serReceive == nil
+            print('DRIVER ERROR: global.serReceive is nil, Init() must run in autoexec before loading driver')
             return
         end
-        self.prepare_config_push()
     end
 
     def _arr_get(arr, idx, fallback)
@@ -116,149 +42,114 @@ class PWX4
         return fallback
     end
 
-    def prepare_config_push()
-        import json
-        import string
-        var file_name = string.format("p_%s.json", global.ville)
-        var file = open(file_name, "rt")
-        if file == nil
-            print("CFG: missing file " + file_name)
-            return
-        end
-
-        var buffer = file.read()
-        file.close()
-        var all_cfg = json.load(buffer)
-        if all_cfg == nil || !all_cfg.contains(global.device)
-            print("CFG: missing device entry " + global.device)
-            return
-        end
-
-        var dev = all_cfg[global.device]
-        dev = self.normalize_device_cfg(dev)
-        var produit = str(dev["produit"])
-
-        var root_name = self._arr_get(dev["root"], 0, "*")
-        var sensor_techno = self._arr_get(dev["techno"], 0, "ct")
-        var current_ratio = self._arr_get(dev["ratio"], 0, "1000")
-        var pga_gain = self._arr_get(dev["PGA"], 0, "1")
-        var mode = self._arr_get(dev["mode"], 0, "tri")
-
-        # PWX4 compact config payload: single-channel parameters only.
-        self.pending_cfg_cmd = string.format(
-            "SET CONFIG %s:%s:%s:%s:%s:%s\n",
-            root_name,
-            produit,
-            sensor_techno,
-            current_ratio,
-            pga_gain,
-            mode
-        )
-
-        self.cfg_attempts = 0
-        self.cfg_ack = false
-        self.cfg_next_send_ms = tasmota.millis() + 1200
-        print("CFG: prepared for STM32")
-    end
-
-    def try_push_config()
-        if self.pending_cfg_cmd == nil || self.cfg_ack
-            return
-        end
-        if self.cfg_attempts >= 4
-            return
-        end
-        if !tasmota.time_reached(self.cfg_next_send_ms)
-            return
-        end
-
-        tasmota.cmd("start")
-        tasmota.delay(120)
-        self.ser.flush()
-        self.ser.write(bytes().fromstring(self.pending_cfg_cmd))
-        self.cfg_attempts += 1
-        self.cfg_next_send_ms = tasmota.millis() + 800
-        print("CFG: cmd=" + self.pending_cfg_cmd)
-        print("CFG: sent attempt " + str(self.cfg_attempts))
-    end
-
     def fast_loop()
-        self.try_push_config()
         self.read_uart(2)
     end
 
+    def process_uart_line(line)
+        var topic
+        var split
+        var ligne
+
+        if string.find(line, "CONFIG ") == 0
+            var payload = line[7..]
+            split = string.split(payload, ':')
+            var device_name = global.device
+            var offset = 0
+            if size(split) >= 7
+                device_name = split[0]
+                offset = 1
+            end
+            if size(split) >= offset + 6
+                topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
+                ligne = string.format(
+                    '{"device":"%s","root":["%s"],"produit":"%s","techno":["%s"],"ratio":[%s],"PGA":[%s],"mode":["%s"]}',
+                    device_name,
+                    split[offset + 0],
+                    split[offset + 1],
+                    split[offset + 2],
+                    split[offset + 3],
+                    split[offset + 4],
+                    split[offset + 5]
+                )
+                mqtt.publish(topic, ligne, true)
+                print('PWX4 CONFIG->', ligne)
+            else
+                print('PWX4-> malformed CONFIG frame:', line)
+            end
+            return
+        end
+
+        if line[0] == 'C'
+            split = string.split(line, ':')
+            if size(split) >= 2 && size(split[1]) > 0
+                self.conso.update(line)
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            else
+                print('PWX4-> malformed C frame:', line)
+            end
+        elif line[0] == 'D'
+            split = string.split(line, ':')
+            if size(split) >= 2 && size(split[1]) > 0
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            else
+                print('PWX4-> malformed D frame:', line)
+            end
+        elif line[0] == 'W'
+            split = string.split(line, ':')
+            if size(split) >= 2
+                var channel_name = global.configjson[global.device]["channels"][0]["name"]
+                if channel_name != "*"
+                    topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
+                    ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[1]))
+                    mqtt.publish(topic, ligne, true)
+                end
+            else
+                print('PWX4-> malformed W frame:', line)
+            end
+        elif line[0] == '{'
+            if string.find(line, '"type":"calibration"') != -1
+                if string.find(line, '"group":"') != -1
+                    topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                    mqtt.publish(topic, line, true)
+                else
+                    topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
+                    mqtt.publish(topic, line, true)
+                end
+            else
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            end
+        else
+            print('PWX4->', line)
+        end
+    end
+
     def read_uart(timeout)
-        if self.ser.available()
+        if self.serReceive.available()
             var due = tasmota.millis() + timeout
             while !tasmota.time_reached(due) end
-            var buffer = self.ser.read()
-            self.ser.flush()
+            var buffer = self.serReceive.read()
+            self.serReceive.flush()
             var mystring = buffer.asstring()
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
-            var topic
-            var split
-            var ligne
+            var line
             for i: 0..numitem-2
-                var line = mylist[i]
+                line = mylist[i]
                 if size(line) == 0
                     continue
                 end
-                if line[0] == 'C'
-                    split = string.split(line, ':')
-                    if size(split) >= 2 && size(split[1]) > 0
-                        self.conso.update(line)
-                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    else
-                        print('PWX4-> malformed C frame:', line)
-                    end
-                elif line[0] == 'D'
-                    split = string.split(line, ':')
-                    if size(split) >= 2 && size(split[1]) > 0
-                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    else
-                        print('PWX4-> malformed D frame:', line)
-                    end
-                elif line[0] == 'W'
-                    split = string.split(line, ':')
-                    if size(split) >= 2
-                        if global.configjson[global.device]["root"][0] != "*"
-                            topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
-                            ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, global.configjson[global.device]["root"][0], real(split[1]))
-                            mqtt.publish(topic, ligne, true)
-                        end
-                    else
-                        print('PWX4-> malformed W frame:', line)
-                    end
-                elif line[0] == '{'
-                    if string.find(line, '"type":"calibration"') != -1
-                        if string.find(line, '"group":"') != -1
-                            topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                            mqtt.publish(topic, line, true)
-                        else
-                            topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
-                            mqtt.publish(topic, line, true)
-                        end
-                    else
-                        topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                        mqtt.publish(topic, line, true)
-                    end
-                else
-                    if string.find(line, "config done") != -1
-                        self.cfg_ack = true
-                        self.pending_cfg_cmd = nil
-                        print("CFG: STM32 acknowledged")
-                    end
-                    print('PWX4->', line)
-                end
+                self.process_uart_line(line)
             end
         end
     end
 
     def midnight()
         self.conso.mqtt_publish('all')
+        tasmota.cmd('nightday')
     end
 
     def hour()
@@ -269,9 +160,6 @@ class PWX4
         if hour != 23
             self.conso.mqtt_publish('hours')
         end
-
-        self.ser.flush()
-        self.ser.write(bytes().fromstring("GET ENERGY\n"))
     end
 
     def every_4hours()
@@ -300,9 +188,12 @@ class PWX4
 
 end
 
+
+
 global.pwx4 = PWX4()
 tasmota.add_driver(global.pwx4)
 var now = tasmota.rtc()
+
 tasmota.add_fast_loop(/-> global.pwx4.fast_loop())
 
 var cron_second = get_cron_second()
@@ -322,3 +213,5 @@ print("cron heartbeat:" + cron_pattern)
 cron_pattern = string.format("%d 0 */4 * * *", cron_second)
 tasmota.add_cron(cron_pattern, /-> global.pwx4.every_4hours(), "every_4_hours")
 print("cron every 4 hours:" + cron_pattern)
+
+# return pwx4
