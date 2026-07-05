@@ -357,7 +357,7 @@ def update(cmd, idx, payload, payload_json)
 
     if want_bin
         to_fetch.push("pwx4/c3/app/pwx4new-flashed.bin")
-        to_fetch.push("pwx4/c3/boot/F412-bootloader.bin")
+        to_fetch.push("pwx4/c3/boot/C071-bootloader.bin")
     end
 
     if want_hex
