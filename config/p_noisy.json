@@ -212,7 +212,22 @@
       }
     ]
   },
-  "dl4-bureau": {
+   "pwx4-tgbt": {
+    "produit": "PWX4",
+    "hw": "new",
+    "channels": [
+      {
+        "name": "main",
+        "genre": "root",
+        "parent": "",
+        "mode": "tri",
+        "techno": "rogowski",
+        "ratio": "3003",
+        "PGA": "1"
+      }
+    ]
+  },
+ "dl4-bureau": {
     "produit": "PWX4",
     "hw": "legacy_V2",
     "channels": [
