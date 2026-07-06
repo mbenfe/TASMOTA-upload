@@ -4,7 +4,7 @@
     "hw": "legacy_V2",
     "channels": [
       {
-        "name": "pricipal",
+        "name": "main",
         "genre": "root",
         "parent": "",
         "mode": "tri",
