@@ -22,7 +22,7 @@
           "row": 2,
           "location": "Total/Froid-/Froid+/Eclairage int/Eclairage ext/Lavage/Station/TG/Bureaux/Galerie/Labo/Boulangerie/Accueil",
           "master": "c_w_main",
-          "slave": [ "c_froid1", "c_froid2", "virtuel_cout_eclairage", "c_eclext", "c_lavage", "c_station", "c_tg", "c_gene_bu", "c_gen_ga", "c_gen_labo", "c_gen_bo", "c_gene_tdcaisses", "c_froid1_ND" ]
+          "slave": [ "c_froid1", "c_froid2", "virtual_cout_eclairage", "c_eclext", "c_lavage", "c_station", "c_tg", "c_gene_bu", "c_gen_ga", "c_gen_labo", "c_gen_bo", "c_gene_tdcaisses", "c_froid1_ND" ]
         },
         {
           "shape": "ParetoTemp",

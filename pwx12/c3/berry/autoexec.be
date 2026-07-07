@@ -91,49 +91,6 @@ def Init()
     mqttprint('serial initialised')
 end
 
-def rename(cmd, idx, payload, payload_json)
-    import json
-    var argument = string.split(payload, ' ')
-    if (size(argument) < 2)
-        mqttprint('erreur arguments')
-        tasmota.resp_cmnd('exit')
-        return
-    end
-    var file = open('conso.json', 'r')
-    var config = file.read()
-    file.close()
-    var myjson = json.load(config)
-    var trouve = 0
-    mqttprint('recherche')
-    for i:0..2
-        mqttprint(str(i))
-        if (myjson['hours'][i]['Name'] == argument[0])
-            myjson['hours'][i]['Name'] = argument[1]
-            trouve += 1
-        end
-        if (myjson['days'][i]['Name'] == argument[0])
-            myjson['days'][i]['Name'] = argument[1]
-            trouve += 1
-        end
-        if (myjson['months'][i]['Name'] == argument[0])
-            myjson['months'][i]['Name'] = argument[1]
-            trouve += 1
-        end
-    end
-    if (trouve == 0)
-        mqttprint('nom non existant')
-        tasmota.resp_cmnd('exit')
-        return
-    else
-        mqttprint('rename ' + str(argument[0]) + ' -> ' + argument[1])
-        file = open('conso.json', 'w')
-        var newconfig = json.dump(myjson)
-        file.write(newconfig)
-        file.close()
-    end
-    tasmota.resp_cmnd('done')
-end
-
 def getfile(cmd, idx, payload, payload_json)
     import string
     var message
@@ -297,7 +254,6 @@ def help()
     print("[ESP32 LOCAL COMMANDS]")
     print("Init")
     print("getfile <repo_path/filename>")
-    print("rename <old_name> <new_name>")
     print("dir")
     print("getversion")
     print("update")
@@ -419,8 +375,6 @@ tasmota.add_cmd("Init", Init)
 print("add_cmd:", "Init")
 tasmota.add_cmd("getfile", getfile)
 print("add_cmd:", "getfile")
-tasmota.add_cmd("rename", rename)
-print("add_cmd:", "rename")
 tasmota.add_cmd("help", help)
 print("add_cmd:", "help")
 tasmota.add_cmd("h", help)

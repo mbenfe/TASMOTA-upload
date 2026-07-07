@@ -56,7 +56,7 @@
           "column": 1,
           "row": 1,
           "location": "TOTAL",
-          "master": "virtuel_total",
+          "master": "virtual_total",
           "slave": [ "froid", "gene_ext1", "froid_ND" ],
           "label": [ "Froid", "Magasin" ]
         },
@@ -66,7 +66,7 @@
           "column": 1,
           "row": 2,
           "location": "Total",
-          "master": "virtuel_total",
+          "master": "virtual_total",
           "slave": []
         },
         {

@@ -1,16 +1,15 @@
 {
-  "virtual": {
-    "produit": "PWX4",
-    "hw": "legacy_V2",
+  "virtual1": {
+    "produit": "virtual",
+    "hw": "",
     "channels": [
       {
         "name": "virtual_total",
         "genre": "root",
-        "parent": "",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
+        "children": [
+          "general",
+          "main"
+        ]
       }
     ]
   },
