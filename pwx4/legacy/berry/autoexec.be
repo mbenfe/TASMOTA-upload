@@ -99,7 +99,7 @@ end
 
 
 
-def name(cmd, idx, payload, payload_json)
+def rename(cmd, idx, payload, payload_json)
     import json
     var argument = string.split(payload, ' ')
     if (size(argument) < 2)
@@ -245,6 +245,38 @@ def dir(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd_done()
 end
 
+def del_file(cmd, idx, payload, payload_json)
+    import path
+    var filename = payload
+
+    if filename == nil || filename == ""
+        tasmota.resp_cmnd("usage: del <filename>")
+        return
+    end
+
+    if string.find(filename, "*") != -1 || string.find(filename, "?") != -1
+        tasmota.resp_cmnd("wildcards not allowed")
+        return
+    end
+
+    if string.find(filename, "/") != -1 || string.find(filename, "\\") != -1
+        tasmota.resp_cmnd("strict filename only")
+        return
+    end
+
+    if !path.exists(filename)
+        tasmota.resp_cmnd("file not found")
+        return
+    end
+
+    path.remove(filename)
+    if path.exists(filename)
+        tasmota.resp_cmnd("delete failed")
+    else
+        tasmota.resp_cmnd("deleted:" + filename)
+    end
+end
+
 def help()
     print("==================== EXHAUSTIVE HELP ====================")
     print("Driver 131 owns STM32 set/get/cal/config commands on UART 16/17.")
@@ -278,7 +310,7 @@ def help()
     print("[ESP32 LOCAL COMMANDS]")
     print("Init")
     print("getfile <repo_path/filename>")
-    print("name <old_name> <new_name>")
+    print("rename <old_name> <new_name>")
     print("dir")
     print("dir *.be | dir *.hex | dir *.bin | dir *.json")
     print("getversion")
@@ -398,10 +430,11 @@ tasmota.add_cmd("start", start)
 print("main: register esp32 commands")
 tasmota.add_cmd("Init", Init)
 tasmota.add_cmd("getfile", getfile)
-tasmota.add_cmd("name", name)
+tasmota.add_cmd("rename", rename)
 tasmota.add_cmd("help", help)
 tasmota.add_cmd("h", help)
 tasmota.add_cmd('dir', dir)
+tasmota.add_cmd('del', del_file)
 tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('update', update)
 tasmota.add_cmd('couts', couts)

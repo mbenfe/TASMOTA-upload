@@ -9,6 +9,8 @@ import path
 
 global.rx = 18
 global.tx = 19
+var rst = 2
+var bsl = 13
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
@@ -22,6 +24,32 @@ end
 # ============================================================
 # ====================== STM32 COMMANDS ======================
 # ============================================================
+
+def Stm32Reset()
+    gpio.pin_mode(rst, gpio.OUTPUT)
+    gpio.pin_mode(bsl, gpio.OUTPUT)
+    gpio.digital_write(rst, 0)
+    tasmota.delay(100)
+    gpio.digital_write(rst, 1)
+    tasmota.delay(100)
+    tasmota.resp_cmnd("STM32 reset")
+end
+
+def hold()
+    gpio.pin_mode(rst, gpio.OUTPUT)
+    gpio.pin_mode(bsl, gpio.OUTPUT)
+    gpio.digital_write(bsl, 0)
+    gpio.digital_write(rst, 0)
+    tasmota.resp_cmnd("done")
+end
+
+def start()
+    gpio.pin_mode(rst, gpio.OUTPUT)
+    gpio.pin_mode(bsl, gpio.OUTPUT)
+    gpio.digital_write(bsl, 0)
+    gpio.digital_write(rst, 1)
+    tasmota.resp_cmnd("done")
+end
 
 # ============================================================
 # ====================== ESP32 COMMANDS ======================
@@ -63,7 +91,7 @@ def Init()
     mqttprint('serial initialised')
 end
 
-def name(cmd, idx, payload, payload_json)
+def rename(cmd, idx, payload, payload_json)
     import json
     var argument = string.split(payload, ' ')
     if (size(argument) < 2)
@@ -200,6 +228,38 @@ def dir(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd_done()
 end
 
+def del_file(cmd, idx, payload, payload_json)
+    import path
+    var filename = payload
+
+    if filename == nil || filename == ""
+        tasmota.resp_cmnd("usage: del <filename>")
+        return
+    end
+
+    if string.find(filename, "*") != -1 || string.find(filename, "?") != -1
+        tasmota.resp_cmnd("wildcards not allowed")
+        return
+    end
+
+    if string.find(filename, "/") != -1 || string.find(filename, "\\") != -1
+        tasmota.resp_cmnd("strict filename only")
+        return
+    end
+
+    if !path.exists(filename)
+        tasmota.resp_cmnd("file not found")
+        return
+    end
+
+    path.remove(filename)
+    if path.exists(filename)
+        tasmota.resp_cmnd("delete failed")
+    else
+        tasmota.resp_cmnd("deleted:" + filename)
+    end
+end
+
 def help()
     print("==================== EXHAUSTIVE HELP ====================")
     print("Driver 129 owns C071 flash/set/get/cal commands on its dedicated UART.")
@@ -237,7 +297,7 @@ def help()
     print("[ESP32 LOCAL COMMANDS]")
     print("Init")
     print("getfile <repo_path/filename>")
-    print("name <old_name> <new_name>")
+    print("rename <old_name> <new_name>")
     print("dir")
     print("getversion")
     print("update")
@@ -271,39 +331,66 @@ def getversion()
     tasmota.resp_cmnd_done()
 end
 
-def update()
+def update(cmd, idx, payload, payload_json)
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
     var myjson = json.load(buffer)
     global.ville = myjson["ville"]
     file.close()
+
+    var selector = ""
+    if payload != nil
+        selector = string.tolower(payload)
+    end
+
+    var want_all = (selector == "" || selector == "*.*" || selector == "all")
+    var want_be = (want_all || selector == "*.be" || selector == ".be" || selector == "be")
+    var want_hex = (want_all || selector == "*.hex" || selector == ".hex" || selector == "hex")
+    var want_bin = (want_all || selector == "*.bin" || selector == ".bin" || selector == "bin")
+    var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
+
+    if !want_be && !want_hex && !want_bin && !want_json
+        mqttprint("update: unknown filter '" + selector + "' (use *.be|*.hex|*.bin|*.json)")
+        tasmota.resp_cmnd("invalid update filter")
+        return
+    end
+
+    var to_fetch = []
+    if want_json
+        var name = string.format("c_%s.json", global.ville)
+        to_fetch.push(string.format("config/%s", name))
+        name = string.format("p_%s.json", global.ville)
+        to_fetch.push(string.format("config/%s", name))
+        to_fetch.push("config/power_shared_villes.json")
+    end
+
+    if want_be
+        to_fetch.push("pwx12/c3/berry/conso.be")
+        to_fetch.push("pwx12/c3/berry/flasher.be")
+        to_fetch.push("flashers/stm32C071-PWX/intelhex.be")
+        to_fetch.push("pwx12/c3/berry/pwx12_driver.be")
+        to_fetch.push("pwx12/c3/berry/autoexec.be")
+    end
+
+    if want_bin
+        to_fetch.push("pwx12/c3/app/pwx12new-flashed.bin")
+        to_fetch.push("pwx12/c3/boot/C071-bootloader.bin")
+    end
+
+    if want_hex
+        to_fetch.push("hex/pwx12new-flashed.hex")
+        to_fetch.push("hex/C071-bootloader.hex")
+    end
+
     mqttprint("update: start")
-    var name = string.format("c_%s.json", global.ville)
-    var file_to_fetch = string.format("config/%s", name)
-    mqttprint("update: getfile " + file_to_fetch)
-    tasmota.cmd("getfile " + file_to_fetch)
-    name = string.format("p_%s.json", global.ville)
-    file_to_fetch = string.format("config/%s", name)
-    mqttprint("update: getfile " + file_to_fetch)
-    tasmota.cmd("getfile " + file_to_fetch)
-    file_to_fetch = "config/power_shared_villes.json"
-    mqttprint("update: getfile " + file_to_fetch)
-    tasmota.cmd("getfile " + file_to_fetch)
-    mqttprint("update: getfile pwx12/c3/berry/conso.be")
-    tasmota.cmd("getfile pwx12/c3/berry/conso.be")
-    mqttprint("update: getfile pwx12/c3/berry/flasher.be")
-    tasmota.cmd("getfile pwx12/c3/berry/flasher.be")
-    mqttprint("update: getfile flashers/stm32C071-PWX/intelhex.be")
-    tasmota.cmd("getfile flashers/stm32C071-PWX/intelhex.be")
-    mqttprint("update: getfile pwx12/c3/berry/pwx12_driver.be")
-    tasmota.cmd("getfile pwx12/c3/berry/pwx12_driver.be")
-    mqttprint("update: getfile pwx12/c3/berry/autoexec.be")
-    tasmota.cmd("getfile pwx12/c3/berry/autoexec.be")
-        mqttprint("update: getfile pwx12/c3/app/pwx12new-flashed.bin")
-        tasmota.cmd("getfile pwx12/c3/app/pwx12new-flashed.bin")
-    mqttprint("update: getfile pwx12/c3/boot/C071-bootloader.bin")
-    tasmota.cmd("getfile pwx12/c3/boot/C071-bootloader.bin")
+    mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
+    for i:0..to_fetch.size()-1
+        var file_to_fetch = to_fetch[i]
+        mqttprint("update: getfile " + file_to_fetch)
+        fetch_file(file_to_fetch)
+    end
     mqttprint("update: done")
+    tasmota.resp_cmnd_done()
 end
 
 def couts()
@@ -319,17 +406,29 @@ tasmota.cmd("seriallog 0")
 print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
 
+# ====================== STM32 COMMANDS ======================
+tasmota.add_cmd("Stm32reset", Stm32Reset)
+print("add_cmd:", "Stm32reset")
+tasmota.add_cmd("hold", hold)
+print("add_cmd:", "hold")
+tasmota.add_cmd("start", start)
+print("add_cmd:", "start")
+
 # ====================== ESP32 COMMANDS ======================
 tasmota.add_cmd("Init", Init)
 print("add_cmd:", "Init")
 tasmota.add_cmd("getfile", getfile)
 print("add_cmd:", "getfile")
-tasmota.add_cmd("name", name)
-print("add_cmd:", "name")
+tasmota.add_cmd("rename", rename)
+print("add_cmd:", "rename")
+tasmota.add_cmd("help", help)
+print("add_cmd:", "help")
 tasmota.add_cmd("h", help)
 print("add_cmd:", "h")
 tasmota.add_cmd('dir', dir)
 print("add_cmd:", "dir")
+tasmota.add_cmd('del', del_file)
+print("add_cmd:", "del")
 tasmota.add_cmd('getversion', getversion)
 print("add_cmd:", "getversion")
 tasmota.add_cmd('update', update)
