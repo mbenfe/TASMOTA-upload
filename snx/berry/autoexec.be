@@ -98,21 +98,90 @@ end
 
 def dir(cmd, idx,payload, payload_json)
     import path
+    var selector = ""
+    if payload != nil
+        selector = string.tolower(payload)
+    end
+
+    var want_all = (selector == "" || selector == "*.*" || selector == "all")
+    var want_be = (want_all || selector == "*.be" || selector == ".be" || selector == "be")
+    var want_hex = (want_all || selector == "*.hex" || selector == ".hex" || selector == "hex")
+    var want_bin = (want_all || selector == "*.bin" || selector == ".bin" || selector == "bin")
+    var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
+
+    if !want_be && !want_hex && !want_bin && !want_json
+        mqttprint("dir: unknown filter '" + selector + "' (use *.be|*.hex|*.bin|*.json)")
+        tasmota.resp_cmnd("invalid dir filter")
+        return
+    end
+
     var liste
     var file
     var taille
-    var date
     var timestamp
+    var matched = 0
     liste = path.listdir("/")
-    mqttprint(str(liste.size())+" fichiers")
+    mqttprint("dir: filter='" + selector + "'")
     for i:0..(liste.size()-1)
-        file = open(liste[i],"r")
-        taille = file.size()
-        file.close()
-        timestamp = path.last_modified(liste[i])
-        mqttprint(liste[i]+' '+tasmota.time_str(timestamp)+' '+str(taille))
+        var name_lc = string.tolower(liste[i])
+        var match = want_all
+        if !match
+            if want_be && string.endswith(name_lc, ".be")
+                match = true
+            elif want_hex && string.endswith(name_lc, ".hex")
+                match = true
+            elif want_bin && string.endswith(name_lc, ".bin")
+                match = true
+            elif want_json && string.endswith(name_lc, ".json")
+                match = true
+            end
+        end
+
+        if match
+            file = open(liste[i],"r")
+            if file != nil
+                taille = file.size()
+                file.close()
+                timestamp = path.last_modified(liste[i])
+                mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
+                matched += 1
+            end
+        end
     end
+    mqttprint(str(matched) + " fichiers")
     tasmota.resp_cmnd_done()
+end
+
+def del_file(cmd, idx, payload, payload_json)
+    import path
+    var filename = payload
+
+    if filename == nil || filename == ""
+        tasmota.resp_cmnd("usage: del <filename>")
+        return
+    end
+
+    if string.find(filename, "*") != -1 || string.find(filename, "?") != -1
+        tasmota.resp_cmnd("wildcards not allowed")
+        return
+    end
+
+    if string.find(filename, "/") != -1 || string.find(filename, "\\") != -1
+        tasmota.resp_cmnd("strict filename only")
+        return
+    end
+
+    if !path.exists(filename)
+        tasmota.resp_cmnd("file not found")
+        return
+    end
+
+    path.remove(filename)
+    if path.exists(filename)
+        tasmota.resp_cmnd("delete failed")
+    else
+        tasmota.resp_cmnd("deleted:" + filename)
+    end
 end
 
 def launch_driver()
@@ -122,45 +191,62 @@ def launch_driver()
     mqttprint('AUTOEXEC: start sent to STM32')
  end
 
-def update()
+def update(cmd, idx, payload, payload_json)
+    var selector = ""
+    if payload != nil
+        selector = string.tolower(payload)
+    end
+
+    var want_all = (selector == "" || selector == "*.*" || selector == "all")
+    var want_be = (want_all || selector == "*.be" || selector == ".be" || selector == "be")
+    var want_hex = (want_all || selector == "*.hex" || selector == ".hex" || selector == "hex")
+    var want_bin = (want_all || selector == "*.bin" || selector == ".bin" || selector == "bin")
+    var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
+
+    if !want_be && !want_hex && !want_bin && !want_json
+        mqttprint("update: unknown filter '" + selector + "' (use *.be|*.hex|*.bin|*.json)")
+        tasmota.resp_cmnd("invalid update filter")
+        return
+    end
+
     mqttprint("update: start")
     tasmota.cmd("hold")
 
     var app_file = string.format("snx/apps/auto_%s.bin", ville)
+    var to_fetch = []
 
-    mqttprint("update: getfile snx/berry/autoexec.be")
-    tasmota.cmd("getfile snx/berry/autoexec.be")
+    if want_be
+        to_fetch.push("snx/berry/autoexec.be")
+        to_fetch.push("snx/berry/snx_driver.be")
+        to_fetch.push("snx/berry/flasher.be")
+        to_fetch.push("snx/berry/intelhex.be")
+        to_fetch.push("snx/berry/bootflasher.be")
+    end
 
-    mqttprint("update: getfile snx/berry/snx_driver.be")
-    tasmota.cmd("getfile snx/berry/snx_driver.be")
+    if want_json
+        to_fetch.push("snx/berry/config_cout.json")
+    end
 
-    mqttprint("update: getfile snx/berry/config_cout.json")
-    tasmota.cmd("getfile snx/berry/config_cout.json")
+    if want_hex
+        to_fetch.push("snx/H7/H7-bootloader.hex")
+    end
 
-    mqttprint("update: getfile snx/berry/flasher.be")
-    tasmota.cmd("getfile snx/berry/flasher.be")
+    if want_bin
+        to_fetch.push(app_file)
+        to_fetch.push("snx/c031/modbus_chip_flashed.bin")
+        to_fetch.push("snx/c031/lonworks_chip_flashed.bin")
+        to_fetch.push("snx/c031/mbjc_chip_flashed.bin")
+    end
 
-    mqttprint("update: getfile snx/berry/intelhex.be")
-    tasmota.cmd("getfile snx/berry/intelhex.be")
+    mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
+    for i:0..to_fetch.size()-1
+        mqttprint("update: getfile " + to_fetch[i])
+        tasmota.cmd("getfile " + to_fetch[i])
+    end
 
-    mqttprint("update: getfile snx/berry/bootflasher.be")
-    tasmota.cmd("getfile snx/berry/bootflasher.be")
-
-    mqttprint("update: getfile snx/H7/H7-bootloader.hex")
-    tasmota.cmd("getfile snx/H7/H7-bootloader.hex")
-
-    mqttprint("update: getfile " + app_file)
-    tasmota.cmd("getfile " + app_file)
-
-    mqttprint("update: getfile snx/c031/modbus_chip_flashed.bin")
-    tasmota.cmd("getfile snx/c031/modbus_chip_flashed.bin")
-    mqttprint("update: getfile snx/c031/lonworks_chip_flashed.bin")
-    tasmota.cmd("getfile snx/c031/lonworks_chip_flashed.bin")
-    mqttprint("update: getfile snx/c031/mbjc_chip_flashed.bin")
-    tasmota.cmd("getfile snx/c031/mbjc_chip_flashed.bin")
-    
     tasmota.cmd("start")
     mqttprint("update: done")
+    tasmota.resp_cmnd_done()
 end
 
 
@@ -258,9 +344,10 @@ def snxhelp(cmd, idx, payload, payload_json)
     mqttprint("=== Generic autoexec commands (Berry) ===")
     mqttprint("Stm32Reset [out|in] : pulse reset pins for STM32 out/in")
     mqttprint("getfile <repo/path/file> : download file from GitHub upload repo")
-    mqttprint("dir : list local filesystem files with timestamp and size")
+    mqttprint("dir [*.be|*.hex|*.bin|*.json] : list local files with optional filter")
+    mqttprint("del <filename> : delete one local file (strict filename, no wildcard)")
     mqttprint("getversion : show versions of berry scripts and H7/C031 firmware")
-    mqttprint("update : fetch autoexec/snx files and flasher assets")
+    mqttprint("update [*.be|*.hex|*.bin|*.json] : fetch selected update files")
 
     mqttprint("=== Embedded C++ SNX driver commands ===")
     mqttprint("hold : send 'hold' over UART to pause the external STM32")
@@ -288,6 +375,8 @@ mqttprint("serial log disabled")
 tasmota.add_cmd('getfile',getfile)
 
 tasmota.add_cmd('dir',dir)
+
+tasmota.add_cmd('del',del_file)
 
 tasmota.add_cmd('update',update)
 tasmota.add_cmd('snxhelp',snxhelp)
