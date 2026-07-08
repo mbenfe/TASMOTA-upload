@@ -244,5 +244,35 @@
         "PGA": "1"
       }
     ]
+  },
+    "pwx4-tgbt1": {
+    "produit": "PWX4",
+    "hw": "legacy_V2",
+    "channels": [
+      {
+        "name": "root",
+        "genre": "leaf",
+        "parent": "",
+        "mode": "tri",
+        "techno": "rogowski",
+        "ratio": "3003",
+        "PGA": "1"
+      }
+    ]
+  },
+    "pwx4-tgbt2": {
+    "produit": "PWX4",
+    "hw": "legacy_V2",
+    "channels": [
+      {
+        "name": "froid",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "tri",
+        "techno": "rogowski",
+        "ratio": "3003",
+        "PGA": "1"
+      }
+    ]
   }
 }

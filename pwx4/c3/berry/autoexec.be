@@ -32,7 +32,7 @@ def Stm32Reset()
     tasmota.delay(100)  # wait 10ms
     gpio.digital_write(rst, 1)
     tasmota.delay(100)  # wait 10ms
-    tasmota.resp_cmnd("STM32 reset")
+    tasmota.resp_cmnd("STM32 reset done")
 end
 
 def hold()
