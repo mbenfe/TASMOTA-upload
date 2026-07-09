@@ -159,11 +159,13 @@ end
 
 def pwx4line(cmd, idx, payload, payload_json)
     if payload == nil || size(payload) == 0
+        tasmota.resp_cmnd_done()
         return
     end
     if global.pwx4 != nil
         global.pwx4.process_uart_line(payload)
     end
+    tasmota.resp_cmnd_done()
 end
 
 
