@@ -1,0 +1,217 @@
+var version = "2.0.0 avec cron specifique"
+
+import mqtt
+import string
+import json
+
+def get_cron_second()
+    var combined = string.format("%s|%s", global.ville, global.device)
+    var sum = 0
+    for i : 0 .. size(combined) - 1
+        sum += string.byte(combined[i])
+    end
+    print("cron for " + combined + " is " + str(sum % 60))
+    return sum % 60
+end
+
+
+class PWX4
+    var serReceive
+
+    var root
+    var topic 
+    var conso
+
+    def init()
+        import conso
+        self.conso = conso
+
+        print('DRIVER: serial init done')
+        print('heap:', tasmota.get_free_heap())
+        self.serReceive = global.serReceive
+        if self.serReceive == nil
+            print('DRIVER ERROR: global.serReceive is nil, Init() must run in autoexec before loading driver')
+            return
+        end
+    end
+
+    def _arr_get(arr, idx, fallback)
+        if arr != nil && size(arr) > idx && arr[idx] != nil
+            return str(arr[idx])
+        end
+        return fallback
+    end
+
+    def fast_loop()
+        self.read_uart(2)
+    end
+
+    def process_uart_line(line)
+        var topic
+        var split
+        var ligne
+
+        if string.find(line, "CONFIG ") == 0
+            var payload = line[7..]
+            split = string.split(payload, ':')
+            var device_name = global.device
+            var offset = 0
+            if size(split) >= 7
+                device_name = split[0]
+                offset = 1
+            end
+            if size(split) >= offset + 6
+                topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
+                ligne = string.format(
+                    '{"device":"%s","root":["%s"],"produit":"%s","techno":["%s"],"ratio":[%s],"PGA":[%s],"mode":["%s"]}',
+                    device_name,
+                    split[offset + 0],
+                    split[offset + 1],
+                    split[offset + 2],
+                    split[offset + 3],
+                    split[offset + 4],
+                    split[offset + 5]
+                )
+                mqtt.publish(topic, ligne, true)
+                print('PWX4 CONFIG->', ligne)
+            else
+                print('PWX4-> malformed CONFIG frame:', line)
+            end
+            return
+        end
+
+        if line[0] == 'C'
+            split = string.split(line, ':')
+            if size(split) >= 2 && size(split[1]) > 0
+                self.conso.update(line)
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            else
+                print('PWX4-> malformed C frame:', line)
+            end
+        elif line[0] == 'D'
+            split = string.split(line, ':')
+            if size(split) >= 2 && size(split[1]) > 0
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            else
+                print('PWX4-> malformed D frame:', line)
+            end
+        elif line[0] == 'W'
+            split = string.split(line, ':')
+            if size(split) >= 2
+                var channel_name = global.configjson[global.device]["channels"][0]["name"]
+                if channel_name != "*"
+                    topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
+                    ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[1]))
+                    mqtt.publish(topic, ligne, true)
+                end
+            else
+                print('PWX4-> malformed W frame:', line)
+            end
+        elif line[0] == '{'
+            if string.find(line, '"type":"calibration"') != -1
+                if string.find(line, '"group":"') != -1
+                    topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                    mqtt.publish(topic, line, true)
+                else
+                    topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
+                    mqtt.publish(topic, line, true)
+                end
+            else
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            end
+        else
+            print('PWX4->', line)
+        end
+    end
+
+    def read_uart(timeout)
+        if self.serReceive.available()
+            var due = tasmota.millis() + timeout
+            while !tasmota.time_reached(due) end
+            var buffer = self.serReceive.read()
+            self.serReceive.flush()
+            var mystring = buffer.asstring()
+            var mylist = string.split(mystring, '\n')
+            var numitem = size(mylist)
+            var line
+            for i: 0..numitem-2
+                line = mylist[i]
+                if size(line) == 0
+                    continue
+                end
+                self.process_uart_line(line)
+            end
+        end
+    end
+
+    def midnight()
+        self.conso.mqtt_publish('all')
+        tasmota.cmd('nightday')
+    end
+
+    def hour()
+        var now = tasmota.rtc()
+        var rtc = tasmota.time_dump(now["local"])
+        var hour = rtc["hour"]
+        # publish if not midnight
+        if hour != 23
+            self.conso.mqtt_publish('hours')
+        end
+    end
+
+    def every_4hours()
+        self.conso.sauvegarde()
+    end
+
+
+    def heartbeat()
+        var now = tasmota.rtc()
+        var timestamp = tasmota.time_str(now["local"])
+        var wifi = tasmota.wifi()
+        var ap = "unknown"
+        var ip = "unknown"
+        if wifi != nil
+            if wifi.contains("ssid") && wifi["ssid"] != nil
+                ap = str(wifi["ssid"])
+            end
+            if wifi.contains("ip") && wifi["ip"] != nil
+                ip = str(wifi["ip"])
+            end
+        end
+        var topic = string.format("gw/%s/%s/%s/tele/HEARTBEAT", global.client, global.ville, global.device)
+        var payload = string.format('{"Device":"%s","Name":"%s","Time":"%s","AccessPoint":"%s","IpAddress":"%s"}', global.device, global.device, timestamp, ap, ip)
+        mqtt.publish(topic, payload, true)
+    end
+
+end
+
+
+
+global.pwx4 = PWX4()
+tasmota.add_driver(global.pwx4)
+var now = tasmota.rtc()
+
+tasmota.add_fast_loop(/-> global.pwx4.fast_loop())
+
+var cron_second = get_cron_second()
+# set midnight cron
+var cron_pattern = string.format("%d 59 23 * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx4.midnight(), "every_day")
+print("cron midnight:" + cron_pattern)
+# set hour cron
+cron_pattern = string.format("%d 59 * * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx4.hour(), "every_hour")
+print("cron hour:" + cron_pattern)
+# set heartbeat cron
+cron_pattern = string.format("%d %d * * * *", cron_second, cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx4.heartbeat(), "every_hour")
+print("cron heartbeat:" + cron_pattern)
+# set 4 hours cron
+cron_pattern = string.format("%d 0 */4 * * *", cron_second)
+tasmota.add_cron(cron_pattern, /-> global.pwx4.every_4hours(), "every_4_hours")
+print("cron every 4 hours:" + cron_pattern)
+
+# return pwx4

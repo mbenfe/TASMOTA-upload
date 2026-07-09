@@ -4,13 +4,7 @@ import string
 import global
 import mqtt
 import json
-import gpio
 import path
-
-var rxReceive = 18
-var txReceive = 19
-var rst = 2   
-var bsl = 13   
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
@@ -19,38 +13,6 @@ def mqttprint(texte)
     var payload = string.format("{\"texte\":\"%s\"}", texte)
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
     mqtt.publish(topic, payload, true)
-end
-
-# ============================================================
-# ====================== STM32 COMMANDS ======================
-# ============================================================
-
-def Stm32Reset()
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(rst, 0)
-    tasmota.delay(100)  # wait 10ms
-    gpio.digital_write(rst, 1)
-    tasmota.delay(100)  # wait 10ms
-    tasmota.resp_cmnd("STM32 reset done")
-end
-
-def hold()
-    # Hold STM32 in reset and keep boot pin low.
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 0)
-    tasmota.resp_cmnd("done")
-end
-
-def start()
-    # Release reset and keep boot pin low for normal boot.
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 1)
-    tasmota.resp_cmnd("done")
 end
 
 # ============================================================
@@ -86,15 +48,6 @@ def Init()
     print('ville:', global.ville)
     print('device:', global.device)
 
-    gpio.pin_mode(rxReceive, gpio.INPUT_PULLUP)
-    gpio.pin_mode(txReceive, gpio.OUTPUT)
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 1)
-
-    global.serReceive = serial(rxReceive, txReceive, 921600, serial.SERIAL_8N1)
-    mqttprint('serial receive initialised')
 end
 
 
@@ -105,7 +58,7 @@ def fetch_file(payload)
     var message
     var nom_fichier = string.split(payload, '/').pop()
 
-    hold()
+    tasmota.cmd("hold")
 
     mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
@@ -114,7 +67,7 @@ def fetch_file(payload)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
-        start()
+        tasmota.cmd("start")
         return -1
     end
 
@@ -125,14 +78,14 @@ def fetch_file(payload)
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
         wc.close()
-        start()
+        tasmota.cmd("start")
         return st
     end
 
     var bytes_written = wc.write_file(nom_fichier)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
-    start()
+    tasmota.cmd("start")
     return st
 end
 
@@ -242,8 +195,8 @@ def help()
     print("Driver 132 owns STM32 set/get/cal/config commands on C071 UART.")
 
     print("[REGISTERED COMMANDS]")
-    print("Stm32reset | hold | start")
-    print("Init | getfile | name | help | h | dir | getversion | update | couts")
+    print("Driver: stm32reset | hold | start")
+    print("Script: Init | getfile | name | help | h | dir | getversion | update | couts")
 
     print("[STM32 LINK CONTROL]")
     print("Stm32reset")
@@ -278,7 +231,7 @@ def help()
     print("h")
 
     print("[NOTES]")
-    print("- UART receive link: telemetry from STM32 on pins 18/19")
+    print("- UART receive link: telemetry from STM32 handled by driver 132 on pins 18/19")
     print("- update                   : download all update files")
     print("- update *.be             : download all Berry files")
     print("- update *.hex            : download all HEX files")
@@ -377,12 +330,7 @@ tasmota.cmd("seriallog 0")
 print("serial log disabled")
 print("main: disable teleperiod")
 tasmota.cmd("Teleperiod 0")
-print("main: register stm32 commands")
-
-# ====================== STM32 COMMANDS ======================
-tasmota.add_cmd("Stm32reset", Stm32Reset)
-tasmota.add_cmd("hold", hold)
-tasmota.add_cmd("start", start)
+print("main: stm32 commands handled by driver")
 
 # ====================== ESP32 COMMANDS ======================
 print("main: register esp32 commands")

@@ -16,8 +16,6 @@ end
 
 
 class PWX4
-    var serReceive
-
     var root
     var topic 
     var conso
@@ -26,13 +24,7 @@ class PWX4
         import conso
         self.conso = conso
 
-        print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
-        self.serReceive = global.serReceive
-        if self.serReceive == nil
-            print('DRIVER ERROR: global.serReceive is nil, Init() must run in autoexec before loading driver')
-            return
-        end
     end
 
     def _arr_get(arr, idx, fallback)
@@ -40,10 +32,6 @@ class PWX4
             return str(arr[idx])
         end
         return fallback
-    end
-
-    def fast_loop()
-        self.read_uart(2)
     end
 
     def process_uart_line(line)
@@ -127,26 +115,6 @@ class PWX4
         end
     end
 
-    def read_uart(timeout)
-        if self.serReceive.available()
-            var due = tasmota.millis() + timeout
-            while !tasmota.time_reached(due) end
-            var buffer = self.serReceive.read()
-            self.serReceive.flush()
-            var mystring = buffer.asstring()
-            var mylist = string.split(mystring, '\n')
-            var numitem = size(mylist)
-            var line
-            for i: 0..numitem-2
-                line = mylist[i]
-                if size(line) == 0
-                    continue
-                end
-                self.process_uart_line(line)
-            end
-        end
-    end
-
     def midnight()
         self.conso.mqtt_publish('all')
         tasmota.cmd('nightday')
@@ -189,12 +157,21 @@ class PWX4
 end
 
 
+def pwx4line(cmd, idx, payload, payload_json)
+    if payload == nil || size(payload) == 0
+        return
+    end
+    if global.pwx4 != nil
+        global.pwx4.process_uart_line(payload)
+    end
+end
+
+
 
 global.pwx4 = PWX4()
 tasmota.add_driver(global.pwx4)
+tasmota.add_cmd("pwx4line", pwx4line)
 var now = tasmota.rtc()
-
-tasmota.add_fast_loop(/-> global.pwx4.fast_loop())
 
 var cron_second = get_cron_second()
 # set midnight cron
