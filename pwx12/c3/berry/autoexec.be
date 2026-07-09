@@ -15,7 +15,7 @@ global.tx = 19
 def mqttprint(texte)
     import mqtt
     var payload = string.format("{\"texte\":\"%s\"}", texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
+    var topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
     mqtt.publish(topic, payload, true)
 end
 
