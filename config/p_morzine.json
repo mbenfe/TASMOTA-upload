@@ -1,0 +1,36 @@
+{
+
+  "dl12-td1": {
+    "produit": "PWX12",
+    "hw": "new",
+    "channels": [
+      {
+        "name": "main",
+        "genre": "root",
+        "parent": "",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "tbd1",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "tbd2",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
+  }
+}
