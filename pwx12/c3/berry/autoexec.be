@@ -9,8 +9,6 @@ import path
 
 global.rx = 18
 global.tx = 19
-var rst = 2
-var bsl = 13
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
@@ -19,36 +17,6 @@ def mqttprint(texte)
     var payload = string.format("{\"texte\":\"%s\"}", texte)
     var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
     mqtt.publish(topic, payload, true)
-end
-
-# ============================================================
-# ====================== STM32 COMMANDS ======================
-# ============================================================
-
-def Stm32Reset()
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(rst, 0)
-    tasmota.delay(100)
-    gpio.digital_write(rst, 1)
-    tasmota.delay(100)
-    tasmota.resp_cmnd("STM32 reset")
-end
-
-def hold()
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 0)
-    tasmota.resp_cmnd("done")
-end
-
-def start()
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 1)
-    tasmota.resp_cmnd("done")
 end
 
 # ============================================================
@@ -373,14 +341,6 @@ end
 tasmota.cmd("seriallog 0")
 print("serial log disabled")
 tasmota.cmd("Teleperiod 0")
-
-# ====================== STM32 COMMANDS ======================
-tasmota.add_cmd("Stm32reset", Stm32Reset)
-print("add_cmd:", "Stm32reset")
-tasmota.add_cmd("hold", hold)
-print("add_cmd:", "hold")
-tasmota.add_cmd("start", start)
-print("add_cmd:", "start")
 
 # ====================== ESP32 COMMANDS ======================
 tasmota.add_cmd("Init", Init)
