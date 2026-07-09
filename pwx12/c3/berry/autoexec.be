@@ -326,7 +326,6 @@ def update(cmd, idx, payload, payload_json)
         fetch_file(file_to_fetch)
     end
     mqttprint("update: done")
-    tasmota.resp_cmnd_done()
 end
 
 def couts()
