@@ -91,10 +91,13 @@ def Init()
     mqttprint('serial initialised')
 end
 
-def getfile(cmd, idx, payload, payload_json)
+def fetch_file(payload)
     import string
+    import path
     var message
     var nom_fichier = string.split(payload, '/').pop()
+
+    tasmota.cmd("hold")
 
     mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
@@ -103,8 +106,8 @@ def getfile(cmd, idx, payload, payload_json)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
-        tasmota.resp_cmnd("Erreur de téléchargement.")
-        return
+        tasmota.cmd("start")
+        return -1
     end
 
     wc.set_follow_redirects(true)
@@ -114,15 +117,24 @@ def getfile(cmd, idx, payload, payload_json)
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
         wc.close()
-        tasmota.resp_cmnd("Erreur de téléchargement.")
-        return
+        tasmota.cmd("start")
+        return st
     end
 
     var bytes_written = wc.write_file(nom_fichier)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
+    tasmota.cmd("start")
+    return st
+end
+
+def getfile(cmd, idx, payload, payload_json)
+    var st = fetch_file(payload)
     if st == 200
+        var nom_fichier = string.split(payload, '/').pop()
         tasmota.resp_cmnd('uploaded:' + nom_fichier)
+    elif st == -1
+        tasmota.resp_cmnd("Erreur d'initialisation du client web.")
     else
         tasmota.resp_cmnd("Erreur de téléchargement.")
     end
