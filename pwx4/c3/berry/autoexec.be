@@ -343,9 +343,13 @@ tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('update', update)
 tasmota.add_cmd('couts', couts)
 
+def launch_driver()
+    tasmota.load("pwx4_driver.be")
+end
+
 ############################################################
 print("main: call Init")
 Init()
-print("main: load pwx4_driver.be")
-tasmota.load("pwx4_driver.be")
+print("wait 30s for driver loading")
+tasmota.set_timer(30000, launch_driver)
 print("main: autoexec done")
