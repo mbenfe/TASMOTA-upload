@@ -52,13 +52,11 @@ end
 
 
 
-def fetch_file(payload)
+def fetch_file_raw(payload)
     import string
     import path
     var message
     var nom_fichier = string.split(payload, '/').pop()
-
-    tasmota.cmd("hold")
 
     mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
@@ -67,7 +65,6 @@ def fetch_file(payload)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
-        tasmota.cmd("start")
         return -1
     end
 
@@ -78,13 +75,18 @@ def fetch_file(payload)
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
         wc.close()
-        tasmota.cmd("start")
         return st
     end
 
     var bytes_written = wc.write_file(nom_fichier)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
+    return st
+end
+
+def fetch_file(payload)
+    tasmota.cmd("hold")
+    var st = fetch_file_raw(payload)
     tasmota.cmd("start")
     return st
 end
@@ -311,11 +313,13 @@ def update(cmd, idx, payload, payload_json)
 
     mqttprint("update: start")
     mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
+    tasmota.cmd("hold")
     for i:0..to_fetch.size()-1
         var file_to_fetch = to_fetch[i]
         mqttprint("update: getfile " + file_to_fetch)
-        fetch_file(file_to_fetch)
+        fetch_file_raw(file_to_fetch)
     end
+    tasmota.cmd("start")
     mqttprint("update: done")
 end
 
