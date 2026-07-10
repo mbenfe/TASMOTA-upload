@@ -32,5 +32,38 @@
         "PGA": "1"
       }
     ]
+  },
+    "pwx12-td2": {
+    "produit": "PWX12",
+    "hw": "new",
+    "channels": [
+      {
+        "name": "tbd-1",
+        "genre": "leaf",
+        "parent": "",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "tbd-2",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "tbd-3",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
   }
 }
