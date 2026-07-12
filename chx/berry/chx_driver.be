@@ -122,35 +122,6 @@ class CHX
         mqttprint("subscribed to SETUP:"+global.device)
     end
 
-    def check_gpio()
-        # Check if GPIOs are configured correctly
-        var gpio_result = tasmota.cmd("Gpio")
-        
-        if gpio_result != nil
-             
-            # Check GPI21 (SDA-1 - 640)
-            if gpio_result['GPIO21'] != nil
-                if !gpio_result['GPIO21'].contains('I2C SDA')
-                    mqttprint("WARNING: GPIO21 not SDA-1! Reconfiguring...")
-                    tasmota.cmd("Gpio21 640")
-                end
-            end
-            
-            # Check GPIO09 (SCL-1 - 608)
-            if gpio_result['GPIO9'] != nil
-                if !gpio_result['GPIO9'].contains('I2C SCL')
-                    mqttprint("WARNING: GPIO9 not SCL-1! Reconfiguring...")
-                    tasmota.cmd("Gpio9 608")
-                end
-            end
-        else
-            mqttprint("ERROR: Cannot read GPIO configuration")
-            return false
-        end
-        
-        return true
-    end
-
 
     def every_minute()
         var now = tasmota.rtc()
@@ -164,8 +135,6 @@ class CHX
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var jour = self.day_list[day_of_week]
         var data
-
-        self.check_gpio()
 
         data = tasmota.read_sensors()
         if(data == nil)

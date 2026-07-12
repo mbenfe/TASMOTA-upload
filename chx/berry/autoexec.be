@@ -1,8 +1,5 @@
 var version = "2.0.102025 aht20 auto"
 
-# SDA IO21
-# SCL IO9
-
 import string
 import global
 import mqtt
@@ -32,48 +29,6 @@ def mqttprint(texte)
 end
 
 #-------------------------------- FONCTIONS -----------------------------------------#
-def ville(cmd, idx, payload, payload_json)
-    import json
-    var file = open("esp32.cfg", "rt")
-    var buffer = file.read()
-    var myjson = json.load(buffer)
-    myjson["ville"] = payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg", "wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
-end
-
-def device(cmd, idx, payload, payload_json)
-    import json
-    var file = open("esp32.cfg", "rt")
-    var buffer = file.read()
-    var myjson = json.load(buffer)
-    myjson["device"] = payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg", "wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
-end
-
-def location(cmd, idx, payload, payload_json)
-    import json
-    var file = open("esp32.cfg", "rt")
-    var buffer = file.read()
-    var myjson = json.load(buffer)
-    myjson["location"] = payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg", "wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
-end
-
 def getfile(cmd, idx, payload, payload_json)
     import string
     import path
@@ -220,9 +175,6 @@ mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile', getfile)
 
 tasmota.add_cmd('dir', dir)
-tasmota.add_cmd('ville', ville)
-tasmota.add_cmd('device', device)
-tasmota.add_cmd('location', location)
 
 # Initialize configuration
 loadconfig()
