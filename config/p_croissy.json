@@ -1,5 +1,5 @@
 {
-  "dl4-fpos": {
+  "dl4-froid_pos": {
     "produit": "PWX4",
     "hw": "legacy_V2",
     "channels": [
@@ -74,6 +74,21 @@
       }
     ]
   },
+   "dl4-tgbt": {
+    "produit": "PWX4",
+    "hw": "legacy_V2",
+    "channels": [
+      {
+        "name": "CoffretEntree",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "4000",
+        "PGA": "1"
+      }
+    ]
+  },
   "dl12-tgbt1": {
     "produit": "PWX12",
     "hw": "legacy_V2",
@@ -131,21 +146,6 @@
       },
       {
         "name": "ColonneB",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "4000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl4-tgbt": {
-    "produit": "PWX4",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "CoffretEntree",
         "genre": "leaf",
         "parent": "main",
         "mode": "tri",
