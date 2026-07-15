@@ -356,14 +356,29 @@
       }
     ]
   },
+  "dl4-extmain": {
+    "produit": "PWX4",
+    "hw": "legacy_V2",
+    "channels": [
+      {
+        "name": "main",
+        "genre": "root",
+        "parent": "main",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "4000",
+        "PGA": "1"
+      }
+    ]
+  },
   "dl12-ext": {
     "produit": "PWX12",
     "hw": "legacy_V2",
     "channels": [
       {
         "name": "gene_ext1",
-        "genre": "root",
-        "parent": "",
+        "genre": "node",
+        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",
@@ -371,8 +386,8 @@
       },
       {
         "name": "gene_ext2",
-        "genre": "leaf",
-        "parent": "gene_ext1",
+        "genre": "node",
+        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
