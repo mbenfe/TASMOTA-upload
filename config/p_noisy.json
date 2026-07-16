@@ -136,7 +136,16 @@
     "hw": "legacy_V2",
     "channels": [
       {
-        "name": "rampe_neuve",
+        "name": "froid_pos2",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "2000",
+        "PGA": "1"
+      },
+      {
+        "name": "td_reserve",
         "genre": "leaf",
         "parent": "main",
         "mode": "tri",
@@ -145,16 +154,7 @@
         "PGA": "1"
       },
       {
-        "name": "four",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "td_entrepot",
+        "name": "*",
         "genre": "leaf",
         "parent": "main",
         "mode": "tri",

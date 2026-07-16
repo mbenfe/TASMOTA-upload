@@ -1,278 +1,275 @@
 {
-  "dl12-tgbt1": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "rooftop_51",
-        "genre": "leaf",
-        "parent": "gene_rooftops",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "rooftop1_36",
-        "genre": "leaf",
-        "parent": "gene_rooftops",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "gene_rooftops",
-        "genre": "node",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "4000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl12-tgbt2": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "main",
-        "genre": "root",
-        "parent": "",
-        "mode": "tri",
-        "techno": "rogowski",
-        "ratio": "3003",
-        "PGA": "1"
-      },
-      {
-        "name": "froid",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "rogowski",
-        "ratio": "3003",
-        "PGA": "1"
-      },
-      {
-        "name": "ecl_ext",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl12-tgbt3": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "td_station",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "td_poissonerie",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "*",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl12-tgbt4": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "CF-reserve",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "ecl_f\u0026l",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "gene_divers",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl12-tgbt5": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "onduleur",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "bureaux",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "gene_tab1",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl12-tgbt6": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "gene_tab2",
-        "genre": "node",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "travees",
-        "genre": "leaf",
-        "parent": "gene_tab2",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "caisses",
-        "genre": "leaf",
-        "parent": "gene_tab2",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl12-boulangerie": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "fours",
-        "genre": "leaf",
-        "parent": "gene_boulangerie",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "drive\u0026co",
-        "genre": "leaf",
-        "parent": "gene_boulangerie",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "gene_boulangerie",
-        "genre": "node",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl4-labo": {
-    "produit": "PWX4",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "gene_labo",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  },
+    "dl12-tgbt1": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "rooftop_51",
+                "genre": "leaf",
+                "parent": "gene_rooftops",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "rooftop1_36",
+                "genre": "leaf",
+                "parent": "gene_rooftops",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "gene_rooftops",
+                "genre": "node",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "4000",
+                "PGA": "1"
+            }
+        ]
+    },
     "pwx4-tgbt1": {
-    "produit": "PWX4",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "root",
-        "genre": "leaf",
-        "parent": "",
-        "mode": "tri",
-        "techno": "rogowski",
-        "ratio": "3003",
-        "PGA": "1"
-      }
-    ]
-  },
+        "produit": "PWX4",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "ecl_ext",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "pwx4-rogow1": {
+        "produit": "PWX4",
+        "hw": "new",
+        "channels": [
+            {
+                "name": "main",
+                "genre": "root",
+                "parent": "",
+                "mode": "tri",
+                "techno": "rogowski",
+                "ratio": "3003",
+                "PGA": "1"
+            }
+        ]
+    },
+    "pwx4-rogow2": {
+        "produit": "PWX4",
+        "hw": "new",
+        "channels": [
+            {
+                "name": "froid",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "rogowski",
+                "ratio": "3003",
+                "PGA": "1"
+            }
+        ]
+    },
+    "dl12-tgbt3": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "td_station",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "td_poissonerie",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "*",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "dl12-tgbt4": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "CF-reserve",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "ecl_f\u0026l",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "gene_divers",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "dl12-tgbt5": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "onduleur",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "bureaux",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "gene_tab1",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "dl12-tgbt6": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "gene_tab2",
+                "genre": "node",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "travees",
+                "genre": "leaf",
+                "parent": "gene_tab2",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "caisses",
+                "genre": "leaf",
+                "parent": "gene_tab2",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "dl12-boulangerie": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "fours",
+                "genre": "leaf",
+                "parent": "gene_boulangerie",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "drive\u0026co",
+                "genre": "leaf",
+                "parent": "gene_boulangerie",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "gene_boulangerie",
+                "genre": "node",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "2000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "dl4-labo": {
+        "produit": "PWX4",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "gene_labo",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
     "pwx4-tgbt2": {
-    "produit": "PWX4",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "froid",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "tri",
-        "techno": "rogowski",
-        "ratio": "3003",
-        "PGA": "1"
-      }
-    ]
-  }
+        "produit": "PWX4",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "froid",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "rogowski",
+                "ratio": "3003",
+                "PGA": "1"
+            }
+        ]
+    }
 }
