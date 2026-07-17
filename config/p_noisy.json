@@ -164,6 +164,72 @@
       }
     ]
   },
+  "dl12-tgbtbat2": {
+    "produit": "PWX12",
+    "hw": "legacy_V2",
+    "channels": [
+      {
+        "name": "four1",
+        "genre": "leaf",
+        "parent": "depart_tgbt2",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "2000",
+        "PGA": "1"
+      },
+      {
+        "name": "four2",
+        "genre": "leaf",
+        "parent": "depart_tgbt2",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "four3",
+        "genre": "leaf",
+        "parent": "depart_tgbt2",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
+  },
+  "dl12-tgbtbat1": {
+    "produit": "PWX12",
+    "hw": "legacy_V2",
+    "channels": [
+      {
+        "name": "eclairage",
+        "genre": "leaf",
+        "parent": "depart_tgbt2",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "2000",
+        "PGA": "1"
+      },
+      {
+        "name": "divers",
+        "genre": "leaf",
+        "parent": "depart_tgbt2",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "gene_caisses",
+        "genre": "leaf",
+        "parent": "depart_tgbt2",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
+  },
   "dl12-tdclim": {
     "produit": "PWX12",
     "hw": "legacy_V2",
@@ -249,7 +315,7 @@
       {
         "name": "clim_baie",
         "genre": "leaf",
-        "parent": "main",
+        "parent": "depart_tgbt2",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -258,7 +324,7 @@
       {
         "name": "clim_etage",
         "genre": "leaf",
-        "parent": "main",
+        "parent": "depart_tgbt2",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
@@ -267,7 +333,7 @@
       {
         "name": "clim_bureau",
         "genre": "leaf",
-        "parent": "main",
+        "parent": "depart_tgbt2",
         "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
