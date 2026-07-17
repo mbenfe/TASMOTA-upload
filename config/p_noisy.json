@@ -154,7 +154,7 @@
         "PGA": "1"
       },
       {
-        "name": "*",
+        "name": "rampes_neuves",
         "genre": "leaf",
         "parent": "main",
         "mode": "tri",
@@ -236,6 +236,39 @@
         "genre": "leaf",
         "parent": "main",
         "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
+  },
+ "pwx4-tgbtbat1": {
+    "produit": "PWX4",
+    "hw": "new",
+    "channels": [
+      {
+        "name": "clim_baie",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "mono",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "clim_etage",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "mono",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      },
+      {
+        "name": "clim_bureau",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "mono",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
