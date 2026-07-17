@@ -124,7 +124,7 @@
   },
   "dl12-tgbt2": {
     "produit": "PWX12",
-    "hw": "legacy_V2",
+    "hw": "legacy_V1",
     "channels": [
       {
         "name": "rampe3-6-1-2-div",

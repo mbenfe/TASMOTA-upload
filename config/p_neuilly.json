@@ -30,7 +30,7 @@
   },
   "dl12-new1": {
     "produit": "PWX12",
-    "hw": "legacy_V2",
+    "hw": "legacy_V1",
     "channels": [
       {
         "name": "pctriphase",
@@ -63,7 +63,7 @@
   },
   "dl12-new2": {
     "produit": "PWX12",
-    "hw": "legacy_V2",
+    "hw": "legacy_V1",
     "channels": [
       {
         "name": "clim",

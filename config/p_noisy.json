@@ -197,6 +197,21 @@
       }
     ]
   },
+   "pwx4-tgbt2": {
+    "produit": "PWX4",
+    "hw": "new",
+    "channels": [
+      {
+        "name": "depart_tgbt2",
+        "genre": "node",
+        "parent": "",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "2000",
+        "PGA": "1"
+      }
+    ]
+  },
    "pwx4-tgbt": {
     "produit": "PWX4",
     "hw": "new",
