@@ -55,13 +55,10 @@ end
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
-def getfile(cmd, idx, payload, payload_json)
+def fetch_remote_file(payload, send_response)
     import string
-    import path
     var message
     var nom_fichier = string.split(payload, '/').pop()
-
-    tasmota.cmd("hold")
 
     mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
@@ -70,9 +67,10 @@ def getfile(cmd, idx, payload, payload_json)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
-        tasmota.cmd("start")
-        tasmota.resp_cmnd("Erreur d'initialisation du client web.")
-        return
+        if send_response
+            tasmota.resp_cmnd("Erreur d'initialisation du client web.")
+        end
+        return nil
     end
 
     wc.set_follow_redirects(true)
@@ -81,18 +79,26 @@ def getfile(cmd, idx, payload, payload_json)
     if (st != 200)
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
-        tasmota.resp_cmnd("Erreur de telechargement.")
+        if send_response
+            tasmota.resp_cmnd("Erreur de telechargement.")
+        end
         wc.close()
-        tasmota.cmd("start")
-        return
+        return nil
     end
 
     var bytes_written = wc.write_file(nom_fichier)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
-    message = 'uploaded:' + nom_fichier
+    if send_response
+        tasmota.resp_cmnd('uploaded:' + nom_fichier)
+    end
+    return st
+end
+
+def getfile(cmd, idx, payload, payload_json)
+    tasmota.cmd("hold")
+    var st = fetch_remote_file(payload, true)
     tasmota.cmd("start")
-    tasmota.resp_cmnd(message)
     return st
 end
 
@@ -241,7 +247,7 @@ def update(cmd, idx, payload, payload_json)
     mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
     for i:0..to_fetch.size()-1
         mqttprint("update: getfile " + to_fetch[i])
-        tasmota.cmd("getfile " + to_fetch[i])
+        fetch_remote_file(to_fetch[i], false)
     end
 
     tasmota.cmd("start")
