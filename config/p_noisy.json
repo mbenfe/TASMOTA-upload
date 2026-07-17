@@ -174,7 +174,7 @@
         "parent": "depart_tgbt2",
         "mode": "tri",
         "techno": "ct",
-        "ratio": "2000",
+        "ratio": "1000",
         "PGA": "1"
       },
       {
