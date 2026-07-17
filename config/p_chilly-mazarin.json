@@ -228,21 +228,6 @@
       }
     ]
   },
-  "dl4-tgbt": {
-    "produit": "PWX4",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "eclairages",
-        "genre": "leaf",
-        "parent": "gene_tgbt",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "2000",
-        "PGA": "1"
-      }
-    ]
-  },
   "dl4-labo": {
     "produit": "PWX4",
     "hw": "legacy_V2",
@@ -258,7 +243,21 @@
       }
     ]
   },
-  "dl12-labo": {
+  "pwx4-tgbt": {
+    "produit": "PWX4",
+    "hw": "new",
+    "channels": [
+      {
+        "name": "eclairages_dali",
+        "genre": "leaf",
+        "parent": "gene_tgbt",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
+  },  "dl12-labo": {
     "produit": "PWX12",
     "hw": "legacy_V2",
     "channels": [
