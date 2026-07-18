@@ -242,6 +242,8 @@ def update(cmd, idx, payload, payload_json)
         to_fetch.push("snx/c031/modbus_chip_flashed.bin")
         to_fetch.push("snx/c031/lonworks_chip_flashed.bin")
         to_fetch.push("snx/c031/mbjc_chip_flashed.bin")
+        to_fetch.push("snx/c031/carel_9600_chip_flashed.bin")
+        to_fetch.push("snx/c031/carel_19200_chip_flashed.bin")
     end
 
     mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
