@@ -30,7 +30,7 @@
             {
                 "name": "depart",
                 "genre": "node",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -39,7 +39,7 @@
             {
                 "name": "parking",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -54,7 +54,7 @@
             {
                 "name": "eclpub1",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -63,7 +63,7 @@
             {
                 "name": "eclpub2",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -72,7 +72,7 @@
             {
                 "name": "froid",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -87,7 +87,7 @@
             {
                 "name": "pcpublic",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -96,7 +96,7 @@
             {
                 "name": "eclprive",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -105,7 +105,7 @@
             {
                 "name": "ecldeco",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -120,7 +120,7 @@
             {
                 "name": "pcprive",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -129,7 +129,7 @@
             {
                 "name": "divers",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -138,7 +138,7 @@
             {
                 "name": "chauffage",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -153,7 +153,7 @@
             {
                 "name": "reserve",
                 "genre": "leaf",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -168,7 +168,7 @@
             {
                 "name": "td_labo",
                 "genre": "node",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -201,7 +201,7 @@
             {
                 "name": "td_boulangerie",
                 "genre": "node",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -234,7 +234,7 @@
             {
                 "name": "td_caisses",
                 "genre": "node",
-                "parent": "gene",
+                "parent": "main",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -253,6 +253,36 @@
                 "name": "caisses",
                 "genre": "leaf",
                 "parent": "td_caisses",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "dl4-sdm1": {
+        "produit": "PWX4",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "froid",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "dl4-sdm2": {
+        "produit": "PWX4",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "meubles_f",
+                "genre": "leaf",
+                "parent": "froid",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
