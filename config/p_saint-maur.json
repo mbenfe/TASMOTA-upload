@@ -1,4 +1,19 @@
 {
+    "pwx4-rogow": {
+        "produit": "PWX4",
+        "hw": "new",
+        "channels": [
+            {
+                "name": "main",
+                "genre": "root",
+                "parent": "",
+                "mode": "tri",
+                "techno": "rogowski",
+                "ratio": "3003",
+                "PGA": "1"
+            }
+        ]
+    },
     "dl12-tgbt1": {
         "produit": "PWX12",
         "hw": "legacy_V2",
@@ -28,21 +43,6 @@
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
-                "PGA": "1"
-            }
-        ]
-    },
-    "pwx4-rogow": {
-        "produit": "PWX4",
-        "hw": "new",
-        "channels": [
-            {
-                "name": "main",
-                "genre": "root",
-                "parent": "",
-                "mode": "tri",
-                "techno": "rogowski",
-                "ratio": "3003",
                 "PGA": "1"
             }
         ]
@@ -253,54 +253,6 @@
                 "name": "caisses",
                 "genre": "leaf",
                 "parent": "td_caisses",
-                "mode": "tri",
-                "techno": "ct",
-                "ratio": "1000",
-                "PGA": "1"
-            }
-        ]
-    },
-    "dl12-aero": {
-        "produit": "PWX12",
-        "hw": "legacy_V2",
-        "channels": [
-            {
-                "name": "aero1",
-                "genre": "leaf",
-                "parent": "depart",
-                "mode": "tri",
-                "techno": "ct",
-                "ratio": "1000",
-                "PGA": "1"
-            },
-            {
-                "name": "aero2",
-                "genre": "leaf",
-                "parent": "depart",
-                "mode": "tri",
-                "techno": "ct",
-                "ratio": "1000",
-                "PGA": "1"
-            },
-            {
-                "name": "aero3",
-                "genre": "leaf",
-                "parent": "depart",
-                "mode": "tri",
-                "techno": "ct",
-                "ratio": "1000",
-                "PGA": "1"
-            }
-        ]
-    },
-    "dl4-aero": {
-        "produit": "PWX4",
-        "hw": "legacy_V2",
-        "channels": [
-            {
-                "name": "aero4",
-                "genre": "leaf",
-                "parent": "depart",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
