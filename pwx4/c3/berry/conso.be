@@ -1,4 +1,4 @@
-var version = "02072026"
+var version = "22.07.2026 mono extended"
 import json
 import string
 import mqtt
@@ -105,6 +105,48 @@ class conso
         end
     end
 
+    def ensure_week_cost_bucket(channel_name)
+        if !self.week_couts_json.contains(channel_name)
+            self.week_couts_json.insert(channel_name, json.load(self.get_days()))
+        end
+    end
+
+    def ensure_week_couts_schema()
+        var changed = false
+
+        if self.is_mono_mode()
+            if self.week_couts_json.contains("Lun")
+                var migrated = json.load('{}')
+                var channels = self.mono_channel_names()
+                if size(channels) > 0
+                    for i:0..size(channels)-1
+                        migrated.insert(channels[i], json.load(self.get_days()))
+                    end
+                end
+                self.week_couts_json = migrated
+                changed = true
+            else
+                var channels = self.mono_channel_names()
+                if size(channels) > 0
+                    for i:0..size(channels)-1
+                        var name = channels[i]
+                        if !self.week_couts_json.contains(name)
+                            self.week_couts_json.insert(name, json.load(self.get_days()))
+                            changed = true
+                        end
+                    end
+                end
+            end
+        else
+            if !self.week_couts_json.contains("Lun")
+                self.week_couts_json = json.load(self.get_days())
+                changed = true
+            end
+        end
+
+        return changed
+    end
+
     def calcul_cout(month, day_of_week, myjson, chanel)
         var target
         var name
@@ -172,10 +214,15 @@ class conso
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
         target = string.format("c_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
-        if !self.week_couts_json.contains(self.day_list[day_of_week])
-            self.week_couts_json[self.day_list[day_of_week]] = 0
+        if self.is_mono_mode()
+            self.ensure_week_cost_bucket(chanel)
+            self.week_couts_json[chanel][self.day_list[day_of_week]] = hp_cout + hc_cout
+        else
+            if !self.week_couts_json.contains(self.day_list[day_of_week])
+                self.week_couts_json[self.day_list[day_of_week]] = 0
+            end
+            self.week_couts_json[self.day_list[day_of_week]] = hp_cout + hc_cout
         end
-        self.week_couts_json[self.day_list[day_of_week]] += hp_cout + hc_cout
     end
 
     def init_conso()
@@ -332,18 +379,34 @@ class conso
         self.month_list = ["", "Jan", "Fev", "Mars", "Avr", "Mai", "Juin", "Juil", "Aout", "Sept", "Oct", "Nov", "Dec"]
         self.num_day_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         self.init_cout()
-        if path.exists("couts.json")
-            file = open("couts.json", "rt")
+        var couts_file_path = "/couts.json"
+        if path.exists(couts_file_path)
+            file = open(couts_file_path, "rt")
             ligne = file.read()
             self.week_couts_json = json.load(ligne)
             file.close()
         else
             self.week_couts_json = json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}')
-            file = open("couts.json", "wt")
+            file = open(couts_file_path, "wt")
             ligne = json.dump(self.week_couts_json)
             file.write(ligne)
             file.close()
-            print("fichier sauvegarde des couts cree !")
+            if path.exists(couts_file_path)
+                var vf = open(couts_file_path, "rt")
+                var vsize = vf.size()
+                vf.close()
+                print("fichier sauvegarde des couts cree ! size=" + str(vsize))
+            else
+                print("erreur creation couts.json")
+            end
+        end
+
+        if self.ensure_week_couts_schema()
+            file = open(couts_file_path, "wt")
+            ligne = json.dump(self.week_couts_json)
+            file.write(ligne)
+            file.close()
+            print("fichier sauvegarde des couts converti selon mode !")
         end
     end
 
@@ -413,7 +476,7 @@ class conso
         file.write(ligne)
         file.close()
         ligne = json.dump(self.week_couts_json)
-        file = open("couts.json", "wt")
+        file = open("/couts.json", "wt")
         file.write(ligne)
         file.close()
     end
@@ -452,13 +515,13 @@ class conso
                     end
                 end
             else
-                self.week_couts_json[self.day_list[day_for_cost]] = 0
                 if size(mono_channels) > 0
                     for i:0..size(mono_channels)-1
                         var mono_channel = mono_channels[i]
                         self.ensure_mono_bucket("hours", mono_channel)
                         self.ensure_mono_bucket("days", mono_channel)
                         self.ensure_mono_bucket("months", mono_channel)
+                        self.ensure_week_cost_bucket(mono_channel)
 
                     # Calculate current day's cost first (before resetting hour 0)
                     self.calcul_cout(month, day_for_cost, self.consojson["hours"][mono_channel]["DATA"], mono_channel)
@@ -493,14 +556,14 @@ class conso
                         ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
                             global.device, mono_cost_key, global.coutjson['surface'], self.cout[mono_cost_key], self.day_list[day_for_cost])
                         mqtt.publish(topic, ligne, true)
+
+                        topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.device)
+                        payload_week = self.week_couts_json[mono_channel]
+                        ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
+                            global.device, mono_channel, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
+                        mqtt.publish(topic, ligne, true)
                     end
                 end
-
-                topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.device)
-                payload_week = self.week_couts_json
-                ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
-                    global.device, global.device, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
-                mqtt.publish(topic, ligne, true)
             end
         else
             var channel_name = global.configjson[global.device]["channels"][0]["name"]

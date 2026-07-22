@@ -1,4 +1,4 @@
-var version = "2.0.0 avec cron specifique"
+var version = "22.07.2026 mono extended"
 
 import mqtt
 import string

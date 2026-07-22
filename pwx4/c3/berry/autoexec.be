@@ -1,4 +1,4 @@
-var version = "04072026 dir update *"
+var version = "22.07.2026 mono extended"
 
 import string
 import global
@@ -322,7 +322,7 @@ def update(cmd, idx, payload, payload_json)
 end
 
 def couts()
-    tasmota.cmd("br import conso as c; c.mqtt_publish('all')")
+    tasmota.cmd("br import conso as c; c.mqtt_publish('all'); c.sauvegarde()")
     tasmota.resp_cmnd_done()
 end
 
