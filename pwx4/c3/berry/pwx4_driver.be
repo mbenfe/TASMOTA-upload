@@ -128,6 +128,8 @@ class PWX4
                             end
                         end
                     end
+                elif mode_value == "mono"
+                    print('PWX4-> warning mono mode but W frame has ' + str(size(split) - 1) + ' value(s):', line)
                 else
                     var channel_name = channels[0]["name"]
                     if channel_name != "*"
