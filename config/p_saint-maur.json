@@ -28,7 +28,7 @@
                 "PGA": "1"
             },
             {
-                "name": "depart",
+                "name": "froid_meubles",
                 "genre": "node",
                 "parent": "main",
                 "mode": "tri",
@@ -253,36 +253,6 @@
                 "name": "caisses",
                 "genre": "leaf",
                 "parent": "td_caisses",
-                "mode": "tri",
-                "techno": "ct",
-                "ratio": "1000",
-                "PGA": "1"
-            }
-        ]
-    },
-    "dl4-sdm1": {
-        "produit": "PWX4",
-        "hw": "legacy_V2",
-        "channels": [
-            {
-                "name": "froid",
-                "genre": "leaf",
-                "parent": "main",
-                "mode": "tri",
-                "techno": "ct",
-                "ratio": "4000",
-                "PGA": "1"
-            }
-        ]
-    },
-    "dl4-sdm2": {
-        "produit": "PWX4",
-        "hw": "legacy_V2",
-        "channels": [
-            {
-                "name": "meubles_f",
-                "genre": "leaf",
-                "parent": "froid",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",

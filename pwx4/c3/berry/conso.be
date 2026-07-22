@@ -38,9 +38,71 @@ class conso
         file.close()
         global.coutjson = json.load(ligne)
         self.cout = map()
-        var channel_name = global.configjson[global.device]["channels"][0]["name"]
-        name = string.format("c_%s", channel_name)
-        self.cout.insert(name, 0)
+        if self.is_mono_mode()
+            var channels = global.configjson[global.device]["channels"]
+            if size(channels) > 0
+                for i:0..size(channels)-1
+                    if string.tolower(str(channels[i]["mode"])) == "mono"
+                        var channel_name = str(channels[i]["name"])
+                        if channel_name != "*"
+                            name = string.format("c_%s", channel_name)
+                            self.cout.insert(name, 0)
+                        end
+                    end
+                end
+            end
+        else
+            var channel_name = global.configjson[global.device]["channels"][0]["name"]
+            name = string.format("c_%s", channel_name)
+            self.cout.insert(name, 0)
+        end
+    end
+
+    def is_mono_mode()
+        var channels = global.configjson[global.device]["channels"]
+        if channels == nil || size(channels) == 0
+            return false
+        end
+        return string.tolower(str(channels[0]["mode"])) == "mono"
+    end
+
+    def mono_channel_names()
+        var names = []
+        var channels = global.configjson[global.device]["channels"]
+        if channels == nil
+            return names
+        end
+        if size(channels) > 0
+            for i:0..size(channels)-1
+                if string.tolower(str(channels[i]["mode"])) == "mono"
+                    var channel_name = str(channels[i]["name"])
+                    if channel_name != "*"
+                        names.push(channel_name)
+                    end
+                end
+            end
+        end
+        return names
+    end
+
+    def ensure_mono_bucket(kind, channel_name)
+        if !self.consojson.contains(kind)
+            self.consojson.insert(kind, json.load('{}'))
+        end
+        if !self.consojson[kind].contains(channel_name)
+            var type_name = "PWHOURS"
+            var data_blob = self.get_hours()
+            if kind == "days"
+                type_name = "PWDAYS"
+                data_blob = self.get_days()
+            elif kind == "months"
+                type_name = "PWMONTHS"
+                data_blob = self.get_months()
+            end
+
+            var ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"%s","DATA":%s}', global.device, channel_name, type_name, data_blob)
+            self.consojson[kind].insert(channel_name, json.load(ligne))
+        end
     end
 
     def calcul_cout(month, day_of_week, myjson, chanel)
@@ -110,7 +172,10 @@ class conso
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
         target = string.format("c_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
-        self.week_couts_json[self.day_list[day_of_week]] = hp_cout + hc_cout
+        if !self.week_couts_json.contains(self.day_list[day_of_week])
+            self.week_couts_json[self.day_list[day_of_week]] = 0
+        end
+        self.week_couts_json[self.day_list[day_of_week]] += hp_cout + hc_cout
     end
 
     def init_conso()
@@ -127,7 +192,7 @@ class conso
             if global.configjson[global.device]["produit"] == "PWX4"
                 ligne = string.format('{}')
                 var mainjson = json.load(ligne)
-                if global.configjson[global.device]["channels"][0]["mode"] == "tri"
+                if string.tolower(str(global.configjson[global.device]["channels"][0]["mode"])) == "tri"
                     var channel_name = global.configjson[global.device]["channels"][0]["name"]
                     ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, self.get_hours())
                     mainjson.insert("hours", json.load(ligne))
@@ -135,6 +200,25 @@ class conso
                     mainjson.insert("days", json.load(ligne))
                     ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, self.get_months())
                     mainjson.insert("months", json.load(ligne))
+                else
+                    var hours_map = json.load('{}')
+                    var days_map = json.load('{}')
+                    var months_map = json.load('{}')
+                    var channels = self.mono_channel_names()
+                    if size(channels) > 0
+                        for i:0..size(channels)-1
+                            var channel_name = channels[i]
+                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, self.get_hours())
+                            hours_map.insert(channel_name, json.load(ligne))
+                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, self.get_days())
+                            days_map.insert(channel_name, json.load(ligne))
+                            ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, self.get_months())
+                            months_map.insert(channel_name, json.load(ligne))
+                        end
+                    end
+                    mainjson.insert("hours", hours_map)
+                    mainjson.insert("days", days_map)
+                    mainjson.insert("months", months_map)
                 end
                 ligne = json.dump(mainjson)
                 return ligne
@@ -297,10 +381,30 @@ class conso
             end
         end
 
-        var delta = real(split[1])
-        self.consojson["hours"]["DATA"][str(hour)] += delta
-        self.consojson["days"]["DATA"][self.day_list[day_of_week]] += delta
-        self.consojson["months"]["DATA"][self.month_list[month]] += delta
+        if self.is_mono_mode()
+            var channels = self.mono_channel_names()
+            if size(channels) > 0
+                for i:0..size(channels)-1
+                    if i + 1 >= size(split)
+                        break
+                    end
+                    var channel_name = channels[i]
+                    self.ensure_mono_bucket("hours", channel_name)
+                    self.ensure_mono_bucket("days", channel_name)
+                    self.ensure_mono_bucket("months", channel_name)
+
+                    var delta = real(split[i + 1])
+                    self.consojson["hours"][channel_name]["DATA"][str(hour)] += delta
+                    self.consojson["days"][channel_name]["DATA"][self.day_list[day_of_week]] += delta
+                    self.consojson["months"][channel_name]["DATA"][self.month_list[month]] += delta
+                end
+            end
+        else
+            var delta = real(split[1])
+            self.consojson["hours"]["DATA"][str(hour)] += delta
+            self.consojson["days"]["DATA"][self.day_list[day_of_week]] += delta
+            self.consojson["months"]["DATA"][self.month_list[month]] += delta
+        end
     end
 
     def sauvegarde()
@@ -320,7 +424,7 @@ class conso
         var hour = rtc["hour"]
         var day = rtc["day"]
         var month = rtc["month"]
-            var day_of_week = rtc["weekday"] % 7
+        var day_of_week = rtc["weekday"] % 7
         var topic
         var payload_hours
         var payload_days
@@ -333,64 +437,132 @@ class conso
 
         var stringdevice
         stringdevice = string.format("%s", global.device)
-        var channel_name = global.configjson[global.device]["channels"][0]["name"]
-        if scope == "hours" && channel_name != "*"
-            topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
-            payload_hours = self.consojson["hours"]["DATA"]
-            ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, json.dump(payload_hours))
-            mqtt.publish(topic, ligne, true)
-            self.consojson["hours"]["DATA"][str((hour + 1) % 24)] = 0
-        elif channel_name != "*"
-            # Calculate current day's cost first (before resetting hour 0)
-            self.calcul_cout(month, day_for_cost, self.consojson["hours"]["DATA"], channel_name)
-            
-            # THEN publish hours
-            topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
-            payload_hours = self.consojson["hours"]["DATA"]
-            ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, json.dump(payload_hours))
-            mqtt.publish(topic, ligne, true)
-            self.consojson["hours"]["DATA"][str(0)] = 0
+        if self.is_mono_mode()
+            var mono_channels = self.mono_channel_names()
+            if scope == "hours"
+                if size(mono_channels) > 0
+                    for i:0..size(mono_channels)-1
+                        var mono_channel = mono_channels[i]
+                        self.ensure_mono_bucket("hours", mono_channel)
+                        topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
+                        payload_hours = self.consojson["hours"][mono_channel]["DATA"]
+                        ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, mono_channel, json.dump(payload_hours))
+                        mqtt.publish(topic, ligne, true)
+                        self.consojson["hours"][mono_channel]["DATA"][str((hour + 1) % 24)] = 0
+                    end
+                end
+            else
+                self.week_couts_json[self.day_list[day_for_cost]] = 0
+                if size(mono_channels) > 0
+                    for i:0..size(mono_channels)-1
+                        var mono_channel = mono_channels[i]
+                        self.ensure_mono_bucket("hours", mono_channel)
+                        self.ensure_mono_bucket("days", mono_channel)
+                        self.ensure_mono_bucket("months", mono_channel)
 
-            # Publish days
-            topic = string.format("gw/%s/%s/%s/tele/PWDAYS", global.client, global.ville, stringdevice)
-            payload_days = self.consojson["days"]["DATA"]
-            ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, json.dump(payload_days))
-            mqtt.publish(topic, ligne, true)
-            self.consojson["days"]["DATA"][self.day_list[(day_of_week + 1) % 7]] = 0
-            
-            # Publish months
-            topic = string.format("gw/%s/%s/%s/tele/PWMONTHS", global.client, global.ville, stringdevice)
-            payload_months = self.consojson["months"]["DATA"]
-            ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, json.dump(payload_months))
-            mqtt.publish(topic, ligne, true)
-            
-            # RAZ next month if end of the month
-            if day == self.num_day_month[month]
-                if month == 12
-                    self.consojson["months"]["DATA"]["Jan"] = 0
-                else
-                    self.consojson["months"]["DATA"][self.month_list[month + 1]] = 0
+                    # Calculate current day's cost first (before resetting hour 0)
+                    self.calcul_cout(month, day_for_cost, self.consojson["hours"][mono_channel]["DATA"], mono_channel)
+
+                    topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
+                    payload_hours = self.consojson["hours"][mono_channel]["DATA"]
+                    ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, mono_channel, json.dump(payload_hours))
+                    mqtt.publish(topic, ligne, true)
+                    self.consojson["hours"][mono_channel]["DATA"][str(0)] = 0
+
+                    topic = string.format("gw/%s/%s/%s/tele/PWDAYS", global.client, global.ville, stringdevice)
+                    payload_days = self.consojson["days"][mono_channel]["DATA"]
+                    ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}', global.device, mono_channel, json.dump(payload_days))
+                    mqtt.publish(topic, ligne, true)
+                    self.consojson["days"][mono_channel]["DATA"][self.day_list[(day_of_week + 1) % 7]] = 0
+
+                    topic = string.format("gw/%s/%s/%s/tele/PWMONTHS", global.client, global.ville, stringdevice)
+                    payload_months = self.consojson["months"][mono_channel]["DATA"]
+                    ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}', global.device, mono_channel, json.dump(payload_months))
+                    mqtt.publish(topic, ligne, true)
+
+                    if day == self.num_day_month[month]
+                        if month == 12
+                            self.consojson["months"][mono_channel]["DATA"]["Jan"] = 0
+                        else
+                            self.consojson["months"][mono_channel]["DATA"][self.month_list[month + 1]] = 0
+                        end
+                    end
+
+                        var mono_cost_key = string.format("c_%s", mono_channel)
+                        topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
+                        ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
+                            global.device, mono_cost_key, global.coutjson['surface'], self.cout[mono_cost_key], self.day_list[day_for_cost])
+                        mqtt.publish(topic, ligne, true)
+                    end
+                end
+
+                topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.device)
+                payload_week = self.week_couts_json
+                ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
+                    global.device, global.device, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
+                mqtt.publish(topic, ligne, true)
+            end
+        else
+            var channel_name = global.configjson[global.device]["channels"][0]["name"]
+            if scope == "hours" && channel_name != "*"
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
+                payload_hours = self.consojson["hours"]["DATA"]
+                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, json.dump(payload_hours))
+                mqtt.publish(topic, ligne, true)
+                self.consojson["hours"]["DATA"][str((hour + 1) % 24)] = 0
+            elif channel_name != "*"
+                self.week_couts_json[self.day_list[day_for_cost]] = 0
+                # Calculate current day's cost first (before resetting hour 0)
+                self.calcul_cout(month, day_for_cost, self.consojson["hours"]["DATA"], channel_name)
+
+                # THEN publish hours
+                topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
+                payload_hours = self.consojson["hours"]["DATA"]
+                ligne = string.format('{"Device": "%s","Name":"%s_H","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, json.dump(payload_hours))
+                mqtt.publish(topic, ligne, true)
+                self.consojson["hours"]["DATA"][str(0)] = 0
+
+                # Publish days
+                topic = string.format("gw/%s/%s/%s/tele/PWDAYS", global.client, global.ville, stringdevice)
+                payload_days = self.consojson["days"]["DATA"]
+                ligne = string.format('{"Device": "%s","Name":"%s_D","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, json.dump(payload_days))
+                mqtt.publish(topic, ligne, true)
+                self.consojson["days"]["DATA"][self.day_list[(day_of_week + 1) % 7]] = 0
+
+                # Publish months
+                topic = string.format("gw/%s/%s/%s/tele/PWMONTHS", global.client, global.ville, stringdevice)
+                payload_months = self.consojson["months"]["DATA"]
+                ligne = string.format('{"Device": "%s","Name":"%s_M","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, json.dump(payload_months))
+                mqtt.publish(topic, ligne, true)
+
+                # RAZ next month if end of the month
+                if day == self.num_day_month[month]
+                    if month == 12
+                        self.consojson["months"]["DATA"]["Jan"] = 0
+                    else
+                        self.consojson["months"]["DATA"][self.month_list[month + 1]] = 0
+                    end
                 end
             end
-        end
 
-        # Publish costs
-        channel_name = global.configjson[global.device]["channels"][0]["name"]
-        if scope != "hours" && channel_name != "*"
-            var cost_key = string.format("c_%s", channel_name)
+            # Publish costs
+            channel_name = global.configjson[global.device]["channels"][0]["name"]
+            if scope != "hours" && channel_name != "*"
+                var cost_key = string.format("c_%s", channel_name)
 
-            # Cost of current day (cron runs at 23:59)
-            topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
-            ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
-                global.device, cost_key, global.coutjson['surface'], self.cout[cost_key], self.day_list[day_for_cost])
-            mqtt.publish(topic, ligne, true)
+                # Cost of current day (cron runs at 23:59)
+                topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
+                ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
+                    global.device, cost_key, global.coutjson['surface'], self.cout[cost_key], self.day_list[day_for_cost])
+                mqtt.publish(topic, ligne, true)
 
-            # Week costs
-            topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.device)
-            payload_week = self.week_couts_json
-            ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
-                global.device, channel_name, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
-            mqtt.publish(topic, ligne, true)
+                # Week costs
+                topic = string.format("gw/%s/%s/%s/tele/COUTS", global.client, global.ville, global.device)
+                payload_week = self.week_couts_json
+                ligne = string.format('{"Device": "%s","Name":"c_w_%s","Lun":%.2f,"Mar":%.2f,"Mer":%.2f,"Jeu":%.2f,"Ven":%.2f,"Sam":%.2f,"Dim":%.2f}', 
+                    global.device, channel_name, payload_week["Lun"], payload_week["Mar"], payload_week["Mer"], payload_week["Jeu"], payload_week["Ven"], payload_week["Sam"], payload_week["Dim"])
+                mqtt.publish(topic, ligne, true)
+            end
         end
     end
 end

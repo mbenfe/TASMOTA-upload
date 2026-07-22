@@ -44,22 +44,40 @@ class PWX4
             split = string.split(payload, ':')
             var device_name = global.device
             var offset = 0
+            var mode_value = "tri"
             if size(split) >= 7
                 device_name = split[0]
                 offset = 1
             end
             if size(split) >= offset + 6
+                mode_value = string.tolower(str(split[offset + 5]))
                 topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
-                ligne = string.format(
-                    '{"device":"%s","root":["%s"],"produit":"%s","techno":["%s"],"ratio":[%s],"PGA":[%s],"mode":["%s"]}',
-                    device_name,
-                    split[offset + 0],
-                    split[offset + 1],
-                    split[offset + 2],
-                    split[offset + 3],
-                    split[offset + 4],
-                    split[offset + 5]
-                )
+                if mode_value == "mono" && size(split) >= offset + 9
+                    ligne = string.format(
+                        '{"device":"%s","root":["%s"],"produit":"%s","techno":["%s"],"ratio":[%s],"PGA":[%s],"mode":["%s"],"phaseA_label":["%s"],"phaseB_label":["%s"],"phaseC_label":["%s"]}',
+                        device_name,
+                        split[offset + 0],
+                        split[offset + 1],
+                        split[offset + 2],
+                        split[offset + 3],
+                        split[offset + 4],
+                        split[offset + 5],
+                        split[offset + 6],
+                        split[offset + 7],
+                        split[offset + 8]
+                    )
+                else
+                    ligne = string.format(
+                        '{"device":"%s","root":["%s"],"produit":"%s","techno":["%s"],"ratio":[%s],"PGA":[%s],"mode":["%s"]}',
+                        device_name,
+                        split[offset + 0],
+                        split[offset + 1],
+                        split[offset + 2],
+                        split[offset + 3],
+                        split[offset + 4],
+                        split[offset + 5]
+                    )
+                end
                 mqtt.publish(topic, ligne, true)
                 print('PWX4 CONFIG->', ligne)
             else
@@ -88,11 +106,34 @@ class PWX4
         elif line[0] == 'W'
             split = string.split(line, ':')
             if size(split) >= 2
-                var channel_name = global.configjson[global.device]["channels"][0]["name"]
-                if channel_name != "*"
-                    topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
-                    ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[1]))
-                    mqtt.publish(topic, ligne, true)
+                var channels = global.configjson[global.device]["channels"]
+                var mode_value = "tri"
+                if channels != nil && size(channels) > 0 && channels[0].contains("mode")
+                    mode_value = string.tolower(str(channels[0]["mode"]))
+                end
+
+                topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
+                if mode_value == "mono" && size(split) >= 4
+                    var mono_idx = 0
+                    for i : 0 .. size(channels) - 1
+                        if string.tolower(str(channels[i]["mode"])) == "mono"
+                            var channel_name = str(channels[i]["name"])
+                            if channel_name != "*" && mono_idx + 1 < size(split)
+                                ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[mono_idx + 1]))
+                                mqtt.publish(topic, ligne, true)
+                            end
+                            mono_idx += 1
+                            if mono_idx >= 3
+                                break
+                            end
+                        end
+                    end
+                else
+                    var channel_name = channels[0]["name"]
+                    if channel_name != "*"
+                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[1]))
+                        mqtt.publish(topic, ligne, true)
+                    end
                 end
             else
                 print('PWX4-> malformed W frame:', line)
