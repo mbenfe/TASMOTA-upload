@@ -12,6 +12,64 @@ class conso
     var month_list
     var num_day_month
     var cout
+    var lane_names
+    var lane_mode
+
+    def lane_name(i)
+        if self.lane_names == nil || i < 0 || i > 2
+            return "*"
+        end
+        return self.lane_names[i]
+    end
+
+    def profile_mode()
+        if self.lane_mode == nil
+            return "tri"
+        end
+        return self.lane_mode
+    end
+
+    def init_lane_profile()
+        var channels = global.configjson["channels"]
+        var tri_names = []
+        var mono_names = []
+
+        for i:0..size(channels)-1
+            var mode = string.tolower(channels[i]["mode"])
+            var channel_name = channels[i]["name"]
+            if channel_name == nil || channel_name == ""
+                channel_name = "*"
+            end
+
+            if mode == "tri" && size(tri_names) < 3
+                tri_names.push(channel_name)
+            elif mode == "mono" && size(mono_names) < 3
+                mono_names.push(channel_name)
+            end
+        end
+
+        var selected = []
+        if size(mono_names) >= 3 || (size(tri_names) == 0 && size(mono_names) > 0)
+            self.lane_mode = "mono"
+            selected = mono_names
+        elif size(tri_names) > 0
+            self.lane_mode = "tri"
+            selected = tri_names
+        elif size(mono_names) > 0
+            self.lane_mode = "mono"
+            selected = mono_names
+        else
+            self.lane_mode = "tri"
+            selected = ["*", "*", "*"]
+        end
+
+        while size(selected) < 3
+            selected.push(selected[size(selected) - 1])
+        end
+
+        self.lane_names = [selected[0], selected[1], selected[2]]
+        print(string.format("CONSO LOAD: profile=%s lanes=%s,%s,%s", self.lane_mode, self.lane_names[0], self.lane_names[1], self.lane_names[2]))
+    end
 
     def get_hours()
         var ligne
@@ -41,7 +99,7 @@ class conso
         global.coutjson = json.load(ligne)
         self.cout = map()
         for i:0..2
-            var channel_name = global.configjson["channels"][i]["name"]
+            var channel_name = self.lane_name(i)
             name = string.format("c_%s", channel_name)
             self.cout.insert(name, 0)
         end   
@@ -129,16 +187,13 @@ class conso
             mainjson.insert("days", [])
             mainjson.insert("months", [])
             for i:0..2
-                if global.configjson["channels"][i]["mode"] == "tri"
-                    var channel_name = global.configjson["channels"][i]["name"]
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, self.get_hours())
-                    mainjson["hours"].insert(i, json.load(ligne))
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, self.get_days())
-                    mainjson["days"].insert(i, json.load(ligne))
-                    ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, self.get_months())
-                    mainjson["months"].insert(i, json.load(ligne))
-                else
-                end
+                var channel_name = self.lane_name(i)
+                ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, self.get_hours())
+                mainjson["hours"].insert(i, json.load(ligne))
+                ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, self.get_days())
+                mainjson["days"].insert(i, json.load(ligne))
+                ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, self.get_months())
+                mainjson["months"].insert(i, json.load(ligne))
             end
             ligne = json.dump(mainjson)
             print('INIT CONSO LOAD: init_conso ready')
@@ -168,6 +223,7 @@ class conso
             raise 'device not found in config:', str(global.device)
         end
         global.configjson = all_cfg[global.device]
+        self.init_lane_profile()
 
         # 2) Ensure conso.json exists; create it immediately if missing.
         if !path.exists("conso.json")
@@ -208,7 +264,7 @@ class conso
                 self.week_couts_json = json.load(ligne)
                 if self.week_couts_json.size() > 3
                     for i:0..2
-                        var channel_name = global.configjson["channels"][i]["name"]
+                        var channel_name = self.lane_name(i)
                         self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                     end
                     file = open("couts.json", "wt")
@@ -222,7 +278,7 @@ class conso
             print('CONSO LOAD: couts.json missing, creating')
             self.week_couts_json = map()
             for i:0..2
-                var channel_name = global.configjson["channels"][i]["name"]
+                var channel_name = self.lane_name(i)
                 self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
             end
             file = open("couts.json", "wt")
@@ -305,7 +361,7 @@ class conso
 
         for i:0..2
             stringdevice = string.format("%s-%d", global.device, i + 1)
-            var channel_name = global.configjson["channels"][i]["name"]
+            var channel_name = self.lane_name(i)
             if (scope == "hours" && channel_name != "*")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
@@ -353,7 +409,7 @@ class conso
         
         # Publish costs
         for i:0..2
-            var channel_name = global.configjson["channels"][i]["name"]
+            var channel_name = self.lane_name(i)
             if (scope != "hours" && channel_name != "*")
                 var cost_key = string.format("c_%s", channel_name)
                 if !self.week_couts_json.contains(channel_name)

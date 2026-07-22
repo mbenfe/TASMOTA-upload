@@ -20,6 +20,7 @@ class PWX12
     var root
     var topic 
     var conso
+    var last_cfg_mode
 
     def debug_ctx(tag)
         var has_cfg = (global.configjson != nil)
@@ -62,6 +63,18 @@ class PWX12
             var payload = line[7..]
             split = string.split(payload, ':')
             if size(split) >= 17
+                var mode1 = string.tolower(split[14])
+                var mode2 = string.tolower(split[15])
+                var mode3 = string.tolower(split[16])
+                if mode1 == mode2 && mode1 == mode3 && (mode1 == "tri" || mode1 == "mono")
+                    self.last_cfg_mode = mode1
+                else
+                    var warn_topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                    var warn = string.format("WARN CONFIG mode mismatch [%s,%s,%s]", split[14], split[15], split[16])
+                    mqtt.publish(warn_topic, warn, true)
+                    print('PWX12 WARN->', warn)
+                end
+
                 topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
                 ligne = string.format(
                     '{"device":"%s","root":["%s","%s","%s"],"produit":"%s","techno":["%s","%s","%s"],"ratio":[%s,%s,%s],"pga":[%s,%s,%s],"mode":["%s","%s","%s"]}',
@@ -106,7 +119,7 @@ class PWX12
                 print(string.format("PWX12 DBG [W] raw=%s", line))
                 self.debug_ctx('before W publish loop')
                 for j: 0..2
-                    var channel_name = global.configjson["channels"][j]["name"]
+                    var channel_name = self.conso.lane_name(j)
                     if channel_name != "*"
                         topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
                         ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[j + 1]))
