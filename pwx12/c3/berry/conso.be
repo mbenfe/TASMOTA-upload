@@ -1,4 +1,4 @@
-var version = "1.1.0 avec couts par semaine"
+var version = "23072028 json"
 import json
 import string
 import mqtt
@@ -12,63 +12,86 @@ class conso
     var month_list
     var num_day_month
     var cout
-    var lane_names
-    var lane_mode
+    var slot_modes
+    var slot_channels
+    var flat_channel_names
 
-    def lane_name(i)
-        if self.lane_names == nil || i < 0 || i > 2
-            return "*"
+    def slot_count()
+        if self.slot_modes == nil
+            return 0
         end
-        return self.lane_names[i]
+        return size(self.slot_modes)
     end
 
-    def profile_mode()
-        if self.lane_mode == nil
+    def slot_mode(i)
+        if self.slot_modes == nil || i < 0 || i >= size(self.slot_modes)
             return "tri"
         end
-        return self.lane_mode
+        return self.slot_modes[i]
     end
 
-    def init_lane_profile()
+    def slot_channel_name(slot, phase)
+        if self.slot_channels == nil || slot < 0 || slot >= size(self.slot_channels)
+            return "*"
+        end
+        var names = self.slot_channels[slot]
+        if phase < 0 || phase >= size(names)
+            return "*"
+        end
+        return names[phase]
+    end
+
+    def logical_channel_count()
+        if self.flat_channel_names == nil
+            return 0
+        end
+        return size(self.flat_channel_names)
+    end
+
+    def logical_channel_name(i)
+        if self.flat_channel_names == nil || i < 0 || i >= size(self.flat_channel_names)
+            return "*"
+        end
+        return self.flat_channel_names[i]
+    end
+
+    def init_slot_profile()
         var channels = global.configjson["channels"]
-        var tri_names = []
-        var mono_names = []
+        self.slot_modes = []
+        self.slot_channels = []
+        self.flat_channel_names = []
 
-        for i:0..size(channels)-1
+        var i = 0
+        while i < size(channels) && size(self.slot_modes) < 3
             var mode = string.tolower(channels[i]["mode"])
-            var channel_name = channels[i]["name"]
-            if channel_name == nil || channel_name == ""
-                channel_name = "*"
+            if mode == "tri"
+                var channel_name = channels[i]["name"]
+                if channel_name == nil || channel_name == ""
+                    channel_name = "*"
+                end
+                self.slot_modes.push("tri")
+                self.slot_channels.push([channel_name])
+                self.flat_channel_names.push(channel_name)
+                i += 1
+            elif mode == "mono" && i + 2 < size(channels)
+                var names = []
+                for j:0..2
+                    var channel_name = channels[i + j]["name"]
+                    if channel_name == nil || channel_name == ""
+                        channel_name = "*"
+                    end
+                    names.push(channel_name)
+                    self.flat_channel_names.push(channel_name)
+                end
+                self.slot_modes.push("mono")
+                self.slot_channels.push(names)
+                i += 3
+            else
+                i += 1
             end
-
-            if mode == "tri" && size(tri_names) < 3
-                tri_names.push(channel_name)
-            elif mode == "mono" && size(mono_names) < 3
-                mono_names.push(channel_name)
-            end
         end
 
-        var selected = []
-        if size(mono_names) >= 3 || (size(tri_names) == 0 && size(mono_names) > 0)
-            self.lane_mode = "mono"
-            selected = mono_names
-        elif size(tri_names) > 0
-            self.lane_mode = "tri"
-            selected = tri_names
-        elif size(mono_names) > 0
-            self.lane_mode = "mono"
-            selected = mono_names
-        else
-            self.lane_mode = "tri"
-            selected = ["*", "*", "*"]
-        end
-
-        while size(selected) < 3
-            selected.push(selected[size(selected) - 1])
-        end
-
-        self.lane_names = [selected[0], selected[1], selected[2]]
-        print(string.format("CONSO LOAD: profile=%s lanes=%s,%s,%s", self.lane_mode, self.lane_names[0], self.lane_names[1], self.lane_names[2]))
+        print(string.format("CONSO LOAD: slots=%d logical=%d", size(self.slot_modes), size(self.flat_channel_names)))
     end
 
     def get_hours()
@@ -98,8 +121,8 @@ class conso
         file.close()
         global.coutjson = json.load(ligne)
         self.cout = map()
-        for i:0..2
-            var channel_name = self.lane_name(i)
+        for i:0..self.logical_channel_count() - 1
+            var channel_name = self.logical_channel_name(i)
             name = string.format("c_%s", channel_name)
             self.cout.insert(name, 0)
         end   
@@ -186,14 +209,14 @@ class conso
             var mainjson = json.load(ligne)
             mainjson.insert("days", [])
             mainjson.insert("months", [])
-            for i:0..2
-                var channel_name = self.lane_name(i)
+            for i:0..self.logical_channel_count() - 1
+                var channel_name = self.logical_channel_name(i)
                 ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWHOURS","DATA":%s}', global.device, channel_name, self.get_hours())
-                mainjson["hours"].insert(i, json.load(ligne))
+                mainjson["hours"].push(json.load(ligne))
                 ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWDAYS","DATA":%s}', global.device, channel_name, self.get_days())
-                mainjson["days"].insert(i, json.load(ligne))
+                mainjson["days"].push(json.load(ligne))
                 ligne = string.format('{"Device": "%s","Name":"%s","TYPE":"PWMONTHS","DATA":%s}', global.device, channel_name, self.get_months())
-                mainjson["months"].insert(i, json.load(ligne))
+                mainjson["months"].push(json.load(ligne))
             end
             ligne = json.dump(mainjson)
             print('INIT CONSO LOAD: init_conso ready')
@@ -223,7 +246,7 @@ class conso
             raise 'device not found in config:', str(global.device)
         end
         global.configjson = all_cfg[global.device]
-        self.init_lane_profile()
+        self.init_slot_profile()
 
         # 2) Ensure conso.json exists; create it immediately if missing.
         if !path.exists("conso.json")
@@ -248,6 +271,10 @@ class conso
         ligne = file.read()
         file.close()
         self.consojson = json.load(ligne)
+        if size(self.consojson["hours"]) != self.logical_channel_count()
+            ligne = self.init_conso()
+            self.consojson = json.load(ligne)
+        end
 
         print('CONSO LOAD: setting date arrays')
         self.day_list = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
@@ -262,23 +289,22 @@ class conso
             file = open("couts.json", "rt")
                 ligne = file.read()
                 self.week_couts_json = json.load(ligne)
-                if self.week_couts_json.size() > 3
-                    for i:0..2
-                        var channel_name = self.lane_name(i)
+                for i:0..self.logical_channel_count() - 1
+                    var channel_name = self.logical_channel_name(i)
+                    if !self.week_couts_json.contains(channel_name)
                         self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                     end
-                    file = open("couts.json", "wt")
-                    ligne = json.dump(self.week_couts_json)
-                    file.write(ligne)
-                    file.close()
-                    print("fichier sauvegarde des couts ajuste !")
                 end
+                file = open("couts.json", "wt")
+                ligne = json.dump(self.week_couts_json)
+                file.write(ligne)
+                file.close()
                 file.close()
         else
             print('CONSO LOAD: couts.json missing, creating')
             self.week_couts_json = map()
-            for i:0..2
-                var channel_name = self.lane_name(i)
+            for i:0..self.logical_channel_count() - 1
+                var channel_name = self.logical_channel_name(i)
                 self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
             end
             file = open("couts.json", "wt")
@@ -289,40 +315,46 @@ class conso
         end
     end
 
-    def update(data)
-        var split = string.split(data, ":")
-        if size(split) < 4
-            return
-        end
-
-        if split[0] != "C"
-            return
-        end
-
+    def update_channel_delta(channel_index, delta)
         var now = tasmota.rtc()
         var rtc = tasmota.time_dump(now["local"])
-        var second = rtc["sec"]
-        var minute = rtc["min"]
         var hour = rtc["hour"]
-        var day = rtc["day"]
         var month = rtc["month"]
         var year = rtc["year"]
-        var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
+        var day_of_week = rtc["weekday"]
 
-        # Verification de l'annee bissextile
-        if (month == 2)  # Si c'est fevrier
+        if (month == 2)
             if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
-                self.num_day_month[2] = 29  # Annee bissextile, fevrier a 29 jours
+                self.num_day_month[2] = 29
             else
-                self.num_day_month[2] = 28  # Annee non bissextile, fevrier a 28 jours
+                self.num_day_month[2] = 28
             end
-        end    
+        end
 
-        for i:0..2
-            var delta = real(split[i + 1])
-            self.consojson["hours"][i]["DATA"][str(hour)] += delta
-            self.consojson["days"][i]["DATA"][self.day_list[day_of_week]] += delta
-            self.consojson["months"][i]["DATA"][self.month_list[month]] += delta
+        self.consojson["hours"][channel_index]["DATA"][str(hour)] += delta
+        self.consojson["days"][channel_index]["DATA"][self.day_list[day_of_week]] += delta
+        self.consojson["months"][channel_index]["DATA"][self.month_list[month]] += delta
+    end
+
+    def update_energy_payload(payload)
+        if payload == nil || !payload.contains("energy")
+            return
+        end
+
+        var energy = payload["energy"]
+        var logical_index = 0
+        for slot:0..self.slot_count() - 1
+            var values = energy[slot]
+            if self.slot_mode(slot) == "mono"
+                for phase:0..2
+                    self.update_channel_delta(logical_index, real(values[phase]))
+                    logical_index += 1
+                end
+            end
+            if self.slot_mode(slot) == "tri"
+                self.update_channel_delta(logical_index, real(values[0]))
+                logical_index += 1
+            end
         end
     end
 
@@ -359,9 +391,9 @@ class conso
 
         var stringdevice
 
-        for i:0..2
+        for i:0..self.logical_channel_count() - 1
             stringdevice = string.format("%s-%d", global.device, i + 1)
-            var channel_name = self.lane_name(i)
+            var channel_name = self.logical_channel_name(i)
             if (scope == "hours" && channel_name != "*")
                 topic = string.format("gw/%s/%s/%s/tele/PWHOURS", global.client, global.ville, stringdevice)
                 payload_hours = self.consojson["hours"][i]["DATA"]
@@ -408,8 +440,8 @@ class conso
         end
         
         # Publish costs
-        for i:0..2
-            var channel_name = self.lane_name(i)
+        for i:0..self.logical_channel_count() - 1
+            var channel_name = self.logical_channel_name(i)
             if (scope != "hours" && channel_name != "*")
                 var cost_key = string.format("c_%s", channel_name)
                 if !self.week_couts_json.contains(channel_name)

@@ -1,4 +1,4 @@
-var version = "2.0.0 avec cron specifique"
+var version = "23072028 json"
 
 import mqtt
 import string
@@ -54,58 +54,51 @@ class PWX12
         self.read_uart(2)
     end
 
+    def publish_power_json(myjson)
+        if myjson == nil || !myjson.contains("power")
+            return false
+        end
+        var power = myjson["power"]
+        var logical_index = 0
+        for slot: 0..self.conso.slot_count() - 1
+            var slot_values = power[slot]
+            var slot_mode = self.conso.slot_mode(slot)
+            if slot_mode == "mono"
+                for phase: 0..2
+                    var channel_name = self.conso.slot_channel_name(slot, phase)
+                    if channel_name != "*"
+                        var topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, logical_index + 1)
+                        var value = real(slot_values[phase])
+                        var ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, value)
+                        mqtt.publish(topic, ligne, true)
+                    end
+                    logical_index += 1
+                end
+            else
+                var channel_name = self.conso.slot_channel_name(slot, 0)
+                if channel_name != "*"
+                    var topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, logical_index + 1)
+                    var value = real(slot_values[0])
+                    var ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, value)
+                    mqtt.publish(topic, ligne, true)
+                end
+                logical_index += 1
+            end
+        end
+        return true
+    end
+
+    def publish_config_json(myjson)
+        var topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
+        mqtt.publish(topic, json.dump(myjson), true)
+        print('PWX12 CONFIG->', json.dump(myjson))
+    end
+
     def process_uart_line(line)
         var topic
         var split
-        var ligne
 
-        if string.find(line, "CONFIG ") == 0
-            var payload = line[7..]
-            split = string.split(payload, ':')
-            if size(split) >= 17
-                var mode1 = string.tolower(split[14])
-                var mode2 = string.tolower(split[15])
-                var mode3 = string.tolower(split[16])
-                if mode1 == mode2 && mode1 == mode3 && (mode1 == "tri" || mode1 == "mono")
-                    self.last_cfg_mode = mode1
-                else
-                    var warn_topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                    var warn = string.format("WARN CONFIG mode mismatch [%s,%s,%s]", split[14], split[15], split[16])
-                    mqtt.publish(warn_topic, warn, true)
-                    print('PWX12 WARN->', warn)
-                end
-
-                topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
-                ligne = string.format(
-                    '{"device":"%s","root":["%s","%s","%s"],"produit":"%s","techno":["%s","%s","%s"],"ratio":[%s,%s,%s],"pga":[%s,%s,%s],"mode":["%s","%s","%s"]}',
-                    split[0],
-                    split[1], split[2], split[3],
-                    split[4],
-                    split[5], split[6], split[7],
-                    split[8], split[9], split[10],
-                    split[11], split[12], split[13],
-                    split[14], split[15], split[16]
-                )
-                mqtt.publish(topic, ligne, true)
-                print('PWX12 CONFIG->', ligne)
-            else
-                print('PWX12-> malformed CONFIG frame:', line)
-            end
-            return
-        end
-
-        if line[0] == 'C'
-            split = string.split(line, ':')
-            if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
-                print(string.format("PWX12 DBG [C] raw=%s", line))
-                self.debug_ctx('before conso.update')
-                self.conso.update(line)
-                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
-                mqtt.publish(topic, line, true)
-            else
-                print('PWX12-> malformed C frame:', line)
-            end
-        elif line[0] == 'D'
+        if line[0] == 'D'
             split = string.split(line, ':')
             if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
                 topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
@@ -113,24 +106,14 @@ class PWX12
             else
                 print('PWX12-> malformed D frame:', line)
             end
-        elif line[0] == 'W'
-            split = string.split(line, ':')
-            if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
-                print(string.format("PWX12 DBG [W] raw=%s", line))
-                self.debug_ctx('before W publish loop')
-                for j: 0..2
-                    var channel_name = self.conso.lane_name(j)
-                    if channel_name != "*"
-                        topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
-                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[j + 1]))
-                        mqtt.publish(topic, ligne, true)
-                    end
-                end
-            else
-                print('PWX12-> malformed W frame:', line)
-            end
         elif line[0] == '{'
-            if string.find(line, '"type":"calibration"') != -1
+            var myjson = json.load(line)
+            if myjson == nil
+                print('PWX12-> invalid JSON:', line)
+                return
+            end
+
+            if myjson.contains("type") && myjson["type"] == "calibration"
                 if string.find(line, '"group":"') != -1
                     topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                     mqtt.publish(topic, line, true)
@@ -138,6 +121,16 @@ class PWX12
                     topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
                     mqtt.publish(topic, line, true)
                 end
+            elif myjson.contains("slots")
+                self.publish_config_json(myjson)
+            elif myjson.contains("power")
+                self.publish_power_json(myjson)
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
+            elif myjson.contains("energy")
+                self.conso.update_energy_payload(myjson)
+                topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
+                mqtt.publish(topic, line, true)
             else
                 topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                 mqtt.publish(topic, line, true)

@@ -68,7 +68,8 @@
         "PGA": "1"
       }
     ]
-  },    "dl12-boulangerie": {
+  },   
+   "dl12-boulangerie": {
         "produit": "PWX12",
         "hw": "new",
         "channels": [

@@ -1,4 +1,4 @@
-var version = "04072026 dir update *"
+var version = "23072028 json"
 
 import string
 import global
@@ -215,7 +215,7 @@ def help()
     print("[STM32 GET COMMANDS]")
     print("get CAL")
     print("get CALFMT")
-    print("get CONFIG   (publishes JSON on .../tele/CONFIG)")
+    print("get CONFIG   (returns JSON on serial, publishes JSON on .../tele/CONFIG)")
     print("get MODE")
     print("get REG")
     print("get ENERGY")
@@ -241,7 +241,7 @@ def help()
 
     print("[NOTES]")
     print("- commands are no longer sent from Berry")
-    print("- telemetry remains handled by pwx12_driver.be")
+    print("- telemetry is JSON power/energy handled by pwx12_driver.be")
     print("- update downloads: c_<ville>.json, p_<ville>.json, conso.be, flasher.be, intelhex.be, pwx12_driver.be")
     tasmota.resp_cmnd_done()
 end
