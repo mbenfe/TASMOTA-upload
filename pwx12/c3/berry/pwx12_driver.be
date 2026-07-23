@@ -21,6 +21,7 @@ class PWX12
     var topic 
     var conso
     var last_cfg_mode
+    var rx_tail
 
     def debug_ctx(tag)
         var has_cfg = (global.configjson != nil)
@@ -147,6 +148,9 @@ class PWX12
             var buffer = global.ser.read()
             global.ser.flush()
             var mystring = buffer.asstring()
+            if self.rx_tail != nil && size(self.rx_tail) > 0
+                mystring = self.rx_tail + mystring
+            end
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
             var line
@@ -157,6 +161,7 @@ class PWX12
                 end
                 self.process_uart_line(line)
             end
+            self.rx_tail = mylist[numitem - 1]
         end
     end
 
