@@ -52,7 +52,7 @@ class PWX12
     end
 
     def fast_loop()
-        self.read_uart(2)
+        self.read_uart(10)
     end
 
     def publish_power_json(myjson)
