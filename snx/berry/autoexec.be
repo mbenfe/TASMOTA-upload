@@ -371,7 +371,7 @@ def help(cmd, idx, payload, payload_json)
     mqttprint("snxcout : trigger native COUT config sync")
     mqttprint("snxupload <path.bin> : flash C031 via UART upload from local .bin file")
     mqttprint("snxflash <1|2|3> : flash STM32 target on bus 1/2/3")
-    mqttprint("h7flash <path.bin> : flash H7 via SWD from local .bin file")
+    mqttprint("h7flash [path.bin] : flash H7 via SWD; default auto_<ville>.bin from esp32.cfg")
     mqttprint("getversion : show versions of berry scripts and H7/C031 firmware")
 
     mqttprint("=== Notes ===")
