@@ -34,6 +34,12 @@ class PWX4
         return fallback
     end
 
+    def publish_config_json(myjson)
+        var topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
+        mqtt.publish(topic, json.dump(myjson), true)
+        print('PWX4 CONFIG->', json.dump(myjson))
+    end
+
     def process_uart_line(line)
         var topic
         var split
