@@ -38,51 +38,23 @@ class PWX4
         var topic
         var split
         var ligne
+        var myjson
 
-        if string.find(line, "CONFIG ") == 0
-            var payload = line[7..]
-            split = string.split(payload, ':')
-            var device_name = global.device
-            var offset = 0
-            var mode_value = "tri"
-            if size(split) >= 7
-                device_name = split[0]
-                offset = 1
+        if string.find(line, 'BOOT:') == 0
+            var boot_parts = string.split(line, 'BOOT:')
+            if size(boot_parts) < 2 || size(boot_parts[1]) == 0
+                print('PWX4-> malformed BOOT frame:', line)
+                return
             end
-            if size(split) >= offset + 6
-                mode_value = string.tolower(str(split[offset + 5]))
-                topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
-                if mode_value == "mono" && size(split) >= offset + 9
-                    ligne = string.format(
-                        '{"device":"%s","root":["%s"],"produit":"%s","techno":["%s"],"ratio":[%s],"PGA":[%s],"mode":["%s"],"phaseA_label":["%s"],"phaseB_label":["%s"],"phaseC_label":["%s"]}',
-                        device_name,
-                        split[offset + 0],
-                        split[offset + 1],
-                        split[offset + 2],
-                        split[offset + 3],
-                        split[offset + 4],
-                        split[offset + 5],
-                        split[offset + 6],
-                        split[offset + 7],
-                        split[offset + 8]
-                    )
-                else
-                    ligne = string.format(
-                        '{"device":"%s","root":["%s"],"produit":"%s","techno":["%s"],"ratio":[%s],"PGA":[%s],"mode":["%s"]}',
-                        device_name,
-                        split[offset + 0],
-                        split[offset + 1],
-                        split[offset + 2],
-                        split[offset + 3],
-                        split[offset + 4],
-                        split[offset + 5]
-                    )
-                end
-                mqtt.publish(topic, ligne, true)
-                print('PWX4 CONFIG->', ligne)
-            else
-                print('PWX4-> malformed CONFIG frame:', line)
+
+            myjson = json.load(boot_parts[1])
+            if myjson == nil
+                print('PWX4-> invalid BOOT JSON:', line)
+                return
             end
+
+            topic = string.format("gw/%s/%s/%s/tele/INFO_STM32", global.client, global.ville, global.device)
+            mqtt.publish(topic, boot_parts[1], true)
             return
         end
 
@@ -141,7 +113,13 @@ class PWX4
                 print('PWX4-> malformed W frame:', line)
             end
         elif line[0] == '{'
-            if string.find(line, '"type":"calibration"') != -1
+            myjson = json.load(line)
+            if myjson == nil
+                print('PWX4-> invalid JSON:', line)
+                return
+            end
+
+            if myjson.contains("type") && myjson["type"] == "calibration"
                 if string.find(line, '"group":"') != -1
                     topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                     mqtt.publish(topic, line, true)
@@ -149,6 +127,8 @@ class PWX4
                     topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
                     mqtt.publish(topic, line, true)
                 end
+            elif myjson.contains("slots") || myjson.contains("channels") || myjson.contains("produit")
+                self.publish_config_json(myjson)
             else
                 topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                 mqtt.publish(topic, line, true)
