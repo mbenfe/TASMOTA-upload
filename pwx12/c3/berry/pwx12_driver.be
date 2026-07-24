@@ -98,6 +98,25 @@ class PWX12
     def process_uart_line(line)
         var topic
         var split
+        var myjson
+
+        if string.find(line, 'BOOT:') == 0
+            var boot_parts = string.split(line, 'BOOT:')
+            if size(boot_parts) < 2 || size(boot_parts[1]) == 0
+                print('PWX12-> malformed BOOT frame:', line)
+                return
+            end
+
+            myjson = json.load(boot_parts[1])
+            if myjson == nil
+                print('PWX12-> invalid BOOT JSON:', line)
+                return
+            end
+
+            topic = string.format("gw/%s/%s/%s/tele/INFO_STM32", global.client, global.ville, global.device)
+            mqtt.publish(topic, boot_parts[1], true)
+            return
+        end
 
         if line[0] == 'D'
             split = string.split(line, ':')
@@ -108,7 +127,7 @@ class PWX12
                 print('PWX12-> malformed D frame:', line)
             end
         elif line[0] == '{'
-            var myjson = json.load(line)
+            myjson = json.load(line)
             if myjson == nil
                 print('PWX12-> invalid JSON:', line)
                 return
