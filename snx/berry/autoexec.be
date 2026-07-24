@@ -160,33 +160,68 @@ end
 
 def del_file(cmd, idx, payload, payload_json)
     import path
-    var filename = payload
+    var selector = ""
 
-    if filename == nil || filename == ""
-        tasmota.resp_cmnd("usage: del <filename>")
+    if payload != nil
+        selector = str(payload)
+    end
+
+    if selector == ""
+        tasmota.resp_cmnd("usage: del <filename|*.ext>")
         return
     end
 
-    if string.find(filename, "*") != -1 || string.find(filename, "?") != -1
-        tasmota.resp_cmnd("wildcards not allowed")
-        return
-    end
-
-    if string.find(filename, "/") != -1 || string.find(filename, "\\") != -1
+    if string.find(selector, "/") != -1 || string.find(selector, "\\") != -1
         tasmota.resp_cmnd("strict filename only")
         return
     end
 
-    if !path.exists(filename)
+    var has_star = (string.find(selector, "*") != -1)
+    var has_qmark = (string.find(selector, "?") != -1)
+
+    if has_qmark
+        tasmota.resp_cmnd("unsupported wildcard '?'")
+        return
+    end
+
+    if has_star
+        # Keep wildcard support explicit and safe: only '*.ext' patterns are accepted.
+        if string.find(selector, "*.") != 0 || string.find(selector, "*", 1) != -1
+            tasmota.resp_cmnd("wildcard format must be '*.ext'")
+            return
+        end
+
+        var ext = string.tolower(selector[1:])
+        var deleted = 0
+        var failed = 0
+        var list = path.listdir("/")
+
+        for i:0..(list.size()-1)
+            var name = list[i]
+            if string.endswith(string.tolower(name), ext)
+                path.remove(name)
+                if path.exists(name)
+                    failed += 1
+                else
+                    deleted += 1
+                end
+            end
+        end
+
+        tasmota.resp_cmnd("deleted:" + str(deleted) + " failed:" + str(failed) + " pattern:" + selector)
+        return
+    end
+
+    if !path.exists(selector)
         tasmota.resp_cmnd("file not found")
         return
     end
 
-    path.remove(filename)
-    if path.exists(filename)
+    path.remove(selector)
+    if path.exists(selector)
         tasmota.resp_cmnd("delete failed")
     else
-        tasmota.resp_cmnd("deleted:" + filename)
+        tasmota.resp_cmnd("deleted:" + selector)
     end
 end
 
@@ -239,11 +274,11 @@ def update(cmd, idx, payload, payload_json)
 
     if want_bin
         to_fetch.push(app_file)
-        to_fetch.push("snx/c031/modbus_chip_flashed.bin")
-        to_fetch.push("snx/c031/lonworks_chip_flashed.bin")
-        to_fetch.push("snx/c031/mbjc_chip_flashed.bin")
-        to_fetch.push("snx/c031/carel_9600_chip_flashed.bin")
-        to_fetch.push("snx/c031/carel_19200_chip_flashed.bin")
+        to_fetch.push("snx/c031/bus_modbus.bin")
+        to_fetch.push("snx/c031/bus_lonworks.bin")
+        to_fetch.push("snx/c031/bus_mbjc.bin")
+        to_fetch.push("snx/c031/bus_carel_9600.bin")
+        to_fetch.push("snx/c031/bus_carel_19200.bin")
     end
 
     mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
@@ -352,7 +387,7 @@ def help(cmd, idx, payload, payload_json)
     mqttprint("=== Berry-only commands (autoexec.be) ===")
     mqttprint("getfile <repo/path/file.ext> : download file from GitHub upload repo (.be|.bin|.hex|.json)")
     mqttprint("dir [*.be|*.hex|*.bin|*.json] : list local files with optional filter")
-    mqttprint("del <filename> : delete one local file (strict filename, no wildcard)")
+    mqttprint("del <filename|*.ext> : delete one file or all files matching *.ext")
     mqttprint("update [*.be|*.hex|*.bin|*.json] : fetch selected update files")
 
     mqttprint("=== C++ driver commands (xdrv_128_snx) ===")
