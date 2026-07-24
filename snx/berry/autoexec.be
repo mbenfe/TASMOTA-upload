@@ -191,7 +191,7 @@ def del_file(cmd, idx, payload, payload_json)
             return
         end
 
-        var ext = string.tolower(selector[1:])
+        var ext = string.tolower(selector[1..selector.size()-1])
         var deleted = 0
         var failed = 0
         var list = path.listdir("/")
