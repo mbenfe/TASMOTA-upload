@@ -159,70 +159,70 @@ def dir(cmd, idx,payload, payload_json)
 end
 
 def del_file(cmd, idx, payload, payload_json)
-    import path
-    var selector = ""
+    # import path
+    # var selector = ""
 
-    if payload != nil
-        selector = str(payload)
-    end
+    # if payload != nil
+    #     selector = str(payload)
+    # end
 
-    if selector == ""
-        tasmota.resp_cmnd("usage: del <filename|*.ext>")
-        return
-    end
+    # if selector == ""
+    #     tasmota.resp_cmnd("usage: del <filename|*.ext>")
+    #     return
+    # end
 
-    if string.find(selector, "/") != -1 || string.find(selector, "\\") != -1
-        tasmota.resp_cmnd("strict filename only")
-        return
-    end
+    # if string.find(selector, "/") != -1 || string.find(selector, "\\") != -1
+    #     tasmota.resp_cmnd("strict filename only")
+    #     return
+    # end
 
-    var has_star = (string.find(selector, "*") != -1)
-    var has_qmark = (string.find(selector, "?") != -1)
+    # var has_star = (string.find(selector, "*") != -1)
+    # var has_qmark = (string.find(selector, "?") != -1)
 
-    if has_qmark
-        tasmota.resp_cmnd("unsupported wildcard '?'")
-        return
-    end
+    # if has_qmark
+    #     tasmota.resp_cmnd("unsupported wildcard '?'")
+    #     return
+    # end
 
-    if has_star
-        # Keep wildcard support explicit and safe: only '*.ext' patterns are accepted.
-        if string.find(selector, "*.") != 0 || string.find(selector, "*", 1) != -1
-            tasmota.resp_cmnd("wildcard format must be '*.ext'")
-            return
-        end
+    # if has_star
+    #     # Keep wildcard support explicit and safe: only '*.ext' patterns are accepted.
+    #     if string.find(selector, "*.") != 0 || string.find(selector, "*", 1) != -1
+    #         tasmota.resp_cmnd("wildcard format must be '*.ext'")
+    #         return
+    #     end
 
-        var ext = string.tolower(selector[1..selector.size()-1])
-        var deleted = 0
-        var failed = 0
-        var list = path.listdir("/")
+    #     var ext = string.tolower(selector[1..selector.size()-1])
+    #     var deleted = 0
+    #     var failed = 0
+    #     var list = path.listdir("/")
 
-        for i:0..(list.size()-1)
-            var name = list[i]
-            if string.endswith(string.tolower(name), ext)
-                path.remove(name)
-                if path.exists(name)
-                    failed += 1
-                else
-                    deleted += 1
-                end
-            end
-        end
+    #     for i:0..(list.size()-1)
+    #         var name = list[i]
+    #         if string.endswith(string.tolower(name), ext)
+    #             path.remove(name)
+    #             if path.exists(name)
+    #                 failed += 1
+    #             else
+    #                 deleted += 1
+    #             end
+    #         end
+    #     end
 
-        tasmota.resp_cmnd("deleted:" + str(deleted) + " failed:" + str(failed) + " pattern:" + selector)
-        return
-    end
+    #     tasmota.resp_cmnd("deleted:" + str(deleted) + " failed:" + str(failed) + " pattern:" + selector)
+    #     return
+    # end
 
-    if !path.exists(selector)
-        tasmota.resp_cmnd("file not found")
-        return
-    end
+    # if !path.exists(selector)
+    #     tasmota.resp_cmnd("file not found")
+    #     return
+    # end
 
-    path.remove(selector)
-    if path.exists(selector)
-        tasmota.resp_cmnd("delete failed")
-    else
-        tasmota.resp_cmnd("deleted:" + selector)
-    end
+    # path.remove(selector)
+    # if path.exists(selector)
+    #     tasmota.resp_cmnd("delete failed")
+    # else
+    #     tasmota.resp_cmnd("deleted:" + selector)
+    # end
 end
 
 def launch_driver()

@@ -1,192 +1,71 @@
 {
-
-  "pwx12-td1": {
-    "produit": "PWX12",
-    "hw": "new",
-    "channels": [
-      {
-        "name": "main",
-        "genre": "root",
-        "parent": "",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd1",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd2",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd3",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd4",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd5",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd6",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  },   
-   "dl12-boulangerie": {
+    "pwx12-td1": {
         "produit": "PWX12",
         "hw": "new",
         "channels": [
             {
-                "name": "fours",
+                "name": "tbd1",
                 "genre": "leaf",
-                "parent": "gene_boulangerie",
-                "mode": "tri",
-                "techno": "ct",
-                "ratio": "1000",
-                "PGA": "1"
-            },
-            {
-                "name": "drive&co",
-                "genre": "leaf",
-                "parent": "gene_boulangerie",
-                "mode": "tri",
-                "techno": "ct",
-                "ratio": "1000",
-                "PGA": "1"
-            },
-            {
-                "name": "gene_boulangerie",
-                "genre": "node",
                 "parent": "main",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tbd2",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tbd3",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tbd4",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tbd5",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tbd6",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "main",
+                "genre": "root",
+                "parent": "",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",
                 "PGA": "1"
             }
         ]
-    },
-    "pwx12-td2": {
-    "produit": "PWX12",
-    "hw": "new",
-    "channels": [
-      {
-        "name": "tbd-1",
-        "genre": "leaf",
-        "parent": "",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd-2",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd-3",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd-4",
-        "genre": "leaf",
-        "parent": "",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd-5",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd-6",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd-7",
-        "genre": "leaf",
-        "parent": "",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd-8",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "tbd-9",
-        "genre": "leaf",
-        "parent": "main",
-        "mode": "mono",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  }
+    }
 }
