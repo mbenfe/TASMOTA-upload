@@ -4,7 +4,7 @@
         "hw": "new",
         "channels": [
             {
-                "name": "tbd1",
+                "name": "row1_B",
                 "genre": "leaf",
                 "parent": "main",
                 "mode": "mono",
@@ -13,7 +13,7 @@
                 "PGA": "1"
             },
             {
-                "name": "tbd2",
+                "name": "row2_A",
                 "genre": "leaf",
                 "parent": "main",
                 "mode": "mono",
@@ -22,7 +22,7 @@
                 "PGA": "1"
             },
             {
-                "name": "tbd3",
+                "name": "row3_C",
                 "genre": "leaf",
                 "parent": "main",
                 "mode": "mono",
@@ -31,7 +31,7 @@
                 "PGA": "1"
             },
             {
-                "name": "tbd4",
+                "name": "row4",
                 "genre": "leaf",
                 "parent": "main",
                 "mode": "mono",
@@ -40,7 +40,7 @@
                 "PGA": "1"
             },
             {
-                "name": "tbd5",
+                "name": "*",
                 "genre": "leaf",
                 "parent": "main",
                 "mode": "mono",
@@ -49,7 +49,7 @@
                 "PGA": "1"
             },
             {
-                "name": "tbd6",
+                "name": "td_buanderie",
                 "genre": "leaf",
                 "parent": "main",
                 "mode": "mono",

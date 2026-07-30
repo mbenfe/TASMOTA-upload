@@ -1,0 +1,35 @@
+{
+    "pwx4": {
+        "produit": "PWX4",
+        "hw": "new",
+        "channels": [
+            {
+                "name": "row_1",
+                "genre": "node",
+                "parent": "main",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "chauffages",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "cuisson",
+                "genre": "leaf",
+                "parent": "row_1",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    }
+}
