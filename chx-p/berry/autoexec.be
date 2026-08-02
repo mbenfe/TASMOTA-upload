@@ -196,24 +196,43 @@ def getversion()
 end
 
 def update(cmd, idx, payload, payload_json)
+    var selector = ""
+    if payload != nil
+        selector = string.tolower(payload)
+    end
 
-    mqttprint("update: getfile chx-p/berry/autoexec.be")
-    tasmota.cmd("getfile chx-p/berry/autoexec.be")
+    var want_all = (selector == "" || selector == "*.*" || selector == "all")
+    var want_be = (want_all || selector == "*.be" || selector == ".be" || selector == "be")
+    var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
 
-    mqttprint("update: getfile chx-p/berry/chx_driver.be")
-    tasmota.cmd("getfile chx-p/berry/chx_driver.be")
+    if !want_be && !want_json
+        mqttprint("update: unknown filter '" + selector + "' (use *.be|*.json)")
+        tasmota.resp_cmnd("invalid update filter")
+        return
+    end
 
-    mqttprint("update: getfile chx-p/berry/command.be")
-    tasmota.cmd("getfile chx-p/berry/command.be")
+    var to_fetch = []
+    if want_be
+        to_fetch.push("chx-p/berry/autoexec.be")
+        to_fetch.push("chx-p/berry/chx_driver.be")
+        to_fetch.push("chx-p/berry/command.be")
+        to_fetch.push("chx-p/berry/conso.be")
+    end
 
-    mqttprint("update: getfile chx-p/berry/conso.be")
-    tasmota.cmd("getfile chx-p/berry/conso.be")
+    if want_json
+        var name = string.format("c_%s.json", global.ville)
+        to_fetch.push(string.format("config/%s", name))
+        to_fetch.push("chx-p/config/setup_device.json")
+        to_fetch.push("chx-p/config/setup_general.json")
+    end
 
-    mqttprint("update: getfile chx-p/config/setup_device.json")
-    tasmota.cmd("getfile chx-p/config/setup_device.json")
-
-    mqttprint("update: getfile chx-p/config/setup_general.json")
-    tasmota.cmd("getfile chx-p/config/setup_general.json")
+    mqttprint("update: start")
+    mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
+    for i:0..to_fetch.size()-1
+        var file_to_fetch = to_fetch[i]
+        mqttprint("update: getfile " + file_to_fetch)
+        tasmota.cmd("getfile " + file_to_fetch)
+    end
 
     mqttprint("update: done")
     tasmota.resp_cmnd_done()
