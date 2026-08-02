@@ -235,7 +235,7 @@ def update(cmd, idx, payload, payload_json)
     end
 
     mqttprint("update: done")
-    tasmota.resp_cmnd_done()
+    tasmota.resp_cmnd('{"Update":"Done"}')
 end
 
 def launch_driver()
