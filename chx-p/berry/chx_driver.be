@@ -21,7 +21,6 @@ def mqttprint(texte)
 end
 
 class CHX
-    var gate
     var day_list
     var setup_device
     var setup_general
@@ -33,60 +32,6 @@ class CHX
     var previousPower
     var tick
     var conso
-
-    def check_gpio()
-
-        # Check if GPIOs are configured correctly
-        var gpio_result = tasmota.cmd("Gpio")
-
-        return
-        if gpio_result != nil
-            # Check IO9 (I2C SCL - 608)
-            if gpio_result['GPIO9'] != nil
-                if !gpio_result['GPIO9'].contains('I2C SCL1')
-                    mqttprint("WARNING: IO9 not I2C SCL! Reconfiguring...")
-                    tasmota.cmd("Gpio9 608")
-                end
-            end
-
-            # Check IO21 (I2C SDA - 640)
-            if gpio_result['GPIO21'] != nil
-                if !gpio_result['GPIO21'].contains('I2C SDA')
-                    mqttprint("WARNING: IO21 not I2C SDA! Reconfiguring...")
-                    tasmota.cmd("Gpio21 640")
-                end
-            end
-
-            # Check IO7 (BL0937 CF - 3072)
-            if gpio_result['GPIO7'] != nil
-                if !gpio_result['GPIO7'].contains('BL0937 CF')
-                    mqttprint("WARNING: IO7 not BL0937 CF! Reconfiguring...")
-                    tasmota.cmd("Gpio7 2720")
-                end
-            end
-
-            # Check IO8 (BL0937 CF1 - 3104)
-            if gpio_result['GPIO8'] != nil
-                if !(gpio_result['GPIO8'].contains('BL0937 CF1') || gpio_result['GPIO8'].contains('HLWBL CF1'))
-                    mqttprint("WARNING: IO8 not BL0937/HLWBL CF1! Reconfiguring...")
-                    tasmota.cmd("Gpio8 2656")
-                end
-            end
-
-            # Check IO18 (BL0937 SEL_i - 3136)
-            if gpio_result['GPIO18'] != nil
-                if !(gpio_result['GPIO18'].contains('BL0937 SEL') || gpio_result['GPIO18'].contains('HLWBL SEL'))
-                    mqttprint("WARNING: IO18 not BL0937/HLWBL SEL_i! Reconfiguring...")
-                    tasmota.cmd("Gpio18 2624")
-                end
-            end
-        else
-            mqttprint("ERROR: Cannot read GPIO configuration")
-            return false
-        end
-
-        return true
-    end
 
 
     def ack_setup_device(topic, idx, payload_s, payload_b)
@@ -166,7 +111,6 @@ class CHX
         var myjson
         print('-----------------------------------------')
         print('- CHX Driver init                       -')
-        self.check_gpio()
         # read setup_device.json
         file = open("setup_device.json", "rt")
         myjson = file.read()
@@ -178,12 +122,10 @@ class CHX
         file.close()
         self.setup_general = json.load(myjson)  
         
-        self.gate = 19
         self.day_list = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
         mqttprint("subscription MQTT")
         self.subscribes()
-        gpio.pin_mode(self.gate, gpio.OUTPUT)
-        gpio.digital_write(self.gate, 0)    # allumé gete is inverted
+        tasmota.cmd("Power1 1")
         self.previous_state = 0
         self.current_state = 0
         tasmota.set_timer(30000,/-> self.push_device_general_setup())
@@ -272,7 +214,6 @@ class CHX
         var year = rtc["year"]
         var day_of_week = rtc["weekday"]  # 0=Sunday, 1=Monday, ..., 6=Saturday
         var jour = self.day_list[day_of_week]
-        self.check_gpio()
         var data = tasmota.read_sensors()
         if(data == nil)
             print("Error: Failed to read sensors data")
@@ -311,11 +252,11 @@ class CHX
                 global.target = self.setup_device[jour][global.slot]
             end
             if (global.temperature < global.target+self.setup_device['offset'])
-                gpio.digital_write(self.gate, 0)
+                tasmota.cmd("Power1 1")
                 global.power = 1
                 tasmota.delay(2000)
             else
-                gpio.digital_write(self.gate, 1)
+                tasmota.cmd("Power1 0")
                 global.power = 0
                 tasmota.delay(2000)
             end
@@ -327,11 +268,11 @@ class CHX
         elif(self.setup_general['mode']=='ABSENCE')
             global.target = self.setup_general['absence']['temperature']
             if (global.temperature < global.target+self.setup_device['offset'] || global.humidity > global.targetHum)
-                gpio.digital_write(self.gate, 0)
+                tasmota.cmd("Power1 1")
                 global.power = 1
                 tasmota.delay(2000)
             else
-                gpio.digital_write(self.gate, 1)
+                tasmota.cmd("Power1 0")
                 global.power = 0
                 tasmota.delay(2000)
             end
@@ -342,8 +283,8 @@ class CHX
             end
         else # mode MANUEL
             global.target = 99
-            gpio.digital_write(self.gate, 0)
-            global.power = self.current_state
+            tasmota.cmd("Power1 1")
+            global.power = 1
 
         end  
 
