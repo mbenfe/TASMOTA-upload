@@ -239,6 +239,8 @@ def update(cmd, idx, payload, payload_json)
 end
 
 def launch_driver()
+    # Initialize configuration before any MQTT publish that uses global values.
+    loadconfig()
     mqttprint('mqtt connected -> launch driver')
     tasmota.add_cmd('getfile', getfile)
     tasmota.add_cmd('dir', dir)
@@ -250,9 +252,6 @@ def launch_driver()
     tasmota.add_cmd('set', set)
     tasmota.add_cmd('update', update)
 
-
-    # Initialize configuration
-    loadconfig()
     mqttprint("ville:" + str(global.ville))
     mqttprint("client:" + str(global.client))
     mqttprint("device:" + str(global.device))
