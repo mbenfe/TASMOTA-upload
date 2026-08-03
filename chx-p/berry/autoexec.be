@@ -30,47 +30,6 @@ def mqttprint(texte)
 end
 
 #-------------------------------- FONCTIONS -----------------------------------------#
-def ville(cmd, idx, payload, payload_json)
-    import json
-    var file = open("esp32.cfg", "rt")
-    var buffer = file.read()
-    var myjson = json.load(buffer)
-    myjson["ville"] = payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg", "wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
-end
-
-def device(cmd, idx, payload, payload_json)
-    import json
-    var file = open("esp32.cfg", "rt")
-    var buffer = file.read()
-    var myjson = json.load(buffer)
-    myjson["device"] = payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg", "wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
-end
-
-def location(cmd, idx, payload, payload_json)
-    import json
-    var file = open("esp32.cfg", "rt")
-    var buffer = file.read()
-    var myjson = json.load(buffer)
-    myjson["location"] = payload
-    buffer = json.dump(myjson)
-    file.close()
-    file = open("esp32.cfg", "wt")
-    file.write(buffer)
-    file.close()
-    tasmota.resp_cmnd('done')
-end
 
 def getfile(cmd, idx, payload, payload_json)
     import string
@@ -106,25 +65,6 @@ def getfile(cmd, idx, payload, payload_json)
     message = 'uploaded:' + nom_fichier
     tasmota.resp_cmnd(message)
     return st
-end
-
-def dir(cmd, idx, payload, payload_json)
-    import path
-    var liste
-    var file
-    var taille
-    var date
-    var timestamp
-    liste = path.listdir("/")
-    mqttprint(str(liste.size()) + " fichiers")
-    for i:0..(liste.size()-1)
-        file = open(liste[i], "r")
-        taille = file.size()
-        file.close()
-        timestamp = path.last_modified(liste[i])
-        mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
-    end
-    tasmota.resp_cmnd_done()
 end
 
 def set(cmd, idx, payload, payload_json)
@@ -237,16 +177,32 @@ def update(cmd, idx, payload, payload_json)
     tasmota.resp_cmnd('{"Update":"Done"}')
 end
 
+def help(cmd, idx, payload, payload_json)
+    mqttprint("CHX-P command help")
+    mqttprint("--- Script commands (autoexec.be) ---")
+    mqttprint("getfile <repo/path/file> : download from mbenfe/upload to local FS")
+    mqttprint("update [all|*.be|*.json] : batch refresh script/json files")
+    mqttprint("help : print this command summary")
+    mqttprint("--- Driver 133 commands (xdrv_133_chx_p.ino) ---")
+    mqttprint("get : publish current setup_device.json to gw/<client>/<ville>/<device>/setup")
+    mqttprint("set mode <AUTO|ABSENCE|MANUEL>")
+    mqttprint("set offset <value>")
+    mqttprint("set semaine <matin> <journee> <soir> <nuit>")
+    mqttprint("set weekend <matin> <journee> <soir> <nuit>")
+    mqttprint("getversion : list .be versions detected on filesystem")
+    mqttprint("--- Ownership split ---")
+    mqttprint("script owns: getfile, update, help")
+    mqttprint("driver owns: get, set, getversion")
+    tasmota.resp_cmnd_done()
+end
+
 def launch_driver()
     # Initialize configuration before any MQTT publish that uses global values.
     loadconfig()
     mqttprint('mqtt connected -> launch driver')
     tasmota.add_cmd('getfile', / cmd, idx, payload, payload_json -> getfile(cmd, idx, payload, payload_json))
-    tasmota.add_cmd('dir', / cmd, idx, payload, payload_json -> dir(cmd, idx, payload, payload_json))
-    tasmota.add_cmd('ville', / cmd, idx, payload, payload_json -> ville(cmd, idx, payload, payload_json))
-    tasmota.add_cmd('device', / cmd, idx, payload, payload_json -> device(cmd, idx, payload, payload_json))
-    tasmota.add_cmd('location', / cmd, idx, payload, payload_json -> location(cmd, idx, payload, payload_json))
     tasmota.add_cmd('update', / cmd, idx, payload, payload_json -> update(cmd, idx, payload, payload_json))
+    tasmota.add_cmd('help', / cmd, idx, payload, payload_json -> help(cmd, idx, payload, payload_json))
 
     mqttprint("ville:" + str(global.ville))
     mqttprint("client:" + str(global.client))
