@@ -215,7 +215,6 @@ def update(cmd, idx, payload, payload_json)
     if want_be
         to_fetch.push("chx-p/berry/autoexec.be")
         to_fetch.push("chx-p/berry/chx_driver.be")
-        to_fetch.push("chx-p/berry/command.be")
         to_fetch.push("chx-p/berry/conso.be")
     end
 
@@ -247,9 +246,6 @@ def launch_driver()
     tasmota.add_cmd('ville', / cmd, idx, payload, payload_json -> ville(cmd, idx, payload, payload_json))
     tasmota.add_cmd('device', / cmd, idx, payload, payload_json -> device(cmd, idx, payload, payload_json))
     tasmota.add_cmd('location', / cmd, idx, payload, payload_json -> location(cmd, idx, payload, payload_json))
-    tasmota.add_cmd('getversion', / cmd, idx, payload, payload_json -> getversion())
-    tasmota.add_cmd('get', / cmd, idx, payload, payload_json -> get(cmd, idx, payload, payload_json))
-    tasmota.add_cmd('set', / cmd, idx, payload, payload_json -> set(cmd, idx, payload, payload_json))
     tasmota.add_cmd('update', / cmd, idx, payload, payload_json -> update(cmd, idx, payload, payload_json))
 
     mqttprint("ville:" + str(global.ville))
@@ -257,10 +253,7 @@ def launch_driver()
     mqttprint("device:" + str(global.device))
     mqttprint("location:" + str(global.location))
 
-
-    mqttprint('load command.be')
-    tasmota.load('command.be')
-    tasmota.load('chx_driver.be')
+    mqttprint('Driver 133 runtime active (chx_driver.be disabled)')
 end
 
 #-------------------------------- BASH -----------------------------------------#
