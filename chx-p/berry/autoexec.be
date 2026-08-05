@@ -220,6 +220,9 @@ end
 #-------------------------------- BASH -----------------------------------------#
 tasmota.cmd("timezone 99")
 tasmota.cmd("seriallog 0")
+tasmota.cmd("setoption146 1")
+tasmota.cmd("wifipower 0")
+tasmota.cmd("sleep 120")
 
 if(!mqtt.connected())
     print("MQTT not connected...")
