@@ -1,16 +1,14 @@
-var version = "2.0.102025 aht20 auto"
+var version = "2.1.082026 chx script commands"
 
 import string
 import global
 import mqtt
 import json
-import gpio
 import path
 
 var ser                # serial object
-var bsl_out = 32   
+var bsl_out = 32
 
-# Define loadconfig function
 def loadconfig()
     var file = open("esp32.cfg", "rt")
     var buffer = file.read()
@@ -22,16 +20,13 @@ def loadconfig()
     global.client = myjson["client"]
 end
 
-# Define mqttprint function
 def mqttprint(texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
+    var topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
     mqtt.publish(topic, texte, true)
 end
 
-#-------------------------------- FONCTIONS -----------------------------------------#
 def getfile(cmd, idx, payload, payload_json)
     import string
-    import path
     var message
     var nom_fichier = string.split(payload, '/').pop()
 
@@ -65,130 +60,83 @@ def getfile(cmd, idx, payload, payload_json)
     return st
 end
 
-def dir(cmd, idx, payload, payload_json)
-    import path
-    var liste
-    var file
-    var taille
-    var date
-    var timestamp
-    liste = path.listdir("/")
-    mqttprint(str(liste.size()) + " fichiers")
-    for i:0..(liste.size()-1)
-        file = open(liste[i], "r")
-        taille = file.size()
-        file.close()
-        timestamp = path.last_modified(liste[i])
-        mqttprint(liste[i] + ' ' + tasmota.time_str(timestamp) + ' ' + str(taille))
+def update(cmd, idx, payload, payload_json)
+    var selector = ""
+    if payload != nil
+        selector = string.tolower(payload)
     end
+
+    var want_all = (selector == "" || selector == "*.*" || selector == "all")
+    var want_be = (want_all || selector == "*.be" || selector == ".be" || selector == "be")
+    var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
+
+    if !want_be && !want_json
+        mqttprint("update: unknown filter '" + selector + "' (use *.be|*.json)")
+        tasmota.resp_cmnd("invalid update filter")
+        return
+    end
+
+    var to_fetch = []
+    if want_be
+        to_fetch.push("chx/berry/autoexec.be")
+    end
+
+    if want_json
+        to_fetch.push("chx/config/thermostat_intermarche.json")
+    end
+
+    mqttprint("update: start")
+    mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
+    for i:0..to_fetch.size()-1
+        var file_to_fetch = to_fetch[i]
+        mqttprint("update: getfile " + file_to_fetch)
+        tasmota.cmd("getfile " + file_to_fetch)
+    end
+
+    mqttprint("update: done")
+    tasmota.resp_cmnd('{"Update":"Done"}')
+end
+
+def help(cmd, idx, payload, payload_json)
+    mqttprint("CHX command help")
+    mqttprint("--- Script commands (autoexec.be) ---")
+    mqttprint("getfile <repo/path/file> : download from mbenfe/upload to local FS")
+    mqttprint("update [all|*.be|*.json] : refresh script/json files")
+    mqttprint("help : print this command summary")
+    mqttprint("--- Driver 135 commands (xdrv_135_chx.ino) ---")
+    mqttprint("getversion : list .be versions detected on filesystem")
+    mqttprint("set mode <AUTO|ABSENCE|MANUEL>")
+    mqttprint("set offset <value>")
+    mqttprint("set semaine <matin> <journee> <soir> <nuit>")
+    mqttprint("set weekend <matin> <journee> <soir> <nuit>")
+    mqttprint("setup <json> : update setup payload")
+    mqttprint("note: get command is removed")
     tasmota.resp_cmnd_done()
 end
-
-def set(cmd, idx, payload, payload_json)
-    var arguments = string.split(payload, ' ')
-    var file = open("thermostat_intermarche.json", "rt")
-    var myjson = file.read()
-    file.close()
-    var thermostat = json.load(myjson)  
-    if arguments[0] == "offset"
-        thermostat['offset'] = real(arguments[1])
-    elif arguments[0] == "ouvert"
-        thermostat['ouvert'] = real(arguments[1])
-    elif arguments[0] == "ferme"
-        thermostat['ferme'] = real(arguments[1])
-    elif arguments[0] == "lundi"
-        thermostat['lundi']['debut'] = real(arguments[1])
-        thermostat['lundi']['fin'] = real(arguments[2])
-    elif arguments[0] == "mardi"
-        thermostat['mardi']['debut'] = real(arguments[1])
-        thermostat['mardi']['fin'] = real(arguments[2])
-    elif arguments[0] == "mercredi"
-        thermostat['mercredi']['debut'] = real(arguments[1])
-        thermostat['mercredi']['fin'] = real(arguments[2])
-    elif arguments[0] == "jeudi"
-        thermostat['jeudi']['debut'] = real(arguments[1])
-        thermostat['jeudi']['fin'] = real(arguments[2])
-    elif arguments[0] == "vendredi"
-        thermostat['vendredi']['debut'] = real(arguments[1])
-        thermostat['vendredi']['fin'] = real(arguments[2])
-    elif arguments[0] == "samedi"
-        thermostat['samedi']['debut'] = real(arguments[1])
-        thermostat['samedi']['fin'] = real(arguments[2])
-    elif arguments[0] == "dimanche"
-        thermostat['dimanche']['debut'] = real(arguments[1])
-        thermostat['dimanche']['fin'] = real(arguments[2])
-    end
-    var buffer = json.dump(thermostat)
-    file = open("thermostat_intermarche.json", "wt")
-    file.write(buffer)
-    file.close()
-
-    var topic = string.format("app/%s/%s/%s/set/ISEMAINE", global.client, global.ville, global.device)
-    mqtt.publish(topic, buffer, true)
-
-    tasmota.resp_cmnd('done')
-    tasmota.cmd("restart 1")
-end
-
-def get(cmd, idx, payload, payload_json)
-    var file = open("thermostat_intermarche.json", "rt")
-    var myjson = file.read()
-    file.close()
-
-    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device)
-    mqtt.publish(topic, myjson, true)
-
-    tasmota.resp_cmnd('done')
-end
-
 
 def launch_driver()
-    mqttprint('mqtt connected -> launch driver')
-    tasmota.load('chx_driver.be')
+    loadconfig()
+    mqttprint('mqtt connected -> launch script commands')
+    tasmota.add_cmd('getfile', / cmd, idx, payload, payload_json -> getfile(cmd, idx, payload, payload_json))
+    tasmota.add_cmd('update', / cmd, idx, payload, payload_json -> update(cmd, idx, payload, payload_json))
+    tasmota.add_cmd('help', / cmd, idx, payload, payload_json -> help(cmd, idx, payload, payload_json))
+
+    mqttprint("ville:" + str(global.ville))
+    mqttprint("client:" + str(global.client))
+    mqttprint("device:" + str(global.device))
+    mqttprint("location:" + str(global.location))
 end
 
-def getversion()
-    var fichier
-    var files = path.listdir("/")
-    for i:0..files.size()-1
-        if string.endswith(files[i], ".be")
-            fichier = open(files[i], "r")
-            var content = fichier.readline()
-            var version_match = string.find(content, 'var version')
-            if version_match != -1
-                var liste = string.split(content, ' ')
-                mqttprint(files[i] + " version: " + liste[3])
-            else
-                mqttprint(files[i] + " version: undefined version")
-            end
-            fichier.close()
-        end
-    end
-    tasmota.resp_cmnd_done()
-end
-
-#-------------------------------- BASH -----------------------------------------#
+tasmota.cmd("timezone 99")
 tasmota.cmd("seriallog 0")
-mqttprint("serial log disabled")
+tasmota.cmd("setoption146 1")
+tasmota.cmd("sleep 120")
 
-mqttprint('AUTOEXEC: create commande getfile')
-tasmota.add_cmd('getfile', getfile)
+if(!mqtt.connected())
+    print("MQTT not connected...")
+else
+    print("MQTT connected...")
+end
 
-tasmota.add_cmd('dir', dir)
+tasmota.set_timer(10000,launch_driver)
 
-# Initialize configuration
-loadconfig()
-mqttprint("ville:" + str(global.ville))
-mqttprint("client:" + str(global.client))
-mqttprint("device:" + str(global.device))
-mqttprint("location:" + str(global.location))
-
-tasmota.add_cmd('getversion', getversion)
-tasmota.add_cmd('get', get)
-tasmota.add_cmd('set', set)
-
-mqttprint('load command.be')
-tasmota.load('command.be')
-
-mqttprint('load chx_driver')
-tasmota.load('chx_driver.be')
