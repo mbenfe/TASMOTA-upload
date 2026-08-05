@@ -162,7 +162,6 @@ def update(cmd, idx, payload, payload_json)
         var name = string.format("c_%s.json", global.ville)
         to_fetch.push(string.format("config/%s", name))
         to_fetch.push("chx-p/config/setup_device.json")
-        to_fetch.push("chx-p/config/setup_general.json")
     end
 
     mqttprint("update: start")
