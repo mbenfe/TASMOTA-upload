@@ -1,56 +1,18 @@
-var version = "04072026 dir update *"
+var version = "22.07.2026 mono extended"
 
 import string
 import global
 import mqtt
 import json
-import gpio
 import path
-
-var rxReceive = 18
-var txReceive = 19
-var rst = 2   
-var bsl = 13   
 
 #-------------------------------- COMMANDES -----------------------------------------#
 
 def mqttprint(texte)
     import mqtt
     var payload = string.format("{\"texte\":\"%s\"}", texte)
-    var topic = string.format("gw/inter/%s/%s/tele/PRINT", global.ville, global.device)
+    var topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
     mqtt.publish(topic, payload, true)
-end
-
-# ============================================================
-# ====================== STM32 COMMANDS ======================
-# ============================================================
-
-def Stm32Reset()
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(rst, 0)
-    tasmota.delay(100)  # wait 10ms
-    gpio.digital_write(rst, 1)
-    tasmota.delay(100)  # wait 10ms
-    tasmota.resp_cmnd("STM32 reset done")
-end
-
-def hold()
-    # Hold STM32 in reset and keep boot pin low.
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 0)
-    tasmota.resp_cmnd("done")
-end
-
-def start()
-    # Release reset and keep boot pin low for normal boot.
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 1)
-    tasmota.resp_cmnd("done")
 end
 
 # ============================================================
@@ -86,26 +48,15 @@ def Init()
     print('ville:', global.ville)
     print('device:', global.device)
 
-    gpio.pin_mode(rxReceive, gpio.INPUT_PULLUP)
-    gpio.pin_mode(txReceive, gpio.OUTPUT)
-    gpio.pin_mode(rst, gpio.OUTPUT)
-    gpio.pin_mode(bsl, gpio.OUTPUT)
-    gpio.digital_write(bsl, 0)
-    gpio.digital_write(rst, 1)
-
-    global.serReceive = serial(rxReceive, txReceive, 921600, serial.SERIAL_8N1)
-    mqttprint('serial receive initialised')
 end
 
 
 
-def fetch_file(payload)
+def fetch_file_raw(payload)
     import string
     import path
     var message
     var nom_fichier = string.split(payload, '/').pop()
-
-    hold()
 
     mqttprint(nom_fichier)
     var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
@@ -114,7 +65,6 @@ def fetch_file(payload)
     var wc = webclient()
     if (wc == nil)
         mqttprint("Erreur: impossible d'initialiser le client web")
-        start()
         return -1
     end
 
@@ -125,14 +75,19 @@ def fetch_file(payload)
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
         wc.close()
-        start()
         return st
     end
 
     var bytes_written = wc.write_file(nom_fichier)
     wc.close()
     mqttprint('Fetched ' + str(bytes_written))
-    start()
+    return st
+end
+
+def fetch_file(payload)
+    tasmota.cmd("hold")
+    var st = fetch_file_raw(payload)
+    tasmota.cmd("start")
     return st
 end
 
@@ -242,8 +197,8 @@ def help()
     print("Driver 132 owns STM32 set/get/cal/config commands on C071 UART.")
 
     print("[REGISTERED COMMANDS]")
-    print("Stm32reset | hold | start")
-    print("Init | getfile | name | help | h | dir | getversion | update | couts")
+    print("Driver: stm32reset | hold | start")
+    print("Script: Init | getfile | name | help | h | dir | getversion | update | couts")
 
     print("[STM32 LINK CONTROL]")
     print("Stm32reset")
@@ -252,12 +207,10 @@ def help()
 
     print("[STM32 DRIVER COMMANDS]")
     print("set MODE CAL|LOG|REG")
-    print("set TYPE MONO|TRI")
     print("set CONFIG")
     print("get CAL")
     print("get CONFIG")
     print("get MODE")
-    print("get TYPE")
     print("get ENERGY")
     print("cal OFFSET")
     print("cal VA <voltage_ref>")
@@ -278,7 +231,7 @@ def help()
     print("h")
 
     print("[NOTES]")
-    print("- UART receive link: telemetry from STM32 on pins 18/19")
+    print("- UART receive link: telemetry from STM32 handled by driver 132 on pins 18/19")
     print("- update                   : download all update files")
     print("- update *.be             : download all Berry files")
     print("- update *.hex            : download all HEX files")
@@ -321,7 +274,6 @@ def update(cmd, idx, payload, payload_json)
 
     var want_all = (selector == "" || selector == "*.*" || selector == "all")
     var want_be = (want_all || selector == "*.be" || selector == ".be" || selector == "be")
-    var want_hex = (want_all || selector == "*.hex" || selector == ".hex" || selector == "hex")
     var want_bin = (want_all || selector == "*.bin" || selector == ".bin" || selector == "bin")
     var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
 
@@ -337,38 +289,33 @@ def update(cmd, idx, payload, payload_json)
         to_fetch.push(string.format("config/%s", name))
         name = string.format("p_%s.json", global.ville)
         to_fetch.push(string.format("config/%s", name))
-        to_fetch.push("config/power_shared_villes.json")
     end
 
     if want_be
-        to_fetch.push("pwx4/c3/berry/conso.be")
-        to_fetch.push("pwx4/c3/berry/pwx4_driver.be")
-        to_fetch.push("pwx4/c3/berry/autoexec.be")
+        to_fetch.push("pwx4/c3-rogowski/berry/conso.be")
+        to_fetch.push("pwx4/c3-rogowski/berry/pwx4_driver.be")
+        to_fetch.push("pwx4/c3-rogowski/berry/autoexec.be")
     end
 
     if want_bin
-        to_fetch.push("pwx4/c3/app/pwx4new-flashed.bin")
-        to_fetch.push("pwx4/c3/boot/C071-bootloader.bin")
+        to_fetch.push("pwx4/c3-rogowski/app/rogowski.bin")
     end
 
-    if want_hex
-        to_fetch.push("hex/C071-bootloader.hex")
-        to_fetch.push("hex/pwx4new-flashed.hex")
-    end
 
     mqttprint("update: start")
     mqttprint("update: filter='" + selector + "' files=" + str(to_fetch.size()))
+    tasmota.cmd("hold")
     for i:0..to_fetch.size()-1
         var file_to_fetch = to_fetch[i]
         mqttprint("update: getfile " + file_to_fetch)
-        fetch_file(file_to_fetch)
+        fetch_file_raw(file_to_fetch)
     end
+    tasmota.cmd("start")
     mqttprint("update: done")
-    tasmota.resp_cmnd_done()
 end
 
 def couts()
-    tasmota.cmd("br import conso as c; c.mqtt_publish('all')")
+    tasmota.cmd("br import conso as c; c.mqtt_publish('all'); c.sauvegarde()")
     tasmota.resp_cmnd_done()
 end
 
@@ -377,12 +324,7 @@ tasmota.cmd("seriallog 0")
 print("serial log disabled")
 print("main: disable teleperiod")
 tasmota.cmd("Teleperiod 0")
-print("main: register stm32 commands")
-
-# ====================== STM32 COMMANDS ======================
-tasmota.add_cmd("Stm32reset", Stm32Reset)
-tasmota.add_cmd("hold", hold)
-tasmota.add_cmd("start", start)
+print("main: stm32 commands handled by driver")
 
 # ====================== ESP32 COMMANDS ======================
 print("main: register esp32 commands")
@@ -396,9 +338,13 @@ tasmota.add_cmd('getversion', getversion)
 tasmota.add_cmd('update', update)
 tasmota.add_cmd('couts', couts)
 
+def launch_driver()
+    tasmota.load("pwx4_driver.be")
+end
+
 ############################################################
 print("main: call Init")
 Init()
-print("main: load pwx4_driver.be")
-tasmota.load("pwx4_driver.be")
+print("wait 30s for driver loading")
+tasmota.set_timer(30000, launch_driver)
 print("main: autoexec done")

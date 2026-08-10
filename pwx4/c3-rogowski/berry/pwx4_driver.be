@@ -1,4 +1,4 @@
-var version = "2.0.0 avec cron specifique"
+var version = "22.07.2026 mono extended"
 
 import mqtt
 import string
@@ -16,8 +16,6 @@ end
 
 
 class PWX4
-    var serReceive
-
     var root
     var topic 
     var conso
@@ -26,13 +24,7 @@ class PWX4
         import conso
         self.conso = conso
 
-        print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
-        self.serReceive = global.serReceive
-        if self.serReceive == nil
-            print('DRIVER ERROR: global.serReceive is nil, Init() must run in autoexec before loading driver')
-            return
-        end
     end
 
     def _arr_get(arr, idx, fallback)
@@ -42,41 +34,33 @@ class PWX4
         return fallback
     end
 
-    def fast_loop()
-        self.read_uart(2)
+    def publish_config_json(myjson)
+        var topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
+        mqtt.publish(topic, json.dump(myjson), true)
+        print('PWX4 CONFIG->', json.dump(myjson))
     end
 
     def process_uart_line(line)
         var topic
         var split
         var ligne
+        var myjson
 
-        if string.find(line, "CONFIG ") == 0
-            var payload = line[7..]
-            split = string.split(payload, ':')
-            var device_name = global.device
-            var offset = 0
-            if size(split) >= 7
-                device_name = split[0]
-                offset = 1
+        if string.find(line, 'BOOT:') == 0
+            var boot_parts = string.split(line, 'BOOT:')
+            if size(boot_parts) < 2 || size(boot_parts[1]) == 0
+                print('PWX4-> malformed BOOT frame:', line)
+                return
             end
-            if size(split) >= offset + 6
-                topic = string.format("gw/%s/%s/%s/tele/CONFIG", global.client, global.ville, global.device)
-                ligne = string.format(
-                    '{"device":"%s","root":["%s"],"produit":"%s","techno":["%s"],"ratio":[%s],"PGA":[%s],"mode":["%s"]}',
-                    device_name,
-                    split[offset + 0],
-                    split[offset + 1],
-                    split[offset + 2],
-                    split[offset + 3],
-                    split[offset + 4],
-                    split[offset + 5]
-                )
-                mqtt.publish(topic, ligne, true)
-                print('PWX4 CONFIG->', ligne)
-            else
-                print('PWX4-> malformed CONFIG frame:', line)
+
+            myjson = json.load(boot_parts[1])
+            if myjson == nil
+                print('PWX4-> invalid BOOT JSON:', line)
+                return
             end
+
+            topic = string.format("gw/%s/%s/%s/tele/INFO_STM32", global.client, global.ville, global.device)
+            mqtt.publish(topic, boot_parts[1], true)
             return
         end
 
@@ -100,17 +84,48 @@ class PWX4
         elif line[0] == 'W'
             split = string.split(line, ':')
             if size(split) >= 2
-                var channel_name = global.configjson[global.device]["channels"][0]["name"]
-                if channel_name != "*"
-                    topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
-                    ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[1]))
-                    mqtt.publish(topic, ligne, true)
+                var channels = global.configjson[global.device]["channels"]
+                var mode_value = "tri"
+                if channels != nil && size(channels) > 0 && channels[0].contains("mode")
+                    mode_value = string.tolower(str(channels[0]["mode"]))
+                end
+
+                topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
+                if mode_value == "mono" && size(split) >= 4
+                    var mono_idx = 0
+                    for i : 0 .. size(channels) - 1
+                        if string.tolower(str(channels[i]["mode"])) == "mono"
+                            var channel_name = str(channels[i]["name"])
+                            if channel_name != "*" && mono_idx + 1 < size(split)
+                                ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[mono_idx + 1]))
+                                mqtt.publish(topic, ligne, true)
+                            end
+                            mono_idx += 1
+                            if mono_idx >= 3
+                                break
+                            end
+                        end
+                    end
+                elif mode_value == "mono"
+                    print('PWX4-> warning mono mode but W frame has ' + str(size(split) - 1) + ' value(s):', line)
+                else
+                    var channel_name = channels[0]["name"]
+                    if channel_name != "*"
+                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[1]))
+                        mqtt.publish(topic, ligne, true)
+                    end
                 end
             else
                 print('PWX4-> malformed W frame:', line)
             end
         elif line[0] == '{'
-            if string.find(line, '"type":"calibration"') != -1
+            myjson = json.load(line)
+            if myjson == nil
+                print('PWX4-> invalid JSON:', line)
+                return
+            end
+
+            if myjson.contains("type") && myjson["type"] == "calibration"
                 if string.find(line, '"group":"') != -1
                     topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                     mqtt.publish(topic, line, true)
@@ -118,32 +133,14 @@ class PWX4
                     topic = string.format("gw/%s/%s/%s/tele/CALIBRATION", global.client, global.ville, global.device)
                     mqtt.publish(topic, line, true)
                 end
+            elif myjson.contains("slots") || myjson.contains("channels") || myjson.contains("produit")
+                self.publish_config_json(myjson)
             else
                 topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client, global.ville, global.device)
                 mqtt.publish(topic, line, true)
             end
         else
             print('PWX4->', line)
-        end
-    end
-
-    def read_uart(timeout)
-        if self.serReceive.available()
-            var due = tasmota.millis() + timeout
-            while !tasmota.time_reached(due) end
-            var buffer = self.serReceive.read()
-            self.serReceive.flush()
-            var mystring = buffer.asstring()
-            var mylist = string.split(mystring, '\n')
-            var numitem = size(mylist)
-            var line
-            for i: 0..numitem-2
-                line = mylist[i]
-                if size(line) == 0
-                    continue
-                end
-                self.process_uart_line(line)
-            end
         end
     end
 
@@ -189,12 +186,23 @@ class PWX4
 end
 
 
+def pwx4line(cmd, idx, payload, payload_json)
+    if payload == nil || size(payload) == 0
+        tasmota.resp_cmnd_done()
+        return
+    end
+    if global.pwx4 != nil
+        global.pwx4.process_uart_line(payload)
+    end
+    tasmota.resp_cmnd_done()
+end
+
+
 
 global.pwx4 = PWX4()
 tasmota.add_driver(global.pwx4)
+tasmota.add_cmd("pwx4line", pwx4line)
 var now = tasmota.rtc()
-
-tasmota.add_fast_loop(/-> global.pwx4.fast_loop())
 
 var cron_second = get_cron_second()
 # set midnight cron
