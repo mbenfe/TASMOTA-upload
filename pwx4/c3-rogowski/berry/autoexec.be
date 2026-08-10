@@ -277,8 +277,8 @@ def update(cmd, idx, payload, payload_json)
     var want_bin = (want_all || selector == "*.bin" || selector == ".bin" || selector == "bin")
     var want_json = (want_all || selector == "*.json" || selector == ".json" || selector == "json")
 
-    if !want_be && !want_hex && !want_bin && !want_json
-        mqttprint("update: unknown filter '" + selector + "' (use *.be|*.hex|*.bin|*.json)")
+    if !want_be && !want_bin && !want_json
+        mqttprint("update: unknown filter '" + selector + "' (use *.be|*.bin|*.json)")
         tasmota.resp_cmnd("invalid update filter")
         return
     end
