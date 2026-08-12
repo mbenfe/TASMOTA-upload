@@ -345,6 +345,6 @@ end
 ############################################################
 print("main: call Init")
 Init()
-print("wait 30s for driver loading")
-tasmota.set_timer(30000, launch_driver)
+print("wait 15s for driver loading")
+tasmota.set_timer(15000, launch_driver)
 print("main: autoexec done")
