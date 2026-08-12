@@ -46,6 +46,8 @@ class PWX4
         var ligne
         var myjson
 
+        
+
         if string.find(line, 'BOOT:') == 0
             var boot_parts = string.split(line, 'BOOT:')
             if size(boot_parts) < 2 || size(boot_parts[1]) == 0
