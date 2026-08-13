@@ -55,6 +55,21 @@
       }
     ]
   },
+  "pwx4-rogowski": {
+    "produit": "PWX4",
+    "hw": "new",
+    "channels": [
+      {
+        "name": "test",
+        "genre": "main",
+        "parent": "",
+        "mode": "tri",
+        "techno": "rogowski",
+        "ratio": "1000",
+        "PGA": "1"
+      }
+    ]
+  },
   "dl12-mono": {
     "produit": "PWX12",
     "hw": "legacy_V2",
