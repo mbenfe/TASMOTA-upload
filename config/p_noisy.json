@@ -286,7 +286,7 @@
         "name": "main",
         "genre": "root",
         "parent": "",
-        "Vnom": [240,240,2240],
+        "Vnom": [240,240,240],
         "scale":[1.1,1,1], 
         "offset":[3,4,1], 
         "PGA": "1"
