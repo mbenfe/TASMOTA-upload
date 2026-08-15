@@ -286,9 +286,8 @@
         "name": "main",
         "genre": "root",
         "parent": "",
-        "mode": "tri",
-        "techno": "rogowski",
-        "ratio": "0.333",
+        "Vnom": [230,230,230],
+        "scale":[1.1,1,1.2], 
         "PGA": "1"
       }
     ]
