@@ -98,20 +98,19 @@
             }
         ]
     },
-    "pwx4-rogow": {
-        "produit": "PWX4",
-        "hw": "new",
-        "channels": [
-            {
-                "name": "main",
-                "genre": "root",
-                "parent": "",
-                "mode": "tri",
-                "techno": "rogowski",
-                "ratio": "3003",
-                "PGA": "1"
-            }
-        ]
+   "pwx4-rogowski": {
+    "produit": "PWX4",
+    "hw": "new",
+    "channel": 
+      {
+        "name": "main",
+        "genre": "root",
+        "parent": "",
+        "Vnom": [230,230,230],
+        "scale":[1,1,1], 
+        "offset":[0,0,0], 
+        "PGA": "1"
+      }
     },
     "dl12-maing2": {
         "produit": "PWX12",
