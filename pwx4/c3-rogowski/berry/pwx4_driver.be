@@ -20,6 +20,27 @@ class PWX4
     var topic 
     var conso
 
+    def get_device_channels()
+        if global.configjson == nil || global.device == nil
+            return []
+        end
+        var cfg = global.configjson[global.device]
+        if cfg == nil
+            return []
+        end
+        if cfg.contains("channel") && cfg["channel"] != nil
+            return [cfg["channel"]]
+        end
+        return []
+    end
+
+    def get_primary_channel_name(channels)
+        if channels != nil && size(channels) > 0 && channels[0] != nil && channels[0].contains("name")
+            return str(channels[0]["name"])
+        end
+        return "main"
+    end
+
     def init()
         import conso
         self.conso = conso
@@ -86,36 +107,12 @@ class PWX4
         elif line[0] == 'W'
             split = string.split(line, ':')
             if size(split) >= 2
-                var channels = global.configjson[global.device]["channels"]
-                var mode_value = "tri"
-                if channels != nil && size(channels) > 0 && channels[0].contains("mode")
-                    mode_value = string.tolower(str(channels[0]["mode"]))
-                end
-
+                var channels = self.get_device_channels()
                 topic = string.format("gw/%s/%s/%s/tele/POWER", global.client, global.ville, global.device)
-                if mode_value == "mono" && size(split) >= 4
-                    var mono_idx = 0
-                    for i : 0 .. size(channels) - 1
-                        if string.tolower(str(channels[i]["mode"])) == "mono"
-                            var channel_name = str(channels[i]["name"])
-                            if channel_name != "*" && mono_idx + 1 < size(split)
-                                ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[mono_idx + 1]))
-                                mqtt.publish(topic, ligne, true)
-                            end
-                            mono_idx += 1
-                            if mono_idx >= 3
-                                break
-                            end
-                        end
-                    end
-                elif mode_value == "mono"
-                    print('PWX4-> warning mono mode but W frame has ' + str(size(split) - 1) + ' value(s):', line)
-                else
-                    var channel_name = channels[0]["name"]
-                    if channel_name != "*"
-                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[1]))
-                        mqtt.publish(topic, ligne, true)
-                    end
+                var channel_name = self.get_primary_channel_name(channels)
+                if channel_name != "*"
+                    ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[1]))
+                    mqtt.publish(topic, ligne, true)
                 end
             else
                 print('PWX4-> malformed W frame:', line)
