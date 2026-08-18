@@ -69,18 +69,39 @@ def fetch_file_raw(payload)
     end
 
     wc.set_follow_redirects(true)
-    wc.begin(filepath)
-    var st = wc.GET()
-    if (st != 200)
+    var st = 0
+    var bytes_written = -1
+    for attempt:0..2
+        wc.begin(filepath)
+        st = wc.GET()
+        if st == 200
+            bytes_written = wc.write_file(nom_fichier)
+            break
+        end
+
         message = "Erreur: code HTTP " + str(st)
         mqttprint(message)
+        if st != 429
+            break
+        end
+
         wc.close()
-        return st
+        if attempt < 2
+            mqttprint("fetch retry after 429: " + nom_fichier)
+            tasmota.delay(1000)
+            wc = webclient()
+            if (wc == nil)
+                mqttprint("Erreur: impossible de recréer le client web")
+                return -1
+            end
+            wc.set_follow_redirects(true)
+        end
     end
 
-    var bytes_written = wc.write_file(nom_fichier)
     wc.close()
-    mqttprint('Fetched ' + str(bytes_written))
+    if st == 200
+        mqttprint('Fetched ' + str(bytes_written))
+    end
     return st
 end
 
@@ -309,6 +330,9 @@ def update(cmd, idx, payload, payload_json)
         var file_to_fetch = to_fetch[i]
         mqttprint("update: getfile " + file_to_fetch)
         fetch_file_raw(file_to_fetch)
+        if i + 1 < to_fetch.size()
+            tasmota.delay(250)
+        end
     end
     tasmota.cmd("start")
     mqttprint("update: done")
