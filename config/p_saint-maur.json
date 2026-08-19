@@ -7,9 +7,9 @@
         "name": "main",
         "genre": "root",
         "parent": "",
-        "Vnom": [230,230,230],
+        "Vnom": [234,234,234],
         "scale":[1,1,1], 
-        "offset":[0,0,0], 
+        "offset":[1.5,2.7,1.5], 
         "PGA": "1"
       }
   },
