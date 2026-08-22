@@ -319,7 +319,7 @@ def update(cmd, idx, payload, payload_json)
     end
 
     if want_bin
-        to_fetch.push("pwx4/c3-rogowski/app/rogowski.bin")
+        to_fetch.push("pwx4/c3-rogowski/app/rogowski_333mV.bin")
     end
 
 
