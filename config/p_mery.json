@@ -47,36 +47,34 @@
             }
         ]
     },
-    "pwx4-rogow1": {
-        "produit": "PWX4",
-        "hw": "new",
-        "channels": [
-            {
-                "name": "main",
-                "genre": "root",
-                "parent": "",
-                "mode": "tri",
-                "techno": "rogowski",
-                "ratio": "3003",
-                "PGA": "1"
-            }
-        ]
-    },
-    "pwx4-rogow2": {
-        "produit": "PWX4",
-        "hw": "new",
-        "channels": [
-            {
-                "name": "froid",
-                "genre": "leaf",
-                "parent": "main",
-                "mode": "tri",
-                "techno": "rogowski",
-                "ratio": "3003",
-                "PGA": "1"
-            }
-        ]
-    },
+   "pwx4-rogowski-main": {
+    "produit": "PWX4",
+    "hw": "new",
+    "channel": 
+      {
+        "name": "main",
+        "genre": "root",
+        "parent": "",
+        "Vnom": [230,230,230],
+        "scale":[1,1,1], 
+        "offset":[0,0,0], 
+        "PGA": "1"
+      }
+  },  
+   "pwx4-rogowski-froid": {
+    "produit": "PWX4",
+    "hw": "new",
+    "channel": 
+      {
+        "name": "froid",
+        "genre": "node",
+        "parent": "main",
+        "Vnom": [230,230,230],
+        "scale":[1,1,1], 
+        "offset":[0,0,0], 
+        "PGA": "1"
+      }
+  },  
     "dl12-tgbt3": {
         "produit": "PWX12",
         "hw": "legacy_V2",
