@@ -40,7 +40,7 @@
         "name": "main",
         "genre": "root",
         "parent": "",
-        "Vnom": [230,230,230],
+        "Vnom": [237,238,238],
         "scale":[1,1,1], 
         "offset":[0,0,0], 
         "PGA": "1"
