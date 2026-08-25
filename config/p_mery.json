@@ -69,9 +69,9 @@
         "name": "froid",
         "genre": "node",
         "parent": "main",
-        "Vnom": [230,230,230],
-        "scale":[1,1,1], 
-        "offset":[0,0,0], 
+        "Vnom": [232,232,232],
+        "scale":[1.02,1.02,1.03], 
+        "offset":[0.9,1.2,1], 
         "PGA": "1"
       }
   },  
