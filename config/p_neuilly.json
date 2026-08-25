@@ -109,8 +109,8 @@
       },
       {
         "name": "main",
-        "genre": "node",
-        "parent": "virtual_total",
+        "genre": "root",
+        "parent": "",
         "mode": "tri",
         "techno": "rogowski",
         "ratio": "3003",
