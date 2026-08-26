@@ -1,4 +1,18 @@
 {
+    "virtuel": {
+        "produit": "virtuel",
+        "hw": "",
+        "channels": [
+            {
+                "name": "virtuel_total",
+                "genre": "root",
+                "children": [
+                    "froid",
+                    "gene_ext1"
+                ]
+            }
+        ]
+    },
   "dl12-maingh": {
     "produit": "PWX12",
     "hw": "legacy_V2",
@@ -166,7 +180,7 @@
     "hw": "legacy_V2",
     "channels": [
       {
-        "name": "force",
+        "name": "force_boulangerie",
         "genre": "leaf",
         "parent": "gen_boulangerie",
         "mode": "tri",
@@ -347,8 +361,8 @@
     "channels": [
       {
         "name": "froid",
-        "genre": "leaf",
-        "parent": "gene_ext1",
+        "genre": "node",
+        "parent": "virtuel_total",
         "mode": "tri",
         "techno": "ct",
         "ratio": "4000",
@@ -362,7 +376,7 @@
     "channels": [
       {
         "name": "main",
-        "genre": "root",
+        "genre": "node",
         "parent": "main",
         "mode": "tri",
         "techno": "ct",
@@ -378,7 +392,7 @@
       {
         "name": "gene_ext1",
         "genre": "node",
-        "parent": "main",
+        "parent": "virtuel_total",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",

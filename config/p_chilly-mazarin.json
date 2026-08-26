@@ -1,10 +1,10 @@
 {
-    "virtual1": {
-        "produit": "virtual",
+    "virtuel": {
+        "produit": "virtuel",
         "hw": "",
         "channels": [
             {
-                "name": "virtual_total",
+                "name": "virtuel_total",
                 "genre": "root",
                 "children": [
                     "gene_froid",
@@ -55,7 +55,7 @@
             {
                 "name": "gene_froid",
                 "genre": "node",
-                "parent": "virtual_total",
+                "parent": "virtuel_total",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",
@@ -88,7 +88,7 @@
             {
                 "name": "gene_td_ss",
                 "genre": "leaf",
-                "parent": "virtual_total",
+                "parent": "virtuel_total",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",
@@ -121,7 +121,7 @@
             {
                 "name": "gene_td_boulange",
                 "genre": "node",
-                "parent": "virtual_total",
+                "parent": "virtuel_total",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",
@@ -220,7 +220,7 @@
             {
                 "name": "gene_tgbt",
                 "genre": "node",
-                "parent": "virtual_total",
+                "parent": "virtuel_total",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",
