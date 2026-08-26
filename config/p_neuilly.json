@@ -1,18 +1,4 @@
 {
-  "virtual1": {
-    "produit": "virtual",
-    "hw": "",
-    "channels": [
-      {
-        "name": "virtual_total",
-        "genre": "root",
-        "children": [
-          "general",
-          "main"
-        ]
-      }
-    ]
-  },
   "dl4-eclpk1": {
     "produit": "PWX4",
     "hw": "legacy_V2",
@@ -94,6 +80,36 @@
       }
     ]
   },
+    "dl4-oldh": {
+    "produit": "PWX4",
+    "hw": "legacy_V2",
+    "channels": [
+      {
+        "name": "froid",
+        "genre": "leaf",
+        "parent": "main",
+        "mode": "tri",
+        "techno": "ct",
+        "ratio": "2000",
+        "PGA": "1"
+      }
+    ]
+  },
+   "pwx4-rogowski": {
+    "produit": "PWX4",
+    "hw": "new",
+    "channel": 
+      {
+        "name": "main",
+        "genre": "root",
+        "parent": "",
+        "Vnom": [230,230,230],
+        "scale":[1,1,1], 
+        "offset":[0,0,0], 
+        "PGA": "1"
+      }
+  },  
+
   "dl12-oldh": {
     "produit": "PWX12",
     "hw": "legacy_V2",
