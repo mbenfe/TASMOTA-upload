@@ -8,7 +8,7 @@
                 "genre": "root",
                 "children": [
                     "froid",
-                    "gene_ext1"
+                    "ext_depart_magasin"
                 ]
             }
         ]
@@ -110,7 +110,7 @@
       {
         "name": "gene_int",
         "genre": "node",
-        "parent": "gene_ext1",
+        "parent": "ext_depart_magasin",
         "mode": "tri",
         "techno": "ct",
         "ratio": "4000",
@@ -390,7 +390,7 @@
     "hw": "legacy_V2",
     "channels": [
       {
-        "name": "gene_ext1",
+        "name": "ext_depart_magasin",
         "genre": "node",
         "parent": "virtuel_total",
         "mode": "tri",
@@ -410,7 +410,7 @@
       {
         "name": "station",
         "genre": "leaf",
-        "parent": "gene_ext1",
+        "parent": "ext_depart_magasin",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
