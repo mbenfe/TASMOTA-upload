@@ -110,7 +110,7 @@
       {
         "name": "gene_int",
         "genre": "node",
-        "parent": "gene_int",
+        "parent": "gene_ext1",
         "mode": "tri",
         "techno": "ct",
         "ratio": "4000",
@@ -182,7 +182,7 @@
       {
         "name": "force_boulangerie",
         "genre": "leaf",
-        "parent": "gen_boulangerie",
+        "parent": "td_boulangerie",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -191,14 +191,14 @@
       {
         "name": "grandfour",
         "genre": "leaf",
-        "parent": "gen_boulangerie",
+        "parent": "td_boulangerie",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
         "PGA": "1"
       },
       {
-        "name": "gen_boulangerie",
+        "name": "td_boulangerie",
         "genre": "node",
         "parent": "gene_int",
         "mode": "tri",
@@ -215,7 +215,7 @@
       {
         "name": "cfneg",
         "genre": "leaf",
-        "parent": "gen_boulangerie",
+        "parent": "td_boulangerie",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -224,7 +224,7 @@
       {
         "name": "cfpos",
         "genre": "leaf",
-        "parent": "gen_boulangerie",
+        "parent": "td_boulangerie",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -233,7 +233,7 @@
       {
         "name": "ballon",
         "genre": "leaf",
-        "parent": "gen_boulangerie",
+        "parent": "td_boulangerie",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
