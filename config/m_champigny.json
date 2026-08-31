@@ -82,7 +82,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres negatives % / %",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -90,7 +90,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "Surgel├â┬⌐s Drive",
+          "location": "Surgelés Drive",
           "master": "CfSurgDrive_10",
           "details": "details_CfSurgDrive_10",
           "slave": []
@@ -100,7 +100,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 4,
-          "location": "Surgel├â┬⌐s R├â┬⌐ception",
+          "location": "Surgelés Réception",
           "master": "CfSurgReception_18",
           "details": "details_CfSurgReception_18",
           "slave": []
@@ -110,7 +110,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 5,
-          "location": "Surgel├â┬⌐s R├â┬⌐serve",
+          "location": "Surgelés Réserve",
           "master": "CfSurgReserve_69",
           "details": "details_CfSurgReserve_69",
           "slave": []
@@ -120,7 +120,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 5,
-          "location": "Surgel├â┬⌐s Boulangerie",
+          "location": "Surgelés Boulangerie",
           "master": "CfSurgBoulang_70",
           "details": "details_CfSurgBoulang_70",
           "slave": []
@@ -133,7 +133,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Meubles negatifs % / %",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -141,7 +141,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPortes_20",
           "details": "details_SurgPortes_20",
           "slave": []
@@ -151,7 +151,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPortes_21",
           "details": "details_SurgPortes_21",
           "slave": []
@@ -161,7 +161,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPortes_22",
           "details": "details_SurgPortes_22",
           "slave": []
@@ -171,7 +171,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPortes_23",
           "details": "details_SurgPortes_23",
           "slave": []
@@ -181,7 +181,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 8,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPortes_24",
           "details": "details_SurgPortes_24",
           "slave": []
@@ -191,7 +191,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 8,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPortes_25",
           "details": "details_SurgPortes_25",
           "slave": []
@@ -230,7 +230,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres positives % / %",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -351,7 +351,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Meubles positif % / %",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {
@@ -732,7 +732,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs positifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Bacs positifs % / %",
           "values": [ "cout_bac+", "cout_pos" ]
         },
         {

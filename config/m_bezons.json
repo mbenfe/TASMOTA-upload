@@ -82,7 +82,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "Exterieur/Caisse 6/Vins/Caisse 1/Caisse 9/Fruits/Coca Cola/Hallal/Surgel├â┬⌐s/Eaux",
+          "location": "Exterieur/Caisse 6/Vins/Caisse 1/Caisse 9/Fruits/Coca Cola/Hallal/Surgelés/Eaux",
           "master": "th_exterieur",
           "slave": [ "aex-1", "th_vins", "th_caisse_1", "th_caisse_9", "th_fruits", "th_cocacola", "th_hallal", "th_surgeles", "th_eaux", "aex-1_ND" ]
         }
@@ -123,7 +123,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
-          "location": "Surgel├â┬⌐s Boulangerie",
+          "location": "Surgelés Boulangerie",
           "master": "CFSurgBoul9",
           "details": "details_CFSurgBoul9",
           "slave": []
@@ -133,7 +133,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 2,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "CFSurgeles8",
           "details": "details_CFSurgeles8",
           "slave": []
@@ -143,7 +143,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgMixtes1G",
           "details": "details_SurgMixtes1G",
           "slave": []
@@ -153,7 +153,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 4,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgMixtes1M",
           "details": "details_SurgMixtes1M",
           "slave": []
@@ -163,7 +163,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 4,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgMixtes1D",
           "details": "details_SurgMixtes1D",
           "slave": []
@@ -173,7 +173,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 4,
-          "location": "Bac surgel├â┬⌐s Tg",
+          "location": "Bac surgelés Tg",
           "master": "TGBacSurg",
           "details": "details_TGBacSurg",
           "slave": []
@@ -183,7 +183,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 5,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgMixtes2G",
           "details": "details_SurgMixtes2G",
           "slave": []
@@ -193,7 +193,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 5,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgMixtes2M",
           "details": "details_SurgMixtes2M",
           "slave": []
@@ -203,7 +203,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 5,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgMixtes2D",
           "details": "details_SurgMixtes2D",
           "slave": []
@@ -213,7 +213,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 5,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPorte51",
           "details": "details_SurgPorte51",
           "slave": []
@@ -223,7 +223,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 6,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPorte52",
           "details": "details_SurgPorte52",
           "slave": []
@@ -233,7 +233,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 6,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPorte53",
           "details": "details_SurgPorte53",
           "slave": []

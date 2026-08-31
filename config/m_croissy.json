@@ -29,7 +29,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 3,
-          "location": "Exterieur/CLS/Photocopieuse/Maneges/Rayon b├â┬⌐b├â┬⌐/SAS Entr├â┬⌐e/Rayoun chats/Confisseries/Laits \u0026 oeufs/Boucherie/Boulangerie",
+          "location": "Exterieur/CLS/Photocopieuse/Maneges/Rayon bébé/SAS Entrée/Rayoun chats/Confisseries/Laits \u0026 oeufs/Boucherie/Boulangerie",
           "master": "th_exterieure",
           "slave": [ "th_caisse_auto", "th_photocopieuse", "th_maneges", "th_bebe", "th_sas", "th_chats", "th_confisserie", "th_lait", "th_boucherie", "th_boulangerie", "th_caisse_auto_ND" ]
         }
@@ -152,7 +152,7 @@
           "color": "GREEN",
           "column": 1,
           "row": 8,
-          "location": "Entr├â┬⌐e",
+          "location": "Entrée",
           "master": "rdx-frico",
           "slave": [ "setup_rdx-frico", "setup_rdx-frico_ND" ]
         }
@@ -205,7 +205,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres negatives % / %",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -213,7 +213,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "CfSurgelaGroupe_2",
           "details": "details_CfSurgelaGroupe_2",
           "slave": []
@@ -223,7 +223,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 4,
-          "location": "Surgel├â┬⌐s R├â┬⌐serve",
+          "location": "Surgelés Réserve",
           "master": "CfSurgReserve_59",
           "details": "details_CfSurgReserve_59",
           "slave": []
@@ -233,7 +233,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 5,
-          "location": "Surgel├â┬⌐s Boulangerie",
+          "location": "Surgelés Boulangerie",
           "master": "CfSurgBoulang_69",
           "details": "details_CfSurgBoulang_69",
           "slave": []
@@ -246,7 +246,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Meubles negatifs % / %",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -254,7 +254,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgelaPortes_10",
           "details": "details_SurgelaPortes_10",
           "slave": []
@@ -264,7 +264,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgelaPortes_11",
           "details": "details_SurgelaPortes_11",
           "slave": []
@@ -274,7 +274,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgelaPortes_12",
           "details": "details_SurgelaPortes_12",
           "slave": []
@@ -284,7 +284,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgelaPortes_13",
           "details": "details_SurgelaPortes_13",
           "slave": []
@@ -297,7 +297,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Bacs negatifs % / %",
           "values": [ "cout_bac-", "cout_neg" ]
         },
         {
@@ -305,7 +305,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 9,
-          "location": "Bac surgel├â┬⌐s Tg",
+          "location": "Bac surgelés Tg",
           "master": "TgBacSurg_14",
           "details": "details_TgBacSurg_14",
           "slave": []
@@ -315,7 +315,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 9,
-          "location": "Bac surgel├â┬⌐s Tg",
+          "location": "Bac surgelés Tg",
           "master": "TgBacSurg_15",
           "details": "details_TgBacSurg_15",
           "slave": []
@@ -325,7 +325,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 10,
-          "location": "Bac surgel├â┬⌐s",
+          "location": "Bac surgelés",
           "master": "BacSurgela_16",
           "details": "details_BacSurgela_16",
           "slave": []
@@ -335,7 +335,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 10,
-          "location": "Bac surgel├â┬⌐s",
+          "location": "Bac surgelés",
           "master": "BacSurgela_17",
           "details": "details_BacSurgela_17",
           "slave": []
@@ -345,7 +345,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 11,
-          "location": "Bac surgel├â┬⌐s",
+          "location": "Bac surgelés",
           "master": "BacSurgela_18",
           "details": "details_BacSurgela_18",
           "slave": []
@@ -355,7 +355,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 11,
-          "location": "Bac surgel├â┬⌐s",
+          "location": "Bac surgelés",
           "master": "BacSurgela_19",
           "details": "details_BacSurgela_19",
           "slave": []
@@ -365,7 +365,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 12,
-          "location": "Bac surgel├â┬⌐sTg",
+          "location": "Bac surgelésTg",
           "master": "TgBacSurg_20",
           "details": "details_TgBacSurg_20",
           "slave": []
@@ -413,7 +413,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres positives % / %",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -441,7 +441,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 6,
-          "location": "Fruit\u0026L├â┬⌐gumes",
+          "location": "Fruit\u0026Légumes",
           "master": "CfFruitLegumes_62",
           "details": "details_CfFruitLegumes_62",
           "slave": []
@@ -504,7 +504,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Meubles positif % / %",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {
@@ -905,7 +905,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs positifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Bacs positifs % / %",
           "values": [ "cout_bac+", "cout_pos" ]
         },
         {

@@ -199,7 +199,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres negatives % / %",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -217,7 +217,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 4,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "CfSurgela_4",
           "details": "details_CfSurgela_4",
           "slave": []
@@ -227,7 +227,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 5,
-          "location": "N├â┬⌐gatif Boulangerie",
+          "location": "Négatif Boulangerie",
           "master": "CfNegBoul_17",
           "details": "details_CfNegBoul_17",
           "slave": []
@@ -240,7 +240,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Meubles negatifs % / %",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -248,7 +248,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 7,
-          "location": "Tg surgel├â┬⌐s",
+          "location": "Tg surgelés",
           "master": "TgSurgela_40",
           "details": "details_TgSurgela_40",
           "slave": []
@@ -258,7 +258,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 7,
-          "location": "Tg surgel├â┬⌐s",
+          "location": "Tg surgelés",
           "master": "TgSurgela_44",
           "details": "details_TgSurgela_44",
           "slave": []
@@ -268,7 +268,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPort3g_45",
           "details": "details_SurgPort3g_45",
           "slave": []
@@ -278,7 +278,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 7,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPort3m_46",
           "details": "details_SurgPort3m_46",
           "slave": []
@@ -288,7 +288,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 8,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPort3d_47",
           "details": "details_SurgPort3d_47",
           "slave": []
@@ -298,7 +298,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 8,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPort1g_51",
           "details": "details_SurgPort1g_51",
           "slave": []
@@ -308,7 +308,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 8,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPort1m_52",
           "details": "details_SurgPort1m_52",
           "slave": []
@@ -318,7 +318,7 @@
           "color": "TRANSPARENT",
           "column": 4,
           "row": 8,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPort1d_53",
           "details": "details_SurgPort1d_53",
           "slave": []
@@ -328,7 +328,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 9,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPort2g_54",
           "details": "details_SurgPort2g_54",
           "slave": []
@@ -338,7 +338,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 9,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPort2m_55",
           "details": "details_SurgPort2m_55",
           "slave": []
@@ -348,7 +348,7 @@
           "color": "TRANSPARENT",
           "column": 3,
           "row": 9,
-          "location": "Surgel├â┬⌐s",
+          "location": "Surgelés",
           "master": "SurgPort2d_56",
           "details": "details_SurgPort2d_56",
           "slave": []
@@ -387,7 +387,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres positives % / %",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -495,7 +495,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 11,
-          "location": "Fruit\u0026L├â┬⌐gumes",
+          "location": "Fruit\u0026Légumes",
           "master": "CfF\u0026l_15",
           "details": "details_CfF\u0026l_15",
           "slave": []
@@ -528,7 +528,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Meubles positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Meubles positif % / %",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {

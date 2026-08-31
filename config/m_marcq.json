@@ -64,7 +64,7 @@
           "color": "GREEN",
           "column": 1,
           "row": 2,
-          "location": " 1er ├â┬⌐tage",
+          "location": " 1er étage",
           "master": "",
           "slave": []
         },
@@ -100,7 +100,7 @@
           "color": "GREEN",
           "column": 1,
           "row": 5,
-          "location": "├â┬⌐tage chambres",
+          "location": "étage chambres",
           "master": "",
           "slave": []
         },

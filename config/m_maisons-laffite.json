@@ -38,7 +38,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 4,
-          "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/L├â┬⌐gumes",
+          "location": "Exterieur/CLS/Caisse 2/Pains/Escalator/Traiteur/Sushi/Légumes",
           "master": "th_exterieur",
           "slave": [ "th_cls", "th_caisse_2", "th_rdc_pains", "th_escalator", "th_traiteur", "th_sushi", "th_legumes", "th_cls_ND" ]
         },
@@ -56,7 +56,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 6,
-          "location": "Exterieur/Escalator/Surgel├â┬⌐s/Biscottes/Animaux/Coca Cola",
+          "location": "Exterieur/Escalator/Surgelés/Biscottes/Animaux/Coca Cola",
           "master": "th_exterieur",
           "slave": [ "th_ss_escalator", "th_surgeles", "th_biscottes", "th_animaux", "th_coca", "th_ss_escalator_ND" ]
         }
@@ -100,7 +100,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres negatives % / %",
           "values": [ "cout_cf-", "cout_neg" ]
         },
         {
@@ -118,7 +118,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 3,
-          "location": "N├â┬⌐gatif Boulangerie",
+          "location": "Négatif Boulangerie",
           "master": "CfNegBoulang_59",
           "details": "details_CfNegBoulang_59",
           "slave": []
@@ -151,7 +151,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs negatifs %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Bacs negatifs % / %",
           "values": [ "cout_bac-", "cout_neg" ]
         },
         {
@@ -179,7 +179,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 8,
-          "location": "Bac n├â┬⌐gatif Tg",
+          "location": "Bac négatif Tg",
           "master": "TgBacNag_94",
           "details": "details_TgBacNag_94",
           "slave": []
@@ -189,7 +189,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 8,
-          "location": "Bac n├â┬⌐gatif",
+          "location": "Bac négatif",
           "master": "BacNag_95",
           "details": "details_BacNag_95",
           "slave": []
@@ -199,7 +199,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 9,
-          "location": "Bac n├â┬⌐gatif",
+          "location": "Bac négatif",
           "master": "BacNag_96",
           "details": "details_BacNag_96",
           "slave": []
@@ -209,7 +209,7 @@
           "color": "TRANSPARENT",
           "column": 2,
           "row": 9,
-          "location": "Bac n├â┬⌐gatif Tg",
+          "location": "Bac négatif Tg",
           "master": "TgBacNag_97",
           "details": "details_TgBacNag_97",
           "slave": []
@@ -222,7 +222,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres negatives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres negatives % / %",
           "values": [ "cout_vitrine-", "cout_neg" ]
         },
         {
@@ -310,7 +310,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres positives % / %",
           "values": [ "cout_cf+", "cout_pos" ]
         },
         {
@@ -398,7 +398,7 @@
           "color": "TRANSPARENT",
           "column": 1,
           "row": 7,
-          "location": "Fruit\u0026L├â┬⌐gumes",
+          "location": "Fruit\u0026Légumes",
           "master": "CfF\u0026l_86",
           "details": "details_CfF\u0026l_86",
           "slave": []
@@ -451,7 +451,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Chambres positives %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Chambres positives % / %",
           "values": [ "cout_vitrine+", "cout_pos" ]
         },
         {
@@ -922,7 +922,7 @@
           "location": "",
           "master": "cout_groupes",
           "slave": [],
-          "text": "Bacs positif %├óΓÇÜ┬¼ / %├óΓÇÜ┬¼",
+          "text": "Bacs positif % / %",
           "values": [ "cout_bac+", "cout_pos" ]
         },
         {
