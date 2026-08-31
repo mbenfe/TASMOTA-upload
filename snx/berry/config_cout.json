@@ -60,12 +60,12 @@
         }
     },
     "croissy": {
-        "cout_froid+": "fpos",
+        "cout_froid+": ["fpos","fpos2"],
         "cout_froid-": "fneg",
         "cout_froid": "none",
         "cout_owner": {
-            "cout_froid+": "dl4-fpos",
-            "cout_froid-": "dl4-fneg",
+            "cout_froid+": ["dl4-froid_pos","dl4-froid-new"],
+            "cout_froid-": "dl4-froid_neg",
             "cout_froid": "none"
         }
     },
@@ -96,7 +96,7 @@
         "cout_owner": {
             "cout_froid+": "none",
             "cout_froid-": "none",
-            "cout_froid": "dl12-tgbt2-2"
+            "cout_froid": "pwx4-rogowski-froid"
         }
     },
     "neuilly": {
