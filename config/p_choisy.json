@@ -7,8 +7,8 @@
                 "name": "virtuel_total",
                 "genre": "root",
                 "children": [
-                    "froid",
-                    "ext_depart_magasin"
+                    "ext_ext_froid",
+                    "main"
                 ]
             }
         ]
@@ -355,12 +355,12 @@
       }
     ]
   },
-  "dl4-froid": {
+  "dl4-ext_ext_froid": {
     "produit": "PWX4",
     "hw": "legacy_V2",
     "channels": [
       {
-        "name": "froid",
+        "name": "ext_ext_froid",
         "genre": "node",
         "parent": "virtuel_total",
         "mode": "tri",
@@ -377,7 +377,7 @@
       {
         "name": "main",
         "genre": "node",
-        "parent": "main",
+        "parent": "virtuel_total",
         "mode": "tri",
         "techno": "ct",
         "ratio": "4000",
