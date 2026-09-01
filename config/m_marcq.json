@@ -16,10 +16,19 @@
           "slave": []
         },
         {
-          "shape": "light",
+          "shape": "iPwxComp",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
+          "location": "",
+          "master": "pwx_comp_nd",
+          "slave": []
+        },
+        {
+          "shape": "light",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 3,
           "location": "Cuisine",
           "master": "switch_cuisine",
           "slave": []
@@ -28,7 +37,7 @@
           "shape": "light",
           "color": "TRANSPARENT",
           "column": 2,
-          "row": 2,
+          "row": 3,
           "location": "Salon",
           "master": "switch_salon",
           "slave": []
@@ -37,7 +46,7 @@
           "shape": "light",
           "color": "TRANSPARENT",
           "column": 1,
-          "row": 3,
+          "row": 4,
           "location": "Entree RDC",
           "master": "switch_entree",
           "slave": []

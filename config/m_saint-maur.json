@@ -16,10 +16,19 @@
           "slave": []
         },
         {
-          "shape": "iCoutsPareto",
+          "shape": "iPwxComp",
           "color": "TRANSPARENT",
           "column": 1,
           "row": 2,
+          "location": "",
+          "master": "pwx_comp_nd",
+          "slave": []
+        },
+        {
+          "shape": "iCoutsPareto",
+          "color": "TRANSPARENT",
+          "column": 1,
+          "row": 3,
           "location": "Total/Boulangerie/Reserve/Depart/Parking/Bureaux/Froid/Caisses/Eclairage 1/Eclairage 2",
           "master": "c_gene",
           "slave": [ "c_td_boulangerie", "c_reserve", "c_td_labo", "c_depart", "c_parking", "c_pcprive", "c_froid", "c_td_caisses", "c_eclpub1", "c_eclpub2", "c_td_boulangerie_ND" ]

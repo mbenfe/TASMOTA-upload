@@ -65,7 +65,7 @@
       {
         "name": "station",
         "genre": "leaf",
-        "parent": "main",
+        "parent": "ColonneA",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -80,7 +80,7 @@
       {
         "name": "CoffretEntree",
         "genre": "leaf",
-        "parent": "main",
+        "parent": "ColonneB",
         "mode": "tri",
         "techno": "ct",
         "ratio": "4000",
@@ -95,7 +95,7 @@
       {
         "name": "rampe5-1-divecl",
         "genre": "leaf",
-        "parent": "main",
+        "parent": "ColonneA",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -104,7 +104,7 @@
       {
         "name": "rampe8-10-14-12-div",
         "genre": "leaf",
-        "parent": "main",
+        "parent": "ColonneA",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -128,7 +128,7 @@
       {
         "name": "rampe3-6-1-2-div",
         "genre": "leaf",
-        "parent": "main",
+        "parent": "ColonneB",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -137,7 +137,7 @@
       {
         "name": "rampe2-9-div",
         "genre": "leaf",
-        "parent": "main",
+        "parent": "ColonneB",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
