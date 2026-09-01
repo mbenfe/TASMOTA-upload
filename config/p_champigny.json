@@ -15,7 +15,7 @@
       {
         "name": "gene_forces_divers",
         "genre": "leaf",
-        "parent": "pricipal",
+        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -24,109 +24,10 @@
       {
         "name": "froid",
         "genre": "leaf",
-        "parent": "pricipal",
+        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "4000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl12-tgbt2": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "ctgendole",
-        "genre": "leaf",
-        "parent": "pricipal",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "pchorspublic",
-        "genre": "leaf",
-        "parent": "pricipal",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "eclgondoles",
-        "genre": "leaf",
-        "parent": "pricipal",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl12-tgbt3": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "pcpublic",
-        "genre": "leaf",
-        "parent": "pricipal",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "eclprive",
-        "genre": "leaf",
-        "parent": "pricipal",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "ecldeco",
-        "genre": "leaf",
-        "parent": "pricipal",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      }
-    ]
-  },
-  "dl12-tgbt4": {
-    "produit": "PWX12",
-    "hw": "legacy_V2",
-    "channels": [
-      {
-        "name": "pcprive",
-        "genre": "leaf",
-        "parent": "pricipal",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "divers",
-        "genre": "leaf",
-        "parent": "pricipal",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
-        "PGA": "1"
-      },
-      {
-        "name": "chauffage",
-        "genre": "leaf",
-        "parent": "pricipal",
-        "mode": "tri",
-        "techno": "ct",
-        "ratio": "1000",
         "PGA": "1"
       }
     ]
@@ -138,7 +39,7 @@
       {
         "name": "gene_boulangerie",
         "genre": "node",
-        "parent": "pricipal",
+        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
@@ -171,7 +72,7 @@
       {
         "name": "gene_labo",
         "genre": "node",
-        "parent": "pricipal",
+        "parent": "main",
         "mode": "tri",
         "techno": "ct",
         "ratio": "1000",
