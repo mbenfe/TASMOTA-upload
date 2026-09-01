@@ -380,7 +380,7 @@
         "parent": "virtuel_total",
         "mode": "tri",
         "techno": "ct",
-        "ratio": "4000",
+        "ratio": "2000",
         "PGA": "1"
       }
     ]
