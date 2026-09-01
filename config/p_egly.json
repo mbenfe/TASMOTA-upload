@@ -1,10 +1,10 @@
 {
-  "virtual1": {
-    "produit": "virtual",
+  "virtuel1": {
+    "produit": "virtuel",
     "hw": "",
     "channels": [
       {
-        "name": "virtual_total",
+        "name": "virtuel_total",
         "genre": "root",
         "children": [
           "retour_solaire",
@@ -93,7 +93,7 @@
       {
         "name": "retour_solaire",
         "genre": "leaf",
-        "parent": "virtual_total",
+        "parent": "virtuel_total",
         "mode": "tri",
         "techno": "ct",
         "ratio": "4000",
@@ -102,7 +102,7 @@
       {
         "name": "general_tgbtext",
         "genre": "node",
-        "parent": "virtual_total",
+        "parent": "virtuel_total",
         "mode": "tri",
         "techno": "ct",
         "ratio": "4000",
@@ -159,7 +159,7 @@
       {
         "name": "general_tgbtint",
         "genre": "node",
-        "parent": "general_tgbtint",
+        "parent": "virtuel_total",
         "mode": "tri",
         "techno": "ct",
         "ratio": "4000",
@@ -168,7 +168,7 @@
       {
         "name": "station_service",
         "genre": "leaf",
-        "parent": "virtual_total",
+        "parent": "general_tgbtint",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",

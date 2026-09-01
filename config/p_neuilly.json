@@ -6,7 +6,7 @@
       {
         "name": "eclpk1",
         "genre": "leaf",
-        "parent": "general",
+        "parent": "tdparking",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",
@@ -21,7 +21,7 @@
       {
         "name": "pctriphase",
         "genre": "leaf",
-        "parent": "general",
+        "parent": "tdparking",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",
@@ -30,7 +30,7 @@
       {
         "name": "repartiteur",
         "genre": "leaf",
-        "parent": "general",
+        "parent": "tdparking",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",
@@ -39,7 +39,7 @@
       {
         "name": "divers",
         "genre": "leaf",
-        "parent": "general",
+        "parent": "tdparking",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",
@@ -54,7 +54,7 @@
       {
         "name": "clim",
         "genre": "leaf",
-        "parent": "general",
+        "parent": "tdparking",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",
@@ -63,7 +63,7 @@
       {
         "name": "protection",
         "genre": "leaf",
-        "parent": "general",
+        "parent": "tdparking",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",
@@ -72,7 +72,7 @@
       {
         "name": "general",
         "genre": "node",
-        "parent": "virtual_total",
+        "parent": "",
         "mode": "tri",
         "techno": "ct",
         "ratio": "2000",
@@ -82,7 +82,7 @@
   },
     "pwx4-oldh": {
     "produit": "PWX4",
-    "hw": "legacy_V2",
+    "hw": "new",
     "channels": [
       {
         "name": "froid",
@@ -200,7 +200,7 @@
       },
       {
         "name": "tdparking",
-        "genre": "leaf",
+        "genre": "node",
         "parent": "main",
         "mode": "tri",
         "techno": "ct",

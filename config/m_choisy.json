@@ -103,7 +103,7 @@
                     "column": 1,
                     "row": 1,
                     "location": "TOTAL",
-                    "master": "virtual_total",
+                    "master": "virtuel_total",
                     "slave": [
                         "froid",
                         "gene_ext1",
@@ -120,7 +120,7 @@
                     "column": 1,
                     "row": 2,
                     "location": "Total",
-                    "master": "virtual_total",
+                    "master": "virtuel_total",
                     "slave": []
                 },
                 {

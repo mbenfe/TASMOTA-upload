@@ -34,7 +34,7 @@
                     "slave": [
                         "c_froid1",
                         "c_froid2",
-                        "virtual_cout_eclairage",
+                        "virtuel_cout_eclairage",
                         "c_eclext",
                         "c_lavage",
                         "c_station",

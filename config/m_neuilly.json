@@ -401,7 +401,7 @@
                     "color": "TRANSPARENT",
                     "column": 2,
                     "row": 6,
-                    "location": "Fruit\u0026Légumes",
+                    "location": "Fruit&Légumes",
                     "master": "CfFEtLegume_22",
                     "details": "details_CfFEtLegume_22",
                     "slave": []
@@ -922,7 +922,6 @@
                     "location": "",
                     "master": "main_ND",
                     "slave": [
-                        "general_ND",
                         "boulangerie_ND",
                         "divers1_ND",
                         "divers2_ND",
@@ -940,7 +939,7 @@
                     "column": 1,
                     "row": 2,
                     "location": "",
-                    "master": "general_ND",
+                    "master": "tdparking_ND",
                     "slave": [
                         "clim_ND",
                         "divers_ND",

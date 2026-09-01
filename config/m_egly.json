@@ -93,15 +93,14 @@
                     "column": 1,
                     "row": 1,
                     "location": "TOTAL",
-                    "master": "virtual_total",
+                    "master": "virtuel_total",
                     "slave": [
                         "retour_solaire",
                         "general_tgbtext",
-                        "general_tgbtint",
-                        "retour_solaire_ND"
+                        "general_tgbtint"
                     ],
                     "label": [
-                        "Soliaire",
+                        "Solaire",
                         "TGBT ext",
                         "TGBT int"
                     ]
@@ -112,11 +111,10 @@
                     "column": 1,
                     "row": 2,
                     "location": "TGBT EXT",
-                    "master": "virtual_total_ext",
+                    "master": "general_tgbtext",
                     "slave": [
                         "laverie_kiosk",
-                        "gene_froid",
-                        "laverie_kiosk_ND"
+                        "gene_froid"
                     ],
                     "label": [
                         "Laverie & Kiosk",
@@ -140,8 +138,7 @@
                         "eclairage3",
                         "divers2",
                         "prises2",
-                        "divers3",
-                        "eclairage2_ND"
+                        "divers3"
                     ],
                     "label": [
                         "Eclairage 2",
@@ -167,14 +164,13 @@
                         "m1+",
                         "m2+",
                         "m3+",
-                        "m4+",
-                        "m1+_ND"
+                        "m4+"
                     ],
                     "label": [
-                        "M1+",
-                        "M2+",
-                        "M3+",
-                        "M4+"
+                        "Compresseur1+",
+                        "Compresseur2+",
+                        "Compresseur3+",
+                        "Compresseur4+"
                     ]
                 }
             ]
@@ -543,11 +539,11 @@
                     "column": 1,
                     "row": 1,
                     "location": "",
-                    "master": "virtual_total_ND",
+                    "master": "virtuel_total_ND",
                     "slave": [
                         "general_tgbtext_ND",
-                        "retour_solaire_ND",
-                        "station_service_ND"
+                        "general_tgbtint_ND",
+                        "retour_solaire_ND"
                     ]
                 },
                 {
@@ -556,12 +552,10 @@
                     "column": 1,
                     "row": 2,
                     "location": "",
-                    "master": "gene_froid_ND",
+                    "master": "general_tgbtext_ND",
                     "slave": [
-                        "m1+_ND",
-                        "m2+_ND",
-                        "m3+_ND",
-                        "m4+_ND"
+                        "gene_froid_ND",
+                        "laverie_kiosk_ND"
                     ]
                 },
                 {
@@ -570,9 +564,12 @@
                     "column": 1,
                     "row": 3,
                     "location": "",
-                    "master": "general_tgbtext_ND",
+                    "master": "gene_froid_ND",
                     "slave": [
-                        "laverie_kiosk_ND"
+                        "m1+_ND",
+                        "m2+_ND",
+                        "m3+_ND",
+                        "m4+_ND"
                     ]
                 },
                 {
@@ -591,7 +588,8 @@
                         "eclairage3_ND",
                         "prise1_ND",
                         "prises2_ND",
-                        "station_lavage_ND"
+                        "station_lavage_ND",
+                        "station_service_ND"
                     ]
                 }
             ]
@@ -608,10 +606,10 @@
                     "column": 1,
                     "row": 1,
                     "location": "",
-                    "master": "virtual",
+                    "master": "virtuel1",
                     "slave": [
-                        "virtual_total",
-                        "virtual_total_ND"
+                        "virtuel_total",
+                        "virtuel_total_ND"
                     ]
                 },
                 {
@@ -656,7 +654,7 @@
                     "column": 1,
                     "row": 5,
                     "location": "",
-                    "master": "pwx12-sdm1",
+                    "master": "dl12-sdm1",
                     "slave": [
                         "m2+",
                         "m2+_ND"
@@ -668,7 +666,7 @@
                     "column": 1,
                     "row": 6,
                     "location": "",
-                    "master": "pwx12-sdm1",
+                    "master": "dl12-sdm1",
                     "slave": [
                         "m3+",
                         "m3+_ND"
@@ -680,7 +678,7 @@
                     "column": 1,
                     "row": 7,
                     "location": "",
-                    "master": "pwx12-sdm1",
+                    "master": "dl12-sdm1",
                     "slave": [
                         "m4+",
                         "m4+_ND"
