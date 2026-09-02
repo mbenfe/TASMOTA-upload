@@ -28,7 +28,7 @@
   },
   "13": {
     "device": "",
-    "name": "SURGELES_PORTES_M",
+    "name": "SURGELES_PORTES_M_2",
     "brand": "default",
     "model": "default",
     "volume": 1254,
@@ -37,7 +37,7 @@
   },
   "14": {
     "device": "",
-    "name": "SURGELES_PORTES_E1",
+    "name": "SURGELES_PORTES_E1_2",
     "brand": "default",
     "model": "default",
     "volume": 1254,
@@ -73,7 +73,7 @@
   },
   "23": {
     "device": "",
-    "name": "ULTRA_FRAIS_M",
+    "name": "ULTRA_FRAIS_M_2",
     "brand": "default",
     "model": "default",
     "volume": 1254,
@@ -82,7 +82,7 @@
   },
   "24": {
     "device": "",
-    "name": "ULTRA_FRAIS_E1",
+    "name": "ULTRA_FRAIS_E1_2",
     "brand": "default",
     "model": "default",
     "volume": 1254,
@@ -91,7 +91,7 @@
   },
   "25": {
     "device": "",
-    "name": "ULTRA_FRAIS_E2",
+    "name": "ULTRA_FRAIS_E2_2",
     "brand": "default",
     "model": "default",
     "volume": 1254,
@@ -199,7 +199,7 @@
   },
   "42": {
     "device": "",
-    "name": "BOUCHERIE_LS_M",
+    "name": "BOUCHERIE_LS_M_2",
     "brand": "default",
     "model": "default",
     "volume": 1254,
@@ -208,7 +208,7 @@
   },
   "43": {
     "device": "",
-    "name": "BOUCHERIE_LS_E1",
+    "name": "BOUCHERIE_LS_E1_2",
     "brand": "default",
     "model": "default",
     "volume": 1254,
@@ -253,7 +253,7 @@
   },
   "50": {
     "device": "",
-    "name": "CHARCUTERIE_LS_M",
+    "name": "CHARCUTERIE_LS_M_2",
     "brand": "default",
     "model": "default",
     "volume": 1254,
@@ -262,7 +262,7 @@
   },
   "51": {
     "device": "",
-    "name": "CHARCUTERIE_LS_E1",
+    "name": "CHARCUTERIE_LS_E1_2",
     "brand": "default",
     "model": "default",
     "volume": 1254,
