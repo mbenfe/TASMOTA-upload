@@ -1,0 +1,94 @@
+var version = "1.0.112024 initiale"
+
+import string
+import global
+import mqtt
+import json
+import gpio
+import path
+
+# Define loadconfig function
+def loadconfig()
+    print("loadconfig")
+    var file = open("esp32.cfg", "rt")
+    var buffer = file.read()
+    file.close()
+    var myjson = json.load(buffer)
+    global.ville = myjson["ville"]
+    global.device = myjson["device"]
+    global.location = myjson["location"]
+    global.client = myjson["client"]
+end
+
+# Define mqttprint function
+def mqttprint(texte)
+    var topic = string.format("gw/%s/%s/%s/tele/PRINT", global.client,global.ville, global.device)
+    mqtt.publish(topic, texte, true)
+end
+
+#-------------------------------- FONCTIONS -----------------------------------------#
+
+def getfile(cmd, idx, payload, payload_json)
+    import string
+    import path
+    var message
+    var nom_fichier = string.split(payload, '/').pop()
+
+    mqttprint(nom_fichier)
+    var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
+    mqttprint(filepath)
+
+    var wc = webclient()
+    if (wc == nil)
+        mqttprint("Erreur: impossible d'initialiser le client web")
+        tasmota.resp_cmnd("Erreur d'initialisation du client web.")
+        return
+    end
+
+    wc.set_follow_redirects(true)
+    wc.begin(filepath)
+    var st = wc.GET()
+    if (st != 200)
+        message = "Erreur: code HTTP " + str(st)
+        mqttprint(message)
+        tasmota.resp_cmnd("Erreur de telechargement.")
+        wc.close()
+        return
+    end
+
+    var bytes_written = wc.write_file(nom_fichier)
+    wc.close()
+    mqttprint('Fetched ' + str(bytes_written))
+    message = 'uploaded:' + nom_fichier
+    tasmota.resp_cmnd(message)
+    return st
+end
+
+def get(cmd, idx, payload, payload_json)
+    var file = open("setup_device.json", "rt")
+    var myjson = file.read()
+    file.close()
+
+    var topic = string.format("gw/%s/%s/%s/setup", global.client, global.ville, global.device)
+    mqtt.publish(topic, myjson, true)
+
+    tasmota.resp_cmnd('done')
+end
+
+
+#-------------------------------- INITIALIZATION -----------------------------------------#
+loadconfig()
+tasmota.add_cmd('getfile', getfile)
+tasmota.add_cmd('get', get)
+
+#-------------------------------- BASH -----------------------------------------#
+tasmota.cmd("timezone 99")
+tasmota.cmd("seriallog 0")
+tasmota.cmd("setoption146 1")
+
+if(!mqtt.connected())
+    print("MQTT not connected...")
+else
+    print("MQTT connected...")
+end
+

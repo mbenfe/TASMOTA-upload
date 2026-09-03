@@ -1,0 +1,212 @@
+{
+    "relay1": {
+        "lundi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mardi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mercredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "jeudi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "vendredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "samedi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "dimanche": {
+            "debut": "09:00",
+            "fin": "19:00"
+        }
+    },
+    "relay2": {
+        "lundi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mardi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mercredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "jeudi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "vendredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "samedi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "dimanche": {
+            "debut": "09:00",
+            "fin": "19:00"
+        }
+    },
+    "relay3": {
+        "lundi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mardi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mercredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "jeudi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "vendredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "samedi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "dimanche": {
+            "debut": "09:00",
+            "fin": "19:00"
+        }
+    },
+    "relay4": {
+        "lundi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mardi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mercredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "jeudi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "vendredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "samedi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "dimanche": {
+            "debut": "09:00",
+            "fin": "19:00"
+        }
+    },
+    "relay5": {
+        "lundi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mardi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mercredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "jeudi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "vendredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "samedi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "dimanche": {
+            "debut": "09:00",
+            "fin": "19:00"
+        }
+    },
+    "relay6": {
+        "lundi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mardi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mercredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "jeudi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "vendredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "samedi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "dimanche": {
+            "debut": "09:00",
+            "fin": "19:00"
+        }
+    },
+    "relay7": {
+        "lundi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mardi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "mercredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "jeudi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "vendredi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "samedi": {
+            "debut": "08:00",
+            "fin": "21:00"
+        },
+        "dimanche": {
+            "debut": "09:00",
+            "fin": "19:00"
+        }
+    }
+}
