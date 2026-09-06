@@ -30,7 +30,7 @@
                     "column": 1,
                     "row": 3,
                     "location": "Magasin/Eclairage 1/Boulangerie/Labo/Bornes/Onduleur/Bureaux/Eclairage 2/Cimatisation/Libre",
-                    "master": "c_w_gene_ext1",
+                    "master": "c_w_main",
                     "slave": [
                         "c_ecl1",
                         "c_gen_boulangerie",
@@ -40,8 +40,7 @@
                         "c_bureaux",
                         "c_ecl2",
                         "c_td_clim",
-                        "c_libre",
-                        "c_ecl1_ND"
+                        "c_libre"
                     ]
                 },
                 {
@@ -50,7 +49,7 @@
                     "column": 1,
                     "row": 4,
                     "location": "Magasin/Eclairage 1/Boulangerie/Labo/Bornes/Onduleur/Bureaux/Eclairage 2/Cimatisation/Libre",
-                    "master": "c_w_gene_ext1",
+                    "master": "c_w_main",
                     "slave": [
                         "c_w_ecl1",
                         "c_w_gen_boulangerie",
@@ -60,8 +59,7 @@
                         "c_w_bureaux",
                         "c_w_ecl2",
                         "c_w_td_clim",
-                        "c_w_libre",
-                        "c_w_ecl1_ND"
+                        "c_w_libre"
                     ]
                 },
                 {
@@ -85,8 +83,7 @@
                         "th_galerie_portique",
                         "th_clim1&4_savon",
                         "th_clim2_piles",
-                        "th_clim2_cartes",
-                        "th_clim1_ND"
+                        "th_clim2_cartes"
                     ]
                 }
             ]
@@ -105,9 +102,8 @@
                     "location": "TOTAL",
                     "master": "virtuel_total",
                     "slave": [
-                        "froid",
-                        "gene_ext1",
-                        "froid_ND"
+                        "ext_ext_froid",
+                        "main"
                     ],
                     "label": [
                         "Froid",
@@ -129,7 +125,7 @@
                     "column": 1,
                     "row": 3,
                     "location": "Magasin",
-                    "master": "gene_ext1",
+                    "master": "main",
                     "slave": [
                         "gene_ext2",
                         "station",
@@ -139,8 +135,7 @@
                         "onduleur",
                         "gene_int",
                         "gen_boulangerie",
-                        "gene_deviation",
-                        "gene_ext2_ND"
+                        "gene_deviation"
                     ],
                     "label": [
                         "Exterieur 2",
@@ -160,7 +155,7 @@
                     "column": 1,
                     "row": 4,
                     "location": "Magasin",
-                    "master": "gene_ext1",
+                    "master": "main",
                     "slave": []
                 },
                 {
@@ -187,7 +182,7 @@
                     "column": 1,
                     "row": 7,
                     "location": "Boulangerie",
-                    "master": "gen_boulangerie",
+                    "master": "td_boulangerie",
                     "slave": []
                 },
                 {

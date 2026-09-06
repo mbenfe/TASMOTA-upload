@@ -112,11 +112,11 @@
     "noisy": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid",
+        "cout_froid": ["froid","froid_pos2"],
         "cout_owner": {
             "cout_froid+": "none",
             "cout_froid-": "none",
-            "cout_froid": "dl12-tgbt1-3"
+            "cout_froid": ["dl12-tgbt1-3","dl12-tgbt5-1"]
         }
     },
     "saint-maur": {
