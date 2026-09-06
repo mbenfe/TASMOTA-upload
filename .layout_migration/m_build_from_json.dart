@@ -1,0 +1,161 @@
+import 'dart:convert';
+import 'utils/web_layout_data.dart';
+
+import 'package:adoweb/global_classes.dart';
+import 'package:adoweb/m_define.dart';
+import 'package:adoweb/global_variables.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'm_desktop_application.dart';
+import 'my_models/adomob_app_cfg.dart';
+import 'my_models/json_for_mqtt.dart';
+import 'my_notifiers/widgets_manager.dart';
+
+void analyseReceivedWebCfgJson(String? ville, String jsonString) {
+  final jsonDecoded = normalizeWebLayout(json.decode(jsonString) as Map<String, dynamic>);
+
+  // 1 - construit la list des applications à parir de appCfg.json recu par mqtt
+
+  mapAlltabs.clear();
+  listTabs.clear();
+  mapAllDevicesStateProvider.clear();
+  mapAllDevicesSubStateNotifier.clear();
+  listBundles.clear();
+  pagesWithWidgets.clear();
+
+  int i, j, k;
+
+  ListElementApp mapTabs;
+
+  //****************************************************/
+  //* etape 0 : create screens
+  //****************************************************/
+
+  //****************************************************/
+  //* etape 1 : build la map des notifiers par device
+  //****************************************************/
+  for (i = 0; i < jsonDecoded['applications'].length; i++) {
+    mapTabs = ListElementApp.fromJson(jsonDecoded['applications'][i]);
+    mapAlltabs.add(mapTabs);
+
+    listTabs.add(mapTabs.type);
+    // mise à jour label
+    var predifine = preDefinedBottomNavigationBar.firstWhere((element) => element.typeApp == mapTabs.type);
+    predifine.label = mapTabs.label;
+    for (j = 0; j < mapTabs.data.length; j++) {
+      //* device maitres
+      StateNotifierProvider<WidgetMqttStateNotifier, JsonForMqtt> stateProvider1;
+      var listMasters = mapTabs.data[j].master.split(':');
+      for (k = 0; k < listMasters.length; k++) {
+        if (!mapAllDevicesStateProvider.containsKey(listMasters[k])) {
+          stateProvider1 = getStateProvider(listMasters[k]);
+          mapAllDevicesStateProvider.addAll({listMasters[k]: stateProvider1}); // master
+        }
+      } //* devices esclaves
+      for (k = 0; k < mapTabs.data[j].slave.length; k++) {
+        final StateNotifierProvider<WidgetMqttStateNotifier, JsonForMqtt> stateProvider2;
+        if (!mapAllDevicesStateProvider.containsKey(mapTabs.data[j].slave[k])) {
+          //* si n'existe pas dans la liste globale
+          stateProvider2 = getStateProvider(mapTabs.data[j].slave[k]);
+          mapAllDevicesStateProvider.addAll({mapTabs.data[j].slave[k]: stateProvider2}); // slave
+        }
+      }
+    }
+  }
+
+  // malek for debug only
+  // printHashCode();
+
+  //****************************************************/
+  // * etape 2 :build la list des bundle pour chaque application
+  //*    exemple chauffage application a un master et un/plusieurs slave(s)
+  // * cette liste est utilisée par le fonction appBuildSelectedView (m_mobile_aalication.dart)
+  //****************************************************/
+
+  for (i = 0; i < jsonDecoded['applications'].length; i++) {
+    mapTabs = ListElementApp.fromJson(jsonDecoded['applications'][i]);
+    for (j = 0; j < mapTabs.data.length; j++) {
+      Bundle bundle = Bundle.fromJson(jsonDecoded['applications'][i]['data'][j]);
+      //* construit la liste des keys pour les widgets ayant des escalves dont elles veules avoir accés aux donnéées
+      //* example: Tableau electrique pricipale pour retrancher les donnees du tableau secondaire (baudin seignosse)
+
+      var listMasters = mapTabs.data[j].master.split(':');
+      StateNotifierProvider<WidgetMqttStateNotifier, JsonForMqtt>? stateProvider1;
+      for (k = 0; k < listMasters.length; k++) {
+        stateProvider1 = mapAllDevicesStateProvider[listMasters[k]];
+        bundle.listStateProviders.add(stateProvider1!);
+      }
+      for (k = 0; k < mapTabs.data[j].slave.length; k++) {
+        final StateNotifierProvider<WidgetMqttStateNotifier, JsonForMqtt> stateProvider2;
+        stateProvider2 = mapAllDevicesStateProvider[mapTabs.data[j].slave[k]]!;
+        bundle.listStateProviders.add(stateProvider2);
+      }
+      // from level 1
+      bundle.app_type = mapTabs.type;
+      bundle.app_label = mapTabs.label;
+      bundle.app_level = mapTabs.level;
+      bundle.app_virtuel = mapTabs.virtuel;
+      listBundles.add(bundle);
+    }
+  }
+
+  //****************************************************/
+  //* etape 4 : create screens
+  //****************************************************/
+
+  for (i = 0; i < listTabs.length; i++) {
+    if (mapAlltabs[i].type == 'iConsommation') {
+      desktopBuildFreeWidgets(mapAlltabs[i].type, mapAlltabs[i].label);
+    } else {
+      pagesWithWidgets.add(desktopBuildSelectedView(mapAlltabs[i].type, mapAlltabs[i].label));
+    }
+  }
+  //* widget home par example
+  //! malek temp
+  finalizeVirtuelWidget();
+
+  if (kDebugMode) {
+    print("ADOWEB: configuration received");
+  }
+}
+
+void finalizeVirtuelWidget() {
+  if (kDebugMode) {
+    print("ADOWEB: analyze virtuels");
+  }
+
+  // cherche toute les esclaves qui sont des maitres
+  int i, j, k;
+  List<Bundle> listBundleVirtuel = [];
+
+  for (i = 0; i < listBundles.length; i++) {
+    if (listBundles[i].app_virtuel == 1) {
+      listBundleVirtuel.add(listBundles[i]);
+    }
+  }
+
+  //* reconstuit la liste des providers
+  //* parcours la liste des bundles virtuels et efface la liste des providers
+  //* pour la remplacer avec ceux des esclaves listés
+  for (i = 0; i < listBundleVirtuel.length; i++) {
+    for (j = 0; j < listBundles.length; j++) {
+      if (listBundles[j].master == listBundleVirtuel[i].master) {
+        listBundles[j].listStateProviders.clear();
+        for (k = 0; k < listBundles[j].listSlaves.length; k++) {
+          listBundles[j].listStateProviders.add(mapAllDevicesStateProvider[listBundles[j].listSlaves[k]]!);
+        }
+      }
+    }
+  }
+}
+
+StateNotifierProvider<WidgetMqttStateNotifier, JsonForMqtt> getStateProvider(String deviceId) {
+  final notifier = WidgetMqttStateNotifier(
+    JsonForMqtt(teleJsonMap: {}, listOtherJsonMap: [], listCmdJsonMap: [], deviceId: deviceId),
+  );
+  mapAllDevicesSubStateNotifier[deviceId] = notifier;
+  final StateNotifierProvider<WidgetMqttStateNotifier, JsonForMqtt> provider =
+      StateNotifierProvider<WidgetMqttStateNotifier, JsonForMqtt>((ref) => notifier);
+  return provider;
+}

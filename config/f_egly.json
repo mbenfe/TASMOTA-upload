@@ -1,155 +1,966 @@
 {
-  "1": {
-    "device": "AK-CC55-017x",
-    "name": "1tg1SurgPorte_1",
-    "brand": "EPTA",
-    "model": "NC5LS2D",
-    "volume": 1254,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "2": {
-    "device": "AK-CC55-017x",
-    "name": "2SurgPorte_2",
-    "brand": "EPTA",
-    "model": "NC5LS5D",
-    "volume": 3135,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "3": {
-    "device": "AK-CC55-017x",
-    "name": "3SurgPorte_3",
-    "brand": "EPTA",
-    "model": "NC5LS6D",
-    "volume": 3135,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "4": {
-    "device": "AK-CC55-017x",
-    "name": "4SurgPorte_4",
-    "brand": "EPTA",
-    "model": "NC5LS5D",
-    "volume": 3135,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "5": {
-    "device": "AK-CC55-017x",
-    "name": "5SurgPorte_5",
-    "brand": "EPTA",
-    "model": "NC5LS4D",
-    "volume": 4807,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "6": {
-    "device": "AK-CC55-017x",
-    "name": "6Tg2SurgPorte_6",
-    "brand": "EPTA",
-    "model": "NC5LS2D",
-    "volume": 1254,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "7": {
-    "device": "AK-CC55-017x",
-    "name": "Tg2SurgPorte_7",
-    "brand": "EPTA",
-    "model": "NC5LST4",
-    "volume": 1881,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "8": {
-    "device": "AK-CC55-017x",
-    "name": "8SurgPorte_8",
-    "brand": "EPTA",
-    "model": "NC5LS6D",
-    "volume": 3135,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "9": {
-    "device": "AK-CC55-017x",
-    "name": "9SurgPorte_9",
-    "brand": "EPTA",
-    "model": "NC5LS6D",
-    "volume": 3135,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "10": {
-    "device": "AK-CC55-017x",
-    "name": "10SurgPorte_10",
-    "brand": "EPTA",
-    "model": "NC5LS6D",
-    "volume": 3135,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "11": {
-    "device": "AK-CC55-017x",
-    "name": "11SurgPorte_11",
-    "brand": "EPTA",
-    "model": "NC5LS4D",
-    "volume": 4807,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "12": {
-    "device": "AK-CC55-017x",
-    "name": "12Tg1SurgPorte_12",
-    "brand": "EPTA",
-    "model": "NC5LST4",
-    "volume": 1881,
-    "genre": "vitrine-",
-    "OF": "ferme"
-  },
-  "13": {
-    "device": "AK-CC55-017x",
-    "name": "13CfCongel_13",
-    "brand": "default",
-    "model": "default",
-    "volume": 37500,
-    "genre": "CF-",
-    "OF": "ferme"
-  },
-  "14": {
-    "device": "AK-CC55-017x",
-    "name": "14CfCongel_14",
-    "brand": "default",
-    "model": "default",
-    "volume": 37500,
-    "genre": "CF-",
-    "OF": "ferme"
-  },
-  "15": {
-    "device": "AK-CC55-017x",
-    "name": "15CfCremerie_15",
-    "brand": "default",
-    "model": "default",
-    "volume": 37500,
-    "genre": "CF+",
-    "OF": "ferme"
-  },
-  "16": {
-    "device": "AK-CC55-017x",
-    "name": "16FromageCoupe_16",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
-    "genre": "vitrine+",
-    "OF": "ferme"
-  },
-  "17": {
-    "device": "AK-CC55-017x",
-    "name": "17FromageCoupe_17",
-    "brand": "default",
-    "model": "default",
-    "volume": 1254,
-    "genre": "vitrine+",
-    "OF": "ferme"
-  }
+    "1": {
+        "device": "AK-CC55-017x",
+        "name": "1tg1SurgPorte_1",
+        "brand": "EPTA",
+        "model": "NC5LS2D",
+        "volume": 1254,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "2": {
+        "device": "AK-CC55-017x",
+        "name": "2SurgPorte_2",
+        "brand": "EPTA",
+        "model": "NC5LS5D",
+        "volume": 3135,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "3": {
+        "device": "AK-CC55-017x",
+        "name": "3SurgPorte_3",
+        "brand": "EPTA",
+        "model": "NC5LS6D",
+        "volume": 3135,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "4": {
+        "device": "AK-CC55-017x",
+        "name": "4SurgPorte_4",
+        "brand": "EPTA",
+        "model": "NC5LS5D",
+        "volume": 3135,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "5": {
+        "device": "AK-CC55-017x",
+        "name": "5SurgPorte_5",
+        "brand": "EPTA",
+        "model": "NC5LS4D",
+        "volume": 4807,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "6": {
+        "device": "AK-CC55-017x",
+        "name": "6Tg2SurgPorte_6",
+        "brand": "EPTA",
+        "model": "NC5LS2D",
+        "volume": 1254,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "7": {
+        "device": "AK-CC55-017x",
+        "name": "Tg2SurgPorte_7",
+        "brand": "EPTA",
+        "model": "NC5LST4",
+        "volume": 1881,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "8": {
+        "device": "AK-CC55-017x",
+        "name": "8SurgPorte_8",
+        "brand": "EPTA",
+        "model": "NC5LS6D",
+        "volume": 3135,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "9": {
+        "device": "AK-CC55-017x",
+        "name": "9SurgPorte_9",
+        "brand": "EPTA",
+        "model": "NC5LS6D",
+        "volume": 3135,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "10": {
+        "device": "AK-CC55-017x",
+        "name": "10SurgPorte_10",
+        "brand": "EPTA",
+        "model": "NC5LS6D",
+        "volume": 3135,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "11": {
+        "device": "AK-CC55-017x",
+        "name": "11SurgPorte_11",
+        "brand": "EPTA",
+        "model": "NC5LS4D",
+        "volume": 4807,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "12": {
+        "device": "AK-CC55-017x",
+        "name": "12Tg1SurgPorte_12",
+        "brand": "EPTA",
+        "model": "NC5LST4",
+        "volume": 1881,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "13": {
+        "device": "AK-CC55-017x",
+        "name": "13CfCongel_13",
+        "brand": "default",
+        "model": "default",
+        "volume": 37500,
+        "genre": "CF-",
+        "OF": "ferme"
+    },
+    "14": {
+        "device": "AK-CC55-017x",
+        "name": "14CfCongel_14",
+        "brand": "default",
+        "model": "default",
+        "volume": 37500,
+        "genre": "CF-",
+        "OF": "ferme"
+    },
+    "15": {
+        "device": "AK-CC55-017x",
+        "name": "15CfCremerie_15",
+        "brand": "default",
+        "model": "default",
+        "volume": 37500,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "16": {
+        "device": "AK-CC55-017x",
+        "name": "16FromageCoupe_16",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "17": {
+        "device": "AK-CC55-017x",
+        "name": "17FromageCoupe_17",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20020": {
+        "device": "MFOOD",
+        "name": "PatisserieLs",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20030": {
+        "device": "MFOOD",
+        "name": "BoucherieLs1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20031": {
+        "device": "MFOOD",
+        "name": "BoucherieLs2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20032": {
+        "device": "MFOOD",
+        "name": "BoucherieLs3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20033": {
+        "device": "MFOOD",
+        "name": "BoucherieLs4",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20034": {
+        "device": "MFOOD",
+        "name": "BoucherieLs5",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20040": {
+        "device": "MFOOD",
+        "name": "BoucherieTrad1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20041": {
+        "device": "MFOOD",
+        "name": "BoucherieTrad2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20042": {
+        "device": "MFOOD",
+        "name": "BoucherieTrad3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20050": {
+        "device": "MFOOD",
+        "name": "VolailleLs1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20051": {
+        "device": "MFOOD",
+        "name": "VolailleLs2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20052": {
+        "device": "MFOOD",
+        "name": "VolailleLs3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20053": {
+        "device": "MFOOD",
+        "name": "VolailleLs4",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20054": {
+        "device": "MFOOD",
+        "name": "tbd1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20055": {
+        "device": "MFOOD",
+        "name": "tbd2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20060": {
+        "device": "MFOOD",
+        "name": "FromageTrad1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20061": {
+        "device": "MFOOD",
+        "name": "FromageTrad2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20062": {
+        "device": "MFOOD",
+        "name": "FromageTrad3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20063": {
+        "device": "MFOOD",
+        "name": "FromageTrad4",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20064": {
+        "device": "MFOOD",
+        "name": "FromageTrad5",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20070": {
+        "device": "MFOOD",
+        "name": "TraiteurLs1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20071": {
+        "device": "MFOOD",
+        "name": "TraiteurLs2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20080": {
+        "device": "MFOOD",
+        "name": "TraiteurLs3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20081": {
+        "device": "MFOOD",
+        "name": "TraiteurLs4",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20090": {
+        "device": "MFOOD",
+        "name": "TraiteurLs5",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20100": {
+        "device": "MFOOD",
+        "name": "TraiteurLs6",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20110": {
+        "device": "MFOOD",
+        "name": "TraiteurLs7",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20111": {
+        "device": "MFOOD",
+        "name": "TraiteurLs8",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20120": {
+        "device": "MFOOD",
+        "name": "TraiteurLs9",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20121": {
+        "device": "MFOOD",
+        "name": "TraiteurLs10",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20130": {
+        "device": "MFOOD",
+        "name": "TraiteurLs11",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20140": {
+        "device": "MFOOD",
+        "name": "TraiteurLs12",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "21500": {
+        "device": "MFOOD",
+        "name": "CharcuterieLs1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20151": {
+        "device": "MFOOD",
+        "name": "CharcuterieLs2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20152": {
+        "device": "MFOOD",
+        "name": "CharcuterieLs3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20153": {
+        "device": "MFOOD",
+        "name": "CharcuterieLs4",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20160": {
+        "device": "MFOOD",
+        "name": "CharcuterieLs5",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20170": {
+        "device": "MFOOD",
+        "name": "CharcuterieLs6",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20180": {
+        "device": "MFOOD",
+        "name": "UltraFrais1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20181": {
+        "device": "MFOOD",
+        "name": "UltraFrais2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20182": {
+        "device": "MFOOD",
+        "name": "UltraFrais3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20183": {
+        "device": "MFOOD",
+        "name": "UltraFrais4",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20190": {
+        "device": "MFOOD",
+        "name": "UltraFrais5",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20191": {
+        "device": "MFOOD",
+        "name": "UltraFrais6",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20192": {
+        "device": "MFOOD",
+        "name": "UltraFrais7",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20193": {
+        "device": "MFOOD",
+        "name": "UltraFrais8",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20200": {
+        "device": "MFOOD",
+        "name": "UltraFrais9",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20210": {
+        "device": "MFOOD",
+        "name": "UltraFrais10",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20220": {
+        "device": "MFOOD",
+        "name": "UltraFrais11",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20221": {
+        "device": "MFOOD",
+        "name": "UltraFrais12",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20222": {
+        "device": "MFOOD",
+        "name": "UltraFrais13",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20223": {
+        "device": "MFOOD",
+        "name": "UltraFrais14",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20230": {
+        "device": "MFOOD",
+        "name": "Saurisserie1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20231": {
+        "device": "MFOOD",
+        "name": "Saurisserie2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20240": {
+        "device": "MFOOD",
+        "name": "4emeGamme1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine+",
+        "OF": "ferme"
+    },
+    "20300": {
+        "device": "MFOOD",
+        "name": "SurgelesMixtes1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "bac-",
+        "OF": "ferme"
+    },
+    "20301": {
+        "device": "MFOOD",
+        "name": "SurgelesMixtes2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "bac-",
+        "OF": "ferme"
+    },
+    "20302": {
+        "device": "MFOOD",
+        "name": "SurgelesMixtes3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "bac-",
+        "OF": "ferme"
+    },
+    "20303": {
+        "device": "MFOOD",
+        "name": "SurgelesMixtes4",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "bac-",
+        "OF": "ferme"
+    },
+    "20310": {
+        "device": "MFOOD",
+        "name": "SurgelesPortes1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "20320": {
+        "device": "MFOOD",
+        "name": "SurgelesPortes2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "20330": {
+        "device": "MFOOD",
+        "name": "SurgelesMixtes5",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "bac-",
+        "OF": "ferme"
+    },
+    "20331": {
+        "device": "MFOOD",
+        "name": "SurgelesMixtes6",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "bac-",
+        "OF": "ferme"
+    },
+    "20332": {
+        "device": "MFOOD",
+        "name": "SurgelesMixtes7",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "bac-",
+        "OF": "ferme"
+    },
+    "20333": {
+        "device": "MFOOD",
+        "name": "SurgelesMixtes8",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "bac-",
+        "OF": "ferme"
+    },
+    "20340": {
+        "device": "MFOOD",
+        "name": "SurgelesPortes3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "20350": {
+        "device": "MFOOD",
+        "name": "SurgelesPortes4",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "vitrine-",
+        "OF": "ferme"
+    },
+    "20500": {
+        "device": "MFOOD",
+        "name": "CFBarquettes1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20510": {
+        "device": "MFOOD",
+        "name": "CFBarquettes2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20520": {
+        "device": "MFOOD",
+        "name": "LaboBoucherie1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20521": {
+        "device": "MFOOD",
+        "name": "LaboBoucherie2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20530": {
+        "device": "MFOOD",
+        "name": "CF1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20540": {
+        "device": "MFOOD",
+        "name": "CF2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20550": {
+        "device": "MFOOD",
+        "name": "Labo",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20560": {
+        "device": "MFOOD",
+        "name": "CF3",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20570": {
+        "device": "MFOOD",
+        "name": "CFBoulangerie1",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20580": {
+        "device": "MFOOD",
+        "name": "CFBoulangerie2",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20590": {
+        "device": "MFOOD",
+        "name": "CF4",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20600": {
+        "device": "MFOOD",
+        "name": "CF5",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20610": {
+        "device": "MFOOD",
+        "name": "CF6",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20630": {
+        "device": "MFOOD",
+        "name": "CFFruits&Legumes",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20640": {
+        "device": "MFOOD",
+        "name": "CF7",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20650": {
+        "device": "MFOOD",
+        "name": "CF8",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20660": {
+        "device": "MFOOD",
+        "name": "CF9",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20670": {
+        "device": "MFOOD",
+        "name": "CF10",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20800": {
+        "device": "MFOOD",
+        "name": "CFSurgeles",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF-",
+        "OF": "ferme"
+    },
+    "20810": {
+        "device": "MFOOD",
+        "name": "CF11",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    },
+    "20990": {
+        "device": "MFOOD",
+        "name": "sdm",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "clim",
+        "OF": "ferme"
+    },
+    "21070": {
+        "device": "MFOOD",
+        "name": "LaboPoissons",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    }
+,
+    "21080": {
+        "device": "MFOOD",
+        "name": "CFDechets",
+        "brand": "default",
+        "model": "default",
+        "volume": 1254,
+        "genre": "CF+",
+        "OF": "ferme"
+    }
 }
