@@ -50,13 +50,13 @@
         }
     },
     "coubron": {
-        "cout_froid+": "froid2",
-        "cout_froid-": "froid1",
-        "cout_froid": "none",
+        "cout_froid+": "",
+        "cout_froid-": "",
+        "cout_froid": ["froid1","froid2"],
         "cout_owner": {
-            "cout_froid+": "dl12-maing1-3",
-            "cout_froid-": "dl12-maing1-2",
-            "cout_froid": "none"
+            "cout_froid+": "",
+            "cout_froid-": "",
+            "cout_froid": ["dl12-maing1-2","dl12-maing1-3"]
         }
     },
     "croissy": {
