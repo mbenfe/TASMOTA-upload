@@ -112,7 +112,7 @@
       },
       {
         "name": "ColonneA",
-        "genre": "leaf",
+        "genre": "node",
         "parent": "main",
         "mode": "tri",
         "techno": "ct",
@@ -145,7 +145,7 @@
       },
       {
         "name": "ColonneB",
-        "genre": "leaf",
+        "genre": "node",
         "parent": "main",
         "mode": "tri",
         "techno": "ct",
