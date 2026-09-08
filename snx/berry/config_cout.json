@@ -79,14 +79,14 @@
             "cout_froid": "dl4-sdm1"
         }
     },
-    "maisons-laffite": {
+    "maisons-laffitte": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "none",
+        "cout_froid": ["froid1","froid2"],
         "cout_owner": {
             "cout_froid+": "none",
             "cout_froid-": "none",
-            "cout_froid": "none"
+            "cout_froid": ["dl12-tgbt1-1","dl12-tgbt1-2"]
         }
     },
     "mery": {
