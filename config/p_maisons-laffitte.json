@@ -147,7 +147,7 @@
     },
     "pwx12-boulangerie": {
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "new",
         "channels": [
             {
                 "name": "CF",
