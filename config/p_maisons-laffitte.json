@@ -111,5 +111,71 @@
                 "PGA": "1"
             }
         ]
+    },
+    "dl12-boulangerie": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "prises_boulangerie",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "four_1",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "td_boulangerie",
+                "genre": "node",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "pwx12-boulangerie": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "CF",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "meubles_froid",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "four_2",
+                "genre": "leaf",
+                "parent": "main",
+                "mode": "tri",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
     }
 }
