@@ -71,18 +71,18 @@
                 "PGA": "1"
             },
             {
-                "name": "gene_boulangerie",
-                "genre": "leaf",
-                "parent": "main",
+                "name": "*",
+                "genre": "",
+                "parent": "",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",
                 "PGA": "1"
             },
             {
-                "name": "climatisation",
+                "name": "*",
                 "genre": "leaf",
-                "parent": "main",
+                "parent": "",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",
@@ -113,9 +113,9 @@
                 "PGA": "1"
             },
             {
-                "name": "gene_patisserie",
+                "name": "*",
                 "genre": "leaf",
-                "parent": "main",
+                "parent": "",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -125,12 +125,12 @@
     },
     "pwx12-boulangerie1": {
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "new",
         "channels": [
             {
                 "name": "prises_boulangerie",
                 "genre": "leaf",
-                "parent": "main",
+                "parent": "td_boulangerie",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -139,7 +139,7 @@
             {
                 "name": "four_1",
                 "genre": "leaf",
-                "parent": "main",
+                "parent": "td_boulangerie",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -163,7 +163,7 @@
             {
                 "name": "CF",
                 "genre": "leaf",
-                "parent": "main",
+                "parent": "td_boulangerie",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -172,7 +172,7 @@
             {
                 "name": "meubles_froid",
                 "genre": "leaf",
-                "parent": "main",
+                "parent": "td_boulangerie",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -181,7 +181,7 @@
             {
                 "name": "four_2",
                 "genre": "leaf",
-                "parent": "main",
+                "parent": "td_boulangerie",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
