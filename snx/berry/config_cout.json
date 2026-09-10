@@ -42,11 +42,11 @@
     "choisy": {
         "cout_froid+": "none",
         "cout_froid-": "none",
-        "cout_froid": "froid",
+        "cout_froid": "ext_froid",
         "cout_owner": {
             "cout_froid+": "none",
             "cout_froid-": "none",
-            "cout_froid": "dl4-froid"
+            "cout_froid": "dl4-ext_froid"
         }
     },
     "coubron": {
