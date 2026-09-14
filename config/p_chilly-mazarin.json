@@ -88,7 +88,7 @@
             {
                 "name": "gene_td_ss",
                 "genre": "leaf",
-                "parent": "virtuel_total",
+                "parent": "gene_froid",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",
@@ -121,7 +121,7 @@
             {
                 "name": "gene_td_boulange",
                 "genre": "node",
-                "parent": "virtuel_total",
+                "parent": "gene_tgbt",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",

@@ -7,10 +7,6 @@
     "root": "dl4-tgbt",
     "surface": 1150
   },
-  "buc": {
-    "root": "virtual1",
-    "surface": 1000
-  },
   "champigny": {
     "root": "dl12-tgbt1",
     "surface": 1497
@@ -31,29 +27,17 @@
     "root": "pwx4-rogowski",
     "surface": 2499
   },
-  "developpement": {
-    "root": "dl4-developpement",
-    "surface": 2000
-  },
   "egly": {
-    "root": "virtual1",
+    "root": "virtuel",
     "surface": 2790
   },
   "maisons-laffitte": {
     "root": "pwx4-rogowski",
-    "surface": 2400
-  },
-  "marcq": {
-    "root": "dl4-garage",
-    "surface": 1000
+    "surface": 2117
   },
   "mery": {
     "root": "pwx4-rogowski-main",
     "surface": 2085
-  },
-  "morzine": {
-    "root": "pwx12-td1",
-    "surface": 1000
   },
   "neuilly": {
     "root": "pwx4-rogowski",
@@ -66,9 +50,5 @@
   "saint-maur": {
     "root": "pwx4-rogowski",
     "surface": 1100
-  },
-  "seignosse": {
-    "root": "dl4-principal",
-    "surface": 2000
   }
 }

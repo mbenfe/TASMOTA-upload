@@ -1,5 +1,5 @@
 {
-  "virtuel1": {
+  "virtuel": {
     "produit": "virtuel",
     "hw": "",
     "channels": [
@@ -9,7 +9,7 @@
         "children": [
           "retour_solaire",
           "general_tgbtext",
-          "station_service"
+          "general_tgbtint"
         ]
       }
     ]
