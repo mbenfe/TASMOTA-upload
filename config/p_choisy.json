@@ -361,7 +361,7 @@
     "channels": [
       {
         "name": "ext_froid",
-        "genre": "node",
+        "genre": "leaf",
         "parent": "virtuel_total",
         "mode": "tri",
         "techno": "ct",

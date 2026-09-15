@@ -8,8 +8,6 @@
                 "genre": "root",
                 "children": [
                     "gene_froid",
-                    "gene_td_ss",
-                    "gene_td_boulange",
                     "gene_tgbt"
                 ]
             }
