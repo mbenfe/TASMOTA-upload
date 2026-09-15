@@ -49,7 +49,7 @@
     },
    "pwx4-rogowski-main": {
     "produit": "PWX4",
-    "hw": "new",
+    "hw": "rogowski",
     "channel": 
       {
         "name": "main",
@@ -63,7 +63,7 @@
   },  
    "pwx4-rogowski-froid": {
     "produit": "PWX4",
-    "hw": "new",
+    "hw": "rogowski",
     "channel": 
       {
         "name": "froid",

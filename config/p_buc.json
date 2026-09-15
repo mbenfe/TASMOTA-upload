@@ -1,10 +1,10 @@
 {
   "virtual1": {
-    "produit": "virtual",
+    "produit": "virtuel",
     "hw": "",
     "channels": [
       {
-        "name": "virtual_total",
+        "name": "virtuel_total",
         "genre": "root",
         "children": [
           "td_garage",
@@ -57,7 +57,7 @@
   },
   "pwx4-rogowski": {
     "produit": "PWX4",
-    "hw": "new",
+    "hw": "rogowski",
     "channels": [
       {
         "name": "test",

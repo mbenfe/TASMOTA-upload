@@ -10,7 +10,11 @@
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "2000",
-                "PGA": "1"
+                "PGA": "1",
+                "children": [
+                    "v_devices-",
+                    "v_sdm-"
+                ]
             },
             {
                 "name": "fpos",
@@ -19,7 +23,11 @@
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "4000",
-                "PGA": "1"
+                "PGA": "1",
+                "children": [
+                    "v_devices+",
+                    "v_sdm+"
+                ]
             },
             {
                 "name": "*",
@@ -34,7 +42,7 @@
     },
     "pwx4-rogowski": {
         "produit": "PWX4",
-        "hw": "new",
+        "hw": "rogowski",
         "channel": {
             "name": "main",
             "genre": "root",
@@ -321,6 +329,114 @@
             }
         ]
     },
+    "virtuel_devices+": {
+    "produit": "virtuel",
+    "hw": "",
+    "channels": [
+      {
+        "name": "v_devices+",
+        "genre": "node",
+        "parent": "fpos",
+        "children": [
+          "v_meubles+",
+          "v_CF+"
+        ]
+      }
+    ]
+  },
+    "virtuel_sdm+": {
+    "produit": "virtuel",
+    "hw": "",
+    "channels": [
+      {
+        "name": "v_sdm+",
+        "genre": "node",
+        "parent": "fpos",
+        "children": [
+          "pos_m1",
+          "pos_m2",
+          "pos_m3"
+        ]
+      }
+    ]
+  },
+    "virtuel_meubles+": {
+    "produit": "virtuel",
+    "hw": "",
+    "channels": [
+      {
+        "name": "v_meubles+",
+        "genre": "node",
+        "parent": "v_devices+",
+        "children": [
+          "4eme_gamme_1",
+          "4eme_gamme_2",
+          "4eme_gamme_3",
+          "boucherie_trad_1",
+          "boucherie_trad_2",
+          "boucherie_trad_3",
+          "boucherie_volaille",
+          "charcuterie_ls",
+          "charcuterie_trad_1",
+          "charcuterie_trad_2",
+          "charcuterie_trad_3",
+          "fromage_fe_1",
+          "fromage_fe_2",
+          "fromage_fe_3",
+          "fromage_ls",
+          "libre1",
+          "libre2",
+          "maree_fromage_fe_1",
+          "maree_fromage_fe_2",
+          "maree_fromage_fe_3",
+          "saurisserie_1",
+          "saurisserie_2",
+          "tg_fe_1_1",
+          "tg_fe_1_2",
+          "tg_fe_1_3",
+          "tg_fe_2_1",
+          "tg_fe_2_2",
+          "tg_fe_2_3",
+          "tg_fe_3_1",
+          "tg_fe_3_2",
+          "tg_fe_3_3",
+          "tg_frais_1",
+          "tg_frais_2",
+          "tg_frais_3",
+          "tg_frais_4",
+          "tg_frais_5",
+          "traiteur_1",
+          "traiteur_2",
+          "traiteur_3",
+          "ultra_frais_ls1",
+          "ultra_frais_ls2"
+        ]
+      }
+    ]
+  },
+    "virtuel_CF+": {
+    "produit": "virtuel",
+    "hw": "",
+    "channels": [
+      {
+        "name": "v_CF+",
+        "genre": "node",
+        "parent": "v_devices+",
+        "children": [
+          "sas_frais",
+          "cf_p_1",
+          "cf_p_2",
+          "cf_f&l",
+          "cf_cremerie",
+          "cf_suif",
+          "cf_labo_boucherie",
+          "cf_carcasses",
+          "cf_prod_finis"
+        ]
+      }
+    ]
+  },
+
     "dl12-subpos": {
         "produit": "PWX12",
         "hw": "legacy_V2",
@@ -328,7 +444,7 @@
             {
                 "name": "pos_m1",
                 "genre": "leaf",
-                "parent": "fpos",
+                "parent": "v_sdm+",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -337,7 +453,7 @@
             {
                 "name": "pos_m2",
                 "genre": "leaf",
-                "parent": "fpos",
+                "parent": "v_sdm+",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -346,7 +462,7 @@
             {
                 "name": "pos_m3",
                 "genre": "leaf",
-                "parent": "fpos",
+                "parent": "v_sdm+",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -354,6 +470,562 @@
             }
         ]
     },
+    "pwx12-fp-mono1": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "sas_frais",
+                "genre": "leaf",
+                "parent": "v_CF+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "cf_p_1",
+                "genre": "leaf",
+                "parent": "v_CF+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "cf_p_2",
+                "genre": "leaf",
+                "parent": "v_CF+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "cf_f&l",
+                "genre": "leaf",
+                "parent": "v_CF+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "cf_cremerie",
+                "genre": "leaf",
+                "parent": "v_CF+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "cf_suif",
+                "genre": "leaf",
+                "parent": "v_CF+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "cf_labo_boucherie",
+                "genre": "leaf",
+                "parent": "v_CF+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "cf_carcasses",
+                "genre": "leaf",
+                "parent": "v_CF+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "cf_prod_finis",
+                "genre": "leaf",
+                "parent": "v_CF+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "pwx12-fp-mono2": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "tg_frais_1",
+                "genre": "leaf",
+                "parent": "fpos",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "boucherie_volaille",
+                "genre": "leaf",
+                "parent": "fpos",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_frais_2",
+                "genre": "leaf",
+                "parent": "fpos",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "charcuterie_ls",
+                "genre": "leaf",
+                "parent": "fpos",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_frais_3",
+                "genre": "leaf",
+                "parent": "fpos",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "fromage_ls",
+                "genre": "leaf",
+                "parent": "fpos",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_frais_4",
+                "genre": "leaf",
+                "parent": "fpos",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "ultra_frais_ls2",
+                "genre": "leaf",
+                "parent": "fpos",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_frais_5",
+                "genre": "leaf",
+                "parent": "fpos",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "ultra_frais_ls1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "libre1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "libre2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "pwx12-fp-mono3": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "charcuterie_trad_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "saurisserie_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "traiteur_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "4eme_gamme_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_fe_1_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "maree_fromage_fe_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_fe_2_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_fe_3_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "boucherie_trad_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "fromage_fe_1",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "pwx12-fp-mono4": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "charcuterie_trad_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "saurisserie_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "traiteur_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "4eme_gamme_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_fe_1_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "maree_fromage_fe_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_fe_2_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_fe_3_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "boucherie_trad_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "fromage_fe_2",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "pwx12-fp-mono5": {
+        "produit": "PWX12",
+        "hw": "legacy_V2",
+        "channels": [
+            {
+                "name": "charcuterie_trad_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "saurisserie_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "traiteur_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "4eme_gamme_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_fe_1_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "maree_fromage_fe_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_fe_2_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "tg_fe_3_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "boucherie_trad_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            },
+            {
+                "name": "fromage_fe_3",
+                "genre": "leaf",
+                "parent": "v_meubles+",
+                "mode": "mono",
+                "techno": "ct",
+                "ratio": "1000",
+                "PGA": "1"
+            }
+        ]
+    },
+    "virtuel_devices-": {
+    "produit": "virtuel",
+    "hw": "",
+    "channels": [
+      {
+        "name": "v_devices-",
+        "genre": "node",
+        "parent": "fneg",
+        "children": [
+          "v_meubles-",
+          "v_CF-"
+        ]
+      }
+    ]
+  },
+    "virtuel_sdm-": {
+    "produit": "virtuel",
+    "hw": "",
+    "channels": [
+      {
+        "name": "v_sdm-",
+        "genre": "node",
+        "parent": "fneg",
+        "children": [
+          "neg_m1",
+          "neg_m2",
+          "neg_m3"
+        ]
+      }
+    ]
+  },
+    "virtuel_meubles-": {
+    "produit": "virtuel",
+    "hw": "",
+    "channels": [
+      {
+        "name": "v_meubles-",
+        "genre": "node",
+        "parent": "v_devices-",
+        "children": [
+          "LIN_SURG_AMPLEO",
+          "TG_BAC_SURG",
+          "L_SURG3_PORTE2",
+          "TG_SURG_PORTE",
+          "bac_surg",
+          "lin_surg_2_porte1",
+          "l_surg1_porte3"
+        ]
+      }
+    ]
+  },
+    "virtuel_CF-": {
+    "produit": "virtuel",
+    "hw": "",
+    "channels": [
+      {
+        "name": "v_CF-",
+        "genre": "node",
+        "parent": "v_devices-",
+        "children": [
+          "CF_RES1",
+          "CF-RES2",
+          "CF_SURG_BOUL"
+        ]
+      }
+    ]
+  },
     "dl12-subneg": {
         "produit": "PWX12",
         "hw": "legacy_V2",
@@ -361,7 +1033,7 @@
             {
                 "name": "neg_m1",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_sdm-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -370,7 +1042,7 @@
             {
                 "name": "neg_m2",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_sdm-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -379,7 +1051,7 @@
             {
                 "name": "neg_m3",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_sdm-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -394,7 +1066,7 @@
             {
                 "name": "LIN_SURG_AMPLEO",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_meubles-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -409,7 +1081,7 @@
             {
                 "name": "TG_BAC_SURG",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_meubles-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -418,7 +1090,7 @@
             {
                 "name": "L_SURG3_PORTE2",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_meubles-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -427,7 +1099,7 @@
             {
                 "name": "TG_SURG_PORTE",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_meubles-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -442,7 +1114,7 @@
             {
                 "name": "CF_RES1",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_CF-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -451,7 +1123,7 @@
             {
                 "name": "CF-RES2",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_CF-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -460,7 +1132,7 @@
             {
                 "name": "CF_SURG_BOUL",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_CF-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -475,7 +1147,7 @@
             {
                 "name": "bac_surg",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_meubles-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -484,7 +1156,7 @@
             {
                 "name": "lin_surg_2_porte1",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_meubles-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -493,7 +1165,7 @@
             {
                 "name": "l_surg1_porte3",
                 "genre": "leaf",
-                "parent": "fneg",
+                "parent": "v_meubles-",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
