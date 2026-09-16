@@ -869,7 +869,7 @@
     },
     "dl12-subneg": {
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "legacy_V1",
         "channels": [
             {
                 "name": "neg_m1",
@@ -902,7 +902,7 @@
     },
     "dl4-fn": {
         "produit": "PWX4",
-        "hw": "legacy_V2",
+        "hw": "legacy_V1",
         "channels": [
             {
                 "name": "LIN_SURG_AMPLEO",
@@ -917,7 +917,7 @@
     },
     "dl12-fn-1": {
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "legacy_V1",
         "channels": [
             {
                 "name": "TG_BAC_SURG",
@@ -950,7 +950,7 @@
     },
     "dl12-fn-2": {
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "legacy_V1",
         "channels": [
             {
                 "name": "CF_RES1",
@@ -983,7 +983,7 @@
     },
     "dl12-fn-3": {
         "produit": "PWX12",
-        "hw": "legacy_V2",
+        "hw": "legacy_V1",
         "channels": [
             {
                 "name": "bac_surg",
