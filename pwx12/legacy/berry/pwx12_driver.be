@@ -140,6 +140,19 @@ class PWX12
             while !tasmota.time_reached(due) end
             var buffer = global.serReceive.read()
             global.serReceive.flush()
+            # Driver 130 owns virtual framing/accounting; forward raw bytes once.
+            # Keep physical reception below unchanged, including partial lines.
+            try
+                var offset = 0
+                while offset < size(buffer)
+                    var last = offset + 95
+                    if last >= size(buffer) last = size(buffer) - 1 end
+                    tasmota.cmd('PWXVIRTUALRX ' + buffer[offset..last].tohex(), true)
+                    offset = last + 1
+                end
+            except .. as e, m
+                print('PWX virtual bridge error:', e, m)
+            end
             var mystring = buffer.asstring()
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
