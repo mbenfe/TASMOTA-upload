@@ -104,15 +104,21 @@ class PWX12
             split = string.split(line, ':')
             if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
                 print(string.format("PWX12 DBG [W] raw=%s", line))
-                self.debug_ctx('before W publish loop')
+                self.debug_ctx('before VIRTUALDATA publish')
+                var values = ''
                 for j: 0..2
                     var channel_name = global.configjson["channels"][j]["name"]
                     if channel_name != "*"
-                        topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
-                        ligne = string.format('{"Device": "%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[j + 1]))
-                        mqtt.publish(topic, ligne, true)
+                        if size(values) > 0
+                            values += ','
+                        end
+                        values += string.format('"%s":%.1f', channel_name, real(split[j + 1]))
                     end
                 end
+                topic = string.format("gw/%s/%s/%s/cmnd/VIRTUALDATA", global.client, global.ville, global.device)
+                ligne = string.format('{"source":"%s","type":"power","values":{%s}}', global.device, values)
+                mqtt.publish(topic, ligne, false)
+                print(string.format("PWX12 VIRTUALDATA -> %s %s", topic, ligne))
             else
                 print('PWX12-> malformed W frame:', line)
             end
