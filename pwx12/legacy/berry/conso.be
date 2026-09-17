@@ -34,7 +34,7 @@ class conso
     def init_cout()
         print('CONSO LOAD: entering init_cout')
         print('CONSO LOAD: device entry before init_cout = ' + json.dump(global.configjson["channels"]))
-        var name = string.format("c_%s.json", global.ville)
+        var name = string.format("couts_%s.json", global.ville)
         var file = open(name, "rt")
         var ligne = file.read()
         file.close()
@@ -154,7 +154,7 @@ class conso
         var file
 
         # 1) Load device config first; stop if config file is missing.
-        var name = string.format("p_%s.json", global.ville)
+        var name = string.format("power_%s.json", global.ville)
         if !path.exists(name)
             raise 'fichier configuration non existant:', str(name)
         end
