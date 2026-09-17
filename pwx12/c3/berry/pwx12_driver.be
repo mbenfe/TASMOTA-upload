@@ -166,6 +166,18 @@ class PWX12
             while !tasmota.time_reached(due) end
             var buffer = global.ser.read()
             global.ser.flush()
+            # Driver 129 receives the same raw bytes once; physical handling follows.
+            try
+                var offset = 0
+                while offset < size(buffer)
+                    var last = offset + 95
+                    if last >= size(buffer) last = size(buffer) - 1 end
+                    tasmota.cmd('PWXVIRTUALRX ' + buffer[offset..last].tohex(), true)
+                    offset = last + 1
+                end
+            except .. as e, m
+                print('PWX virtual bridge error:', e, m)
+            end
             var mystring = buffer.asstring()
             if self.rx_tail != nil && size(self.rx_tail) > 0
                 mystring = self.rx_tail + mystring
