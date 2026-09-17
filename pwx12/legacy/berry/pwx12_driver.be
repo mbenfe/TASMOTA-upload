@@ -20,6 +20,8 @@ class PWX12
     var root
     var topic 
     var conso
+    var uart_tail
+    var uart_resync
 
     def debug_ctx(tag)
         var has_cfg = (global.configjson != nil)
@@ -46,6 +48,8 @@ class PWX12
 
         print('DRIVER: serial init done')
         print('heap:', tasmota.get_free_heap())
+        self.uart_tail = ''
+        self.uart_resync = false
         self.debug_ctx('init')
     end
 
@@ -104,21 +108,15 @@ class PWX12
             split = string.split(line, ':')
             if size(split) >= 4 && size(split[1]) > 0 && size(split[2]) > 0 && size(split[3]) > 0
                 print(string.format("PWX12 DBG [W] raw=%s", line))
-                self.debug_ctx('before VIRTUALDATA publish')
-                var values = ''
+                self.debug_ctx('before POWER publish')
                 for j: 0..2
                     var channel_name = global.configjson["channels"][j]["name"]
                     if channel_name != "*"
-                        if size(values) > 0
-                            values += ','
-                        end
-                        values += string.format('"%s":%.1f', channel_name, real(split[j + 1]))
+                        topic = string.format("gw/%s/%s/%s-%d/tele/POWER", global.client, global.ville, global.device, j + 1)
+                        ligne = string.format('{"Device":"%s","Name":"%s","ActivePower":%.1f}', global.device, channel_name, real(split[j + 1]))
+                        mqtt.publish(topic, ligne, true)
                     end
                 end
-                topic = string.format("gw/%s/%s/%s/cmnd/VIRTUALDATA", global.client, global.ville, global.device)
-                ligne = string.format('{"source":"%s","type":"power","values":{%s}}', global.device, values)
-                mqtt.publish(topic, ligne, false)
-                print(string.format("PWX12 VIRTUALDATA -> %s %s", topic, ligne))
             else
                 print('PWX12-> malformed W frame:', line)
             end
@@ -160,15 +158,49 @@ class PWX12
                 print('PWX virtual bridge error:', e, m)
             end
             var mystring = buffer.asstring()
+            if self.uart_resync
+                var nl = string.find(mystring, '\n')
+                if nl == -1
+                    return
+                end
+                if nl + 1 < size(mystring)
+                    mystring = mystring[nl + 1..]
+                else
+                    mystring = ''
+                end
+                self.uart_resync = false
+            end
+            if size(self.uart_tail) > 0
+                mystring = self.uart_tail + mystring
+            end
             var mylist = string.split(mystring, '\n')
             var numitem = size(mylist)
             var line
             for i: 0..numitem-2
                 line = mylist[i]
+                if size(line) > 0 && string.byte(line[size(line)-1]) == 13
+                    line = line[0..size(line)-2]
+                end
                 if size(line) == 0
                     continue
                 end
+                if size(line) > 512
+                    print('PWX12-> dropping oversized UART line')
+                    continue
+                end
                 self.process_uart_line(line)
+            end
+            if numitem > 0
+                self.uart_tail = mylist[numitem-1]
+                # Overflow in an unfinished fragment means we must resync at
+                # the next newline before accepting a new measurement line.
+                if size(self.uart_tail) > 512
+                    print('PWX12-> dropping oversized partial UART fragment; resyncing')
+                    self.uart_tail = ''
+                    self.uart_resync = true
+                end
+            else
+                self.uart_tail = ''
             end
         end
     end
