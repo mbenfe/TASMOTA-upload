@@ -42,7 +42,7 @@ class conso
         self.cout = map()
         for i:0..2
             var channel_name = global.configjson["channels"][i]["name"]
-            name = string.format("c_%s", channel_name)
+            name = string.format("couts_%s", channel_name)
             self.cout.insert(name, 0)
         end   
     end
@@ -114,7 +114,7 @@ class conso
             hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"]*heures_creuses
         end
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
-        target = string.format("c_%s", chanel)
+        target = string.format("couts_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
         self.week_couts_json[chanel][self.day_list[day_of_week]] = hp_cout + hc_cout
     end
@@ -355,7 +355,7 @@ class conso
         for i:0..2
             var channel_name = global.configjson["channels"][i]["name"]
             if (scope != "hours" && channel_name != "*")
-                var cost_key = string.format("c_%s", channel_name)
+                var cost_key = string.format("couts_%s", channel_name)
                 if !self.week_couts_json.contains(channel_name)
                     self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                 end

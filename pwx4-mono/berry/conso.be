@@ -94,7 +94,7 @@ class conso
     end
 
     def init_cout()
-        var name = string.format("c_%s.json", global.ville)
+        var name = string.format("couts_%s.json", global.ville)
         var file = open(name, "rt")
         var ligne = file.read()
         var nb_channel
@@ -108,7 +108,7 @@ class conso
         global.coutjson = json.load(ligne)
         self.cout = map()
         for i:0..nb_channel-1
-            name = string.format("c_%s", global.configjson[global.device]["root"][i])
+            name = string.format("couts_%s", global.configjson[global.device]["root"][i])
             self.cout.insert(name, 0)
         end   
     end
@@ -180,7 +180,7 @@ class conso
             hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"]*heures_creuses
         end
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
-        target = string.format("c_%s", chanel)
+        target = string.format("couts_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
         self.week_couts_json[chanel][self.day_list[day_of_week]] = hp_cout + hc_cout
     end
@@ -188,7 +188,7 @@ class conso
     def init_conso()
         var file
         var ligne
-        var name = string.format("p_%s.json", global.ville)
+        var name = string.format("power_%s.json", global.ville)
         var nb_channel
         import path
         if (path.exists(name))
@@ -236,7 +236,7 @@ class conso
                 self.consojson = json.load(ligne)
                 print(self.consojson)
                 file.close()
-                var name = string.format("p_%s.json", global.ville)
+                var name = string.format("power_%s.json", global.ville)
                 file = open(name, 'rt')
                 ligne = file.read()
                 global.configjson = json.load(ligne)

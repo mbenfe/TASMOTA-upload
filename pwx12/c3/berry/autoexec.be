@@ -242,7 +242,7 @@ def help()
     print("[NOTES]")
     print("- commands are no longer sent from Berry")
     print("- telemetry is JSON power/energy handled by pwx12_driver.be")
-    print("- update downloads: c_<ville>.json, p_<ville>.json, conso.be, flasher.be, intelhex.be, pwx12_driver.be")
+    print("- update downloads: couts_<ville>.json, power_<ville>.json, conso.be, flasher.be, intelhex.be, pwx12_driver.be")
     tasmota.resp_cmnd_done()
 end
 
@@ -292,9 +292,9 @@ def update(cmd, idx, payload, payload_json)
 
     var to_fetch = []
     if want_json
-        var name = string.format("c_%s.json", global.ville)
+        var name = string.format("couts_%s.json", global.ville)
         to_fetch.push(string.format("config/%s", name))
-        name = string.format("p_%s.json", global.ville)
+        name = string.format("power_%s.json", global.ville)
         to_fetch.push(string.format("config/%s", name))
         to_fetch.push("config/power_shared_villes.json")
     end

@@ -147,7 +147,7 @@ def update()
     var buffer = file.read()
     var myjson = json.load(buffer)
     var ville = myjson["ville"]
-    var name = string.format("c_%s.json", ville)
+    var name = string.format("couts_%s.json", ville)
     file.close()
     var command = string.format("getfile config/%s", name)
     print(command)

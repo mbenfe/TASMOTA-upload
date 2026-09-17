@@ -257,7 +257,7 @@ def help()
     print("- update *.be             : download all Berry files")
     print("- update *.hex            : download all HEX files")
     print("- update *.bin            : download all BIN files")
-    print("- update *.json           : download c_<ville>.json and p_<ville>.json")
+    print("- update *.json           : download couts_<ville>.json and power_<ville>.json")
     tasmota.resp_cmnd_done()
 end
 
@@ -306,9 +306,9 @@ def update(cmd, idx, payload, payload_json)
 
     var to_fetch = []
     if want_json
-        var name = string.format("c_%s.json", global.ville)
+        var name = string.format("couts_%s.json", global.ville)
         to_fetch.push(string.format("config/%s", name))
-        name = string.format("p_%s.json", global.ville)
+        name = string.format("power_%s.json", global.ville)
         to_fetch.push(string.format("config/%s", name))
     end
 

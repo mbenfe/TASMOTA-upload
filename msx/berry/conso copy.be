@@ -32,13 +32,13 @@ class conso
     end
 
     def init_cout()
-        var name = string.format("c_%s.json", global.ville)
+        var name = string.format("couts_%s.json", global.ville)
         var file = open(name, "rt")
         var ligne = file.read()
         file.close()
         global.coutjson = json.load(ligne)
         self.cout = map()
-        name = string.format("c_%s", global.device)
+        name = string.format("couts_%s", global.device)
         self.cout.insert(name, 0)  
     end
 
@@ -109,7 +109,7 @@ class conso
             hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"]*heures_creuses
         end
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
-        target = string.format("c_%s", chanel)
+        target = string.format("couts_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
         self.week_couts_json[self.day_list[day_of_week]] = hp_cout + hc_cout
     end

@@ -9,7 +9,7 @@ index 10e52ea..fc4f2cc 100644
  import string
  import mqtt
 @@ -35,10 +35,17 @@ class conso
-         var name = string.format("c_%s.json", global.ville)
+         var name = string.format("couts_%s.json", global.ville)
          var file = open(name, "rt")
          var ligne = file.read()
 +        var nb_channel
@@ -30,7 +30,7 @@ index 10e52ea..fc4f2cc 100644
 @@ -120,28 +127,30 @@ class conso
          var file
          var ligne
-         var name = string.format("p_%s.json", global.ville)
+         var name = string.format("power_%s.json", global.ville)
 +        var nb_channel
          import path
          if (path.exists(name))

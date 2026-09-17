@@ -106,7 +106,7 @@
 +        "ratio": ["1000"]
 +    }
 + }
-*** Update File: D:\Programming\upload\config\p_aulnay.json
+*** Update File: D:\Programming\upload\config\power_aulnay.json
 -{
 -    "dl12-tgbt1": {
 -        "mode": ["tri","tri","tri"],

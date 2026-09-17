@@ -115,7 +115,7 @@ class conso
     def init_cout()
         print('CONSO LOAD: entering init_cout')
         print('CONSO LOAD: device entry before init_cout = ' + json.dump(global.configjson["channels"]))
-        var name = string.format("c_%s.json", global.ville)
+        var name = string.format("couts_%s.json", global.ville)
         var file = open(name, "rt")
         var ligne = file.read()
         file.close()
@@ -123,7 +123,7 @@ class conso
         self.cout = map()
         for i:0..self.logical_channel_count() - 1
             var channel_name = self.logical_channel_name(i)
-            name = string.format("c_%s", channel_name)
+            name = string.format("couts_%s", channel_name)
             self.cout.insert(name, 0)
         end   
     end
@@ -195,7 +195,7 @@ class conso
             hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"]*heures_creuses
         end
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
-        target = string.format("c_%s", chanel)
+        target = string.format("couts_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
         self.week_couts_json[chanel][self.day_list[day_of_week]] = hp_cout + hc_cout
     end
@@ -232,7 +232,7 @@ class conso
         var file
 
         # 1) Load device config first; stop if config file is missing.
-        var name = string.format("p_%s.json", global.ville)
+        var name = string.format("power_%s.json", global.ville)
         if !path.exists(name)
             raise 'fichier configuration non existant:', str(name)
         end
@@ -443,7 +443,7 @@ class conso
         for i:0..self.logical_channel_count() - 1
             var channel_name = self.logical_channel_name(i)
             if (scope != "hours" && channel_name != "*")
-                var cost_key = string.format("c_%s", channel_name)
+                var cost_key = string.format("couts_%s", channel_name)
                 if !self.week_couts_json.contains(channel_name)
                     self.week_couts_json.insert(channel_name, json.load('{"Lun":0,"Mar":0,"Mer":0,"Jeu":0,"Ven":0,"Sam":0,"Dim":0}'))
                 end

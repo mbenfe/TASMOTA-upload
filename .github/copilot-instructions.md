@@ -112,7 +112,7 @@ Maps register IDs (hex) to properties for Modbus/protocol parsing:
 Used by drivers to decode register values from STM32.
 
 ### City-Specific Configs
-**config/c_*.json, f_*.json, m_*.json, p_*.json, w_*.json**: City-specific device mappings (c=control, f=froid, m=monitoring, p=power, w=waste heat)
+**config/couts_*.json, f_*.json, m_*.json, p_*.json, w_*.json**: City-specific device mappings (c=control, f=froid, m=monitoring, p=power, w=waste heat)
 
 ## Common Tasks
 
