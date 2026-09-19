@@ -117,9 +117,6 @@ end
 def launch_driver()
     loadconfig()
     mqttprint('mqtt connected -> launch script commands')
-    tasmota.add_cmd('getfile', / cmd, idx, payload, payload_json -> getfile(cmd, idx, payload, payload_json))
-    tasmota.add_cmd('update', / cmd, idx, payload, payload_json -> update(cmd, idx, payload, payload_json))
-    tasmota.add_cmd('help', / cmd, idx, payload, payload_json -> help(cmd, idx, payload, payload_json))
 
     mqttprint("ville:" + str(global.ville))
     mqttprint("client:" + str(global.client))
@@ -138,5 +135,8 @@ else
     print("MQTT connected...")
 end
 
+tasmota.add_cmd('getfile', / cmd, idx, payload, payload_json -> getfile(cmd, idx, payload, payload_json))
+tasmota.add_cmd('update', / cmd, idx, payload, payload_json -> update(cmd, idx, payload, payload_json))
+tasmota.add_cmd('help', / cmd, idx, payload, payload_json -> help(cmd, idx, payload, payload_json))
 tasmota.set_timer(10000,launch_driver)
 

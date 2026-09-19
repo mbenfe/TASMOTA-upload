@@ -1,4 +1,19 @@
 {
+    "virtuel_froid": {
+        "produit": "virtuel",
+        "hw": "",
+        "channels": [
+            {
+                "name": "v_froid",
+                "genre": "node",
+                "parent": "main",
+                "children": [
+                    "froid",
+                    "froid_meubles"
+                ]
+            }
+        ]
+    },
    "pwx4-rogowski": {
     "produit": "PWX4",
     "hw": "rogowski",
@@ -28,8 +43,8 @@
             },
             {
                 "name": "froid_meubles",
-                "genre": "node",
-                "parent": "main",
+                "genre": "leaf",
+                "parent": "v_froid",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
@@ -71,7 +86,7 @@
             {
                 "name": "froid",
                 "genre": "leaf",
-                "parent": "main",
+                "parent": "v_froid",
                 "mode": "tri",
                 "techno": "ct",
                 "ratio": "1000",
