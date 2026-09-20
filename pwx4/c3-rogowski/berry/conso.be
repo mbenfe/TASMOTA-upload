@@ -68,7 +68,7 @@ class conso
         global.coutjson = json.load(ligne)
         self.cout = map()
         var channel_name = self.get_primary_channel_name()
-        name = string.format("couts_%s", channel_name)
+        name = string.format("c_%s", channel_name)
         self.cout.insert(name, 0)
     end
 
@@ -207,7 +207,7 @@ class conso
             hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"] * heures_creuses
         end
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
-        target = string.format("couts_%s", chanel)
+        target = string.format("c_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
         if self.is_mono_mode()
             self.ensure_week_cost_bucket(chanel)
@@ -526,7 +526,7 @@ class conso
                         end
                     end
 
-                        var mono_cost_key = string.format("couts_%s", mono_channel)
+                        var mono_cost_key = string.format("c_%s", mono_channel)
                         topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
                         ligne = string.format('{"Device": "%s","Name":"%s", "surface":%d,"cout":%.2f,"jour":"%s"}', 
                             global.device, mono_cost_key, global.coutjson['surface'], self.cout[mono_cost_key], self.day_list[day_for_cost])
@@ -586,7 +586,7 @@ class conso
             # Publish costs
             channel_name = self.get_primary_channel_name()
             if scope != "hours" && channel_name != "*"
-                var cost_key = string.format("couts_%s", channel_name)
+                var cost_key = string.format("c_%s", channel_name)
 
                 # Cost of current day (cron runs at 23:59)
                 topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)

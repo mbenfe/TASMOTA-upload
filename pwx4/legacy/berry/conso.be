@@ -39,7 +39,7 @@ class conso
         global.coutjson = json.load(ligne)
         self.cout = map()
         var channel_name = global.configjson[global.device]["channels"][0]["name"]
-        name = string.format("couts_%s", channel_name)
+        name = string.format("c_%s", channel_name)
         self.cout.insert(name, 0)
     end
 
@@ -108,7 +108,7 @@ class conso
             hc_cout_taxes = taxable * saison["taxe_acheminement"] + saison["hc_sp"] * heures_creuses
         end
         hc_cout = hc_cout_conso + hc_cout_acheminement + hc_cout_taxes
-        target = string.format("couts_%s", chanel)
+        target = string.format("c_%s", chanel)
         self.cout[target] = hp_cout + hc_cout
         self.week_couts_json[self.day_list[day_of_week]] = hp_cout + hc_cout
     end
@@ -377,7 +377,7 @@ class conso
         # Publish costs
         channel_name = global.configjson[global.device]["channels"][0]["name"]
         if scope != "hours" && channel_name != "*"
-            var cost_key = string.format("couts_%s", channel_name)
+            var cost_key = string.format("c_%s", channel_name)
 
             # Cost of current day (cron runs at 23:59)
             topic = string.format("gw/%s/%s/%s/tele/COUT", global.client, global.ville, global.device)
