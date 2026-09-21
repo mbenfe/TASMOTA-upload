@@ -83,6 +83,7 @@ def update(cmd, idx, payload, payload_json)
 
     if want_json
         to_fetch.push("plugx/config/setup.json")
+        to_fetch.push(string.format("config/couts_%s.json", global.ville))
     end
 
     mqttprint("update: start")
