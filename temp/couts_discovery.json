@@ -1,0 +1,1021 @@
+{
+  "targets": [
+    [
+      "aulnay",
+      "dl12-tgbt1"
+    ],
+    [
+      "aulnay",
+      "pwx4-rogowski"
+    ],
+    [
+      "aulnay",
+      "dl12-tgbt2"
+    ],
+    [
+      "aulnay",
+      "dl12-tgbt3"
+    ],
+    [
+      "aulnay",
+      "dl12-tgbt4"
+    ],
+    [
+      "aulnay",
+      "dl4-tgbt1"
+    ],
+    [
+      "aulnay",
+      "dl4-tgbt2"
+    ],
+    [
+      "aulnay",
+      "dl4-tgbt3"
+    ],
+    [
+      "aulnay",
+      "dl12-boulangerie"
+    ],
+    [
+      "aulnay",
+      "dl4-rideau"
+    ],
+    [
+      "aulnay",
+      "dl4-tdmag"
+    ],
+    [
+      "aulnay",
+      "dl4-tdbacl"
+    ],
+    [
+      "aulnay",
+      "dl4-tmono-boulangerie"
+    ],
+    [
+      "aulnay",
+      "dl4-subpos"
+    ],
+    [
+      "aulnay",
+      "dl12-subpos"
+    ],
+    [
+      "aulnay",
+      "pwx12-fp-mono1"
+    ],
+    [
+      "aulnay",
+      "pwx12-fp-mono2"
+    ],
+    [
+      "aulnay",
+      "pwx12-fp-mono3"
+    ],
+    [
+      "aulnay",
+      "pwx12-fp-mono4"
+    ],
+    [
+      "aulnay",
+      "dl12-subneg"
+    ],
+    [
+      "aulnay",
+      "dl4-fn"
+    ],
+    [
+      "aulnay",
+      "dl12-fn-1"
+    ],
+    [
+      "aulnay",
+      "dl12-fn-2"
+    ],
+    [
+      "aulnay",
+      "dl12-fn-3"
+    ],
+    [
+      "bezons",
+      "dl12-tgbt1"
+    ],
+    [
+      "bezons",
+      "dl12-tgbt2"
+    ],
+    [
+      "bezons",
+      "dl12-tgbt3"
+    ],
+    [
+      "bezons",
+      "dl4-tgbt"
+    ],
+    [
+      "bezons",
+      "dl4-tgbt2"
+    ],
+    [
+      "bezons",
+      "dl12-td_mag1"
+    ],
+    [
+      "bezons",
+      "dl12-td_mag2"
+    ],
+    [
+      "buc",
+      "dl4-mono"
+    ],
+    [
+      "buc",
+      "dl12-mono"
+    ],
+    [
+      "champigny",
+      "dl12-tgbt1"
+    ],
+    [
+      "champigny",
+      "dl12-boulangerie"
+    ],
+    [
+      "champigny",
+      "dl12-labo"
+    ],
+    [
+      "chilly-mazarin",
+      "dl12-sdm"
+    ],
+    [
+      "chilly-mazarin",
+      "dl4-sdm"
+    ],
+    [
+      "chilly-mazarin",
+      "dl12-td_ss"
+    ],
+    [
+      "chilly-mazarin",
+      "dl12-td_boulange"
+    ],
+    [
+      "chilly-mazarin",
+      "dl12-tgbt1"
+    ],
+    [
+      "chilly-mazarin",
+      "dl12-tgbt2"
+    ],
+    [
+      "chilly-mazarin",
+      "dl12-tgbt3"
+    ],
+    [
+      "chilly-mazarin",
+      "dl4-tgbt"
+    ],
+    [
+      "chilly-mazarin",
+      "dl4-labo"
+    ],
+    [
+      "chilly-mazarin",
+      "pwx4-tgbt"
+    ],
+    [
+      "chilly-mazarin",
+      "dl12-labo"
+    ],
+    [
+      "choisy",
+      "dl12-maingh"
+    ],
+    [
+      "choisy",
+      "dl12-maingb"
+    ],
+    [
+      "choisy",
+      "dl4-maingh"
+    ],
+    [
+      "choisy",
+      "dl12-maindh"
+    ],
+    [
+      "choisy",
+      "dl12-maindb"
+    ],
+    [
+      "choisy",
+      "dl4-bornes"
+    ],
+    [
+      "choisy",
+      "dl12-boulangerie1"
+    ],
+    [
+      "choisy",
+      "dl12-boulangerie2"
+    ],
+    [
+      "choisy",
+      "dl12-labo1"
+    ],
+    [
+      "choisy",
+      "dl12-labo2"
+    ],
+    [
+      "choisy",
+      "dl4-labo"
+    ],
+    [
+      "choisy",
+      "dl12-tdclim"
+    ],
+    [
+      "choisy",
+      "dl4-ext_froid"
+    ],
+    [
+      "choisy",
+      "dl4-extmain"
+    ],
+    [
+      "choisy",
+      "dl12-ext"
+    ],
+    [
+      "coubron",
+      "dl12-maind1"
+    ],
+    [
+      "coubron",
+      "dl12-maind2"
+    ],
+    [
+      "coubron",
+      "dl12-maing1"
+    ],
+    [
+      "coubron",
+      "pwx4-rogowski"
+    ],
+    [
+      "coubron",
+      "dl12-maing2"
+    ],
+    [
+      "coubron",
+      "dl12-bureaux"
+    ],
+    [
+      "coubron",
+      "dl12-boulange1"
+    ],
+    [
+      "coubron",
+      "dl12-boulange2"
+    ],
+    [
+      "coubron",
+      "dl12-labo1"
+    ],
+    [
+      "coubron",
+      "dl12-labo2"
+    ],
+    [
+      "coubron",
+      "dl12-galerie"
+    ],
+    [
+      "coubron",
+      "dl4-galerie"
+    ],
+    [
+      "coubron",
+      "dl12-caisses"
+    ],
+    [
+      "croissy",
+      "dl4-froid_pos"
+    ],
+    [
+      "croissy",
+      "dl4-froid_neg"
+    ],
+    [
+      "croissy",
+      "dl4-froid-new"
+    ],
+    [
+      "croissy",
+      "pwx4-rogowski"
+    ],
+    [
+      "croissy",
+      "dl4-station"
+    ],
+    [
+      "croissy",
+      "dl4-tgbt"
+    ],
+    [
+      "croissy",
+      "dl12-tgbt1"
+    ],
+    [
+      "croissy",
+      "dl12-tgbt2"
+    ],
+    [
+      "croissy",
+      "dl12-bureaux"
+    ],
+    [
+      "developpement",
+      "dl12-developpement"
+    ],
+    [
+      "developpement",
+      "dl12-flasher"
+    ],
+    [
+      "developpement",
+      "dl4-developpement"
+    ],
+    [
+      "egly",
+      "dl4-sdm1"
+    ],
+    [
+      "egly",
+      "dl4-sdm2"
+    ],
+    [
+      "egly",
+      "dl12-sdm1"
+    ],
+    [
+      "egly",
+      "pwx12-tgbtext"
+    ],
+    [
+      "egly",
+      "pwx12-tgbtint1"
+    ],
+    [
+      "egly",
+      "pwx12-tgbtint2"
+    ],
+    [
+      "egly",
+      "pwx12-tgbtint3"
+    ],
+    [
+      "egly",
+      "pwx12-tgbtint4"
+    ],
+    [
+      "maisons-laffitte",
+      "pwx4-rogowski"
+    ],
+    [
+      "maisons-laffitte",
+      "dl12-tgbt1"
+    ],
+    [
+      "maisons-laffitte",
+      "dl12-tgbt2"
+    ],
+    [
+      "maisons-laffitte",
+      "dl12-tgbt3"
+    ],
+    [
+      "maisons-laffitte",
+      "pwx12-boulangerie1"
+    ],
+    [
+      "maisons-laffitte",
+      "pwx12-boulangerie2"
+    ],
+    [
+      "marcq",
+      "dl4-garage"
+    ],
+    [
+      "mery",
+      "dl12-tgbt1"
+    ],
+    [
+      "mery",
+      "dl4-tgbt1"
+    ],
+    [
+      "mery",
+      "pwx4-rogowski-main"
+    ],
+    [
+      "mery",
+      "pwx4-rogowski-froid"
+    ],
+    [
+      "mery",
+      "dl12-tgbt3"
+    ],
+    [
+      "mery",
+      "dl12-tgbt4"
+    ],
+    [
+      "mery",
+      "dl12-tgbt5"
+    ],
+    [
+      "mery",
+      "dl12-tgbt6"
+    ],
+    [
+      "mery",
+      "dl12-boulangerie"
+    ],
+    [
+      "mery",
+      "dl4-labo"
+    ],
+    [
+      "morzine",
+      "pwx12-td1"
+    ],
+    [
+      "neuilly",
+      "dl4-eclpk1"
+    ],
+    [
+      "neuilly",
+      "dl12-new1"
+    ],
+    [
+      "neuilly",
+      "dl12-new2"
+    ],
+    [
+      "neuilly",
+      "pwx4-oldh"
+    ],
+    [
+      "neuilly",
+      "pwx4-rogowski"
+    ],
+    [
+      "neuilly",
+      "dl12-old1"
+    ],
+    [
+      "neuilly",
+      "dl12-old2"
+    ],
+    [
+      "neuilly",
+      "dl12-old3"
+    ],
+    [
+      "noisy",
+      "pwx4-rogowski"
+    ],
+    [
+      "noisy",
+      "dl12-tgbt1"
+    ],
+    [
+      "noisy",
+      "dl12-tgbt2"
+    ],
+    [
+      "noisy",
+      "dl12-tgbt3"
+    ],
+    [
+      "noisy",
+      "dl12-tgbt4"
+    ],
+    [
+      "noisy",
+      "dl12-tgbt5"
+    ],
+    [
+      "noisy",
+      "dl12-tgbtbat2"
+    ],
+    [
+      "noisy",
+      "dl12-tgbtbat1"
+    ],
+    [
+      "noisy",
+      "dl12-tdclim"
+    ],
+    [
+      "noisy",
+      "pwx4-tgbt2"
+    ],
+    [
+      "noisy",
+      "dl4-bureau"
+    ],
+    [
+      "noisy",
+      "pwx4-tgbtbat1"
+    ],
+    [
+      "saint-maur",
+      "pwx4-rogowski"
+    ],
+    [
+      "saint-maur",
+      "dl12-tgbt1"
+    ],
+    [
+      "saint-maur",
+      "dl12-tgbt2"
+    ],
+    [
+      "saint-maur",
+      "dl12-tgbt3"
+    ],
+    [
+      "saint-maur",
+      "dl12-tgbt4"
+    ],
+    [
+      "saint-maur",
+      "dl4-reserve"
+    ],
+    [
+      "saint-maur",
+      "dl12-labo"
+    ],
+    [
+      "saint-maur",
+      "dl12-boulangerie"
+    ],
+    [
+      "saint-maur",
+      "dl12-caisses"
+    ],
+    [
+      "seignosse",
+      "dl4-principal"
+    ],
+    [
+      "seignosse",
+      "dl4-annexe"
+    ]
+  ],
+  "excluded": [
+    [
+      "aulnay",
+      "virtuel_devices_pos"
+    ],
+    [
+      "aulnay",
+      "virtuel_sdm_pos"
+    ],
+    [
+      "aulnay",
+      "virtuel_meubles_pos"
+    ],
+    [
+      "aulnay",
+      "virtuel_CF_pos"
+    ],
+    [
+      "aulnay",
+      "virtuel_devices_neg"
+    ],
+    [
+      "aulnay",
+      "virtuel_sdm_neg"
+    ],
+    [
+      "aulnay",
+      "virtuel_meubles_neg"
+    ],
+    [
+      "aulnay",
+      "virtuel_CF_neg"
+    ],
+    [
+      "buc",
+      "virtual1"
+    ],
+    [
+      "chilly-mazarin",
+      "virtuel"
+    ],
+    [
+      "choisy",
+      "virtuel"
+    ],
+    [
+      "croissy",
+      "virtuel_froid_pos"
+    ],
+    [
+      "egly",
+      "virtuel"
+    ],
+    [
+      "saint-maur",
+      "virtuel_froid"
+    ]
+  ],
+  "observed": {
+    "seignosse/dl4-annexe": [
+      "bauduin"
+    ],
+    "buc/dl12-mono": [
+      "benfeghoul"
+    ],
+    "marcq/dl4-garage": [
+      "benfeghoul"
+    ],
+    "aulnay/dl12-boulangerie": [
+      "inter"
+    ],
+    "aulnay/dl4-tgbt1": [
+      "inter"
+    ],
+    "aulnay/dl12-tgbt1": [
+      "inter"
+    ],
+    "aulnay/dl4-rideau": [
+      "inter"
+    ],
+    "aulnay/dl12-tgbt4": [
+      "inter"
+    ],
+    "aulnay/dl4-tgbt3": [
+      "inter"
+    ],
+    "aulnay/dl4-tgbt2": [
+      "inter"
+    ],
+    "aulnay/dl4-tdmag": [
+      "inter"
+    ],
+    "aulnay/pwx4-rogowski": [
+      "inter"
+    ],
+    "noisy/dl12-tdclim": [
+      "inter"
+    ],
+    "noisy/dl4-bureau": [
+      "inter"
+    ],
+    "noisy/dl12-tgbt3": [
+      "inter"
+    ],
+    "noisy/dl12-tgbt4": [
+      "inter"
+    ],
+    "noisy/dl12-tgbt1": [
+      "inter"
+    ],
+    "noisy/dl12-tgbt2": [
+      "inter"
+    ],
+    "noisy/dl12-tgbt5": [
+      "inter"
+    ],
+    "noisy/pwx4-tgbt2": [
+      "inter"
+    ],
+    "noisy/pwx4-tgbtbat1": [
+      "inter"
+    ],
+    "noisy/dl12-tgbtbat2": [
+      "inter"
+    ],
+    "noisy/dl12-tgbtbat1": [
+      "inter"
+    ],
+    "noisy/pwx4-rogowski": [
+      "inter"
+    ],
+    "saint-maur/dl12-labo": [
+      "inter"
+    ],
+    "saint-maur/dl12-tgbt1": [
+      "inter"
+    ],
+    "saint-maur/dl12-tgbt3": [
+      "inter"
+    ],
+    "saint-maur/dl12-tgbt2": [
+      "inter"
+    ],
+    "saint-maur/dl12-boulangerie": [
+      "inter"
+    ],
+    "saint-maur/dl12-tgbt4": [
+      "inter"
+    ],
+    "saint-maur/dl12-caisses": [
+      "inter"
+    ],
+    "saint-maur/dl4-reserve": [
+      "inter"
+    ],
+    "saint-maur/pwx4-rogowski": [
+      "inter"
+    ],
+    "champigny/dl12-labo": [
+      "inter"
+    ],
+    "champigny/dl12-tgbt1": [
+      "inter"
+    ],
+    "champigny/dl12-boulangerie": [
+      "inter"
+    ],
+    "bezons/dl12-tgbt3": [
+      "inter"
+    ],
+    "bezons/dl12-tgbt2": [
+      "inter"
+    ],
+    "bezons/dl12-tgbt1": [
+      "inter"
+    ],
+    "bezons/dl4-tgbt": [
+      "inter"
+    ],
+    "bezons/dl4-tgbt2": [
+      "inter"
+    ],
+    "choisy/dl12-tdclim": [
+      "inter"
+    ],
+    "choisy/dl12-labo1": [
+      "inter"
+    ],
+    "choisy/dl12-labo2": [
+      "inter"
+    ],
+    "choisy/dl12-maindb": [
+      "inter"
+    ],
+    "choisy/dl12-maingb": [
+      "inter"
+    ],
+    "choisy/dl12-maindh": [
+      "inter"
+    ],
+    "choisy/dl4-bornes": [
+      "inter"
+    ],
+    "choisy/dl12-ext": [
+      "inter"
+    ],
+    "choisy/dl12-maingh": [
+      "inter"
+    ],
+    "choisy/dl12-boulangerie1": [
+      "inter"
+    ],
+    "choisy/dl12-boulangerie2": [
+      "inter"
+    ],
+    "choisy/dl4-maingh": [
+      "inter"
+    ],
+    "choisy/dl4-extmain": [
+      "inter"
+    ],
+    "choisy/dl4-ext_froid": [
+      "inter"
+    ],
+    "coubron/dl12-maind2": [
+      "inter"
+    ],
+    "coubron/dl12-maing2": [
+      "inter"
+    ],
+    "coubron/dl12-maind1": [
+      "inter"
+    ],
+    "coubron/dl12-galerie": [
+      "inter"
+    ],
+    "coubron/dl12-labo1": [
+      "inter"
+    ],
+    "coubron/dl12-labo2": [
+      "inter"
+    ],
+    "coubron/dl12-maing1": [
+      "inter"
+    ],
+    "coubron/dl4-galerie": [
+      "inter"
+    ],
+    "coubron/dl12-caisses": [
+      "inter"
+    ],
+    "coubron/dl12-boulange2": [
+      "inter"
+    ],
+    "coubron/dl12-bureaux": [
+      "inter"
+    ],
+    "coubron/dl12-boulange1": [
+      "inter"
+    ],
+    "coubron/pwx4-rogowski": [
+      "inter"
+    ],
+    "neuilly/dl12-old1": [
+      "inter"
+    ],
+    "neuilly/dl12-new1": [
+      "inter"
+    ],
+    "neuilly/dl12-new2": [
+      "inter"
+    ],
+    "neuilly/dl12-old2": [
+      "inter"
+    ],
+    "neuilly/dl12-old3": [
+      "inter"
+    ],
+    "neuilly/pwx4-oldh": [
+      "inter"
+    ],
+    "neuilly/pwx4-rogowski": [
+      "inter"
+    ],
+    "mery/dl12-boulangerie": [
+      "inter"
+    ],
+    "mery/dl12-tgbt5": [
+      "inter"
+    ],
+    "mery/dl12-tgbt6": [
+      "inter"
+    ],
+    "mery/dl12-tgbt4": [
+      "inter"
+    ],
+    "mery/dl12-tgbt1": [
+      "inter"
+    ],
+    "mery/pwx4-rogowski-main": [
+      "inter"
+    ],
+    "mery/pwx4-rogowski-froid": [
+      "inter"
+    ],
+    "mery/dl4-tgbt1": [
+      "inter"
+    ],
+    "chilly-mazarin/dl12-tgbt3": [
+      "inter"
+    ],
+    "chilly-mazarin/dl4-tgbt": [
+      "inter"
+    ],
+    "chilly-mazarin/dl12-tgbt1": [
+      "inter"
+    ],
+    "chilly-mazarin/dl12-td_ss": [
+      "inter"
+    ],
+    "chilly-mazarin/dl12-td_boulange": [
+      "inter"
+    ],
+    "chilly-mazarin/dl4-sdm": [
+      "inter"
+    ],
+    "chilly-mazarin/dl12-sdm": [
+      "inter"
+    ],
+    "chilly-mazarin/dl4-labo": [
+      "inter"
+    ],
+    "chilly-mazarin/dl12-tgbt2": [
+      "inter"
+    ],
+    "chilly-mazarin/pwx4-tgbt": [
+      "inter"
+    ],
+    "croissy/dl12-tgbt1": [
+      "inter"
+    ],
+    "croissy/dl12-bureaux": [
+      "inter"
+    ],
+    "croissy/dl4-station": [
+      "inter"
+    ],
+    "croissy/dl4-froid_pos": [
+      "inter"
+    ],
+    "croissy/dl4-froid_neg": [
+      "inter"
+    ],
+    "croissy/dl4-froid-new": [
+      "inter"
+    ],
+    "croissy/pwx4-rogowski": [
+      "inter"
+    ],
+    "egly/pwx12-tgbtint3": [
+      "inter"
+    ],
+    "egly/pwx12-tgbtint2": [
+      "inter"
+    ],
+    "egly/pwx12-tgbtint4": [
+      "inter"
+    ],
+    "egly/pwx12-tgbtint1": [
+      "inter"
+    ],
+    "egly/pwx12-tgbtext": [
+      "inter"
+    ],
+    "egly/dl12-sdm1": [
+      "inter"
+    ],
+    "egly/dl4-sdm1": [
+      "inter"
+    ],
+    "egly/dl4-sdm2": [
+      "inter"
+    ],
+    "maisons-laffitte/dl12-tgbt2": [
+      "inter"
+    ],
+    "maisons-laffitte/dl12-tgbt1": [
+      "inter"
+    ],
+    "maisons-laffitte/dl12-tgbt3": [
+      "inter"
+    ],
+    "maisons-laffitte/pwx4-rogowski": [
+      "inter"
+    ],
+    "maisons-laffitte/pwx12-boulangerie1": [
+      "inter"
+    ],
+    "maisons-laffitte/pwx12-boulangerie2": [
+      "inter"
+    ],
+    "aulnay/dl4-fn": [
+      "labo"
+    ],
+    "aulnay/dl4-subpos": [
+      "labo"
+    ],
+    "aulnay/dl12-fn-3": [
+      "labo"
+    ],
+    "aulnay/dl12-subneg": [
+      "labo"
+    ],
+    "aulnay/dl12-subpos": [
+      "labo"
+    ],
+    "aulnay/dl12-fn-2": [
+      "labo"
+    ],
+    "aulnay/dl12-fn-1": [
+      "labo"
+    ],
+    "aulnay/pwx12-fp-mono1": [
+      "labo"
+    ],
+    "aulnay/pwx12-fp-mono2": [
+      "labo"
+    ],
+    "aulnay/pwx12-fp-mono3": [
+      "labo"
+    ],
+    "aulnay/pwx12-fp-mono4": [
+      "labo"
+    ],
+    "morzine/pwx12-td1": [
+      "lambert"
+    ],
+    "aulnay/dl12-tgbt2": [
+      "inter"
+    ]
+  }
+}

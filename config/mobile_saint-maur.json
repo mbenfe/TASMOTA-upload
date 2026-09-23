@@ -382,7 +382,7 @@
                     "color": "TRANSPARENT",
                     "column": 2,
                     "row": 2,
-                    "location": "C",
+                    "location": "CF Positive",
                     "master": "CF_POSITIVE_cfM",
                     "details": "details_CF_POSITIVE_cfM",
                     "slave": []
@@ -402,7 +402,7 @@
                     "color": "TRANSPARENT",
                     "column": 2,
                     "row": 3,
-                    "location": "C",
+                    "location": "CF Positive",
                     "master": "CF_POSITIVE_cf4_M",
                     "details": "details_CF_POSITIVE_cf4_M",
                     "slave": []
@@ -412,7 +412,7 @@
                     "color": "TRANSPARENT",
                     "column": 1,
                     "row": 4,
-                    "location": "C",
+                    "location": "CF Positive",
                     "master": "CF_POSITIVE_cf5_M",
                     "details": "details_CF_POSITIVE_cf5_M",
                     "slave": []
@@ -422,7 +422,7 @@
                     "color": "TRANSPARENT",
                     "column": 2,
                     "row": 4,
-                    "location": "C",
+                    "location": "CF Positive",
                     "master": "CF_POSITIVE_cf6_M",
                     "details": "details_CF_POSITIVE_cf6_M",
                     "slave": []
@@ -516,7 +516,7 @@
                     "color": "TRANSPARENT",
                     "column": 3,
                     "row": 9,
-                    "location": "Ultar",
+                    "location": "Ultra Frais",
                     "master": "ULTRA_FRAIS_E3",
                     "details": "details_ULTRA_FRAIS_E3",
                     "slave": []
@@ -526,7 +526,7 @@
                     "color": "TRANSPARENT",
                     "column": 4,
                     "row": 9,
-                    "location": "From",
+                    "location": "Fromage",
                     "master": "FROMAGE/TRAITEUR_LS_M",
                     "details": "details_FROMAGE/TRAITEUR_LS_M",
                     "slave": []
@@ -536,13 +536,13 @@
                     "color": "TRANSPARENT",
                     "column": 1,
                     "row": 10,
-                    "location": "From",
+                    "location": "Fromage",
                     "master": "FROMAGE/TRAITEUR_LS_E1",
                     "details": "details_FROMAGE/TRAITEUR_LS_E1",
                     "slave": []
                 },
                 {
-                    "shape": "VITRINE+",
+                    "shape": "CF+",
                     "color": "TRANSPARENT",
                     "column": 2,
                     "row": 10,
@@ -617,8 +617,8 @@
                     "column": 1,
                     "row": 12,
                     "location": "Boucherie",
-                    "master": "TG_BOUCHERIE_LS_M",
-                    "details": "details_TG_BOUCHERIE_LS_M",
+                    "master": "TG_BOUCHERIE_LS_M_2",
+                    "details": "details_TG_BOUCHERIE_LS_M_2",
                     "slave": []
                 },
                 {
@@ -627,8 +627,8 @@
                     "column": 2,
                     "row": 12,
                     "location": "Boucherie",
-                    "master": "BOUCHERIE_LS_M",
-                    "details": "details_BOUCHERIE_LS_M",
+                    "master": "BOUCHERIE_LS_M_2",
+                    "details": "details_BOUCHERIE_LS_M_2",
                     "slave": []
                 },
                 {
@@ -637,8 +637,8 @@
                     "column": 3,
                     "row": 12,
                     "location": "Boucherie",
-                    "master": "BOUCHERIE_LS_E1",
-                    "details": "details_BOUCHERIE_LS_E1",
+                    "master": "BOUCHERIE_LS_E1_2",
+                    "details": "details_BOUCHERIE_LS_E1_2",
                     "slave": []
                 },
                 {
@@ -687,8 +687,8 @@
                     "column": 4,
                     "row": 13,
                     "location": "Charcuterie",
-                    "master": "CHARCUTERIE_LS_M",
-                    "details": "details_CHARCUTERIE_LS_M",
+                    "master": "CHARCUTERIE_LS_M_2",
+                    "details": "details_CHARCUTERIE_LS_M_2",
                     "slave": []
                 },
                 {
@@ -697,8 +697,8 @@
                     "column": 1,
                     "row": 14,
                     "location": "Charcuterie",
-                    "master": "CHARCUTERIE_LS_E1",
-                    "details": "details_CHARCUTERIE_LS_E1",
+                    "master": "CHARCUTERIE_LS_E1_2",
+                    "details": "details_CHARCUTERIE_LS_E1_2",
                     "slave": []
                 },
                 {
