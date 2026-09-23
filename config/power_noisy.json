@@ -14,7 +14,7 @@
       }
   },
   "dl12-tgbt1": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V1",
     "channels": [
       {
@@ -47,7 +47,7 @@
     ]
   },
   "dl12-tgbt2": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V1",
     "channels": [
       {
@@ -80,7 +80,7 @@
     ]
   },
   "dl12-tgbt3": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V1",
     "channels": [
       {
@@ -113,7 +113,7 @@
     ]
   },
   "dl12-tgbt4": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V1",
     "channels": [
       {
@@ -146,7 +146,7 @@
     ]
   },
   "dl12-tgbt5": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -179,7 +179,7 @@
     ]
   },
   "dl12-tgbtbat2": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -212,7 +212,7 @@
     ]
   },
   "dl12-tgbtbat1": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -245,7 +245,7 @@
     ]
   },
   "dl12-tdclim": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -293,7 +293,7 @@
     ]
   },
  "dl4-bureau": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {

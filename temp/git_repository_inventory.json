@@ -1,0 +1,488 @@
+[
+  {
+    "path": "D:/Programming\\AnalyzerKingst",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/LonworksKingst.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\embedded\\STM32",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/STM32.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\flutter\\FLUTTER-mobile-adomob_new",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/FLUTTER-mobile-adomob_new.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\flutter\\Flutter-tablet\\flutter_tablet",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/flutter_tablet.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\flutter\\Flutter-tablet\\flutter_tablet_mob",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/flutter_tablet_mob.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\flutter\\FLUTTER-web-layout",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/FLUTTER-web-layout.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\flutter\\FLUTTER-web-web_firebase",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/FLUTTER-web-web_firebase.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\daemons\\python-daemons-daily_data",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/python-daemons-daily_data"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\freebox",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/freebox.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\pyhton-froid-statistic",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/python-froid-statistic"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-aircloudypro\\aircloudy",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/ylemoigne/aircloudy.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-Calibration-with-ME440",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-Calibration-with-ME440.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-daemons\\PYHTON-daemon-list-json-key-for-telegraf",
+    "remotes": []
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-daemons\\PYTHON-daemon-aggregation",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-daemon-aggregation.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-daemons\\PYTHON-daemon-alerte-froid",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-daemon-alerte-froid.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-daemons\\PYTHON-daemon-analyse-froid",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-daemon-analyse-froid.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-daemons\\PYTHON-daemon-forwarder",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-daemon-forwarder.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-daemons\\PYTHON-daemon-hitachi-hvac",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-daemon-hitachi-hvac.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-daemons\\PYTHON-daemon-unknown-2",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-daemon-unknown-2.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-daemons\\PYTHON-daemon-unknown-erase",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-daemon-unknown-erase.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-daemons\\PYTHON-daemon-waveshare-loggers",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-daemon-waveshare-loggers.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-Hitachi",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-Hitachi.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\python-inter-simulation",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/python-inter-simulation"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-mobileapp_tools-page_froid",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-mobileapp_tools-page_froid.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-PiHole",
+    "remotes": []
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-simulation_coubron_noisy",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-simulation_coubron_noisy.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-STM32\\PYTHON-STM32-REPLAY-CLEAN - CAISSES",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-STM32-REPLAY-CLEAN.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-STM32\\PYTHON-STM32-REPLAY-CLEAN - CHOISY",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-STM32-REPLAY-CLEAN.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-STM32\\PYTHON-STM32-REPLAY-CLEAN - RECEPTION",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-STM32-REPLAY-CLEAN.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-STM32\\PYTHON-STM32-REPLAY-LA - CHILLY",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-STM32-REPLAY-LA.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-STM32\\PYTHON-STM32-REPLAY-LA - DC Generique",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-STM32-REPLAY-LA.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-STM32\\PYTHON-STM32-REPLAY-LA - DUAL CHANNELS HBS",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-STM32-REPLAY-LA.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-STM32\\PYTHON-STM32-REPLAY-LA - SINGLE CHANNEL - STM32C0",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-STM32-REPLAY-LA.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-STM32\\PYTHON-STM32-REPLAY-LA - SINGLE CHANNEL - STM32H7",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-STM32-REPLAY-LA.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-switch-to-ovh",
+    "remotes": []
+  },
+  {
+    "path": "D:/Programming\\python\\python-tasmota-management",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/python-tasmota-management.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-Tasmota-Push",
+    "remotes": []
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-TOOLS\\PYTHON-MOBILEAPP_TOOLS\\page_elec",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/page_elec.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-TOOLS\\PYTHON-MOBILEAPP_TOOLS\\page_froid",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-mobileapp_tools-page_froid.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-TOOLS\\PYTHON_HEARTBEAT-CHECK",
+    "remotes": []
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-watt-kwh",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-watt-kwh.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-webapp_tools\\python-webapp_tools-excel_config_fro-backup",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/python-webapp_tools-excel_config_froid"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-webapp_tools\\PYTHON-webapp_tools-excel_config_froid",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-webapp_tools-excel_config_froid.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-webapp_tools\\PYTHON-webapp_tools-layout",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-webapp_tools-layout.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\python\\PYTHON-webapp_tools\\PYTHON-webapp_tools-layout-backup",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/PYTHON-webapp_tools-layout.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\hlw8012",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/xoseperez/hlw8012.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\Tasmota-13-3-GENERIC-ZNP",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/Tasmota-13-3-GENERIC-ZNP.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\Tasmota-14.0.0 backup",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/Tasmota-14.0.0.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\Tasmota-14.0.0 old",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/Tasmota-14.0.0.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\TASMOTA-Tasmota-13-3-WIP",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/TASMOTA-Tasmota-13-3-WIP.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\TASMOTA-Tasmota-14.0.0",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/TASMOTA-Tasmota-14.0.0.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\TASMOTA-Tasmota-15.2.0",
+    "remotes": []
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\TASMOTA-Tasmota-15.2.0\\Tasmota",
+    "remotes": [
+      {
+        "remote": "remote \"upstream\"",
+        "url": "https://github.com/arendst/Tasmota.git"
+      },
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/TASMOTA-Tasmota-15.2.0.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\TASMOTA-Tasmota-15.2.0\\Tasmota\\.codex-worktrees\\chauffage",
+    "remotes": [
+      {
+        "remote": "remote \"upstream\"",
+        "url": "https://github.com/arendst/Tasmota.git"
+      },
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/TASMOTA-Tasmota-15.2.0.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\Tasmota\\TASMOTA-Tasmota-15.2.0\\Tasmota\\.codex-worktrees\\chauffage-particulier",
+    "remotes": [
+      {
+        "remote": "remote \"upstream\"",
+        "url": "https://github.com/arendst/Tasmota.git"
+      },
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/TASMOTA-Tasmota-15.2.0.git"
+      }
+    ]
+  },
+  {
+    "path": "D:/Programming\\upload",
+    "remotes": [
+      {
+        "remote": "remote \"origin\"",
+        "url": "https://github.com/mbenfe/TASMOTA-upload.git"
+      }
+    ]
+  }
+]

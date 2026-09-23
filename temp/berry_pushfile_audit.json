@@ -1,0 +1,65 @@
+[
+  {
+    "file": "rdx\\berry\\command.be",
+    "http_credentials": true,
+    "logs_url": true,
+    "all_files": true,
+    "retained_log": true
+  },
+  {
+    "file": "rdx\\thermoscreen\\berry\\command.be",
+    "http_credentials": true,
+    "logs_url": true,
+    "all_files": true,
+    "retained_log": true
+  },
+  {
+    "file": "rdx\\frico-min\\berry\\command.be",
+    "http_credentials": true,
+    "logs_url": true,
+    "all_files": true,
+    "retained_log": true
+  },
+  {
+    "file": "rdx\\frico\\berry\\command.be",
+    "http_credentials": true,
+    "logs_url": true,
+    "all_files": true,
+    "retained_log": true
+  },
+  {
+    "file": "hitachi\\berry\\command.be",
+    "http_credentials": true,
+    "logs_url": true,
+    "all_files": true,
+    "retained_log": true
+  },
+  {
+    "file": "aex\\standard\\berry\\command.be",
+    "http_credentials": true,
+    "logs_url": true,
+    "all_files": true,
+    "retained_log": true
+  },
+  {
+    "file": "aex\\seet\\berry\\command.be",
+    "http_credentials": true,
+    "logs_url": true,
+    "all_files": true,
+    "retained_log": true
+  },
+  {
+    "file": "aex\\climair\\berry\\command.be",
+    "http_credentials": true,
+    "logs_url": true,
+    "all_files": true,
+    "retained_log": true
+  },
+  {
+    "file": "acwfx\\berry\\command.be",
+    "http_credentials": true,
+    "logs_url": true,
+    "all_files": true,
+    "retained_log": true
+  }
+]

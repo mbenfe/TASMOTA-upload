@@ -1,6 +1,6 @@
 {
   "dl4-eclpk1": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -15,7 +15,7 @@
     ]
   },
   "dl12-new1": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V1",
     "channels": [
       {
@@ -48,7 +48,7 @@
     ]
   },
   "dl12-new2": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V1",
     "channels": [
       {
@@ -110,7 +110,7 @@
       }
   },  
   "dl12-old1": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -143,7 +143,7 @@
     ]
   },
   "dl12-old2": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -176,7 +176,7 @@
     ]
   },
   "dl12-old3": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {

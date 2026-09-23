@@ -1,6 +1,6 @@
 {
     "dl12-maind1": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -33,7 +33,7 @@
         ]
     },
     "dl12-maind2": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -66,7 +66,7 @@
         ]
     },
     "dl12-maing1": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -113,7 +113,7 @@
       }
     },
     "dl12-maing2": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -146,7 +146,7 @@
         ]
     },
     "dl12-bureaux": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -179,7 +179,7 @@
         ]
     },
     "dl12-boulange1": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -212,7 +212,7 @@
         ]
     },
     "dl12-boulange2": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -245,7 +245,7 @@
         ]
     },
     "dl12-labo1": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -278,7 +278,7 @@
         ]
     },
     "dl12-labo2": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -311,7 +311,7 @@
         ]
     },
     "dl12-galerie": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -344,7 +344,7 @@
         ]
     },
     "dl4-galerie": {
-        "produit": "PWX4",
+        "produit": "DL4",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -359,7 +359,7 @@
         ]
     },
     "dl12-caisses": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {

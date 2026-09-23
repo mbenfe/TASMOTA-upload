@@ -1,0 +1,291 @@
+{
+  "sites": {
+    "aulnay": {
+      "nodes": 80,
+      "tree_nodes": 80,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Siblings not lexicographically sorted under v_devices_neg",
+        "Siblings not lexicographically sorted under v_meubles_neg",
+        "Siblings not lexicographically sorted under v_CF_neg",
+        "Siblings not lexicographically sorted under v_devices_pos",
+        "Siblings not lexicographically sorted under v_meubles_pos",
+        "Siblings not lexicographically sorted under v_CF_pos",
+        "v_CF_neg: (virtual) identifies product but omits graph role (node)",
+        "v_CF_pos: (virtual) identifies product but omits graph role (node)",
+        "v_devices_neg: (virtual) identifies product but omits graph role (node)",
+        "v_devices_pos: (virtual) identifies product but omits graph role (node)",
+        "v_meubles_neg: (virtual) identifies product but omits graph role (node)",
+        "v_meubles_pos: (virtual) identifies product but omits graph role (node)",
+        "v_sdm_neg: (virtual) identifies product but omits graph role (node)",
+        "v_sdm_pos: (virtual) identifies product but omits graph role (node)"
+      ],
+      "power_sha256": "6cf575d6d3ab10a665b5d5b7e3e19d7cca7e89c4525a35c664107c082809c816",
+      "tree_sha256": "70d50d8facbb024f4704c638b53e5585c4a4540b44cbae5e055741bd54258356"
+    },
+    "bezons": {
+      "nodes": 19,
+      "tree_nodes": 19,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "bd40209b7c23477aac8a551c53c62bc8db6e42e23c836428f77071065c065e3c",
+      "tree_sha256": "e5c25ec34ff4a2faf17ace5885719c602f59481d0ec3d6e79627e69eff2aa133"
+    },
+    "buc": {
+      "nodes": 13,
+      "tree_nodes": 13,
+      "roots": [
+        "virtuel_total"
+      ],
+      "power_issues": [],
+      "differences": [
+        "Missing tree node: virtuel_total [virtual1], parent=None",
+        "Extra tree node: virtual_total, line 4",
+        "principal line 5: parent tree='virtual_total', power='virtuel_total'",
+        "td_garage line 14: parent tree='virtual_total', power='virtuel_total'"
+      ],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "c442b83a1f28a3b49b9a7328d14479be406847bb1f8b81b49b6c486a029b183d",
+      "tree_sha256": "0cd32ceda48b62bb402be6695fabdc5bd84634f6fb3effd17ec8fa2400ae33d1"
+    },
+    "champigny": {
+      "nodes": 9,
+      "tree_nodes": 9,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "d6cad4e64dd4be0f9ee23ecf31b6a475867efb168445fb53e1578f98e9580bbd",
+      "tree_sha256": "6960f1c5a4491df98fec8b2369493c38daa9ca78fbd1439f43e6302199503d1a"
+    },
+    "chilly-mazarin": {
+      "nodes": 22,
+      "tree_nodes": 22,
+      "roots": [
+        "virtuel_total"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [],
+      "power_sha256": "d143e36b00cb130dbf6db68e62df587424aa75917febe57f54d88e93382f08a8",
+      "tree_sha256": "8af740c1a6f5348b40c2d9802793f707b94f94a67094cad3bafce84c0d11cafe"
+    },
+    "choisy": {
+      "nodes": 33,
+      "tree_nodes": 33,
+      "roots": [
+        "virtuel_total"
+      ],
+      "power_issues": [],
+      "differences": [
+        "Missing tree node: libre [dl12-maindh], parent=gene_int",
+        "Extra tree node: li autobre, line 15",
+        "ext_froid line 5: role tree=node, power=leaf"
+      ],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```",
+        "Siblings not lexicographically sorted under gene_int",
+        "Siblings not lexicographically sorted under td_boulangerie",
+        "Siblings not lexicographically sorted under gene_labo",
+        "Siblings not lexicographically sorted under td_clim"
+      ],
+      "power_sha256": "6c845e7f9f7cc5464554cb5e64c9857b89bddcac263904b2d6782303150a5d5e",
+      "tree_sha256": "9a0bc94a8c6038d50c025830e44fedfccf2d4fca3fad8c6913624ae29892bf01"
+    },
+    "coubron": {
+      "nodes": 34,
+      "tree_nodes": 34,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "ef48c9b7ff74fc7915c7dfd0a11204ffc0bc0de4e63bc846a223cd102d979422",
+      "tree_sha256": "d6faac4b778f44f29d9c87de280f77674f14ac3980d7a4640ffb459d84e21ace"
+    },
+    "croissy": {
+      "nodes": 16,
+      "tree_nodes": 16,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Siblings not lexicographically sorted under main",
+        "v_froid_pos: (virtual) identifies product but omits graph role (node)"
+      ],
+      "power_sha256": "c72d01118e08936c9d65b7d8f6c0805ec73fbb958ad9bc14b1c91881e362369f",
+      "tree_sha256": "941dcbed77c5d605aa8fb86c9ff1981e6399b2666478b348887bd0a4c2fc3796"
+    },
+    "developpement": {
+      "nodes": 7,
+      "tree_nodes": 7,
+      "roots": [
+        "principal"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "e62cf2ca611cc3bcf97057d7dce22c95edafba41fdd8ab3ce0782277a8472934",
+      "tree_sha256": "569b87ffc279b97b49d910afe748d60cda98b5790af51b0f3acae7d8c177f079"
+    },
+    "egly": {
+      "nodes": 20,
+      "tree_nodes": 20,
+      "roots": [
+        "virtuel_total"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "87d9b26b9d2f71fec0250139c712d90ad393f0cd0dda8838c64f3d6b4ecd344c",
+      "tree_sha256": "a3e2f6deba9205ca355680115908fcb95ab338f7250e5db1cadf88f031879032"
+    },
+    "maisons-laffitte": {
+      "nodes": 12,
+      "tree_nodes": 12,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [],
+      "power_sha256": "d0f9a35307e23f3c4c2ad5c49f54c1a0712c2ccdd99f9a1000e9fac812c85e9b",
+      "tree_sha256": "0fadc13764201c3b1f051292b45ef6503b9e015d18888acaa81144e03b0f2ad3"
+    },
+    "marcq": {
+      "nodes": 4,
+      "tree_nodes": 4,
+      "roots": [
+        "principal"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "37237f440d64485450ec43c738a4168d0e0f98b9516bca802c66578b5f115d1e",
+      "tree_sha256": "73655896a4fd7f2829a2000bcd343cf4adaef4b75c104496ce1e99feed5dfdb9"
+    },
+    "mery": {
+      "nodes": 21,
+      "tree_nodes": 21,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [
+        "Role requires review: froid: genre=node, graph=leaf"
+      ],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "cea5557e8789e4d2a86f9f0b701f23f4fbd122e452a57a39e6c0f82c0b4a5db2",
+      "tree_sha256": "5bef1df2847456965c6646a1914359131c09bfce8ad59ce3b240bc8779716dba"
+    },
+    "morzine": {
+      "nodes": 6,
+      "tree_nodes": 6,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "289d6c41ab63d03eb271ac5e8d3ffee9c2fc8a5675bd43bb6936fdac23d60fd5",
+      "tree_sha256": "43c816ba5fc27ee2feb6c6e438659b603d299d450e1f6e822763f3a8e3861c75"
+    },
+    "neuilly": {
+      "nodes": 17,
+      "tree_nodes": 16,
+      "roots": [
+        "general",
+        "main"
+      ],
+      "power_issues": [
+        "Role requires review: general: genre=node, graph=root",
+        "Multiple/no roots: ['general', 'main']"
+      ],
+      "differences": [
+        "Missing tree node: general [dl12-new2], parent=None",
+        "froid line 12: owner tree='dl12-oldh', power='pwx4-oldh'",
+        "main line 4: owner tree='dl12-oldh', power='pwx4-rogowski'"
+      ],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "e850aca0ddd1d06aa3f155c8f5c05edfe017db6104ea3b0d21a20bd00d348414",
+      "tree_sha256": "f7e1102a27dc41ddbbee3c20d5996b9f6e38e131d309ce4b40bf3cd58183d9ea"
+    },
+    "noisy": {
+      "nodes": 30,
+      "tree_nodes": 30,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [],
+      "power_sha256": "d059b90394155ecb3dda0e4ffb9f2b0708e826772db9b1b34e3dc049f948d36b",
+      "tree_sha256": "29db006ac3564a13820be8203b6a7f6a73e7e0cd4fe1a930b72e82f7a51ffcb8"
+    },
+    "saint-maur": {
+      "nodes": 23,
+      "tree_nodes": 23,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```",
+        "Siblings not lexicographically sorted under main"
+      ],
+      "power_sha256": "62fe6ae162b96a19ca252b773ec34bbd0f2f0f6ca7c2d41e86cf4cb5cbf91c4e",
+      "tree_sha256": "ab8a18a142c7c94e46046f631c91bf1c185efbf7872efee38135d877fa842212"
+    },
+    "seignosse": {
+      "nodes": 7,
+      "tree_nodes": 7,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "differences": [],
+      "formatting": [
+        "Invalid code fences; expected ```text and ```"
+      ],
+      "power_sha256": "74692adbd65b408712a288643404858606f770ad7120b15f043a85b7ae6abe9b",
+      "tree_sha256": "5b798a9c57237c0431fe04f6d61a5f32599a7fc49adfc23faae6107d23fb729b"
+    }
+  },
+  "unmatched_trees": [
+    "tree_les-arcs.md"
+  ]
+}

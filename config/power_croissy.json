@@ -15,7 +15,7 @@
     ]
   },
   "dl4-froid_pos": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -30,7 +30,7 @@
     ]
   },
   "dl4-froid_neg": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -45,7 +45,7 @@
     ]
   },
   "dl4-froid-new": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -74,7 +74,7 @@
       }
   },  
   "dl4-station": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -89,7 +89,7 @@
     ]
   },
    "dl4-tgbt": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -104,7 +104,7 @@
     ]
   },
   "dl12-tgbt1": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -137,7 +137,7 @@
     ]
   },
   "dl12-tgbt2": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V1",
     "channels": [
       {
@@ -170,7 +170,7 @@
     ]
   },
   "dl12-bureaux": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {

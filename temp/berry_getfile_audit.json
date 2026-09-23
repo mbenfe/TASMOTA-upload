@@ -1,0 +1,191 @@
+[
+  {
+    "file": "hbs-logger\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "zb-sonoff\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "znp\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "zb-sonoff\\marcq\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "zb-bridge-sonoff\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "snx\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "rdx\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "rdx\\thermoscreen\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "rdx\\frico-min\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "rdx\\frico\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "pwx4\\legacy\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "pwx4\\c3-rogowski\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": true
+  },
+  {
+    "file": "pwx4\\c3\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "pwx12\\legacy\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "pwx12\\c3\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "plugx\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "msx\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "light\\saint-maur\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "htchx\\hlink_sniffer\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "htchx\\rs485\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "hitachi\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "chx-p\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "chx\\berry\\autoexec.be",
+    "update": true,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "aex\\standard\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "aex\\seet\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "aex\\climair\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  },
+  {
+    "file": "acwfx\\berry\\autoexec.be",
+    "update": false,
+    "direct_write": true,
+    "follow_redirects": true,
+    "retry_429": false
+  }
+]

@@ -1,6 +1,6 @@
 {
   "dl4-principal": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -42,7 +42,7 @@
     ]
   },
   "dl4-annexe": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {

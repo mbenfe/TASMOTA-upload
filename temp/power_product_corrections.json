@@ -1,0 +1,698 @@
+[
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-tgbt1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-tgbt2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-tgbt3",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-tgbt4",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl4-tgbt1",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl4-tgbt2",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl4-tgbt3",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-boulangerie",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl4-rideau",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl4-tdmag",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl4-tdbacl",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl4-tmono-boulangerie",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl4-subpos",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-subpos",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-subneg",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl4-fn",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-fn-1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-fn-2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_aulnay.json",
+    "device": "dl12-fn-3",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_bezons.json",
+    "device": "dl12-tgbt1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_bezons.json",
+    "device": "dl12-tgbt2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_bezons.json",
+    "device": "dl12-tgbt3",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_bezons.json",
+    "device": "dl4-tgbt",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_bezons.json",
+    "device": "dl4-tgbt2",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_bezons.json",
+    "device": "dl12-td_mag1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_bezons.json",
+    "device": "dl12-td_mag2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_buc.json",
+    "device": "dl4-mono",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_buc.json",
+    "device": "dl12-mono",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_champigny.json",
+    "device": "dl12-tgbt1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_champigny.json",
+    "device": "dl12-boulangerie",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_champigny.json",
+    "device": "dl12-labo",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl12-sdm",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl4-sdm",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl12-td_ss",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl12-td_boulange",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl12-tgbt1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl12-tgbt2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl12-tgbt3",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl4-tgbt",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl4-labo",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_chilly-mazarin.json",
+    "device": "dl12-labo",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-maingh",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-maingb",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl4-maingh",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-maindh",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-maindb",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl4-bornes",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-boulangerie1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-boulangerie2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-labo1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-labo2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl4-labo",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-tdclim",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl4-ext_froid",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl4-extmain",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_choisy.json",
+    "device": "dl12-ext",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-maind1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-maind2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-maing1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-maing2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-bureaux",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-boulange1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-boulange2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-labo1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-labo2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-galerie",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl4-galerie",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_coubron.json",
+    "device": "dl12-caisses",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_croissy.json",
+    "device": "dl4-froid_pos",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_croissy.json",
+    "device": "dl4-froid_neg",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_croissy.json",
+    "device": "dl4-froid-new",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_croissy.json",
+    "device": "dl4-station",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_croissy.json",
+    "device": "dl4-tgbt",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_croissy.json",
+    "device": "dl12-tgbt1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_croissy.json",
+    "device": "dl12-tgbt2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_croissy.json",
+    "device": "dl12-bureaux",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_egly.json",
+    "device": "dl4-sdm1",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_egly.json",
+    "device": "dl4-sdm2",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_egly.json",
+    "device": "dl12-sdm1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_maisons-laffitte.json",
+    "device": "dl12-tgbt1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_maisons-laffitte.json",
+    "device": "dl12-tgbt2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_maisons-laffitte.json",
+    "device": "dl12-tgbt3",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_marcq.json",
+    "device": "dl4-garage",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_mery.json",
+    "device": "dl12-tgbt1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_mery.json",
+    "device": "dl4-tgbt1",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_mery.json",
+    "device": "dl12-tgbt3",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_mery.json",
+    "device": "dl12-tgbt4",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_mery.json",
+    "device": "dl12-tgbt5",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_mery.json",
+    "device": "dl12-tgbt6",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_mery.json",
+    "device": "dl12-boulangerie",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_mery.json",
+    "device": "dl4-labo",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_neuilly.json",
+    "device": "dl4-eclpk1",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_neuilly.json",
+    "device": "dl12-new1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_neuilly.json",
+    "device": "dl12-new2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_neuilly.json",
+    "device": "dl12-old1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_neuilly.json",
+    "device": "dl12-old2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_neuilly.json",
+    "device": "dl12-old3",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_noisy.json",
+    "device": "dl12-tgbt1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_noisy.json",
+    "device": "dl12-tgbt2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_noisy.json",
+    "device": "dl12-tgbt3",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_noisy.json",
+    "device": "dl12-tgbt4",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_noisy.json",
+    "device": "dl12-tgbt5",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_noisy.json",
+    "device": "dl12-tgbtbat2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_noisy.json",
+    "device": "dl12-tgbtbat1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_noisy.json",
+    "device": "dl12-tdclim",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_noisy.json",
+    "device": "dl4-bureau",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_saint-maur.json",
+    "device": "dl12-tgbt1",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_saint-maur.json",
+    "device": "dl12-tgbt2",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_saint-maur.json",
+    "device": "dl12-tgbt3",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_saint-maur.json",
+    "device": "dl12-tgbt4",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_saint-maur.json",
+    "device": "dl4-reserve",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_saint-maur.json",
+    "device": "dl12-labo",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_saint-maur.json",
+    "device": "dl12-boulangerie",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_saint-maur.json",
+    "device": "dl12-caisses",
+    "before": "PWX12",
+    "after": "DL12"
+  },
+  {
+    "file": "power_seignosse.json",
+    "device": "dl4-principal",
+    "before": "PWX4",
+    "after": "DL4"
+  },
+  {
+    "file": "power_seignosse.json",
+    "device": "dl4-annexe",
+    "before": "PWX4",
+    "after": "DL4"
+  }
+]

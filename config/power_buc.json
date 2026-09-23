@@ -14,7 +14,7 @@
     ]
   },
   "dl4-mono": {
-    "produit": "PWX4",
+    "produit": "DL4",
     "hw": "legacy_V2",
     "channels": [
       {
@@ -56,7 +56,7 @@
     ]
   },
   "dl12-mono": {
-    "produit": "PWX12",
+    "produit": "DL12",
     "hw": "legacy_V2",
     "channels": [
       {

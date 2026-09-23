@@ -1,6 +1,6 @@
 {
     "dl12-tgbt1": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -33,7 +33,7 @@
         ]
     },
     "dl4-tgbt1": {
-        "produit": "PWX4",
+        "produit": "DL4",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -76,7 +76,7 @@
       }
   },  
     "dl12-tgbt3": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -109,7 +109,7 @@
         ]
     },
     "dl12-tgbt4": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -142,7 +142,7 @@
         ]
     },
     "dl12-tgbt5": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -175,7 +175,7 @@
         ]
     },
     "dl12-tgbt6": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -208,7 +208,7 @@
         ]
     },
     "dl12-boulangerie": {
-        "produit": "PWX12",
+        "produit": "DL12",
         "hw": "legacy_V2",
         "channels": [
             {
@@ -241,7 +241,7 @@
         ]
     },
     "dl4-labo": {
-        "produit": "PWX4",
+        "produit": "DL4",
         "hw": "legacy_V2",
         "channels": [
             {
