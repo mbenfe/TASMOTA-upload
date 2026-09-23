@@ -1,0 +1,41 @@
+{
+  "aulnay": {
+    "root": "snx"
+  },
+  "bezons": {
+    "root": "snx"
+  },
+  "champigny": {
+    "root": "snx"
+  },
+  "chilly-mazarin": {
+    "root": "snx"
+  },
+  "choisy": {
+    "root": "snx"
+  },
+  "coubron": {
+    "root": "snx"
+  },
+  "croissy": {
+    "root": "snx"
+  },
+  "egly": {
+    "root": "snx"
+  },
+  "maisons-laffitte": {
+    "root": "snx"
+  },
+  "mery": {
+    "root": "snx"
+  },
+  "neuilly": {
+    "root": "snx"
+  },
+  "noisy": {
+    "root": "snx"
+  },
+  "saint-maur": {
+    "root": "snx"
+  }
+}
