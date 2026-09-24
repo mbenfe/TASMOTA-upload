@@ -1,0 +1,327 @@
+{
+  "applications": [
+    {
+  "type": "iConsommation",
+  "label": "Conso",
+  "level": 1,
+  "virtuel": 0,
+  "data": {
+    "PieChart": [
+      {
+        "id": 1,
+        "location": "virtuel_total",
+        "column": 50,
+        "row": 50,
+        "master": "virtuel_total",
+        "slave": [
+          "principal",
+          "td_garage"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 1500,
+        "height": 1500,
+        "label": [
+          "virtuel_total",
+          "principal",
+          "td_garage"
+        ]
+      },
+      {
+        "id": 2,
+        "location": "principal",
+        "column": 50,
+        "row": 1600,
+        "master": "principal",
+        "slave": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 1500,
+        "height": 1500,
+        "label": [
+          "principal",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      },
+      {
+        "id": 3,
+        "location": "td_garage",
+        "column": 50,
+        "row": 3850,
+        "master": "td_garage",
+        "slave": [
+          "buanderie",
+          "chaufferie"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 1500,
+        "height": 1500,
+        "label": [
+          "td_garage",
+          "buanderie",
+          "chaufferie"
+        ]
+      }
+    ],
+    "ConsoBar": [
+      {
+        "id": 1,
+        "location": "virtuel_total",
+        "column": 1600,
+        "row": 50,
+        "master": "virtuel_total",
+        "slave": [
+          "virtuel_total",
+          "virtuel_total_H",
+          "virtuel_total_D",
+          "virtuel_total_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 2,
+        "location": "principal",
+        "column": 2350,
+        "row": 50,
+        "master": "principal",
+        "slave": [
+          "virtuel_total",
+          "principal_H",
+          "principal_D",
+          "principal_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 3,
+        "location": "td_garage",
+        "column": 3100,
+        "row": 50,
+        "master": "td_garage",
+        "slave": [
+          "virtuel_total",
+          "td_garage_H",
+          "td_garage_D",
+          "td_garage_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 4,
+        "location": "1",
+        "column": 1600,
+        "row": 1600,
+        "master": "1",
+        "slave": [
+          "virtuel_total",
+          "1_H",
+          "1_D",
+          "1_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 5,
+        "location": "2",
+        "column": 2350,
+        "row": 1600,
+        "master": "2",
+        "slave": [
+          "virtuel_total",
+          "2_H",
+          "2_D",
+          "2_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 6,
+        "location": "3",
+        "column": 3100,
+        "row": 1600,
+        "master": "3",
+        "slave": [
+          "virtuel_total",
+          "3_H",
+          "3_D",
+          "3_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 7,
+        "location": "4",
+        "column": 1600,
+        "row": 2350,
+        "master": "4",
+        "slave": [
+          "virtuel_total",
+          "4_H",
+          "4_D",
+          "4_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 8,
+        "location": "5",
+        "column": 2350,
+        "row": 2350,
+        "master": "5",
+        "slave": [
+          "virtuel_total",
+          "5_H",
+          "5_D",
+          "5_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 9,
+        "location": "6",
+        "column": 3100,
+        "row": 2350,
+        "master": "6",
+        "slave": [
+          "virtuel_total",
+          "6_H",
+          "6_D",
+          "6_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 10,
+        "location": "7",
+        "column": 1600,
+        "row": 3100,
+        "master": "7",
+        "slave": [
+          "virtuel_total",
+          "7_H",
+          "7_D",
+          "7_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 11,
+        "location": "8",
+        "column": 2350,
+        "row": 3100,
+        "master": "8",
+        "slave": [
+          "virtuel_total",
+          "8_H",
+          "8_D",
+          "8_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 12,
+        "location": "buanderie",
+        "column": 1600,
+        "row": 3850,
+        "master": "buanderie",
+        "slave": [
+          "virtuel_total",
+          "buanderie_H",
+          "buanderie_D",
+          "buanderie_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 13,
+        "location": "chaufferie",
+        "column": 2350,
+        "row": 3850,
+        "master": "chaufferie",
+        "slave": [
+          "virtuel_total",
+          "chaufferie_H",
+          "chaufferie_D",
+          "chaufferie_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      }
+    ]
+  },
+  "width": 3850,
+  "height": 5400
+}
+  ]
+}

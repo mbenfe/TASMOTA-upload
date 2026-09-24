@@ -1,0 +1,190 @@
+{
+  "applications": [
+    {
+  "type": "iConsommation",
+  "label": "Conso",
+  "level": 1,
+  "virtuel": 0,
+  "data": {
+    "PieChart": [
+      {
+        "id": 1,
+        "location": "main",
+        "column": 50,
+        "row": 50,
+        "master": "main",
+        "slave": [
+          "autre1",
+          "autre2",
+          "autre3",
+          "td_annexe"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 1500,
+        "height": 1500,
+        "label": [
+          "main",
+          "autre1",
+          "autre2",
+          "autre3",
+          "td_annexe"
+        ]
+      },
+      {
+        "id": 2,
+        "location": "td_annexe",
+        "column": 50,
+        "row": 1600,
+        "master": "td_annexe",
+        "slave": [
+          "jaccuzi",
+          "spa"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 1500,
+        "height": 1500,
+        "label": [
+          "td_annexe",
+          "jaccuzi",
+          "spa"
+        ]
+      }
+    ],
+    "ConsoBar": [
+      {
+        "id": 1,
+        "location": "main",
+        "column": 1600,
+        "row": 50,
+        "master": "main",
+        "slave": [
+          "main",
+          "main_H",
+          "main_D",
+          "main_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 2,
+        "location": "autre1",
+        "column": 2350,
+        "row": 50,
+        "master": "autre1",
+        "slave": [
+          "main",
+          "autre1_H",
+          "autre1_D",
+          "autre1_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 3,
+        "location": "autre2",
+        "column": 3100,
+        "row": 50,
+        "master": "autre2",
+        "slave": [
+          "main",
+          "autre2_H",
+          "autre2_D",
+          "autre2_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 4,
+        "location": "autre3",
+        "column": 1600,
+        "row": 800,
+        "master": "autre3",
+        "slave": [
+          "main",
+          "autre3_H",
+          "autre3_D",
+          "autre3_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 5,
+        "location": "td_annexe",
+        "column": 2350,
+        "row": 800,
+        "master": "td_annexe",
+        "slave": [
+          "main",
+          "td_annexe_H",
+          "td_annexe_D",
+          "td_annexe_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 6,
+        "location": "jaccuzi",
+        "column": 1600,
+        "row": 1600,
+        "master": "jaccuzi",
+        "slave": [
+          "main",
+          "jaccuzi_H",
+          "jaccuzi_D",
+          "jaccuzi_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 7,
+        "location": "spa",
+        "column": 2350,
+        "row": 1600,
+        "master": "spa",
+        "slave": [
+          "main",
+          "spa_H",
+          "spa_D",
+          "spa_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      }
+    ]
+  },
+  "width": 3850,
+  "height": 3150
+}
+  ]
+}

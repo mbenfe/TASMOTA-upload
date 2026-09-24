@@ -1,0 +1,290 @@
+{
+  "applications": [
+    {
+  "type": "iConsommation",
+  "label": "Conso",
+  "level": 1,
+  "virtuel": 0,
+  "data": {
+    "PieChart": [
+      {
+        "id": 1,
+        "location": "main",
+        "column": 50,
+        "row": 50,
+        "master": "main",
+        "slave": [
+          "froid1",
+          "froid2",
+          "gene_parking",
+          "gene_second_tgbt",
+          "rideau",
+          "td_boulangerie"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 1500,
+        "height": 1500,
+        "label": [
+          "TOTAL",
+          "Froid 1",
+          "Froid 2",
+          "Parking",
+          "Second TGBT",
+          "Rideau",
+          "TD boulangerie"
+        ]
+      },
+      {
+        "id": 2,
+        "location": "td_boulangerie",
+        "column": 50,
+        "row": 2300,
+        "master": "td_boulangerie",
+        "slave": [
+          "CF",
+          "four_1",
+          "four_2",
+          "meubles_froid",
+          "prises_boulangerie"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 1500,
+        "height": 1500,
+        "label": [
+          "TD boulangerie",
+          "CF",
+          "Four 1",
+          "Four 2",
+          "Meubles froid",
+          "Prises boulangerie"
+        ]
+      }
+    ],
+    "ConsoBar": [
+      {
+        "id": 1,
+        "location": "main",
+        "column": 1600,
+        "row": 50,
+        "master": "main",
+        "slave": [
+          "main",
+          "main_H",
+          "main_D",
+          "main_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 2,
+        "location": "froid1",
+        "column": 2350,
+        "row": 50,
+        "master": "froid1",
+        "slave": [
+          "main",
+          "froid1_H",
+          "froid1_D",
+          "froid1_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 3,
+        "location": "froid2",
+        "column": 3100,
+        "row": 50,
+        "master": "froid2",
+        "slave": [
+          "main",
+          "froid2_H",
+          "froid2_D",
+          "froid2_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 4,
+        "location": "gene_parking",
+        "column": 1600,
+        "row": 800,
+        "master": "gene_parking",
+        "slave": [
+          "main",
+          "gene_parking_H",
+          "gene_parking_D",
+          "gene_parking_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 5,
+        "location": "gene_second_tgbt",
+        "column": 2350,
+        "row": 800,
+        "master": "gene_second_tgbt",
+        "slave": [
+          "main",
+          "gene_second_tgbt_H",
+          "gene_second_tgbt_D",
+          "gene_second_tgbt_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 6,
+        "location": "rideau",
+        "column": 3100,
+        "row": 800,
+        "master": "rideau",
+        "slave": [
+          "main",
+          "rideau_H",
+          "rideau_D",
+          "rideau_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 7,
+        "location": "td_boulangerie",
+        "column": 1600,
+        "row": 1550,
+        "master": "td_boulangerie",
+        "slave": [
+          "main",
+          "td_boulangerie_H",
+          "td_boulangerie_D",
+          "td_boulangerie_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 8,
+        "location": "CF",
+        "column": 1600,
+        "row": 2300,
+        "master": "CF",
+        "slave": [
+          "main",
+          "CF_H",
+          "CF_D",
+          "CF_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 9,
+        "location": "four_1",
+        "column": 2350,
+        "row": 2300,
+        "master": "four_1",
+        "slave": [
+          "main",
+          "four_1_H",
+          "four_1_D",
+          "four_1_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 10,
+        "location": "four_2",
+        "column": 3100,
+        "row": 2300,
+        "master": "four_2",
+        "slave": [
+          "main",
+          "four_2_H",
+          "four_2_D",
+          "four_2_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 11,
+        "location": "meubles_froid",
+        "column": 1600,
+        "row": 3050,
+        "master": "meubles_froid",
+        "slave": [
+          "main",
+          "meubles_froid_H",
+          "meubles_froid_D",
+          "meubles_froid_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 12,
+        "location": "prises_boulangerie",
+        "column": 2350,
+        "row": 3050,
+        "master": "prises_boulangerie",
+        "slave": [
+          "main",
+          "prises_boulangerie_H",
+          "prises_boulangerie_D",
+          "prises_boulangerie_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      }
+    ]
+  },
+  "width": 3850,
+  "height": 3850
+}
+  ]
+}

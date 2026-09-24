@@ -1,0 +1,296 @@
+{
+  "sites": {
+    "aulnay": {
+      "expected_pies": 14,
+      "expected_bars": 80,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 14,
+      "current_bars": 80,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "bezons": {
+      "expected_pies": 2,
+      "expected_bars": 19,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 2,
+      "current_bars": 19,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "buc": {
+      "expected_pies": 3,
+      "expected_bars": 13,
+      "roots": [
+        "virtuel_total"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 3,
+      "current_bars": 13,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "champigny": {
+      "expected_pies": 3,
+      "expected_bars": 9,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 3,
+      "current_bars": 9,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "chilly-mazarin": {
+      "expected_pies": 4,
+      "expected_bars": 22,
+      "roots": [
+        "virtuel_total"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 4,
+      "current_bars": 22,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "choisy": {
+      "expected_pies": 8,
+      "expected_bars": 33,
+      "roots": [
+        "virtuel_total"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 8,
+      "current_bars": 33,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "coubron": {
+      "expected_pies": 6,
+      "expected_bars": 34,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 6,
+      "current_bars": 34,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "croissy": {
+      "expected_pies": 5,
+      "expected_bars": 16,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 5,
+      "current_bars": 16,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "egly": {
+      "expected_pies": 4,
+      "expected_bars": 20,
+      "roots": [
+        "virtuel_total"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 4,
+      "current_bars": 20,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "maisons-laffitte": {
+      "expected_pies": 2,
+      "expected_bars": 12,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 2,
+      "current_bars": 12,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "marcq": {
+      "expected_pies": 1,
+      "expected_bars": 4,
+      "roots": [
+        "principal"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 1,
+      "current_bars": 4,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "mery": {
+      "expected_pies": 4,
+      "expected_bars": 21,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 4,
+      "current_bars": 21,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "morzine": {
+      "expected_pies": 1,
+      "expected_bars": 6,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 1,
+      "current_bars": 6,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "neuilly": {
+      "expected_pies": 2,
+      "expected_bars": 16,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 2,
+      "current_bars": 16,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "noisy": {
+      "expected_pies": 3,
+      "expected_bars": 30,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 3,
+      "current_bars": 30,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "saint-maur": {
+      "expected_pies": 5,
+      "expected_bars": 23,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 5,
+      "current_bars": 23,
+      "web_exists": true,
+      "conso_tabs": 1
+    },
+    "seignosse": {
+      "expected_pies": 2,
+      "expected_bars": 7,
+      "roots": [
+        "main"
+      ],
+      "power_issues": [],
+      "issues": [],
+      "geometry": [],
+      "review": [],
+      "current_pies": 2,
+      "current_bars": 7,
+      "web_exists": true,
+      "conso_tabs": 1
+    }
+  },
+  "unmatched_web": [],
+  "hashes": {
+    "config\\power_aulnay.json": "2fbbe958c279d42028889e37a4d553b46ca795cd75aabf86b3fe02474fa861b3",
+    "config\\web_aulnay.json": "aeb05f5140b15dd890cd794a7abdb1b88b4afabacb392c422753c9c61a21c8c7",
+    "config\\power_bezons.json": "dd175890af3a5e498352f88e40130702b5ac8cdbe63b21ebe36d9ceec44027c8",
+    "config\\web_bezons.json": "c7abc7e627fd080f7c73972b4206e77db4e00b303b19c5cb2c4ed0a6ce2a7e01",
+    "config\\power_buc.json": "7da6c25cc8558e73e19b14235508f5222e2190af604e4772974a8f60ce61d8b7",
+    "config\\web_buc.json": "b3212b8af852776a63a2e2183677bfd358251de122adc0975f829c8031eea483",
+    "config\\power_champigny.json": "784fe89191b3f390e317e56ab9b8e9f3e4f8cea12a7ab24fccbd89329e575dc1",
+    "config\\web_champigny.json": "8e28e05a58c8ae994a872f8c2e7e18c98a3ae246844b1bf570d9888b451dbcc0",
+    "config\\power_chilly-mazarin.json": "5cc420e07e8a7fc42543ec0b39b3994cf6233cd274823ed159b8852fba63e1b2",
+    "config\\web_chilly-mazarin.json": "db528d8be673b0a9aaf0a71b8d01516e119d49a76f3e7f3cecff681619d36e47",
+    "config\\power_choisy.json": "e7b21a4a4bb89b6af5efa549c039742765c4958d35545a6b3feb720ca35ed80a",
+    "config\\web_choisy.json": "87acafaf718acd61cc78bfb244569a7327ced3d0f64aa4c95d222dbfcde34870",
+    "config\\power_coubron.json": "c92b379f1d72704b8713c7f3fb99a7e4a570863c9d020730181ff2226fe34e76",
+    "config\\web_coubron.json": "941d1a3bf08adf988be2405a5183780518f41982b69d108dde6e9a94ea240eec",
+    "config\\power_croissy.json": "7036819f67e6063a273ba351751fe77655e832281d9f7a81cd899eb19ae70fb0",
+    "config\\web_croissy.json": "92d32a2da49e788aed16da7a022385eaf283329cff714afcca7650f985491a42",
+    "config\\power_egly.json": "2dab46aa6f67121b756d82425932db906c481097029f8616f4edb722cf1ac713",
+    "config\\web_egly.json": "ed8a17db25dd54d46c81d18d6b7b5144c57c7a28e7602c637615afa954e6c982",
+    "config\\power_maisons-laffitte.json": "7b416a9520dd1eb5c65e97d9585622b986637462733af283019b5ae322e8e0a8",
+    "config\\web_maisons-laffitte.json": "125431bdd079aebaa57a64670eb77b43da634dd41a4ee3bcc940f45a59fd3f73",
+    "config\\power_marcq.json": "4f6870abbcaff0ce5cffd7fa2baf61a38ec3f46240bae95db5c94d6965ffaa72",
+    "config\\web_marcq.json": "af669ed8e1fe1034414a72c838aba8c47f4c7ae77ec0095e1e74a7f1cb164666",
+    "config\\power_mery.json": "81b8c6895dd0a70ad4cfac81d2f2a084a34f0eae9b0c2f7e9a4fe0a35b0a69c0",
+    "config\\web_mery.json": "fd7f3d71cbfdd72f13399e7d44803f0322c4f23013b61f90feecba994a9adf82",
+    "config\\power_morzine.json": "289d6c41ab63d03eb271ac5e8d3ffee9c2fc8a5675bd43bb6936fdac23d60fd5",
+    "config\\web_morzine.json": "dc967bf32536d83ab1e77c01c21f3fc83b55a4efa997cbd0bef1ece8e664e4ac",
+    "config\\power_neuilly.json": "0fc8710ad200889a60c2c7242f9b46290e46e51b945f7c900f3e9f8392d3d5b6",
+    "config\\web_neuilly.json": "264c175d5f1d9f7687ce52c8a8fd78620351a82752065bf056f3f9a3781270c0",
+    "config\\power_noisy.json": "400a4374563aa67fc870f389795eda3b1dd156a3509320a273c4685758056200",
+    "config\\web_noisy.json": "d79d65e5d067ddbef13212ef105125becd0827ab136e15ea560770d889d4df26",
+    "config\\power_saint-maur.json": "7e8f3e89a16dc5800f60b98c4a8b567a3cbe04407ccd34c8ce5d61d324ea8d5c",
+    "config\\web_saint-maur.json": "3eb8ab1c47f18c2037b90a642dc71bf9416b5834c474debf8d2815629d27c90e",
+    "config\\power_seignosse.json": "46260e38c5cd774d3ca9b376d013afbd30413937611c8f328f120d050fef0b7d",
+    "config\\web_seignosse.json": "eb2b7206077b9e1fbdcf549007ff14e41347539d25175c5384cf91f8e05ebe19"
+  }
+}

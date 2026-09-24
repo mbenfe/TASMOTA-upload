@@ -1,0 +1,153 @@
+{
+  "applications": [
+    {
+  "type": "iConsommation",
+  "label": "Conso",
+  "level": 1,
+  "virtuel": 0,
+  "data": {
+    "PieChart": [
+      {
+        "id": 1,
+        "location": "main",
+        "column": 50,
+        "row": 50,
+        "master": "main",
+        "slave": [
+          "row1_B",
+          "row2_A",
+          "row3_C",
+          "row4",
+          "td_buanderie"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 1500,
+        "height": 1500,
+        "label": [
+          "Total",
+          "Rangée 1",
+          "Rangée 2",
+          "Rangée 3",
+          "Rangée 4",
+          "Buanderie"
+        ]
+      }
+    ],
+    "ConsoBar": [
+      {
+        "id": 1,
+        "location": "main",
+        "column": 1600,
+        "row": 50,
+        "master": "main",
+        "slave": [
+          "main",
+          "main_H",
+          "main_D",
+          "main_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 2,
+        "location": "row1_B",
+        "column": 2350,
+        "row": 50,
+        "master": "row1_B",
+        "slave": [
+          "main",
+          "row1_B_H",
+          "row1_B_D",
+          "row1_B_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 3,
+        "location": "row2_A",
+        "column": 3100,
+        "row": 50,
+        "master": "row2_A",
+        "slave": [
+          "main",
+          "row2_A_H",
+          "row2_A_D",
+          "row2_A_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 4,
+        "location": "row3_C",
+        "column": 1600,
+        "row": 800,
+        "master": "row3_C",
+        "slave": [
+          "main",
+          "row3_C_H",
+          "row3_C_D",
+          "row3_C_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 5,
+        "location": "row4",
+        "column": 2350,
+        "row": 800,
+        "master": "row4",
+        "slave": [
+          "main",
+          "row4_H",
+          "row4_D",
+          "row4_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 6,
+        "location": "td_buanderie",
+        "column": 3100,
+        "row": 800,
+        "master": "td_buanderie",
+        "slave": [
+          "main",
+          "td_buanderie_H",
+          "td_buanderie_D",
+          "td_buanderie_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      }
+    ]
+  },
+  "width": 3850,
+  "height": 1600
+}
+  ]
+}

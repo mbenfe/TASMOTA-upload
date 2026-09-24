@@ -1,0 +1,103 @@
+{
+  "power": {
+    "dl12-tgbt1": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "main",
+          "genre": "root",
+          "parent": "",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "4000",
+          "PGA": "1"
+        },
+        {
+          "name": "gene_forces_divers",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "froid",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "4000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl12-boulangerie": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "gene_boulangerie",
+          "genre": "node",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "laverie_ext",
+          "genre": "leaf",
+          "parent": "gene_boulangerie",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "fours",
+          "genre": "leaf",
+          "parent": "gene_boulangerie",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl12-labo": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "gene_labo",
+          "genre": "node",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "divers_4dij",
+          "genre": "leaf",
+          "parent": "gene_labo",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "ecl_gondoleLS",
+          "genre": "leaf",
+          "parent": "gene_labo",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    }
+  }
+}

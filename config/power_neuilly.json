@@ -70,8 +70,8 @@
         "PGA": "1"
       },
       {
-        "name": "general",
-        "genre": "node",
+        "name": "*",
+        "genre": "",
         "parent": "",
         "mode": "tri",
         "techno": "ct",

@@ -1,0 +1,121 @@
+[
+  {
+    "branch": "PWX4-new",
+    "build_files_checked": 228,
+    "matching_environments": [
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX12]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX4]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX12-new]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX4-new]"
+      ]
+    ],
+    "obsolete_references": []
+  },
+  {
+    "branch": "PWX12-new",
+    "build_files_checked": 240,
+    "matching_environments": [
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX12-new]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX4-new]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX12]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX4]"
+      ]
+    ],
+    "obsolete_references": []
+  },
+  {
+    "branch": "PWX4-rogowski",
+    "build_files_checked": 228,
+    "matching_environments": [
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX12-new]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX4-new]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX4-rogowski]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX12]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX4]"
+      ]
+    ],
+    "obsolete_references": []
+  },
+  {
+    "branch": "datalogger-PWX4",
+    "build_files_checked": 238,
+    "matching_environments": [
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX12-new]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX4-new]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX12]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX4]"
+      ]
+    ],
+    "obsolete_references": []
+  },
+  {
+    "branch": "datalogger-PWX12",
+    "build_files_checked": 237,
+    "matching_environments": [
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX12-new]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32c3-PWX4-new]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX12]"
+      ],
+      [
+        "platformio_tasmota_env32.ini",
+        "[env:tasmota32-datalogger-PWX4]"
+      ]
+    ],
+    "obsolete_references": []
+  }
+]

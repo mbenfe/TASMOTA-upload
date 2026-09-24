@@ -353,7 +353,6 @@ def update(cmd, idx, payload, payload_json)
         to_fetch.push(string.format("config/%s", name))
         name = string.format("power_%s.json", global.ville)
         to_fetch.push(string.format("config/%s", name))
-        to_fetch.push("config/power_shared_villes.json")
     end
 
     if want_be

@@ -1,0 +1,282 @@
+{
+  "power": {
+    "dl12-tgbt1": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "rooftop_51",
+          "genre": "leaf",
+          "parent": "gene_rooftops",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "rooftop1_36",
+          "genre": "leaf",
+          "parent": "gene_rooftops",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "gene_rooftops",
+          "genre": "node",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "4000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl4-tgbt1": {
+      "produit": "DL4",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "ecl_ext",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "pwx4-rogowski-main": {
+      "produit": "PWX4",
+      "hw": "rogowski",
+      "channel": {
+        "name": "main",
+        "genre": "root",
+        "parent": "",
+        "Vnom": [
+          232,
+          232,
+          232
+        ],
+        "scale": [
+          1.04,
+          1.066,
+          1.055
+        ],
+        "offset": [
+          2.4,
+          2.2,
+          2.4
+        ],
+        "PGA": "1"
+      }
+    },
+    "pwx4-rogowski-froid": {
+      "produit": "PWX4",
+      "hw": "rogowski",
+      "channel": {
+        "name": "froid",
+        "genre": "leaf",
+        "parent": "main",
+        "Vnom": [
+          232,
+          232,
+          232
+        ],
+        "scale": [
+          1.02,
+          1.02,
+          1.03
+        ],
+        "offset": [
+          0.9,
+          1.2,
+          1
+        ],
+        "PGA": "1"
+      }
+    },
+    "dl12-tgbt3": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "td_station",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "td_poissonerie",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "*",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl12-tgbt4": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "CF-reserve",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "ecl_f&l",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "gene_divers",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl12-tgbt5": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "onduleur",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "bureaux",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "gene_tab1",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl12-tgbt6": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "gene_tab2",
+          "genre": "node",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "travees",
+          "genre": "leaf",
+          "parent": "gene_tab2",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "caisses",
+          "genre": "leaf",
+          "parent": "gene_tab2",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl12-boulangerie": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "fours",
+          "genre": "leaf",
+          "parent": "gene_boulangerie",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "drive&co",
+          "genre": "leaf",
+          "parent": "gene_boulangerie",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "gene_boulangerie",
+          "genre": "node",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "2000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl4-labo": {
+      "produit": "DL4",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "gene_labo",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    }
+  }
+}

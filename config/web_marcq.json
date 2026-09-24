@@ -1,0 +1,113 @@
+{
+  "applications": [
+    {
+  "type": "iConsommation",
+  "label": "Conso",
+  "level": 1,
+  "virtuel": 0,
+  "data": {
+    "PieChart": [
+      {
+        "id": 1,
+        "location": "principal",
+        "column": 50,
+        "row": 50,
+        "master": "principal",
+        "slave": [
+          "chauffage",
+          "chauffe-eau",
+          "salon"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 1500,
+        "height": 1500,
+        "label": [
+          "TOTAL",
+          "Chauffage",
+          "Chauffe-eau",
+          "Salon"
+        ]
+      }
+    ],
+    "ConsoBar": [
+      {
+        "id": 1,
+        "location": "principal",
+        "column": 1600,
+        "row": 50,
+        "master": "principal",
+        "slave": [
+          "principal",
+          "principal_H",
+          "principal_D",
+          "principal_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 2,
+        "location": "chauffage",
+        "column": 2350,
+        "row": 50,
+        "master": "chauffage",
+        "slave": [
+          "principal",
+          "chauffage_H",
+          "chauffage_D",
+          "chauffage_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 3,
+        "location": "chauffe-eau",
+        "column": 3100,
+        "row": 50,
+        "master": "chauffe-eau",
+        "slave": [
+          "principal",
+          "chauffe-eau_H",
+          "chauffe-eau_D",
+          "chauffe-eau_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      },
+      {
+        "id": 4,
+        "location": "salon",
+        "column": 1600,
+        "row": 800,
+        "master": "salon",
+        "slave": [
+          "principal",
+          "salon_H",
+          "salon_D",
+          "salon_M"
+        ],
+        "color": 0,
+        "etage": 0,
+        "rotate": 0,
+        "width": 700,
+        "height": 700
+      }
+    ]
+  },
+  "width": 3850,
+  "height": 1600
+}
+  ]
+}

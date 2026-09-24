@@ -1,0 +1,218 @@
+{
+  "power": {
+    "virtuel_froid_pos": {
+      "produit": "virtuel",
+      "hw": "",
+      "channels": [
+        {
+          "name": "v_froid_pos",
+          "genre": "node",
+          "parent": "main",
+          "children": [
+            "fpos",
+            "fpos2"
+          ]
+        }
+      ]
+    },
+    "dl4-froid_pos": {
+      "produit": "DL4",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "fpos",
+          "genre": "leaf",
+          "parent": "v_froid_pos",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "2000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl4-froid_neg": {
+      "produit": "DL4",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "fneg",
+          "genre": "leaf",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "2000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl4-froid-new": {
+      "produit": "DL4",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "fpos2",
+          "genre": "leaf",
+          "parent": "v_froid_pos",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "2000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "pwx4-rogowski": {
+      "produit": "PWX4",
+      "hw": "rogowski",
+      "channel": {
+        "name": "main",
+        "genre": "root",
+        "parent": "",
+        "Vnom": [
+          234,
+          233,
+          232
+        ],
+        "scale": [
+          1.042,
+          1.03,
+          1.03
+        ],
+        "offset": [
+          1.8,
+          1.4,
+          1.5
+        ],
+        "PGA": "1"
+      }
+    },
+    "dl4-station": {
+      "produit": "DL4",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "station",
+          "genre": "leaf",
+          "parent": "ColonneA",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl4-tgbt": {
+      "produit": "DL4",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "CoffretEntree",
+          "genre": "leaf",
+          "parent": "ColonneB",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "4000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl12-tgbt1": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "rampe5-1-divecl",
+          "genre": "leaf",
+          "parent": "ColonneA",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "rampe8-10-14-12-div",
+          "genre": "leaf",
+          "parent": "ColonneA",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "ColonneA",
+          "genre": "node",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "2000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl12-tgbt2": {
+      "produit": "DL12",
+      "hw": "legacy_V1",
+      "channels": [
+        {
+          "name": "rampe3-6-1-2-div",
+          "genre": "leaf",
+          "parent": "ColonneB",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "rampe2-9-div",
+          "genre": "leaf",
+          "parent": "ColonneB",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        },
+        {
+          "name": "ColonneB",
+          "genre": "node",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "4000",
+          "PGA": "1"
+        }
+      ]
+    },
+    "dl12-bureaux": {
+      "produit": "DL12",
+      "hw": "legacy_V2",
+      "channels": [
+        {
+          "name": "gene_bureaux",
+          "genre": "node",
+          "parent": "main",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "2000",
+          "PGA": "1"
+        },
+        {
+          "name": "td_boulangerie",
+          "genre": "leaf",
+          "parent": "gene_bureaux",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "2000",
+          "PGA": "1"
+        },
+        {
+          "name": "onduleur",
+          "genre": "leaf",
+          "parent": "gene_bureaux",
+          "mode": "tri",
+          "techno": "ct",
+          "ratio": "1000",
+          "PGA": "1"
+        }
+      ]
+    }
+  }
+}

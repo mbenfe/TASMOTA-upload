@@ -67,7 +67,7 @@
     "channel": 
       {
         "name": "froid",
-        "genre": "node",
+        "genre": "leaf",
         "parent": "main",
         "Vnom": [232,232,232],
         "scale":[1.02,1.02,1.03], 
