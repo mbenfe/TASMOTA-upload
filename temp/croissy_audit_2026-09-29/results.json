@@ -1,0 +1,46 @@
+{
+  "tree": {
+    "nodes": 16,
+    "tree_nodes": 16,
+    "roots": [
+      "main"
+    ],
+    "power_issues": [],
+    "differences": [],
+    "formatting": [
+      "Siblings not lexicographically sorted under main",
+      "v_froid_pos: (virtual) identifies product but omits graph role (node)"
+    ],
+    "power_sha256": "b3433ed6ecb9686aef611d5341bd70cc61ebbfe549473d369869c5ffc635c30d",
+    "tree_sha256": "941dcbed77c5d605aa8fb86c9ff1981e6399b2666478b348887bd0a4c2fc3796"
+  },
+  "mobile_pies": {
+    "count": 5,
+    "direct_children_and_labels": "PASS"
+  },
+  "web_pies": {
+    "count": 5,
+    "direct_children_and_labels": "PASS"
+  },
+  "cross_app_pie_parity": "PASS: exact masters, ordered slaves and labels",
+  "web_bars": {
+    "count": 16,
+    "coverage_history_geometry": "PASS"
+  },
+  "night": {
+    "count": 5,
+    "missing_groups": [],
+    "mismatches": []
+  },
+  "settings": {
+    "count": 16,
+    "missing_channels": [],
+    "existing_owners": "PASS"
+  },
+  "hashes": {
+    "config\\power_croissy.json": "b3433ed6ecb9686aef611d5341bd70cc61ebbfe549473d369869c5ffc635c30d",
+    "config\\mobile_croissy.json": "b2b710df90d1d2b60d8a81580df04c0c6307cf6ca3b0b8f24ae2f77bfe99d6e2",
+    "config\\web_croissy.json": "1667a91d39132a8b29157c4fca4938f66a17d072aa05e1c082b57ce1e7fed30f",
+    "config\\trees\\tree_croissy.md": "941dcbed77c5d605aa8fb86c9ff1981e6399b2666478b348887bd0a4c2fc3796"
+  }
+}
