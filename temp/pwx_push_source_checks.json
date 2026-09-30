@@ -1,0 +1,37 @@
+{
+  "drivers": [
+    {
+      "driver": 129,
+      "existing_source_preserved": true,
+      "command_hook": true,
+      "loop_hook": true
+    },
+    {
+      "driver": 130,
+      "existing_source_preserved": true,
+      "command_hook": true,
+      "loop_hook": true
+    },
+    {
+      "driver": 131,
+      "existing_source_preserved": true,
+      "command_hook": true,
+      "loop_hook": true
+    },
+    {
+      "driver": 132,
+      "existing_source_preserved": true,
+      "command_hook": true,
+      "loop_hook": true
+    },
+    {
+      "driver": 136,
+      "existing_source_preserved": true,
+      "command_hook": true,
+      "loop_hook": true
+    }
+  ],
+  "identical_implementation": true,
+  "block_sha256": "aabd5b6d2b2e01cb191b40f4e54b09708011c4067435694fdae27eff3fea726a",
+  "validation": "Source checks only; no firmware compilation or live tests."
+}
