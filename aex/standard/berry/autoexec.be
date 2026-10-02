@@ -1,4 +1,4 @@
-var version = "1.0.082025 initiale"
+var version = "1.1.102026 type and update"
 
 import string
 import global
@@ -24,6 +24,17 @@ def loadconfig()
     var buffer = file.read()
     file.close()
     var myjson = json.load(buffer)
+    global.aex_type = myjson.find("type", "standard")
+    if global.aex_type != "standard" && global.aex_type != "seet" && global.aex_type != "climair"
+        raise "value_error", "invalid AEX type (use climair|seet|standard)"
+    end
+    if !myjson.contains("type")
+        myjson["type"] = global.aex_type
+        var cfg_file = open("esp32.cfg", "wt")
+        cfg_file.write(json.dump(myjson))
+        cfg_file.close()
+    end
+    print("type: " + global.aex_type)
     global.ville = myjson["ville"]
     global.devices = myjson["devices"]  # Changed from "device" to "devices"
     print(global.devices)
@@ -176,6 +187,78 @@ def location(cmd, idx, payload, payload_json)
 end
 
 # Function to download a file from a URL and save it locally
+def fetch_file_raw(payload)
+    import string
+    import path
+    var message
+    var nom_fichier = string.split(payload, '/').pop()
+
+    mqttprint(nom_fichier)
+    var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
+    mqttprint(filepath)
+
+    var wc = webclient()
+    if (wc == nil)
+        mqttprint("Erreur: impossible d'initialiser le client web")
+        return -1
+    end
+
+    wc.set_follow_redirects(true)
+    wc.begin(filepath)
+    var st = wc.GET()
+    if (st != 200)
+        message = "Erreur: code HTTP " + str(st)
+        mqttprint(message)
+        wc.close()
+        return st
+    end
+
+    var bytes_written = wc.write_file(nom_fichier)
+    wc.close()
+    if bytes_written == nil || bytes_written <= 0
+        mqttprint('update: file write failed')
+        return -2
+    end
+    mqttprint('Fetched ' + str(bytes_written))
+    return st
+end
+
+def update(cmd, idx, payload, payload_json)
+    if payload != nil && payload != ""
+        tasmota.resp_cmnd("update does not accept arguments")
+        return
+    end
+
+    var file = open("esp32.cfg", "rt")
+    var cfg = json.load(file.read())
+    file.close()
+    var aex_type = cfg.find("type", "standard")
+    var scripts
+    if aex_type == "standard"
+        scripts = ["command.be", "io.be", "ds18b20.be", "pt1000.be", "standard_driver.be", "autoexec.be"]
+    elif aex_type == "seet"
+        scripts = ["command.be", "seet_driver.be", "autoexec.be"]
+    elif aex_type == "climair"
+        scripts = ["command.be", "climair_driver.be", "autoexec.be"]
+    else
+        tasmota.resp_cmnd("invalid AEX type (use climair|seet|standard)")
+        return
+    end
+
+    mqttprint("update: type=" + aex_type + " files=" + str(scripts.size()))
+    for script:scripts
+        var remote = "aex/" + aex_type + "/berry/" + script
+        var st = fetch_file_raw(remote)
+        if st != 200
+            mqttprint("update: failed " + remote + " status=" + str(st))
+            tasmota.resp_cmnd("update failed: " + script)
+            return
+        end
+    end
+    mqttprint("update: done; restart to load updated scripts")
+    tasmota.resp_cmnd("updated; restart to load updated scripts")
+end
+
 def getfile(cmd, idx, payload, payload_json)
     import string
     import path
@@ -399,6 +482,7 @@ mqttprint("serial log disabled")
 
 mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile', getfile)
+tasmota.add_cmd('update', update)
 
 tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('ville', ville)

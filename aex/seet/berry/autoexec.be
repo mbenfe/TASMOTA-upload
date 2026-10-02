@@ -1,4 +1,4 @@
-var version = "1.0.022026 set"
+var version = "1.1.102026 type and update"
 
 import string
 import global
@@ -32,10 +32,10 @@ import path
 #
 # CONTROL MODES:
 # Priority 1: Manual IO inputs (every 250ms via poll_io/every_250ms)
-#   - GPIO21=1 → Both relays ON
-#   - GPIO20=1 → Both relays OFF
-#   - GPIO6=1  → Relay1=OFF, Relay2=ON (heating only)
-#   - GPIO7=1  → Relay1=ON, Relay2=OFF (ventilation only)
+#   - GPIO21=1 â†’ Both relays ON
+#   - GPIO20=1 â†’ Both relays OFF
+#   - GPIO6=1  â†’ Relay1=OFF, Relay2=ON (heating only)
+#   - GPIO7=1  â†’ Relay1=ON, Relay2=OFF (ventilation only)
 # Priority 2: Scheduled temperature control (every minute via every_minute)
 #   - When no manual IO is active, temperature controls relays based on:
 #     * Time-of-day schedules (ouvert/ferme temps)
@@ -43,19 +43,19 @@ import path
 #     * Temperature source (DS18B20, remote MQTT, etc.)
 #
 # MQTT COMMUNICATION:
-# - Subscribe: app/{client}/{ville}/{device}/set/SETUP → receives setup changes
-# - Subscribe: gw/{client}/{ville}/zb-{sensor}/tele/SENSOR → remote temperatures
-# - Publish: gw/{client}/{ville}/{device}/tele/SENSOR → every minute telemetry
-# - Publish: gw/{client}/{ville}/{device}/tele/PRINT → debug messages
+# - Subscribe: app/{client}/{ville}/{device}/set/SETUP â†’ receives setup changes
+# - Subscribe: gw/{client}/{ville}/zb-{sensor}/tele/SENSOR â†’ remote temperatures
+# - Publish: gw/{client}/{ville}/{device}/tele/SENSOR â†’ every minute telemetry
+# - Publish: gw/{client}/{ville}/{device}/tele/PRINT â†’ debug messages
 #
 # STARTUP SEQUENCE:
-# 1. Load esp32.cfg → set global.ville, global.device, global.location, global.client
-# 2. Load config.json → set global.config (sensor availability)
-# 3. Load calibration.json → set sensor offsets
+# 1. Load esp32.cfg â†’ set global.ville, global.device, global.location, global.client
+# 2. Load config.json â†’ set global.config (sensor availability)
+# 3. Load calibration.json â†’ set sensor offsets
 # 4. Register MQTT commands (getfile, dir, ville, device, location, etc.)
 # 5. Wait 10 seconds (delay for MQTT broker connection)
-# 6. Load seet_driver.be → launches driver with:
-#    - Load setup.json → heating/cooling schedules
+# 6. Load seet_driver.be â†’ launches driver with:
+#    - Load setup.json â†’ heating/cooling schedules
 #    - GPIO configuration (inputs + outputs)
 #    - MQTT subscriptions
 #    - every_250ms() loop for IO polling
@@ -80,6 +80,17 @@ def loadconfig()
     var buffer = file.read()
     file.close()
     var myjson = json.load(buffer)
+    global.aex_type = myjson.find("type", "seet")
+    if global.aex_type != "standard" && global.aex_type != "seet" && global.aex_type != "climair"
+        raise "value_error", "invalid AEX type (use climair|seet|standard)"
+    end
+    if !myjson.contains("type")
+        myjson["type"] = global.aex_type
+        var cfg_file = open("esp32.cfg", "wt")
+        cfg_file.write(json.dump(myjson))
+        cfg_file.close()
+    end
+    print("type: " + global.aex_type)
     global.ville = myjson["ville"]
     global.device = myjson["device"]
     global.location = myjson["location"]
@@ -189,6 +200,78 @@ def location(cmd, idx, payload, payload_json)
 end
 
 # Function to download a file from a URL and save it locally
+def fetch_file_raw(payload)
+    import string
+    import path
+    var message
+    var nom_fichier = string.split(payload, '/').pop()
+
+    mqttprint(nom_fichier)
+    var filepath = 'https://raw.githubusercontent.com/mbenfe/upload/main/' + payload
+    mqttprint(filepath)
+
+    var wc = webclient()
+    if (wc == nil)
+        mqttprint("Erreur: impossible d'initialiser le client web")
+        return -1
+    end
+
+    wc.set_follow_redirects(true)
+    wc.begin(filepath)
+    var st = wc.GET()
+    if (st != 200)
+        message = "Erreur: code HTTP " + str(st)
+        mqttprint(message)
+        wc.close()
+        return st
+    end
+
+    var bytes_written = wc.write_file(nom_fichier)
+    wc.close()
+    if bytes_written == nil || bytes_written <= 0
+        mqttprint('update: file write failed')
+        return -2
+    end
+    mqttprint('Fetched ' + str(bytes_written))
+    return st
+end
+
+def update(cmd, idx, payload, payload_json)
+    if payload != nil && payload != ""
+        tasmota.resp_cmnd("update does not accept arguments")
+        return
+    end
+
+    var file = open("esp32.cfg", "rt")
+    var cfg = json.load(file.read())
+    file.close()
+    var aex_type = cfg.find("type", "seet")
+    var scripts
+    if aex_type == "standard"
+        scripts = ["command.be", "io.be", "ds18b20.be", "pt1000.be", "standard_driver.be", "autoexec.be"]
+    elif aex_type == "seet"
+        scripts = ["command.be", "seet_driver.be", "autoexec.be"]
+    elif aex_type == "climair"
+        scripts = ["command.be", "climair_driver.be", "autoexec.be"]
+    else
+        tasmota.resp_cmnd("invalid AEX type (use climair|seet|standard)")
+        return
+    end
+
+    mqttprint("update: type=" + aex_type + " files=" + str(scripts.size()))
+    for script:scripts
+        var remote = "aex/" + aex_type + "/berry/" + script
+        var st = fetch_file_raw(remote)
+        if st != 200
+            mqttprint("update: failed " + remote + " status=" + str(st))
+            tasmota.resp_cmnd("update failed: " + script)
+            return
+        end
+    end
+    mqttprint("update: done; restart to load updated scripts")
+    tasmota.resp_cmnd("updated; restart to load updated scripts")
+end
+
 def getfile(cmd, idx, payload, payload_json)
     import string
     import path
@@ -402,6 +485,7 @@ mqttprint("serial log disabled")
 
 mqttprint('AUTOEXEC: create commande getfile')
 tasmota.add_cmd('getfile', getfile)
+tasmota.add_cmd('update', update)
 
 tasmota.add_cmd('dir', dir)
 tasmota.add_cmd('ville', ville)
