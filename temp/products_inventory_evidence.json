@@ -1,0 +1,1433 @@
+{
+  "capture_utc": "2026-10-02T09:02:10.617524+00:00",
+  "added": [
+    [
+      "aulnay",
+      "aex",
+      "aex-3-4"
+    ],
+    [
+      "aulnay",
+      "aex",
+      "aex-5-6"
+    ],
+    [
+      "aulnay",
+      "zigbee",
+      "zb-znp-magasin"
+    ],
+    [
+      "aulnay",
+      "zigbee",
+      "zb-znp-res"
+    ],
+    [
+      "bezons",
+      "aex",
+      "aex-2"
+    ],
+    [
+      "bezons",
+      "zigbee",
+      "zb-bridge"
+    ],
+    [
+      "chilly-mazarin",
+      "zigbee",
+      "zb-bridge"
+    ],
+    [
+      "choisy",
+      "rdx",
+      "rdx-d"
+    ],
+    [
+      "choisy",
+      "rdx",
+      "rdx-g"
+    ],
+    [
+      "choisy",
+      "zigbee",
+      "zb-bridge"
+    ],
+    [
+      "coubron",
+      "aex",
+      "aex-1"
+    ],
+    [
+      "coubron",
+      "aex",
+      "aex-2"
+    ],
+    [
+      "coubron",
+      "aex",
+      "aex-3"
+    ],
+    [
+      "croissy",
+      "aex",
+      "aex-1"
+    ],
+    [
+      "croissy",
+      "aex",
+      "aex-2"
+    ],
+    [
+      "croissy",
+      "aex",
+      "aex-3"
+    ],
+    [
+      "croissy",
+      "aex",
+      "aex-4"
+    ],
+    [
+      "croissy",
+      "aex",
+      "aex-5"
+    ],
+    [
+      "croissy",
+      "aex",
+      "aex-6"
+    ],
+    [
+      "croissy",
+      "aex",
+      "aex-7"
+    ],
+    [
+      "croissy",
+      "zigbee",
+      "zb-bridge"
+    ],
+    [
+      "maisons-laffitte",
+      "zigbee",
+      "zb-bridge-ss"
+    ],
+    [
+      "marcq",
+      "chx",
+      "chx-bureau"
+    ],
+    [
+      "marcq",
+      "chx",
+      "chx-cuisine"
+    ],
+    [
+      "marcq",
+      "chx",
+      "chx-etienne"
+    ],
+    [
+      "marcq",
+      "chx",
+      "chx-martin"
+    ],
+    [
+      "marcq",
+      "chx",
+      "chx-parents"
+    ],
+    [
+      "marcq",
+      "chx",
+      "chx-salon-droite"
+    ],
+    [
+      "marcq",
+      "chx",
+      "chx-salon-gauche"
+    ],
+    [
+      "mery",
+      "rdx",
+      "rdx-frico-d"
+    ],
+    [
+      "mery",
+      "rdx",
+      "rdx-frico-g"
+    ],
+    [
+      "mery",
+      "zigbee",
+      "zb-bridge"
+    ],
+    [
+      "morzine",
+      "chx-p",
+      "chxp-ch1"
+    ],
+    [
+      "morzine",
+      "chx-p",
+      "chxp-ch2"
+    ],
+    [
+      "morzine",
+      "msx",
+      "msx-2"
+    ],
+    [
+      "morzine",
+      "plugx",
+      "plugx-1"
+    ],
+    [
+      "morzine",
+      "plugx",
+      "plugx-2"
+    ],
+    [
+      "morzine",
+      "plugx",
+      "plugx-droite"
+    ],
+    [
+      "morzine",
+      "plugx",
+      "plugx-gauche"
+    ],
+    [
+      "morzine",
+      "zigbee",
+      "zb-bridge"
+    ],
+    [
+      "neuilly",
+      "rdx",
+      "rdx-d"
+    ],
+    [
+      "neuilly",
+      "rdx",
+      "rdx-g"
+    ],
+    [
+      "saint-maur",
+      "aex",
+      "aex-2"
+    ],
+    [
+      "seignosse",
+      "chx",
+      "chx-1er-dressing"
+    ],
+    [
+      "seignosse",
+      "chx",
+      "chx-1er-mauve"
+    ],
+    [
+      "seignosse",
+      "chx",
+      "chx-1er-suite"
+    ],
+    [
+      "seignosse",
+      "chx",
+      "chx-rdc-bleue"
+    ],
+    [
+      "seignosse",
+      "chx",
+      "chx-rdc-cuisine"
+    ],
+    [
+      "seignosse",
+      "chx",
+      "chx-rdc-rouge"
+    ],
+    [
+      "seignosse",
+      "chx",
+      "chx-rdc-verte"
+    ],
+    [
+      "seignosse",
+      "zigbee",
+      "zb-bridge"
+    ]
+  ],
+  "evidence": [
+    {
+      "city": "aulnay",
+      "family": "aex",
+      "device": "aex-3-4",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "aulnay",
+      "family": "aex",
+      "device": "aex-5-6",
+      "tenant": "inter",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "PRINT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "aulnay",
+      "family": "zigbee",
+      "device": "zb-znp-magasin",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "aulnay",
+      "family": "zigbee",
+      "device": "zb-znp-res",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "bezons",
+      "family": "aex",
+      "device": "aex-2",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 4,
+      "lwt": "Online",
+      "kinds": [
+        "LOGGING",
+        "LWT",
+        "PRINT",
+        "RESULT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "bezons",
+      "family": "zigbee",
+      "device": "zb-bridge",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "chilly-mazarin",
+      "family": "zigbee",
+      "device": "zb-bridge",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "choisy",
+      "family": "rdx",
+      "device": "rdx-d",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 2,
+      "lwt": null,
+      "kinds": [
+        "LOGGING",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "choisy",
+      "family": "rdx",
+      "device": "rdx-g",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 2,
+      "lwt": null,
+      "kinds": [
+        "LOGGING",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "choisy",
+      "family": "zigbee",
+      "device": "zb-bridge",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "coubron",
+      "family": "aex",
+      "device": "aex-1",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 4,
+      "lwt": "Online",
+      "kinds": [
+        "HEARTBEAT",
+        "LOGGING",
+        "LWT",
+        "RESULT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "coubron",
+      "family": "aex",
+      "device": "aex-2",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 4,
+      "lwt": "Online",
+      "kinds": [
+        "HEARTBEAT",
+        "LOGGING",
+        "LWT",
+        "RESULT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "coubron",
+      "family": "aex",
+      "device": "aex-3",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 4,
+      "lwt": "Online",
+      "kinds": [
+        "HEARTBEAT",
+        "LOGGING",
+        "LWT",
+        "RESULT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "croissy",
+      "family": "aex",
+      "device": "aex-1",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "croissy",
+      "family": "aex",
+      "device": "aex-2",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "croissy",
+      "family": "aex",
+      "device": "aex-3",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "croissy",
+      "family": "aex",
+      "device": "aex-4",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "croissy",
+      "family": "aex",
+      "device": "aex-5",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "croissy",
+      "family": "aex",
+      "device": "aex-6",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "croissy",
+      "family": "aex",
+      "device": "aex-7",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "croissy",
+      "family": "zigbee",
+      "device": "zb-bridge",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "maisons-laffitte",
+      "family": "zigbee",
+      "device": "zb-bridge-ss",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "marcq",
+      "family": "chx",
+      "device": "chx-bureau",
+      "tenant": "benfeghoul",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "marcq",
+      "family": "chx",
+      "device": "chx-cuisine",
+      "tenant": "benfeghoul",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "marcq",
+      "family": "chx",
+      "device": "chx-etienne",
+      "tenant": "benfeghoul",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "marcq",
+      "family": "chx",
+      "device": "chx-martin",
+      "tenant": "benfeghoul",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "marcq",
+      "family": "chx",
+      "device": "chx-parents",
+      "tenant": "benfeghoul",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "marcq",
+      "family": "chx",
+      "device": "chx-salon-droite",
+      "tenant": "benfeghoul",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "marcq",
+      "family": "chx",
+      "device": "chx-salon-gauche",
+      "tenant": "benfeghoul",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "mery",
+      "family": "rdx",
+      "device": "rdx-frico-d",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 1,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "STATE"
+      ]
+    },
+    {
+      "city": "mery",
+      "family": "rdx",
+      "device": "rdx-frico-g",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 1,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "SENSOR",
+        "STATE"
+      ]
+    },
+    {
+      "city": "mery",
+      "family": "zigbee",
+      "device": "zb-bridge",
+      "tenant": "inter",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "morzine",
+      "family": "chx-p",
+      "device": "chxp-ch1",
+      "tenant": "lambert",
+      "retained": 12,
+      "live": 2,
+      "lwt": "Online",
+      "kinds": [
+        "COUTS",
+        "HEARTBEAT",
+        "INFO1",
+        "INFO2",
+        "INFO3",
+        "LOGGING",
+        "LWT",
+        "PRINT",
+        "PWDAYS",
+        "PWHOURS",
+        "PWMONTHS",
+        "SENSOR",
+        "STATE"
+      ]
+    },
+    {
+      "city": "morzine",
+      "family": "chx-p",
+      "device": "chxp-ch2",
+      "tenant": "lambert",
+      "retained": 12,
+      "live": 2,
+      "lwt": "Online",
+      "kinds": [
+        "COUTS",
+        "HEARTBEAT",
+        "INFO1",
+        "INFO2",
+        "INFO3",
+        "LOGGING",
+        "LWT",
+        "PRINT",
+        "PWDAYS",
+        "PWHOURS",
+        "PWMONTHS",
+        "SENSOR",
+        "STATE"
+      ]
+    },
+    {
+      "city": "morzine",
+      "family": "msx",
+      "device": "msx-2",
+      "tenant": "lambert",
+      "retained": 2,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "LWT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "morzine",
+      "family": "plugx",
+      "device": "plugx-1",
+      "tenant": "lambert",
+      "retained": 10,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "CONSO_DETAILS",
+        "COUT",
+        "COUTS",
+        "HEARTBEAT",
+        "LWT",
+        "PRINT",
+        "PWDAYS",
+        "PWHOURS",
+        "PWMONTHS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "morzine",
+      "family": "plugx",
+      "device": "plugx-2",
+      "tenant": "lambert",
+      "retained": 10,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "CONSO_DETAILS",
+        "COUT",
+        "COUTS",
+        "HEARTBEAT",
+        "LWT",
+        "PRINT",
+        "PWDAYS",
+        "PWHOURS",
+        "PWMONTHS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "morzine",
+      "family": "plugx",
+      "device": "plugx-droite",
+      "tenant": "lambert",
+      "retained": 7,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "PRINT",
+        "PWDAYS",
+        "PWHOURS",
+        "PWMONTHS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "morzine",
+      "family": "plugx",
+      "device": "plugx-gauche",
+      "tenant": "lambert",
+      "retained": 7,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "HEARTBEAT",
+        "LWT",
+        "PRINT",
+        "PWDAYS",
+        "PWHOURS",
+        "PWMONTHS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "morzine",
+      "family": "zigbee",
+      "device": "zb-bridge",
+      "tenant": "lambert",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT"
+      ]
+    },
+    {
+      "city": "neuilly",
+      "family": "rdx",
+      "device": "rdx-d",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 8,
+      "lwt": "Online",
+      "kinds": [
+        "LOGGING",
+        "LWT",
+        "PRINT",
+        "RESULT",
+        "SENSOR",
+        "STATE"
+      ]
+    },
+    {
+      "city": "neuilly",
+      "family": "rdx",
+      "device": "rdx-g",
+      "tenant": "inter",
+      "retained": 3,
+      "live": 4,
+      "lwt": "Online",
+      "kinds": [
+        "LOGGING",
+        "LWT",
+        "PRINT",
+        "RESULT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "saint-maur",
+      "family": "aex",
+      "device": "aex-2",
+      "tenant": "inter",
+      "retained": 2,
+      "live": 4,
+      "lwt": "Online",
+      "kinds": [
+        "LOGGING",
+        "LWT",
+        "RESULT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "seignosse",
+      "family": "chx",
+      "device": "chx-1er-dressing",
+      "tenant": "bauduin",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "seignosse",
+      "family": "chx",
+      "device": "chx-1er-mauve",
+      "tenant": "bauduin",
+      "retained": 10,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "CONSO_DETAILS",
+        "COUT",
+        "COUTS",
+        "HEARTBEAT",
+        "LWT",
+        "PRINT",
+        "PWDAYS",
+        "PWHOURS",
+        "PWMONTHS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "seignosse",
+      "family": "chx",
+      "device": "chx-1er-suite",
+      "tenant": "bauduin",
+      "retained": 10,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "CONSO_DETAILS",
+        "COUT",
+        "COUTS",
+        "HEARTBEAT",
+        "LWT",
+        "PRINT",
+        "PWDAYS",
+        "PWHOURS",
+        "PWMONTHS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "seignosse",
+      "family": "chx",
+      "device": "chx-rdc-bleue",
+      "tenant": "bauduin",
+      "retained": 3,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS"
+      ]
+    },
+    {
+      "city": "seignosse",
+      "family": "chx",
+      "device": "chx-rdc-cuisine",
+      "tenant": "bauduin",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "seignosse",
+      "family": "chx",
+      "device": "chx-rdc-rouge",
+      "tenant": "bauduin",
+      "retained": 10,
+      "live": 2,
+      "lwt": "Online",
+      "kinds": [
+        "CONSO_DETAILS",
+        "COUT",
+        "COUTS",
+        "HEARTBEAT",
+        "LOGGING",
+        "LWT",
+        "PRINT",
+        "PWDAYS",
+        "PWHOURS",
+        "PWMONTHS",
+        "RESULT",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "seignosse",
+      "family": "chx",
+      "device": "chx-rdc-verte",
+      "tenant": "bauduin",
+      "retained": 4,
+      "live": 0,
+      "lwt": "Online",
+      "kinds": [
+        "LWT",
+        "PRINT",
+        "PWHOURS",
+        "SENSOR"
+      ]
+    },
+    {
+      "city": "seignosse",
+      "family": "zigbee",
+      "device": "zb-bridge",
+      "tenant": "bauduin",
+      "retained": 1,
+      "live": 0,
+      "lwt": "Offline",
+      "kinds": [
+        "LWT"
+      ]
+    }
+  ],
+  "pending": [
+    [
+      "aulnay",
+      "aex-1",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "aex-2",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "aex-3",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "aex-4",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "aex-5",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "aex-6",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "aex-7",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "aex-8",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch1_d",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "aulnay",
+      "ch1_d",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch1_p",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch2_d",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "aulnay",
+      "ch2_d",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch2_p",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch3_d",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "aulnay",
+      "ch3_d",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch3_p",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch4_d",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "aulnay",
+      "ch4_d",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch4_p",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch5_d",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "aulnay",
+      "ch5_d",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch5_p",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "aulnay",
+      "ch5_p",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch6_d",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "aulnay",
+      "ch6_d",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch6_p",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "ch7_d",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "aulnay",
+      "ch7_d",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "aulnay",
+      "rdx-frico",
+      "Layout reference: mobile_aulnay.json"
+    ],
+    [
+      "bezons",
+      "aex-1",
+      "Layout reference: mobile_bezons.json"
+    ],
+    [
+      "bezons",
+      "aex-1_ND",
+      "Layout reference: mobile_bezons.json"
+    ],
+    [
+      "chilly-mazarin",
+      "hitachi_caisses",
+      "Layout reference: mobile_chilly-mazarin.json"
+    ],
+    [
+      "chilly-mazarin",
+      "hitachi_frais",
+      "Layout reference: mobile_chilly-mazarin.json"
+    ],
+    [
+      "chilly-mazarin",
+      "hitachi_fruits_et_legumes",
+      "Layout reference: mobile_chilly-mazarin.json"
+    ],
+    [
+      "chilly-mazarin",
+      "hitachi_milieu",
+      "Layout reference: mobile_chilly-mazarin.json"
+    ],
+    [
+      "chilly-mazarin",
+      "hitachi_reserve",
+      "Layout reference: mobile_chilly-mazarin.json"
+    ],
+    [
+      "coubron",
+      "ch1",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "coubron",
+      "ch1",
+      "Layout reference: mobile_coubron.json"
+    ],
+    [
+      "coubron",
+      "ch1_drive",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "coubron",
+      "ch1_drive",
+      "Layout reference: mobile_coubron.json"
+    ],
+    [
+      "coubron",
+      "ch2",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "coubron",
+      "ch2",
+      "Layout reference: mobile_coubron.json"
+    ],
+    [
+      "coubron",
+      "ch2_drive",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "coubron",
+      "ch2_drive",
+      "Layout reference: mobile_coubron.json"
+    ],
+    [
+      "coubron",
+      "ch3",
+      "Heating family CHX/CHX-P pending user decision"
+    ],
+    [
+      "coubron",
+      "ch3",
+      "Layout reference: mobile_coubron.json"
+    ],
+    [
+      "croissy",
+      "rdx-frico",
+      "Layout reference: mobile_croissy.json"
+    ],
+    [
+      "developpement",
+      "rdx-ecopower1",
+      "Layout reference: mobile_developpement.json"
+    ],
+    [
+      "developpement",
+      "rdx-ecopower2",
+      "Layout reference: mobile_developpement.json"
+    ],
+    [
+      "egly",
+      "aex-1",
+      "Layout reference: mobile_egly.json"
+    ],
+    [
+      "egly",
+      "aex-2",
+      "Layout reference: mobile_egly.json"
+    ],
+    [
+      "egly",
+      "aex-3",
+      "Layout reference: mobile_egly.json"
+    ],
+    [
+      "egly",
+      "aex-4",
+      "Layout reference: mobile_egly.json"
+    ],
+    [
+      "egly",
+      "aex-5",
+      "Layout reference: mobile_egly.json"
+    ],
+    [
+      "egly",
+      "aex-6",
+      "Layout reference: mobile_egly.json"
+    ],
+    [
+      "egly",
+      "aex-7",
+      "Layout reference: mobile_egly.json"
+    ],
+    [
+      "egly",
+      "aex-8",
+      "Layout reference: mobile_egly.json"
+    ],
+    [
+      "les-arcs",
+      "chxp-dortoir",
+      "Layout reference: mobile_les-arcs.json"
+    ],
+    [
+      "les-arcs",
+      "chxp-palier",
+      "Layout reference: mobile_les-arcs.json"
+    ],
+    [
+      "les-arcs",
+      "chxp-parents",
+      "Layout reference: mobile_les-arcs.json"
+    ],
+    [
+      "les-arcs",
+      "chxp-rdc-salon-droite",
+      "Layout reference: mobile_les-arcs.json"
+    ],
+    [
+      "les-arcs",
+      "chxp-rdc-salon-gauche",
+      "Layout reference: mobile_les-arcs.json"
+    ],
+    [
+      "les-arcs",
+      "chxp-rdc-wc",
+      "Layout reference: mobile_les-arcs.json"
+    ],
+    [
+      "marcq",
+      "rdx-droite",
+      "Layout reference: mobile_marcq.json"
+    ],
+    [
+      "marcq",
+      "switch_cuisine",
+      "Layout reference: mobile_marcq.json"
+    ],
+    [
+      "marcq",
+      "switch_entree",
+      "Layout reference: mobile_marcq.json"
+    ],
+    [
+      "marcq",
+      "switch_salon",
+      "Layout reference: mobile_marcq.json"
+    ],
+    [
+      "morzine",
+      "chx-cuisine",
+      "Layout reference: mobile_morzine.json"
+    ],
+    [
+      "morzine",
+      "chx-martin",
+      "Layout reference: mobile_morzine.json"
+    ],
+    [
+      "morzine",
+      "chx-salon-droite",
+      "Layout reference: mobile_morzine.json"
+    ],
+    [
+      "saint-maur",
+      "relay1",
+      "Layout reference: mobile_saint-maur.json"
+    ],
+    [
+      "saint-maur",
+      "relay2",
+      "Layout reference: mobile_saint-maur.json"
+    ],
+    [
+      "saint-maur",
+      "relay3",
+      "Layout reference: mobile_saint-maur.json"
+    ],
+    [
+      "saint-maur",
+      "relay4",
+      "Layout reference: mobile_saint-maur.json"
+    ],
+    [
+      "saint-maur",
+      "relay5",
+      "Layout reference: mobile_saint-maur.json"
+    ],
+    [
+      "saint-maur",
+      "relay6",
+      "Layout reference: mobile_saint-maur.json"
+    ],
+    [
+      "saint-maur",
+      "relay7",
+      "Layout reference: mobile_saint-maur.json"
+    ]
+  ]
+}
