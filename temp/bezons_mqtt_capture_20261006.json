@@ -1,0 +1,6506 @@
+[
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/tele/LWT",
+    "retained": true,
+    "data": "Online"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/tele/PRINT",
+    "retained": true,
+    "data": "C:15.237978:1.887204:23.038588"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/tele/HEARTBEAT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "dl12-tgbt3",
+      "Time": "2026-10-06T12:57:57",
+      "AccessPoint": "ADOMELEC",
+      "IpAddress": "192.168.1.104"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx/tele/LWT",
+    "retained": true,
+    "data": "Online"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx/tele/HEARTBEAT",
+    "retained": true,
+    "data": {
+      "Device": "snx",
+      "Name": "snx",
+      "Time": "2026-10-06T12:46:46",
+      "AccessPoint": "ITM_BEZONS",
+      "IpAddress": "192.168.1.29"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx/tele/CONFIG",
+    "retained": true,
+    "data": {
+      "ID": -25,
+      "Name": "snx_config",
+      "vitrine+": {
+        "ouvert": 21,
+        "ferme": 0
+      },
+      "nb_vitrine-": 5,
+      "bac+": {
+        "ouvert": 0,
+        "ferme": 0
+      },
+      "nb_bac-": 0,
+      "nb_CF+": 4,
+      "nb_CF-": 2,
+      "cond_night_CF+": 0,
+      "cond_night_CF-": 1,
+      "cond_night_vitrine+": 15,
+      "cond_night_vitrine-": 4,
+      "cond_night_bac+": 0,
+      "cond_night_bac-": 0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx/tele/VOLUME",
+    "retained": true,
+    "data": {
+      "ID": -26,
+      "Name": "snx_volume",
+      "total_volume": 185112,
+      "volume+": 140088,
+      "volume-": 45024,
+      "volume": {
+        "vitrine+": 26334,
+        "vitrine-": 6270,
+        "bac+": 0,
+        "bac-": 0,
+        "CF+": 113754,
+        "CF-": 38754
+      },
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx/tele/RANKING",
+    "retained": true,
+    "data": {
+      "ID": -27,
+      "device": "snx",
+      "Name": "ranking",
+      "TYPE": "ranking",
+      "DATA": {
+        "CF+": [
+          {
+            "Name": "CfCremerie_47",
+            "score": 0.5451
+          },
+          {
+            "Name": "CfPoisson_45",
+            "score": 0.2229
+          },
+          {
+            "Name": "CfFruit&Leg_48",
+            "score": 0.0
+          },
+          {
+            "Name": "Laboratoire_46",
+            "score": 0.0
+          }
+        ],
+        "CF-": [
+          {
+            "Name": "CfSurgBoul_9",
+            "score": 0.3538
+          },
+          {
+            "Name": "ChambreNegRes_15",
+            "score": 0.0
+          }
+        ],
+        "vitrine+": [
+          {
+            "Name": "Frais_32",
+            "score": 0.733
+          },
+          {
+            "Name": "Frais_31",
+            "score": 0.7316
+          },
+          {
+            "Name": "Frais_36",
+            "score": 0.6537
+          },
+          {
+            "Name": "Frais_29",
+            "score": 0.6509
+          },
+          {
+            "Name": "Frais_33",
+            "score": 0.6396
+          },
+          {
+            "Name": "Frais_18",
+            "score": 0.617
+          },
+          {
+            "Name": "Frais_17",
+            "score": 0.6147
+          },
+          {
+            "Name": "Frais_25",
+            "score": 0.6134
+          },
+          {
+            "Name": "Frais_35",
+            "score": 0.5949
+          },
+          {
+            "Name": "Frais_34",
+            "score": 0.594
+          },
+          {
+            "Name": "Frais_26",
+            "score": 0.5679
+          },
+          {
+            "Name": "Frais_24",
+            "score": 0.5628
+          },
+          {
+            "Name": "Frais_16",
+            "score": 0.5614
+          },
+          {
+            "Name": "Frais_28",
+            "score": 0.5595
+          },
+          {
+            "Name": "Frais_23",
+            "score": 0.5401
+          },
+          {
+            "Name": "Frais_20",
+            "score": 0.5388
+          },
+          {
+            "Name": "Frais_27",
+            "score": 0.5321
+          },
+          {
+            "Name": "Frais_21",
+            "score": 0.5138
+          },
+          {
+            "Name": "Frais_30",
+            "score": 0.501
+          },
+          {
+            "Name": "Frais_19",
+            "score": 0.4479
+          },
+          {
+            "Name": "Frais_22",
+            "score": 0.4401
+          }
+        ],
+        "vitrine-": [
+          {
+            "Name": "Surgelas_14",
+            "score": 0.6192
+          },
+          {
+            "Name": "Surgelas_12",
+            "score": 0.6102
+          },
+          {
+            "Name": "Surgelas_13",
+            "score": 0.6046
+          },
+          {
+            "Name": "Surgelas_10",
+            "score": 0.5931
+          },
+          {
+            "Name": "Surgelas_11",
+            "score": 0.4649
+          }
+        ],
+        "bac+": [],
+        "bac-": []
+      },
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx/tele/SNXCOUT",
+    "retained": true,
+    "data": {
+      "ID": -28,
+      "device": "snx",
+      "Name": "cout_groupes",
+      "TYPE": "cout",
+      "cout_cf+": 57.66,
+      "cout_cf-": 64.63,
+      "cout_vitrine+": 14.97,
+      "cout_vitrine-": 13.4,
+      "cout_bac+": 0.0,
+      "cout_bac-": 0.0,
+      "cout_pos": 72.63,
+      "cout_neg": 78.03,
+      "cout_total": 150.66,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx/tele/SNX_GROUP_SCORES",
+    "retained": true,
+    "data": {
+      "ID": -29,
+      "device": "snx",
+      "Name": "group_scores",
+      "score_CF+": 0.289,
+      "score_CF-": 0.3932,
+      "score_vitrine+": 0.6063,
+      "score_vitrine-": 0.5516,
+      "score_bac+": "non",
+      "score_bac-": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx/tele/SNXRANKING",
+    "retained": true,
+    "data": {
+      "ID": -30,
+      "device": "snx",
+      "Name": "ranking",
+      "TYPE": "ranking",
+      "CF+": [],
+      "CF-": [
+        {
+          "Name": "CfSurgBoul_9",
+          "score": 0.3932
+        }
+      ],
+      "vitrine+": [
+        {
+          "Name": "Frais_23",
+          "score": 0.6788
+        },
+        {
+          "Name": "Frais_18",
+          "score": 0.6717
+        },
+        {
+          "Name": "Frais_29",
+          "score": 0.6695
+        },
+        {
+          "Name": "Frais_24",
+          "score": 0.6621
+        },
+        {
+          "Name": "Frais_16",
+          "score": 0.6395
+        },
+        {
+          "Name": "Frais_36",
+          "score": 0.6394
+        },
+        {
+          "Name": "Frais_26",
+          "score": 0.6327
+        },
+        {
+          "Name": "Frais_28",
+          "score": 0.6194
+        },
+        {
+          "Name": "Frais_33",
+          "score": 0.6115
+        },
+        {
+          "Name": "Frais_27",
+          "score": 0.6034
+        },
+        {
+          "Name": "Frais_35",
+          "score": 0.5933
+        },
+        {
+          "Name": "Frais_21",
+          "score": 0.5421
+        },
+        {
+          "Name": "Frais_20",
+          "score": 0.521
+        },
+        {
+          "Name": "Frais_22",
+          "score": 0.5067
+        },
+        {
+          "Name": "Frais_19",
+          "score": 0.5035
+        }
+      ],
+      "vitrine-": [
+        {
+          "Name": "Surgelas_13",
+          "score": 0.5854
+        },
+        {
+          "Name": "Surgelas_12",
+          "score": 0.5588
+        },
+        {
+          "Name": "Surgelas_10",
+          "score": 0.5393
+        },
+        {
+          "Name": "Surgelas_11",
+          "score": 0.5231
+        }
+      ],
+      "bac+": [],
+      "bac-": [],
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-16/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 16,
+      "device": "snx",
+      "Name": "Frais_16",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 61,
+        "4": 0,
+        "6": 126,
+        "11": 48610,
+        "14": 10935,
+        "18": 0,
+        "23": 26860,
+        "24": 0
+      },
+      "score_total": 0.561368,
+      "note_total": 11.227365,
+      "score_day": 0.529191,
+      "note_day": 10.583824,
+      "score_night": 0.639517,
+      "note_night": 12.790339,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 3.1,
+      "cutout_day": 2.1,
+      "cutout_night": 2.1,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.746694,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-16/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_16",
+      "genre": "vitrine+",
+      "ID": 16,
+      "S4AirTemp": 2.7,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-16/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_16",
+      "genre": "vitrine+",
+      "ID": 16,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.1,
+      "CutoutTemp": 2.1,
+      "TherAir": 2.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-16/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 16,
+      "device": "snx",
+      "Name": "details_Frais_16",
+      "genre": "vitrine+",
+      "score_night": 0.7162,
+      "score_day": 0.6112,
+      "score_weighted": 0.6425,
+      "note_night": 14.32,
+      "note_day": 12.22,
+      "note_global": 12.85,
+      "saving": -27.01,
+      "num_defrost": 4,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-18/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 18,
+      "device": "snx",
+      "Name": "Frais_18",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "4": 0,
+        "6": 62,
+        "11": 53423,
+        "14": 10997,
+        "18": 0,
+        "23": 22049,
+        "24": 61
+      },
+      "score_total": 0.616951,
+      "note_total": 12.339015,
+      "score_day": 0.594421,
+      "note_day": 11.888419,
+      "score_night": 0.671669,
+      "note_night": 13.433379,
+      "cond_night": "oui",
+      "cutin_day": 3.0,
+      "cutin_night": 3.0,
+      "cutout_day": 0.6,
+      "cutout_night": 2.0,
+      "num_defrost": 5,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.652075,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-18/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_18",
+      "genre": "vitrine+",
+      "ID": 18,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 1.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-18/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_18",
+      "genre": "vitrine+",
+      "ID": 18,
+      "S4AirTemp": 1.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-18/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 18,
+      "device": "snx",
+      "Name": "details_Frais_18",
+      "genre": "vitrine+",
+      "score_night": 0.7542,
+      "score_day": 0.6866,
+      "score_weighted": 0.7067,
+      "note_night": 15.08,
+      "note_day": 13.73,
+      "note_global": 14.13,
+      "saving": -21.57,
+      "num_defrost": 5,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_boulange",
+      "ActivePower": 2874.7
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_boulange_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "1": 1381.92,
+        "17": 1711.35,
+        "23": 1632.12,
+        "15": 4324.51,
+        "21": 1487.06,
+        "22": 1782.68,
+        "7": 13055,
+        "8": 4960.69,
+        "5": 1321.99,
+        "3": 1546.81,
+        "12": 1289.87,
+        "9": 1354.14,
+        "10": 1766.07,
+        "2": 1714,
+        "16": 3365.25,
+        "0": 1208.04,
+        "14": 1932.68,
+        "6": 8894.23,
+        "19": 1784.82,
+        "4": 1214.17,
+        "18": 1863.81,
+        "13": 1588.75,
+        "20": 1339.47,
+        "11": 1713.33
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_boulange_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 71155.6,
+        "Mer": 78719.2,
+        "Mar": 73425,
+        "Sam": 81421.5,
+        "Lun": 72202.1,
+        "Ven": 82272,
+        "Jeu": 76687.6
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_boulange_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Nov": 1956680.0,
+        "Sept": 2271150.0,
+        "Jan": 2526230.0,
+        "Mars": 2384290.0,
+        "Aout": 2376460.0,
+        "Juil": 2335990.0,
+        "Mai": 2519770.0,
+        "Juin": 2676720.0,
+        "Fev": 2288280.0,
+        "Oct": 383739,
+        "Dec": 3294890.0,
+        "Avr": 2214700.0
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "c_td_boulange",
+      "surface": 1150,
+      "cout": 10.59,
+      "jour": "Lun"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "c_w_td_boulange",
+      "Lun": 10.59,
+      "Mar": 9.61,
+      "Mer": 11.84,
+      "Jeu": 12.25,
+      "Ven": 9.44,
+      "Sam": 12.65,
+      "Dim": 12.43
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "ville": "bezons",
+      "Name": "td_boulange_ND",
+      "avg_night": 1330.067,
+      "stdev_nigth": 488.808,
+      "avg_day": 3923.601,
+      "stddev_day": 3043.124,
+      "saving": -66.1,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_bureaux",
+      "ActivePower": 222.7
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_bureaux_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "1": 240.776,
+        "17": 243.73,
+        "23": 258.018,
+        "15": 215.006,
+        "21": 246.585,
+        "22": 243.001,
+        "7": 254.402,
+        "8": 322.274,
+        "5": 272.584,
+        "3": 243.362,
+        "12": 296.94,
+        "9": 337.15,
+        "10": 305.453,
+        "2": 242.245,
+        "16": 214.854,
+        "0": 247.418,
+        "14": 219.037,
+        "6": 297.492,
+        "19": 264.774,
+        "4": 248.317,
+        "18": 264.418,
+        "13": 261.735,
+        "20": 251.026,
+        "11": 249.423
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_bureaux_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 5388.99,
+        "Mer": 5650.11,
+        "Mar": 5584.51,
+        "Sam": 5594.47,
+        "Lun": 5992.07,
+        "Ven": 5528.93,
+        "Jeu": 5828.9
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_bureaux_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Nov": 835244,
+        "Sept": 169403,
+        "Jan": 1245330.0,
+        "Mars": 1217680.0,
+        "Aout": 178326,
+        "Juil": 178690,
+        "Mai": 283577,
+        "Juin": 498110,
+        "Fev": 991498,
+        "Oct": 28333.4,
+        "Dec": 1565520.0,
+        "Avr": 814138
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "c_td_bureaux",
+      "surface": 1150,
+      "cout": 0.78,
+      "jour": "Lun"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "c_w_td_bureaux",
+      "Lun": 0.78,
+      "Mar": 0.72,
+      "Mer": 0.73,
+      "Jeu": 0.78,
+      "Ven": 0.72,
+      "Sam": 0.72,
+      "Dim": 0.69
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "ville": "bezons",
+      "Name": "td_bureaux_ND",
+      "avg_night": 198.765,
+      "stdev_nigth": 69.665,
+      "avg_day": 257.34,
+      "stddev_day": 27.779,
+      "saving": -22.76,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_charcuterie",
+      "ActivePower": 2742.6
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_charcuterie_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "1": 3299.23,
+        "17": 2550.97,
+        "23": 2476.08,
+        "15": 3134.72,
+        "21": 2707.69,
+        "22": 2541.38,
+        "7": 2658.83,
+        "8": 2515.1,
+        "5": 2752.06,
+        "3": 2933.74,
+        "12": 2756.97,
+        "9": 2537.33,
+        "10": 2514.46,
+        "2": 2731.59,
+        "16": 2776.69,
+        "0": 2913.48,
+        "14": 2760.48,
+        "6": 3258.13,
+        "19": 2779.39,
+        "4": 2945.65,
+        "18": 2525.35,
+        "13": 2498.85,
+        "20": 3167.03,
+        "11": 3214.41
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_charcuterie_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 64229.1,
+        "Mer": 65325.1,
+        "Mar": 67654,
+        "Sam": 64879.9,
+        "Lun": 64568.5,
+        "Ven": 67459.5,
+        "Jeu": 65169.8
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_charcuterie_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Nov": 2466110.0,
+        "Sept": 1993290.0,
+        "Jan": 2509790.0,
+        "Mars": 2539480.0,
+        "Aout": 2121170.0,
+        "Juil": 2179860.0,
+        "Mai": 4848500.0,
+        "Juin": 2266600.0,
+        "Fev": 2400520.0,
+        "Oct": 326306,
+        "Dec": 3463840.0,
+        "Avr": 1903760.0
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "c_td_charcuterie",
+      "surface": 1150,
+      "cout": 8.17,
+      "jour": "Lun"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "c_w_td_charcuterie",
+      "Lun": 8.17,
+      "Mar": 8.34,
+      "Mer": 8.19,
+      "Jeu": 8.27,
+      "Ven": 8.13,
+      "Sam": 8.27,
+      "Dim": 8.06
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "ville": "bezons",
+      "Name": "td_charcuterie_ND",
+      "avg_night": 2357.578,
+      "stdev_nigth": 833.795,
+      "avg_day": 2695.071,
+      "stddev_day": 213.977,
+      "saving": -12.52,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/tele/LWT",
+    "retained": true,
+    "data": "Online"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/tele/PRINT",
+    "retained": true,
+    "data": "C:0.462389:0.076726:0.056572"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/tele/HEARTBEAT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "dl12-tgbt2",
+      "Time": "2026-10-06T12:56:56",
+      "AccessPoint": "ADOMELEC",
+      "IpAddress": "192.168.1.103"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_caisses",
+      "ActivePower": 55.1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_caisses_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "23": 51.5456,
+        "17": 58.0407,
+        "3": 52.6053,
+        "15": 69.6553,
+        "21": 63.2732,
+        "20": 93.129,
+        "7": 74.7876,
+        "8": 62.5408,
+        "5": 86.539,
+        "1": 53.1822,
+        "12": 71.0089,
+        "18": 56.1732,
+        "10": 55.2143,
+        "2": 52.8279,
+        "16": 70.5856,
+        "0": 52.6464,
+        "14": 73.8167,
+        "6": 73.069,
+        "19": 72.7661,
+        "4": 54.4629,
+        "9": 47.0859,
+        "13": 63.2111,
+        "22": 54.6324,
+        "11": 46.6461
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_caisses_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 1331.02,
+        "Jeu": 1391.57,
+        "Mar": 1516.94,
+        "Sam": 1432.65,
+        "Lun": 1539.31,
+        "Ven": 1418.29,
+        "Mer": 1483.63
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_caisses_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Nov": 42448.4,
+        "Sept": 43989.3,
+        "Jan": 47287,
+        "Avr": 40700.2,
+        "Aout": 46691.5,
+        "Juil": 49119.3,
+        "Mai": 63409,
+        "Juin": 50896.5,
+        "Dec": 62157.3,
+        "Oct": 7112.83,
+        "Fev": 42007.2,
+        "Mars": 46378.2
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "c_td_caisses",
+      "surface": 1000,
+      "cout": 0.2,
+      "jour": "Lun"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "c_w_td_caisses",
+      "Lun": 0.2,
+      "Mar": 0.19,
+      "Mer": 0.19,
+      "Jeu": 0.17,
+      "Ven": 0.18,
+      "Sam": 0.18,
+      "Dim": 0.17
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "ville": "bezons",
+      "Name": "td_caisses_ND",
+      "avg_night": 47.912,
+      "stdev_nigth": 16.616,
+      "avg_day": 67.225,
+      "stddev_day": 10.316,
+      "saving": -28.73,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_boucherie",
+      "ActivePower": 9.3
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_boucherie_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "23": 8.48702,
+        "17": 7.94338,
+        "3": 9.19952,
+        "15": 8.41068,
+        "21": 9.07924,
+        "20": 8.48011,
+        "7": 8.73328,
+        "8": 8.69543,
+        "5": 9.19209,
+        "1": 9.20862,
+        "12": 8.84164,
+        "18": 8.17042,
+        "10": 8.38072,
+        "2": 9.10093,
+        "16": 7.91485,
+        "0": 9.00312,
+        "14": 8.17326,
+        "6": 8.62798,
+        "19": 8.36605,
+        "4": 9.23193,
+        "9": 8.60926,
+        "13": 8.53468,
+        "22": 8.73139,
+        "11": 8.42648
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_boucherie_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 208.162,
+        "Jeu": 201.977,
+        "Mar": 199.52,
+        "Sam": 206.337,
+        "Lun": 206.361,
+        "Ven": 206.625,
+        "Mer": 198.926
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_boucherie_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Nov": 12419,
+        "Sept": 6055.98,
+        "Jan": 12981.1,
+        "Avr": 6100.82,
+        "Aout": 6056.3,
+        "Juil": 6044.64,
+        "Mai": 512130,
+        "Juin": 6367.3,
+        "Dec": 424115,
+        "Oct": 1029.46,
+        "Fev": 17224.1,
+        "Mars": 7841.51
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "c_td_boucherie",
+      "surface": 1000,
+      "cout": 0.03,
+      "jour": "Lun"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "c_w_td_boucherie",
+      "Lun": 0.03,
+      "Mar": 0.02,
+      "Mer": 0.02,
+      "Jeu": 0.02,
+      "Ven": 0.03,
+      "Sam": 0.02,
+      "Dim": 0.03
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "ville": "bezons",
+      "Name": "td_boucherie_ND",
+      "avg_night": 7.93,
+      "stdev_nigth": 2.759,
+      "avg_day": 8.451,
+      "stddev_day": 0.323,
+      "saving": -6.16,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "four",
+      "ActivePower": 6.8
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "four_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "23": 6.34382,
+        "17": 6.49891,
+        "3": 6.47325,
+        "15": 6.62553,
+        "21": 6.5576,
+        "20": 6.46556,
+        "7": 6.4069,
+        "8": 6.40455,
+        "5": 6.56917,
+        "1": 6.47191,
+        "12": 6.63546,
+        "18": 6.53879,
+        "10": 6.51965,
+        "2": 6.4005,
+        "16": 6.4552,
+        "0": 6.44157,
+        "14": 6.48939,
+        "6": 6.49234,
+        "19": 6.56986,
+        "4": 6.46791,
+        "9": 6.50164,
+        "13": 6.55548,
+        "22": 6.39685,
+        "11": 6.5297
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "four_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 155.65,
+        "Jeu": 155.533,
+        "Mar": 155.636,
+        "Sam": 154.865,
+        "Lun": 155.418,
+        "Ven": 155.56,
+        "Mer": 155.513
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "four_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Nov": 4758.01,
+        "Sept": 4659.3,
+        "Jan": 5083.41,
+        "Avr": 4234.69,
+        "Aout": 4806.03,
+        "Juil": 4859.61,
+        "Mai": 5854.43,
+        "Juin": 5109.96,
+        "Dec": 6452.61,
+        "Oct": 777.025,
+        "Fev": 4475.6,
+        "Mars": 5002.91
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "c_four",
+      "surface": 1000,
+      "cout": 0.02,
+      "jour": "Lun"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "c_w_four",
+      "Lun": 0.02,
+      "Mar": 0.02,
+      "Mer": 0.02,
+      "Jeu": 0.02,
+      "Ven": 0.02,
+      "Sam": 0.02,
+      "Dim": 0.02
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "ville": "bezons",
+      "Name": "four_ND",
+      "avg_night": 5.715,
+      "stdev_nigth": 1.983,
+      "avg_day": 6.517,
+      "stddev_day": 0.062,
+      "saving": -12.3,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1/tele/LWT",
+    "retained": true,
+    "data": "Online"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1/tele/PRINT",
+    "retained": true,
+    "data": "C:139.087357:200.126572:0.001721"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1/tele/HEARTBEAT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "dl12-tgbt1",
+      "Time": "2026-10-06T12:55:55",
+      "AccessPoint": "ADOMELEC",
+      "IpAddress": "192.168.1.105"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/LWT",
+    "retained": true,
+    "data": "Online"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt",
+      "Name": "main",
+      "ActivePower": 72208.0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/PRINT",
+    "retained": true,
+    "data": "C:603.078125"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt",
+      "Name": "main_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "23": 67948.4,
+        "17": 87474.3,
+        "3": 69077.4,
+        "15": 89651.3,
+        "21": 70372.3,
+        "20": 79793.3,
+        "7": 93767,
+        "8": 83195.5,
+        "5": 82275.4,
+        "1": 69027.3,
+        "12": 86363.1,
+        "18": 85925.9,
+        "10": 85789.5,
+        "2": 68442.4,
+        "16": 91980.8,
+        "0": 66842.2,
+        "14": 86403.6,
+        "6": 88877.5,
+        "19": 86638.3,
+        "4": 67237.6,
+        "9": 87174.2,
+        "13": 87751.9,
+        "22": 71904.3,
+        "11": 88495
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt",
+      "Name": "main_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 1866360.0,
+        "Jeu": 1951240.0,
+        "Mar": 1943220.0,
+        "Sam": 1957550.0,
+        "Lun": 1928380.0,
+        "Ven": 1975280.0,
+        "Mer": 1933270.0
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt",
+      "Name": "main_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Avr": 55012700.0,
+        "Sept": 56294700.0,
+        "Jan": 64329400.0,
+        "Dec": 75647800.0,
+        "Aout": 60645600.0,
+        "Juil": 61653500.0,
+        "Mai": 95203300.0,
+        "Juin": 66119800.0,
+        "Nov": 64610600.0,
+        "Oct": 37734600.0,
+        "Fev": 57376800.0,
+        "Mars": 64950200.0
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt",
+      "Name": "c_main",
+      "surface": 1150,
+      "cout": 262.26,
+      "jour": "Mar"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt",
+      "Name": "c_w_main",
+      "Lun": 260.2,
+      "Mar": 262.26,
+      "Mer": 259.85,
+      "Jeu": 263.36,
+      "Ven": 257.22,
+      "Sam": 266.22,
+      "Dim": 253.94
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/HEARTBEAT",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt",
+      "Name": "dl4-tgbt",
+      "Time": "2026-09-30T20:19:19",
+      "AccessPoint": "ADOMELEC",
+      "IpAddress": "192.168.1.108"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt",
+      "ville": "bezons",
+      "Name": "main_ND",
+      "avg_night": 61329.168,
+      "stdev_nigth": 21710.367,
+      "avg_day": 87454.805,
+      "stddev_day": 2607.781,
+      "saving": -29.87,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt/tele/PWXCOMP",
+    "retained": true,
+    "data": {
+      "Device": "pwx_comp_nd",
+      "Name": "pwx_comp_nd",
+      "type": "nightday",
+      "DATA": [
+        {
+          "Device": "pwx4-rogowski",
+          "Name": "main_ND",
+          "saving": -42.55,
+          "saving_target": 0,
+          "ville": "aulnay",
+          "surface": 2450,
+          "Wh_m2": 52.89
+        },
+        {
+          "Device": "dl4-tgbt",
+          "Name": "main_ND",
+          "saving": -29.87,
+          "saving_target": 0,
+          "ville": "bezons",
+          "surface": 1150,
+          "Wh_m2": 67.53
+        },
+        {
+          "Device": "dl12-tgbt1",
+          "Name": "main_ND",
+          "saving": -33.49,
+          "saving_target": 0,
+          "ville": "champigny",
+          "surface": 1497,
+          "Wh_m2": 52.71
+        },
+        {
+          "Device": "virtuel",
+          "Name": "virtuel_total_ND",
+          "saving": -38.38,
+          "saving_target": 0,
+          "ville": "chilly-mazarin",
+          "surface": 1544,
+          "Wh_m2": 43.44
+        },
+        {
+          "Device": "virtuel",
+          "Name": "virtuel_total_ND",
+          "saving": -18.43,
+          "saving_target": 0,
+          "ville": "choisy",
+          "surface": 1970,
+          "Wh_m2": 54.46
+        },
+        {
+          "Device": "pwx4-rogowski",
+          "Name": "main_ND",
+          "saving": -44.43,
+          "saving_target": 0,
+          "ville": "coubron",
+          "surface": 2150,
+          "Wh_m2": 45.1
+        },
+        {
+          "Device": "pwx4-rogowski",
+          "Name": "main_ND",
+          "saving": -49.88,
+          "saving_target": 0,
+          "ville": "croissy",
+          "surface": 2499,
+          "Wh_m2": 40.95
+        },
+        {
+          "Device": "virtuel",
+          "Name": "virtuel_total_ND",
+          "saving": -61.45,
+          "saving_target": 0,
+          "ville": "egly",
+          "surface": 2790,
+          "Wh_m2": 69.95
+        },
+        {
+          "Device": "pwx4-rogowski",
+          "Name": "main_ND",
+          "saving": -58.45,
+          "saving_target": 0,
+          "ville": "maisons-laffitte",
+          "surface": 2117,
+          "Wh_m2": 46.92
+        },
+        {
+          "Device": "pwx4-rogowski-main",
+          "Name": "main_ND",
+          "saving": -52.38,
+          "saving_target": 0,
+          "ville": "mery",
+          "surface": 2085,
+          "Wh_m2": 42.67
+        },
+        {
+          "Device": "pwx4-rogowski",
+          "Name": "main_ND",
+          "saving": -50.61,
+          "saving_target": 0,
+          "ville": "neuilly",
+          "surface": 1490,
+          "Wh_m2": 57.48
+        },
+        {
+          "Device": "pwx4-rogowski",
+          "Name": "main_ND",
+          "saving": -51.22,
+          "saving_target": 0,
+          "ville": "noisy",
+          "surface": 2400,
+          "Wh_m2": 43.73
+        },
+        {
+          "Device": "pwx4-rogowski",
+          "Name": "main_ND",
+          "saving": -51.41,
+          "saving_target": 0,
+          "ville": "saint-maur",
+          "surface": 1100,
+          "Wh_m2": 40.87
+        }
+      ]
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-13/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 13,
+      "device": "snx",
+      "Name": "Surgelas_13",
+      "TYPE": "historique",
+      "DATA": {
+        "4": 614,
+        "6": 124,
+        "11": 52352,
+        "14": 1229,
+        "15": 61,
+        "23": 32150,
+        "24": 62
+      },
+      "score_total": 0.604582,
+      "note_total": 12.091648,
+      "score_day": 0.612485,
+      "note_day": 12.249702,
+      "score_night": 0.585389,
+      "note_night": 11.707781,
+      "cond_night": "oui",
+      "cutin_day": -19.0,
+      "cutin_night": 0.6,
+      "cutout_day": -21.0,
+      "cutout_night": -21.0,
+      "num_defrost": 1,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 2.514494,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-13/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_13",
+      "genre": "vitrine-",
+      "ID": 13,
+      "CtrlState": 11.0,
+      "CutinTemp": -19.0,
+      "CutoutTemp": -21.0,
+      "TherAir": -18.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-13/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_13",
+      "genre": "vitrine-",
+      "ID": 13,
+      "RegCond": 2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-13/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 13,
+      "device": "snx",
+      "Name": "details_Surgelas_13",
+      "genre": "vitrine-",
+      "score_night": 0.6153,
+      "score_day": 0.6125,
+      "score_weighted": 0.6133,
+      "note_night": 12.31,
+      "note_day": 12.25,
+      "note_global": 12.27,
+      "saving": -0.72,
+      "num_defrost": 1,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fneg",
+      "ActivePower": 16662.2
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fneg_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "1": 21651.8,
+        "17": 26716.3,
+        "23": 23978.4,
+        "15": 26455,
+        "21": 23234,
+        "22": 26246.2,
+        "7": 25216.7,
+        "8": 24621.8,
+        "5": 21862.3,
+        "3": 19759.1,
+        "12": 22563.3,
+        "9": 23093,
+        "10": 24159.1,
+        "2": 22055.7,
+        "16": 26909.7,
+        "0": 20744.2,
+        "14": 27891.7,
+        "6": 24803,
+        "19": 27303.7,
+        "4": 20274.7,
+        "18": 26151.7,
+        "13": 26469.2,
+        "20": 25026.6,
+        "11": 23535.3
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fneg_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 572870,
+        "Mer": 623165,
+        "Mar": 623524,
+        "Sam": 577089,
+        "Lun": 584298,
+        "Ven": 576614,
+        "Jeu": 613122
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fneg_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Avr": 17111400.0,
+        "Sept": 18161100.0,
+        "Jan": 18395700.0,
+        "Mars": 16545200.0,
+        "Aout": 19631800.0,
+        "Juil": 18442600.0,
+        "Mai": 29987300.0,
+        "Juin": 0,
+        "Fev": 16372600.0,
+        "Oct": 2923990.0,
+        "Nov": 18907700.0,
+        "Dec": 25525100.0
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "c_fneg",
+      "surface": 1000,
+      "cout": 78.03,
+      "jour": "Lun"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "c_w_fneg",
+      "Lun": 78.03,
+      "Mar": 83.92,
+      "Mer": 80.95,
+      "Jeu": 81.44,
+      "Ven": 74.79,
+      "Sam": 76.67,
+      "Dim": 75.51
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fneg_ND",
+      "avg_night": 20065.287,
+      "stdev_nigth": 7157.087,
+      "avg_day": 25291.58,
+      "stddev_day": 1939.559,
+      "saving": -20.66,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fpos",
+      "ActivePower": 22990.7
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fpos_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "1": 17992.1,
+        "17": 26515.4,
+        "23": 20337.2,
+        "15": 25630.1,
+        "21": 20199.9,
+        "22": 20341.3,
+        "7": 20753.8,
+        "8": 19788,
+        "5": 20177.4,
+        "3": 18704.1,
+        "12": 22883,
+        "9": 22085.1,
+        "10": 23630.3,
+        "2": 17866.4,
+        "16": 25915.6,
+        "0": 19405.8,
+        "14": 24250,
+        "6": 22608.4,
+        "19": 24843.6,
+        "4": 18057.9,
+        "18": 25708,
+        "13": 23431,
+        "20": 22402.2,
+        "11": 23697
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fpos_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 521891,
+        "Mer": 583718,
+        "Mar": 582125,
+        "Sam": 526247,
+        "Lun": 534662,
+        "Ven": 536095,
+        "Jeu": 562332
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fpos_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Avr": 12106600.0,
+        "Sept": 16957000.0,
+        "Jan": 12038900.0,
+        "Mars": 10992600.0,
+        "Aout": 18980400.0,
+        "Juil": 18140100.0,
+        "Mai": 16069600.0,
+        "Juin": 0,
+        "Fev": 10174100.0,
+        "Oct": 2681220.0,
+        "Nov": 13263500.0,
+        "Dec": 15774100.0
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "c_fpos",
+      "surface": 1000,
+      "cout": 72.63,
+      "jour": "Lun"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "c_w_fpos",
+      "Lun": 72.63,
+      "Mar": 79.82,
+      "Mer": 76.97,
+      "Jeu": 74.68,
+      "Ven": 71.35,
+      "Sam": 72.04,
+      "Dim": 71.24
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fpos_ND",
+      "avg_night": 17475.348,
+      "stdev_nigth": 6113.792,
+      "avg_day": 23756.246,
+      "stddev_day": 1773.366,
+      "saving": -26.44,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-1/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": "{\"Bus\":3,\"Name\":\"Frais_17\",\"genre\":\"vitrine+\",\"ID\":1\":13,\"RegCond\":2}{\"Bus\":3,\"Name\":\"Frais_18\",\"genre\":\"vitrine+\",\"ID\":18,\"CtrlState\":11.0,\"CutinTemp\":3.0,\"CutoutTemp\":2.0,\"TherAir\":3.1,\"i\":0}"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-22/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 22,
+      "device": "snx",
+      "Name": "Frais_22",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 61,
+        "4": 0,
+        "6": 125,
+        "11": 38113,
+        "14": 13580,
+        "18": 0,
+        "23": 34713,
+        "24": 0
+      },
+      "score_total": 0.440145,
+      "note_total": 8.802892,
+      "score_day": 0.412736,
+      "note_day": 8.254725,
+      "score_night": 0.506712,
+      "note_night": 10.134231,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 1.5,
+      "cutout_day": 0.5,
+      "cutout_night": 0.6,
+      "num_defrost": 5,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.953056,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-22/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_22",
+      "genre": "vitrine+",
+      "ID": 22,
+      "CtrlState": 14.0,
+      "CutinTemp": 1.5,
+      "CutoutTemp": 0.5,
+      "TherAir": 3.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-22/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_22",
+      "genre": "vitrine+",
+      "ID": 22,
+      "S4AirTemp": 3.7,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-22/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 22,
+      "device": "snx",
+      "Name": "details_Frais_22",
+      "genre": "vitrine+",
+      "score_night": 0.6448,
+      "score_day": 0.4762,
+      "score_weighted": 0.522,
+      "note_night": 12.9,
+      "note_day": 9.52,
+      "note_global": 10.44,
+      "saving": -32.19,
+      "num_defrost": 5,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-17/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 17,
+      "device": "snx",
+      "Name": "Frais_17",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "6": 62,
+        "11": 53228,
+        "14": 10753,
+        "23": 22424,
+        "24": 125
+      },
+      "score_total": 0.614699,
+      "note_total": 12.293977,
+      "score_day": 0.587345,
+      "note_day": 11.746906,
+      "score_night": 0.681132,
+      "note_night": 13.622648,
+      "cond_night": "non",
+      "cutin_day": 2.9,
+      "cutin_night": 2.9,
+      "cutout_day": 2.0,
+      "cutout_night": 2.0,
+      "num_defrost": 5,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.655908,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-17/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_17",
+      "genre": "vitrine+",
+      "ID": 17,
+      "CtrlState": 11.0,
+      "CutinTemp": 2.9,
+      "CutoutTemp": 2.0,
+      "TherAir": 1.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-17/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_17",
+      "genre": "vitrine+",
+      "ID": 17,
+      "S4AirTemp": 1.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-17/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 17,
+      "device": "snx",
+      "Name": "details_Frais_17",
+      "genre": "vitrine+",
+      "score_night": 0.7628,
+      "score_day": 0.6761,
+      "score_weighted": 0.7019,
+      "note_night": 15.26,
+      "note_day": 13.52,
+      "note_global": 14.04,
+      "saving": -26.77,
+      "num_defrost": 5,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-36/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 36,
+      "device": "snx",
+      "Name": "Frais_36",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 62,
+        "4": 0,
+        "6": 0,
+        "11": 56608,
+        "14": 10879,
+        "23": 19043,
+        "24": 0
+      },
+      "score_total": 0.653732,
+      "note_total": 13.074648,
+      "score_day": 0.659618,
+      "note_day": 13.192364,
+      "score_night": 0.639438,
+      "note_night": 12.788754,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 3.5,
+      "cutout_day": 2.5,
+      "cutout_night": 2.5,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.58946,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-36/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_36",
+      "genre": "vitrine+",
+      "ID": 36,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 2.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-36/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_36",
+      "genre": "vitrine+",
+      "ID": 36,
+      "S4AirTemp": 2.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-36/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 36,
+      "device": "snx",
+      "Name": "details_Frais_36",
+      "genre": "vitrine+",
+      "score_night": 0.7897,
+      "score_day": 0.7321,
+      "score_weighted": 0.7477,
+      "note_night": 15.79,
+      "note_day": 14.64,
+      "note_global": 14.95,
+      "saving": -21.5,
+      "num_defrost": 4,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-12/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 12,
+      "device": "snx",
+      "Name": "Surgelas_12",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 185,
+        "4": 676,
+        "6": 62,
+        "11": 52842,
+        "14": 1228,
+        "15": 0,
+        "23": 31477,
+        "24": 122
+      },
+      "score_total": 0.610241,
+      "note_total": 12.204823,
+      "score_day": 0.631413,
+      "note_day": 12.628267,
+      "score_night": 0.55882,
+      "note_night": 11.1764,
+      "cond_night": "oui",
+      "cutin_day": -21.0,
+      "cutin_night": -21.0,
+      "cutout_day": -22.0,
+      "cutout_night": 0.6,
+      "num_defrost": 1,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 2.47851,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-12/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_12",
+      "genre": "vitrine-",
+      "ID": 12,
+      "CtrlState": 11.0,
+      "CutinTemp": -21.0,
+      "CutoutTemp": -22.0,
+      "TherAir": -21.5,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-12/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_12",
+      "genre": "vitrine-",
+      "ID": 12,
+      "RegCond": 13,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-12/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 12,
+      "device": "snx",
+      "Name": "details_Surgelas_12",
+      "genre": "vitrine-",
+      "score_night": 0.5874,
+      "score_day": 0.6314,
+      "score_weighted": 0.619,
+      "note_night": 11.75,
+      "note_day": 12.63,
+      "note_global": 12.38,
+      "saving": 11.94,
+      "num_defrost": 1,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-10/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 10,
+      "device": "snx",
+      "Name": "Surgelas_10",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "4": 615,
+        "6": 185,
+        "11": 51356,
+        "14": 1413,
+        "15": 306,
+        "23": 32224,
+        "24": 493
+      },
+      "score_total": 0.59308,
+      "note_total": 11.861603,
+      "score_day": 0.615224,
+      "note_day": 12.304482,
+      "score_night": 0.539299,
+      "note_night": 10.785982,
+      "cond_night": "oui",
+      "cutin_day": -21.1,
+      "cutin_night": -21.1,
+      "cutout_day": -22.1,
+      "cutout_night": 0.6,
+      "num_defrost": 1,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 2.587638,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-10/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_10",
+      "genre": "vitrine-",
+      "ID": 10,
+      "CtrlState": 11.0,
+      "CutinTemp": -21.1,
+      "CutoutTemp": -22.1,
+      "TherAir": -21.5,
+      "i": 1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-10/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_10",
+      "genre": "vitrine-",
+      "ID": 10,
+      "RegCond": 13,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-10/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 10,
+      "device": "snx",
+      "Name": "details_Surgelas_10",
+      "genre": "vitrine-",
+      "score_night": 0.5713,
+      "score_day": 0.6152,
+      "score_weighted": 0.6029,
+      "note_night": 11.43,
+      "note_day": 12.3,
+      "note_global": 12.06,
+      "saving": 11.41,
+      "num_defrost": 1,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-14/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 14,
+      "device": "snx",
+      "Name": "Surgelas_14",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 122,
+        "4": 615,
+        "6": 247,
+        "11": 53615,
+        "14": 1045,
+        "15": 61,
+        "23": 30763,
+        "24": 124
+      },
+      "score_total": 0.619168,
+      "note_total": 12.383361,
+      "score_day": 0.629473,
+      "note_day": 12.589464,
+      "score_night": 0.59414,
+      "note_night": 11.882795,
+      "cond_night": "non",
+      "cutin_day": -19.0,
+      "cutin_night": -19.0,
+      "cutout_day": -21.0,
+      "cutout_night": -21.0,
+      "num_defrost": 1,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 2.421743,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-14/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_14",
+      "genre": "vitrine-",
+      "ID": 14,
+      "CtrlState": 23.0,
+      "CutinTemp": -19.0,
+      "CutoutTemp": -21.0,
+      "TherAir": -22.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-14/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_14",
+      "genre": "vitrine-",
+      "ID": 14,
+      "RegCond": 13,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-14/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 14,
+      "device": "snx",
+      "Name": "details_Surgelas_14",
+      "genre": "vitrine-",
+      "score_night": 0.6198,
+      "score_day": 0.6295,
+      "score_weighted": 0.6267,
+      "note_night": 12.4,
+      "note_day": 12.59,
+      "note_global": 12.53,
+      "saving": 2.62,
+      "num_defrost": 1,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-35/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 35,
+      "device": "snx",
+      "Name": "Frais_35",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "6": 187,
+        "11": 51512,
+        "14": 10694,
+        "18": 0,
+        "23": 24077,
+        "24": 122
+      },
+      "score_total": 0.594882,
+      "note_total": 11.897635,
+      "score_day": 0.595513,
+      "note_day": 11.910266,
+      "score_night": 0.593348,
+      "note_night": 11.866957,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 3.5,
+      "cutout_day": 0.6,
+      "cutout_night": 2.5,
+      "num_defrost": 5,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.689643,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-35/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_35",
+      "genre": "vitrine+",
+      "ID": 35,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 3.4,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-35/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_35",
+      "genre": "vitrine+",
+      "ID": 35,
+      "S4AirTemp": 3.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-35/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 35,
+      "device": "snx",
+      "Name": "details_Frais_35",
+      "genre": "vitrine+",
+      "score_night": 0.7304,
+      "score_day": 0.6595,
+      "score_weighted": 0.6787,
+      "note_night": 14.61,
+      "note_day": 13.19,
+      "note_global": 13.57,
+      "saving": -20.82,
+      "num_defrost": 5,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-21/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 21,
+      "device": "snx",
+      "Name": "Frais_21",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "4": 0,
+        "6": 310,
+        "11": 44489,
+        "14": 13580,
+        "18": 0,
+        "23": 27906,
+        "24": 307
+      },
+      "score_total": 0.513777,
+      "note_total": 10.275545,
+      "score_day": 0.502111,
+      "note_day": 10.042227,
+      "score_night": 0.542111,
+      "note_night": 10.84221,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 2.4,
+      "cutout_day": 0.6,
+      "cutout_night": 1.4,
+      "num_defrost": 5,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.827709,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-21/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_21",
+      "genre": "vitrine+",
+      "ID": 21,
+      "CtrlState": 14.0,
+      "CutinTemp": 2.4,
+      "CutoutTemp": 1.4,
+      "TherAir": 3.8,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-21/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_21",
+      "genre": "vitrine+",
+      "ID": 21,
+      "S3AirTemp": 4.8,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-21/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 21,
+      "device": "snx",
+      "Name": "details_Frais_21",
+      "genre": "vitrine+",
+      "score_night": 0.6919,
+      "score_day": 0.5786,
+      "score_weighted": 0.6093,
+      "note_night": 13.84,
+      "note_day": 11.57,
+      "note_global": 12.19,
+      "saving": -26.89,
+      "num_defrost": 5,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-24/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 24,
+      "device": "snx",
+      "Name": "Frais_24",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "6": 0,
+        "11": 48736,
+        "14": 10753,
+        "18": 0,
+        "23": 26918,
+        "24": 185
+      },
+      "score_total": 0.562823,
+      "note_total": 11.256467,
+      "score_day": 0.521953,
+      "note_day": 10.439051,
+      "score_night": 0.662087,
+      "note_night": 13.241735,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 2.1,
+      "cutout_day": 0.6,
+      "cutout_night": 1.1,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.744217,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-24/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_24",
+      "genre": "vitrine+",
+      "ID": 24,
+      "CtrlState": 14.0,
+      "CutinTemp": 2.1,
+      "CutoutTemp": 1.1,
+      "TherAir": 4.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-24/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_24",
+      "genre": "vitrine+",
+      "ID": 24,
+      "S4AirTemp": 4.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-24/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 24,
+      "device": "snx",
+      "Name": "details_Frais_24",
+      "genre": "vitrine+",
+      "score_night": 0.7414,
+      "score_day": 0.6008,
+      "score_weighted": 0.6426,
+      "note_night": 14.83,
+      "note_day": 12.02,
+      "note_global": 12.85,
+      "saving": -35.22,
+      "num_defrost": 4,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-27/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 27,
+      "device": "snx",
+      "Name": "Frais_27",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "4": 0,
+        "6": 62,
+        "11": 46075,
+        "14": 10874,
+        "18": 307,
+        "23": 29214,
+        "24": 60
+      },
+      "score_total": 0.532093,
+      "note_total": 10.641861,
+      "score_day": 0.502731,
+      "note_day": 10.054616,
+      "score_night": 0.603405,
+      "note_night": 12.068105,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 3.5,
+      "cutout_day": 0.6,
+      "cutout_night": 2.5,
+      "num_defrost": 5,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.79653,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "CtrlState": 23.0,
+      "CutinTemp": 2.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 1.5,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "RegCond": 2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-27/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 27,
+      "device": "snx",
+      "Name": "details_Frais_27",
+      "genre": "vitrine+",
+      "score_night": 0.6954,
+      "score_day": 0.5731,
+      "score_weighted": 0.6085,
+      "note_night": 13.91,
+      "note_day": 11.46,
+      "note_global": 12.17,
+      "saving": -28.65,
+      "num_defrost": 5,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-11/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 11,
+      "device": "snx",
+      "Name": "Surgelas_11",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 62,
+        "1": 430,
+        "4": 552,
+        "6": 62,
+        "11": 40260,
+        "14": 1107,
+        "15": 0,
+        "23": 44058,
+        "24": 61
+      },
+      "score_total": 0.464939,
+      "note_total": 9.29878,
+      "score_day": 0.441006,
+      "note_day": 8.820125,
+      "score_night": 0.523065,
+      "note_night": 10.461294,
+      "cond_night": "oui",
+      "cutin_day": -21.0,
+      "cutin_night": -21.0,
+      "cutout_day": -22.0,
+      "cutout_night": 0.6,
+      "num_defrost": 1,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 3.402499,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-11/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_11",
+      "genre": "vitrine-",
+      "ID": 11,
+      "CtrlState": 23.0,
+      "CutinTemp": -21.0,
+      "CutoutTemp": -22.0,
+      "TherAir": -21.1,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-11/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_11",
+      "genre": "vitrine-",
+      "ID": 11,
+      "RegCond": 2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-11/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 11,
+      "device": "snx",
+      "Name": "details_Surgelas_11",
+      "genre": "vitrine-",
+      "score_night": 0.547,
+      "score_day": 0.441,
+      "score_weighted": 0.471,
+      "note_night": 10.94,
+      "note_day": 8.82,
+      "note_global": 9.42,
+      "saving": -18.96,
+      "num_defrost": 1,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-20/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 20,
+      "device": "snx",
+      "Name": "Frais_20",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "6": 187,
+        "11": 46656,
+        "14": 13518,
+        "18": 0,
+        "23": 26169,
+        "24": 62
+      },
+      "score_total": 0.538803,
+      "note_total": 10.776053,
+      "score_day": 0.546114,
+      "note_day": 10.922281,
+      "score_night": 0.521045,
+      "note_night": 10.420906,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 2.0,
+      "cutout_day": 0.6,
+      "cutout_night": 1.0,
+      "num_defrost": 5,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.785108,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-20/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_20",
+      "genre": "vitrine+",
+      "ID": 20,
+      "CtrlState": 14.0,
+      "CutinTemp": 2.0,
+      "CutoutTemp": 1.0,
+      "TherAir": 4.1,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-20/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_20",
+      "genre": "vitrine+",
+      "ID": 20,
+      "S4AirTemp": 4,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-20/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 20,
+      "device": "snx",
+      "Name": "details_Frais_20",
+      "genre": "vitrine+",
+      "score_night": 0.665,
+      "score_day": 0.6286,
+      "score_weighted": 0.6385,
+      "note_night": 13.3,
+      "note_day": 12.57,
+      "note_global": 12.77,
+      "saving": -9.8,
+      "num_defrost": 5,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-15/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 15,
+      "device": "snx",
+      "Name": "ChambreNegRes_15",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 86592
+      },
+      "score_total": 0.0,
+      "note_total": 0.0,
+      "score_day": 0.0,
+      "note_day": 0.0,
+      "score_night": 0.0,
+      "note_night": 0.0,
+      "cond_night": "non",
+      "cutin_day": -21.0,
+      "cutin_night": -21.0,
+      "cutout_day": -23.0,
+      "cutout_night": -23.0,
+      "num_defrost": 0,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 3.179543,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-15/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 15,
+      "device": "snx",
+      "Name": "details_ChambreNegRes_15",
+      "genre": "CF-",
+      "score_night": 0.0,
+      "score_day": 0.0,
+      "score_weighted": 0.0,
+      "note_night": 0.0,
+      "note_day": 0.0,
+      "note_global": 0.0,
+      "saving": 0.0,
+      "num_defrost": 0,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-30/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 30,
+      "device": "snx",
+      "Name": "Frais_30",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 26968,
+        "1": 0,
+        "11": 43383,
+        "14": 16241
+      },
+      "score_total": 0.501005,
+      "note_total": 10.020094,
+      "score_day": 0.457864,
+      "note_day": 9.157278,
+      "score_night": 0.605781,
+      "note_night": 12.115621,
+      "cond_night": "non",
+      "cutin_day": 4.0,
+      "cutin_night": 4.0,
+      "cutout_day": 2.0,
+      "cutout_night": 2.0,
+      "num_defrost": 6,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.849452,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-30/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_30",
+      "genre": "vitrine+",
+      "ID": 30,
+      "CtrlState": 0.0,
+      "CutinTemp": 4.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 1.8,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-30/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_30",
+      "genre": "vitrine+",
+      "ID": 30,
+      "DefRelay": 0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-30/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 30,
+      "device": "snx",
+      "Name": "details_Frais_30",
+      "genre": "vitrine+",
+      "score_night": 0.6977,
+      "score_day": 0.58,
+      "score_weighted": 0.6167,
+      "note_night": 13.95,
+      "note_day": 11.6,
+      "note_global": 12.33,
+      "saving": -28.02,
+      "num_defrost": 6,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-23/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 23,
+      "device": "snx",
+      "Name": "Frais_23",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "4": 0,
+        "6": 188,
+        "11": 46772,
+        "14": 10815,
+        "18": 0,
+        "23": 28695,
+        "24": 122
+      },
+      "score_total": 0.540142,
+      "note_total": 10.802846,
+      "score_day": 0.483036,
+      "note_day": 9.660727,
+      "score_night": 0.678836,
+      "note_night": 13.576717,
+      "cond_night": "oui",
+      "cutin_day": 2.5,
+      "cutin_night": 2.5,
+      "cutout_day": 0.6,
+      "cutout_night": 1.5,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.782828,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-23/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_23",
+      "genre": "vitrine+",
+      "ID": 23,
+      "CtrlState": 14.0,
+      "CutinTemp": 2.5,
+      "CutoutTemp": 1.5,
+      "TherAir": 3.7,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-23/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_23",
+      "genre": "vitrine+",
+      "ID": 23,
+      "S4AirTemp": 3.7,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-23/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 23,
+      "device": "snx",
+      "Name": "details_Frais_23",
+      "genre": "vitrine+",
+      "score_night": 0.7602,
+      "score_day": 0.5567,
+      "score_weighted": 0.6172,
+      "note_night": 15.2,
+      "note_day": 11.13,
+      "note_global": 12.34,
+      "saving": -45.91,
+      "num_defrost": 4,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-29/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 29,
+      "device": "snx",
+      "Name": "Frais_29",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 61,
+        "4": 0,
+        "6": 187,
+        "11": 56363,
+        "14": 10750,
+        "23": 19048,
+        "24": 122,
+        "32": 61
+      },
+      "score_total": 0.650903,
+      "note_total": 13.018063,
+      "score_day": 0.64325,
+      "note_day": 12.864991,
+      "score_night": 0.669491,
+      "note_night": 13.389824,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 3.0,
+      "cutout_day": 0.6,
+      "cutout_night": 2.0,
+      "num_defrost": 5,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.594277,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-29/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_29",
+      "genre": "vitrine+",
+      "ID": 29,
+      "RegCond": 13,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-29/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_29",
+      "genre": "vitrine+",
+      "ID": 29,
+      "CtrlState": 23.0,
+      "CutinTemp": 3.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 1.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-29/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 29,
+      "device": "snx",
+      "Name": "details_Frais_29",
+      "genre": "vitrine+",
+      "score_night": 0.7705,
+      "score_day": 0.732,
+      "score_weighted": 0.7432,
+      "note_night": 15.41,
+      "note_day": 14.64,
+      "note_global": 14.86,
+      "saving": -14.37,
+      "num_defrost": 5,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-25/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 25,
+      "device": "snx",
+      "Name": "Frais_25",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "4": 62,
+        "6": 0,
+        "11": 53116,
+        "14": 10814,
+        "18": 0,
+        "23": 22356,
+        "24": 244
+      },
+      "score_total": 0.613405,
+      "note_total": 12.268108,
+      "score_day": 0.586693,
+      "note_day": 11.733864,
+      "score_night": 0.678282,
+      "note_night": 13.565631,
+      "cond_night": "non",
+      "cutin_day": 2.5,
+      "cutin_night": 2.5,
+      "cutout_day": 1.5,
+      "cutout_night": 1.5,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.65811,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-25/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_25",
+      "genre": "vitrine+",
+      "ID": 25,
+      "S4AirTemp": 4.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-25/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_25",
+      "genre": "vitrine+",
+      "ID": 25,
+      "CtrlState": 14.0,
+      "CutinTemp": 2.5,
+      "CutoutTemp": 1.5,
+      "TherAir": 4.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-25/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 25,
+      "device": "snx",
+      "Name": "details_Frais_25",
+      "genre": "vitrine+",
+      "score_night": 0.7596,
+      "score_day": 0.6761,
+      "score_weighted": 0.7009,
+      "note_night": 15.19,
+      "note_day": 13.52,
+      "note_global": 14.02,
+      "saving": -25.78,
+      "num_defrost": 4,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-19/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 19,
+      "device": "snx",
+      "Name": "Frais_19",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "6": 250,
+        "11": 38782,
+        "14": 13457,
+        "18": 0,
+        "23": 33980,
+        "24": 123
+      },
+      "score_total": 0.44787,
+      "note_total": 8.957409,
+      "score_day": 0.42498,
+      "note_day": 8.4996,
+      "score_night": 0.503465,
+      "note_night": 10.069293,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 1.5,
+      "cutout_day": 0.5,
+      "cutout_night": 0.6,
+      "num_defrost": 5,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.939904,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-19/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_19",
+      "genre": "vitrine+",
+      "ID": 19,
+      "CtrlState": 14.0,
+      "CutinTemp": 1.5,
+      "CutoutTemp": 0.5,
+      "TherAir": 3.7,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-19/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_19",
+      "genre": "vitrine+",
+      "ID": 19,
+      "S4AirTemp": 3.7,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-19/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 19,
+      "device": "snx",
+      "Name": "details_Frais_19",
+      "genre": "vitrine+",
+      "score_night": 0.6406,
+      "score_day": 0.4892,
+      "score_weighted": 0.5303,
+      "note_night": 12.81,
+      "note_day": 9.78,
+      "note_global": 10.61,
+      "saving": -29.64,
+      "num_defrost": 5,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-9/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 9,
+      "device": "snx",
+      "Name": "CfSurgBoul_9",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 33962,
+        "4": 2148,
+        "6": 184,
+        "11": 30633,
+        "14": 18804,
+        "15": 861
+      },
+      "score_total": 0.353762,
+      "note_total": 7.07525,
+      "score_day": 0.337512,
+      "note_day": 6.750249,
+      "score_night": 0.393229,
+      "note_night": 7.864581,
+      "cond_night": "oui",
+      "cutin_day": -22.4,
+      "cutin_night": -20.9,
+      "cutout_day": -23.0,
+      "cutout_night": -23.0,
+      "num_defrost": 8,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 61.445572,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-9/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "CfSurgBoul_9",
+      "genre": "CF-",
+      "ID": 9,
+      "CtrlState": 14.0,
+      "CutinTemp": -20.9,
+      "CutoutTemp": -23.0,
+      "TherAir": 1.0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-9/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "CfSurgBoul_9",
+      "genre": "CF-",
+      "ID": 9,
+      "S5Temp": 31.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-9/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 9,
+      "device": "snx",
+      "Name": "details_CfSurgBoul_9",
+      "genre": "CF-",
+      "score_night": 0.4988,
+      "score_day": 0.4324,
+      "score_weighted": 0.4519,
+      "note_night": 9.98,
+      "note_day": 8.65,
+      "note_global": 9.04,
+      "saving": -11.7,
+      "num_defrost": 8,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-48/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 48,
+      "device": "snx",
+      "Name": "CfFruit&Leg_48",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 75779,
+        "11": 0,
+        "14": 10813
+      },
+      "score_total": 0.0,
+      "note_total": 0.0,
+      "score_day": 0.0,
+      "note_day": 0.0,
+      "score_night": 0.0,
+      "note_night": 0.0,
+      "cond_night": "non",
+      "cutin_day": 3.5,
+      "cutin_night": 3.5,
+      "cutout_day": 1.5,
+      "cutout_night": 1.5,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 25.453434,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-48/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "CfFruit&Leg_48",
+      "genre": "CF+",
+      "ID": 48,
+      "DisplayAir": 3.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-48/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "CfFruit&Leg_48",
+      "genre": "CF+",
+      "ID": 48,
+      "CtrlState": 0.0,
+      "CutinTemp": 3.5,
+      "CutoutTemp": 1.5,
+      "i": 1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-48/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 48,
+      "device": "snx",
+      "Name": "details_CfFruit&Leg_48",
+      "genre": "CF+",
+      "score_night": 0.0,
+      "score_day": 0.0,
+      "score_weighted": 0.0,
+      "note_night": 0.0,
+      "note_day": 0.0,
+      "note_global": 0.0,
+      "saving": 0.0,
+      "num_defrost": 4,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-28/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 28,
+      "device": "snx",
+      "Name": "Frais_28",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 62,
+        "4": 61,
+        "6": 123,
+        "11": 48446,
+        "14": 10811,
+        "18": 0,
+        "23": 27089,
+        "24": 0
+      },
+      "score_total": 0.559474,
+      "note_total": 11.189486,
+      "score_day": 0.534783,
+      "note_day": 10.695665,
+      "score_night": 0.619442,
+      "note_night": 12.388834,
+      "cond_night": "oui",
+      "cutin_day": 3.0,
+      "cutin_night": 3.0,
+      "cutout_day": 0.6,
+      "cutout_night": 2.0,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.749918,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-28/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_28",
+      "genre": "vitrine+",
+      "ID": 28,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 1.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-28/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_28",
+      "genre": "vitrine+",
+      "ID": 28,
+      "S4AirTemp": 1.8,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-28/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 28,
+      "device": "snx",
+      "Name": "details_Frais_28",
+      "genre": "vitrine+",
+      "score_night": 0.7134,
+      "score_day": 0.6091,
+      "score_weighted": 0.6393,
+      "note_night": 14.27,
+      "note_day": 12.18,
+      "note_global": 12.79,
+      "saving": -26.68,
+      "num_defrost": 4,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-33/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 33,
+      "device": "snx",
+      "Name": "Frais_33",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "4": 61,
+        "6": 183,
+        "11": 55384,
+        "14": 10880,
+        "23": 20022,
+        "24": 62
+      },
+      "score_total": 0.639597,
+      "note_total": 12.791944,
+      "score_day": 0.651173,
+      "note_day": 13.023461,
+      "score_night": 0.611483,
+      "note_night": 12.229657,
+      "cond_night": "oui",
+      "cutin_day": 0.6,
+      "cutin_night": 2.0,
+      "cutout_day": 0.6,
+      "cutout_night": 1.0,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.613523,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-33/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_33",
+      "genre": "vitrine+",
+      "ID": 33,
+      "CtrlState": 11.0,
+      "CutinTemp": 2.0,
+      "CutoutTemp": 1.0,
+      "TherAir": 2.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-33/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_33",
+      "genre": "vitrine+",
+      "ID": 33,
+      "S4AirTemp": 2.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-33/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 33,
+      "device": "snx",
+      "Name": "details_Frais_33",
+      "genre": "vitrine+",
+      "score_night": 0.756,
+      "score_day": 0.7225,
+      "score_weighted": 0.7315,
+      "note_night": 15.12,
+      "note_day": 14.45,
+      "note_global": 14.63,
+      "saving": -12.07,
+      "num_defrost": 4,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-47/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 47,
+      "device": "snx",
+      "Name": "CfCremerie_47",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 28576,
+        "11": 47204,
+        "14": 10812
+      },
+      "score_total": 0.545131,
+      "note_total": 10.902624,
+      "score_day": 0.465657,
+      "note_day": 9.313139,
+      "score_night": 0.738151,
+      "note_night": 14.763017,
+      "cond_night": "non",
+      "cutin_day": 8.0,
+      "cutin_night": 8.0,
+      "cutout_day": 6.0,
+      "cutout_night": 6.0,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 11.577973,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-47/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "CfCremerie_47",
+      "genre": "CF+",
+      "ID": 47,
+      "DisplayAir": 6.4,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-47/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 47,
+      "device": "snx",
+      "Name": "details_CfCremerie_47",
+      "genre": "CF+",
+      "score_night": 0.8488,
+      "score_day": 0.5307,
+      "score_weighted": 0.6229,
+      "note_night": 16.98,
+      "note_day": 10.61,
+      "note_global": 12.46,
+      "saving": -67.78,
+      "num_defrost": 4,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-45/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 45,
+      "device": "snx",
+      "Name": "CfPoisson_45",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 48286,
+        "11": 19298,
+        "14": 19008
+      },
+      "score_total": 0.222861,
+      "note_total": 4.457225,
+      "score_day": 0.142557,
+      "note_day": 2.851134,
+      "score_night": 0.417897,
+      "note_night": 8.357948,
+      "cond_night": "non",
+      "cutin_day": 4.0,
+      "cutin_night": 4.0,
+      "cutout_day": 2.0,
+      "cutout_night": 2.0,
+      "num_defrost": 7,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 19.780851,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-45/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "CfPoisson_45",
+      "genre": "CF+",
+      "ID": 45,
+      "SairTemp": 8,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-45/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 45,
+      "device": "snx",
+      "Name": "details_CfPoisson_45",
+      "genre": "CF+",
+      "score_night": 0.5323,
+      "score_day": 0.1831,
+      "score_weighted": 0.2855,
+      "note_night": 10.65,
+      "note_day": 3.66,
+      "note_global": 5.71,
+      "saving": -42.75,
+      "num_defrost": 7,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-34/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 34,
+      "device": "snx",
+      "Name": "Frais_34",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 61,
+        "4": 0,
+        "6": 63,
+        "11": 51438,
+        "14": 10880,
+        "18": 0,
+        "23": 24150,
+        "24": 0
+      },
+      "score_total": 0.594027,
+      "note_total": 11.880543,
+      "score_day": 0.599589,
+      "note_day": 11.991783,
+      "score_night": 0.580519,
+      "note_night": 11.610374,
+      "cond_night": "non",
+      "cutin_day": 3.0,
+      "cutin_night": 3.0,
+      "cutout_day": 2.0,
+      "cutout_night": 2.0,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.691098,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-34/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_34",
+      "genre": "vitrine+",
+      "ID": 34,
+      "S4AirTemp": 1.4,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-34/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_34",
+      "genre": "vitrine+",
+      "ID": 34,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 1.5,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-34/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 34,
+      "device": "snx",
+      "Name": "details_Frais_34",
+      "genre": "vitrine+",
+      "score_night": 0.7195,
+      "score_day": 0.6646,
+      "score_weighted": 0.6794,
+      "note_night": 14.39,
+      "note_day": 13.29,
+      "note_global": 13.59,
+      "saving": -16.37,
+      "num_defrost": 4,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-32/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 32,
+      "device": "snx",
+      "Name": "Frais_32",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 6943,
+        "1": 0,
+        "11": 63469,
+        "14": 16180
+      },
+      "score_total": 0.732966,
+      "note_total": 14.659321,
+      "score_day": 0.705007,
+      "note_day": 14.100136,
+      "score_night": 0.800871,
+      "note_night": 16.017422,
+      "cond_night": "non",
+      "cutin_day": 4.0,
+      "cutin_night": 4.0,
+      "cutout_day": 2.0,
+      "cutout_night": 2.0,
+      "num_defrost": 6,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.454579,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-32/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_32",
+      "genre": "vitrine+",
+      "ID": 32,
+      "CtrlState": 11.0,
+      "CutinTemp": 4.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 1.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-32/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_32",
+      "genre": "vitrine+",
+      "ID": 32,
+      "DefRelay": 0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-32/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 32,
+      "device": "snx",
+      "Name": "details_Frais_32",
+      "genre": "vitrine+",
+      "score_night": 0.9217,
+      "score_day": 0.8922,
+      "score_weighted": 0.9014,
+      "note_night": 18.43,
+      "note_day": 17.84,
+      "note_global": 18.03,
+      "saving": -27.37,
+      "num_defrost": 6,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-31/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 31,
+      "device": "snx",
+      "Name": "Frais_31",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 7003,
+        "1": 0,
+        "11": 63349,
+        "14": 16240
+      },
+      "score_total": 0.73158,
+      "note_total": 14.631605,
+      "score_day": 0.702904,
+      "note_day": 14.058073,
+      "score_night": 0.801227,
+      "note_night": 16.024549,
+      "cond_night": "non",
+      "cutin_day": 3.8,
+      "cutin_night": 3.8,
+      "cutout_day": 1.8,
+      "cutout_night": 1.8,
+      "num_defrost": 6,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.456938,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-31/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_31",
+      "genre": "vitrine+",
+      "ID": 31,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.8,
+      "CutoutTemp": 1.8,
+      "TherAir": 1.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-31/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_31",
+      "genre": "vitrine+",
+      "ID": 31,
+      "DefRelay": 0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-31/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 31,
+      "device": "snx",
+      "Name": "details_Frais_31",
+      "genre": "vitrine+",
+      "score_night": 0.9217,
+      "score_day": 0.8908,
+      "score_weighted": 0.9005,
+      "note_night": 18.43,
+      "note_day": 17.82,
+      "note_global": 18.01,
+      "saving": -28.3,
+      "num_defrost": 6,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-26/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 26,
+      "device": "snx",
+      "Name": "Frais_26",
+      "TYPE": "historique",
+      "DATA": {
+        "1": 0,
+        "6": 125,
+        "11": 49177,
+        "14": 10873,
+        "18": 0,
+        "23": 26232,
+        "24": 185
+      },
+      "score_total": 0.567916,
+      "note_total": 11.358324,
+      "score_day": 0.541223,
+      "note_day": 10.824462,
+      "score_night": 0.632746,
+      "note_night": 12.65492,
+      "cond_night": "oui",
+      "cutin_day": 3.0,
+      "cutin_night": 3.0,
+      "cutout_day": 0.6,
+      "cutout_night": 2.0,
+      "num_defrost": 4,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.735547,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-26/tele/REGULATEUR",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_26",
+      "genre": "vitrine+",
+      "ID": 26,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 3.1,
+      "i": 1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-26/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_26",
+      "genre": "vitrine+",
+      "ID": 26,
+      "RegCond": 2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-26/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 26,
+      "device": "snx",
+      "Name": "details_Frais_26",
+      "genre": "vitrine+",
+      "score_night": 0.7303,
+      "score_day": 0.6166,
+      "score_weighted": 0.6495,
+      "note_night": 14.61,
+      "note_day": 12.33,
+      "note_global": 12.99,
+      "saving": -29.66,
+      "num_defrost": 4,
+      "cond_night": "oui",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-th_vins/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Humidity": 51.04,
+      "BatteryPercentage": 88,
+      "Device": "0x32FD",
+      "Time": "2026-10-06T12:39:50",
+      "Temperature": 18.57,
+      "Name": "th_vins",
+      "BatteryVoltage": 2.9
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-th_caisse_1/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Humidity": 47.99,
+      "BatteryPercentage": 85,
+      "Device": "0x851E",
+      "Time": "2026-10-06T12:41:58",
+      "Temperature": 20.13,
+      "Name": "th_caisse_1",
+      "BatteryVoltage": 2.8
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-th_caisse_9/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Humidity": 53.74,
+      "BatteryPercentage": 94,
+      "Device": "0xDA8D",
+      "Time": "2026-10-06T12:42:06",
+      "Temperature": 19.56,
+      "Name": "th_caisse_9",
+      "BatteryVoltage": 2.9
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-th_fruits/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Humidity": 50.51,
+      "BatteryPercentage": 0,
+      "Device": "0x5DBF",
+      "Time": "2026-10-06T12:37:50",
+      "Temperature": 18.9,
+      "Name": "th_fruits",
+      "BatteryVoltage": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-th_cocacola/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Humidity": 56.12,
+      "BatteryPercentage": 89,
+      "Device": "0x1B49",
+      "Time": "2026-10-06T12:41:53",
+      "Temperature": 18.9,
+      "Name": "th_cocacola",
+      "BatteryVoltage": 2.9
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-th_hallal/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Humidity": 64.93,
+      "BatteryPercentage": 0,
+      "Device": "0x842D",
+      "Time": "2026-10-06T12:40:49",
+      "Temperature": 16.64,
+      "Name": "th_hallal",
+      "BatteryVoltage": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-th_surgeles/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Humidity": 51.15,
+      "BatteryPercentage": 0,
+      "Device": "0xF1ED",
+      "Time": "2026-10-06T12:38:55",
+      "Temperature": 18.75,
+      "Name": "th_surgeles",
+      "BatteryVoltage": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-th_eaux/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Humidity": 62.32,
+      "BatteryPercentage": 0,
+      "Device": "0x7A5A",
+      "Time": "2026-10-06T12:39:40",
+      "Temperature": 18.65,
+      "Name": "th_eaux",
+      "BatteryVoltage": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-bridge/tele/LWT",
+    "retained": true,
+    "data": "Online"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/aex-2/tele/LWT",
+    "retained": true,
+    "data": "Online"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/aex-2/tele/PRINT",
+    "retained": true,
+    "data": {
+      "texte": "aerotherme_driver loaded"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/aex-2/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Time": "2026-10-06T13:42:26",
+      "DS18B20-1": {
+        "Id": "E74CF8356461",
+        "Temperature": 22.3
+      },
+      "DS18B20-2": {
+        "Id": "000000BB06CE",
+        "Temperature": 19.8
+      },
+      "TempUnit": "C"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/aex-2/set/SETUP",
+    "retained": true,
+    "data": {
+      "Device": "aex-2",
+      "Name": "setup_aex-2",
+      "TYPE": "SETUP",
+      "DATA": {
+        "samedi": {
+          "fin": 18,
+          "debut": 8
+        },
+        "mardi": {
+          "fin": 18,
+          "debut": 8
+        },
+        "offset": 0,
+        "vendredi": {
+          "fin": 18,
+          "debut": 8
+        },
+        "onoff": 0,
+        "ouvert": 19,
+        "lundi": {
+          "fin": 18,
+          "debut": 8
+        },
+        "ferme": 11,
+        "jeudi": {
+          "fin": 18,
+          "debut": 8
+        },
+        "mercredi": {
+          "fin": 18,
+          "debut": 8
+        },
+        "dimanche": {
+          "fin": 12,
+          "debut": 8
+        }
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/zb-th_exterieur/tele/SENSOR",
+    "retained": true,
+    "data": {
+      "Humidity": 43.74,
+      "BatteryPercentage": 0,
+      "Device": "0xEB08",
+      "Time": "2026-10-06T12:39:52",
+      "Temperature": 24.29,
+      "Name": "th_exterieur",
+      "BatteryVoltage": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/LWT",
+    "retained": true,
+    "data": "Offline"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/POWER",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt2",
+      "Name": "divers_droite",
+      "ActivePower": 3047.6
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/PRINT",
+    "retained": true,
+    "data": "C:25.382347"
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/PWHOURS",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt2",
+      "Name": "divers_droite_H",
+      "TYPE": "PWHOURS",
+      "DATA": {
+        "23": 2959.39,
+        "17": 2917.25,
+        "3": 2955.67,
+        "15": 2979.18,
+        "21": 2908.32,
+        "20": 3095.63,
+        "7": 3039.67,
+        "8": 2891.1,
+        "5": 2951.83,
+        "1": 2886.89,
+        "12": 2898.02,
+        "18": 2921.65,
+        "10": 2892.9,
+        "2": 2877.97,
+        "16": 2914.72,
+        "0": 2890.34,
+        "14": 2901.28,
+        "6": 2982.72,
+        "19": 3015.48,
+        "4": 2887.04,
+        "9": 2893.67,
+        "13": 2902.74,
+        "22": 2904.01,
+        "11": 2970.45
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/PWDAYS",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt2",
+      "Name": "divers_droite_D",
+      "TYPE": "PWDAYS",
+      "DATA": {
+        "Dim": 70608.1,
+        "Jeu": 69498.5,
+        "Mar": 70583.3,
+        "Sam": 70133.3,
+        "Lun": 70428.6,
+        "Ven": 70332.7,
+        "Mer": 69500.6
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/PWMONTHS",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt2",
+      "Name": "divers_droite_M",
+      "TYPE": "PWMONTHS",
+      "DATA": {
+        "Avr": 1820120.0,
+        "Sept": 2003760.0,
+        "Jan": 2116440.0,
+        "Dec": 1894570.0,
+        "Aout": 2190410.0,
+        "Juil": 2071660.0,
+        "Mai": 2810600.0,
+        "Juin": 2068150.0,
+        "Nov": 1511960.0,
+        "Oct": 1767500.0,
+        "Fev": 1893440.0,
+        "Mars": 2097120.0
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/COUT",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt2",
+      "Name": "c_divers_droite",
+      "surface": 1150,
+      "cout": 8.98,
+      "jour": "Mar"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/COUTS",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt2",
+      "Name": "c_w_divers_droite",
+      "Lun": 8.9,
+      "Mar": 8.98,
+      "Mer": 8.74,
+      "Jeu": 8.79,
+      "Ven": 8.94,
+      "Sam": 8.84,
+      "Dim": 8.89
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/HEARTBEAT",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt2",
+      "Name": "dl4-tgbt2",
+      "Time": "2026-09-30T20:09:09",
+      "AccessPoint": "ADOMELEC",
+      "IpAddress": "192.168.1.100"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/dl4-tgbt2/tele/NIGHTDAY",
+    "retained": true,
+    "data": {
+      "Device": "dl4-tgbt2",
+      "ville": "bezons",
+      "Name": "divers_droite_ND",
+      "avg_night": 2548.574,
+      "stdev_nigth": 901.61,
+      "avg_day": 2964.756,
+      "stddev_day": 70.357,
+      "saving": -14.04,
+      "saving_target": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-46/tele/STATISTIC",
+    "retained": true,
+    "data": {
+      "ID": 46,
+      "device": "snx",
+      "Name": "Laboratoire_46",
+      "TYPE": "historique",
+      "DATA": {
+        "0": 70374,
+        "14": 16218
+      },
+      "score_total": 0.0,
+      "note_total": 0.0,
+      "score_day": 0.0,
+      "note_day": 0.0,
+      "score_night": 0.0,
+      "note_night": 0.0,
+      "cond_night": "non",
+      "cutin_day": 10.0,
+      "cutin_night": 10.0,
+      "cutout_day": 8.0,
+      "cutout_night": 8.0,
+      "num_defrost": 6,
+      "total": 86592,
+      "tick": 86592,
+      "cout": 0.851163,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-46/tele/REGULATEUR_LOG",
+    "retained": true,
+    "data": {
+      "Bus": 3,
+      "Name": "Laboratoire_46",
+      "genre": "CF+",
+      "ID": 46,
+      "SairTemp": 16.7,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-46/tele/SNXDETAILS",
+    "retained": true,
+    "data": {
+      "ID": -33,
+      "id": 46,
+      "device": "snx",
+      "Name": "details_Laboratoire_46",
+      "genre": "CF+",
+      "score_night": 0.0,
+      "score_day": 0.0,
+      "score_weighted": 0.0,
+      "note_night": 0.0,
+      "note_day": 0.0,
+      "note_global": 0.0,
+      "saving": 0.0,
+      "num_defrost": 6,
+      "cond_night": "non",
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:25Z",
+    "topic": "gw/inter/bezons/snx-999/tele/ON_CONSIGNE",
+    "retained": true,
+    "data": {
+      "ID": -20,
+      "Name": "snx_on_consigne",
+      "on_vitrine+": 11,
+      "on_vitrine-": 3,
+      "on_CF+": 0,
+      "on_CF-": 0,
+      "on_bac+": 0,
+      "on_bac-": 0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:26Z",
+    "topic": "gw/inter/bezons/aex-2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:26.652 MQT: gw/inter/bezons/aex-2/tele/STATE = {\"Time\":\"2026-10-06T13:42:26\",\"Uptime\":\"14T03:15:23\",\"UptimeSec\":1221323,\"Heap\":139,\"SleepMode\":\"Dynamic\",\"Sleep\":0,\"LoadAvg\":999,\"MqttCount\":1,\"Berry\":{\"HeapUsed\":31,\"Objects\":401},\"Wifi\":{\"AP\":2,\"SSId\":\"ITM_BEZONS\",\"BSSId\":\"78:9A:18:1F:75:15\",\"Channel\":1,\"Mode\":\"HT40\",\"RSSI\":74,\"Signal\":-63,\"LinkCount\":1,\"Downtime\":\"0T00:00:04\"}}"
+  },
+  {
+    "utc": "2026-10-06T11:42:26Z",
+    "topic": "gw/inter/bezons/aex-2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:26.690 MQT: gw/inter/bezons/aex-2/tele/SENSOR = {\"Time\":\"2026-10-06T13:42:26\",\"DS18B20-1\":{\"Id\":\"E74CF8356461\",\"Temperature\":22.3},\"DS18B20-2\":{\"Id\":\"000000BB06CE\",\"Temperature\":19.8},\"TempUnit\":\"C\"} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:28Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fneg",
+      "ActivePower": 23500.6
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:28Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fpos",
+      "ActivePower": 23070.3
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:28Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1/tele/PRINT",
+    "retained": false,
+    "data": "C:144.950790:191.610764:0.001572"
+  },
+  {
+    "utc": "2026-10-06T11:42:29Z",
+    "topic": "gw/inter/bezons/snx-29/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_29",
+      "genre": "vitrine+",
+      "ID": 29,
+      "S3AirTemp": 1.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:29Z",
+    "topic": "gw/inter/bezons/snx-29/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_29",
+      "genre": "vitrine+",
+      "ID": 29,
+      "S4AirTemp": 3.1,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:32Z",
+    "topic": "gw/inter/bezons/snx-22/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_22",
+      "genre": "vitrine+",
+      "ID": 22,
+      "S3AirTemp": 5.1,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:32Z",
+    "topic": "gw/inter/bezons/snx-22/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_22",
+      "genre": "vitrine+",
+      "ID": 22,
+      "S4AirTemp": 3.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:34Z",
+    "topic": "gw/inter/bezons/snx-14/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_14",
+      "genre": "vitrine-",
+      "ID": 14,
+      "CtrlState": 11.0,
+      "CutinTemp": -19.0,
+      "CutoutTemp": -21.0,
+      "TherAir": -19.7,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:36Z",
+    "topic": "gw/inter/bezons/snx-45/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "CfPoisson_45",
+      "genre": "CF+",
+      "ID": 45,
+      "DisplayAir": 8,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:37Z",
+    "topic": "gw/inter/bezons/snx-33/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_33",
+      "genre": "vitrine+",
+      "ID": 33,
+      "CtrlState": 23.0,
+      "CutinTemp": 2.0,
+      "CutoutTemp": 1.0,
+      "TherAir": 1.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:37Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_boulange",
+      "ActivePower": 2859.2
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:37Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_bureaux",
+      "ActivePower": 226.3
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:37Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_charcuterie",
+      "ActivePower": 2904.6
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:37Z",
+    "topic": "gw/inter/bezons/snx-33/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_33",
+      "genre": "vitrine+",
+      "ID": 33,
+      "RegCond": 2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:38Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:38.545 PWX12 DBG [W] raw=W:2859.2:226.3:2904.6"
+  },
+  {
+    "utc": "2026-10-06T11:42:38Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:38.546 PWX12 DBG [before W publish loop] ville=bezons device=dl12-tgbt3 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:42:38Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:38.552 MQT: gw/inter/bezons/dl12-tgbt3-1/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_boulange\",\"ActivePower\":2859.2} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:38Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:38.557 MQT: gw/inter/bezons/dl12-tgbt3-2/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_bureaux\",\"ActivePower\":226.3} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:38Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:38.561 MQT: gw/inter/bezons/dl12-tgbt3-3/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_charcuterie\",\"ActivePower\":2904.6} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_caisses",
+      "ActivePower": 56.2
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_boucherie",
+      "ActivePower": 9.1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "four",
+      "ActivePower": 6.7
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/tele/PRINT",
+    "retained": false,
+    "data": "C:0.515240:0.076791:0.056404"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:40.203 PWX12 DBG [W] raw=W:56.2:9.1:6.7"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:40.204 PWX12 DBG [before W publish loop] ville=bezons device=dl12-tgbt2 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:40.210 MQT: gw/inter/bezons/dl12-tgbt2-1/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"td_caisses\",\"ActivePower\":56.2} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:40.214 MQT: gw/inter/bezons/dl12-tgbt2-2/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"td_boucherie\",\"ActivePower\":9.1} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:40.218 MQT: gw/inter/bezons/dl12-tgbt2-3/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"four\",\"ActivePower\":6.7} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:40.229 PWX12 DBG [C] raw=C:0.515240:0.076791:0.056404"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:40.230 PWX12 DBG [before conso.update] ville=bezons device=dl12-tgbt2 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:40.236 MQT: gw/inter/bezons/dl12-tgbt2/tele/PRINT = C:0.515240:0.076791:0.056404 (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:39Z",
+    "topic": "gw/inter/bezons/snx-9/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "CfSurgBoul_9",
+      "genre": "CF-",
+      "ID": 9,
+      "CtrlState": 14.0,
+      "CutinTemp": -20.9,
+      "CutoutTemp": -23.0,
+      "TherAir": 2.0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:43Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fneg",
+      "ActivePower": 23397.4
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:43Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fpos",
+      "ActivePower": 22986.4
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:44Z",
+    "topic": "gw/inter/bezons/snx-28/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_28",
+      "genre": "vitrine+",
+      "ID": 28,
+      "S3AirTemp": 1.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:45Z",
+    "topic": "gw/inter/bezons/snx-28/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_28",
+      "genre": "vitrine+",
+      "ID": 28,
+      "S4AirTemp": 1.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:50Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "CtrlState": 23.0,
+      "CutinTemp": 2.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 3.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:50Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "CtrlState": 23.0,
+      "CutinTemp": 2.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 1.4,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:51Z",
+    "topic": "gw/inter/bezons/zb-th_fruits/tele/SENSOR",
+    "retained": false,
+    "data": {
+      "Humidity": 50.96,
+      "BatteryPercentage": 0,
+      "Device": "0x5DBF",
+      "Time": "2026-10-06T12:42:52",
+      "Temperature": 19.02,
+      "Name": "th_fruits",
+      "BatteryVoltage": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:51Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "RegCond": 13,
+      "i": 1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:51Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "RegCond": 2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:52Z",
+    "topic": "gw/inter/bezons/snx-999/tele/ON_CONSIGNE",
+    "retained": false,
+    "data": {
+      "ID": -20,
+      "Name": "snx_on_consigne",
+      "on_vitrine+": 12,
+      "on_vitrine-": 3,
+      "on_CF+": 0,
+      "on_CF-": 0,
+      "on_bac+": 0,
+      "on_bac-": 0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:52Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_boulange",
+      "ActivePower": 2854.9
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:52Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_bureaux",
+      "ActivePower": 244.5
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:52Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_charcuterie",
+      "ActivePower": 2892.9
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:52Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/tele/PRINT",
+    "retained": false,
+    "data": "C:23.845736:1.930517:23.960814"
+  },
+  {
+    "utc": "2026-10-06T11:42:52Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "CtrlState": 23.0,
+      "CutinTemp": 3.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 1.4,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:53Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:53.547 PWX12 DBG [W] raw=W:2854.9:244.5:2892.9"
+  },
+  {
+    "utc": "2026-10-06T11:42:53Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:53.549 PWX12 DBG [before W publish loop] ville=bezons device=dl12-tgbt3 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:42:53Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:53.554 MQT: gw/inter/bezons/dl12-tgbt3-1/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_boulange\",\"ActivePower\":2854.9} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:53Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:53.559 MQT: gw/inter/bezons/dl12-tgbt3-2/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_bureaux\",\"ActivePower\":244.5} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:53Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:53.563 MQT: gw/inter/bezons/dl12-tgbt3-3/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_charcuterie\",\"ActivePower\":2892.9} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:53Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:53.576 PWX12 DBG [C] raw=C:23.845736:1.930517:23.960814"
+  },
+  {
+    "utc": "2026-10-06T11:42:53Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:53.577 PWX12 DBG [before conso.update] ville=bezons device=dl12-tgbt3 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:42:53Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:53.583 MQT: gw/inter/bezons/dl12-tgbt3/tele/PRINT = C:23.845736:1.930517:23.960814 (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:54Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_caisses",
+      "ActivePower": 71.3
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:54Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_boucherie",
+      "ActivePower": 9.2
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:54Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "four",
+      "ActivePower": 6.8
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:54Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:55.202 PWX12 DBG [W] raw=W:71.3:9.2:6.8"
+  },
+  {
+    "utc": "2026-10-06T11:42:54Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:55.203 PWX12 DBG [before W publish loop] ville=bezons device=dl12-tgbt2 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:42:54Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:55.209 MQT: gw/inter/bezons/dl12-tgbt2-1/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"td_caisses\",\"ActivePower\":71.3} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:54Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:55.213 MQT: gw/inter/bezons/dl12-tgbt2-2/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"td_boucherie\",\"ActivePower\":9.2} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:54Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:42:55.217 MQT: gw/inter/bezons/dl12-tgbt2-3/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"four\",\"ActivePower\":6.8} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:42:56Z",
+    "topic": "gw/inter/bezons/snx-10/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_10",
+      "genre": "vitrine-",
+      "ID": 10,
+      "CtrlState": 11.0,
+      "CutinTemp": -21.1,
+      "CutoutTemp": -22.1,
+      "TherAir": -20.5,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:57Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "S3AirTemp": -0.5,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:57Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "S3AirTemp": 4.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:57Z",
+    "topic": "gw/inter/bezons/snx-17/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_17",
+      "genre": "vitrine+",
+      "ID": 17,
+      "CtrlState": 11.0,
+      "CutinTemp": 2.9,
+      "CutoutTemp": 2.0,
+      "TherAir": 2.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:57Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "S4AirTemp": 1.4,
+      "i": 1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:57Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "S4AirTemp": 3.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:58Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fneg",
+      "ActivePower": 23907.5
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:58Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fpos",
+      "ActivePower": 22990.8
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:58Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1/tele/PRINT",
+    "retained": false,
+    "data": "C:196.781067:191.807068:0.001415"
+  },
+  {
+    "utc": "2026-10-06T11:42:59Z",
+    "topic": "gw/inter/bezons/aex-2/stat/RESULT",
+    "retained": false,
+    "data": {
+      "GPIO0": {
+        "0": "None"
+      },
+      "GPIO1": {
+        "0": "None"
+      },
+      "GPIO2": {
+        "0": "None"
+      },
+      "GPIO3": {
+        "0": "None"
+      },
+      "GPIO4": {
+        "0": "None"
+      },
+      "GPIO5": {
+        "0": "None"
+      },
+      "GPIO6": {
+        "608": "I2C SCL1"
+      },
+      "GPIO7": {
+        "640": "I2C SDA1"
+      },
+      "GPIO8": {
+        "1312": "DS18x201"
+      },
+      "GPIO9": {
+        "0": "None"
+      },
+      "GPIO10": {
+        "0": "None"
+      },
+      "GPIO18": {
+        "0": "None"
+      },
+      "GPIO19": {
+        "0": "None"
+      },
+      "GPIO20": {
+        "1313": "DS18x202"
+      },
+      "GPIO21": {
+        "0": "None"
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:59Z",
+    "topic": "gw/inter/bezons/aex-2/tele/SENSOR",
+    "retained": false,
+    "data": {
+      "Device": "aex-2",
+      "Name": "aex-2",
+      "Temperature": 19.8,
+      "ouvert": 19.0,
+      "ferme": 11.0,
+      "offset": 0.0,
+      "location": "fruits & Legumes",
+      "Target": 19.0,
+      "source": "ds",
+      "Power": 0,
+      "onoff": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:59Z",
+    "topic": "gw/inter/bezons/snx-36/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_36",
+      "genre": "vitrine+",
+      "ID": 36,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 2.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:42:59Z",
+    "topic": "gw/inter/bezons/aex-2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:00.183 MQT: gw/inter/bezons/aex-2/stat/RESULT = {\"GPIO0\":{\"0\":\"None\"},\"GPIO1\":{\"0\":\"None\"},\"GPIO2\":{\"0\":\"None\"},\"GPIO3\":{\"0\":\"None\"},\"GPIO4\":{\"0\":\"None\"},\"GPIO5\":{\"0\":\"None\"},\"GPIO6\":{\"608\":\"I2C SCL1\"},\"GPIO7\":{\"640\":\"I2C SDA1\"},\"GPIO8\":{\"1312\":\"DS18x201\"},\"GPIO9\":{\"0\":\"None\"},\"GPIO10\":{\"0\":\"None\"},\"GPIO18\":{\"0\":\"None\"},\"GPIO19\":{\"0\":\"None\"},\"GPIO20\":{\"1313\":\"DS18x202\"},\"GPIO21\":{\"0\":\"None\"}}"
+  },
+  {
+    "utc": "2026-10-06T11:42:59Z",
+    "topic": "gw/inter/bezons/aex-2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:00.225 MQT: gw/inter/bezons/aex-2/tele/SENSOR = {\"Device\":\"aex-2\",\"Name\":\"aex-2\",\"Temperature\":19.80,\"ouvert\":19.0,\"ferme\":11.0,\"offset\":0.0,\"location\":\"fruits & Legumes\",\"Target\":19.0,\"source\":\"ds\",\"Power\":0,\"onoff\":0} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:00Z",
+    "topic": "gw/inter/bezons/snx-32/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_32",
+      "genre": "vitrine+",
+      "ID": 32,
+      "CtrlState": 11.0,
+      "CutinTemp": 4.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 1.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:02Z",
+    "topic": "gw/inter/bezons/snx-35/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_35",
+      "genre": "vitrine+",
+      "ID": 35,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 3.5,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:03Z",
+    "topic": "gw/inter/bezons/snx-13/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_13",
+      "genre": "vitrine-",
+      "ID": 13,
+      "CtrlState": 23.0,
+      "CutinTemp": -19.0,
+      "CutoutTemp": -21.0,
+      "TherAir": -17.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:05Z",
+    "topic": "gw/inter/bezons/snx-18/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_18",
+      "genre": "vitrine+",
+      "ID": 18,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 2.0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:05Z",
+    "topic": "gw/inter/bezons/snx-36/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_36",
+      "genre": "vitrine+",
+      "ID": 36,
+      "S3AirTemp": 4.5,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:06Z",
+    "topic": "gw/inter/bezons/snx-47/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "CfCremerie_47",
+      "genre": "CF+",
+      "ID": 47,
+      "SairTemp": 5.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:06Z",
+    "topic": "gw/inter/bezons/snx-36/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_36",
+      "genre": "vitrine+",
+      "ID": 36,
+      "S4AirTemp": 2.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:07Z",
+    "topic": "gw/inter/bezons/snx-999/tele/ON_CONSIGNE",
+    "retained": false,
+    "data": {
+      "ID": -20,
+      "Name": "snx_on_consigne",
+      "on_vitrine+": 11,
+      "on_vitrine-": 3,
+      "on_CF+": 1,
+      "on_CF-": 0,
+      "on_bac+": 0,
+      "on_bac-": 0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:07Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_boulange",
+      "ActivePower": 2857.7
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:07Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_bureaux",
+      "ActivePower": 241.0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:07Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_charcuterie",
+      "ActivePower": 2884.9
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:08Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:08.543 PWX12 DBG [W] raw=W:2857.7:241.0:2884.9"
+  },
+  {
+    "utc": "2026-10-06T11:43:08Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:08.544 PWX12 DBG [before W publish loop] ville=bezons device=dl12-tgbt3 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:43:08Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:08.550 MQT: gw/inter/bezons/dl12-tgbt3-1/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_boulange\",\"ActivePower\":2857.7} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:08Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:08.555 MQT: gw/inter/bezons/dl12-tgbt3-2/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_bureaux\",\"ActivePower\":241.0} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:08Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:08.559 MQT: gw/inter/bezons/dl12-tgbt3-3/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_charcuterie\",\"ActivePower\":2884.9} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:08Z",
+    "topic": "gw/inter/bezons/snx-35/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_35",
+      "genre": "vitrine+",
+      "ID": 35,
+      "S3AirTemp": 4,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/snx-12/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_12",
+      "genre": "vitrine-",
+      "ID": 12,
+      "CtrlState": 11.0,
+      "CutinTemp": -21.0,
+      "CutoutTemp": -22.0,
+      "TherAir": -20.7,
+      "i": 1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/snx-35/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_35",
+      "genre": "vitrine+",
+      "ID": 35,
+      "S4AirTemp": 3.5,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_caisses",
+      "ActivePower": 73.8
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_boucherie",
+      "ActivePower": 9.0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "four",
+      "ActivePower": 6.8
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/tele/PRINT",
+    "retained": false,
+    "data": "C:0.547166:0.076503:0.056648"
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:10.203 PWX12 DBG [W] raw=W:73.8:9.0:6.8"
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:10.205 PWX12 DBG [before W publish loop] ville=bezons device=dl12-tgbt2 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:10.210 MQT: gw/inter/bezons/dl12-tgbt2-1/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"td_caisses\",\"ActivePower\":73.8} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:10.215 MQT: gw/inter/bezons/dl12-tgbt2-2/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"td_boucherie\",\"ActivePower\":9.0} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:10.219 MQT: gw/inter/bezons/dl12-tgbt2-3/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"four\",\"ActivePower\":6.8} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:10.230 PWX12 DBG [C] raw=C:0.547166:0.076503:0.056648"
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:10.231 PWX12 DBG [before conso.update] ville=bezons device=dl12-tgbt2 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:43:09Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:10.237 MQT: gw/inter/bezons/dl12-tgbt2/tele/PRINT = C:0.547166:0.076503:0.056648 (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:10Z",
+    "topic": "gw/inter/bezons/snx-12/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_12",
+      "genre": "vitrine-",
+      "ID": 12,
+      "RegCond": 2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:10Z",
+    "topic": "gw/inter/bezons/snx-23/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_23",
+      "genre": "vitrine+",
+      "ID": 23,
+      "CtrlState": 14.0,
+      "CutinTemp": 2.5,
+      "CutoutTemp": 1.5,
+      "TherAir": 3.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:10Z",
+    "topic": "gw/inter/bezons/snx-999/tele/ON_CONSIGNE",
+    "retained": false,
+    "data": {
+      "ID": -20,
+      "Name": "snx_on_consigne",
+      "on_vitrine+": 11,
+      "on_vitrine-": 2,
+      "on_CF+": 1,
+      "on_CF-": 0,
+      "on_bac+": 0,
+      "on_bac-": 0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:11Z",
+    "topic": "gw/inter/bezons/snx-18/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_18",
+      "genre": "vitrine+",
+      "ID": 18,
+      "S3AirTemp": 4,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:12Z",
+    "topic": "gw/inter/bezons/snx-16/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_16",
+      "genre": "vitrine+",
+      "ID": 16,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.1,
+      "CutoutTemp": 2.1,
+      "TherAir": 2.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:12Z",
+    "topic": "gw/inter/bezons/snx-18/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_18",
+      "genre": "vitrine+",
+      "ID": 18,
+      "S4AirTemp": 2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:13Z",
+    "topic": "gw/inter/bezons/snx-24/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_24",
+      "genre": "vitrine+",
+      "ID": 24,
+      "CtrlState": 14.0,
+      "CutinTemp": 2.1,
+      "CutoutTemp": 1.1,
+      "TherAir": 4.4,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:13Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fneg",
+      "ActivePower": 23938.6
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:13Z",
+    "topic": "gw/inter/bezons/dl12-tgbt1-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt1",
+      "Name": "fpos",
+      "ActivePower": 23941.3
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:15Z",
+    "topic": "gw/inter/bezons/snx-19/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_19",
+      "genre": "vitrine+",
+      "ID": 19,
+      "CtrlState": 14.0,
+      "CutinTemp": 1.5,
+      "CutoutTemp": 0.5,
+      "TherAir": 3.8,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:16Z",
+    "topic": "gw/inter/bezons/snx-21/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_21",
+      "genre": "vitrine+",
+      "ID": 21,
+      "CtrlState": 14.0,
+      "CutinTemp": 2.4,
+      "CutoutTemp": 1.4,
+      "TherAir": 3.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:17Z",
+    "topic": "gw/inter/bezons/snx-23/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_23",
+      "genre": "vitrine+",
+      "ID": 23,
+      "S3AirTemp": 4.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:17Z",
+    "topic": "gw/inter/bezons/snx-30/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_30",
+      "genre": "vitrine+",
+      "ID": 30,
+      "CtrlState": 11.0,
+      "CutinTemp": 4.0,
+      "CutoutTemp": 2.0,
+      "TherAir": 1.6,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:19Z",
+    "topic": "gw/inter/bezons/snx-20/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_20",
+      "genre": "vitrine+",
+      "ID": 20,
+      "CtrlState": 14.0,
+      "CutinTemp": 2.0,
+      "CutoutTemp": 1.0,
+      "TherAir": 4.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:20Z",
+    "topic": "gw/inter/bezons/snx-11/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Surgelas_11",
+      "genre": "vitrine-",
+      "ID": 11,
+      "CtrlState": 23.0,
+      "CutinTemp": -21.0,
+      "CutoutTemp": -22.0,
+      "TherAir": -21.2,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:20Z",
+    "topic": "gw/inter/bezons/snx-24/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_24",
+      "genre": "vitrine+",
+      "ID": 24,
+      "S4AirTemp": 4.5,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:22Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_boulange",
+      "ActivePower": 2849.0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:22Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_bureaux",
+      "ActivePower": 240.8
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:22Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3-3/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt3",
+      "Name": "td_charcuterie",
+      "ActivePower": 2881.2
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:22Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/tele/PRINT",
+    "retained": false,
+    "data": "C:23.794386:2.018848:24.067390"
+  },
+  {
+    "utc": "2026-10-06T11:43:22Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "CtrlState": 23.0,
+      "CutinTemp": 3.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 3.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:23.543 PWX12 DBG [W] raw=W:2849.0:240.8:2881.2"
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:23.544 PWX12 DBG [before W publish loop] ville=bezons device=dl12-tgbt3 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:23.550 MQT: gw/inter/bezons/dl12-tgbt3-1/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_boulange\",\"ActivePower\":2849.0} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:23.554 MQT: gw/inter/bezons/dl12-tgbt3-2/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_bureaux\",\"ActivePower\":240.8} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:23.558 MQT: gw/inter/bezons/dl12-tgbt3-3/tele/POWER = {\"Device\": \"dl12-tgbt3\",\"Name\":\"td_charcuterie\",\"ActivePower\":2881.2} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:23.571 PWX12 DBG [C] raw=C:23.794386:2.018848:24.067390"
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:23.575 PWX12 DBG [before conso.update] ville=bezons device=dl12-tgbt3 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "RegCond": 13,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/dl12-tgbt3/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:23.580 MQT: gw/inter/bezons/dl12-tgbt3/tele/PRINT = C:23.794386:2.018848:24.067390 (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/snx-21/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_21",
+      "genre": "vitrine+",
+      "ID": 21,
+      "S3AirTemp": 4.9,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/snx-29/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_29",
+      "genre": "vitrine+",
+      "ID": 29,
+      "CtrlState": 11.0,
+      "CutinTemp": 3.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 3.3,
+      "i": 1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:23Z",
+    "topic": "gw/inter/bezons/snx-999/tele/ON_CONSIGNE",
+    "retained": false,
+    "data": {
+      "ID": -20,
+      "Name": "snx_on_consigne",
+      "on_vitrine+": 11,
+      "on_vitrine-": 2,
+      "on_CF+": 1,
+      "on_CF-": 0,
+      "on_bac+": 0,
+      "on_bac-": 0,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:24Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-1/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_caisses",
+      "ActivePower": 71.0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:24Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-2/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "td_boucherie",
+      "ActivePower": 9.1
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:24Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2-3/tele/POWER",
+    "retained": false,
+    "data": {
+      "Device": "dl12-tgbt2",
+      "Name": "four",
+      "ActivePower": 6.9
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:24Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "CtrlState": 23.0,
+      "CutinTemp": 2.5,
+      "CutoutTemp": 2.5,
+      "TherAir": 3.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:24Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:25.199 PWX12 DBG [W] raw=W:71.0:9.1:6.9"
+  },
+  {
+    "utc": "2026-10-06T11:43:24Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:25.200 PWX12 DBG [before W publish loop] ville=bezons device=dl12-tgbt2 client=inter cfg=true cfg_has_channels=true"
+  },
+  {
+    "utc": "2026-10-06T11:43:24Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:25.206 MQT: gw/inter/bezons/dl12-tgbt2-1/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"td_caisses\",\"ActivePower\":71.0} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:24Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:25.210 MQT: gw/inter/bezons/dl12-tgbt2-2/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"td_boucherie\",\"ActivePower\":9.1} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:24Z",
+    "topic": "gw/inter/bezons/dl12-tgbt2/stat/LOGGING",
+    "retained": false,
+    "data": "13:43:25.214 MQT: gw/inter/bezons/dl12-tgbt2-3/tele/POWER = {\"Device\": \"dl12-tgbt2\",\"Name\":\"four\",\"ActivePower\":6.9} (retained)"
+  },
+  {
+    "utc": "2026-10-06T11:43:25Z",
+    "topic": "gw/inter/bezons/snx-27/tele/REGULATEUR",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_27",
+      "genre": "vitrine+",
+      "ID": 27,
+      "CtrlState": 23.0,
+      "CutoutTemp": 2.5,
+      "TherAir": 3.3,
+      "i": 0
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:25Z",
+    "topic": "gw/inter/bezons/aex-2/tele/STATE",
+    "retained": false,
+    "data": {
+      "Time": "2026-10-06T13:43:26",
+      "Uptime": "14T03:16:23",
+      "UptimeSec": 1221383,
+      "Heap": 139,
+      "SleepMode": "Dynamic",
+      "Sleep": 0,
+      "LoadAvg": 999,
+      "MqttCount": 1,
+      "Berry": {
+        "HeapUsed": 31,
+        "Objects": 401
+      },
+      "Wifi": {
+        "AP": 2,
+        "SSId": "ITM_BEZONS",
+        "BSSId": "78:9A:18:1F:75:15",
+        "Channel": 1,
+        "Mode": "HT40",
+        "RSSI": 74,
+        "Signal": -63,
+        "LinkCount": 1,
+        "Downtime": "0T00:00:04"
+      }
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:25Z",
+    "topic": "gw/inter/bezons/aex-2/tele/SENSOR",
+    "retained": false,
+    "data": {
+      "Time": "2026-10-06T13:43:26",
+      "DS18B20-1": {
+        "Id": "E74CF8356461",
+        "Temperature": 22.4
+      },
+      "DS18B20-2": {
+        "Id": "000000BB06CE",
+        "Temperature": 19.8
+      },
+      "TempUnit": "C"
+    }
+  },
+  {
+    "utc": "2026-10-06T11:43:25Z",
+    "topic": "gw/inter/bezons/snx-20/tele/REGULATEUR_LOG",
+    "retained": false,
+    "data": {
+      "Bus": 3,
+      "Name": "Frais_20",
+      "genre": "vitrine+",
+      "ID": 20,
+      "S3AirTemp": 5.2,
+      "i": 0
+    }
+  }
+]
