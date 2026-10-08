@@ -14,7 +14,7 @@
     "brand": "EPTA",
     "model": "MUSNS25",
     "volume": 1522,
-    "genre": "bac+",
+    "genre": "vitrine+",
     "OF": "ouvert"
   },
   "2": {
@@ -23,7 +23,7 @@
     "brand": "EPTA",
     "model": "MUSNS25",
     "volume": 1522,
-    "genre": "bac+",
+    "genre": "vitrine+",
     "OF": "ouvert"
   },
   "3": {
@@ -32,7 +32,7 @@
     "brand": "EPTA",
     "model": "MUSNS25",
     "volume": 1522,
-    "genre": "bac+",
+    "genre": "vitrine+",
     "OF": "ouvert"
   },
   "4": {
@@ -41,7 +41,7 @@
     "brand": "EPTA",
     "model": "MUSNS25",
     "volume": 1522,
-    "genre": "bac+",
+    "genre": "vitrine+",
     "OF": "ouvert"
   },
   "5": {
@@ -527,7 +527,7 @@
     "brand": "EPTA",
     "model": "VELNS25",
     "volume": 1125,
-    "genre": "bac+",
+    "genre": "vitrine+",
     "OF": "ouvert"
   },
   "62": {
@@ -536,7 +536,7 @@
     "brand": "EPTA",
     "model": "VELNS25",
     "volume": 1125,
-    "genre": "bac+",
+    "genre": "vitrine+",
     "OF": "ouvert"
   },
   "64": {
